@@ -1,0 +1,30 @@
+"use client";
+import { UserProduct } from "./ProductCard";
+import ProductCard from "./ProductCard";
+
+interface ProductGridProps {
+    products: UserProduct[];
+    columns?: 3 | 4;
+}
+
+export default function ProductGrid({ products, columns = 3 }: ProductGridProps) {
+    if (!products || products.length === 0) {
+        return (
+            <div className="text-center py-20">
+                <p className="text-xl text-[#5A2A1F]/50 font-medium italic">No products found in this category.</p>
+            </div>
+        );
+    }
+
+    const gridColsClass = columns === 4
+        ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+        : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
+
+    return (
+        <div className={`grid ${gridColsClass} gap-x-8 gap-y-16`}>
+            {products.map((product) => (
+                <ProductCard key={product._id || product.id} product={product} />
+            ))}
+        </div>
+    );
+}
