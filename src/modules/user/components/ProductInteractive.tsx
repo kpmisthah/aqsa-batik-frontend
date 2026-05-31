@@ -4,13 +4,17 @@ import React, { useState, useRef, MouseEvent } from "react";
 import Image from "next/image";
 import { useCartStore } from "@/hooks/useCartStore";
 import { useWishlistStore } from "@/hooks/useWishlistStore";
+import { useSearchParams, usePathname } from "next/navigation";
+import { getColorName, getCombinedColorName } from "@/utils/colorHelper";
 
 export default function ProductInteractive({ product }: { product: any }) {
     const [selectedImage, setSelectedImage] = useState(product.images?.[0] || product.image || "/product_white_mustard.png");
-    const [selectedColor, setSelectedColor] = useState(product.colours?.[0] || "");
     const [lensState, setLensState] = useState<{ show: boolean, x: number, y: number, bgPosX: number, bgPosY: number, containerW: number, containerH: number }>({ show: false, x: 0, y: 0, bgPosX: 0, bgPosY: 0, containerW: 0, containerH: 0 });
     const [toast, setToast] = useState<{ show: boolean, message: string }>({ show: false, message: "" });
     const imageContainerRef = useRef<HTMLDivElement>(null);
+    const searchParams = useSearchParams();
+    const pathname = usePathname();
+    const isWholesaleMode = product.isWholesale || searchParams.get('wholesale') === 'true' || pathname.startsWith('/wholesale-women-dresses');
 
     const { addItem: addCartItem } = useCartStore();
     const { addItem: addWishlistItem, isInWishlist, removeItem: removeWishlistItem } = useWishlistStore();
@@ -42,16 +46,20 @@ export default function ProductInteractive({ product }: { product: any }) {
     };
 
     const handleAddToCart = () => {
-        addCartItem({
-            productId: product._id || product.id,
-            name: product.name,
-            image: product.images?.[0] || product.image || "/product_white_mustard.png",
-            fullPrice: product.fullPrice,
-            discountPrice: product.discountPrice || product.fullPrice,
-            variantColour: selectedColor,
-            isWholesaleOnly: product.isWholesale || false,
-        });
-        showToast("Added to Cart successfully!");
+        try {
+            addCartItem({
+                productId: product._id || product.id,
+                name: product.name,
+                image: product.images?.[0] || product.image || "/product_white_mustard.png",
+                fullPrice: product.fullPrice,
+                discountPrice: product.discountPrice || product.fullPrice,
+                variantColour: getCombinedColorName(product.colours),
+                isWholesaleOnly: product.isWholesale || false,
+            });
+            showToast("Added to Cart successfully!");
+        } catch (error: any) {
+            showToast(error.message || "Could not add item to cart.");
+        }
     };
 
     const handleAddToWishlist = () => {
@@ -152,17 +160,18 @@ export default function ProductInteractive({ product }: { product: any }) {
                 {/* Colours */}
                 {product.colours && product.colours.length > 0 && (
                     <div className="flex flex-col gap-4 pt-4">
-                        <h4 className="text-xs font-black uppercase tracking-widest text-[#5A2A1F]">Available Colors</h4>
+                        <h4 className="text-xs font-black uppercase tracking-widest text-[#5A2A1F]">
+                            Fabric Colors: <span className="text-[#8B3A2B]">{getCombinedColorName(product.colours)}</span>
+                        </h4>
                         <div className="flex items-center gap-4">
-                            <div className="flex gap-2">
+                            <div className="flex gap-3">
                                 {product.colours.map((color: string, i: number) => (
                                     <div 
                                         key={i} 
-                                        onClick={() => setSelectedColor(color)}
-                                        className={`w-12 h-12 rounded-xl border-4 cursor-pointer transition-all ${selectedColor === color ? 'border-[#8B3A2B] scale-110' : 'border-transparent hover:border-[#5A2A1F]/20'}`} 
-                                        title={color}
+                                        className="w-10 h-10 rounded-xl border border-[#5A2A1F]/15 shadow-sm relative overflow-hidden"
+                                        title={getColorName(color)}
                                     >
-                                        <div style={{ backgroundColor: color }} className="w-full h-full rounded-lg shadow-inner border border-[#5A2A1F]/10"></div>
+                                        <div style={{ backgroundColor: color }} className="w-full h-full rounded-lg"></div>
                                     </div>
                                 ))}
                             </div>
@@ -187,12 +196,26 @@ export default function ProductInteractive({ product }: { product: any }) {
                 </div>
 
                 <div className="flex flex-col gap-4 pt-4">
-                    <button 
-                        onClick={handleAddToCart}
-                        className="flex items-center justify-center gap-4 bg-[#5A2A1F] text-white px-8 py-6 rounded-2xl font-black text-xl shadow-[0_20px_40px_rgba(90,42,31,0.2)] hover:bg-[#8B3A2B] hover:scale-[1.02] active:scale-95 transition-all uppercase tracking-widest"
-                    >
-                        Add to Cart
-                    </button>
+                    {isWholesaleMode ? (
+                        <a 
+                            href={`https://wa.me/918815373767?text=${encodeURIComponent(`Hi, I'm interested in ordering the wholesale product ${product.name}.`)}`}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="flex items-center justify-center gap-4 bg-[#075E54] text-white px-8 py-6 rounded-2xl font-black text-xl shadow-[0_20px_40px_rgba(7,94,84,0.2)] hover:bg-[#128C7E] hover:scale-[1.02] active:scale-95 transition-all uppercase tracking-widest"
+                        >
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.412 2.503 1.112 3.485l-.719 2.624 2.688-.705c.95.514 2.035.804 3.19.803 3.181 0 5.767-2.584 5.768-5.766 0-3.181-2.587-5.767-5.767-5.767zm3.39 8.2l-1.006 1.005c-.122.122-.318.159-.477.087-.514-.232-1.02-.555-1.504-1.039-.485-.484-.807-.989-1.039-1.504-.072-.159-.035-.355.087-.477l1.005-1.006c.115-.115.115-.301 0-.416l-1.139-1.139c-.115-.115-.301-.115-.416 0l-.798.797c-.506.507-.639 1.243-.374 1.874.457 1.087 1.214 2.064 2.223 3.073 1.009 1.009 1.986 1.766 3.073 2.223.631.265 1.367.132 1.874-.374l.797-.798c.115-.115.115-.301 0-.416l-1.139-1.139c-.115-.115-.301-.115-.416 0z" />
+                            </svg>
+                            Order via WhatsApp
+                        </a>
+                    ) : (
+                        <button 
+                            onClick={handleAddToCart}
+                            className="flex items-center justify-center gap-4 bg-[#5A2A1F] text-white px-8 py-6 rounded-2xl font-black text-xl shadow-[0_20px_40px_rgba(90,42,31,0.2)] hover:bg-[#8B3A2B] hover:scale-[1.02] active:scale-95 transition-all uppercase tracking-widest"
+                        >
+                            Add to Cart
+                        </button>
+                    )}
                     <button 
                         onClick={handleAddToWishlist}
                         className={`flex items-center justify-center gap-4 border-2 px-8 py-4 rounded-2xl font-black text-lg transition-all uppercase tracking-widest ${isWished ? 'bg-[#5A2A1F] text-white border-[#5A2A1F]' : 'bg-white text-[#5A2A1F] border-[#5A2A1F]/20 hover:border-[#5A2A1F] hover:bg-[#5A2A1F]/5'}`}

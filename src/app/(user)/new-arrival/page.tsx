@@ -18,7 +18,7 @@ async function getProducts() {
     }
 }
 
-const WA = "https://wa.me/919999999999?text=Hi%2C%20I%20want%20to%20enquire%20about%20New%20Arrival%20Batik%20Clothing";
+const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20New%20Arrival%20Batik%20Clothing";
 
 export default async function NewArrivalPage() {
     const allProducts = await getProducts();

@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { getProductPathByName } from "@/utils/slugMapper";
+
 export interface UserProduct {
     _id?: string;
     id?: string;
@@ -14,12 +16,18 @@ export interface UserProduct {
 
 interface ProductCardProps {
     product: UserProduct;
+    isWholesalePage?: boolean;
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ product, isWholesalePage = false }: ProductCardProps) {
     const waMessage = `Hi, I'm interested in the ${product.name} (${product.subCategory || product.category}). Could you provide more details and wholesale pricing?`;
-    const waLink = `https://wa.me/919999999999?text=${encodeURIComponent(waMessage)}`;
+    const waLink = `https://wa.me/918815373767?text=${encodeURIComponent(waMessage)}`;
     const imageSrc = product.images?.[0] || product.image || "/placeholder.png";
+    const overridePrefix = isWholesalePage ? "/wholesale-women-dresses" : undefined;
+    const customPath = getProductPathByName(product.name, product.category, overridePrefix);
+    const productHref = customPath 
+        ? `${customPath}${isWholesalePage ? '?wholesale=true' : ''}` 
+        : `/products/${product._id || product.id}${isWholesalePage ? '?wholesale=true' : ''}`;
 
     return (
         <div className="group flex flex-col gap-6">
@@ -52,7 +60,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
                 <div className="flex flex-col gap-3 mt-2">
                     <Link
-                        href={`/products/${product._id || product.id}`}
+                        href={productHref}
                         className="w-full py-4 border border-[#5A2A1F]/20 rounded-xl font-bold text-[13px] uppercase tracking-widest text-[#5A2A1F] hover:bg-[#5A2A1F] hover:text-white transition-all duration-300 flex justify-center items-center"
                     >
                         View Details

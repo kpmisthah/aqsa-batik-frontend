@@ -17,11 +17,15 @@ export function useUsers() {
   const [loading, setLoading] = useState(true);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [editingUser, setEditingUser] = useState<AdminUser | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const fetchUsers = useCallback(async () => {
+  const fetchUsers = useCallback(async (search?: string) => {
     try {
       setLoading(true);
-      const res = await fetch(`${API_BASE}/users`);
+      const url = search
+        ? `${API_BASE}/users?search=${encodeURIComponent(search)}`
+        : `${API_BASE}/users`;
+      const res = await fetch(url);
       const data = await res.json();
       setUserList(data);
     } catch (error) {
@@ -32,8 +36,14 @@ export function useUsers() {
   }, []);
 
   useEffect(() => {
-    fetchUsers();
-  }, [fetchUsers]);
+    const handler = setTimeout(() => {
+      fetchUsers(searchQuery);
+    }, 400);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [searchQuery, fetchUsers]);
 
   const createUser = async (userData: { name: string; email: string; role: string }) => {
     try {
@@ -102,5 +112,7 @@ export function useUsers() {
     deleteUser,
     openAddModal,
     closeModals,
+    searchQuery,
+    setSearchQuery,
   };
 }

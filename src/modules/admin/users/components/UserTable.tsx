@@ -1,15 +1,14 @@
 import React from "react";
-import { Edit, Trash2, ShieldAlert } from "lucide-react";
+import { Edit } from "lucide-react";
 import { AdminUser } from "../hooks/useUsers";
 
 interface UserTableProps {
   users: AdminUser[];
-  onToggleBlock: (id: string) => void;
+  onToggleBlock: (user: AdminUser) => void;
   onEdit: (user: AdminUser) => void;
-  onDelete: (id: string) => void;
 }
 
-export function UserTable({ users, onToggleBlock, onEdit, onDelete }: UserTableProps) {
+export function UserTable({ users, onToggleBlock, onEdit }: UserTableProps) {
   return (
     <div className="bg-white shadow-lg shadow-[#5A2A1F]/5 rounded-2xl border border-[#5A2A1F]/10 overflow-hidden">
       <div className="overflow-x-auto">
@@ -59,23 +58,20 @@ export function UserTable({ users, onToggleBlock, onEdit, onDelete }: UserTableP
                 <td className="px-6 py-5 whitespace-nowrap text-right text-sm font-medium">
                   <div className="flex items-center justify-end space-x-4">
                     <button 
-                      onClick={() => onToggleBlock(user.id)}
-                      title={user.isBlocked ? "Unblock" : "Block"}
-                      className={`${user.isBlocked ? 'text-green-600 hover:text-green-800' : 'text-[#8B3A2B] hover:text-red-700'} transition-colors`}
+                      onClick={() => onToggleBlock(user)}
+                      className={`px-3 py-1.5 rounded-xl border text-xs font-black uppercase tracking-wider transition-all ${
+                        user.isBlocked 
+                          ? 'bg-green-50 text-green-600 border-green-200 hover:bg-green-100 hover:text-green-700' 
+                          : 'bg-red-50 text-red-600 border-red-200 hover:bg-red-100 hover:text-red-700'
+                      }`}
                     >
-                      <ShieldAlert className="w-5 h-5" />
+                      {user.isBlocked ? "Unblock" : "Block"}
                     </button>
                     <button 
                       onClick={() => onEdit(user)}
                       className="text-[#5A2A1F]/40 hover:text-[#FFD700] transition-colors"
                     >
                       <Edit className="w-5 h-5" />
-                    </button>
-                    <button 
-                      onClick={() => onDelete(user.id)}
-                      className="text-[#5A2A1F]/40 hover:text-red-600 transition-colors"
-                    >
-                      <Trash2 className="w-5 h-5" />
                     </button>
                   </div>
                 </td>

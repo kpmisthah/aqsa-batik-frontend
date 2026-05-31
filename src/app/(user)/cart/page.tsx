@@ -4,14 +4,17 @@ import React, { useState, useEffect } from "react";
 import { useCartStore, CartItem } from "@/hooks/useCartStore";
 import { useAuthSync } from "@/modules/user/hooks/useAuthSync";
 import Nav from "@/modules/user/components/Nav";
+import { useAuthStore } from "@/hooks/useAuthStore";
 import Footer from "@/modules/user/components/Footer";
-import { Trash2, Plus, Minus, ShoppingBag, CreditCard, Truck, Info, Lock, Loader2, Sparkles, CheckCircle2 } from "lucide-react";
+import { Trash2, Plus, Minus, ShoppingBag, CreditCard, Truck, Info, Lock, Loader2, Sparkles, CheckCircle2, Wallet } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { getColorName } from "@/utils/colorHelper";
 
 export default function CartPage() {
   const { isSignedIn, user, loading: authLoading } = useAuthSync();
   const { items, updateQuantity, removeItem, clearCart, getTotalAmount, getTotalItemsCount, isWholesaleEligible } = useCartStore();
+  const { fetchLocalProfile } = useAuthStore();
   const router = useRouter();
 
   // Shipping Address Form State
@@ -21,13 +24,33 @@ export default function CartPage() {
   const [zip, setZip] = useState("");
   const [phone, setPhone] = useState("");
 
+  // Populate default address if available in user profile
+  useEffect(() => {
+    if (user) {
+      if (user.address) setAddress(user.address);
+      if (user.city) setCity(user.city);
+      if (user.state) setState(user.state);
+      if (user.zip) setZip(user.zip);
+      if (user.phone) setPhone(user.phone);
+    }
+  }, [user]);
+
   // Payment states
   const [checkingOut, setCheckingOut] = useState(false);
   const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
+  const [paymentMethod, setPaymentMethod] = useState<"Razorpay" | "COD" | "Wallet">("Razorpay");
 
   const showToast = (message: string, type: "success" | "error") => {
     setToast({ message, type });
     setTimeout(() => setToast(null), 4000);
+  };
+
+  const handleUpdateQuantity = (productId: string, newQty: number, variantColour?: string) => {
+    try {
+      updateQuantity(productId, newQty, variantColour);
+    } catch (err: any) {
+      showToast(err.message || "Failed to update quantity.", "error");
+    }
   };
 
   // 1. Dynamic Pricing Calculations
@@ -54,7 +77,7 @@ export default function CartPage() {
     });
   };
 
-  // 💳 Proceed to checkout & launch Razorpay SDK
+  // 💳 Proceed to checkout & launch Razorpay SDK (or complete direct COD order)
   const handlePaymentSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -69,6 +92,12 @@ export default function CartPage() {
       return;
     }
 
+    // Validate that all shipping address fields are filled out completely
+    if (!address.trim() || !city.trim() || !state.trim() || !zip.trim() || !phone.trim()) {
+      showToast("Please fill out all address and contact details completely before placing your order.", "error");
+      return;
+    }
+
     // Verify wholesale MOQ requirements
     if (userRole === "Wholesaler" && !wholesaleCheck.eligible) {
       showToast("Wholesale orders must meet the minimum quantity or price threshold.", "error");
@@ -76,13 +105,15 @@ export default function CartPage() {
     }
 
     setCheckingOut(true);
-    showToast("Initializing secure transaction...", "success");
+    showToast(paymentMethod === "COD" ? "Placing your order..." : "Initializing secure transaction...", "success");
 
     try {
-      // 1. Load Razorpay script dynamically
-      const scriptLoaded = await loadRazorpayScript();
-      if (!scriptLoaded) {
-        throw new Error("Razorpay SDK failed to load. Please check your connection.");
+      // 1. Only load Razorpay script dynamically if online payment method is chosen
+      if (paymentMethod === "Razorpay") {
+        const scriptLoaded = await loadRazorpayScript();
+        if (!scriptLoaded) {
+          throw new Error("Razorpay SDK failed to load. Please check your connection.");
+        }
       }
 
       // 2. Request backend order creation
@@ -101,6 +132,7 @@ export default function CartPage() {
             variantColour: i.variantColour || "",
           })),
           shippingAddress: { address, city, state, zip, phone },
+          paymentMethod,
         }),
       });
 
@@ -109,9 +141,18 @@ export default function CartPage() {
         throw new Error(checkoutData.message || "Failed to initiate payment session.");
       }
 
+      // 3. For Cash on Delivery or Wallet, order is placed successfully on backend immediately!
+      if (paymentMethod === "COD" || paymentMethod === "Wallet") {
+        showToast(`Order placed successfully via ${paymentMethod}!`, "success");
+        clearCart();
+        await fetchLocalProfile();
+        router.push(`/thank-you?method=${paymentMethod.toLowerCase()}`);
+        return;
+      }
+
       const { keyId, amount, currency, rzpOrderId, orderId } = checkoutData;
 
-      // 3. Launch Razorpay Standard Checkout SDK Modal
+      // 4. Launch Razorpay Standard Checkout SDK Modal
       const options = {
         key: keyId,
         amount: amount, // in paise
@@ -145,6 +186,7 @@ export default function CartPage() {
 
             showToast("Payment verified! Order placed.", "success");
             clearCart();
+            await fetchLocalProfile();
             router.push("/thank-you");
           } catch (err: any) {
             console.error(err);
@@ -253,7 +295,7 @@ export default function CartPage() {
                       <div className="flex flex-wrap gap-2 items-center mt-1.5">
                         {item.variantColour && (
                           <span className="px-2.5 py-0.5 rounded-lg bg-[#FAF6F0] border border-[#5A2A1F]/10 text-[10px] font-bold uppercase tracking-wider">
-                            Color: {item.variantColour}
+                            Color: {getColorName(item.variantColour)}
                           </span>
                         )}
                         {item.isWholesaleOnly && (
@@ -269,14 +311,14 @@ export default function CartPage() {
                       {/* Quantity Controls */}
                       <div className="flex items-center border border-[#5A2A1F]/10 rounded-xl bg-[#FAF6F0]/30 p-1">
                         <button 
-                          onClick={() => updateQuantity(item.productId, item.quantity - 1, item.variantColour)}
+                          onClick={() => handleUpdateQuantity(item.productId, item.quantity - 1, item.variantColour)}
                           className="w-8 h-8 flex items-center justify-center rounded-lg text-[#5A2A1F]/55 hover:bg-white hover:text-black transition-all active:scale-90"
                         >
                           <Minus size={14} />
                         </button>
                         <span className="w-10 text-center font-bold text-xs text-[#5A2A1F]">{item.quantity}</span>
                         <button 
-                          onClick={() => updateQuantity(item.productId, item.quantity + 1, item.variantColour)}
+                          onClick={() => handleUpdateQuantity(item.productId, item.quantity + 1, item.variantColour)}
                           className="w-8 h-8 flex items-center justify-center rounded-lg text-[#5A2A1F]/55 hover:bg-white hover:text-black transition-all active:scale-90"
                         >
                           <Plus size={14} />
@@ -364,12 +406,12 @@ export default function CartPage() {
                     <span className="opacity-60">Shipping (Indian Post / Priority Express)</span>
                     <span className="text-emerald-700 font-bold uppercase tracking-wider text-[11px]">Free delivery</span>
                   </div>
-                  <div className="border-t border-[#5A2A1F]/10 pt-4 flex justify-between items-end">
+                  <div className="border-t border-[#5A2A1F]/10 pt-4 flex justify-between items-center">
                     <div>
                       <span className="text-xs font-black uppercase tracking-wider text-[#8B3A2B]">Total Amount (INR)</span>
                       <p className="text-[10px] opacity-40 leading-tight">Includes all local taxes / GST</p>
                     </div>
-                    <span className="font-playfair text-3xl font-black text-[#5A2A1F]">₹{subtotal}</span>
+                    <span className="font-sans text-3xl font-bold text-[#5A2A1F]">₹{subtotal}</span>
                   </div>
                 </div>
               </div>
@@ -445,23 +487,68 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-[#5A2A1F]/10 space-y-3">
+                <div className="pt-4 border-t border-[#5A2A1F]/10 space-y-4">
+                  {/* Payment Method Selector */}
+                  <div className="space-y-3">
+                    <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-1">Payment Method</label>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <button
+                        type="button"
+                        onClick={() => setPaymentMethod("Razorpay")}
+                        className={`px-4 py-3 rounded-2xl border font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${
+                          paymentMethod === "Razorpay"
+                            ? "bg-[#5A2A1F] border-[#5A2A1F] text-white shadow-sm"
+                            : "bg-[#FAF6F0]/30 border-[#5A2A1F]/20 text-[#5A2A1F] hover:bg-[#FAF6F0]/60"
+                        }`}
+                      >
+                        <CreditCard size={14} />
+                        <span>Pay Online</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setPaymentMethod("COD")}
+                        className={`px-4 py-3 rounded-2xl border font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${
+                          paymentMethod === "COD"
+                            ? "bg-[#5A2A1F] border-[#5A2A1F] text-white shadow-sm"
+                            : "bg-[#FAF6F0]/30 border-[#5A2A1F]/20 text-[#5A2A1F] hover:bg-[#FAF6F0]/60"
+                        }`}
+                      >
+                        <Truck size={14} />
+                        <span>Cash On Delivery</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setPaymentMethod("Wallet")}
+                        className={`px-4 py-3 rounded-2xl border font-bold text-[10px] uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${
+                          paymentMethod === "Wallet"
+                            ? "bg-[#5A2A1F] border-[#5A2A1F] text-white shadow-sm"
+                            : "bg-[#FAF6F0]/30 border-[#5A2A1F]/20 text-[#5A2A1F] hover:bg-[#FAF6F0]/60"
+                        }`}
+                      >
+                        <Wallet size={14} className={paymentMethod === "Wallet" ? "text-white" : "text-[#8B3A2B]"} />
+                        <span>Aqsha Wallet (₹{user?.walletBalance || 0})</span>
+                      </button>
+                    </div>
+                  </div>
+
                   <button
                     type="submit"
-                    disabled={checkingOut || (userRole === "Wholesaler" && !wholesaleCheck.eligible)}
+                    disabled={checkingOut || (userRole === "Wholesaler" && !wholesaleCheck.eligible) || (paymentMethod === "Wallet" && (user?.walletBalance || 0) < subtotal)}
                     className="w-full bg-[#5A2A1F] hover:bg-black text-white py-4.5 px-6 rounded-2xl font-bold uppercase tracking-wider text-sm shadow hover:shadow-md active:scale-[0.99] transition-all flex items-center justify-center gap-2.5 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {checkingOut ? (
                       <Loader2 size={16} className="animate-spin" />
+                    ) : paymentMethod === "COD" || paymentMethod === "Wallet" ? (
+                      <CheckCircle2 size={16} />
                     ) : (
                       <CreditCard size={16} />
                     )}
-                    <span>Secure Razorpay Payment</span>
+                    <span>{paymentMethod === "COD" ? "Place Order (Cash on Delivery)" : paymentMethod === "Wallet" ? "Pay with Wallet Balance" : "Secure Razorpay Payment"}</span>
                   </button>
 
                   <div className="flex items-center justify-center gap-2 text-[10px] opacity-40 font-bold uppercase tracking-widest">
                     <Lock size={12} className="text-[#8B3A2B]" />
-                    <span>Razorpay SSL 256-bit Encrypted</span>
+                    <span>{paymentMethod === "COD" || paymentMethod === "Wallet" ? "Aqsha Secure Order Placement" : "Razorpay SSL 256-bit Encrypted"}</span>
                   </div>
                 </div>
               </form>

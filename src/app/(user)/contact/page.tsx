@@ -4,7 +4,7 @@ import Nav from '@/modules/user/components/Nav';
 import Footer from '@/modules/user/components/Footer';
 import Image from 'next/image';
 
-const WA = "https://wa.me/919999999999?text=Hi%2C%20I%20want%20to%20discuss%20a%20business%20inquiry.";
+const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20discuss%20a%20business%20inquiry.";
 
 export default function ContactPage() {
     const [formState, setFormState] = useState<'idle' | 'submitting' | 'success'>('idle');
@@ -89,13 +89,13 @@ export default function ContactPage() {
                                         <span className="text-xl font-bold group-hover:text-white transition-all">WhatsApp</span>
                                     </div>
                                 </a>
-                                <a href="tel:+919999999999" className="group bg-white p-8 rounded-[35px] border border-[#5A2A1F]/5 flex flex-col gap-4 hover:bg-[#5A2A1F] transition-all duration-500">
+                                <a href="tel:+918815373767" className="group bg-white p-8 rounded-[35px] border border-[#5A2A1F]/5 flex flex-col gap-4 hover:bg-[#5A2A1F] transition-all duration-500">
                                     <div className="w-12 h-12 rounded-full bg-[#5A2A1F]/10 flex items-center justify-center text-[#5A2A1F] group-hover:bg-white group-hover:scale-110 transition-all">
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
                                     </div>
                                     <div className="flex flex-col">
                                         <span className="text-[10px] uppercase font-black tracking-widest opacity-40 group-hover:text-white group-hover:opacity-100 transition-all">Call Us</span>
-                                        <span className="text-xl font-bold group-hover:text-white transition-all">+91 XXXXX XXXXX</span>
+                                        <span className="text-xl font-bold group-hover:text-white transition-all">+91 88153 73767</span>
                                     </div>
                                 </a>
                             </div>

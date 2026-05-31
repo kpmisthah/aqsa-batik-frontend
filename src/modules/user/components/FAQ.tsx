@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-const WA = "https://wa.me/919999999999";
+const WA = "https://wa.me/918815373767";
 
 interface FAQItem {
     q: string;

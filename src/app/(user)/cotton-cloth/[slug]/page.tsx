@@ -5,33 +5,47 @@ import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
 import ProductInteractive from "@/modules/user/components/ProductInteractive";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { getProductNamesBySlug } from "@/utils/slugMapper";
 
-// Define the fetch function
-async function getProduct(id: string) {
+async function getProductBySlug(slug: string) {
     try {
+        const productNames = getProductNamesBySlug(slug);
+        if (productNames.length === 0) return null;
+
         const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:5000/api";
-        // Force 127.0.0.1 if using localhost to avoid IPv6 connection refused in Node 18+
-        const url = `${apiUrl.replace('localhost', '127.0.0.1')}/products/${id}`;
+        const url = `${apiUrl.replace('localhost', '127.0.0.1')}/products?limit=100`;
         
         const res = await fetch(url, { cache: 'no-store' });
         if (!res.ok) {
-            console.error(`Failed to fetch product ${id}: ${res.status} ${res.statusText}`);
+            console.error(`Failed to fetch products for slug ${slug}: ${res.status} ${res.statusText}`);
             return null;
         }
-        return res.json();
+        
+        const responseData = await res.json();
+        const products = Array.isArray(responseData) 
+            ? responseData 
+            : responseData.data 
+            ? responseData.data 
+            : [];
+            
+        // Find matching product
+        const match = products.find((p: any) => 
+            productNames.some(n => p.name.trim().toLowerCase() === n.toLowerCase() || p.name.trim().toLowerCase().includes(n.toLowerCase()))
+        );
+        
+        return match || null;
     } catch (error) {
-        console.error("Error fetching product:", error);
+        console.error("Error fetching product by slug:", error);
         return null;
     }
 }
 
-// Generate Dynamic Metadata for Google SEO!
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
-    const { id } = await params;
-    const product = await getProduct(id);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
+    const product = await getProductBySlug(slug);
     if (!product) {
         return {
-            title: "Product Not Found | Sproute Kid",
+            title: "Product Not Found | Aqsha Batik",
         };
     }
 
@@ -41,15 +55,14 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     };
 }
 
-export default async function DynamicProductPage({ params }: { params: Promise<{ id: string }> }) {
-    const { id } = await params;
-    const product = await getProduct(id);
+export default async function CottonClothSlugPage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
+    const product = await getProductBySlug(slug);
 
     if (!product) {
         notFound();
     }
 
-    const WA = `https://wa.me/918815373767?text=${encodeURIComponent(`Hi, I want to order the ${product.name}`)}`;
     const mainImage = product.images?.[0] || "/product_white_mustard.png";
 
     const details = [
@@ -57,30 +70,6 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
         { label: "Category", value: product.category },
         { label: "Sub Category", value: product.subCategory || "Batik" },
         { label: "Colours Available", value: product.colours?.join(", ") || "Standard" }
-    ];
-
-    const whyItSells = [
-        { t: "High Demand Design", d: "Sophisticated palette that is a retail favorite.", i: "✨" },
-        { t: "Premium Comfort", d: "Breathable fabric ensuring all-day comfort.", i: "☁️" },
-        { t: "Affordable Pricing", d: "Priced for volume sales and high margins.", i: "💰" }
-    ];
-
-    const bestFor = [
-        { t: "Daily wear dresses", i: "🏢" },
-        { t: "Summer collection", i: "☀️" },
-        { t: "Boutique resale", i: "🛍️" }
-    ];
-
-    const productFAQs = [
-        { q: "Is this stitched?", a: "No. It is unstitched dress material, allowing your customers to customize the fit." },
-        { q: "Is cotton suitable for summer?", a: "Yes. Our pure cotton is highly breathable and ideal for the Indian summer." },
-        { q: "Can I order in bulk?", a: "Yes. We specialize in wholesale and bulk orders with priority shipping." }
-    ];
-
-    const reviews = [
-        { name: "Anita Sharma", location: "New Delhi", date: "2 Days ago", rating: 5, text: "The quality is exactly what my customers were looking for. Very soft and breathable." },
-        { name: "Priya Patel", location: "Ahmedabad", date: "1 Week ago", rating: 5, text: "Fastest delivery I've experienced in wholesale. The prints are very clean." },
-        { name: "Kiran Kaur", location: "Ludhiana", date: "2 Weeks ago", rating: 4, text: "Excellent margins for my boutique. Will definitely be ordering more batches soon." }
     ];
 
     return (
@@ -94,7 +83,7 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
 
             <Nav />
 
-            {/* ── BREADCRUMBS ── */}
+            {/* Breadcrumbs */}
             <div className="max-w-[1500px] mx-auto px-6 md:px-10 pt-32 pb-8">
                 <nav className="flex items-center gap-3 text-xs md:text-sm font-bold uppercase tracking-widest text-[#5A2A1F]/40">
                     <a href="/" className="hover:text-[#8B3A2B] transition-colors">Home</a>
@@ -105,7 +94,7 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
                 </nav>
             </div>
 
-            {/* ── MODERN PRODUCT HERO (Interactive) ── */}
+            {/* Modern Product Hero */}
             <section className="pb-20 px-6 md:px-10 max-w-[1500px] mx-auto">
                 <Suspense fallback={<div className="animate-pulse w-full h-[600px] bg-[#5A2A1F]/5 rounded-[40px]"></div>}>
                     <ProductInteractive product={product} />
@@ -113,7 +102,7 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
             </section>
             <GoogleReviewBar />
 
-            {/* ── TECHNICAL EXCELLENCE ── */}
+            {/* Specifications */}
             <section className="py-32 px-6 bg-[#F5F1EC] relative overflow-hidden">
                 <div className="max-w-7xl mx-auto flex flex-col gap-20 relative z-10">
                     <div className="max-w-3xl">
@@ -136,7 +125,7 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
                             </div>
                         </div>
 
-                        {/* Best For Cards */}
+                        {/* Image Preview */}
                         <div className="flex flex-col gap-6">
                             <div className="relative aspect-video rounded-[50px] overflow-hidden shadow-2xl border-4 border-white group">
                                 <Image src={mainImage} alt="Detail View" layout="fill" objectFit="cover" className="brightness-90 group-hover:scale-105 transition-transform duration-[2s]" />

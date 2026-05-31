@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { useSignIn, useSignUp, useClerk } from "@clerk/nextjs";
 import { X, Mail, Lock, User, Sparkles, Eye, EyeOff } from "lucide-react";
 
 interface AuthModalProps {
@@ -11,10 +10,6 @@ interface AuthModalProps {
 }
 
 export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps) {
-  const { isLoaded: isSignInLoaded, signIn } = useSignIn() as any;
-  const { isLoaded: isSignUpLoaded, signUp } = useSignUp() as any;
-  const { setActive } = useClerk();
-
   const [isLogin, setIsLogin] = useState(true);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -49,53 +44,11 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
 
   if (!isOpen) return null;
 
-  // Sync user profile to backend to retrieve custom HTTP-Only JWT tokens
-  const syncWithBackend = async (clerkId: string, userEmail: string, userName: string) => {
-    try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"}/auth/sync`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({
-          clerkId,
-          email: userEmail,
-          name: userName,
-        }),
-      });
-
-      const data = await res.json();
-      if (data.success) {
-        if (onSuccess) onSuccess(data.user);
-        onClose();
-        // Force refresh page to sync state across all client components
-        window.location.reload();
-      } else {
-        setError(data.message || "Failed to sync secure session with server.");
-      }
-    } catch (err) {
-      setError("Server connection failed. Please try again.");
-    }
-  };
-
-  // Google OAuth Login / Signup via Clerk
-  const handleGoogleAuth = async () => {
-    const activeStrategy = isLogin ? signIn : signUp;
-    if (!activeStrategy) return;
-
+  // Google OAuth Login / Signup via custom backend redirect
+  const handleGoogleAuth = () => {
     setError("");
     setLoading(true);
-    try {
-      await activeStrategy.authenticateWithRedirect({
-        strategy: "oauth_google",
-        redirectUrl: "/api/auth/callback", // Fallback standard Clerk redirect route
-        redirectUrlComplete: "/",
-      });
-    } catch (err: any) {
-      setError(err.errors?.[0]?.message || "Google authentication failed.");
-      setLoading(false);
-    }
+    window.location.href = `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"}/auth/google`;
   };
 
   // Custom Email/Password Sign In Flow
@@ -113,7 +66,15 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
         body: JSON.stringify({ email, password }),
       });
 
-      const data = await res.json();
+      let data: any = {};
+      const contentType = res.headers.get("content-type");
+      if (contentType && contentType.includes("application/json")) {
+        data = await res.json();
+      } else {
+        const textResponse = await res.text();
+        data = { message: textResponse || `Error code: ${res.status}` };
+      }
+
       if (res.ok && data.success) {
         showToast("Logged in successfully!", "success");
         if (onSuccess) onSuccess(data.user);
@@ -130,9 +91,10 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
           setError(data.message || "Invalid credentials.");
         }
       }
-    } catch (err) {
-      showToast("Server connection failed. Please try again.", "error");
-      setError("Server connection failed.");
+    } catch (err: any) {
+      console.error("Login Error:", err);
+      showToast(err.message || "Server connection failed. Please try again.", "error");
+      setError(err.message || "Server connection failed.");
     } finally {
       setLoading(false);
     }

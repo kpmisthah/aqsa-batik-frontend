@@ -142,7 +142,7 @@ export default function FAQPage() {
                     <p className="text-xl opacity-70 font-medium relative z-10">We're here to help you with any custom requirements or business inquiries.</p>
                     <div className="flex flex-col md:flex-row justify-center gap-6 relative z-10 mt-4">
                         <a href="/contact" className="bg-[#FFD700] text-black px-12 py-6 rounded-2xl font-black text-sm uppercase tracking-widest hover:scale-105 transition-all shadow-xl">Contact Us</a>
-                        <a href="https://wa.me/919999999999" className="bg-white/10 text-white border border-white/20 px-12 py-6 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white/20 transition-all">Chat on WhatsApp</a>
+                        <a href="https://wa.me/918815373767" className="bg-white/10 text-white border border-white/20 px-12 py-6 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white/20 transition-all">Chat on WhatsApp</a>
                     </div>
                 </div>
             </section>

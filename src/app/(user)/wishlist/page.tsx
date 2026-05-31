@@ -11,23 +11,45 @@ import { Trash2, Heart, ShoppingBag } from "lucide-react";
 export default function WishlistPage() {
     const { items, removeItem } = useWishlistStore();
     const { addItem } = useCartStore();
+    const [toast, setToast] = React.useState<{ message: string; type: "success" | "error" } | null>(null);
+
+    const showToast = (message: string, type: "success" | "error") => {
+        setToast({ message, type });
+        setTimeout(() => setToast(null), 4000);
+    };
 
     const handleMoveToCart = (item: any) => {
-        addItem({
-            productId: item.productId,
-            name: item.name,
-            image: item.image,
-            fullPrice: item.fullPrice,
-            discountPrice: item.discountPrice,
-            isWholesaleOnly: false,
-        });
-        removeItem(item.productId);
-        alert("Moved to Cart!"); // Native alert for simplicity, but could be a toast
+        try {
+            addItem({
+                productId: item.productId,
+                name: item.name,
+                image: item.image,
+                fullPrice: item.fullPrice,
+                discountPrice: item.discountPrice,
+                isWholesaleOnly: false,
+            });
+            removeItem(item.productId);
+            showToast("Moved to Cart!", "success");
+        } catch (error: any) {
+            showToast(error.message || "Failed to move to cart.", "error");
+        }
     };
 
     return (
         <div className="min-h-screen bg-[#FDFBF7] flex flex-col text-[#5A2A1F]">
             <Nav />
+
+            {/* Dynamic Toast Alerts */}
+            {toast && (
+                <div className={`fixed top-24 right-6 z-50 flex items-center gap-3 px-5 py-4 rounded-2xl shadow-2xl border transition-all duration-300 text-sm font-bold ${
+                    toast.type === "success" 
+                        ? "bg-emerald-50 border-emerald-200 text-emerald-800" 
+                        : "bg-red-50 border-red-200 text-red-800"
+                }`}>
+                    <span className={`w-2.5 h-2.5 rounded-full ${toast.type === 'success' ? 'bg-emerald-500' : 'bg-red-500'} ${toast.type === 'success' ? 'animate-ping' : ''}`} />
+                    <span>{toast.message}</span>
+                </div>
+            )}
 
             <main className="flex-1 max-w-[1300px] w-full mx-auto px-6 py-12">
                 <h1 className="font-playfair text-4xl md:text-5xl font-black text-left mb-2 tracking-tight">Your Wishlist</h1>

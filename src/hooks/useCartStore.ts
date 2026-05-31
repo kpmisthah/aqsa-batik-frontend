@@ -29,8 +29,13 @@ export const useCartStore = create<CartState>()(
       items: [],
 
       addItem: (newItem) => {
+        const quantity = newItem.quantity || 1;
+        const currentCount = get().getTotalItemsCount();
+        if (currentCount + quantity > 10) {
+          throw new Error("Cart limit reached. You can only add up to 10 products in total.");
+        }
+
         set((state) => {
-          const quantity = newItem.quantity || 1;
           const existingIndex = state.items.findIndex(
             (item) => 
               item.productId === newItem.productId && 
@@ -62,6 +67,17 @@ export const useCartStore = create<CartState>()(
         if (quantity <= 0) {
           get().removeItem(productId, variantColour);
           return;
+        }
+
+        const currentItems = get().items;
+        const currentItem = currentItems.find(
+          (item) => item.productId === productId && (item.variantColour || "") === variantColour
+        );
+        const difference = quantity - (currentItem ? currentItem.quantity : 0);
+        const newTotalCount = get().getTotalItemsCount() + difference;
+
+        if (newTotalCount > 10) {
+          throw new Error("Cart limit reached. You can only add up to 10 products in total.");
         }
 
         set((state) => ({

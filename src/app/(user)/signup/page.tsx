@@ -1,15 +1,13 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { useSignUp, useClerk, useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { Mail, Lock, User, Sparkles, Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
+import { useAuthSync } from "@/modules/user/hooks/useAuthSync";
 
 export default function SignupPage() {
-  const { isLoaded: isSignUpLoaded, signUp } = useSignUp() as any;
-  const { setActive } = useClerk();
-  const { isSignedIn } = useUser();
+  const { isSignedIn } = useAuthSync();
   const router = useRouter();
 
   const [name, setName] = useState("");
@@ -50,48 +48,10 @@ export default function SignupPage() {
     }
   }, [isSignedIn, router]);
 
-  // Sync user profile to backend to retrieve custom HTTP-Only JWT tokens
-  const syncWithBackend = async (clerkId: string, userEmail: string, userName: string) => {
-    try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"}/auth/sync`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({
-          clerkId,
-          email: userEmail,
-          name: userName,
-        }),
-      });
-
-      const data = await res.json();
-      if (data.success) {
-        // Force refresh and redirect home
-        window.location.href = "/";
-      } else {
-        setError(data.message || "Failed to sync secure session with server.");
-      }
-    } catch (err) {
-      setError("Server connection failed. Please try again.");
-    }
-  };
-
-  const handleGoogleAuth = async () => {
-    if (!signUp) return;
+  const handleGoogleAuth = () => {
     setError("");
     setLoading(true);
-    try {
-      await signUp.authenticateWithRedirect({
-        strategy: "oauth_google",
-        redirectUrl: "/api/auth/callback",
-        redirectUrlComplete: "/",
-      });
-    } catch (err: any) {
-      setError(err.errors?.[0]?.message || "Google registration failed.");
-      setLoading(false);
-    }
+    window.location.href = `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"}/auth/google`;
   };
 
   const handleEmailSignUp = async (e?: React.FormEvent) => {

@@ -32,7 +32,7 @@ export function useProducts() {
   const fetchProducts = useCallback(async (page: number = 1, limit: number = 10) => {
     try {
       setLoading(true);
-      const res = await fetch(`${API_BASE}/products?page=${page}&limit=${limit}`);
+      const res = await fetch(`${API_BASE}/products?page=${page}&limit=${limit}&admin=true`);
       const data = await res.json();
       setProductList(data.data || []);
       setPagination({

@@ -22,7 +22,7 @@ async function getProducts() {
     }
 }
 
-const WA = "https://wa.me/919999999999?text=Hi%2C%20I%20want%20to%20enquire%20about%20Wholesale%20Manufacturer%20Pricing";
+const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20Wholesale%20Manufacturer%20Pricing";
 
 export default async function WholesalePage() {
     const allProducts = await getProducts();
@@ -301,7 +301,7 @@ export default async function WholesalePage() {
                         <p className="text-xl text-[#5A2A1F]/70 font-medium italic leading-relaxed">Discover best-selling batik patterns, consistent quality, and ready-to-move collections trusted by boutiques, fabric shops, cloth shops, and resellers across India.</p>
                     </div>
 
-                    <ProductGrid products={wholesaleProducts.slice(0, 8)} columns={4} />
+                    <ProductGrid products={wholesaleProducts.slice(0, 8)} columns={4} isWholesalePage={true} />
                 </div>
             </section>
 

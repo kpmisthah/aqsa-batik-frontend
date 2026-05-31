@@ -5,9 +5,10 @@ import ProductCard from "./ProductCard";
 interface ProductGridProps {
     products: UserProduct[];
     columns?: 3 | 4;
+    isWholesalePage?: boolean;
 }
 
-export default function ProductGrid({ products, columns = 3 }: ProductGridProps) {
+export default function ProductGrid({ products, columns = 3, isWholesalePage = false }: ProductGridProps) {
     if (!products || products.length === 0) {
         return (
             <div className="text-center py-20">
@@ -23,7 +24,7 @@ export default function ProductGrid({ products, columns = 3 }: ProductGridProps)
     return (
         <div className={`grid ${gridColsClass} gap-x-8 gap-y-16`}>
             {products.map((product) => (
-                <ProductCard key={product._id || product.id} product={product} />
+                <ProductCard key={product._id || product.id} product={product} isWholesalePage={isWholesalePage} />
             ))}
         </div>
     );

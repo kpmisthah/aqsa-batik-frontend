@@ -10,7 +10,7 @@ import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
 
 
 
-const WA = "https://wa.me/919999999999?text=Hi%2C%20I%20want%20the%20wholesale%20catalogue";
+const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20the%20wholesale%20catalogue";
 const C = {
   cream: "#F5F1EC",
   tan: "#E8D9C0",

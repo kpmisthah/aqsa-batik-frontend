@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-const WA = "https://wa.me/919999999999?text=Hi%2C%20I%20want%20to%20get%20your%20latest%20batik%20catalogue.";
+const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20get%20your%20latest%20batik%20catalogue.";
 
 export default function Footer() {
     return (

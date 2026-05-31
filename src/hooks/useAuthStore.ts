@@ -7,6 +7,18 @@ export interface SyncedUser {
   role: 'Admin' | 'Wholesaler' | 'Customer';
   status: string;
   avatar?: string | null;
+  walletBalance?: number;
+  walletHistory?: {
+    type: 'Credit' | 'Debit';
+    amount: number;
+    description: string;
+    date: string;
+  }[];
+  address?: string;
+  city?: string;
+  state?: string;
+  zip?: string;
+  phone?: string;
   createdAt?: string;
   lastLogin?: string;
 }

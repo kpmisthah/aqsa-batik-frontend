@@ -139,7 +139,7 @@ export default function PremiumTrustSection() {
                             <p className="text-xs font-medium text-[#5A2A1F]/60">Let's build something beautiful together.</p>
                         </div>
                     </div>
-                    <a href="https://wa.me/919999999999" target="_blank" rel="noreferrer" className="w-full md:w-auto bg-[#3E1C15] text-white px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-black transition-colors flex items-center justify-center gap-3">
+                    <a href="https://wa.me/918815373767" target="_blank" rel="noreferrer" className="w-full md:w-auto bg-[#3E1C15] text-white px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-black transition-colors flex items-center justify-center gap-3">
                         Partner With Us
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>

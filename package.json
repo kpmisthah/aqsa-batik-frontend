@@ -9,7 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^7.3.6",
     "cropperjs": "^1.6.2",
     "lucide-react": "^1.14.0",
     "next": "16.2.4",

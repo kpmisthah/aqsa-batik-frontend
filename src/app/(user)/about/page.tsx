@@ -7,7 +7,7 @@ import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
 import PremiumFeatureSection from "@/modules/user/components/PremiumFeatureSection";
 
 
-const WA = "https://wa.me/919999999999?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Aqsha%20Batik";
+const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Aqsha%20Batik";
 
 export default function AboutPage() {
     return (

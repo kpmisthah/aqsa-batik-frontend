@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Search } from "lucide-react";
-import { useUsers } from "@/modules/admin/users/hooks/useUsers";
+import { useUsers, AdminUser } from "@/modules/admin/users/hooks/useUsers";
 import AdminHeader from "@/modules/admin/components/AdminHeader";
 import AdminModal from "@/modules/admin/components/AdminModal";
 import { UserTable } from "@/modules/admin/users/components/UserTable";
@@ -20,8 +20,11 @@ export default function AdminUsers() {
     deleteUser,
     openAddModal,
     closeModals,
+    searchQuery,
+    setSearchQuery,
   } = useUsers();
 
+  const [userToConfirmBlock, setUserToConfirmBlock] = useState<AdminUser | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleSave = async () => {
@@ -51,24 +54,18 @@ export default function AdminUsers() {
       />
 
       {/* Filter & Search */}
-      <div className="bg-white p-5 rounded-2xl shadow-lg shadow-[#5A2A1F]/5 border border-[#5A2A1F]/10 flex flex-col sm:flex-row gap-4 justify-between items-center">
-        <div className="relative w-full sm:max-w-md">
+      <div className="bg-white p-5 rounded-2xl shadow-lg shadow-[#5A2A1F]/5 border border-[#5A2A1F]/10 flex gap-4 justify-between items-center">
+        <div className="relative w-full">
           <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
             <Search className="h-5 w-5 text-[#5A2A1F]/40" />
           </div>
           <input
             type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             className="block w-full pl-11 pr-3 py-3 border border-[#5A2A1F]/20 rounded-xl leading-5 bg-white placeholder-[#5A2A1F]/40 text-[#5A2A1F] font-medium focus:outline-none focus:placeholder-[#5A2A1F]/30 focus:ring-2 focus:ring-[#FFD700] focus:border-[#FFD700] sm:text-sm transition-colors"
-            placeholder="Search users..."
+            placeholder="Search users by name or email..."
           />
-        </div>
-        <div className="flex gap-2 w-full sm:w-auto">
-          <select className="block w-full pl-4 pr-10 py-3 text-base text-[#5A2A1F] font-bold border-[#5A2A1F]/20 focus:outline-none focus:ring-[#FFD700] focus:border-[#FFD700] sm:text-sm rounded-xl border bg-white cursor-pointer">
-            <option>All Roles</option>
-            <option>Admin</option>
-            <option>Wholesaler</option>
-            <option>Customer</option>
-          </select>
         </div>
       </div>
 
@@ -83,10 +80,36 @@ export default function AdminUsers() {
       ) : (
         <UserTable
           users={userList}
-          onToggleBlock={toggleBlock}
+          onToggleBlock={setUserToConfirmBlock}
           onEdit={setEditingUser}
-          onDelete={deleteUser}
         />
+      )}
+
+      {/* Block/Unblock Confirmation Modal */}
+      {userToConfirmBlock && (
+        <AdminModal
+          isOpen={!!userToConfirmBlock}
+          onClose={() => setUserToConfirmBlock(null)}
+          title={userToConfirmBlock.isBlocked ? "Confirm Unblock" : "Confirm Block"}
+          onSave={async () => {
+            await toggleBlock(userToConfirmBlock.id);
+            setUserToConfirmBlock(null);
+          }}
+          saveText={userToConfirmBlock.isBlocked ? "Unblock User" : "Block User"}
+        >
+          <div className="space-y-4">
+            <p className="text-[#5A2A1F]/80 font-medium text-base leading-relaxed">
+              Are you sure you want to {userToConfirmBlock.isBlocked ? "unblock" : "block"} the user <strong className="text-[#5A2A1F] font-black">{userToConfirmBlock.name}</strong> (<span className="text-[#8B3A2B] font-bold">{userToConfirmBlock.email}</span>)?
+            </p>
+            {!userToConfirmBlock.isBlocked && (
+              <div className="p-4 bg-red-50 border border-red-100 rounded-2xl">
+                <p className="text-red-800 text-xs font-bold leading-relaxed">
+                  ⚠️ <strong>Warning:</strong> Blocked users will be immediately logged out and prevented from signing in or placing any new orders on the store until they are unblocked.
+                </p>
+              </div>
+            )}
+          </div>
+        </AdminModal>
       )}
 
       <AdminModal

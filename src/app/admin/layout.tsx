@@ -2,8 +2,9 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { LayoutDashboard, Users, ShoppingBag, Settings, Menu, X, LogOut, Bell } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { LayoutDashboard, Users, ShoppingBag, Settings, Menu, X, LogOut, Bell, Package, Loader2 } from "lucide-react";
+import { useAuthSync } from "@/modules/user/hooks/useAuthSync";
 
 export default function AdminLayout({
   children,
@@ -12,13 +13,38 @@ export default function AdminLayout({
 }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
+  
+  const { user, loading, logout, isSignedIn } = useAuthSync();
 
   const navigation = [
     { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
-    { name: "Products", href: "/admin/products", icon: ShoppingBag },
+    { name: "Orders", href: "/admin/orders", icon: ShoppingBag },
+    { name: "Products", href: "/admin/products", icon: Package },
     { name: "Users", href: "/admin/users", icon: Users },
-    { name: "Settings", href: "/admin/settings", icon: Settings },
   ];
+
+  // 🚪 Bypass admin dashboard shell completely for login screen
+  if (pathname === "/admin/login") {
+    return <>{children}</>;
+  }
+
+  // 🛡️ Protected Route Logic
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#F5F1EC] flex items-center justify-center font-sans">
+        <Loader2 className="w-12 h-12 text-[#5A2A1F] animate-spin" />
+      </div>
+    );
+  }
+
+  if (!isSignedIn || user?.role !== 'Admin') {
+    // We use a timeout to avoid Next.js setState warning during render
+    setTimeout(() => {
+      router.push("/admin/login");
+    }, 0);
+    return null;
+  }
 
   return (
     <div className="min-h-screen bg-[#F5F1EC] flex font-sans">
@@ -77,7 +103,10 @@ export default function AdminLayout({
           </nav>
 
           <div className="p-4 border-t border-[#5A2A1F]/10 relative z-10">
-            <button className="flex items-center w-full px-4 py-3 text-sm font-bold text-[#8B3A2B] rounded-xl hover:bg-[#8B3A2B] hover:text-white transition-colors">
+            <button 
+              onClick={() => logout()}
+              className="flex items-center w-full px-4 py-3 text-sm font-bold text-[#8B3A2B] rounded-xl hover:bg-[#8B3A2B] hover:text-white transition-colors"
+            >
               <LogOut className="w-5 h-5 mr-3 opacity-80" />
               Sign Out
             </button>
