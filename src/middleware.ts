@@ -16,10 +16,15 @@ export function middleware(request: NextRequest) {
   // Check if current path matches any protected user route
   const isProtectedUserRoute = protectedUserRoutes.some(route => pathname.startsWith(route));
 
-  // Check tokens
-  const accessToken = request.cookies.get('accessToken');
-  const refreshToken = request.cookies.get('refreshToken');
-  const isAuthenticated = !!(accessToken || refreshToken);
+  // Check tokens safely
+  const accessToken = request.cookies.has('accessToken') || request.cookies.get('accessToken');
+  const refreshToken = request.cookies.has('refreshToken') || request.cookies.get('refreshToken');
+  
+  // Fallback to raw cookie header in case Next.js cookie parser fails due to duplicate path cookies
+  const rawCookieHeader = request.headers.get('cookie') || '';
+  const hasTokenInHeader = rawCookieHeader.includes('accessToken=') || rawCookieHeader.includes('refreshToken=');
+
+  const isAuthenticated = !!accessToken || !!refreshToken || hasTokenInHeader;
 
   if (isProtectedUserRoute && !isAuthenticated) {
     const loginUrl = new URL('/login', request.url);
