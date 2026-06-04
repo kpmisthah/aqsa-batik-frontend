@@ -1,5 +1,6 @@
 import Footer from "@/modules/user/components/Footer";
 import WelcomePopup from "@/modules/user/components/WelcomePopup";
+import AuthGuard from "@/modules/user/components/AuthGuard";
 
 export default function StoreLayout({
   children,
@@ -9,7 +10,9 @@ export default function StoreLayout({
   return (
     <>
       <WelcomePopup />
-      {children}
+      <AuthGuard>
+        {children}
+      </AuthGuard>
       <Footer />
     </>
   );

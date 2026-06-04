@@ -28,6 +28,7 @@ export function useAuthSync() {
     isSignedIn,
     user,
     loading,
+    initialized,
     logout: handleLogout,
   };
 }
