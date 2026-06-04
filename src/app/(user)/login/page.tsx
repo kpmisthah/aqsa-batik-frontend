@@ -98,7 +98,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
     setLoading(true);
 
     const loginEndpoint = isAdmin ? "/auth/admin-login" : "/auth/login";
-    const redirectUrl = isAdmin ? "/admin" : "/";
+    const redirectUrl = isAdmin ? "/aqsha-portal" : "/";
 
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"}${loginEndpoint}`, {

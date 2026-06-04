@@ -18,14 +18,14 @@ export default function AdminLayout({
   const { user, loading, logout, isSignedIn } = useAuthSync();
 
   const navigation = [
-    { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
-    { name: "Orders", href: "/admin/orders", icon: ShoppingBag },
-    { name: "Products", href: "/admin/products", icon: Package },
-    { name: "Users", href: "/admin/users", icon: Users },
+    { name: "Dashboard", href: "/aqsha-portal", icon: LayoutDashboard },
+    { name: "Orders", href: "/aqsha-portal/orders", icon: ShoppingBag },
+    { name: "Products", href: "/aqsha-portal/products", icon: Package },
+    { name: "Users", href: "/aqsha-portal/users", icon: Users },
   ];
 
   // 🚪 Bypass admin dashboard shell completely for login screen
-  if (pathname === "/admin/login") {
+  if (pathname === "/aqsha-portal/login") {
     return <>{children}</>;
   }
 
@@ -41,7 +41,7 @@ export default function AdminLayout({
   if (!isSignedIn || user?.role !== 'Admin') {
     // We use a timeout to avoid Next.js setState warning during render
     setTimeout(() => {
-      router.push("/admin/login");
+      router.push("/aqsha-portal/login");
     }, 0);
     return null;
   }

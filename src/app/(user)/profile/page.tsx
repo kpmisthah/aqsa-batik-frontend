@@ -1034,7 +1034,7 @@ function ProfileContent() {
                       Full system operations are active. You can manage products, category variants, images, and user accounts.
                     </p>
                     <Link 
-                      href="/admin" 
+                      href="/aqsha-portal" 
                       className="w-full inline-block text-center bg-white text-[#5A2A1F] py-3.5 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-[#FAF6F0] transition-colors"
                     >
                       Admin Panel

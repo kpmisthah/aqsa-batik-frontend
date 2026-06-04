@@ -382,7 +382,7 @@ export default function AdminDashboard() {
             <p className="text-xs text-[#5A2A1F]/60 font-medium">The most recent checkout logs registered on our store.</p>
           </div>
           <Link 
-            href="/admin/orders" 
+            href="/aqsha-portal/orders" 
             className="text-xs font-black uppercase tracking-widest text-[#8B3A2B] hover:text-[#5A2A1F] transition-colors border-b-2 border-transparent hover:border-[#5A2A1F]"
           >
             Fulfill Orders &rarr;

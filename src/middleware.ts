@@ -15,8 +15,8 @@ export function middleware(request: NextRequest) {
   const isAuthenticated = !!accessToken || !!refreshToken || hasTokenInHeader;
 
   // Also protect admin routes, redirecting unauthenticated users to the admin login page
-  if (pathname.startsWith('/admin') && pathname !== '/admin/login' && !isAuthenticated) {
-    return NextResponse.redirect(new URL('/admin/login', request.url));
+  if (pathname.startsWith('/aqsha-portal') && pathname !== '/aqsha-portal/login' && !isAuthenticated) {
+    return NextResponse.redirect(new URL('/aqsha-portal/login', request.url));
   }
 
   return NextResponse.next();
