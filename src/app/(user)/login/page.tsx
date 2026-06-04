@@ -379,7 +379,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
             )}
 
             {/* Credentials Form */}
-            <form onSubmit={handleSignInSubmit} className="space-y-4">
+            <form onSubmit={handleSignInSubmit} className="space-y-4" noValidate>
               <div>
                 <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2">
                   {isAdmin ? "Admin Email" : "Email Address"}
@@ -481,7 +481,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
             )}
           </>
         ) : forgotStep === "email" ? (
-          <form onSubmit={handleSendResetOtp} className="space-y-4 animate-fade-in">
+          <form onSubmit={handleSendResetOtp} className="space-y-4 animate-fade-in" noValidate>
             <div>
               <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2">
                 Email Address
@@ -524,7 +524,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
             </div>
           </form>
         ) : forgotStep === "otp" ? (
-          <form onSubmit={handleVerifyResetOtp} className="space-y-6 animate-fade-in">
+          <form onSubmit={handleVerifyResetOtp} className="space-y-6 animate-fade-in" noValidate>
             <div className="text-center mb-4">
               <p className="text-sm text-[#5A2A1F]/70 font-medium">
                 We've sent a 6-digit password reset OTP to
@@ -578,7 +578,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
             </div>
           </form>
         ) : (
-          <form onSubmit={handleResetPassword} className="space-y-4 animate-fade-in">
+          <form onSubmit={handleResetPassword} className="space-y-4 animate-fade-in" noValidate>
             <div>
               <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2">
                 New Password
