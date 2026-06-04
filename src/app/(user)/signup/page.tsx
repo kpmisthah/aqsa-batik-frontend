@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Mail, Lock, User, Sparkles, Eye, EyeOff } from "lucide-react";
+import { Mail, Lock, User, Sparkles, Eye, EyeOff, AlertCircle } from "lucide-react";
 import Link from "next/link";
 import { useAuthSync } from "@/modules/user/hooks/useAuthSync";
 
@@ -18,6 +18,12 @@ export default function SignupPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  // Per-field errors
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [confirmPasswordError, setConfirmPasswordError] = useState("");
   
   // Custom Custom OTP Verification & Toast States
   const [isOtpStep, setIsOtpStep] = useState(false);
@@ -54,22 +60,43 @@ export default function SignupPage() {
     window.location.href = `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"}/auth/google`;
   };
 
+  const clearFieldErrors = () => {
+    setNameError("");
+    setEmailError("");
+    setPasswordError("");
+    setConfirmPasswordError("");
+  };
+
   const handleEmailSignUp = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
 
-    // Validate password criteria
+    clearFieldErrors();
+    setError("");
+
+    // Client-side validation — route errors to the offending field
+    let hasError = false;
+    if (!name.trim()) {
+      setNameError("Please enter your full name.");
+      hasError = true;
+    }
+    if (!email.trim()) {
+      setEmailError("Please enter your email address.");
+      hasError = true;
+    }
     const metCount = passwordCriteria.filter((c) => c.met).length;
     if (metCount < 5) {
-      showToast("Please ensure your password meets all strong requirements.", "error");
-      return;
+      setPasswordError("Password must meet all strong requirements below.");
+      hasError = true;
     }
-
     if (password !== confirmPassword) {
-      showToast("Passwords do not match.", "error");
+      setConfirmPasswordError("Passwords do not match.");
+      hasError = true;
+    }
+    if (hasError) {
+      showToast("Please fix the highlighted fields.", "error");
       return;
     }
 
-    setError("");
     setLoading(true);
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"}/auth/signup`, {
@@ -85,8 +112,21 @@ export default function SignupPage() {
         showToast(data.message || "OTP sent successfully!", "success");
         setIsOtpStep(true);
       } else {
-        showToast(data.message || "Registration failed. Try a different email.", "error");
-        setError(data.message || "Registration failed.");
+        const msg = data.message || "Registration failed. Try a different email.";
+        const lower = msg.toLowerCase();
+        // Route server error to the right field
+        if (lower.includes("exist") || lower.includes("already")) {
+          setEmailError(msg);
+        } else if (lower.includes("email")) {
+          setEmailError(msg);
+        } else if (lower.includes("password")) {
+          setPasswordError(msg);
+        } else if (lower.includes("name")) {
+          setNameError(msg);
+        } else {
+          setError(msg);
+        }
+        showToast(msg, "error");
       }
     } catch (err) {
       showToast("Server connection failed. Please try again.", "error");
@@ -276,11 +316,19 @@ export default function SignupPage() {
                     type="text"
                     required
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => { setName(e.target.value); if (nameError) setNameError(""); }}
                     placeholder="John Doe"
-                    className="w-full pl-11 pr-4 py-3.5 border border-[#5A2A1F]/20 rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 focus:ring-[#5A2A1F]/20 text-sm font-medium"
+                    aria-invalid={!!nameError}
+                    className={`w-full pl-11 pr-4 py-3.5 border rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 text-sm font-medium ${
+                      nameError ? "border-red-400 focus:ring-red-200" : "border-[#5A2A1F]/20 focus:ring-[#5A2A1F]/20"
+                    }`}
                   />
                 </div>
+                {nameError && (
+                  <p className="mt-1.5 flex items-center gap-1.5 text-xs font-bold text-red-600">
+                    <AlertCircle size={12} /> {nameError}
+                  </p>
+                )}
               </div>
 
               <div>
@@ -293,11 +341,22 @@ export default function SignupPage() {
                     type="email"
                     required
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => { setEmail(e.target.value); if (emailError) setEmailError(""); }}
                     placeholder="yourname@example.com"
-                    className="w-full pl-11 pr-4 py-3.5 border border-[#5A2A1F]/20 rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 focus:ring-[#5A2A1F]/20 text-sm font-medium"
+                    aria-invalid={!!emailError}
+                    className={`w-full pl-11 pr-4 py-3.5 border rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 text-sm font-medium ${
+                      emailError ? "border-red-400 focus:ring-red-200" : "border-[#5A2A1F]/20 focus:ring-[#5A2A1F]/20"
+                    }`}
                   />
                 </div>
+                {emailError && (
+                  <p className="mt-1.5 flex items-center gap-1.5 text-xs font-bold text-red-600">
+                    <AlertCircle size={12} /> {emailError}
+                    {emailError.toLowerCase().includes("exist") && (
+                      <Link href="/login" className="ml-1 underline text-[#8B3A2B]">Sign in instead</Link>
+                    )}
+                  </p>
+                )}
               </div>
 
               <div>
@@ -310,9 +369,12 @@ export default function SignupPage() {
                     type={showPassword ? "text" : "password"}
                     required
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => { setPassword(e.target.value); if (passwordError) setPasswordError(""); }}
                     placeholder="••••••••"
-                    className="w-full pl-11 pr-12 py-3.5 border border-[#5A2A1F]/20 rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 focus:ring-[#5A2A1F]/20 text-sm font-medium"
+                    aria-invalid={!!passwordError}
+                    className={`w-full pl-11 pr-12 py-3.5 border rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 text-sm font-medium ${
+                      passwordError ? "border-red-400 focus:ring-red-200" : "border-[#5A2A1F]/20 focus:ring-[#5A2A1F]/20"
+                    }`}
                   />
                   <button
                     type="button"
@@ -322,6 +384,11 @@ export default function SignupPage() {
                     {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>
                 </div>
+                {passwordError && (
+                  <p className="mt-1.5 flex items-center gap-1.5 text-xs font-bold text-red-600">
+                    <AlertCircle size={12} /> {passwordError}
+                  </p>
+                )}
 
                 {/* Password Strength Indicator & Checklist */}
                 {password.length > 0 && (
@@ -390,9 +457,12 @@ export default function SignupPage() {
                     type={showConfirmPassword ? "text" : "password"}
                     required
                     value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    onChange={(e) => { setConfirmPassword(e.target.value); if (confirmPasswordError) setConfirmPasswordError(""); }}
                     placeholder="••••••••"
-                    className="w-full pl-11 pr-12 py-3.5 border border-[#5A2A1F]/20 rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 focus:ring-[#5A2A1F]/20 text-sm font-medium"
+                    aria-invalid={!!confirmPasswordError}
+                    className={`w-full pl-11 pr-12 py-3.5 border rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 text-sm font-medium ${
+                      confirmPasswordError ? "border-red-400 focus:ring-red-200" : "border-[#5A2A1F]/20 focus:ring-[#5A2A1F]/20"
+                    }`}
                   />
                   <button
                     type="button"
@@ -407,14 +477,19 @@ export default function SignupPage() {
                     doPasswordsMatch ? "text-emerald-600" : "text-red-500"
                   }`}>
                     <span className={`w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-black ${
-                      doPasswordsMatch 
-                        ? "bg-emerald-100 text-emerald-600 border border-emerald-200" 
+                      doPasswordsMatch
+                        ? "bg-emerald-100 text-emerald-600 border border-emerald-200"
                         : "bg-red-50 text-red-500 border border-red-100"
                     }`}>
                       {doPasswordsMatch ? "✓" : "✗"}
                     </span>
                     <span>{doPasswordsMatch ? "Passwords match" : "Passwords do not match"}</span>
                   </div>
+                )}
+                {confirmPasswordError && (
+                  <p className="mt-1.5 flex items-center gap-1.5 text-xs font-bold text-red-600">
+                    <AlertCircle size={12} /> {confirmPasswordError}
+                  </p>
                 )}
               </div>
 

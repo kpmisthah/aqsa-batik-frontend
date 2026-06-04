@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Mail, Lock, Sparkles, ShieldCheck, Eye, EyeOff } from "lucide-react";
+import { Mail, Lock, Sparkles, ShieldCheck, Eye, EyeOff, AlertCircle } from "lucide-react";
 import Link from "next/link";
 import { useAuthSync } from "@/modules/user/hooks/useAuthSync";
 
@@ -17,6 +17,10 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  // Per-field errors
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
   // Forgot Password Flow States
   const [forgotStep, setForgotStep] = useState<ForgotPasswordStep>("none");
@@ -76,6 +80,21 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
     e.preventDefault();
 
     setError("");
+    setEmailError("");
+    setPasswordError("");
+
+    // Inline validation
+    let hasError = false;
+    if (!email.trim()) {
+      setEmailError("Please enter your email address.");
+      hasError = true;
+    }
+    if (!password) {
+      setPasswordError("Please enter your password.");
+      hasError = true;
+    }
+    if (hasError) return;
+
     setLoading(true);
 
     const loginEndpoint = isAdmin ? "/auth/admin-login" : "/auth/login";
@@ -106,12 +125,22 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
           window.location.href = redirectUrl;
         }, 1500);
       } else {
-        if (!isAdmin && (res.status === 404 || (data.message && data.message.toLowerCase().includes("not exist")))) {
-          showToast("user not exist", "error");
-          setError("user not exist");
+        const msg = data.message || "Invalid credentials.";
+        const lower = msg.toLowerCase();
+        // Route server error to the right field
+        if (res.status === 404 || lower.includes("not exist") || lower.includes("no user") || lower.includes("not found")) {
+          const userMsg = "No account found with this email.";
+          setEmailError(userMsg);
+          showToast(userMsg, "error");
+        } else if (lower.includes("password") || lower.includes("incorrect") || lower.includes("invalid credential")) {
+          setPasswordError("Incorrect password. Please try again.");
+          showToast("Incorrect password.", "error");
+        } else if (lower.includes("blocked") || lower.includes("banned")) {
+          setError(msg);
+          showToast(msg, "error");
         } else {
-          showToast(data.message || "Invalid credentials.", "error");
-          setError(data.message || "Invalid credentials.");
+          setError(msg);
+          showToast(msg, "error");
         }
       }
     } catch (err: any) {
@@ -363,11 +392,22 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
                     type="email"
                     required
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => { setEmail(e.target.value); if (emailError) setEmailError(""); }}
                     placeholder={isAdmin ? "aqdaschhipa368@gmail.com" : "yourname@example.com"}
-                    className="w-full pl-11 pr-4 py-3.5 border border-[#5A2A1F]/20 rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 focus:ring-[#5A2A1F]/20 text-sm font-medium"
+                    aria-invalid={!!emailError}
+                    className={`w-full pl-11 pr-4 py-3.5 border rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 text-sm font-medium ${
+                      emailError ? "border-red-400 focus:ring-red-200" : "border-[#5A2A1F]/20 focus:ring-[#5A2A1F]/20"
+                    }`}
                   />
                 </div>
+                {emailError && (
+                  <p className="mt-1.5 flex items-center gap-1.5 text-xs font-bold text-red-600">
+                    <AlertCircle size={12} /> {emailError}
+                    {emailError.toLowerCase().includes("no account") && !isAdmin && (
+                      <Link href="/signup" className="ml-1 underline text-[#8B3A2B]">Create one</Link>
+                    )}
+                  </p>
+                )}
               </div>
 
               <div>
@@ -378,7 +418,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
                   {!isAdmin && (
                     <button
                       type="button"
-                      onClick={() => { setForgotStep("email"); setError(""); }}
+                      onClick={() => { setForgotStep("email"); setError(""); setEmailError(""); setPasswordError(""); }}
                       className="text-[10px] font-black uppercase tracking-widest text-[#8B3A2B]/75 hover:text-[#8B3A2B] focus:outline-none transition-colors"
                     >
                       Forgot?
@@ -393,9 +433,12 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
                     type={showPassword ? "text" : "password"}
                     required
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => { setPassword(e.target.value); if (passwordError) setPasswordError(""); }}
                     placeholder="••••••••"
-                    className="w-full pl-11 pr-12 py-3.5 border border-[#5A2A1F]/20 rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 focus:ring-[#5A2A1F]/20 text-sm font-medium"
+                    aria-invalid={!!passwordError}
+                    className={`w-full pl-11 pr-12 py-3.5 border rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 text-sm font-medium ${
+                      passwordError ? "border-red-400 focus:ring-red-200" : "border-[#5A2A1F]/20 focus:ring-[#5A2A1F]/20"
+                    }`}
                   />
                   <button
                     type="button"
@@ -405,6 +448,11 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
                     {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>
                 </div>
+                {passwordError && (
+                  <p className="mt-1.5 flex items-center gap-1.5 text-xs font-bold text-red-600">
+                    <AlertCircle size={12} /> {passwordError}
+                  </p>
+                )}
               </div>
 
               <button
