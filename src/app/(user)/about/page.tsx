@@ -52,26 +52,50 @@ export default function AboutPage() {
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 relative z-10 items-start">
                     <div className="flex flex-col gap-10">
                         <div className="flex flex-col gap-6">
-                            <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">The Beginning</span>
-                            <h2 className="font-playfair text-5xl md:text-7xl font-bold text-[#5A2A1F]">A Legacy Built on Real Struggle</h2>
+                            <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.2em] leading-relaxed">From Handmade Batik To Trusted Women Fashion Supply</span>
+                            <h2 className="font-playfair text-5xl md:text-6xl lg:text-7xl font-bold text-[#5A2A1F] leading-tight">The Journey Behind AQSHA BATIK SUITS</h2>
                         </div>
                         <div className="flex flex-col gap-6 text-lg leading-relaxed text-[#5A2A1F]/80">
+                            <p className="font-bold text-xl text-[#5A2A1F] leading-relaxed">
+                                From 15 handmade suits for women in Bherugarh, Ujjain to supplying wholesalers, boutiques, and resellers across India—this journey was built on consistency, correction, and understanding what women actually want to wear.
+                            </p>
                             <p className="font-bold text-[#5A2A1F]">
-                                This didn’t start as a brand. It started in Bherugarh, Ujjain—where batik is not a business, it’s a craft passed through hands.
+                                This didn’t start as a brand.
+                                <br />
+                                It started in Bherugarh, Ujjain — where batik is not just textile work. It is craftsmanship passed through generations of hands.
                             </p>
                             <p>
-                                In 2010, my father began with just 15 Batik Cloth. It took 20 days to sell them. There was no system. No certainty. Just effort.
+                                In 2010, my father started with only 15 suits for women.
+                                <br />Simple batik designs.
+                                <br />Small production.
+                                <br />No team.
+                                <br />No big setup.
+                                <br />It took nearly 20 days to sell those first 15 pieces.
+                                <br />There was no roadmap.
+                                <br />No certainty.
+                                <br />Only effort.
                             </p>
                             <p>
-                                He didn’t stop. He made another 20 suits. Faced losses. Found mistakes in fabric quality. Sold pieces at lower prices just to recover. There were times when money wasn’t enough. A small ₹10–20 thousand bank loan kept things moving.
+                                But he did not stop.
+                                <br />He created another batch.
+                                <br />Then another.
+                                <br />Some suits sold.
+                                <br />Some did not.
+                                <br />There were fabric mistakes.
+                                <br />Quality issues.
+                                <br />Losses.
+                                <br />At times, dresses had to be sold at lower prices just to recover costs and continue production.
+                                <br />A small ₹10–20 thousand bank loan helped keep the work moving.
                             </p>
                             <p>
-                                But instead of quitting, he focused on improving what mattered:
-                                <span className="block mt-4 pl-4 border-l-2 border-[#8B3A2B]">
-                                    👉 Better quality <br />
-                                    👉 Better cutting <br />
-                                    👉 Better understanding of what buyers actually want
+                                But instead of giving up, he focused on improving the foundation:
+                                <span className="block mt-4 pl-4 border-l-2 border-[#8B3A2B] space-y-1">
+                                    <span className="block">👉 Better fabric quality</span>
+                                    <span className="block">👉 Better cutting and fitting</span>
+                                    <span className="block">👉 Better suit design for women</span>
+                                    <span className="block">👉 Better understanding of what buyers actually wanted</span>
                                 </span>
+                                <span className="block mt-6 font-bold text-xl text-[#8B3A2B] italic">That mindset changed everything.</span>
                             </p>
                         </div>
 
@@ -79,33 +103,159 @@ export default function AboutPage() {
                         <div className="flex flex-col gap-4 mt-4">
                             {[
                                 {
-                                    t: "Turning Point",
-                                    d: "Instead of waiting for customers, he went to them. Travelled to different cities. Met wholesalers. Showed samples. That’s where the shift happened. From retail struggle → to wholesale supply. And slowly, things started changing."
-                                },
-                                {
-                                    t: "Growth Phase",
-                                    d: "Where it once took 20 days to sell 15 suits, By 2016, we were selling 1500–2000 pieces at the same time. That growth wasn’t luck. It was built on correction, consistency, and learning from every mistake."
-                                },
-                                {
-                                    t: "Digital Shift",
-                                    d: "In 2017, I brought the business online. Through WhatsApp, social media, and marketplaces, our reach expanded and so did our speed."
-                                },
-                                {
-                                    t: "Setback & Comeback",
-                                    d: "During COVID (2019–2020), like many others, we faced losses. But we didn’t stop. We adapted again. And from 2022 onwards, the business came back stronger—with better systems, better demand, and better clarity."
-                                },
-                                {
-                                    t: "Today",
+                                    t: "From Local Selling To Wholesale Supply",
                                     d: (
-                                        <>
-                                            Today, AQSHA Batik Cloth is trusted across major Indian markets: Delhi, Punjab, Gujarat, and beyond. We supply:
-                                            <ul className="mt-2 space-y-1">
-                                                <li>• Wholesalers</li>
-                                                <li>• Resellers</li>
-                                                <li>• Boutiques</li>
-                                            </ul>
-                                            <p className="mt-2 font-bold italic text-[#8B3A2B]">With one focus: Providing batik clothing for women that actually sells</p>
-                                        </>
+                                        <div className="flex flex-col gap-3">
+                                            <p>
+                                                Instead of waiting for customers to come, he went directly to them.
+                                                <br />Travelled to different cities.
+                                                <br />Met wholesalers personally.
+                                                <br />Carried samples by hand.
+                                                <br />Understood what resellers were searching for in women dresses, suit sets, and designer dress collections.
+                                            </p>
+                                            <p className="font-bold text-xl text-[#8B3A2B] italic">That was the real turning point.</p>
+                                            <p>
+                                                The business slowly shifted:
+                                                <br />From retail struggle → to wholesale women fashion supply.
+                                            </p>
+                                            <p>
+                                                As demand grew, our collections expanded into:
+                                                <span className="block mt-2 pl-4 border-l-2 border-[#8B3A2B] space-y-1 font-medium">
+                                                    <span className="block">👉 suit set for women</span>
+                                                    <span className="block">👉 frock suit for women</span>
+                                                    <span className="block">👉 cotton fashion collections</span>
+                                                    <span className="block">👉 anarkali suits for women</span>
+                                                    <span className="block">👉 party wear suits for women</span>
+                                                    <span className="block">👉 and breathable everyday women clothing</span>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    )
+                                },
+                                {
+                                    t: "From 15 Pieces To Thousands",
+                                    d: (
+                                        <div className="flex flex-col gap-3">
+                                            <p>
+                                                Where it once took 20 days to sell 15 pieces…
+                                                <br />By 2016, AQSHA BATIK SUITS was supplying nearly 1500–2000 women clothing pieces at the same time.
+                                            </p>
+                                            <p className="font-bold text-lg text-[#5A2A1F]">That growth did not come from luck.</p>
+                                            <p>
+                                                It came from:
+                                                <span className="block mt-2 pl-4 border-l-2 border-[#8B3A2B] space-y-1 font-medium">
+                                                    <span className="block">👉 improving quality constantly</span>
+                                                    <span className="block">👉 correcting mistakes quickly</span>
+                                                    <span className="block">👉 understanding women dress design trends</span>
+                                                    <span className="block">👉 and building wearable collections women repeatedly purchased</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                Every new design dress for women taught us something.
+                                                <br />Every market visit improved our understanding of:
+                                                <span className="block mt-2 pl-4 border-l-2 border-[#8B3A2B] space-y-1 font-medium">
+                                                    <span className="block">👉 dress designs for women</span>
+                                                    <span className="block">👉 fabric demand</span>
+                                                    <span className="block">👉 fitting preferences</span>
+                                                    <span className="block">👉 and changing fashion behavior</span>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    )
+                                },
+                                {
+                                    t: "Taking Batik Fashion Online",
+                                    d: (
+                                        <div className="flex flex-col gap-3">
+                                            <p>
+                                                In 2017, I brought AQSHA BATIK SUITS online.
+                                            </p>
+                                            <p>
+                                                Through:
+                                                <span className="block mt-2 pl-4 border-l-2 border-[#8B3A2B] space-y-1 font-medium">
+                                                    <span className="block">👉 WhatsApp</span>
+                                                    <span className="block">👉 social media</span>
+                                                    <span className="block">👉 online marketplaces</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                our collections started reaching more wholesalers, boutiques, and women fashion buyers across India.
+                                            </p>
+                                            <p className="font-bold text-lg text-[#5A2A1F]">That digital shift changed our speed completely.</p>
+                                            <p>
+                                                Now our collections included:
+                                                <span className="block mt-2 pl-4 border-l-2 border-[#8B3A2B] space-y-1 font-medium">
+                                                    <span className="block">👉 designer dresses for women</span>
+                                                    <span className="block">👉 trendy suits for women</span>
+                                                    <span className="block">👉 latest dress designs for womens</span>
+                                                    <span className="block">👉 party wear dress collections</span>
+                                                    <span className="block">👉 and breathable cotton fashion styles</span>
+                                                </span>
+                                            </p>
+                                            <p className="font-bold text-[#8B3A2B] italic">The internet helped our batik craftsmanship reach beyond local markets.</p>
+                                        </div>
+                                    )
+                                },
+                                {
+                                    t: "The COVID Phase & Rebuilding Again",
+                                    d: (
+                                        <div className="flex flex-col gap-3">
+                                            <p>
+                                                Like many fashion businesses, COVID during 2019–2020 created losses and uncertainty.
+                                                <br />Demand slowed.
+                                                <br />Markets paused.
+                                                <br />Orders became unstable.
+                                            </p>
+                                            <p className="font-bold text-lg text-[#5A2A1F]">But we adapted again.</p>
+                                            <p>
+                                                Instead of stopping, we improved systems, stock planning, and production clarity.
+                                            </p>
+                                            <p>
+                                                And from 2022 onwards, the business returned stronger with:
+                                                <span className="block mt-2 pl-4 border-l-2 border-[#8B3A2B] space-y-1 font-medium">
+                                                    <span className="block">👉 better operational systems</span>
+                                                    <span className="block">👉 stronger wholesale demand</span>
+                                                    <span className="block">👉 improved product quality</span>
+                                                    <span className="block">👉 and clearer fashion positioning</span>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    )
+                                },
+                                {
+                                    t: "Where AQSHA BATIK SUITS Stands Today",
+                                    d: (
+                                        <div className="flex flex-col gap-3">
+                                            <p>
+                                                Today, AQSHA BATIK SUITS supplies wholesalers, boutiques, and resellers across major Indian markets including:
+                                                <span className="block mt-2 pl-4 border-l-2 border-[#8B3A2B] space-y-1 font-medium">
+                                                    <span className="block">👉 Delhi</span>
+                                                    <span className="block">👉 Punjab</span>
+                                                    <span className="block">👉 Gujarat</span>
+                                                    <span className="block">👉 and growing fashion markets across India</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                We now manufacture collections across multiple women fashion categories including:
+                                                <span className="block mt-2 pl-4 border-l-2 border-[#8B3A2B] space-y-1 font-medium">
+                                                    <span className="block">👉 suits for women</span>
+                                                    <span className="block">👉 designer dress for women</span>
+                                                    <span className="block">👉 party wear suits for women</span>
+                                                    <span className="block">👉 frock suit for women</span>
+                                                    <span className="block">👉 anarkali suits for women</span>
+                                                    <span className="block">👉 night suit for women</span>
+                                                    <span className="block">👉 cotton night suit for women</span>
+                                                    <span className="block">👉 and stylish everyday women clothing</span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                But even after all these years, our focus remains the same:
+                                                <br /><span className="font-bold text-[#5A2A1F]">👉 Creating wearable batik clothing for women that actually sells repeatedly.</span>
+                                            </p>
+                                            <p className="font-bold text-lg text-[#8B3A2B] italic mt-2">
+                                                Because fashion changes. Comfort, quality, and trust do not.
+                                            </p>
+                                        </div>
                                     )
                                 },
                                 {
@@ -252,32 +402,79 @@ export default function AboutPage() {
 
             <FAQ items={[
                 {
-                    q: "Who is AQSHA Batik Cloth?",
-                    a: "AQSHA Batik Cloth (Ujjain) is a batik manufacturer with 15+ years of experience, supplying consistent quality fabric and ready-to-sell collections to wholesalers, resellers, and boutiques across India."
+                    q: "Q1. Who is AQSHA BATIK SUITS?",
+                    a: "AQSHA BATIK SUITS is a women clothing and batik fabric manufacturer based in Ujjain with 15+ years of experience in producing suits for women, batik print dress material, cotton dress collections, and wholesale women fashion products for boutiques, resellers, and wholesalers across India."
                 },
                 {
-                    q: "Where is your manufacturing based?",
-                    a: "Our manufacturing is based in Bherugarh, Ujjain (Madhya Pradesh)—a region known for traditional batik craftsmanship and skilled artisans."
+                    q: "Q2. Where is AQSHA BATIK SUITS manufacturing located?",
+                    a: "Our manufacturing is based in Bherugarh, Ujjain (Madhya Pradesh), a region widely known for traditional batik craftsmanship, printed textile artistry, and skilled batik fabric manufacturing."
                 },
                 {
-                    q: "What makes your products different from others?",
-                    a: "We focus on quality, clean cutting, and consistency. Our fabric is designed to perform in real markets, ensuring repeat demand and reliable supply for buyers."
+                    q: "Q3. What makes AQSHA BATIK SUITS different from other women clothing manufacturers?",
+                    a: (
+                        <div className="flex flex-col gap-2">
+                            <p>We focus on:</p>
+                            <ul className="list-disc pl-5 space-y-1 text-[#8B3A2B] marker:text-[#8B3A2B]/50 font-semibold">
+                                <li><span className="text-[#5A2A1F]/80 font-medium">consistent fabric quality</span></li>
+                                <li><span className="text-[#5A2A1F]/80 font-medium">clean cutting</span></li>
+                                <li><span className="text-[#5A2A1F]/80 font-medium">wearable women dress design</span></li>
+                                <li><span className="text-[#5A2A1F]/80 font-medium">and fashion collections that actually perform in real wholesale markets.</span></li>
+                            </ul>
+                            <p className="mt-2">Our collections are built around repeat demand for:</p>
+                            <ul className="list-disc pl-5 space-y-1 text-[#8B3A2B] marker:text-[#8B3A2B]/50 font-semibold">
+                                <li><span className="text-[#5A2A1F]/80 font-medium">suits for women</span></li>
+                                <li><span className="text-[#5A2A1F]/80 font-medium">party wear suits for women</span></li>
+                                <li><span className="text-[#5A2A1F]/80 font-medium">cotton dress material</span></li>
+                                <li><span className="text-[#5A2A1F]/80 font-medium">and designer dresses for women.</span></li>
+                            </ul>
+                        </div>
+                    )
                 },
                 {
-                    q: "Do you sell wholesale or retail?",
-                    a: "We work in both, but our primary focus is on wholesale supply, serving resellers, boutiques, and bulk buyers across multiple states."
+                    q: "Q4. Do you supply wholesale women dresses and suits for women?",
+                    a: "Yes. AQSHA BATIK SUITS primarily focuses on wholesale women dresses, suit set for women collections, batik cotton fabric, and women fashion supply for wholesalers, boutiques, resellers, and online sellers across India."
                 },
                 {
-                    q: "Which cities do you supply to?",
-                    a: "We currently supply across major markets including Delhi, Punjab, Gujarat, and are expanding to more regions across India."
+                    q: "Q5. Which women clothing categories do you manufacture?",
+                    a: (
+                        <div className="flex flex-col gap-2">
+                            <p>We manufacture multiple women fashion categories including:</p>
+                            <ul className="list-disc pl-5 space-y-1 text-[#8B3A2B] marker:text-[#8B3A2B]/50 font-semibold">
+                                <li><span className="text-[#5A2A1F]/80 font-medium">suits for women</span></li>
+                                <li><span className="text-[#5A2A1F]/80 font-medium">party wear dress for women</span></li>
+                                <li><span className="text-[#5A2A1F]/80 font-medium">frock suit for women</span></li>
+                                <li><span className="text-[#5A2A1F]/80 font-medium">anarkali suits for women</span></li>
+                                <li><span className="text-[#5A2A1F]/80 font-medium">cotton dresses for women</span></li>
+                                <li><span className="text-[#5A2A1F]/80 font-medium">night suit for women</span></li>
+                                <li><span className="text-[#5A2A1F]/80 font-medium">cotton night suit for women</span></li>
+                                <li><span className="text-[#5A2A1F]/80 font-medium">designer dresses for women</span></li>
+                                <li><span className="text-[#5A2A1F]/80 font-medium">and trendy women's clothing collections.</span></li>
+                            </ul>
+                        </div>
+                    )
                 },
                 {
-                    q: "Do you offer ready stock or made-to-order?",
-                    a: "We maintain ready stock for fast dispatch, while also supporting bulk requirements based on buyer needs."
+                    q: "Q6. Which cities and markets do you currently supply to?",
+                    a: "We currently supply wholesale women clothing and batik collections across major Indian markets including Delhi, Punjab, Gujarat, and expanding fashion markets across India."
                 },
                 {
-                    q: "Can I connect with you directly for business inquiries?",
-                    a: "Yes. You can connect with us directly via WhatsApp or call to discuss requirements, pricing, and bulk orders."
+                    q: "Q7. Do you offer ready stock for women's dresses and cotton dress material?",
+                    a: "Yes. We maintain ready stock for wholesale women dresses, cotton dress material, and batik fashion collections to support faster dispatch and bulk order requirements."
+                },
+                {
+                    q: "Q8. Can I contact AQSHA BATIK SUITS directly for wholesale women clothing inquiries?",
+                    a: (
+                        <div className="flex flex-col gap-2">
+                            <p>Yes. You can directly connect with AQSHA BATIK SUITS through WhatsApp or call for:</p>
+                            <ul className="list-disc pl-5 space-y-1 text-[#8B3A2B] marker:text-[#8B3A2B]/50 font-semibold">
+                                <li><span className="text-[#5A2A1F]/80 font-medium">wholesale women dresses</span></li>
+                                <li><span className="text-[#5A2A1F]/80 font-medium">suits for women business inquiries</span></li>
+                                <li><span className="text-[#5A2A1F]/80 font-medium">cotton dress material pricing</span></li>
+                                <li><span className="text-[#5A2A1F]/80 font-medium">reseller support</span></li>
+                                <li><span className="text-[#5A2A1F]/80 font-medium">and bulk fashion orders.</span></li>
+                            </ul>
+                        </div>
+                    )
                 }
             ]} />
         </div>

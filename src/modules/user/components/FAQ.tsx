@@ -5,7 +5,7 @@ const WA = "https://wa.me/918815373767";
 
 interface FAQItem {
     q: string;
-    a: string;
+    a: React.ReactNode;
 }
 
 interface FAQProps {
