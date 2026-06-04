@@ -267,34 +267,7 @@ export default function SignupPage() {
           </div>
         ) : (
           <>
-            {/* Google Authentication Option */}
-            <button
-              type="button"
-              onClick={handleGoogleAuth}
-              disabled={loading}
-              className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-white border border-[#5A2A1F]/15 rounded-2xl text-[#5A2A1F] font-bold text-sm hover:bg-[#FDFBF7] hover:border-[#5A2A1F]/30 transition-all shadow-sm hover:shadow active:scale-[0.99] disabled:opacity-50"
-            >
-              <svg className="w-5 h-5" viewBox="0 0 24 24">
-                <path
-                  fill="#EA4335"
-                  d="M12 5.04c1.66 0 3.2.57 4.38 1.69l3.27-3.27C17.67 1.48 14.98 0 12 0 7.35 0 3.37 2.67 1.42 6.56l3.84 2.97c.9-2.7 3.42-4.49 6.74-4.49z"
-                />
-                <path
-                  fill="#4285F4"
-                  d="M23.49 12.27c0-.81-.07-1.59-.2-2.36H12v4.51h6.46c-.28 1.48-1.12 2.74-2.38 3.58l3.69 2.87c2.16-1.99 3.42-4.93 3.42-8.6z"
-                />
-                <path
-                  fill="#FBBC05"
-                  d="M5.26 14.22c-.24-.72-.38-1.49-.38-2.28s.14-1.56.38-2.28L1.42 6.69C.51 8.5.01 10.53.01 12.7c0 2.17.5 4.2 1.41 6.01l3.84-2.99z"
-                />
-                <path
-                  fill="#34A853"
-                  d="M12 24c3.24 0 5.97-1.07 7.96-2.91l-3.69-2.87c-1.02.69-2.33 1.1-4.27 1.1-3.32 0-5.84-1.79-6.74-4.49L1.42 17.8C3.37 21.69 7.35 24 12 24z"
-                />
-              </svg>
-              <span>Continue with Google</span>
-            </button>
-
+        
             <div className="relative my-6 text-center">
               <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-[#5A2A1F]/10"></div></div>
               <span className="relative px-4 text-xs font-bold text-[#5A2A1F]/40 uppercase tracking-widest bg-[#F5F1EC]">or</span>
