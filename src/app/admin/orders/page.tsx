@@ -318,124 +318,243 @@ export default function AdminOrders() {
           <p className="text-[#5A2A1F]/50 font-medium text-lg">No orders match the selected search filters.</p>
         </div>
       ) : (
-        <div className="bg-white shadow-lg shadow-[#5A2A1F]/5 rounded-2xl border border-[#5A2A1F]/10 overflow-hidden font-sans">
-          <div className="overflow-x-auto">
-            <table className="min-w-[1000px] md:min-w-full divide-y divide-[#5A2A1F]/10">
-              <thead className="bg-[#F5F1EC]">
-                <tr>
-                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Order ID</th>
-                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Date</th>
-                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Customer</th>
-                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Payment</th>
-                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Status</th>
-                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Total</th>
-                  <th scope="col" className="px-6 py-4 text-right text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-[#5A2A1F]/5">
-                {currentOrders.map((order) => {
-                  const orderId = order._id || order.id || "";
-                  let customerName = "Guest Customer";
-                  let customerEmail = "";
-                  
-                  if (order.user) {
-                    if (typeof order.user === "object") {
-                      customerName = order.user.name || "Guest Customer";
-                      customerEmail = order.user.email || "";
-                    } else {
-                      customerName = "User ID: " + order.user.substring(18);
+        <div className="space-y-4 font-sans">
+          {/* Desktop Table View */}
+          <div className="hidden md:block bg-white shadow-lg shadow-[#5A2A1F]/5 rounded-2xl border border-[#5A2A1F]/10 overflow-hidden w-full max-w-full">
+            <div className="overflow-x-auto w-full">
+              <table className="min-w-full divide-y divide-[#5A2A1F]/10">
+                <thead className="bg-[#F5F1EC]">
+                  <tr>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Order ID</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Date</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Customer</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Payment</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Status</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Total</th>
+                    <th scope="col" className="px-6 py-4 text-right text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Actions</th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-[#5A2A1F]/5">
+                  {currentOrders.map((order) => {
+                    const orderId = order._id || order.id || "";
+                    let customerName = "Guest Customer";
+                    let customerEmail = "";
+                    
+                    if (order.user) {
+                      if (typeof order.user === "object") {
+                        customerName = order.user.name || "Guest Customer";
+                        customerEmail = order.user.email || "";
+                      } else {
+                        customerName = "User ID: " + order.user.substring(18);
+                      }
                     }
-                  }
 
-                  return (
-                    <tr key={orderId} className="hover:bg-[#F5F1EC]/30 transition-colors">
-                      {/* Order ID */}
-                      <td className="px-6 py-5 whitespace-nowrap text-sm font-bold text-[#5A2A1F]">
-                        #{orderId.substring(18).toUpperCase()}
-                      </td>
+                    return (
+                      <tr key={orderId} className="hover:bg-[#F5F1EC]/30 transition-colors">
+                        {/* Order ID */}
+                        <td className="px-6 py-5 whitespace-nowrap text-sm font-bold text-[#5A2A1F]">
+                          #{orderId.substring(18).toUpperCase()}
+                        </td>
 
-                      {/* Date */}
-                      <td className="px-6 py-5 whitespace-nowrap text-xs text-[#5A2A1F]/70 font-medium">
-                        {formatDate(order.createdAt)}
-                      </td>
+                        {/* Date */}
+                        <td className="px-6 py-5 whitespace-nowrap text-xs text-[#5A2A1F]/70 font-medium">
+                          {formatDate(order.createdAt)}
+                        </td>
 
-                      {/* Customer */}
-                      <td className="px-6 py-5 whitespace-nowrap text-sm text-[#5A2A1F]">
-                        <div className="font-bold">{customerName}</div>
-                        {customerEmail && <div className="text-[10px] text-[#5A2A1F]/50">{customerEmail}</div>}
-                      </td>
+                        {/* Customer */}
+                        <td className="px-6 py-5 whitespace-nowrap text-sm text-[#5A2A1F]">
+                          <div className="font-bold">{customerName}</div>
+                          {customerEmail && <div className="text-[10px] text-[#5A2A1F]/50">{customerEmail}</div>}
+                        </td>
 
-                      {/* Payment Status Dropdown */}
-                      <td className="px-6 py-5 whitespace-nowrap">
-                        <select
-                          value={order.paymentStatus}
-                          onChange={(e) => handleUpdateStatus(orderId, { paymentStatus: e.target.value as any })}
-                          disabled={updatingId === orderId}
-                          className={`text-xs font-black uppercase tracking-wider rounded-lg px-2.5 py-1 border cursor-pointer focus:outline-none ${
-                            order.paymentStatus === "Paid"
-                              ? "bg-emerald-50 text-emerald-700 border-emerald-200"
-                              : order.paymentStatus === "Pending"
-                              ? "bg-amber-50 text-amber-700 border-amber-200"
-                              : "bg-rose-50 text-rose-700 border-rose-200"
-                          }`}
-                        >
-                          <option value="Pending">Pending</option>
-                          <option value="Paid">Paid</option>
-                          <option value="Failed">Failed</option>
-                        </select>
-                      </td>
+                        {/* Payment Status Dropdown */}
+                        <td className="px-6 py-5 whitespace-nowrap">
+                          <select
+                            value={order.paymentStatus}
+                            onChange={(e) => handleUpdateStatus(orderId, { paymentStatus: e.target.value as any })}
+                            disabled={updatingId === orderId}
+                            className={`text-xs font-black uppercase tracking-wider rounded-lg px-2.5 py-1 border cursor-pointer focus:outline-none ${
+                              order.paymentStatus === "Paid"
+                                ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                                : order.paymentStatus === "Pending"
+                                ? "bg-amber-50 text-amber-700 border-amber-200"
+                                : "bg-rose-50 text-rose-700 border-rose-200"
+                            }`}
+                          >
+                            <option value="Pending">Pending</option>
+                            <option value="Paid">Paid</option>
+                            <option value="Failed">Failed</option>
+                          </select>
+                        </td>
 
-                      {/* Order Status Dropdown */}
-                      <td className="px-6 py-5 whitespace-nowrap">
-                        <select
-                          value={order.status}
-                          onChange={(e) => handleUpdateStatus(orderId, { status: e.target.value as any })}
-                          disabled={updatingId === orderId}
-                          className={`text-xs font-black uppercase tracking-wider rounded-lg px-2.5 py-1 border cursor-pointer focus:outline-none ${
-                            order.status === "Delivered"
-                              ? "bg-emerald-50 text-emerald-700 border-emerald-200"
-                              : order.status === "Pending"
-                              ? "bg-amber-50 text-amber-700 border-amber-200"
-                              : order.status === "Processing"
-                              ? "bg-sky-50 text-sky-700 border-sky-200"
-                              : order.status === "Shipped"
-                              ? "bg-indigo-50 text-indigo-700 border-indigo-200"
-                              : order.status === "Returned"
-                              ? "bg-purple-50 text-purple-700 border-purple-200"
-                              : "bg-[#8B3A2B]/10 text-[#8B3A2B] border-[#8B3A2B]/20"
-                          }`}
-                        >
-                          <option value="Pending">Pending</option>
-                          <option value="Processing">Processing</option>
-                          <option value="Shipped">Shipped</option>
-                          <option value="Delivered">Delivered</option>
-                          <option value="Cancelled">Cancelled</option>
-                          <option value="Returned">Returned</option>
-                        </select>
-                      </td>
+                        {/* Order Status Dropdown */}
+                        <td className="px-6 py-5 whitespace-nowrap">
+                          <select
+                            value={order.status}
+                            onChange={(e) => handleUpdateStatus(orderId, { status: e.target.value as any })}
+                            disabled={updatingId === orderId}
+                            className={`text-xs font-black uppercase tracking-wider rounded-lg px-2.5 py-1 border cursor-pointer focus:outline-none ${
+                              order.status === "Delivered"
+                                ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                                : order.status === "Pending"
+                                ? "bg-amber-50 text-amber-700 border-amber-200"
+                                : order.status === "Processing"
+                                ? "bg-sky-50 text-sky-700 border-sky-200"
+                                : order.status === "Shipped"
+                                ? "bg-indigo-50 text-indigo-700 border-indigo-200"
+                                : order.status === "Returned"
+                                ? "bg-purple-50 text-purple-700 border-purple-200"
+                                : "bg-[#8B3A2B]/10 text-[#8B3A2B] border-[#8B3A2B]/20"
+                            }`}
+                          >
+                            <option value="Pending">Pending</option>
+                            <option value="Processing">Processing</option>
+                            <option value="Shipped">Shipped</option>
+                            <option value="Delivered">Delivered</option>
+                            <option value="Cancelled">Cancelled</option>
+                            <option value="Returned">Returned</option>
+                          </select>
+                        </td>
 
-                      {/* Total Price */}
-                      <td className="px-6 py-5 whitespace-nowrap text-sm font-black text-[#5A2A1F]">
+                        {/* Total Price */}
+                        <td className="px-6 py-5 whitespace-nowrap text-sm font-black text-[#5A2A1F]">
+                          ₹{order.totalAmount.toLocaleString()}
+                          <span className="block text-[8px] font-black tracking-widest text-[#8B3A2B] uppercase mt-0.5">{order.paymentMethod}</span>
+                        </td>
+
+                        {/* Actions */}
+                        <td className="px-6 py-5 whitespace-nowrap text-right text-xs">
+                          <button
+                            type="button"
+                            onClick={() => setSelectedOrder(order)}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#5A2A1F] text-white rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-black transition-colors"
+                          >
+                            <Eye size={12} />
+                            <span>Invoice</span>
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Mobile Card Grid View */}
+          <div className="block md:hidden space-y-4">
+            {currentOrders.map((order) => {
+              const orderId = order._id || order.id || "";
+              let customerName = "Guest Customer";
+              let customerEmail = "";
+              
+              if (order.user) {
+                if (typeof order.user === "object") {
+                  customerName = order.user.name || "Guest Customer";
+                  customerEmail = order.user.email || "";
+                } else {
+                  customerName = "User ID: " + order.user.substring(18);
+                }
+              }
+
+              return (
+                <div 
+                  key={orderId} 
+                  className="bg-white shadow-md shadow-[#5A2A1F]/5 rounded-2xl border border-[#5A2A1F]/10 p-5 space-y-4 transition-colors"
+                >
+                  {/* Top Row: Order ID & Date */}
+                  <div className="flex justify-between items-start gap-2">
+                    <div>
+                      <span className="text-[10px] font-black tracking-widest text-[#8B3A2B] uppercase">Order ID</span>
+                      <span className="block text-sm font-bold text-[#5A2A1F]">#{orderId.substring(18).toUpperCase()}</span>
+                    </div>
+                    <div className="text-right">
+                      <span className="block text-[10px] font-black tracking-widest text-[#8B3A2B] uppercase">Date</span>
+                      <span className="block text-xs text-[#5A2A1F]/70 font-medium">{formatDate(order.createdAt)}</span>
+                    </div>
+                  </div>
+
+                  {/* Mid Grid Details: Customer info & Total Amount */}
+                  <div className="grid grid-cols-2 gap-4 border-t border-[#5A2A1F]/5 pt-3">
+                    <div className="min-w-0">
+                      <span className="block text-[10px] font-black tracking-widest text-[#8B3A2B] uppercase">Customer</span>
+                      <span className="block text-sm font-bold text-[#5A2A1F] truncate">{customerName}</span>
+                      {customerEmail && <span className="block text-[10px] text-[#5A2A1F]/50 truncate">{customerEmail}</span>}
+                    </div>
+                    <div>
+                      <span className="block text-[10px] font-black tracking-widest text-[#8B3A2B] uppercase">Total</span>
+                      <div className="text-sm font-black text-[#5A2A1F]">
                         ₹{order.totalAmount.toLocaleString()}
                         <span className="block text-[8px] font-black tracking-widest text-[#8B3A2B] uppercase mt-0.5">{order.paymentMethod}</span>
-                      </td>
+                      </div>
+                    </div>
+                  </div>
 
-                      {/* Actions */}
-                      <td className="px-6 py-5 whitespace-nowrap text-right text-xs">
-                        <button
-                          type="button"
-                          onClick={() => setSelectedOrder(order)}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#5A2A1F] text-white rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-black transition-colors"
-                        >
-                          <Eye size={12} />
-                          <span>Invoice</span>
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                  {/* Status Dropdowns */}
+                  <div className="grid grid-cols-2 gap-4 border-t border-[#5A2A1F]/5 pt-3">
+                    <div>
+                      <span className="block text-[10px] font-black tracking-widest text-[#8B3A2B] uppercase mb-1">Payment</span>
+                      <select
+                        value={order.paymentStatus}
+                        onChange={(e) => handleUpdateStatus(orderId, { paymentStatus: e.target.value as any })}
+                        disabled={updatingId === orderId}
+                        className={`w-full text-xs font-black uppercase tracking-wider rounded-lg px-2.5 py-1.5 border cursor-pointer focus:outline-none ${
+                          order.paymentStatus === "Paid"
+                            ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                            : order.paymentStatus === "Pending"
+                            ? "bg-amber-50 text-amber-700 border-amber-200"
+                            : "bg-rose-50 text-rose-700 border-rose-200"
+                        }`}
+                      >
+                        <option value="Pending">Pending</option>
+                        <option value="Paid">Paid</option>
+                        <option value="Failed">Failed</option>
+                      </select>
+                    </div>
+                    <div>
+                      <span className="block text-[10px] font-black tracking-widest text-[#8B3A2B] uppercase mb-1">Status</span>
+                      <select
+                        value={order.status}
+                        onChange={(e) => handleUpdateStatus(orderId, { status: e.target.value as any })}
+                        disabled={updatingId === orderId}
+                        className={`w-full text-xs font-black uppercase tracking-wider rounded-lg px-2.5 py-1.5 border cursor-pointer focus:outline-none ${
+                          order.status === "Delivered"
+                            ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                            : order.status === "Pending"
+                            ? "bg-amber-50 text-amber-700 border-amber-200"
+                            : order.status === "Processing"
+                            ? "bg-sky-50 text-sky-700 border-sky-200"
+                            : order.status === "Shipped"
+                            ? "bg-indigo-50 text-indigo-700 border-indigo-200"
+                            : order.status === "Returned"
+                            ? "bg-purple-50 text-purple-700 border-purple-200"
+                            : "bg-[#8B3A2B]/10 text-[#8B3A2B] border-[#8B3A2B]/20"
+                        }`}
+                      >
+                        <option value="Pending">Pending</option>
+                        <option value="Processing">Processing</option>
+                        <option value="Shipped">Shipped</option>
+                        <option value="Delivered">Delivered</option>
+                        <option value="Cancelled">Cancelled</option>
+                        <option value="Returned">Returned</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Actions Row */}
+                  <div className="border-t border-[#5A2A1F]/5 pt-3 flex items-center justify-end">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedOrder(order)}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#5A2A1F] text-white rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-black transition-colors"
+                    >
+                      <Eye size={12} />
+                      <span>Invoice</span>
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
           {/* Premium Pagination Controls */}

@@ -137,9 +137,9 @@ export default function AdminLayout({
           </div>
         </header>
 
-        <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 relative">
+        <main className="flex-1 overflow-y-auto overflow-x-hidden p-4 sm:p-6 lg:p-8 relative w-full max-w-full">
            <div className="absolute inset-0 bg-pattern opacity-[0.02] pointer-events-none"></div>
-           <div className="relative z-10">
+           <div className="relative z-10 w-full max-w-full">
              {children}
            </div>
         </main>

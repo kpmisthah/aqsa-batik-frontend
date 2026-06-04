@@ -394,53 +394,129 @@ export default function AdminDashboard() {
             <p className="text-sm text-[#5A2A1F]/50 italic">No checkout orders registered yet.</p>
           </div>
         ) : (
-          <div className="border border-[#5A2A1F]/10 rounded-xl overflow-hidden overflow-x-auto">
-            <table className="min-w-[800px] md:min-w-full divide-y divide-[#5A2A1F]/10">
-              <thead className="bg-[#F5F1EC]">
-                <tr>
-                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Order ID</th>
-                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Customer</th>
-                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Date</th>
-                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Payment</th>
-                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Fulfillment</th>
-                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Total</th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-[#5A2A1F]/5">
-                {orders.slice(0, 5).map((order) => {
-                  const orderId = order._id || order.id || "";
-                  let customerName = "Guest Customer";
-                  
-                  if (order.user) {
-                    if (typeof order.user === "object") {
-                      customerName = order.user.name || "Guest Customer";
-                    } else {
-                      customerName = "User ID: " + order.user.substring(18);
+          <div className="space-y-4">
+            {/* Desktop Table View */}
+            <div className="hidden md:block border border-[#5A2A1F]/10 rounded-xl overflow-hidden overflow-x-auto w-full max-w-full">
+              <table className="min-w-full divide-y divide-[#5A2A1F]/10">
+                <thead className="bg-[#F5F1EC]">
+                  <tr>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Order ID</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Customer</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Date</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Payment</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Fulfillment</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Total</th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-[#5A2A1F]/5">
+                  {orders.slice(0, 5).map((order) => {
+                    const orderId = order._id || order.id || "";
+                    let customerName = "Guest Customer";
+                    
+                    if (order.user) {
+                      if (typeof order.user === "object") {
+                        customerName = order.user.name || "Guest Customer";
+                      } else {
+                        customerName = "User ID: " + order.user.substring(18);
+                      }
                     }
-                  }
 
-                  return (
-                    <tr key={orderId} className="hover:bg-[#F5F1EC]/30 transition-colors">
-                      <td className="px-6 py-5 whitespace-nowrap text-sm font-bold text-[#5A2A1F]">
-                        #{orderId.substring(18).toUpperCase()}
-                      </td>
-                      <td className="px-6 py-5 whitespace-nowrap text-sm font-medium text-[#5A2A1F]/80">
-                        {customerName}
-                      </td>
-                      <td className="px-6 py-5 whitespace-nowrap text-xs text-[#5A2A1F]/60">
-                        {formatDate(order.createdAt)}
-                      </td>
-                      <td className="px-6 py-5 whitespace-nowrap">
-                        <span className={`px-2.5 py-0.5 inline-flex text-[9px] font-black uppercase tracking-wider rounded-md ${
+                    return (
+                      <tr key={orderId} className="hover:bg-[#F5F1EC]/30 transition-colors">
+                        <td className="px-6 py-5 whitespace-nowrap text-sm font-bold text-[#5A2A1F]">
+                          #{orderId.substring(18).toUpperCase()}
+                        </td>
+                        <td className="px-6 py-5 whitespace-nowrap text-sm font-medium text-[#5A2A1F]/80">
+                          {customerName}
+                        </td>
+                        <td className="px-6 py-5 whitespace-nowrap text-xs text-[#5A2A1F]/60">
+                          {formatDate(order.createdAt)}
+                        </td>
+                        <td className="px-6 py-5 whitespace-nowrap">
+                          <span className={`px-2.5 py-0.5 inline-flex text-[9px] font-black uppercase tracking-wider rounded-md ${
+                            order.paymentStatus === "Paid" 
+                              ? "bg-emerald-50 text-emerald-700 border border-emerald-200" 
+                              : "bg-amber-50 text-amber-700 border border-amber-200"
+                          }`}>
+                            {order.paymentStatus}
+                          </span>
+                        </td>
+                        <td className="px-6 py-5 whitespace-nowrap">
+                          <span className={`px-2.5 py-0.5 inline-flex text-[9px] font-black uppercase tracking-wider rounded-md ${
+                            order.status === "Delivered" 
+                              ? "bg-emerald-50 text-emerald-700 border border-emerald-200" 
+                              : order.status === "Pending" 
+                              ? "bg-amber-50 text-amber-700 border border-amber-200" 
+                              : "bg-sky-50 text-sky-700 border border-sky-200"
+                          }`}>
+                            {order.status}
+                          </span>
+                        </td>
+                        <td className="px-6 py-5 whitespace-nowrap text-sm font-black text-[#5A2A1F]">
+                          ₹{order.totalAmount.toLocaleString()}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Mobile Card Grid View */}
+            <div className="block md:hidden space-y-4">
+              {orders.slice(0, 5).map((order) => {
+                const orderId = order._id || order.id || "";
+                let customerName = "Guest Customer";
+                
+                if (order.user) {
+                  if (typeof order.user === "object") {
+                    customerName = order.user.name || "Guest Customer";
+                  } else {
+                    customerName = "User ID: " + order.user.substring(18);
+                  }
+                }
+
+                return (
+                  <div 
+                    key={orderId} 
+                    className="bg-[#FAF6F0]/30 shadow-sm rounded-2xl border border-[#5A2A1F]/10 p-5 space-y-3"
+                  >
+                    <div className="flex justify-between items-start gap-2">
+                      <div>
+                        <span className="text-[9px] font-black tracking-widest text-[#8B3A2B] uppercase">Order ID</span>
+                        <span className="block text-sm font-bold text-[#5A2A1F]">#{orderId.substring(18).toUpperCase()}</span>
+                      </div>
+                      <div className="text-right">
+                        <span className="block text-[9px] font-black tracking-widest text-[#8B3A2B] uppercase">Date</span>
+                        <span className="block text-xs text-[#5A2A1F]/60 font-medium">{formatDate(order.createdAt)}</span>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4 border-t border-[#5A2A1F]/5 pt-3">
+                      <div>
+                        <span className="block text-[9px] font-black tracking-widest text-[#8B3A2B] uppercase">Customer</span>
+                        <span className="text-xs font-bold text-[#5A2A1F] truncate block">{customerName}</span>
+                      </div>
+                      <div>
+                        <span className="block text-[9px] font-black tracking-widest text-[#8B3A2B] uppercase">Total</span>
+                        <span className="text-xs font-black text-[#5A2A1F]">₹{order.totalAmount.toLocaleString()}</span>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4 border-t border-[#5A2A1F]/5 pt-3">
+                      <div>
+                        <span className="block text-[9px] font-black tracking-widest text-[#8B3A2B] uppercase mb-1">Payment</span>
+                        <span className={`px-2 py-0.5 inline-flex text-[9px] font-black uppercase tracking-wider rounded-md ${
                           order.paymentStatus === "Paid" 
                             ? "bg-emerald-50 text-emerald-700 border border-emerald-200" 
                             : "bg-amber-50 text-amber-700 border border-amber-200"
                         }`}>
                           {order.paymentStatus}
                         </span>
-                      </td>
-                      <td className="px-6 py-5 whitespace-nowrap">
-                        <span className={`px-2.5 py-0.5 inline-flex text-[9px] font-black uppercase tracking-wider rounded-md ${
+                      </div>
+                      <div>
+                        <span className="block text-[9px] font-black tracking-widest text-[#8B3A2B] uppercase mb-1">Fulfillment</span>
+                        <span className={`px-2 py-0.5 inline-flex text-[9px] font-black uppercase tracking-wider rounded-md ${
                           order.status === "Delivered" 
                             ? "bg-emerald-50 text-emerald-700 border border-emerald-200" 
                             : order.status === "Pending" 
@@ -449,15 +525,12 @@ export default function AdminDashboard() {
                         }`}>
                           {order.status}
                         </span>
-                      </td>
-                      <td className="px-6 py-5 whitespace-nowrap text-sm font-black text-[#5A2A1F]">
-                        ₹{order.totalAmount.toLocaleString()}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         )}
       </div>
