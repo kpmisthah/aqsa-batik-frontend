@@ -278,7 +278,7 @@ export default function SignupPage() {
         {/* Credentials Form */}
         {!isOtpStep && (
           <>
-            <form onSubmit={handleEmailSignUp} className="space-y-4">
+            <form onSubmit={handleEmailSignUp} className="space-y-4" noValidate>
               <div>
                 <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2">Full Name</label>
                 <div className="relative">
