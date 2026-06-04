@@ -411,7 +411,7 @@ export default function AdminOrders() {
                             <option value="Processing">Processing</option>
                             <option value="Shipped">Shipped</option>
                             <option value="Delivered">Delivered</option>
-                            <option value="Cancelled">Cancelled</option>
+                            <option value="Cancelled" disabled={order.status === "Delivered"}>Cancelled</option>
                             <option value="Returned">Returned</option>
                           </select>
                         </td>
@@ -535,7 +535,7 @@ export default function AdminOrders() {
                         <option value="Processing">Processing</option>
                         <option value="Shipped">Shipped</option>
                         <option value="Delivered">Delivered</option>
-                        <option value="Cancelled">Cancelled</option>
+                        <option value="Cancelled" disabled={order.status === "Delivered"}>Cancelled</option>
                         <option value="Returned">Returned</option>
                       </select>
                     </div>
@@ -759,7 +759,7 @@ export default function AdminOrders() {
                     <option value="Processing">Processing</option>
                     <option value="Shipped">Shipped</option>
                     <option value="Delivered">Delivered</option>
-                    <option value="Cancelled">Cancelled</option>
+                    <option value="Cancelled" disabled={selectedOrder.status === "Delivered"}>Cancelled</option>
                     <option value="Returned">Returned</option>
                   </select>
                 </div>

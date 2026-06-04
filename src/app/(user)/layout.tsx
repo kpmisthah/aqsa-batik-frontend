@@ -1,4 +1,5 @@
 import Footer from "@/modules/user/components/Footer";
+import WelcomePopup from "@/modules/user/components/WelcomePopup";
 
 export default function StoreLayout({
   children,
@@ -7,6 +8,7 @@ export default function StoreLayout({
 }>) {
   return (
     <>
+      <WelcomePopup />
       {children}
       <Footer />
     </>

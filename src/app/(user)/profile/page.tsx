@@ -780,11 +780,11 @@ function ProfileContent() {
                         return (
                           <div key={orderId} className="border border-[#5A2A1F]/10 rounded-2xl overflow-hidden bg-[#FAF6F0]/10 hover:bg-[#FAF6F0]/20 transition-all font-sans">
                             {/* Summary Row */}
-                            <div className="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#5A2A1F]/5">
+                            <div className="p-5 md:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#5A2A1F]/5">
                               <div className="space-y-1">
-                                <div className="flex flex-wrap items-center gap-2">
-                                  <span className="text-[10px] font-black uppercase tracking-widest text-[#8B3A2B]">ORDER #{orderId.substring(18).toUpperCase()}</span>
-                                  <span className={`px-2 py-0.5 text-[8px] font-black uppercase tracking-wider rounded-md ${
+                                <div className="flex flex-wrap items-center gap-3">
+                                  <span className="text-xs font-black uppercase tracking-widest text-[#8B3A2B]">ORDER #{orderId.substring(18).toUpperCase()}</span>
+                                  <span className={`px-2.5 py-1 text-[10px] font-black uppercase tracking-wider rounded-md ${
                                     order.paymentStatus === 'Paid'
                                       ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                                       : order.paymentStatus === 'Pending'
@@ -794,18 +794,18 @@ function ProfileContent() {
                                     Payment: {order.paymentStatus}
                                   </span>
                                   {order.paymentMethod === 'COD' && (
-                                    <span className="px-2 py-0.5 text-[8px] font-black uppercase tracking-wider rounded-md bg-sky-50 text-sky-700 border border-sky-200">
+                                    <span className="px-2.5 py-1 text-[10px] font-black uppercase tracking-wider rounded-md bg-sky-50 text-sky-700 border border-sky-200">
                                       COD
                                     </span>
                                   )}
                                 </div>
-                                <p className="text-xs text-[#5A2A1F]/55 font-medium">{dateStr}</p>
+                                <p className="text-sm text-[#5A2A1F]/70 font-medium">{dateStr}</p>
                               </div>
                               
-                              <div className="flex items-center gap-4 justify-between sm:justify-end">
+                              <div className="flex items-center gap-5 justify-between sm:justify-end">
                                 <div className="text-right">
-                                  <span className="text-[10px] font-bold opacity-45 uppercase tracking-wider block">Total Amount</span>
-                                  <span className="text-sm font-bold text-[#5A2A1F]">₹{order.totalAmount.toLocaleString()}</span>
+                                  <span className="text-xs font-bold opacity-60 uppercase tracking-wider block mb-0.5">Total Amount</span>
+                                  <span className="text-lg font-black text-[#5A2A1F]">₹{order.totalAmount.toLocaleString()}</span>
                                 </div>
                                 
                                 {/* Retry Payment Button */}
@@ -814,12 +814,12 @@ function ProfileContent() {
                                     type="button"
                                     onClick={() => handleRetryPayment(orderId)}
                                     disabled={retryingOrderId === orderId}
-                                    className="bg-[#5A2A1F] hover:bg-black text-white px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 active:scale-95 disabled:opacity-50"
+                                    className="bg-[#5A2A1F] hover:bg-black text-white px-5 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 active:scale-95 disabled:opacity-50 shadow-md"
                                   >
                                     {retryingOrderId === orderId ? (
-                                      <Loader2 size={12} className="animate-spin" />
+                                      <Loader2 size={16} className="animate-spin" />
                                     ) : (
-                                      <CreditCard size={12} />
+                                      <CreditCard size={16} />
                                     )}
                                     <span>Pay Now</span>
                                   </button>
@@ -828,42 +828,44 @@ function ProfileContent() {
                             </div>
                             
                             {/* Order Items Info */}
-                            <div className="p-5 bg-white/40 space-y-3.5">
-                              <span className="text-[10px] font-black uppercase tracking-widest text-[#5A2A1F]/45 block">Items Ordered ({order.items.reduce((acc: number, item: any) => acc + item.quantity, 0)})</span>
+                            <div className="p-5 md:p-6 bg-white/40 space-y-4">
+                              <span className="text-xs font-black uppercase tracking-widest text-[#5A2A1F]/50 block">Items Ordered ({order.items.reduce((acc: number, item: any) => acc + item.quantity, 0)})</span>
                               <div className="divide-y divide-[#5A2A1F]/5">
                                 {order.items.map((item: any, idx: number) => (
-                                  <div key={idx} className="py-2.5 first:pt-0 last:pb-0 flex justify-between items-center text-xs">
-                                    <div className="space-y-0.5">
-                                      <span className="font-bold text-[#5A2A1F]">{item.name}</span>
+                                  <div key={idx} className="py-3 first:pt-0 last:pb-0 flex justify-between items-center text-sm md:text-base">
+                                    <div className="space-y-1">
+                                      <span className="font-bold text-[#5A2A1F] block">{item.name}</span>
                                       {item.variantColour && (
-                                        <span className="block text-[10px] text-[#5A2A1F]/50 font-medium">Color: {getColorName(item.variantColour)}</span>
+                                        <span className="block text-xs text-[#5A2A1F]/60 font-medium">Color: {getColorName(item.variantColour)}</span>
                                       )}
                                     </div>
                                     <div className="text-right font-medium">
                                       <span className="opacity-60">{item.quantity} x </span>
-                                      <span className="font-bold">₹{item.price.toLocaleString()}</span>
+                                      <span className="font-bold text-[#5A2A1F]">₹{item.price.toLocaleString()}</span>
                                     </div>
                                   </div>
                                 ))}
                               </div>
                               
                               {/* Shipping address summary */}
-                              <div className="pt-3 border-t border-[#5A2A1F]/5 flex flex-col sm:flex-row justify-between gap-2 text-[10px] text-[#5A2A1F]/60 font-medium">
-                                <div>
-                                  <span className="font-black uppercase text-[#8B3A2B]/85">SHIPPING ADDRESS:</span>
-                                  <span className="ml-1.5">{order.shippingAddress.address}, {order.shippingAddress.city}, {order.shippingAddress.state} - {order.shippingAddress.zip}</span>
+                              <div className="pt-4 border-t border-[#5A2A1F]/5 flex flex-col md:flex-row justify-between gap-4 text-xs text-[#5A2A1F]/70 font-medium">
+                                <div className="max-w-md">
+                                  <span className="font-black uppercase text-[#8B3A2B]/90 block mb-1 text-[10px] md:text-xs">SHIPPING ADDRESS:</span>
+                                  <span className="leading-relaxed">{order.shippingAddress.address}, {order.shippingAddress.city}, {order.shippingAddress.state} - {order.shippingAddress.zip}</span>
                                 </div>
-                                <div>
-                                  <span className="font-black uppercase text-[#8B3A2B]/85">CONTACT:</span>
-                                  <span className="ml-1.5">{order.shippingAddress.phone}</span>
+                                <div className="md:text-right">
+                                  <span className="font-black uppercase text-[#8B3A2B]/90 block mb-1 text-[10px] md:text-xs">NEED HELP?</span>
+                                  <a href="https://wa.me/918815373767?text=Hi%2C%20I%20have%20an%20inquiry%20about%20my%20order." target="_blank" rel="noreferrer" className="text-emerald-700 hover:text-emerald-800 font-bold underline decoration-emerald-700/30 underline-offset-4 transition-colors">
+                                    WhatsApp Support: +91 88153 73767
+                                  </a>
                                 </div>
                               </div>
 
                               {/* Order Action Buttons (Cancel / Return / Return Statuses) */}
-                              <div className="pt-3 border-t border-[#5A2A1F]/5 flex flex-wrap justify-between items-center gap-3">
+                              <div className="pt-4 border-t border-[#5A2A1F]/5 flex flex-wrap justify-between items-center gap-4">
                                 {/* Fulfillment Status Text */}
                                 <div className="flex flex-wrap gap-2 items-center">
-                                  <span className={`px-2 py-0.5 text-[8.5px] font-black uppercase tracking-wider rounded-md ${
+                                  <span className={`px-2.5 py-1 text-[10px] font-black uppercase tracking-wider rounded-md ${
                                     order.status === 'Delivered'
                                       ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                                       : order.status === 'Pending'
@@ -881,14 +883,14 @@ function ProfileContent() {
 
                                   {/* Cancellation reason info badge if cancelled */}
                                   {order.status === 'Cancelled' && order.cancelReason && (
-                                    <span className="text-[9px] text-[#8B3A2B] font-bold italic">
+                                    <span className="text-[10px] text-[#8B3A2B] font-bold italic">
                                       Reason: &ldquo;{order.cancelReason}&rdquo;
                                     </span>
                                   )}
 
                                   {/* Return status badges */}
                                   {order.returnStatus && order.returnStatus !== 'None' && (
-                                    <span className={`px-2 py-0.5 text-[8.5px] font-black uppercase tracking-wider rounded-md ${
+                                    <span className={`px-2.5 py-1 text-[10px] font-black uppercase tracking-wider rounded-md ${
                                       order.returnStatus === 'Approved'
                                         ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                                         : order.returnStatus === 'Pending'
@@ -900,7 +902,7 @@ function ProfileContent() {
                                   )}
 
                                   {order.returnStatus === 'Pending' && order.returnReason && (
-                                    <span className="text-[9px] text-[#5A2A1F]/60 font-bold italic">
+                                    <span className="text-[10px] text-[#5A2A1F]/60 font-bold italic">
                                       Reason: &ldquo;{order.returnReason}&rdquo;
                                     </span>
                                   )}
@@ -913,7 +915,7 @@ function ProfileContent() {
                                     <button
                                       type="button"
                                       onClick={() => setCancellingOrderId(orderId)}
-                                      className="px-3 py-1.5 border border-red-200 hover:bg-red-50 text-red-700 rounded-xl text-[10px] font-black uppercase tracking-wider transition-colors active:scale-95"
+                                      className="px-4 py-2 border border-red-200 hover:bg-red-50 text-red-700 rounded-xl text-xs font-black uppercase tracking-wider transition-colors active:scale-95 shadow-sm"
                                     >
                                       Cancel Order
                                     </button>
@@ -924,7 +926,7 @@ function ProfileContent() {
                                     <button
                                       type="button"
                                       onClick={() => setReturningOrderId(orderId)}
-                                      className="px-3 py-1.5 border border-[#5A2A1F]/15 hover:bg-[#FAF6F0] text-[#5A2A1F] rounded-xl text-[10px] font-black uppercase tracking-wider transition-colors active:scale-95"
+                                      className="px-4 py-2 border border-[#5A2A1F]/20 hover:bg-[#FAF6F0] text-[#5A2A1F] rounded-xl text-xs font-black uppercase tracking-wider transition-colors active:scale-95 shadow-sm"
                                     >
                                       Return Order
                                     </button>

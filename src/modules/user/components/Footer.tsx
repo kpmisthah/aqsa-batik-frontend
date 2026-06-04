@@ -207,13 +207,35 @@ export default function Footer() {
                         ))}
                     </div>
 
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-                        <p className="text-[10px] font-black uppercase tracking-[0.3em] opacity-20 text-center md:text-left">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                        <p className="text-[10px] font-black uppercase tracking-[0.3em] opacity-20 text-center lg:text-left">
                             © 2026 AQSHA Batik Cloth. All Rights Reserved.
                         </p>
-                        <p className="text-[10px] font-black uppercase tracking-[0.3em] opacity-40 text-center md:text-right">
+                        <p className="text-[10px] font-black uppercase tracking-[0.3em] opacity-40 text-center hidden lg:block">
                             Designed for wholesale buyers across India
                         </p>
+                        <div className="flex justify-center lg:justify-end">
+                            <a href="#" className="flex flex-col items-center lg:items-end gap-1 opacity-60 hover:opacity-100 transition-opacity group cursor-pointer">
+                                <span className="text-[8px] font-black uppercase tracking-[0.2em] text-white/50 group-hover:text-white/80 transition-colors">Powered By:</span>
+                                <div className="flex flex-col items-center lg:items-end">
+                                    <svg width="100" height="15" viewBox="0 0 100 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-[-2px]">
+                                        <path d="M5 13 Q 50 -5 95 13" stroke="url(#paint0_linear)" strokeWidth="2" strokeLinecap="round"/>
+                                        <circle cx="68" cy="4" r="2.5" fill="#06b6d4" />
+                                        <defs>
+                                            <linearGradient id="paint0_linear" x1="5" y1="6" x2="95" y2="6" gradientUnits="userSpaceOnUse">
+                                                <stop stopColor="#3B82F6" />
+                                                <stop offset="1" stopColor="#06b6d4" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                    <div className="flex items-center gap-1.5 font-black text-base tracking-widest leading-none">
+                                        <span className="text-[#3B82F6]">UFUQ</span>
+                                        <span className="text-[#06b6d4]">TECHS</span>
+                                    </div>
+                                    <span className="text-[6px] font-black uppercase tracking-[0.1em] text-white/40 mt-1 whitespace-nowrap">Scaling Business Revenue Beyond Boundaries</span>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
