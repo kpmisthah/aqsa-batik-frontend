@@ -23,7 +23,7 @@ export default function LeadGenerationForm() {
         setIsSubmitting(true);
 
         // WhatsApp Phone Number (using the support number)
-        const waNumber = "9048525783";
+        const waNumber = "8815373767";
 
         // Construct the pre-filled message
         const message = `*New Wholesale Inquiry* 🏢\n\n*Name:* ${formData.fullName}\n*Phone:* ${formData.phone}\n*Business:* ${formData.businessName}\n*Est. Order Value:* ${formData.orderValue || 'Not specified'}\n\nHi team, I would like to get a personalized quote and the latest wholesale price list.`;
