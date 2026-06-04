@@ -51,10 +51,14 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
   const isResetPasswordStrong = resetMetCount === 5;
   const doResetPasswordsMatch = newPassword === confirmNewPassword;
 
-  // If already logged in (as standard user), redirect to home page
+  // If already logged in, redirect to the appropriate dashboard
   useEffect(() => {
-    if (!isAdmin && isSignedIn) {
-      router.push("/");
+    if (isSignedIn) {
+      if (isAdmin) {
+        router.push("/aqsha-portal");
+      } else {
+        router.push("/");
+      }
     }
   }, [isSignedIn, router, isAdmin]);
 
