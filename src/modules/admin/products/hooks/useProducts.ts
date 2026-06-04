@@ -29,10 +29,25 @@ export function useProducts() {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState<AdminProduct | null>(null);
 
-  const fetchProducts = useCallback(async (page: number = 1, limit: number = 10) => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All Categories");
+
+  const fetchProducts = useCallback(async (
+    page: number = 1,
+    limit: number = 10,
+    category: string = selectedCategory,
+    search: string = searchTerm
+  ) => {
     try {
       setLoading(true);
-      const res = await fetch(`${API_BASE}/products?page=${page}&limit=${limit}&admin=true`);
+      let url = `${API_BASE}/products?page=${page}&limit=${limit}&admin=true`;
+      if (category && category !== "All Categories") {
+        url += `&category=${encodeURIComponent(category)}`;
+      }
+      if (search) {
+        url += `&search=${encodeURIComponent(search)}`;
+      }
+      const res = await fetch(url);
       const data = await res.json();
       setProductList(data.data || []);
       setPagination({
@@ -46,11 +61,15 @@ export function useProducts() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [selectedCategory, searchTerm]);
 
   useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
+    const delayDebounceFn = setTimeout(() => {
+      fetchProducts(1, pagination.limit, selectedCategory, searchTerm);
+    }, 300);
+
+    return () => clearTimeout(delayDebounceFn);
+  }, [selectedCategory, searchTerm, pagination.limit]);
 
   const uploadImages = async (files: FileList): Promise<string[]> => {
     const formData = new FormData();
@@ -201,5 +220,9 @@ export function useProducts() {
     deleteProduct,
     openAddModal,
     closeModals,
+    searchTerm,
+    setSearchTerm,
+    selectedCategory,
+    setSelectedCategory,
   };
 }

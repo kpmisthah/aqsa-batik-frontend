@@ -12,7 +12,7 @@ const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
 async function getProducts() {
     try {
-        const res = await fetch(`${API_BASE}/products?limit=100`, { cache: 'no-store' });
+        const res = await fetch(`${API_BASE}/products?limit=100&category=Batik+Fabric`, { cache: 'no-store' });
         const json = await res.json();
         return json.data || [];
     } catch (e) {

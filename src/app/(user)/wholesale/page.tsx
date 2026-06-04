@@ -14,7 +14,7 @@ const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
 async function getProducts() {
     try {
-        const res = await fetch(`${API_BASE}/products?limit=100`, { cache: 'no-store' });
+        const res = await fetch(`${API_BASE}/products?limit=100&category=Wholesale`, { cache: 'no-store' });
         const json = await res.json();
         return json.data || [];
     } catch (e) {
@@ -26,7 +26,7 @@ const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20ab
 
 export default async function WholesalePage() {
     const allProducts = await getProducts();
-    const wholesaleProducts = allProducts; // In database all are wholesale or we filter based on backend
+    const wholesaleProducts = allProducts.filter((p: any) => p.category === "Wholesale" || p.isWholesale === true);
 
     const partnershipBenefits = [
         {

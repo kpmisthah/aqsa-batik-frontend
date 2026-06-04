@@ -24,23 +24,15 @@ export default function AdminProducts() {
     deleteProduct,
     openAddModal,
     closeModals,
+    searchTerm,
+    setSearchTerm,
+    selectedCategory,
+    setSelectedCategory,
   } = useProducts();
 
   const formRef = useRef<HTMLFormElement>(null);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [croppingFile, setCroppingFile] = useState<File | null>(null);
-
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All Categories");
-
-  const filteredProducts = productList.filter((product) => {
-    const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (product.subCategory && product.subCategory.toLowerCase().includes(searchTerm.toLowerCase()));
-
-    const matchesCategory = selectedCategory === "All Categories" || product.category === selectedCategory;
-
-    return matchesSearch && matchesCategory;
-  });
 
   // Clear files when modal closes or editing product changes
   useEffect(() => {
@@ -134,16 +126,16 @@ export default function AdminProducts() {
         </div>
       ) : productList.length === 0 ? (
         <div className="text-center py-20 bg-white rounded-2xl border border-[#5A2A1F]/10">
-          <p className="text-[#5A2A1F]/50 font-medium text-lg">No products yet. Click &quot;Add Product&quot; to get started.</p>
-        </div>
-      ) : filteredProducts.length === 0 ? (
-        <div className="text-center py-20 bg-white rounded-2xl border border-[#5A2A1F]/10">
-          <p className="text-[#5A2A1F]/50 font-medium text-lg">No products matched your search or filters.</p>
+          <p className="text-[#5A2A1F]/50 font-medium text-lg">
+            {searchTerm || selectedCategory !== "All Categories"
+              ? "No products matched your search or filters."
+              : "No products yet. Click \"Add Product\" to get started."}
+          </p>
         </div>
       ) : (
         <div className="space-y-4">
           <ProductTable
-            products={filteredProducts}
+            products={productList}
             onToggleBlock={toggleBlock}
             onEdit={setEditingProduct}
             onDelete={deleteProduct}
@@ -156,14 +148,14 @@ export default function AdminProducts() {
               </span>
               <div className="flex gap-2">
                 <button
-                  onClick={() => fetchProducts(pagination.page - 1, pagination.limit)}
+                  onClick={() => fetchProducts(pagination.page - 1, pagination.limit, selectedCategory, searchTerm)}
                   disabled={pagination.page === 1}
                   className="px-4 py-2 border border-[#5A2A1F]/20 rounded-xl text-sm font-bold text-[#5A2A1F] disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#F5F1EC] transition-colors"
                 >
                   Previous
                 </button>
                 <button
-                  onClick={() => fetchProducts(pagination.page + 1, pagination.limit)}
+                  onClick={() => fetchProducts(pagination.page + 1, pagination.limit, selectedCategory, searchTerm)}
                   disabled={pagination.page === pagination.totalPages}
                   className="px-4 py-2 border border-[#5A2A1F]/20 rounded-xl text-sm font-bold text-[#5A2A1F] disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#F5F1EC] transition-colors"
                 >

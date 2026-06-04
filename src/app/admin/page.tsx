@@ -394,8 +394,8 @@ export default function AdminDashboard() {
             <p className="text-sm text-[#5A2A1F]/50 italic">No checkout orders registered yet.</p>
           </div>
         ) : (
-          <div className="border border-[#5A2A1F]/10 rounded-xl overflow-hidden">
-            <table className="min-w-full divide-y divide-[#5A2A1F]/10">
+          <div className="border border-[#5A2A1F]/10 rounded-xl overflow-hidden overflow-x-auto">
+            <table className="min-w-[800px] md:min-w-full divide-y divide-[#5A2A1F]/10">
               <thead className="bg-[#F5F1EC]">
                 <tr>
                   <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Order ID</th>

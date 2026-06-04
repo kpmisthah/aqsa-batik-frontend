@@ -320,7 +320,7 @@ export default function AdminOrders() {
       ) : (
         <div className="bg-white shadow-lg shadow-[#5A2A1F]/5 rounded-2xl border border-[#5A2A1F]/10 overflow-hidden font-sans">
           <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-[#5A2A1F]/10">
+            <table className="min-w-[1000px] md:min-w-full divide-y divide-[#5A2A1F]/10">
               <thead className="bg-[#F5F1EC]">
                 <tr>
                   <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Order ID</th>

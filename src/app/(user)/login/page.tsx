@@ -393,7 +393,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
                     required
                     value={email}
                     onChange={(e) => { setEmail(e.target.value); if (emailError) setEmailError(""); }}
-                    placeholder={isAdmin ? "aqdaschhipa368@gmail.com" : "yourname@example.com"}
+                    placeholder={isAdmin ? "Enter email" : "yourname@example.com"}
                     aria-invalid={!!emailError}
                     className={`w-full pl-11 pr-4 py-3.5 border rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 text-sm font-medium ${
                       emailError ? "border-red-400 focus:ring-red-200" : "border-[#5A2A1F]/20 focus:ring-[#5A2A1F]/20"
