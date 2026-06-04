@@ -9,7 +9,8 @@ export function middleware(request: NextRequest) {
     '/profile',
     '/wishlist',
     '/order-tracking',
-    '/checkout'
+    '/checkout',
+    '/cart'
   ];
 
   // Check if current path matches any protected user route
