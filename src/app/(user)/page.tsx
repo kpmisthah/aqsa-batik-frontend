@@ -64,7 +64,7 @@ export default function HomePage() {
             </div>
 
             <div className="flex flex-col gap-4 md:gap-6">
-              <h1 className="font-playfair text-5xl md:text-[68px] lg:text-[84px] font-bold leading-[1.4] md:leading-[1.3] tracking-tight">
+              <h1 className="font-playfair text-4xl md:text-5xl lg:text-[64px] font-normal leading-[1.4] md:leading-[1.3] tracking-tight">
                 Premium <span className='hero-highlight'>Batik Designs</span> That Turn <span className='hero-highlight'>Attention</span> Into <span className='hero-highlight'>Orders</span>
               </h1>
               <p className="font-sans text-lg md:text-2xl lg:text-3xl font-medium opacity-95 leading-[1.4] md:leading-[1.3] mt-2 max-w-5xl mx-auto">
@@ -94,7 +94,7 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16 flex flex-col gap-5">
               <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Curated For Sales</span>
-              <h2 className="font-playfair text-5xl md:text-[72px] font-bold text-[#5A2A1F]">Explore Our Best-Selling Batik Designs Collection</h2>
+              <h2 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-medium text-[#5A2A1F]">Explore Our Best-Selling Batik Designs Collection</h2>
               <p className="text-[#6E5238] opacity-70 text-lg md:text-xl max-w-4xl mx-auto font-medium italic leading-relaxed">
                 Explore premium batik print dress collections, breathable ladies cotton dresses, and every stylish dress for women designed for comfort, fashion, and everyday demand.
               </p>
@@ -133,7 +133,7 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto text-center flex flex-col gap-16 relative z-10">
             <div className="flex flex-col gap-6">
               <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Engineered For Resellers</span>
-              <h2 className="font-playfair text-5xl md:text-[72px] font-bold text-[#5A2A1F]">If You Sell Clothing, <br /> This Is Built for You</h2>
+              <h2 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-medium text-[#5A2A1F]">If You Sell Clothing, <br /> This Is Built for You</h2>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -207,7 +207,7 @@ export default function HomePage() {
             <div className="flex flex-col gap-8">
               <div className="flex flex-col gap-4">
                 <span className="text-sm font-black text-[#8B3A2B] uppercase tracking-[0.5em] mb-2 block">The Legacy of Quality</span>
-                <h2 className="font-playfair text-6xl md:text-8xl font-bold leading-[1.05] text-[#5A2A1F]">15 Years of <br /> Proven Market <br /> Excellence.</h2>
+                <h2 className="font-playfair text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.05] text-[#5A2A1F]">15 Years of <br /> Proven Market <br /> Excellence.</h2>
               </div>
               <div className="flex flex-col gap-10 text-[#6E5238]/80 leading-relaxed text-2xl lg:text-3xl font-medium max-w-2xl">
                 <p className="border-l-4 border-[#8B3A2B] pl-8 py-2 italic">
@@ -298,7 +298,7 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto flex flex-col gap-16 relative z-10">
             <div className="text-center flex flex-col gap-5">
               <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Real Buyers. Real Results.</span>
-              <h2 className="font-playfair text-5xl md:text-[72px] font-bold text-[#5A2A1F]">What Buyers Say</h2>
+              <h2 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-medium text-[#5A2A1F]">What Buyers Say</h2>
             </div>
 
             <div className="bg-[#F5F1EC]/90 backdrop-blur-xl p-8 md:p-12 rounded-[50px] shadow-[0_50px_100px_rgba(90,42,31,0.15)] border border-white relative">
@@ -375,7 +375,7 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto flex flex-col gap-20">
             <div className="text-center flex flex-col gap-6 max-w-5xl mx-auto">
               <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Buyer Psychology</span>
-              <h2 className="font-playfair text-5xl md:text-7xl font-bold text-[#5A2A1F]">Why Smart Retailers Prefer Our Batik Fabric</h2>
+              <h2 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-medium text-[#5A2A1F]">Why Smart Retailers Prefer Our Batik Fabric</h2>
               <p className="text-xl md:text-3xl text-[#5A2A1F]/70 font-medium leading-relaxed italic">
                 You are not just buying Batik Cloth. You are choosing fast-moving demand, trusted quality, and repeat buyers looking for stylish women clothing, breathable cotton cloth, and premium everyday wear.
               </p>
@@ -443,7 +443,7 @@ export default function HomePage() {
           <div className="max-w-[1600px] mx-auto flex flex-col gap-24 relative z-10">
             <div className="text-center flex flex-col gap-8">
               <span className="text-sm font-black text-[#8B3A2B] uppercase tracking-[0.5em] mb-2 block">Simple Process</span>
-              <h2 className="font-playfair text-6xl md:text-8xl font-bold text-[#5A2A1F] leading-tight">How to Order Batik Cloth Online</h2>
+              <h2 className="font-playfair text-5xl md:text-6xl lg:text-7xl font-medium text-[#5A2A1F] leading-tight">How to Order Batik Cloth Online</h2>
               <p className="text-2xl md:text-3xl text-[#5A2A1F]/70 font-medium italic max-w-4xl mx-auto leading-relaxed">
                 Five simple steps. Zero confusion. Fast delivery of premium batik fabric, Batik Cloth, trending batik color collections, and quality cotton cloth across India.
               </p>

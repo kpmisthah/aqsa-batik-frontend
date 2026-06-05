@@ -10,39 +10,48 @@ export default function WelcomePopup() {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        // Check if the user has already seen the popup
-        const hasSeenPopup = localStorage.getItem("hasSeenWelcomePopup");
+        // TEMPORARY: Ignored localStorage check so you can test the popup.
+        // It will show up every time you refresh.
+        const timer = setTimeout(() => {
+            setIsOpen(true);
+            
+            // Automatically close after 5 seconds
+            const autoCloseTimer = setTimeout(() => {
+                setIsOpen((current) => {
+                    if (current) {
+                        // localStorage.setItem("hasSeenWelcomePopup", "true");
+                        return false;
+                    }
+                    return current;
+                });
+            }, 5000);
 
-        if (!hasSeenPopup) {
-            // Show popup after a slight delay
-            const timer = setTimeout(() => {
-                setIsOpen(true);
-            }, 3000);
-            return () => clearTimeout(timer);
-        }
+        }, 3000);
+        
+        return () => clearTimeout(timer);
     }, []);
 
     const closePopup = () => {
         setIsOpen(false);
-        localStorage.setItem("hasSeenWelcomePopup", "true");
+        // localStorage.setItem("hasSeenWelcomePopup", "true");
     };
 
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-300">
-            <div className="bg-[#F9F2E7] w-full max-w-[1000px] rounded-[32px] relative flex flex-col md:flex-row shadow-2xl overflow-hidden animate-in zoom-in-95 duration-500">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 bg-black/70 backdrop-blur-sm animate-in fade-in duration-300">
+            <div className="bg-[#F9F2E7] w-full max-w-[1000px] max-h-[90vh] overflow-y-auto overflow-x-hidden rounded-[24px] md:rounded-[32px] relative flex flex-col md:flex-row shadow-2xl animate-in zoom-in-95 duration-500">
 
                 {/* Close Button */}
-                <button onClick={closePopup} className="absolute top-4 right-4 md:top-5 md:right-5 w-10 h-10 rounded-full border border-[#7A2A1A]/20 flex items-center justify-center text-[#7A2A1A] hover:bg-[#7A2A1A] hover:text-white transition-colors z-20 bg-[#F9F2E7]/80 backdrop-blur-sm shadow-sm">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <button onClick={closePopup} className="absolute top-3 right-3 md:top-5 md:right-5 w-10 h-10 rounded-full border border-[#7A2A1A]/20 flex items-center justify-center text-[#7A2A1A] hover:bg-[#7A2A1A] hover:text-white transition-colors z-50 bg-[#F9F2E7]/90 backdrop-blur-sm shadow-sm">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M18 6 6 18M6 6l12 12" />
                     </svg>
                 </button>
 
                 {/* Left Side - Image with Arch Effect */}
-                <div className="md:w-[45%] relative min-h-[250px] md:min-h-[600px] bg-[#F9F2E7]">
-                    <div className="absolute inset-0 rounded-tr-[140px] overflow-hidden">
+                <div className="md:w-[45%] relative min-h-[200px] sm:min-h-[250px] md:min-h-[600px] bg-[#F9F2E7] shrink-0">
+                    <div className="absolute inset-0 rounded-tr-[100px] md:rounded-tr-[140px] overflow-hidden">
                         <Image
                             src="/white_mustard_suit.png"
                             alt="Welcome to Aqsha Batik Suits"
@@ -53,7 +62,7 @@ export default function WelcomePopup() {
                 </div>
 
                 {/* Right Side - Content */}
-                <div className="md:w-[55%] px-6 py-10 md:py-12 md:px-10 flex flex-col items-center text-center text-[#7A2A1A] z-10 relative justify-center">
+                <div className="md:w-[55%] px-4 py-8 md:py-12 md:px-10 flex flex-col items-center text-center text-[#7A2A1A] z-10 relative justify-center">
 
                     {/* Logo Section */}
                     <div className="flex flex-col items-center gap-1 mb-6">
@@ -82,7 +91,7 @@ export default function WelcomePopup() {
                     </div>
 
                     {/* Title */}
-                    <h1 className="font-playfair text-[32px] md:text-[42px] leading-[1.1] font-bold tracking-tight text-[#7A2A1A] mb-5">
+                    <h1 className="font-playfair text-[28px] md:text-[36px] leading-[1.1] font-medium tracking-tight text-[#7A2A1A] mb-5">
                         Premium Batik Suits<br />That Your Customers Love
                     </h1>
 
