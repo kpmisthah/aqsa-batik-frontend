@@ -19,7 +19,7 @@ export default function AboutPage() {
             <Nav />
 
             {/* ── HERO SECTION ── */}
-            <section className="relative h-[80vh] w-full flex items-center overflow-hidden bg-[#5A2A1F]">
+            <section className="relative min-h-[80vh] py-32 md:py-0 w-full flex items-center overflow-hidden bg-[#5A2A1F]">
                 <div className="absolute inset-0 z-0">
                     <Image
                         src="/about_hero.png"
@@ -36,11 +36,11 @@ export default function AboutPage() {
                 <div className="relative z-10 max-w-7xl mx-auto px-6 w-full text-white">
                     <div className="max-w-5xl flex flex-col gap-6">
                         <span className="text-xs font-bold text-[#FFD700] uppercase tracking-[0.4em]">Our Heritage</span>
-                        <h1 className="font-playfair text-4xl md:text-5xl font-bold leading-[1.1]">
-                            <span className="block whitespace-nowrap">Legacy <span className='hero-highlight'>Craftsmanship</span></span>
-                            <span className="block whitespace-nowrap">Behind Every <span className='hero-highlight'>Design</span></span>
+                        <h1 className="font-playfair text-4xl md:text-5xl font-bold leading-[1.2] md:leading-[1.1]">
+                            <span className="block md:whitespace-nowrap">Legacy <span className='hero-highlight'>Craftsmanship</span></span>
+                            <span className="block md:whitespace-nowrap">Behind Every <span className='hero-highlight'>Design</span></span>
                         </h1>
-                        <p className="text-xl md:text-2xl font-medium opacity-90 italic">Rooted in Bherugarh, Ujjain, we carry forward the legacy of traditional wax batik—refined over 15+ years into premium batik cloth, batik dresses, and high-quality batik fabric. Our collections focus on durable cotton dress material and consistent women cotton wholesale fabric, built for real market demand and ready-to-sell use.</p>
+                        <p className="text-lg md:text-xl lg:text-2xl font-medium opacity-90 italic">Rooted in Bherugarh, Ujjain, we carry forward the legacy of traditional wax batik—refined over 15+ years into premium batik cloth, batik dresses, and high-quality batik fabric. Our collections focus on durable cotton dress material and consistent women cotton wholesale fabric, built for real market demand and ready-to-sell use.</p>
                     </div>
                 </div>
             </section>

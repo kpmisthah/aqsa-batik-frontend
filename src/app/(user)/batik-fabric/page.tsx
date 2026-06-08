@@ -106,10 +106,10 @@ export default async function BatikFabricPage() {
                         </div>
 
                         <div className="flex flex-col gap-4 md:gap-6">
-                            <h1 className="font-playfair text-3xl md:text-4xl font-black leading-[1.4] md:leading-[1.3] tracking-tight">
+                            <h1 className="font-playfair text-3xl md:text-4xl font-normal leading-[1.4] md:leading-[1.3] tracking-tight">
                                 Premium Batik Fabric Online <br /> <span className='hero-highlight'>Cotton Dress Material</span> Collection
                             </h1>
-                            <p className="font-playfair text-xl md:text-3xl font-black tracking-[-0.01em] opacity-95 leading-[1.3] md:leading-[1.2] mt-1 md:mt-2 max-w-4xl mx-auto">
+                            <p className="font-playfair text-xl md:text-2xl font-medium tracking-tight opacity-95 leading-[1.4] md:leading-[1.3] mt-1 md:mt-2 max-w-4xl mx-auto">
                                 Explore high-demand batik fabric cotton, stylish batik print fabric, and premium batik dress material designed for modern fashion, boutiques, and wholesale buyers across India.
                             </p>
                         </div>
