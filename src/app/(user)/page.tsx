@@ -439,26 +439,26 @@ export default function HomePage() {
         </section>
 
         {/* ── HOW TO ORDER SECTION ── */}
-        <section className="py-40 px-6 bg-[#E8D9C0]/50 relative overflow-hidden">
-          <div className="max-w-[1600px] mx-auto flex flex-col gap-24 relative z-10">
-            <div className="text-center flex flex-col gap-8">
+        <section className="py-16 md:py-24 px-6 bg-[#E8D9C0]/50 relative overflow-hidden">
+          <div className="max-w-[1600px] mx-auto flex flex-col gap-12 md:gap-16 relative z-10">
+            <div className="text-center flex flex-col gap-4">
               <span className="text-sm font-black text-[#8B3A2B] uppercase tracking-[0.5em] mb-2 block">Simple Process</span>
               <h2 className="font-playfair text-3xl md:text-4xl font-medium text-[#5A2A1F] leading-tight">How to Order Batik Cloth Online</h2>
-              <p className="text-xl md:text-2xl text-[#5A2A1F]/70 font-medium italic max-w-4xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-xl text-[#5A2A1F]/70 font-medium italic max-w-4xl mx-auto leading-relaxed">
                 Five simple steps. Zero confusion. Fast delivery of premium batik fabric, Batik Cloth, trending batik color collections, and quality cotton cloth across India.
               </p>
             </div>
 
-            <div className="relative flex flex-col lg:flex-row justify-between gap-16 lg:gap-8">
+            <div className="relative flex flex-col lg:flex-row justify-between gap-10 lg:gap-6">
               {/* Connector Line (Desktop) */}
-              <div className="hidden lg:block absolute top-[60px] left-[10%] right-[10%] h-[3px] bg-[#5A2A1F]/5 z-0"></div>
+              <div className="hidden lg:block absolute top-[32px] left-[10%] right-[10%] h-[3px] bg-[#5A2A1F]/5 z-0"></div>
 
               {[
                 {
                   s: "01", t: "Browse Designs",
                   d: "Explore latest batik fabric prints with fresh collections of batik cloth design, and ready-to-sell styles in premium women clothing demand.",
                   i: (
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />
                     </svg>
                   )
@@ -467,7 +467,7 @@ export default function HomePage() {
                   s: "02", t: "Select Quantity",
                   d: "Choose required pieces for retail, boutique stock, or bulk orders in quality cotton cloth and ladies cloth collections.",
                   i: (
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect width="16" height="20" x="4" y="2" rx="2" /><path d="M12 11h4" /><path d="M12 15h4" /><path d="M8 11h.01" /><path d="M8 15h.01" />
                     </svg>
                   )
@@ -476,7 +476,7 @@ export default function HomePage() {
                   s: "03", t: "Contact on WhatsApp",
                   d: "Send your selected designs directly for quick support, stock updates, and easy buying assistance.",
                   i: (
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-10.6 8.38 8.38 0 0 1 3.8.9L21 3l-1.5 5.5Z" />
                     </svg>
                   )
@@ -485,7 +485,7 @@ export default function HomePage() {
                   s: "04", t: "Get Bulk Pricing",
                   d: "Receive wholesale rates for printed batik fabric, reseller orders, and custom quantity requirements.",
                   i: (
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="m15 5 4 4" /><path d="M13 7 8.7 2.7a2 2 0 0 0-2.8 0L2.7 5.9a2 2 0 0 0 0 2.8L7 13" /><path d="m19 11-4 4" /><path d="m21 15-4.5 4.5a2 2 0 0 1-2.8 0L10 15.8" /><circle cx="16" cy="16" r="2" />
                     </svg>
                   )
@@ -494,27 +494,27 @@ export default function HomePage() {
                   s: "05", t: "Fast Dispatch",
                   d: "Your order is packed securely and shipped quickly across India through trusted courier partners.",
                   i: (
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M10 17h4V5H2v12h3" /><path d="M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5" /><path d="M14 17h1" /><circle cx="7.5" cy="17.5" r="2.5" /><circle cx="17.5" cy="17.5" r="2.5" />
                     </svg>
                   )
                 }
               ].map((step, i) => (
-                <div key={i} className="flex flex-col items-center text-center gap-10 lg:w-1/5 relative z-10">
-                  <div className="w-28 h-28 p-8 bg-white rounded-[40px] shadow-2xl flex items-center justify-center text-5xl hover:scale-110 hover:-rotate-6 transition-all duration-500 cursor-default border border-white relative group">
-                    <span className="absolute -top-4 -left-4 w-10 h-10 bg-[#8B3A2B] text-white text-xs font-black rounded-full flex items-center justify-center shadow-lg">{step.s}</span>
+                <div key={i} className="flex flex-col items-center text-center gap-3 md:gap-4 lg:w-1/5 relative z-10">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-[16px] md:rounded-[24px] shadow-lg flex items-center justify-center hover:scale-110 transition-all duration-500 cursor-default border border-white relative group">
+                    <span className="absolute -top-2 -left-2 w-6 h-6 bg-[#8B3A2B] text-white text-[9px] font-black rounded-full flex items-center justify-center shadow-md">{step.s}</span>
                     {step.i}
                   </div>
-                  <div className="flex flex-col gap-4 px-2">
-                    <h4 className="text-3xl font-black tracking-tight text-[#5A2A1F] leading-tight">{step.t}</h4>
-                    <p className="text-xl text-[#5A2A1F]/60 font-medium leading-relaxed">{step.d}</p>
+                  <div className="flex flex-col gap-1.5 px-2">
+                    <h4 className="text-base md:text-lg font-black tracking-tight text-[#5A2A1F] leading-tight">{step.t}</h4>
+                    <p className="text-[11px] md:text-xs text-[#5A2A1F]/70 font-medium leading-relaxed">{step.d}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="flex justify-center mt-12">
-              <a href={WA} target="_blank" rel="noreferrer" className="inline-flex items-center gap-4 bg-[#5A2A1F] text-white px-12 py-6 rounded-3xl font-black text-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 transition-all duration-300 uppercase tracking-widest group">
+            <div className="flex justify-center mt-8 md:mt-12">
+              <a href={WA} target="_blank" rel="noreferrer" className="inline-flex items-center gap-3 bg-[#5A2A1F] text-white px-8 py-4 md:px-10 md:py-5 rounded-2xl md:rounded-3xl font-bold text-lg md:text-xl shadow-[0_15px_40px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 transition-all duration-300 uppercase tracking-widest group">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.412 2.503 1.112 3.485l-.719 2.624 2.688-.705c.95.514 2.035.804 3.19.803 3.181 0 5.767-2.584 5.768-5.766 0-3.181-2.587-5.767-5.767-5.767zm3.39 8.2l-1.006 1.005c-.122.122-.318.159-.477.087-.514-.232-1.02-.555-1.504-1.039-.485-.484-.807-.989-1.039-1.504-.072-.159-.035-.355.087-.477l1.005-1.006c.115-.115.115-.301 0-.416l-1.139-1.139c-.115-.115-.301-.115-.416 0l-.798.797c-.506.507-.639 1.243-.374 1.874.457 1.087 1.214 2.064 2.223 3.073 1.009 1.009 1.986 1.766 3.073 2.223.631.265 1.367.132 1.874-.374l.797-.798c.115-.115.115-.301 0-.416l-1.139-1.139c-.115-.115-.301-.115-.416 0z" />
                 </svg>
