@@ -14,14 +14,14 @@ export default function OrderTrackingPage() {
     };
 
     return (
-        <div className="bg-[#F5F1EC] min-h-screen font-sans text-[#5A2A1F]">
+        <div className="bg-[#F5F1EC] min-h-screen font-playfair text-[#5A2A1F]">
             <Nav />
 
             {/* ── HERO ── */}
             <section className="pt-40 pb-20 px-6">
                 <div className="max-w-4xl mx-auto text-center flex flex-col gap-6">
                     <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.5em]">Track Shipment</span>
-                    <h1 className="font-playfair text-6xl md:text-8xl font-bold leading-tight">Where's My Order?</h1>
+                    <h1 className="font-playfair text-4xl md:text-5xl font-bold leading-tight">Where's My Order?</h1>
                     <p className="text-xl opacity-60 font-medium italic">Track your wholesale batik shipment from our Ujjain facility to your doorstep.</p>
                 </div>
             </section>

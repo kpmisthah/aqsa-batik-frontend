@@ -142,7 +142,7 @@ export default function ProductInteractive({ product }: { product: any }) {
                             <span className="text-xs font-black uppercase tracking-[0.2em] text-[#8B3A2B]">Best Seller</span>
                         </div>
                     )}
-                    <h1 className="font-playfair text-5xl md:text-6xl lg:text-7xl font-bold text-[#5A2A1F] leading-[1.1]">
+                    <h1 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-[#5A2A1F] leading-[1.1]">
                         {product.name}
                     </h1>
                     <div className="flex items-center gap-4">

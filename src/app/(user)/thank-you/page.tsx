@@ -12,7 +12,7 @@ function ThankYouContent() {
     const isCod = searchParams.get('method') === 'cod';
 
     return (
-        <div className="bg-[#1C1815] min-h-screen flex items-center justify-center p-4 md:p-8 font-sans">
+        <div className="bg-[#1C1815] min-h-screen flex items-center justify-center p-4 md:p-8 font-playfair">
             <div className="bg-[#F9F2E7] w-full max-w-[1000px] rounded-[32px] relative flex flex-col md:flex-row shadow-2xl overflow-hidden">
                 
                 {/* Close Button */}
@@ -57,7 +57,7 @@ function ThankYouContent() {
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" className="opacity-40 transform -scale-x-100 text-[#C19A6B]">
                             <path d="M12 22C12 22 4 16 4 10C4 6 7.5 3 12 3C16.5 3 20 6 20 10C20 16 12 22 12 22Z"/>
                         </svg>
-                        <h1 className="font-playfair text-5xl md:text-[56px] font-bold tracking-tight text-[#7A2A1A]">Thank You!</h1>
+                        <h1 className="font-playfair text-3xl md:text-4xl font-bold tracking-tight text-[#7A2A1A]">Thank You!</h1>
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" className="opacity-40 text-[#C19A6B]">
                             <path d="M12 22C12 22 4 16 4 10C4 6 7.5 3 12 3C16.5 3 20 6 20 10C20 16 12 22 12 22Z"/>
                         </svg>
@@ -134,7 +134,7 @@ function ThankYouContent() {
 export default function ThankYouPage() {
     return (
         <Suspense fallback={
-            <div className="min-h-screen bg-[#1C1815] flex items-center justify-center text-[#F9F2E7] font-bold font-sans">
+            <div className="min-h-screen bg-[#1C1815] flex items-center justify-center text-[#F9F2E7] font-bold font-playfair">
                 Loading...
             </div>
         }>

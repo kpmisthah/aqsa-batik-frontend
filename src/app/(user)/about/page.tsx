@@ -11,7 +11,7 @@ const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20know%20more%
 
 export default function AboutPage() {
     return (
-        <div className="min-h-screen bg-[#F5F1EC] text-[#5A2A1F] font-sans selection:bg-[#5A2A1F] selection:text-white scroll-smooth underline-offset-4">
+        <div className="min-h-screen bg-[#F5F1EC] text-[#5A2A1F] font-playfair selection:bg-[#5A2A1F] selection:text-white scroll-smooth underline-offset-4">
             <title>About AQSHA BATIK | 15+ Years of Batik Manufacturing Excellence</title>
             <meta name="description" content="Learn about Aqsha Batik's 15-year heritage in manufacturing premium cotton Batik Cloth and fabrics. Committed to quality, consistency, and manufacturer-direct pricing." />
 
@@ -36,7 +36,7 @@ export default function AboutPage() {
                 <div className="relative z-10 max-w-7xl mx-auto px-6 w-full text-white">
                     <div className="max-w-5xl flex flex-col gap-6">
                         <span className="text-xs font-bold text-[#FFD700] uppercase tracking-[0.4em]">Our Heritage</span>
-                        <h1 className="font-playfair text-6xl md:text-8xl font-bold leading-[1.1]">
+                        <h1 className="font-playfair text-4xl md:text-5xl font-bold leading-[1.1]">
                             <span className="block whitespace-nowrap">Legacy <span className='hero-highlight'>Craftsmanship</span></span>
                             <span className="block whitespace-nowrap">Behind Every <span className='hero-highlight'>Design</span></span>
                         </h1>
@@ -53,7 +53,7 @@ export default function AboutPage() {
                     <div className="flex flex-col gap-10">
                         <div className="flex flex-col gap-6">
                             <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.2em] leading-relaxed">From Handmade Batik To Trusted Women Fashion Supply</span>
-                            <h2 className="font-playfair text-5xl md:text-6xl lg:text-7xl font-bold text-[#5A2A1F] leading-tight">The Journey Behind AQSHA BATIK SUITS</h2>
+                            <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-[#5A2A1F] leading-tight">The Journey Behind AQSHA BATIK SUITS</h2>
                         </div>
                         <div className="flex flex-col gap-6 text-lg leading-relaxed text-[#5A2A1F]/80">
                             <p className="font-bold text-xl text-[#5A2A1F] leading-relaxed">
@@ -357,7 +357,7 @@ export default function AboutPage() {
                         <div className="order-1 lg:order-2 flex flex-col gap-10">
                             <div className="flex flex-col gap-6">
                                 <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">The Process</span>
-                                <h2 className="font-playfair text-5xl md:text-7xl font-bold text-[#5A2A1F]">Our Whole Fabric Manufacturing Standards</h2>
+                                <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#5A2A1F]">Our Whole Fabric Manufacturing Standards</h2>
                             </div>
                             <div className="flex flex-col gap-8">
                                 {[
@@ -383,7 +383,7 @@ export default function AboutPage() {
             <section className="py-40 bg-[#F5F1EC] text-center px-6 border-t border-[#5A2A1F]/5">
                 <div className="max-w-4xl mx-auto flex flex-col gap-12">
                     <div className="flex flex-col gap-6">
-                        <h2 className="font-playfair text-5xl md:text-[90px] font-bold text-[#5A2A1F] leading-tight">Work Directly with the Manufacturer</h2>
+                        <h2 className="font-playfair text-4xl md:text-5xl font-bold text-[#5A2A1F] leading-tight">Work Directly with the Manufacturer</h2>
                         <p className="text-xl md:text-2xl text-[#5A2A1F]/60 font-medium max-w-2xl mx-auto italic leading-relaxed">
                             Partner with a team focused on consistent quality, reliable supply, and long-term business relationships across Indian markets.
                         </p>

@@ -190,14 +190,14 @@ export default async function WholesalePage() {
     ];
 
     return (
-        <div className="min-h-screen bg-[#F5F1EC] text-[#5A2A1F] font-sans selection:bg-[#5A2A1F] selection:text-white scroll-smooth underline-offset-4">
+        <div className="min-h-screen bg-[#F5F1EC] text-[#5A2A1F] font-playfair selection:bg-[#5A2A1F] selection:text-white scroll-smooth underline-offset-4">
             <title>Fabric Wholesale in India for Batik Clothing & Bulk Orders | AQSHA BATIK</title>
             <meta name="description" content="Direct Batik Manufacturer from Ujjain. Supply high-demand batik fabric wholesale, premium batik print material, and consistent inventory for boutiques and resellers across India." />
 
             <style>{`
-                @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap');
+                @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
                 .font-playfair { font-family: 'Playfair Display', serif; }
-                .font-sans { font-family: 'DM Sans', sans-serif; }
+                .font-sans { font-family: 'Playfair Display', serif; }
                 .bg-pattern { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM24 30V26h-2v4h-4v2h4v4h2v-4h4v-2h-4z' fill='%235A2A1F' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E"); }
             `}</style>
 
@@ -226,10 +226,10 @@ export default async function WholesalePage() {
                         </div>
 
                         <div className="flex flex-col gap-4 md:gap-6">
-                            <h1 className="font-playfair text-5xl md:text-[84px] font-bold leading-[1.4] md:leading-[1.3] tracking-tight">
+                            <h1 className="font-playfair text-3xl md:text-5xl font-bold leading-[1.4] md:leading-[1.3] tracking-tight">
                                 Fabric <span className='hero-highlight'>Wholesale in India</span> for <br className="md:hidden" /> <span className='hero-highlight'>Batik Clothing</span> & <span className='hero-highlight'>Bulk Orders</span>
                             </h1>
-                            <p className="font-sans text-xl md:text-2xl font-medium tracking-tight opacity-95 leading-relaxed mt-2 max-w-4xl mx-auto">
+                            <p className="font-playfair text-xl md:text-2xl font-medium tracking-tight opacity-95 leading-relaxed mt-2 max-w-4xl mx-auto">
                                 Stop guessing what will sell. Work with a direct manufacturer supplying high-demand batik fabric wholesale, premium batik print material, and consistent inventory for boutiques, resellers, and growing batik clothing brands across India.
                             </p>
                         </div>
@@ -252,7 +252,7 @@ export default async function WholesalePage() {
                 <div className="max-w-7xl mx-auto flex flex-col gap-20">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
                         <div className="flex flex-col gap-10">
-                            <h2 className="font-playfair text-5xl md:text-7xl font-bold leading-tight">If your current supplier is giving you...</h2>
+                            <h2 className="font-playfair text-3xl md:text-4xl font-bold leading-tight">If your current supplier is giving you...</h2>
                             <div className="flex flex-col gap-4">
                                 {["Inconsistent quality", "Slow-moving designs", "Low margins"].map((item, i) => (
                                     <div key={i} className="flex items-center gap-5 text-2xl font-bold opacity-60">
@@ -264,7 +264,7 @@ export default async function WholesalePage() {
                         </div>
                         <div className="p-16 bg-white/5 backdrop-blur-3xl rounded-[60px] border border-white/10 flex flex-col gap-8 shadow-2xl">
                             <p className="text-2xl md:text-3xl font-playfair font-bold text-[#FFD700]">You don't have a sourcing problem. You have a supply system problem.</p>
-                            <h3 className="text-4xl md:text-5xl font-black italic">We fix that.</h3>
+                            <h3 className="text-3xl md:text-4xl font-black italic">We fix that.</h3>
                             <p className="text-lg opacity-70 leading-relaxed font-medium">AQSHA Batik Cloth is a 15+ year manufacturer specialising in high-demand, high-rotation batik dress materials.</p>
                         </div>
                     </div>
@@ -276,7 +276,7 @@ export default async function WholesalePage() {
                 <div className="max-w-7xl mx-auto flex flex-col gap-20">
                     <div className="flex flex-col gap-6 text-center items-center mx-auto max-w-4xl">
                         <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Built for Real Market Use</span>
-                        <h2 className="font-playfair text-5xl md:text-7xl font-bold text-[#5A2A1F]">Wholesale Fabric That Supports Every Batik Business Need</h2>
+                        <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#5A2A1F]">Wholesale Fabric That Supports Every Batik Business Need</h2>
                         <p className="text-xl text-[#5A2A1F] font-medium leading-relaxed italic">From boutique collections to bulk supply, our batik fabric wholesale is designed for consistent demand—ideal for batik clothing, printed dresses for women, and scalable retail inventory across India.</p>
                     </div>
 
@@ -297,7 +297,7 @@ export default async function WholesalePage() {
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-20">
                     <div className="flex flex-col gap-6 text-center mx-auto max-w-4xl">
                         <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">High-Demand Fabric Library</span>
-                        <h2 className="font-playfair text-5xl md:text-7xl font-bold text-[#5A2A1F]">Explore Signature Batik Dress Designs for Fabric Wholesale</h2>
+                        <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#5A2A1F]">Explore Signature Batik Dress Designs for Fabric Wholesale</h2>
                         <p className="text-xl text-[#5A2A1F]/70 font-medium italic leading-relaxed">Discover best-selling batik patterns, consistent quality, and ready-to-move collections trusted by boutiques, fabric shops, cloth shops, and resellers across India.</p>
                     </div>
 
@@ -379,7 +379,7 @@ export default async function WholesalePage() {
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-24 relative z-10">
                     <div className="text-center flex flex-col gap-8">
                         <span className="text-sm font-black text-[#8B3A2B] uppercase tracking-[0.5em] mb-2 block text-center">Simple Process</span>
-                        <h2 className="font-playfair text-6xl md:text-8xl font-bold leading-tight">How to Order Batik Fabric Online</h2>
+                        <h2 className="font-playfair text-3xl md:text-4xl font-bold leading-tight">How to Order Batik Fabric Online</h2>
                         <p className="text-2xl md:text-3xl text-[#5A2A1F]/70 font-medium italic max-w-4xl mx-auto leading-relaxed">
                             Five simple steps. Zero confusion. Fast delivery of premium batik fabric, Batik Cloth, trending batik color collections, and quality cotton cloth across India.
                         </p>
@@ -463,7 +463,7 @@ export default async function WholesalePage() {
                 <div className="max-w-7xl mx-auto flex flex-col gap-20">
                     <div className="flex flex-col gap-6 text-center max-w-3xl mx-auto">
                         <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Next Step</span>
-                        <h2 className="font-playfair text-5xl md:text-7xl font-bold text-[#5A2A1F]">Continue Your Sourcing Journey</h2>
+                        <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#5A2A1F]">Continue Your Sourcing Journey</h2>
                         <p className="text-xl text-[#5A2A1F]/60 font-medium italic leading-relaxed">
                             Explore our batik suit designs, evaluate fabric options, or move directly to bulk ordering—built for businesses ready to scale.
                         </p>
@@ -522,7 +522,7 @@ export default async function WholesalePage() {
                 <div className="max-w-7xl mx-auto flex flex-col gap-20">
                     <div className="text-center flex flex-col gap-6 max-w-4xl mx-auto">
                         <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Editorial Corner</span>
-                        <h2 className="font-playfair text-5xl md:text-7xl font-bold text-[#5A2A1F]">The Batik Wholesale Fabric Journal</h2>
+                        <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#5A2A1F]">The Batik Wholesale Fabric Journal</h2>
                         <p className="text-xl text-[#5A2A1F]/60 font-medium italic leading-relaxed">Insights on fabric wholesale, sourcing strategies, trending batik clothing, and practical dress design ideas to help boutiques and resellers choose the right stock, improve margins, and scale with confidence.</p>
                     </div>
 
@@ -600,7 +600,7 @@ export default async function WholesalePage() {
                     <div className="flex flex-col gap-12 text-[#5A2A1F]">
                         <div className="flex flex-col gap-4">
                             <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Who This Is For</span>
-                            <h3 className="font-playfair text-4xl md:text-5xl font-bold">Built for serious clothing retailers</h3>
+                            <h3 className="font-playfair text-3xl md:text-4xl font-bold">Built for serious clothing retailers</h3>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             {targetAudience.map((item, i) => (
@@ -635,7 +635,7 @@ export default async function WholesalePage() {
                     <div className="flex flex-col gap-12">
                         <div className="flex flex-col gap-6">
                             <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">The Market Reality</span>
-                            <h2 className="font-playfair text-5xl md:text-7xl font-bold leading-tight">Most sellers compete on price. Our clients compete on demand.</h2>
+                            <h2 className="font-playfair text-3xl md:text-4xl font-bold leading-tight">Most sellers compete on price. Our clients compete on demand.</h2>
                         </div>
                         <div className="flex flex-col gap-8">
                             {[

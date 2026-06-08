@@ -27,14 +27,14 @@ export default async function NewArrivalPage() {
     const displayProducts = newArrivals.length > 0 ? newArrivals : allProducts.slice(0, 8);
 
     return (
-        <div className="min-h-screen bg-[#F5F1EC] text-[#5A2A1F] font-sans selection:bg-[#5A2A1F] selection:text-white scroll-smooth underline-offset-4">
+        <div className="min-h-screen bg-[#F5F1EC] text-[#5A2A1F] font-playfair selection:bg-[#5A2A1F] selection:text-white scroll-smooth underline-offset-4">
             <title>New Arrival Batik Clothing | Latest Dresses for Women 2024</title>
             <meta name="description" content="Discover newly added batik clothing, trending batik dresses, and fresh cotton dress styles for modern women. Direct manufacturer supply from Ujjain." />
 
             <style>{`
                 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap');
                 .font-playfair { font-family: 'Playfair Display', serif; }
-                .font-sans { font-family: 'DM Sans', sans-serif; }
+                .font-sans { font-family: 'Playfair Display', serif; }
                 .bg-pattern { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM24 30V26h-2v4h-4v2h4v4h2v-4h4v-2h-4z' fill='%235A2A1F' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E"); }
             `}</style>
 
@@ -63,10 +63,10 @@ export default async function NewArrivalPage() {
                         </div>
 
                         <div className="flex flex-col gap-4 md:gap-6">
-                            <h1 className="font-playfair text-5xl md:text-[84px] font-bold leading-[1.4] md:leading-[1.3] tracking-tight">
+                            <h1 className="font-playfair text-4xl md:text-6xl font-bold leading-[1.4] md:leading-[1.3] tracking-tight">
                                 <span className='hero-highlight'>New Arrival</span> <span className='hero-highlight'>Batik Clothing</span> & Latest Dresses
                             </h1>
-                            <p className="font-sans text-xl md:text-2xl font-medium tracking-tight opacity-95 leading-relaxed max-w-4xl">
+                            <p className="font-playfair text-xl md:text-2xl font-medium tracking-tight opacity-95 leading-relaxed max-w-4xl">
                                 Discover newly added batik clothing, trending batik dresses, and fresh cotton dress styles designed for modern women clothing. Updated regularly for boutiques, resellers, and fashion buyers across India.
                             </p>
                         </div>
@@ -90,7 +90,7 @@ export default async function NewArrivalPage() {
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-20">
                     <div className="flex flex-col gap-6 text-center items-center mx-auto max-w-4xl">
                         <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Built for Demand</span>
-                        <h2 className="font-playfair text-5xl md:text-7xl font-bold text-[#5A2A1F]">New Women Cotton Cloth Designs That Actually Sell Faster</h2>
+                        <h2 className="font-playfair text-4xl md:text-5xl font-bold text-[#5A2A1F]">New Women Cotton Cloth Designs That Actually Sell Faster</h2>
                         <p className="text-xl text-[#5A2A1F]/70 font-medium italic leading-relaxed">Fashion changes fast. Your stock should too. Our latest batik print dress, stylish dress for women, and fresh arrivals are selected based on real market demand—not guesswork.</p>
                     </div>
 
@@ -140,7 +140,7 @@ export default async function NewArrivalPage() {
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-20">
                     <div className="flex flex-col gap-6 text-center items-center mx-auto max-w-4xl">
                         <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Latest Collection</span>
-                        <h2 className="font-playfair text-5xl md:text-7xl font-bold text-[#5A2A1F]">Explore <span className='hero-highlight'>New Arrival</span> Batik Dress Designs</h2>
+                        <h2 className="font-playfair text-4xl md:text-5xl font-bold text-[#5A2A1F]">Explore <span className='hero-highlight'>New Arrival</span> Batik Dress Designs</h2>
                         <p className="text-xl text-[#5A2A1F]/70 font-medium italic leading-relaxed">Browse our newest batik dress online shop collection featuring trending styles, updated prints, and ready-to-wear fashion for modern buyers.</p>
                     </div>
 
@@ -218,7 +218,7 @@ export default async function NewArrivalPage() {
                 <div className="max-w-7xl mx-auto flex flex-col gap-20 relative z-10">
                     <div className="text-center flex flex-col gap-6 max-w-4xl mx-auto">
                         <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Explore More</span>
-                        <h2 className="font-playfair text-5xl md:text-7xl font-bold text-[#5A2A1F]">Continue Your Batik Shopping Journey</h2>
+                        <h2 className="font-playfair text-4xl md:text-5xl font-bold text-[#5A2A1F]">Continue Your Batik Shopping Journey</h2>
                         <p className="text-xl text-[#5A2A1F]/60 font-medium italic leading-relaxed">Explore categories, discover fabrics, or browse new arrivals—built for every stage of your buying decision.</p>
                     </div>
 
@@ -285,7 +285,7 @@ export default async function NewArrivalPage() {
                 <div className="max-w-7xl mx-auto flex flex-col gap-20">
                     <div className="text-center flex flex-col gap-6 max-w-4xl mx-auto">
                         <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Editorial Corner</span>
-                        <h2 className="font-playfair text-5xl md:text-7xl font-bold text-[#5A2A1F]">The Batik Fashion Journal</h2>
+                        <h2 className="font-playfair text-4xl md:text-5xl font-bold text-[#5A2A1F]">The Batik Fashion Journal</h2>
                         <p className="text-xl text-[#5A2A1F]/60 font-medium italic leading-relaxed">Insights on latest batik clothing, styling trends, and ideas for choosing the right stylish dress for women in today’s fashion market.</p>
                     </div>
 

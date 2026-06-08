@@ -182,11 +182,11 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="space-y-6 font-sans">
+    <div className="space-y-6 font-playfair">
       {/* Header section */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-4xl font-bold text-[#5A2A1F] font-playfair tracking-tight">Dashboard Overview</h1>
+          <h1 className="text-3xl font-bold text-[#5A2A1F] font-playfair tracking-tight">Dashboard Overview</h1>
           <p className="mt-1 text-sm text-[#5A2A1F]/70 font-medium">Live store telemetry, payments, and product stock levels.</p>
         </div>
         <button 

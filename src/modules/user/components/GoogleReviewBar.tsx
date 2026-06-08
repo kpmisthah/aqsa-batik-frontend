@@ -65,7 +65,7 @@ export default function GoogleReviewBar() {
     const review = reviews[reviewIndex];
 
     return (
-        <section className="sticky bottom-0 z-50 bg-[#f5f5f5] border-y border-gray-200 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
+        <section className="relative z-20 bg-[#f5f5f5] border-y border-gray-200 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
             <div className="max-w-[1400px] mx-auto px-6 md:px-20 py-6 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
                 {/* LEFT — Business + Rating */}
                 <div className="flex items-center gap-5 shrink-0">

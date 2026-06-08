@@ -55,7 +55,7 @@ export default function BlogPost() {
             <style>{`
                 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap');
                 .font-playfair { font-family: 'Playfair Display', serif; }
-                .font-sans { font-family: 'DM Sans', sans-serif; }
+                .font-sans { font-family: 'Playfair Display', serif; }
             `}</style>
 
             <Nav />
@@ -64,7 +64,7 @@ export default function BlogPost() {
                 <article className="max-w-4xl mx-auto">
                     <div className="mb-12 flex flex-col gap-6 items-center text-center">
                         <span className="text-sm font-black uppercase tracking-[0.4em] text-[#8B3A2B]">{post.category}</span>
-                        <h1 className="font-playfair text-5xl md:text-7xl font-bold leading-tight">{post.title}</h1>
+                        <h1 className="font-playfair text-4xl md:text-5xl font-bold leading-tight">{post.title}</h1>
                         <p className="text-[#5A2A1F]/40 font-bold uppercase tracking-widest text-base">{post.date} • By Aqsha Editorial Team</p>
                     </div>
 

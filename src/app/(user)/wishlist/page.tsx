@@ -52,8 +52,8 @@ export default function WishlistPage() {
             )}
 
             <main className="flex-1 max-w-[1300px] w-full mx-auto px-6 py-12">
-                <h1 className="font-playfair text-4xl md:text-5xl font-black text-left mb-2 tracking-tight">Your Wishlist</h1>
-                <p className="text-sm opacity-60 text-left mb-10 font-medium font-sans">
+                <h1 className="font-playfair text-3xl md:text-4xl font-black text-left mb-2 tracking-tight">Your Wishlist</h1>
+                <p className="text-sm opacity-60 text-left mb-10 font-medium font-playfair">
                     Keep track of all the beautiful Batik items you'd love to own.
                 </p>
 

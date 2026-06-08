@@ -30,7 +30,7 @@ const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
                 <div className="flex flex-col gap-10">
                     <div className="flex flex-col gap-6">
                         <span className="text-xs font-bold text-[#FFD700] uppercase tracking-[0.4em]">{tag}</span>
-                        <h2 className="font-playfair text-5xl md:text-7xl font-bold leading-[1.1]">{title}</h2>
+                        <h2 className="font-playfair text-3xl md:text-4xl font-bold leading-[1.1]">{title}</h2>
                     </div>
                     <div className="grid grid-cols-1 gap-6">
                         {features.map((feature, i) => (
@@ -55,7 +55,7 @@ const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
                                 <div className="h-20 w-px bg-white/20 mt-2 shrink-0 hidden md:block"></div>
 
                                 <div className="flex flex-col gap-3">
-                                    <h4 className="text-2xl font-bold tracking-tight text-white" dangerouslySetInnerHTML={{ __html: feature.t }} />
+                                    <h4 className="text-xl font-bold tracking-tight text-white" dangerouslySetInnerHTML={{ __html: feature.t }} />
                                     <p className="text-base text-[#FFD700] leading-relaxed font-medium max-w-lg" dangerouslySetInnerHTML={{ __html: feature.d }} />
                                 </div>
                             </div>

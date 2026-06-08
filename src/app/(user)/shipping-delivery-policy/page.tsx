@@ -4,7 +4,7 @@ import Footer from "@/modules/user/components/Footer";
 
 export default function ShippingPolicy() {
   return (
-    <div className="min-h-screen bg-[#F5F1EC] text-[#5A2A1F] font-sans selection:bg-[#5A2A1F] selection:text-white scroll-smooth">
+    <div className="min-h-screen bg-[#F5F1EC] text-[#5A2A1F] font-playfair selection:bg-[#5A2A1F] selection:text-white scroll-smooth">
       <title>Shipping & Delivery Policy | AQSHA BATIK SUITS</title>
       <meta name="description" content="Learn about AQSHA BATIK SUITS shipping process, dispatch timeline, courier partners, and delivery across India for wholesale orders." />
       
@@ -14,7 +14,7 @@ export default function ShippingPolicy() {
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col gap-6 mb-16">
             <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Logistics & Fulfilment</span>
-            <h1 className="font-playfair text-6xl md:text-8xl font-bold leading-tight">Shipping Policy</h1>
+            <h1 className="font-playfair text-4xl md:text-5xl font-bold leading-tight">Shipping Policy</h1>
             <div className="h-1 w-20 bg-[#5A2A1F]"></div>
           </div>
 

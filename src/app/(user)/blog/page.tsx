@@ -41,14 +41,14 @@ const blogPosts = [
 
 export default function BlogIndexPage() {
     return (
-        <div className="bg-[#F5F1EC] min-h-screen font-sans text-[#5A2A1F]">
+        <div className="bg-[#F5F1EC] min-h-screen font-playfair text-[#5A2A1F]">
             <Nav />
 
             {/* ── HERO ── */}
             <section className="pt-40 pb-20 px-6">
                 <div className="max-w-7xl mx-auto flex flex-col gap-8 text-center">
                     <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.5em]">Editorial Corner</span>
-                    <h1 className="font-playfair text-6xl md:text-9xl font-bold leading-tight">The <span className='hero-highlight'>Batik Journal</span></h1>
+                    <h1 className="font-playfair text-4xl md:text-6xl font-bold leading-tight">The <span className='hero-highlight'>Batik Journal</span></h1>
                     <p className="text-xl md:text-2xl opacity-60 font-medium italic max-w-3xl mx-auto">
                         Insights into the heritage of batik, styling guides for modern women, and strategic sourcing tips for wholesale buyers.
                     </p>
@@ -114,7 +114,7 @@ export default function BlogIndexPage() {
                 <div className="max-w-7xl mx-auto bg-white rounded-[60px] p-12 md:p-32 text-center flex flex-col gap-8 shadow-2xl relative overflow-hidden border border-[#5A2A1F]/5">
                     <div className="absolute inset-0 bg-pattern opacity-[0.02]"></div>
                     <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.5em] relative z-10">Batik Insider</span>
-                    <h2 className="font-playfair text-5xl md:text-7xl font-bold leading-tight relative z-10">Get the Latest <br /> Collections & Insights</h2>
+                    <h2 className="font-playfair text-4xl md:text-5xl font-bold leading-tight relative z-10">Get the Latest <br /> Collections & Insights</h2>
                     <p className="text-xl opacity-60 font-medium italic relative z-10 max-w-2xl mx-auto">Subscribe to our newsletter to receive styling tips, manufacturing updates, and early access to new arrival batik dresses.</p>
                     <div className="max-w-lg mx-auto w-full flex flex-col md:flex-row gap-4 relative z-10 mt-6">
                         <input type="email" placeholder="Enter your business email" className="flex-grow bg-[#F5F1EC] border-none rounded-2xl py-6 px-8 text-sm font-bold focus:ring-4 focus:ring-[#5A2A1F]/10 transition-all" />

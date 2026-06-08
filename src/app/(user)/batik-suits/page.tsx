@@ -68,11 +68,11 @@ export default async function BatikSuitsPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-[#F5F1EC] text-[#5A2A1F] font-sans selection:bg-[#5A2A1F] selection:text-white scroll-smooth underline-offset-4">
+        <div className="min-h-screen bg-[#F5F1EC] text-[#5A2A1F] font-playfair selection:bg-[#5A2A1F] selection:text-white scroll-smooth underline-offset-4">
             <style>{`
                 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap');
                 .font-playfair { font-family: 'Playfair Display', serif; }
-                .font-sans { font-family: 'DM Sans', sans-serif; }
+                .font-sans { font-family: 'Playfair Display', serif; }
                 .bg-pattern { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM24 30V26h-2v4h-4v2h4v4h2v-4h4v-2h-4z' fill='%235A2A1F' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E"); }
             `}</style>
 
@@ -101,10 +101,10 @@ export default async function BatikSuitsPage() {
                         </div>
 
                         <div className="flex flex-col gap-4 md:gap-6">
-                            <h1 className="font-playfair text-5xl md:text-[84px] font-bold leading-[1.1] md:leading-[1.05] tracking-tight">
+                            <h1 className="font-playfair text-4xl md:text-6xl font-bold leading-[1.1] md:leading-[1.05] tracking-tight">
                                 Batik <span className='hero-highlight'>Suits Online</span> – <br className="md:hidden" /> <span className='hero-highlight'>Cotton Dress Material</span> Collection
                             </h1>
-                            <p className="font-sans text-xl md:text-3xl font-black tracking-[-0.01em] opacity-95 leading-[1.3] md:leading-[1.2] mt-1 md:mt-2 max-w-3xl">
+                            <p className="font-playfair text-xl md:text-3xl font-black tracking-[-0.01em] opacity-95 leading-[1.3] md:leading-[1.2] mt-1 md:mt-2 max-w-3xl">
                                 Explore High-Demand Batik <br className="md:hidden" /> Suit Designs
                             </p>
                         </div>
@@ -127,7 +127,7 @@ export default async function BatikSuitsPage() {
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-20">
                     <div className="flex flex-col gap-6 text-center mx-auto max-w-3xl">
                         <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Optimized for Profit</span>
-                        <h2 className="font-playfair text-5xl md:text-7xl font-bold text-[#5A2A1F]">Looking for Batik Cloth that actually sell?</h2>
+                        <h2 className="font-playfair text-4xl md:text-5xl font-bold text-[#5A2A1F]">Looking for Batik Cloth that actually sell?</h2>
                         <p className="text-xl text-[#5A2A1F]/70 font-medium leading-relaxed italic">Our collection is curated specifically for the demands of the modern Indian market.</p>
                     </div>
 
@@ -232,7 +232,7 @@ export default async function BatikSuitsPage() {
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-24 relative z-10">
                     <div className="text-center flex flex-col gap-8">
                         <span className="text-sm font-black text-[#8B3A2B] uppercase tracking-[0.5em] mb-2 block">Simple Process</span>
-                        <h2 className="font-playfair text-6xl md:text-8xl font-bold text-[#5A2A1F] leading-tight">How to Order Batik <span className='hero-highlight'>Suits Online</span></h2>
+                        <h2 className="font-playfair text-4xl md:text-6xl font-bold text-[#5A2A1F] leading-tight">How to Order Batik <span className='hero-highlight'>Suits Online</span></h2>
                         <p className="text-2xl md:text-3xl text-[#5A2A1F]/70 font-medium italic max-w-4xl mx-auto leading-relaxed">
                             Five simple steps. Zero confusion. Fast delivery of premium batik fabric, Batik Cloth, trending batik color collections, and quality cotton cloth across India.
                         </p>
@@ -319,7 +319,7 @@ export default async function BatikSuitsPage() {
                 <div className="max-w-7xl mx-auto flex flex-col gap-20 relative z-10">
                     <div className="text-center flex flex-col gap-6">
                         <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Next Steps</span>
-                        <h2 className="font-playfair text-5xl md:text-7xl font-bold text-[#5A2A1F]">Continue Your Journey</h2>
+                        <h2 className="font-playfair text-4xl md:text-5xl font-bold text-[#5A2A1F]">Continue Your Journey</h2>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -373,7 +373,7 @@ export default async function BatikSuitsPage() {
                 <div className="max-w-7xl mx-auto flex flex-col gap-20">
                     <div className="text-center flex flex-col gap-6">
                         <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Editorial Corner</span>
-                        <h2 className="font-playfair text-5xl md:text-7xl font-bold text-[#5A2A1F]">The Batik Journal</h2>
+                        <h2 className="font-playfair text-4xl md:text-5xl font-bold text-[#5A2A1F]">The Batik Journal</h2>
                         <p className="text-xl text-[#5A2A1F]/60 font-medium italic">Stories of heritage, craft, and contemporary style.</p>
                     </div>
 

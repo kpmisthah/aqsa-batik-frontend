@@ -73,11 +73,11 @@ export default async function CottonClothSlugPage({ params }: { params: Promise<
     ];
 
     return (
-        <div className="min-h-screen bg-[#F5F1EC] text-[#5A2A1F] font-sans selection:bg-[#5A2A1F] selection:text-white scroll-smooth underline-offset-4">
+        <div className="min-h-screen bg-[#F5F1EC] text-[#5A2A1F] font-playfair selection:bg-[#5A2A1F] selection:text-white scroll-smooth underline-offset-4">
             <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap');
         .font-playfair { font-family: 'Playfair Display', serif; }
-        .font-sans { font-family: 'DM Sans', sans-serif; }
+        .font-sans { font-family: 'Playfair Display', serif; }
         .bg-pattern { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM24 30V26h-2v4h-4v2h4v4h2v-4h4v-2h-4z' fill='%235A2A1F' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E"); }
       `}</style>
 
@@ -107,7 +107,7 @@ export default async function CottonClothSlugPage({ params }: { params: Promise<
                 <div className="max-w-7xl mx-auto flex flex-col gap-20 relative z-10">
                     <div className="max-w-3xl">
                         <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Specifications</span>
-                        <h2 className="font-playfair text-5xl md:text-7xl font-bold text-[#5A2A1F] mt-4 mb-8">Technical Excellence</h2>
+                        <h2 className="font-playfair text-4xl md:text-5xl font-bold text-[#5A2A1F] mt-4 mb-8">Technical Excellence</h2>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">

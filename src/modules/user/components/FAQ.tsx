@@ -44,7 +44,7 @@ export default function FAQ({ items }: FAQProps) {
             <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-16">
                     <span className="text-[11px] font-bold text-[#5A2A1F]/60 uppercase tracking-[0.4em]">Common Questions</span>
-                    <h2 className="font-playfair text-5xl md:text-6xl font-bold text-[#5A2A1F] mt-4">Frequently Asked Questions</h2>
+                    <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#5A2A1F] mt-4">Frequently Asked Questions</h2>
                 </div>
 
                 <div className="flex flex-col gap-4">
@@ -54,7 +54,7 @@ export default function FAQ({ items }: FAQProps) {
                                 onClick={() => setOpen(open === i ? -1 : i)}
                                 className={`w-full text-left p-6 flex justify-between items-center transition-colors ${open === i ? "bg-white" : "bg-[#F5F1EC]/50 hover:bg-[#F5F1EC]"}`}
                             >
-                                <span className="font-bold text-lg text-[#5A2A1F]">{f.q}</span>
+                                <span className="font-bold text-base md:text-lg text-[#5A2A1F]">{f.q}</span>
                                 <span className={`text-2xl transition-transform duration-300 ${open === i ? "rotate-180" : ""}`}>
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
                                 </span>

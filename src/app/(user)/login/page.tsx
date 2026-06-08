@@ -274,7 +274,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
   };
 
   return (
-    <div className="min-h-[80vh] flex items-center justify-center px-4 py-16 bg-[#FDFBF7] font-sans">
+    <div className="min-h-[80vh] flex items-center justify-center px-4 py-16 bg-[#FDFBF7] font-playfair">
       <div 
         className="relative w-full max-w-lg overflow-hidden rounded-[32px] border border-[#5A2A1F]/10 bg-[#F5F1EC] p-8 md:p-10 shadow-2xl animate-fade-in"
       >

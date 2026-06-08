@@ -56,7 +56,7 @@ export default function LeadGenerationForm() {
                 <div className="flex-1 flex flex-col gap-10">
                     <div className="flex flex-col gap-6">
                         <span className="text-[11px] font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Get Started</span>
-                        <h2 className="font-playfair text-5xl md:text-7xl font-bold text-[#5A2A1F] leading-[1.1]">
+                        <h2 className="font-playfair text-4xl md:text-5xl font-bold text-[#5A2A1F] leading-[1.1]">
                             Get a Personalized <br /> Batik Fabric Quote Today
                         </h2>
                         <p className="text-xl text-[#5A2A1F]/70 font-medium leading-relaxed max-w-xl">

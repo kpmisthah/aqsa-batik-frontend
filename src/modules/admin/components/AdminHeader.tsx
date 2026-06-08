@@ -12,7 +12,7 @@ export default function AdminHeader({ title, description, buttonText, onAddClick
   return (
     <div className="sm:flex sm:items-center sm:justify-between">
       <div>
-        <h1 className="text-4xl font-bold text-[#5A2A1F] font-playfair tracking-tight">{title}</h1>
+        <h1 className="text-3xl font-bold text-[#5A2A1F] font-playfair tracking-tight">{title}</h1>
         <p className="mt-2 text-lg text-[#5A2A1F]/70 italic font-medium">{description}</p>
       </div>
       {buttonText && onAddClick && (

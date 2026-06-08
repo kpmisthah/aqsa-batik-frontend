@@ -17,14 +17,14 @@ export default function ContactPage() {
     };
 
     return (
-        <div className="bg-[#F5F1EC] min-h-screen font-sans text-[#5A2A1F] selection:bg-[#5A2A1F] selection:text-white">
+        <div className="bg-[#F5F1EC] min-h-screen font-playfair text-[#5A2A1F] selection:bg-[#5A2A1F] selection:text-white">
             <Nav />
 
             {/* ── HERO SECTION ── */}
             <section className="pt-40 pb-20 px-6">
                 <div className="max-w-7xl mx-auto flex flex-col gap-6 text-center">
                     <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.5em]">Connect With Us</span>
-                    <h1 className="font-playfair text-6xl md:text-8xl font-bold leading-tight">Get in <span className='hero-highlight'>Touch</span></h1>
+                    <h1 className="font-playfair text-4xl md:text-5xl font-bold leading-tight">Get in <span className='hero-highlight'>Touch</span></h1>
                     <p className="text-xl md:text-2xl opacity-70 font-medium max-w-2xl mx-auto italic leading-relaxed">
                         Whether you're a wholesaler, boutique owner, or reseller, we're here to help you grow your business with premium batik.
                     </p>

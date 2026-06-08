@@ -604,7 +604,7 @@ function ProfileContent() {
             {/* Basic Info */}
             <div className="flex-1 text-center md:text-left">
               <div className="flex flex-col md:flex-row md:items-center gap-3 justify-center md:justify-start">
-                <h1 className="font-playfair text-3xl font-black text-[#5A2A1F] tracking-tight">{user.name}</h1>
+                <h1 className="font-playfair text-2xl font-black text-[#5A2A1F] tracking-tight">{user.name}</h1>
                 <span className={`inline-flex self-center px-3.5 py-1 text-[10px] font-black uppercase tracking-widest rounded-full border ${getRoleBadgeColor(user.role)}`}>
                   {user.role}
                 </span>
@@ -630,7 +630,7 @@ function ProfileContent() {
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex border-b border-[#5A2A1F]/10 mb-8 gap-6 font-sans">
+        <div className="flex border-b border-[#5A2A1F]/10 mb-8 gap-6 font-playfair">
           <button
             onClick={() => {
               setActiveTab("profile");
@@ -766,7 +766,7 @@ function ProfileContent() {
                 ) : orders.length === 0 ? (
                   <div className="text-center py-12 border border-dashed border-[#5A2A1F]/10 rounded-2xl bg-[#FAF6F0]/20">
                     <p className="text-sm opacity-60 font-medium text-[#5A2A1F] italic font-playfair">You have not placed any orders yet.</p>
-                    <Link href="/batik-cloth" className="inline-block mt-4 text-xs font-black uppercase tracking-wider text-[#8B3A2B] hover:underline font-sans">
+                    <Link href="/batik-cloth" className="inline-block mt-4 text-xs font-black uppercase tracking-wider text-[#8B3A2B] hover:underline font-playfair">
                       Browse Curated Collections &rarr;
                     </Link>
                   </div>
@@ -778,7 +778,7 @@ function ProfileContent() {
                         const dateStr = formatDate(order.createdAt);
                         
                         return (
-                          <div key={orderId} className="border border-[#5A2A1F]/10 rounded-2xl overflow-hidden bg-[#FAF6F0]/10 hover:bg-[#FAF6F0]/20 transition-all font-sans">
+                          <div key={orderId} className="border border-[#5A2A1F]/10 rounded-2xl overflow-hidden bg-[#FAF6F0]/10 hover:bg-[#FAF6F0]/20 transition-all font-playfair">
                             {/* Summary Row */}
                             <div className="p-5 md:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#5A2A1F]/5">
                               <div className="space-y-1">
@@ -941,7 +941,7 @@ function ProfileContent() {
 
                     {/* Premium Pagination Controls */}
                     {totalPages > 1 && (
-                      <div className="flex items-center justify-between gap-4 pt-6 border-t border-[#5A2A1F]/5 font-sans">
+                      <div className="flex items-center justify-between gap-4 pt-6 border-t border-[#5A2A1F]/5 font-playfair">
                         <button
                           type="button"
                           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
@@ -985,7 +985,7 @@ function ProfileContent() {
                 ) : (
                   <div className="space-y-4">
                     {[...user.walletHistory].reverse().map((tx: any, idx: number) => (
-                      <div key={idx} className="flex flex-col sm:flex-row sm:items-center justify-between p-5 border border-[#5A2A1F]/10 rounded-2xl bg-[#FAF6F0]/20 hover:bg-[#FAF6F0]/50 transition-all font-sans gap-4">
+                      <div key={idx} className="flex flex-col sm:flex-row sm:items-center justify-between p-5 border border-[#5A2A1F]/10 rounded-2xl bg-[#FAF6F0]/20 hover:bg-[#FAF6F0]/50 transition-all font-playfair gap-4">
                         <div>
                           <p className="text-sm font-bold text-[#5A2A1F] mb-1">{tx.description}</p>
                           <p className="text-xs text-[#5A2A1F]/60 font-medium">{formatDate(tx.date)}</p>
@@ -1076,7 +1076,7 @@ function ProfileContent() {
       {/* Cancellation Reason Modal */}
       {cancellingOrderId && (
         <div className="fixed inset-0 bg-[#5A2A1F]/40 backdrop-blur-sm flex items-center justify-center z-[150] p-4 animate-in fade-in duration-300">
-          <div className="bg-[#FAF6F0] rounded-[32px] border border-[#5A2A1F]/10 p-6 md:p-8 max-w-md w-full shadow-2xl relative animate-in zoom-in-95 duration-200 font-sans">
+          <div className="bg-[#FAF6F0] rounded-[32px] border border-[#5A2A1F]/10 p-6 md:p-8 max-w-md w-full shadow-2xl relative animate-in zoom-in-95 duration-200 font-playfair">
             <h3 className="font-playfair text-xl font-bold text-[#5A2A1F] mb-2">Cancel Your Order</h3>
             <p className="text-xs text-[#5A2A1F]/60 mb-4">Please let us know why you are cancelling this order. Rest assured, your payment (if online) will be processed for refund automatically.</p>
             
@@ -1131,7 +1131,7 @@ function ProfileContent() {
       {/* Return Reason Modal */}
       {returningOrderId && (
         <div className="fixed inset-0 bg-[#5A2A1F]/40 backdrop-blur-sm flex items-center justify-center z-[150] p-4 animate-in fade-in duration-300">
-          <div className="bg-[#FAF6F0] rounded-[32px] border border-[#5A2A1F]/10 p-6 md:p-8 max-w-md w-full shadow-2xl relative animate-in zoom-in-95 duration-200 font-sans">
+          <div className="bg-[#FAF6F0] rounded-[32px] border border-[#5A2A1F]/10 p-6 md:p-8 max-w-md w-full shadow-2xl relative animate-in zoom-in-95 duration-200 font-playfair">
             <h3 className="font-playfair text-xl font-bold text-[#5A2A1F] mb-2">Request Order Return</h3>
             <p className="text-xs text-[#5A2A1F]/60 mb-4">We are sorry to hear that your purchase didn&apos;t work out. Please specify a reason to submit this return request for administrator verification.</p>
             
@@ -1189,7 +1189,7 @@ function ProfileContent() {
 export default function ProfilePage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-[#FDFBF7] flex flex-col justify-center items-center py-20 font-sans">
+      <div className="min-h-screen bg-[#FDFBF7] flex flex-col justify-center items-center py-20 font-playfair">
         <div className="w-12 h-12 border-4 border-[#5A2A1F]/20 border-t-[#5A2A1F] rounded-full animate-spin mb-4" />
         <p className="text-sm font-bold uppercase tracking-widest text-[#5A2A1F]/60">Loading Your Profile...</p>
       </div>

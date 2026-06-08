@@ -234,8 +234,8 @@ export default function CartPage() {
       )}
 
       <main className="flex-1 max-w-[1300px] w-full mx-auto px-6 py-12">
-        <h1 className="font-playfair text-4xl md:text-5xl font-black text-left mb-2 tracking-tight">Shopping Bag</h1>
-        <p className="text-sm opacity-60 text-left mb-10 font-medium font-sans">
+        <h1 className="font-playfair text-3xl md:text-4xl font-black text-left mb-2 tracking-tight">Shopping Bag</h1>
+        <p className="text-sm opacity-60 text-left mb-10 font-medium font-playfair">
           Review your items, complete shipping details, and finalize your secure transaction in Indian Rupees (₹).
         </p>
 
@@ -411,7 +411,7 @@ export default function CartPage() {
                       <span className="text-xs font-black uppercase tracking-wider text-[#8B3A2B]">Total Amount (INR)</span>
                       <p className="text-[10px] opacity-40 leading-tight">Includes all local taxes / GST</p>
                     </div>
-                    <span className="font-sans text-3xl font-bold text-[#5A2A1F]">₹{subtotal}</span>
+                    <span className="font-playfair text-3xl font-bold text-[#5A2A1F]">₹{subtotal}</span>
                   </div>
                 </div>
               </div>

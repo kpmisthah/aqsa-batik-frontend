@@ -70,15 +70,14 @@ export default async function BatikFabricPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-[#F5F1EC] text-[#5A2A1F] font-sans selection:bg-[#5A2A1F] selection:text-white scroll-smooth underline-offset-4">
+        <div className="min-h-screen bg-[#F5F1EC] text-[#5A2A1F] font-playfair selection:bg-[#5A2A1F] selection:text-white scroll-smooth underline-offset-4">
             <title>Batik Fabric Online | Cotton Batik Cloth India</title>
             <meta name="description" content="Explore batik fabric in cotton with premium print quality. Ideal for dress materials and wholesale buyers across India." />
 
             <style>{`
-                @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Montserrat:wght@900&display=swap');
+                @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
                 .font-playfair { font-family: 'Playfair Display', serif; }
-                .font-sans { font-family: 'DM Sans', sans-serif; }
-                .font-montserrat { font-family: 'Montserrat', sans-serif; }
+                .font-sans { font-family: 'Playfair Display', serif; }
                 .bg-pattern { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM24 30V26h-2v4h-4v2h4v4h2v-4h4v-2h-4z' fill='%235A2A1F' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E"); }
             `}</style>
 
@@ -107,10 +106,10 @@ export default async function BatikFabricPage() {
                         </div>
 
                         <div className="flex flex-col gap-4 md:gap-6">
-                            <h1 className="font-montserrat text-5xl md:text-6xl font-black leading-[1.4] md:leading-[1.3] tracking-tight">
+                            <h1 className="font-playfair text-3xl md:text-4xl font-black leading-[1.4] md:leading-[1.3] tracking-tight">
                                 Premium Batik Fabric Online <br /> <span className='hero-highlight'>Cotton Dress Material</span> Collection
                             </h1>
-                            <p className="font-sans text-xl md:text-3xl font-black tracking-[-0.01em] opacity-95 leading-[1.3] md:leading-[1.2] mt-1 md:mt-2 max-w-4xl mx-auto">
+                            <p className="font-playfair text-xl md:text-3xl font-black tracking-[-0.01em] opacity-95 leading-[1.3] md:leading-[1.2] mt-1 md:mt-2 max-w-4xl mx-auto">
                                 Explore high-demand batik fabric cotton, stylish batik print fabric, and premium batik dress material designed for modern fashion, boutiques, and wholesale buyers across India.
                             </p>
                         </div>
@@ -133,7 +132,7 @@ export default async function BatikFabricPage() {
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-20">
                     <div className="flex flex-col gap-6 text-center items-center mx-auto max-w-4xl">
                         <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Optimized for Demand</span>
-                        <h2 className="font-playfair text-5xl md:text-7xl font-bold text-[#5A2A1F]">Looking for Batik Fabric That Actually Sells?</h2>
+                        <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#5A2A1F]">Looking for Batik Fabric That Actually Sells?</h2>
                         <p className="text-xl text-[#5A2A1F] font-medium leading-relaxed italic">Our collection of premium batik fabric, breathable batik fabric cotton, and high-demand batik print fabric is curated for real market performance—built for boutiques, resellers, and modern women clothing needs across India.</p>
                     </div>
 
@@ -150,7 +149,7 @@ export default async function BatikFabricPage() {
                     <div className="flex flex-col gap-12 mt-12">
                         <div className="flex flex-col gap-4 text-center items-center mx-auto max-w-4xl">
                             <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">High-Demand Fabric Library</span>
-                            <h3 className="font-playfair text-4xl md:text-5xl font-bold text-[#5A2A1F]">Explore Signature Batik Dress Designs for Fabric Wholesale</h3>
+                            <h3 className="font-playfair text-3xl md:text-4xl font-bold text-[#5A2A1F]">Explore Signature Batik Dress Designs for Fabric Wholesale</h3>
                             <p className="text-xl text-[#5A2A1F]/70 font-medium italic leading-relaxed">Discover best-selling batik patterns, consistent quality, and ready-to-move collections trusted by boutiques, fabric shops, cloth shops, and resellers across India.</p>
                         </div>
                         <ProductGrid products={fabricProducts.slice(0, 8)} columns={4} />
@@ -245,8 +244,8 @@ export default async function BatikFabricPage() {
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-24 relative z-10">
                     <div className="text-center flex flex-col gap-8">
                         <span className="text-sm font-black text-[#8B3A2B] uppercase tracking-[0.5em] mb-2 block">Simple Process</span>
-                        <h2 className="font-playfair text-6xl md:text-8xl font-bold leading-tight">How to Order Batik Fabric Online</h2>
-                        <p className="text-2xl md:text-3xl text-[#5A2A1F]/70 font-medium italic max-w-4xl mx-auto leading-relaxed">
+                        <h2 className="font-playfair text-3xl md:text-4xl font-bold leading-tight">How to Order Batik Fabric Online</h2>
+                        <p className="text-xl md:text-2xl text-[#5A2A1F]/70 font-medium italic max-w-4xl mx-auto leading-relaxed">
                             Five simple steps. Zero confusion. Fast delivery of premium batik fabric, Batik Cloth, trending batik color collections, and quality cotton cloth across India.
                         </p>
                     </div>
@@ -331,7 +330,7 @@ export default async function BatikFabricPage() {
                 <div className="max-w-7xl mx-auto flex flex-col gap-20 relative z-10">
                     <div className="text-center flex flex-col gap-6 max-w-4xl mx-auto">
                         <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Next Step</span>
-                        <h2 className="font-playfair text-5xl md:text-7xl font-bold text-[#5A2A1F]">Continue Your Batik Fabric Buying Journey</h2>
+                        <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#5A2A1F]">Continue Your Batik Fabric Buying Journey</h2>
                         <p className="text-xl text-[#5A2A1F]/60 font-medium italic leading-relaxed">Choose what fits your goal—explore designs, source fabric, or scale with wholesale supply.</p>
                     </div>
 
@@ -398,7 +397,7 @@ export default async function BatikFabricPage() {
                 <div className="max-w-7xl mx-auto flex flex-col gap-20">
                     <div className="text-center flex flex-col gap-6 max-w-4xl mx-auto">
                         <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Editorial Corner</span>
-                        <h2 className="font-playfair text-5xl md:text-7xl font-bold text-[#5A2A1F]">The Batik Fabric Journal</h2>
+                        <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#5A2A1F]">The Batik Fabric Journal</h2>
                         <p className="text-xl text-[#5A2A1F]/60 font-medium italic leading-relaxed">Insights on batik fabric, latest batik fabric prints, styling ideas, and trends shaping modern women clothing and dress material demand.</p>
                     </div>
 
@@ -414,7 +413,7 @@ export default async function BatikFabricPage() {
                                 </div>
                                 <div className="flex flex-col gap-1 px-4 pb-4">
                                     <span className="text-xs font-black uppercase tracking-widest text-[#8B3A2B] opacity-60">{post.cat}</span>
-                                    <h4 className="font-playfair text-2xl font-bold text-[#5A2A1F] leading-tight mt-2 group-hover:text-[#8B3A2B] transition-colors">{post.title}</h4>
+                                    <h4 className="font-playfair text-xl font-bold text-[#5A2A1F] leading-tight mt-2 group-hover:text-[#8B3A2B] transition-colors">{post.title}</h4>
                                     <div className="flex items-center justify-between mt-6">
                                         <span className="text-xs font-black uppercase tracking-widest text-[#5A2A1F]/30">{post.date}</span>
                                         <div className="flex items-center gap-2 text-[#8B3A2B] font-bold text-xs uppercase tracking-widest group-hover:translate-x-2 transition-transform">

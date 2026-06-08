@@ -53,7 +53,7 @@ export default function ProductCard({ product, isWholesalePage = false }: Produc
                     <span className="text-[11px] font-bold text-[#8B3A2B]/60 uppercase tracking-[0.3em]">
                         {product.subCategory}
                     </span>
-                    <h4 className="font-playfair text-2xl md:text-3xl font-bold text-[#5A2A1F] leading-tight">
+                    <h4 className="font-playfair text-xl md:text-2xl font-bold text-[#5A2A1F] leading-tight">
                         {product.name}
                     </h4>
                 </div>

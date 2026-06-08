@@ -32,7 +32,7 @@ export default function AdminLayout({
   // 🛡️ Protected Route Logic
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#F5F1EC] flex items-center justify-center font-sans">
+      <div className="min-h-screen bg-[#F5F1EC] flex items-center justify-center font-playfair">
         <Loader2 className="w-12 h-12 text-[#5A2A1F] animate-spin" />
       </div>
     );
@@ -47,7 +47,7 @@ export default function AdminLayout({
   }
 
   return (
-    <div className="min-h-screen bg-[#F5F1EC] flex font-sans">
+    <div className="min-h-screen bg-[#F5F1EC] flex font-playfair">
       {/* Mobile sidebar backdrop */}
       {sidebarOpen && (
         <div

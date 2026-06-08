@@ -59,12 +59,12 @@ export default function Nav() {
                     <div className="flex flex-col">
                         <Link href="/" className="font-playfair text-3xl font-black tracking-tight text-[#5A2A1F] hover:text-[#8B3A2B] transition-colors">AQSHA</Link>
                         <div className="flex items-center gap-2">
-                            <span className="font-sans text-[10px] font-black tracking-[0.3em] text-[#5A2A1F]/60 uppercase leading-tight">Batik Cloth</span>
+                            <span className="font-playfair text-[10px] font-black tracking-[0.3em] text-[#5A2A1F]/60 uppercase leading-tight">Batik Cloth</span>
                         </div>
                     </div>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden lg:flex items-center gap-8 font-sans font-bold text-[#5A2A1F] text-[13px] uppercase tracking-wider">
+                    <div className="hidden lg:flex items-center gap-8 font-playfair font-bold text-[#5A2A1F] text-[13px] uppercase tracking-wider">
                         <Link href="/batik-cloth" className="hover:text-[#8B3A2B] transition-colors">batik cloth</Link>
                         <Link href="/batik-fabric" className="hover:text-[#8B3A2B] transition-colors">batik fabric</Link>
                         <Link href="/wholesale" className="hover:text-[#8B3A2B] transition-colors">wholesale</Link>

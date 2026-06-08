@@ -251,7 +251,7 @@ export default function AdminOrders() {
       />
 
       {/* Advanced Filters */}
-      <div className="bg-white p-5 rounded-2xl shadow-lg shadow-[#5A2A1F]/5 border border-[#5A2A1F]/10 flex flex-col md:flex-row gap-4 items-center justify-between font-sans">
+      <div className="bg-white p-5 rounded-2xl shadow-lg shadow-[#5A2A1F]/5 border border-[#5A2A1F]/10 flex flex-col md:flex-row gap-4 items-center justify-between font-playfair">
         <div className="relative w-full md:max-w-md">
           <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
             <Search className="h-5 w-5 text-[#5A2A1F]/40" />
@@ -314,11 +314,11 @@ export default function AdminOrders() {
           <p className="text-sm text-[#5A2A1F]/60 font-bold uppercase tracking-wider">Loading Orders Data...</p>
         </div>
       ) : filteredOrders.length === 0 ? (
-        <div className="text-center py-20 bg-white rounded-2xl border border-[#5A2A1F]/10 font-sans">
+        <div className="text-center py-20 bg-white rounded-2xl border border-[#5A2A1F]/10 font-playfair">
           <p className="text-[#5A2A1F]/50 font-medium text-lg">No orders match the selected search filters.</p>
         </div>
       ) : (
-        <div className="space-y-4 font-sans">
+        <div className="space-y-4 font-playfair">
           {/* Desktop Table View */}
           <div className="hidden md:block bg-white shadow-lg shadow-[#5A2A1F]/5 rounded-2xl border border-[#5A2A1F]/10 overflow-hidden w-full max-w-full">
             <div className="overflow-x-auto w-full">
@@ -587,7 +587,7 @@ export default function AdminOrders() {
       {/* Invoice Details Modal */}
       {selectedOrder && (
         <div className="fixed inset-0 bg-[#5A2A1F]/40 backdrop-blur-sm flex items-center justify-center z-[150] p-4 animate-in fade-in duration-300">
-          <div className="bg-[#FAF6F0] rounded-[32px] border border-[#5A2A1F]/10 p-6 md:p-8 max-w-2xl w-full shadow-2xl relative animate-in zoom-in-95 duration-200 flex flex-col max-h-[90vh] overflow-y-auto font-sans">
+          <div className="bg-[#FAF6F0] rounded-[32px] border border-[#5A2A1F]/10 p-6 md:p-8 max-w-2xl w-full shadow-2xl relative animate-in zoom-in-95 duration-200 flex flex-col max-h-[90vh] overflow-y-auto font-playfair">
             
             {/* Design Corner Borders */}
             <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-[#8B3A2B]/30 rounded-tl-[32px]" />
@@ -649,7 +649,7 @@ export default function AdminOrders() {
 
             {/* Cancellation Alert Banner */}
             {selectedOrder.status === 'Cancelled' && (
-              <div className="bg-red-50 border border-red-200 rounded-2xl p-4 mb-6 font-sans">
+              <div className="bg-red-50 border border-red-200 rounded-2xl p-4 mb-6 font-playfair">
                 <span className="text-[10px] font-black uppercase tracking-widest text-red-800 font-bold block mb-1">⚠️ Order Cancelled</span>
                 <p className="text-xs text-red-700 font-bold">
                   Cancellation Reason: &ldquo;{selectedOrder.cancelReason || 'Cancelled by buyer'}&rdquo;
@@ -659,7 +659,7 @@ export default function AdminOrders() {
 
             {/* Returns Auditing Alert Panel */}
             {selectedOrder.returnStatus && selectedOrder.returnStatus !== 'None' && (
-              <div className={`border rounded-2xl p-4 mb-6 font-sans ${
+              <div className={`border rounded-2xl p-4 mb-6 font-playfair ${
                 selectedOrder.returnStatus === 'Pending'
                   ? 'bg-purple-50 border-purple-200 text-purple-950'
                   : selectedOrder.returnStatus === 'Approved'

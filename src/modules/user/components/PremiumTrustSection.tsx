@@ -62,7 +62,7 @@ export default function PremiumTrustSection() {
                         <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#5A2A1F]">The Legacy of Quality</span>
                         <span className="w-4 h-[1px] bg-[#5A2A1F]"></span>
                     </div>
-                    <h2 className="font-playfair text-4xl md:text-[56px] lg:text-6xl font-bold text-[#5A2A1F] md:whitespace-nowrap">
+                    <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#5A2A1F] md:whitespace-nowrap">
                         Join 1000+ Satisfied Business Owners
                     </h2>
                     <p className="text-lg text-[#5A2A1F]/70 font-medium px-4 max-w-3xl mx-auto">

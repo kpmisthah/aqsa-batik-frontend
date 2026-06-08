@@ -91,7 +91,7 @@ export default function WelcomePopup() {
                     </div>
 
                     {/* Title */}
-                    <h1 className="font-playfair text-[28px] md:text-[36px] leading-[1.1] font-medium tracking-tight text-[#7A2A1A] mb-5">
+                    <h1 className="font-playfair text-2xl md:text-3xl leading-[1.1] font-medium tracking-tight text-[#7A2A1A] mb-5">
                         Premium Batik Suits<br />That Your Customers Love
                     </h1>
 

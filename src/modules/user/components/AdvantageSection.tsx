@@ -28,7 +28,7 @@ const AdvantageSection: React.FC<AdvantageSectionProps> = ({
                 <div className="flex flex-col gap-12">
                     <div className="flex flex-col gap-6 text-center lg:text-left">
                         <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">{tag}</span>
-                        <h2 className="font-playfair text-5xl md:text-7xl font-bold text-[#5A2A1F] leading-[1.1]">{title}</h2>
+                        <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#5A2A1F] leading-[1.1]">{title}</h2>
                     </div>
                     <div className="flex flex-col gap-6">
                         {items.map((item, i) => (
@@ -38,7 +38,7 @@ const AdvantageSection: React.FC<AdvantageSectionProps> = ({
                                         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                                     </svg>
                                 </div>
-                                <span className="text-2xl font-bold tracking-tight text-[#5A2A1F] group-hover:text-[#8B3A2B] transition-colors" dangerouslySetInnerHTML={{ __html: item }} />
+                                <span className="text-xl font-bold tracking-tight text-[#5A2A1F] group-hover:text-[#8B3A2B] transition-colors" dangerouslySetInnerHTML={{ __html: item }} />
                             </div>
                         ))}
                     </div>
