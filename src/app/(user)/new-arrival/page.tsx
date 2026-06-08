@@ -136,11 +136,11 @@ export default async function NewArrivalPage() {
             </section>
 
             {/* ── PRODUCT GRID ── */}
-            <section id="collection" className="py-32 px-6 bg-white relative">
-                <div className="max-w-[1600px] mx-auto flex flex-col gap-20">
-                    <div className="flex flex-col gap-6 text-center items-center mx-auto max-w-4xl">
+            <section id="collection" className="py-16 lg:py-24 px-6 bg-white relative">
+                <div className="max-w-[1600px] mx-auto flex flex-col gap-12 lg:gap-16">
+                    <div className="flex flex-col gap-4 text-center items-center mx-auto max-w-4xl">
                         <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Latest Collection</span>
-                        <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#5A2A1F]">Explore <span className='hero-highlight'>New Arrival</span> Batik Dress Designs</h2>
+                        <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#5A2A1F]">Explore New Arrival Batik Dress Designs</h2>
                         <p className="text-xl text-[#5A2A1F]/70 font-medium italic leading-relaxed">Browse our newest batik dress online shop collection featuring trending styles, updated prints, and ready-to-wear fashion for modern buyers.</p>
                     </div>
 
