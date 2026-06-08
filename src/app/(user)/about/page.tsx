@@ -36,11 +36,11 @@ export default function AboutPage() {
                 <div className="relative z-10 max-w-7xl mx-auto px-6 w-full text-white">
                     <div className="max-w-5xl flex flex-col gap-6">
                         <span className="text-xs font-bold text-[#FFD700] uppercase tracking-[0.4em]">Our Heritage</span>
-                        <h1 className="font-playfair text-4xl md:text-5xl font-bold leading-[1.2] md:leading-[1.1]">
+                        <h1 className="font-playfair text-3xl md:text-4xl font-bold leading-[1.4] md:leading-[1.3] tracking-tight">
                             <span className="block md:whitespace-nowrap">Legacy <span className='hero-highlight'>Craftsmanship</span></span>
                             <span className="block md:whitespace-nowrap">Behind Every <span className='hero-highlight'>Design</span></span>
                         </h1>
-                        <p className="text-lg md:text-xl lg:text-2xl font-medium opacity-90 italic">Rooted in Bherugarh, Ujjain, we carry forward the legacy of traditional wax batik—refined over 15+ years into premium batik cloth, batik dresses, and high-quality batik fabric. Our collections focus on durable cotton dress material and consistent women cotton wholesale fabric, built for real market demand and ready-to-sell use.</p>
+                        <p className="font-playfair text-lg md:text-xl lg:text-2xl font-medium tracking-tight opacity-90 italic">Rooted in Bherugarh, Ujjain, we carry forward the legacy of traditional wax batik—refined over 15+ years into premium batik cloth, batik dresses, and high-quality batik fabric. Our collections focus on durable cotton dress material and consistent women cotton wholesale fabric, built for real market demand and ready-to-sell use.</p>
                     </div>
                 </div>
             </section>
@@ -268,12 +268,12 @@ export default function AboutPage() {
                                 // we'll use a single state for the About journey if needed, 
                                 // but for simplicity and following the 'menu button' request, 
                                 // let's just make them expandable.
-                                return ( phase && 
+                                return (phase &&
                                     <details key={i} className="group border border-[#5A2A1F]/10 rounded-2xl overflow-hidden bg-[#F5F1EC]/30">
                                         <summary className="p-6 flex justify-between items-center cursor-pointer list-none hover:bg-[#F5F1EC]/50 transition-colors">
                                             <span className="font-bold text-[#5A2A1F] uppercase tracking-widest text-sm">{phase.t}</span>
                                             <span className="text-[#8B3A2B] group-open:rotate-180 transition-transform">
-                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
                                             </span>
                                         </summary>
                                         <div className="p-6 pt-0 text-[#5A2A1F]/80 leading-relaxed font-medium">

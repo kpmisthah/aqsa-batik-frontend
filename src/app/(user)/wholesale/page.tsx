@@ -226,7 +226,7 @@ export default async function WholesalePage() {
                         </div>
 
                         <div className="flex flex-col gap-4 md:gap-6">
-                            <h1 className="font-playfair text-3xl md:text-5xl font-bold leading-[1.4] md:leading-[1.3] tracking-tight">
+                            <h1 className="font-playfair text-3xl md:text-4xl font-bold leading-[1.4] md:leading-[1.3] tracking-tight">
                                 Fabric <span className='hero-highlight'>Wholesale in India</span> for <br className="md:hidden" /> <span className='hero-highlight'>Batik Clothing</span> & <span className='hero-highlight'>Bulk Orders</span>
                             </h1>
                             <p className="font-playfair text-xl md:text-2xl font-medium tracking-tight opacity-95 leading-relaxed mt-2 max-w-4xl mx-auto">

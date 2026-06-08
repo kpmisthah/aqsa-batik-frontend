@@ -64,10 +64,10 @@ export default function HomePage() {
             </div>
 
             <div className="flex flex-col gap-4 md:gap-6">
-              <h1 className="font-playfair text-3xl md:text-4xl font-normal leading-[1.4] md:leading-[1.3] tracking-tight">
+              <h1 className="font-playfair text-3xl md:text-4xl font-bold leading-[1.4] md:leading-[1.3] tracking-tight">
                 Premium <span className='hero-highlight'>Batik Designs</span> That Turn <span className='hero-highlight'>Attention</span> Into <span className='hero-highlight'>Orders</span>
               </h1>
-              <p className="font-playfair text-lg md:text-xl font-medium opacity-95 leading-[1.4] md:leading-[1.3] mt-2 max-w-4xl mx-auto">
+              <p className="font-playfair text-lg md:text-2xl lg:text-3xl font-medium opacity-95 leading-[1.4] md:leading-[1.3] mt-2 max-w-5xl mx-auto">
                 Buy Batik Cloth online from the 1st Indian direct batik manufacturer. Premium quality cotton dress collections for wholesale and retail—trusted for consistency and reliable supply across India.
               </p>
             </div>

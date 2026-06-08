@@ -61,7 +61,7 @@ export default async function BatikClothPage() {
                         </div>
 
                         <div className="flex flex-col gap-4 md:gap-6">
-                            <h1 className="font-playfair text-3xl md:text-4xl font-normal leading-[1.4] md:leading-[1.2] tracking-tight">
+                            <h1 className="font-playfair text-3xl md:text-4xl font-bold leading-[1.4] md:leading-[1.3] tracking-tight">
                                 <span className='hero-highlight'>Batik Cloth</span> in Cotton – Premium <span className='hero-highlight'>Printed Batik Fabric</span>
                             </h1>
                             <p className="font-playfair text-xl md:text-2xl font-medium tracking-tight opacity-95 leading-relaxed mt-1 md:mt-2 max-w-4xl mx-auto">

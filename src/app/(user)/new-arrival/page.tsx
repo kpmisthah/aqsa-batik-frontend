@@ -22,7 +22,7 @@ const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20ab
 
 export default async function NewArrivalPage() {
     const allProducts = await getProducts();
-    
+
     // Sort all products by createdAt in descending order (newest first)
     const sortedProducts = [...allProducts].sort((a: any, b: any) => {
         const dateA = new Date(a.createdAt || 0).getTime();
@@ -70,7 +70,7 @@ export default async function NewArrivalPage() {
                         </div>
 
                         <div className="flex flex-col gap-4 md:gap-6">
-                            <h1 className="font-playfair text-4xl lg:text-5xl font-bold leading-[1.4] md:leading-[1.3] tracking-tight">
+                            <h1 className="font-playfair text-3xl md:text-4xl font-bold leading-[1.4] md:leading-[1.3] tracking-tight">
                                 <span className='hero-highlight'>New Arrival</span> <span className='hero-highlight'>Batik Clothing</span> & Latest Dresses
                             </h1>
                             <p className="font-playfair text-xl md:text-2xl font-medium tracking-tight opacity-95 leading-relaxed max-w-4xl">
@@ -155,7 +155,7 @@ export default async function NewArrivalPage() {
                 </div>
             </section>
 
-            <AdvantageSection 
+            <AdvantageSection
                 tag="THE NEW ARRIVAL ADVANTAGE"
                 title={<>Be the First to <br /> Define the Trend</>}
                 items={[
@@ -170,7 +170,7 @@ export default async function NewArrivalPage() {
                 featureDesc="Freshly manufactured batik clothing optimized for current retail and wholesale demand."
             />
 
-            <PremiumFeatureSection 
+            <PremiumFeatureSection
                 tag="Buyer Psychology"
                 title={<>Why These Batik Dresses <br />Get Picked First</>}
                 features={[
