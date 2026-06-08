@@ -22,9 +22,16 @@ const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20ab
 
 export default async function NewArrivalPage() {
     const allProducts = await getProducts();
-    const newArrivals = allProducts.filter((p: any) => p.category === "New Arrival").slice(0, 12);
-    // Fallback if no category matches
-    const displayProducts = newArrivals.length > 0 ? newArrivals : allProducts.slice(0, 8);
+    
+    // Sort all products by createdAt in descending order (newest first)
+    const sortedProducts = [...allProducts].sort((a: any, b: any) => {
+        const dateA = new Date(a.createdAt || 0).getTime();
+        const dateB = new Date(b.createdAt || 0).getTime();
+        return dateB - dateA;
+    });
+
+    // Display the 12 most recent products
+    const displayProducts = sortedProducts.slice(0, 12);
 
     return (
         <div className="min-h-screen bg-[#F5F1EC] text-[#5A2A1F] font-playfair selection:bg-[#5A2A1F] selection:text-white scroll-smooth underline-offset-4">
