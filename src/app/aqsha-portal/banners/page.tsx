@@ -20,7 +20,7 @@ export default function BannersAdmin() {
 
   const fetchBanners = async () => {
     try {
-      const res = await fetch(`${API_BASE}/banners`, { cache: 'no-store' });
+      const res = await fetch(`${API_BASE}/banners`, { cache: 'no-store', credentials: 'include' });
       const data = await res.json();
       const bannerMap: Record<string, string> = {};
       if (Array.isArray(data)) {
@@ -48,16 +48,19 @@ export default function BannersAdmin() {
       const uploadRes = await fetch(`${API_BASE}/upload`, {
         method: 'POST',
         body: formData,
+        credentials: 'include',
       });
       const uploadData = await uploadRes.json();
       if (uploadData.imageUrl) {
         setBanners((prev) => ({ ...prev, [page]: uploadData.imageUrl }));
         // Auto-save to database
-        await fetch(`${API_BASE}/banners/${page}`, {
+        const saveRes = await fetch(`${API_BASE}/banners/${page}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ imageUrl: uploadData.imageUrl }),
+          credentials: 'include',
         });
+        if (!saveRes.ok) throw new Error('Auto-save failed');
         alert(`Banner for ${page} uploaded and updated successfully!`);
       }
     } catch (err) {
@@ -81,6 +84,7 @@ export default function BannersAdmin() {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ imageUrl }),
+        credentials: 'include',
       });
       if (!res.ok) throw new Error('Failed to save banner');
       alert(`Banner for ${page} updated successfully!`);
