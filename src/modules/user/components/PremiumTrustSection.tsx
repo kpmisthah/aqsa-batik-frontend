@@ -100,7 +100,7 @@ export default function PremiumTrustSection() {
                 <div className="w-full relative group cursor-pointer mt-8">
                     <div className="relative w-full aspect-[21/9] md:aspect-[3/1] rounded-[32px] overflow-hidden shadow-2xl border-8 border-white/50">
                         <Image
-                            src="/hero_bg.png"
+                            src="/cotton dress for women.webp"
                             alt="Manufacturing View"
                             fill
                             className="object-cover brightness-75 group-hover:scale-105 transition-transform duration-1000"
