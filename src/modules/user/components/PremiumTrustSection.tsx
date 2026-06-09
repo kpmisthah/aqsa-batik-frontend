@@ -54,7 +54,7 @@ export default function PremiumTrustSection() {
     return (
         <section className="bg-[#F5F1EC] py-32 px-6 border-t border-[#5A2A1F]/5">
             <div className="max-w-6xl mx-auto flex flex-col gap-24 items-center">
-                
+
                 {/* ── HEADER ── */}
                 <div className="text-center max-w-5xl w-full flex flex-col gap-6">
                     <div className="flex justify-center items-center gap-3 opacity-60">
@@ -100,13 +100,13 @@ export default function PremiumTrustSection() {
                 <div className="w-full relative group cursor-pointer mt-8">
                     <div className="relative w-full aspect-[21/9] md:aspect-[3/1] rounded-[32px] overflow-hidden shadow-2xl border-8 border-white/50">
                         <Image
-                            src="/cotton dress for women.webp"
+                            src="/cotton dress for women image.webp"
                             alt="Manufacturing View"
                             fill
                             className="object-cover brightness-75 group-hover:scale-105 transition-transform duration-1000"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                        
+
                         <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                             <div className="flex items-center gap-6">
                                 <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white shadow-xl border border-white/30 group-hover:bg-white group-hover:text-[#5A2A1F] transition-all">
@@ -141,7 +141,7 @@ export default function PremiumTrustSection() {
                     </div>
                     <a href="https://wa.me/918815373767" target="_blank" rel="noreferrer" className="w-full md:w-auto bg-[#3E1C15] text-white px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-black transition-colors flex items-center justify-center gap-3">
                         Partner With Us
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                     </a>
                 </div>
 
