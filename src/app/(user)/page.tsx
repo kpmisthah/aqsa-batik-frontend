@@ -7,6 +7,7 @@ import PremiumTrustSection from "@/modules/user/components/PremiumTrustSection";
 import LeadGenerationForm from "@/modules/user/components/LeadGenerationForm";
 import StickyEnquiryButton from "@/modules/user/components/StickyEnquiryButton";
 import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
+import { useBanner } from "@/modules/user/hooks/useBanner";
 
 
 
@@ -23,6 +24,7 @@ const C = {
 
 export default function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const heroBanner = useBanner('home', '/full_hero_new.png');
 
   return (
     <div className="min-h-screen bg-[#F5F1EC] text-[#5A2A1F] font-playfair selection:bg-[#5A2A1F] selection:text-white scroll-smooth">
@@ -40,7 +42,7 @@ export default function HomePage() {
         {/* Background Image - Covered screen */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/full_hero_new.png"
+            src={heroBanner}
             alt="Batik Fashion Model"
             layout="fill"
             objectFit="cover"
@@ -108,7 +110,7 @@ export default function HomePage() {
                 { t: "New Arrival Batik Clothing", b: "Trending", d: "Fresh patterns inspired by modern trends.", l: "/new-arrival" }
               ].map((item, i) => (
                 <a key={i} href={item.l} className="group cursor-pointer">
-                  <div className="relative aspect-[4/5] rounded-[40px] shadow-2xl mb-8 transition-all hover:-translate-y-2 overflow-hidden border border-[#5A2A1F]/5">
+                  <div className="relative aspect-square rounded-[40px] shadow-2xl mb-8 transition-all hover:-translate-y-2 overflow-hidden border border-[#5A2A1F]/5">
                     <Image src={`/hero_bg.png`} alt={item.t} layout="fill" objectFit="cover" className="brightness-75 group-hover:brightness-90 transition-all duration-1000 group-hover:scale-110" />
                     <span className="absolute top-8 left-8 bg-[#8B3A2B] text-white text-[11px] font-black px-4 py-2 rounded-full uppercase tracking-widest shadow-xl">{item.b}</span>
                     <div className="absolute bottom-10 left-10 text-white drop-shadow-2xl">
@@ -190,7 +192,7 @@ export default function HomePage() {
         {/* ── OUR STORY SECTION ── */}
         <section id="about" className="py-40 px-6 md:px-20 max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
           <div className="relative group order-2 lg:order-1">
-            <div className="rounded-[60px] overflow-hidden shadow-[0_50px_120px_rgba(0,0,0,0.2)] relative aspect-[4/5] border-[20px] border-white transition-all duration-700 group-hover:scale-[1.02]">
+            <div className="rounded-[60px] overflow-hidden shadow-[0_50px_120px_rgba(0,0,0,0.2)] relative aspect-square border-[20px] border-white transition-all duration-700 group-hover:scale-[1.02]">
               <Image src="/history.png" alt="Ujjain Roots" layout="fill" objectFit="cover" className="hover:scale-110 transition-all duration-[3s] brightness-90" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
               <div className="absolute bottom-12 left-12 bg-white/10 backdrop-blur-xl p-10 rounded-[40px] border border-white/20 shadow-2xl text-white">

@@ -22,6 +22,7 @@ export default function AdminLayout({
     { name: "Orders", href: "/aqsha-portal/orders", icon: ShoppingBag },
     { name: "Products", href: "/aqsha-portal/products", icon: Package },
     { name: "Users", href: "/aqsha-portal/users", icon: Users },
+    { name: "Banners", href: "/aqsha-portal/banners", icon: Settings },
   ];
 
   // 🚪 Bypass admin dashboard shell completely for login screen

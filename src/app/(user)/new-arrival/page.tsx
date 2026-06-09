@@ -18,10 +18,21 @@ async function getProducts() {
     }
 }
 
+async function getHeroBanner() {
+    try {
+        const res = await fetch(`${API_BASE}/banners/new-arrivals`, { cache: 'no-store' });
+        const json = await res.json();
+        return json.imageUrl || "/hero_bg.png";
+    } catch (e) {
+        return "/hero_bg.png";
+    }
+}
+
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20New%20Arrival%20Batik%20Clothing";
 
 export default async function NewArrivalPage() {
     const allProducts = await getProducts();
+    const heroBannerUrl = await getHeroBanner();
 
     // Sort all products by createdAt in descending order (newest first)
     const sortedProducts = [...allProducts].sort((a: any, b: any) => {
@@ -51,7 +62,7 @@ export default async function NewArrivalPage() {
             <section className="relative h-screen w-full flex items-center overflow-hidden bg-[#5A2A1F]">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/hero_bg.png"
+                        src={heroBannerUrl}
                         alt="New Arrival Batik Collection"
                         layout="fill"
                         objectFit="cover"

@@ -89,7 +89,7 @@ export default function ProductInteractive({ product }: { product: any }) {
                     ref={imageContainerRef}
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}
-                    className="relative aspect-[4/5] w-full rounded-[40px] overflow-hidden shadow-2xl border border-[#5A2A1F]/5 bg-white cursor-none group"
+                    className="relative aspect-square w-full rounded-[40px] overflow-hidden shadow-2xl border border-[#5A2A1F]/5 bg-white cursor-none group"
                 >
                     <Image
                         src={selectedImage}

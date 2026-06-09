@@ -22,10 +22,21 @@ async function getProducts() {
     }
 }
 
+async function getHeroBanner() {
+    try {
+        const res = await fetch(`${API_BASE}/banners/wholesale`, { cache: 'no-store' });
+        const json = await res.json();
+        return json.imageUrl || "/cta_suits.png";
+    } catch (e) {
+        return "/cta_suits.png";
+    }
+}
+
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20Wholesale%20Manufacturer%20Pricing";
 
 export default async function WholesalePage() {
     const allProducts = await getProducts();
+    const heroBannerUrl = await getHeroBanner();
     const wholesaleProducts = allProducts.filter((p: any) => p.category === "Wholesale" || p.isWholesale === true);
 
     const partnershipBenefits = [
@@ -207,7 +218,7 @@ export default async function WholesalePage() {
             <section className="relative h-screen w-full flex items-center overflow-hidden bg-[#5A2A1F]">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/cta_suits.png"
+                        src={heroBannerUrl}
                         alt="Wholesale Batik Cloth Manufacturing"
                         layout="fill"
                         objectFit="cover"

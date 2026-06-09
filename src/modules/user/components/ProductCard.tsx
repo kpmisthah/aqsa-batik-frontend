@@ -32,7 +32,7 @@ export default function ProductCard({ product, isWholesalePage = false }: Produc
     return (
         <div className="group flex flex-col gap-6">
             {/* Image Container */}
-            <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden shadow-xl border border-[#5A2A1F]/5 transition-all duration-700 group-hover:-translate-y-2">
+            <div className="relative aspect-square rounded-[24px] overflow-hidden shadow-xl border border-[#5A2A1F]/5 transition-all duration-700 group-hover:-translate-y-2">
                 <Image
                     src={imageSrc}
                     alt={product.name}

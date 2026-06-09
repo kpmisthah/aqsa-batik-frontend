@@ -12,7 +12,7 @@ const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
 async function getProducts() {
     try {
-        const res = await fetch(`${API_BASE}/products?limit=100`, { cache: 'no-store' });
+        const res = await fetch(`${API_BASE}/products?limit=100&category=Batik+Cloth`, { cache: 'no-store' });
         const json = await res.json();
         return json.data || [];
     } catch (e) {
@@ -20,10 +20,21 @@ async function getProducts() {
     }
 }
 
+async function getHeroBanner() {
+    try {
+        const res = await fetch(`${API_BASE}/banners/batik-suits`, { cache: 'no-store' });
+        const json = await res.json();
+        return json.imageUrl || "/batik_suits_hero_category.png";
+    } catch (e) {
+        return "/batik_suits_hero_category.png";
+    }
+}
+
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20Batik%20Suits";
 
 export default async function BatikSuitsPage() {
     const allProducts = await getProducts();
+    const heroBannerUrl = await getHeroBanner();
     const suitProducts = allProducts.filter((p: any) => p.category === "Batik Cloth");
 
     const collectionHighlights = [
@@ -82,8 +93,8 @@ export default async function BatikSuitsPage() {
             <section className="relative h-screen w-full flex items-center overflow-hidden bg-[#5A2A1F]">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/batik_suits_hero_category.png"
-                        alt="Batik Cloth Collection"
+                        src={heroBannerUrl}
+                        alt="Batik Suits Collection"
                         layout="fill"
                         objectFit="cover"
                         objectPosition="center 10%"

@@ -189,12 +189,20 @@ export default function AdminDashboard() {
           <h1 className="text-3xl font-bold text-[#5A2A1F] font-playfair tracking-tight">Dashboard Overview</h1>
           <p className="mt-1 text-sm text-[#5A2A1F]/70 font-medium">Live store telemetry, payments, and product stock levels.</p>
         </div>
-        <button 
-          onClick={fetchDashboardData}
-          className="px-4 py-2.5 bg-[#FAF6F0] text-[#5A2A1F] border border-[#5A2A1F]/10 rounded-xl text-xs font-black uppercase tracking-wider hover:bg-[#FAF6F0]/80 transition-colors self-start sm:self-center"
-        >
-          Sync Data
-        </button>
+        <div className="flex items-center gap-3 self-start sm:self-center">
+          <Link 
+            href="/aqsha-portal/banners" 
+            className="px-4 py-2.5 bg-[#8B3A2B] text-white rounded-xl text-xs font-black uppercase tracking-wider hover:bg-[#5A2A1F] transition-colors shadow-md"
+          >
+            Manage Banners
+          </Link>
+          <button 
+            onClick={fetchDashboardData}
+            className="px-4 py-2.5 bg-[#FAF6F0] text-[#5A2A1F] border border-[#5A2A1F]/10 rounded-xl text-xs font-black uppercase tracking-wider hover:bg-[#FAF6F0]/80 transition-colors"
+          >
+            Sync Data
+          </button>
+        </div>
       </div>
 
       {/* Metrics Row */}
