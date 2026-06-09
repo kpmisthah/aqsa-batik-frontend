@@ -18,11 +18,22 @@ async function getProducts() {
     }
 }
 
+async function getHeroBanner() {
+    try {
+        const res = await fetch(`${API_BASE}/banners/batik-cloth`, { cache: 'no-store' });
+        const json = await res.json();
+        return json.imageUrl || "/batik_fabric_hero_premium.png";
+    } catch (e) {
+        return "/batik_fabric_hero_premium.png";
+    }
+}
+
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20Batik%20Cloth";
 
 export default async function BatikClothPage() {
     const allProducts = await getProducts();
     const clothProducts = allProducts.filter((p: any) => p.category === "Batik Fabric" || p.category === "Batik Cloth"); // Cloth and Fabric share products
+    const heroBannerUrl = await getHeroBanner();
 
     return (
         <div className="min-h-screen bg-[#F5F1EC] text-[#5A2A1F] font-playfair selection:bg-[#5A2A1F] selection:text-white scroll-smooth underline-offset-4">
@@ -42,7 +53,7 @@ export default async function BatikClothPage() {
             <section className="relative h-screen w-full flex items-center overflow-hidden bg-[#5A2A1F]">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/batik_fabric_hero_premium.png"
+                        src={heroBannerUrl}
                         alt="Premium Batik Cloth Collection"
                         layout="fill"
                         objectFit="cover"

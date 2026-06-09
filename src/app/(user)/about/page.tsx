@@ -5,11 +5,13 @@ import FAQ from "@/modules/user/components/FAQ";
 import PremiumTrustSection from "@/modules/user/components/PremiumTrustSection";
 import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
 import PremiumFeatureSection from "@/modules/user/components/PremiumFeatureSection";
+import { useBanner } from "@/modules/user/hooks/useBanner";
 
 
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Aqsha%20Batik";
 
 export default function AboutPage() {
+    const heroBannerUrl = useBanner("about", "/about_hero.png");
     return (
         <div className="min-h-screen bg-[#F5F1EC] text-[#5A2A1F] font-playfair selection:bg-[#5A2A1F] selection:text-white scroll-smooth underline-offset-4">
             <title>About AQSHA BATIK | 15+ Years of Batik Manufacturing Excellence</title>
@@ -22,7 +24,7 @@ export default function AboutPage() {
             <section className="relative min-h-[80vh] py-32 md:py-0 w-full flex items-center overflow-hidden bg-[#5A2A1F]">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/about_hero.png"
+                        src={heroBannerUrl}
                         alt="Aqsha Batik Heritage"
                         layout="fill"
                         objectFit="cover"

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { UploadCloud, Save, Loader2, Image as ImageIcon } from 'lucide-react';
 
-const PAGES = ['home', 'wholesale', 'new-arrivals', 'batik-suits', 'batik-fabric'];
+const PAGES = ['home', 'wholesale', 'new-arrivals', 'batik-cloth', 'batik-fabric', 'about'];
 
 export default function BannersAdmin() {
   const [banners, setBanners] = useState<Record<string, string>>({});
