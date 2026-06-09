@@ -21,16 +21,14 @@ export default function AboutPage() {
             <Nav />
 
             {/* ── HERO SECTION ── */}
-            <section className="relative min-h-[80vh] py-32 md:py-0 w-full flex items-center overflow-hidden bg-[#5A2A1F]">
+            <section className="relative min-h-[85vh] md:min-h-[80vh] py-32 md:py-0 w-full flex items-center overflow-hidden bg-[#5A2A1F]">
                 <div className="absolute inset-0 z-0">
                     <Image
                         src={heroBannerUrl}
                         alt="Aqsha Batik Heritage"
-                        layout="fill"
-                        objectFit="cover"
-                        objectPosition="center center"
+                        fill
                         priority
-                        className="brightness-75 contrast-[1.1]"
+                        className="object-cover object-[center_top] md:object-center brightness-75 contrast-[1.1]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#5A2A1F]/90 via-[#5A2A1F]/20 to-transparent"></div>
                 </div>

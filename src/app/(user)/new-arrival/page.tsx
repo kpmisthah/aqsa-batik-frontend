@@ -59,16 +59,14 @@ export default async function NewArrivalPage() {
             <Nav />
 
             {/* ── HERO SECTION ── */}
-            <section className="relative h-screen w-full flex items-center overflow-hidden bg-[#5A2A1F]">
+            <section className="relative min-h-[85vh] md:h-screen w-full flex items-center overflow-hidden bg-[#5A2A1F]">
                 <div className="absolute inset-0 z-0">
                     <Image
                         src={heroBannerUrl}
                         alt="New Arrival Batik Collection"
-                        layout="fill"
-                        objectFit="cover"
-                        objectPosition="center 20%"
+                        fill
                         priority
-                        className="brightness-[0.7] contrast-[1.1]"
+                        className="object-cover object-[center_top] md:object-[center_20%] brightness-[0.7] contrast-[1.1]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/90 shadow-2xl"></div>
                 </div>

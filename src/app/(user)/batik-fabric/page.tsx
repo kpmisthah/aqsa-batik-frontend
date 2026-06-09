@@ -95,16 +95,14 @@ export default async function BatikFabricPage() {
             <Nav />
 
             {/* ── HERO BANNER ── */}
-            <section className="relative h-screen w-full flex items-center overflow-hidden bg-[#5A2A1F]">
+            <section className="relative min-h-[85vh] md:h-screen w-full flex items-center overflow-hidden bg-[#5A2A1F]">
                 <div className="absolute inset-0 z-0">
                     <Image
                         src={heroBannerUrl}
                         alt="Batik Fabric Collection"
-                        layout="fill"
-                        objectFit="cover"
-                        objectPosition="center"
+                        fill
                         priority
-                        className="brightness-[0.8] contrast-[1.1]"
+                        className="object-cover object-[center_top] md:object-center brightness-[0.8] contrast-[1.1]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/80 shadow-2xl"></div>
                 </div>

@@ -38,17 +38,15 @@ export default function HomePage() {
       <Nav />
 
       {/* ── FULL SCREEN HERO SECTION ── */}
-      <section className="relative min-h-[600px] md:h-[95vh] md:min-h-[750px] w-full flex items-center overflow-hidden bg-[#5A2A1F]">
+      <section className="relative min-h-[85vh] md:h-[95vh] md:min-h-[750px] w-full flex items-center overflow-hidden bg-[#5A2A1F]">
         {/* Background Image - Covered screen */}
         <div className="absolute inset-0 z-0">
           <Image
             src={heroBanner}
             alt="Batik Fashion Model"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center 20%"
+            fill
             priority
-            className="brightness-[0.75] contrast-[1.1]"
+            className="object-cover object-[center_top] md:object-[center_20%] brightness-[0.75] contrast-[1.1]"
           />
           {/* Professional Overlay for readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 shadow-2xl"></div>
