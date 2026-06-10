@@ -10,7 +10,7 @@ const blogPosts = [
         excerpt: "Discover the centuries-old process behind the vibrant patterns of Bherugarh batik and why it remains a favorite for cotton dress material.",
         category: "Heritage",
         date: "May 15, 2026",
-        image: "/history.png",
+        image: "/cat_wholesale.webp",
         slug: "art-of-traditional-wax-batik"
     },
     {

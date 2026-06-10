@@ -105,7 +105,7 @@ export default function ContactPage() {
                             <h2 className="font-playfair text-4xl font-bold">Our Location</h2>
                             <div className="bg-white rounded-[40px] p-8 border border-[#5A2A1F]/5 flex flex-col md:flex-row items-center gap-8 group">
                                 <div className="relative w-full md:w-40 h-40 rounded-3xl overflow-hidden shadow-lg grayscale group-hover:grayscale-0 transition-all duration-700">
-                                    <Image src="/history.png" alt="Bherugarh Ujjain" layout="fill" objectFit="cover" />
+                                    <Image src="/batik-fabric-manufacturing.webp" alt="Bherugarh Ujjain" layout="fill" objectFit="cover" />
                                 </div>
                                 <div className="flex flex-col gap-4 flex-grow">
                                     <div className="flex flex-col">
