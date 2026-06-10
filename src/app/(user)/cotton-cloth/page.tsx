@@ -425,7 +425,7 @@ export default async function CottonClothPage() {
                         ].map((post, i) => (
                             <div key={i} className={`bg-white rounded-[24px] md:rounded-[40px] overflow-hidden shadow-xl border border-[#5A2A1F]/5 group cursor-pointer hover:shadow-2xl transition-all duration-500 flex flex-col ${i === 2 ? "col-span-2 md:col-span-1 flex-row md:flex-col" : ""}`}>
                                 <div className={`relative overflow-hidden shrink-0 ${i === 2 ? "w-1/3 md:w-full h-28 md:h-64" : "h-32 md:h-64"}`}>
-                                    <Image src={post.img} alt={post.t} layout="fill" objectFit="cover" className="group-hover:scale-110 transition-transform duration-700" />
+                                    <Image src={post.img} alt={post.t} layout="fill" objectFit="cover" objectPosition="top" className="group-hover:scale-110 transition-transform duration-700" />
                                     <div className="absolute top-2 left-2 md:top-6 md:left-6">
                                         <span className="bg-white/90 backdrop-blur-md px-2 py-1 md:px-4 md:py-1.5 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-widest text-[#5A2A1F]">{post.c}</span>
                                     </div>
