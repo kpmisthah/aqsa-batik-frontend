@@ -169,7 +169,7 @@ export default async function CottonClothPage() {
                     "Consistent Bulk Quality",
                     "Ready Stock Availability"
                 ]}
-                imageSrc="/best-dresses-for-women-quality-banner.webp"
+                imageSrc="/cotton-fabric-quality-banner.webp"
                 mobileImageSrc="/cotton-summer-dresses-image.webp"
                 featureTag="FABRIC STANDARD"
                 featureTitle="Pure Cotton 60x60"
@@ -241,7 +241,7 @@ export default async function CottonClothPage() {
                         )
                     }
                 ]}
-                imageSrc="/batik-fabric-manufacturing.webp"
+                imageSrc="/premium-cotton-cloth-banner.webp"
                 mobileImageSrc="/cotton-dress-material-image.webp"
                 quote="Our premium batik cloth offers the perfect canvas for your fashion creations, blending traditional art with superior comfort."
             />
@@ -348,21 +348,21 @@ export default async function CottonClothPage() {
                                 t: "Explore Batik Fabric",
                                 d: "Discover premium batik fabric, printed collections, cotton materials, and stylish designs for women clothing and boutiques.",
                                 l: "/batik-fabric",
-                                img: "/cat_batik_fabric.webp",
+                                img: "/batik-fabric-category-image.webp",
                                 tag: "Category"
                             },
                             {
                                 t: "Explore Wholesale Women Dresses",
                                 d: "Discover wholesale cotton cloth collections with bulk-ready stock and repeat-demand women fashion styles.",
                                 l: "/wholesale",
-                                img: "/cat_wholesale.webp",
+                                img: "/batik-cloth-dresses-for-women-category-image.webp",
                                 tag: "Inquiry"
                             },
                             {
                                 t: "Explore New Arrival Batik Clothing",
                                 d: "Stay updated with fresh batik print dress material, stylish women clothing, and trending cotton fashion collections.",
                                 l: "/new-batik-prints",
-                                img: "/cat_new_arrival.webp",
+                                img: "/new-batik-print-category-image.webp",
                                 tag: "Category"
                             }
                         ].map((item, i) => (
