@@ -31,13 +31,19 @@ export default function AdminProducts() {
   } = useProducts();
 
   const formRef = useRef<HTMLFormElement>(null);
-  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  type ImageItem = { id: string; type: 'existing'; url: string } | { id: string; type: 'new'; file: File; previewUrl: string };
+  const [imageItems, setImageItems] = useState<ImageItem[]>([]);
   const [croppingFile, setCroppingFile] = useState<File | null>(null);
 
   // Clear files when modal closes or editing product changes
   useEffect(() => {
+    if (editingProduct) {
+      setImageItems((editingProduct.images || []).map((url, i) => ({ id: `existing-${i}`, type: 'existing', url })));
+    } else {
+      setImageItems([]);
+    }
     if (!isAddModalOpen && !editingProduct) {
-      setSelectedFiles([]);
+      setImageItems([]);
     }
   }, [isAddModalOpen, editingProduct]);
 
@@ -47,9 +53,20 @@ export default function AdminProducts() {
 
     // Replace native file input with our state
     formData.delete("imageFiles");
-    selectedFiles.forEach((file) => {
-      formData.append("imageFiles", file);
+    
+    const imagesOrder: string[] = [];
+    let newIdx = 0;
+    
+    imageItems.forEach(item => {
+        if (item.type === 'existing') {
+            imagesOrder.push(`existing:${item.url}`);
+        } else {
+            imagesOrder.push(`new:${newIdx++}`);
+            formData.append("imageFiles", item.file);
+        }
     });
+
+    formData.append("imagesOrder", JSON.stringify(imagesOrder));
 
     if (editingProduct) {
       await updateProduct(editingProduct.id, formData);
@@ -57,7 +74,7 @@ export default function AdminProducts() {
       await createProduct(formData);
     }
     closeModals();
-    setSelectedFiles([]);
+    setImageItems([]);
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -69,17 +86,26 @@ export default function AdminProducts() {
   };
 
   const handleCropSave = (croppedFile: File) => {
-    setSelectedFiles((prev) => [...prev, croppedFile]);
+    setImageItems((prev) => [...prev, { id: `new-${Date.now()}`, type: 'new', file: croppedFile, previewUrl: URL.createObjectURL(croppedFile) }]);
     setCroppingFile(null);
   };
 
-  const removeFile = (indexToRemove: number) => {
-    setSelectedFiles((prev) => prev.filter((_, index) => index !== indexToRemove));
+  const removeImage = (indexToRemove: number) => {
+    setImageItems((prev) => prev.filter((_, index) => index !== indexToRemove));
+  };
+
+  const makeThumbnail = (index: number) => {
+    setImageItems((prev) => {
+      const newItems = [...prev];
+      const [item] = newItems.splice(index, 1);
+      newItems.unshift(item);
+      return newItems;
+    });
   };
 
   const handleClose = () => {
     closeModals();
-    setSelectedFiles([]);
+    setImageItems([]);
     setCroppingFile(null);
   };
 
@@ -209,26 +235,24 @@ export default function AdminProducts() {
             />
 
             <div className="flex gap-4 mt-4 flex-wrap">
-              {/* Show Existing Images if Editing */}
-              {editingProduct?.images && editingProduct.images.length > 0 && selectedFiles.length === 0 && (
-                editingProduct.images.map((img, i) => (
-                  <div key={`existing-${i}`} className="relative group">
-                    <img src={img} alt={`Existing ${i + 1}`} className="w-20 h-20 rounded-xl object-cover border border-[#5A2A1F]/20 shadow-sm" />
-                    <div className="absolute inset-0 bg-black/40 rounded-xl opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
-                      <span className="text-white text-xs font-bold text-center px-1">Currently Saved</span>
-                    </div>
+              {/* Show All Images (Order matters) */}
+              {imageItems.map((item, i) => (
+                <div key={item.id} className="relative group">
+                  <img src={item.type === 'existing' ? item.url : item.previewUrl} alt={`Preview ${i + 1}`} className="w-20 h-20 rounded-xl object-cover object-top border border-[#5A2A1F]/20 shadow-sm" />
+                  <div className="absolute inset-0 bg-black/40 rounded-xl opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-opacity gap-1">
+                    <span className="text-white text-[9px] font-bold text-center px-1">
+                       {item.type === 'existing' ? "Currently Saved" : "New Image"}
+                    </span>
+                    {i !== 0 && (
+                        <button type="button" onClick={() => makeThumbnail(i)} className="bg-[#FFD700] text-[#5A2A1F] text-[9px] font-black uppercase px-2 py-0.5 rounded shadow-sm hover:bg-[#F4C430] transition-colors">
+                           Make Thumbnail
+                        </button>
+                    )}
                   </div>
-                ))
-              )}
-
-              {/* Show New Selected Previews */}
-              {selectedFiles.map((file, i) => (
-                <div key={`new-${i}`} className="relative group">
-                  <img src={URL.createObjectURL(file)} alt={`Preview ${i + 1}`} className="w-20 h-20 rounded-xl object-cover border border-[#5A2A1F]/20 shadow-sm" />
                   <button
                     type="button"
-                    onClick={() => removeFile(i)}
-                    className="absolute -top-2 -right-2 bg-red-500 text-white w-6 h-6 rounded-full flex items-center justify-center shadow-md hover:bg-red-600 transition-colors"
+                    onClick={() => removeImage(i)}
+                    className="absolute -top-2 -right-2 bg-red-500 text-white w-6 h-6 rounded-full flex items-center justify-center shadow-md hover:bg-red-600 transition-colors opacity-0 group-hover:opacity-100"
                   >
                     <X size={14} />
                   </button>

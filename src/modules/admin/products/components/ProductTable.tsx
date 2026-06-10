@@ -34,7 +34,7 @@ export function ProductTable({ products, onToggleBlock, onEdit, onDelete }: Prod
                     <div className="flex items-center">
                       <div className="h-14 w-14 flex-shrink-0 relative rounded-xl overflow-hidden bg-[#E8D9C0] border border-[#5A2A1F]/10">
                         {product.images && product.images.length > 0 ? (
-                          <img className="h-14 w-14 object-cover" src={product.images[0]} alt={product.name} />
+                          <img className="h-14 w-14 object-cover object-top" src={product.images[0]} alt={product.name} />
                         ) : (
                           <div className="h-14 w-14 flex items-center justify-center text-[#5A2A1F]/30 text-xs font-bold">No img</div>
                         )}
@@ -130,7 +130,7 @@ export function ProductTable({ products, onToggleBlock, onEdit, onDelete }: Prod
             <div className="flex items-start gap-4">
               <div className="h-16 w-16 flex-shrink-0 relative rounded-xl overflow-hidden bg-[#E8D9C0] border border-[#5A2A1F]/10">
                 {product.images && product.images.length > 0 ? (
-                  <img className="h-16 w-16 object-cover" src={product.images[0]} alt={product.name} />
+                  <img className="h-16 w-16 object-cover object-top" src={product.images[0]} alt={product.name} />
                 ) : (
                   <div className="h-16 w-16 flex items-center justify-center text-[#5A2A1F]/30 text-xs font-bold">No img</div>
                 )}

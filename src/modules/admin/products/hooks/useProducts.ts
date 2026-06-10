@@ -135,13 +135,28 @@ export function useProducts() {
       // Upload new images if provided
       const imageFiles = formData.getAll("imageFiles") as File[];
       const validFiles = imageFiles.filter((f) => f.size > 0);
-      let newImageUrls: string[] | undefined;
+      let newImageUrls: string[] = [];
       if (validFiles.length > 0) {
         const uploadForm = new FormData();
         validFiles.forEach((f) => uploadForm.append("images", f));
         const uploadRes = await fetch(`${API_BASE}/upload/multiple`, { method: "POST", body: uploadForm });
         const uploadData = await uploadRes.json();
         newImageUrls = uploadData.imageUrls || [];
+      }
+
+      const imagesOrder = formData.get("imagesOrder") as string;
+      let finalImages: string[] = [];
+      if (imagesOrder) {
+        const parsedOrder = JSON.parse(imagesOrder);
+        let newIdx = 0;
+        finalImages = parsedOrder.map((item: string) => {
+            if (item.startsWith("existing:")) return item.substring(9);
+            if (item.startsWith("new:")) return newImageUrls[newIdx++];
+            return "";
+        }).filter(Boolean);
+      } else {
+        const existingImages = formData.getAll("existingImages") as string[];
+        finalImages = [...existingImages, ...newImageUrls];
       }
 
       const coloursRaw = (formData.get("colours") as string) || "";
@@ -161,8 +176,8 @@ export function useProducts() {
         seoTitle: formData.get("seoTitle") as string,
         metaDescription: formData.get("metaDescription") as string,
         description: formData.get("description") as string,
+        images: finalImages,
       };
-      if (newImageUrls) body.images = newImageUrls;
 
       const res = await fetch(`${API_BASE}/products/${id}`, {
         method: "PUT",
