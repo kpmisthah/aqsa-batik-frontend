@@ -766,7 +766,7 @@ function ProfileContent() {
                 ) : orders.length === 0 ? (
                   <div className="text-center py-12 border border-dashed border-[#5A2A1F]/10 rounded-2xl bg-[#FAF6F0]/20">
                     <p className="text-sm opacity-60 font-medium text-[#5A2A1F] italic font-playfair">You have not placed any orders yet.</p>
-                    <Link href="/batik-cloth" className="inline-block mt-4 text-xs font-black uppercase tracking-wider text-[#8B3A2B] hover:underline font-playfair">
+                    <Link href="/cotton-cloth" className="inline-block mt-4 text-xs font-black uppercase tracking-wider text-[#8B3A2B] hover:underline font-playfair">
                       Browse Curated Collections &rarr;
                     </Link>
                   </div>

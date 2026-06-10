@@ -13,8 +13,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Aqsha Batik Cloth | Premium Wholesale Batik",
-  description: "Manufacturing premium cotton Batik Cloth in Ujjain since 2008.",
+  title: "AQSHA BATIK SUITS | Women Clothing & Batik Fabric India",
+  description: "Shop premium batik fabric, cotton dress material, and stylish women clothing online from AQSHA BATIK SUITS. Trusted wholesale batik manufacturer in India.",
 };
 
 export default function RootLayout({

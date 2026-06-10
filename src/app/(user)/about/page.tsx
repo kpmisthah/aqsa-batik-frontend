@@ -21,272 +21,249 @@ export default function AboutPage() {
             <Nav />
 
             {/* ── HERO SECTION ── */}
-            <section className="relative min-h-[85vh] md:min-h-[80vh] py-32 md:py-0 w-full flex items-center overflow-hidden bg-[#5A2A1F]">
+            <section className="relative min-h-[60svh] md:min-h-[80vh] py-32 md:py-0 w-full flex items-end md:items-center pb-8 md:pb-0 overflow-hidden bg-[#5A2A1F]">
                 <div className="absolute inset-0 z-0">
                     <Image
                         src={heroBannerUrl}
                         alt="Aqsha Batik Heritage"
                         fill
                         priority
+                        sizes="100vw"
                         className="object-cover object-[center_top] md:object-center brightness-75 contrast-[1.1]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#5A2A1F]/90 via-[#5A2A1F]/20 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-t from-[#5A2A1F]/20 via-[#5A2A1F]/40 to-[#5A2A1F]/90 md:from-[#5A2A1F]/90 md:via-[#5A2A1F]/20 md:to-transparent"></div>
                 </div>
 
-                <div className="relative z-10 max-w-7xl mx-auto px-6 w-full text-white">
-                    <div className="max-w-5xl flex flex-col gap-6">
-                        <span className="text-xs font-bold text-[#FFD700] uppercase tracking-[0.4em]">Our Heritage</span>
-                        <h1 className="font-playfair text-3xl md:text-4xl font-bold leading-[1.4] md:leading-[1.3] tracking-tight">
+                <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-6 w-full text-white">
+                    <div className="max-w-5xl flex flex-col gap-2 md:gap-6">
+                        <span className="text-[10px] md:text-xs font-bold text-[#FFD700] uppercase tracking-[0.3em] md:tracking-[0.4em]">Our Heritage</span>
+                        <h1 className="font-playfair text-2xl md:text-4xl font-bold leading-[1.2] md:leading-[1.3] tracking-tight">
                             <span className="block md:whitespace-nowrap">Legacy <span className='hero-highlight'>Craftsmanship</span></span>
                             <span className="block md:whitespace-nowrap">Behind Every <span className='hero-highlight'>Design</span></span>
                         </h1>
-                        <p className="font-playfair text-lg md:text-xl lg:text-2xl font-medium tracking-tight opacity-90 italic">Rooted in Bherugarh, Ujjain, we carry forward the legacy of traditional wax batik—refined over 15+ years into premium batik cloth, batik dresses, and high-quality batik fabric. Our collections focus on durable cotton dress material and consistent women cotton wholesale fabric, built for real market demand and ready-to-sell use.</p>
+                        <p className="font-playfair text-xs md:text-xl lg:text-2xl font-medium tracking-tight opacity-90 italic leading-[1.3] md:leading-relaxed max-w-[280px] md:max-w-none">Rooted in Bherugarh, Ujjain, we carry forward the legacy of traditional wax batik—refined over 15+ years into premium batik cloth, batik dresses, and high-quality batik fabric. Our collections focus on durable cotton dress material and consistent women cotton wholesale fabric, built for real market demand and ready-to-sell use.</p>
                     </div>
                 </div>
             </section>
             <GoogleReviewBar />
 
             {/* ── SECTION: OUR STORY ── */}
-            <section className="py-32 px-6 bg-white relative overflow-hidden">
+            <section className="py-16 md:py-24 px-6 bg-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-pattern opacity-[0.03]"></div>
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 relative z-10 items-start">
-                    <div className="flex flex-col gap-10">
-                        <div className="flex flex-col gap-6">
-                            <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.2em] leading-relaxed">From Handmade Batik To Trusted Women Fashion Supply</span>
-                            <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-[#5A2A1F] leading-tight">The Journey Behind AQSHA BATIK SUITS</h2>
-                        </div>
-                        <div className="flex flex-col gap-6 text-lg leading-relaxed text-[#5A2A1F]/80">
-                            <p className="font-bold text-xl text-[#5A2A1F] leading-relaxed">
-                                From 15 handmade suits for women in Bherugarh, Ujjain to supplying wholesalers, boutiques, and resellers across India—this journey was built on consistency, correction, and understanding what women actually want to wear.
-                            </p>
-                            <p className="font-bold text-[#5A2A1F]">
-                                This didn’t start as a brand.
-                                <br />
-                                It started in Bherugarh, Ujjain — where batik is not just textile work. It is craftsmanship passed through generations of hands.
-                            </p>
-                            <p>
-                                In 2010, my father started with only 15 suits for women.
-                                <br />Simple batik designs.
-                                <br />Small production.
-                                <br />No team.
-                                <br />No big setup.
-                                <br />It took nearly 20 days to sell those first 15 pieces.
-                                <br />There was no roadmap.
-                                <br />No certainty.
-                                <br />Only effort.
-                            </p>
-                            <p>
-                                But he did not stop.
-                                <br />He created another batch.
-                                <br />Then another.
-                                <br />Some suits sold.
-                                <br />Some did not.
-                                <br />There were fabric mistakes.
-                                <br />Quality issues.
-                                <br />Losses.
-                                <br />At times, dresses had to be sold at lower prices just to recover costs and continue production.
-                                <br />A small ₹10–20 thousand bank loan helped keep the work moving.
-                            </p>
-                            <p>
-                                But instead of giving up, he focused on improving the foundation:
-                                <span className="block mt-4 pl-4 border-l-2 border-[#8B3A2B] space-y-1">
-                                    <span className="block">👉 Better fabric quality</span>
-                                    <span className="block">👉 Better cutting and fitting</span>
-                                    <span className="block">👉 Better suit design for women</span>
-                                    <span className="block">👉 Better understanding of what buyers actually wanted</span>
-                                </span>
-                                <span className="block mt-6 font-bold text-xl text-[#8B3A2B] italic">That mindset changed everything.</span>
-                            </p>
+                <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-16 relative z-10 items-start">
+
+                    {/* Left Column (Header + Text) */}
+                    <div className="flex flex-col w-full lg:w-1/2 h-full lg:max-h-[600px]">
+                        {/* Header */}
+                        <div className="flex flex-col gap-3 md:gap-4 text-left mb-6 lg:mb-8 flex-shrink-0">
+                            <span className="text-[10px] md:text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.2em] leading-relaxed">From Handmade Batik To Trusted Women Fashion Supply</span>
+                            <h2 className="font-playfair text-2xl md:text-4xl font-bold text-[#5A2A1F] leading-tight">The Journey Behind AQSHA BATIK SUITS</h2>
                         </div>
 
-                        {/* ── JOURNEY ACCORDION ── */}
-                        <div className="flex flex-col gap-4 mt-4">
-                            {[
-                                {
-                                    t: "From Local Selling To Wholesale Supply",
-                                    d: (
-                                        <div className="flex flex-col gap-3">
-                                            <p>
-                                                Instead of waiting for customers to come, he went directly to them.
-                                                <br />Travelled to different cities.
-                                                <br />Met wholesalers personally.
-                                                <br />Carried samples by hand.
-                                                <br />Understood what resellers were searching for in women dresses, suit sets, and designer dress collections.
-                                            </p>
-                                            <p className="font-bold text-xl text-[#8B3A2B] italic">That was the real turning point.</p>
-                                            <p>
-                                                The business slowly shifted:
-                                                <br />From retail struggle → to wholesale women fashion supply.
-                                            </p>
-                                            <p>
-                                                As demand grew, our collections expanded into:
-                                                <span className="block mt-2 pl-4 border-l-2 border-[#8B3A2B] space-y-1 font-medium">
-                                                    <span className="block">👉 suit set for women</span>
-                                                    <span className="block">👉 frock suit for women</span>
-                                                    <span className="block">👉 cotton fashion collections</span>
-                                                    <span className="block">👉 anarkali suits for women</span>
-                                                    <span className="block">👉 party wear suits for women</span>
-                                                    <span className="block">👉 and breathable everyday women clothing</span>
-                                                </span>
-                                            </p>
-                                        </div>
-                                    )
-                                },
-                                {
-                                    t: "From 15 Pieces To Thousands",
-                                    d: (
-                                        <div className="flex flex-col gap-3">
-                                            <p>
-                                                Where it once took 20 days to sell 15 pieces…
-                                                <br />By 2016, AQSHA BATIK SUITS was supplying nearly 1500–2000 women clothing pieces at the same time.
-                                            </p>
-                                            <p className="font-bold text-lg text-[#5A2A1F]">That growth did not come from luck.</p>
-                                            <p>
-                                                It came from:
-                                                <span className="block mt-2 pl-4 border-l-2 border-[#8B3A2B] space-y-1 font-medium">
-                                                    <span className="block">👉 improving quality constantly</span>
-                                                    <span className="block">👉 correcting mistakes quickly</span>
-                                                    <span className="block">👉 understanding women dress design trends</span>
-                                                    <span className="block">👉 and building wearable collections women repeatedly purchased</span>
-                                                </span>
-                                            </p>
-                                            <p>
-                                                Every new design dress for women taught us something.
-                                                <br />Every market visit improved our understanding of:
-                                                <span className="block mt-2 pl-4 border-l-2 border-[#8B3A2B] space-y-1 font-medium">
-                                                    <span className="block">👉 dress designs for women</span>
-                                                    <span className="block">👉 fabric demand</span>
-                                                    <span className="block">👉 fitting preferences</span>
-                                                    <span className="block">👉 and changing fashion behavior</span>
-                                                </span>
-                                            </p>
-                                        </div>
-                                    )
-                                },
-                                {
-                                    t: "Taking Batik Fashion Online",
-                                    d: (
-                                        <div className="flex flex-col gap-3">
-                                            <p>
-                                                In 2017, I brought AQSHA BATIK SUITS online.
-                                            </p>
-                                            <p>
-                                                Through:
-                                                <span className="block mt-2 pl-4 border-l-2 border-[#8B3A2B] space-y-1 font-medium">
-                                                    <span className="block">👉 WhatsApp</span>
-                                                    <span className="block">👉 social media</span>
-                                                    <span className="block">👉 online marketplaces</span>
-                                                </span>
-                                            </p>
-                                            <p>
-                                                our collections started reaching more wholesalers, boutiques, and women fashion buyers across India.
-                                            </p>
-                                            <p className="font-bold text-lg text-[#5A2A1F]">That digital shift changed our speed completely.</p>
-                                            <p>
-                                                Now our collections included:
-                                                <span className="block mt-2 pl-4 border-l-2 border-[#8B3A2B] space-y-1 font-medium">
-                                                    <span className="block">👉 designer dresses for women</span>
-                                                    <span className="block">👉 trendy suits for women</span>
-                                                    <span className="block">👉 latest dress designs for womens</span>
-                                                    <span className="block">👉 party wear dress collections</span>
-                                                    <span className="block">👉 and breathable cotton fashion styles</span>
-                                                </span>
-                                            </p>
-                                            <p className="font-bold text-[#8B3A2B] italic">The internet helped our batik craftsmanship reach beyond local markets.</p>
-                                        </div>
-                                    )
-                                },
-                                {
-                                    t: "The COVID Phase & Rebuilding Again",
-                                    d: (
-                                        <div className="flex flex-col gap-3">
-                                            <p>
-                                                Like many fashion businesses, COVID during 2019–2020 created losses and uncertainty.
-                                                <br />Demand slowed.
-                                                <br />Markets paused.
-                                                <br />Orders became unstable.
-                                            </p>
-                                            <p className="font-bold text-lg text-[#5A2A1F]">But we adapted again.</p>
-                                            <p>
-                                                Instead of stopping, we improved systems, stock planning, and production clarity.
-                                            </p>
-                                            <p>
-                                                And from 2022 onwards, the business returned stronger with:
-                                                <span className="block mt-2 pl-4 border-l-2 border-[#8B3A2B] space-y-1 font-medium">
-                                                    <span className="block">👉 better operational systems</span>
-                                                    <span className="block">👉 stronger wholesale demand</span>
-                                                    <span className="block">👉 improved product quality</span>
-                                                    <span className="block">👉 and clearer fashion positioning</span>
-                                                </span>
-                                            </p>
-                                        </div>
-                                    )
-                                },
-                                {
-                                    t: "Where AQSHA BATIK SUITS Stands Today",
-                                    d: (
-                                        <div className="flex flex-col gap-3">
-                                            <p>
-                                                Today, AQSHA BATIK SUITS supplies wholesalers, boutiques, and resellers across major Indian markets including:
-                                                <span className="block mt-2 pl-4 border-l-2 border-[#8B3A2B] space-y-1 font-medium">
-                                                    <span className="block">👉 Delhi</span>
-                                                    <span className="block">👉 Punjab</span>
-                                                    <span className="block">👉 Gujarat</span>
-                                                    <span className="block">👉 and growing fashion markets across India</span>
-                                                </span>
-                                            </p>
-                                            <p>
-                                                We now manufacture collections across multiple women fashion categories including:
-                                                <span className="block mt-2 pl-4 border-l-2 border-[#8B3A2B] space-y-1 font-medium">
-                                                    <span className="block">👉 suits for women</span>
-                                                    <span className="block">👉 designer dress for women</span>
-                                                    <span className="block">👉 party wear suits for women</span>
-                                                    <span className="block">👉 frock suit for women</span>
-                                                    <span className="block">👉 anarkali suits for women</span>
-                                                    <span className="block">👉 night suit for women</span>
-                                                    <span className="block">👉 cotton night suit for women</span>
-                                                    <span className="block">👉 and stylish everyday women clothing</span>
-                                                </span>
-                                            </p>
-                                            <p>
-                                                But even after all these years, our focus remains the same:
-                                                <br /><span className="font-bold text-[#5A2A1F]">👉 Creating wearable batik clothing for women that actually sells repeatedly.</span>
-                                            </p>
-                                            <p className="font-bold text-lg text-[#8B3A2B] italic mt-2">
-                                                Because fashion changes. Comfort, quality, and trust do not.
-                                            </p>
-                                        </div>
-                                    )
-                                },
-                                {
-                                    t: "The Legacy Philosophy",
-                                    d: "This journey wasn’t built on perfect conditions. It was built on persistence, mistakes, and consistency. And that’s what still defines us today."
-                                }
-                            ].map((phase, i) => {
-                                // Local state for accordion in About page
-                                // Since we can't easily add many useState hooks dynamically, 
-                                // we'll use a single state for the About journey if needed, 
-                                // but for simplicity and following the 'menu button' request, 
-                                // let's just make them expandable.
-                                return (phase &&
-                                    <details key={i} className="group border border-[#5A2A1F]/10 rounded-2xl overflow-hidden bg-[#F5F1EC]/30">
-                                        <summary className="p-6 flex justify-between items-center cursor-pointer list-none hover:bg-[#F5F1EC]/50 transition-colors">
-                                            <span className="font-bold text-[#5A2A1F] uppercase tracking-widest text-sm">{phase.t}</span>
-                                            <span className="text-[#8B3A2B] group-open:rotate-180 transition-transform">
-                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
+                        {/* Mobile Image */}
+                        <div className="block lg:hidden relative w-full h-[300px] sm:h-[400px] rounded-[24px] overflow-hidden shadow-2xl border-[8px] border-[#F5F1EC] mb-8">
+                            <Image src="/cotton-dress-material-image.webp" alt="Aqsha Batik Legacy Journey" layout="fill" objectFit="cover" objectPosition="top" className="brightness-90" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-4 rounded-xl border border-[#5A2A1F]/5 shadow-xl">
+                                <div className="flex flex-col gap-1">
+                                    <span className="font-playfair text-3xl font-black text-[#5A2A1F]">2010</span>
+                                    <span className="text-[10px] font-black uppercase tracking-widest text-[#8B3A2B]">The Foundation Year</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Scrollable Text Content */}
+                        <div className="flex flex-col gap-6 overflow-y-auto max-h-[350px] sm:max-h-[450px] lg:max-h-none pr-2 lg:pr-6 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[#5A2A1F]/20 [&::-webkit-scrollbar-thumb]:rounded-full pb-4 md:pb-10 overscroll-contain flex-grow relative">
+                            <div className="flex flex-col gap-4 text-[13px] md:text-base leading-relaxed text-[#5A2A1F]/80">
+                                <p className="font-bold text-[14px] md:text-lg text-[#5A2A1F] leading-relaxed italic border-l-2 border-[#8B3A2B] pl-4 md:pl-6 py-1">
+                                    From 15 handmade suits for women in Bherugarh, Ujjain to supplying wholesalers, boutiques, and resellers across India—this journey was built on consistency, correction, and understanding what women actually want to wear.
+                                </p>
+                                <p className="font-semibold text-[#5A2A1F]">
+                                    This didn’t start as a brand.
+                                    <br />
+                                    It started in Bherugarh, Ujjain — where batik is not just textile work. It is craftsmanship passed through generations of hands.
+                                </p>
+                                <p>
+                                    In 2010, my father started with only 15 suits for women.
+                                    <br />Simple batik designs. Small production. No team. No big setup.
+                                    <br />It took nearly 20 days to sell those first 15 pieces.
+                                    <br />There was no roadmap. No certainty. Only effort.
+                                </p>
+                                <p>
+                                    But he did not stop.
+                                    <br />He created another batch. Then another.
+                                    <br />Some suits sold. Some did not.
+                                    <br />There were fabric mistakes. Quality issues. Losses.
+                                    <br />At times, dresses had to be sold at lower prices just to recover costs and continue production.
+                                    <br />A small ₹10–20 thousand bank loan helped keep the work moving.
+                                </p>
+                                <p>
+                                    But instead of giving up, he focused on improving the foundation:
+                                </p>
+                                <ul className="list-none space-y-1 pl-4 md:pl-6 border-l-2 border-[#8B3A2B]/20 font-medium">
+                                    <li>👉 Better fabric quality</li>
+                                    <li>👉 Better cutting and fitting</li>
+                                    <li>👉 Better suit design for women</li>
+                                    <li>👉 Better understanding of what buyers actually wanted</li>
+                                </ul>
+                                <p className="font-bold text-[#8B3A2B] italic mt-2">That mindset changed everything.</p>
+                            </div>
+
+                            {/* ── JOURNEY ACCORDION ── */}
+                            <div className="flex flex-col gap-3 mt-2 md:mt-4">
+                                {[
+                                    {
+                                        t: "From Local Selling To Wholesale Supply",
+                                        d: (
+                                            <div className="flex flex-col gap-3">
+                                                <p>
+                                                    Instead of waiting for customers to come, he went directly to them.
+                                                    <br />Travelled to different cities. Met wholesalers personally. Carried samples by hand.
+                                                    <br />Understood what resellers were searching for in women dresses, suit sets, and designer dress collections.
+                                                </p>
+                                                <p className="font-bold text-[14px] md:text-base text-[#8B3A2B] italic">That was the real turning point.</p>
+                                                <p>
+                                                    The business slowly shifted:
+                                                    <br />From retail struggle → to wholesale women fashion supply.
+                                                </p>
+                                                <p>As demand grew, our collections expanded into:</p>
+                                                <ul className="list-none space-y-1 pl-4 border-l-2 border-[#8B3A2B]/20 font-medium">
+                                                    <li>👉 suit set for women</li>
+                                                    <li>👉 frock suit for women</li>
+                                                    <li>👉 cotton fashion collections</li>
+                                                    <li>👉 anarkali suits for women</li>
+                                                    <li>👉 party wear suits for women</li>
+                                                    <li>👉 and breathable everyday women clothing</li>
+                                                </ul>
+                                            </div>
+                                        )
+                                    },
+                                    {
+                                        t: "From 15 Pieces To Thousands",
+                                        d: (
+                                            <div className="flex flex-col gap-3">
+                                                <p>
+                                                    Where it once took 20 days to sell 15 pieces…
+                                                    <br />By 2016, AQSHA BATIK SUITS was supplying nearly 1500–2000 women clothing pieces at the same time.
+                                                </p>
+                                                <p className="font-bold text-[14px] md:text-base text-[#5A2A1F]">That growth did not come from luck.</p>
+                                                <p>It came from:</p>
+                                                <ul className="list-none space-y-1 pl-4 border-l-2 border-[#8B3A2B]/20 font-medium">
+                                                    <li>👉 improving quality constantly</li>
+                                                    <li>👉 correcting mistakes quickly</li>
+                                                    <li>👉 understanding women dress design trends</li>
+                                                    <li>👉 and building wearable collections women repeatedly purchased</li>
+                                                </ul>
+                                                <p>
+                                                    Every new design dress for women taught us something.
+                                                    <br />Every market visit improved our understanding of:
+                                                </p>
+                                                <ul className="list-none space-y-1 pl-4 border-l-2 border-[#8B3A2B]/20 font-medium">
+                                                    <li>👉 dress designs for women</li>
+                                                    <li>👉 fabric demand</li>
+                                                    <li>👉 fitting preferences</li>
+                                                    <li>👉 and changing fashion behavior</li>
+                                                </ul>
+                                            </div>
+                                        )
+                                    },
+                                    {
+                                        t: "Taking Batik Fashion Online",
+                                        d: (
+                                            <div className="flex flex-col gap-3">
+                                                <p>In 2017, I brought AQSHA BATIK SUITS online.</p>
+                                                <p>Through:</p>
+                                                <ul className="list-none space-y-1 pl-4 border-l-2 border-[#8B3A2B]/20 font-medium">
+                                                    <li>👉 WhatsApp</li>
+                                                    <li>👉 social media</li>
+                                                    <li>👉 online marketplaces</li>
+                                                </ul>
+                                                <p>our collections started reaching more wholesalers, boutiques, and women fashion buyers across India.</p>
+                                                <p className="font-bold text-[14px] md:text-base text-[#5A2A1F]">That digital shift changed our speed completely.</p>
+                                                <p>Now our collections included:</p>
+                                                <ul className="list-none space-y-1 pl-4 border-l-2 border-[#8B3A2B]/20 font-medium">
+                                                    <li>👉 designer dresses for women</li>
+                                                    <li>👉 trendy suits for women</li>
+                                                    <li>👉 latest dress designs for womens</li>
+                                                    <li>👉 party wear dress collections</li>
+                                                    <li>👉 and breathable cotton fashion styles</li>
+                                                </ul>
+                                                <p className="font-bold text-[#8B3A2B] italic">The internet helped our batik craftsmanship reach beyond local markets.</p>
+                                            </div>
+                                        )
+                                    },
+                                    {
+                                        t: "The COVID Phase & Rebuilding Again",
+                                        d: (
+                                            <div className="flex flex-col gap-3">
+                                                <p>
+                                                    Like many fashion businesses, COVID during 2019–2020 created losses and uncertainty.
+                                                    <br />Demand slowed. Markets paused. Orders became unstable.
+                                                </p>
+                                                <p className="font-bold text-[14px] md:text-base text-[#5A2A1F]">But we adapted again.</p>
+                                                <p>Instead of stopping, we improved systems, stock planning, and production clarity.</p>
+                                                <p>And from 2022 onwards, the business returned stronger with:</p>
+                                                <ul className="list-none space-y-1 pl-4 border-l-2 border-[#8B3A2B]/20 font-medium">
+                                                    <li>👉 better operational systems</li>
+                                                    <li>👉 stronger wholesale demand</li>
+                                                    <li>👉 improved product quality</li>
+                                                    <li>👉 and clearer fashion positioning</li>
+                                                </ul>
+                                            </div>
+                                        )
+                                    },
+                                    {
+                                        t: "Where AQSHA BATIK SUITS Stands Today",
+                                        d: (
+                                            <div className="flex flex-col gap-3">
+                                                <p>Today, AQSHA BATIK SUITS supplies wholesalers, boutiques, and resellers across major Indian markets including:</p>
+                                                <ul className="list-none space-y-1 pl-4 border-l-2 border-[#8B3A2B]/20 font-medium">
+                                                    <li>👉 Delhi</li>
+                                                    <li>👉 Punjab</li>
+                                                    <li>👉 Gujarat</li>
+                                                    <li>👉 and growing fashion markets across India</li>
+                                                </ul>
+                                                <p>We now manufacture collections across multiple women fashion categories including:</p>
+                                                <ul className="list-none space-y-1 pl-4 border-l-2 border-[#8B3A2B]/20 font-medium">
+                                                    <li>👉 suits for women</li>
+                                                    <li>👉 designer dress for women</li>
+                                                    <li>👉 party wear suits for women</li>
+                                                    <li>👉 frock suit for women</li>
+                                                    <li>👉 anarkali suits for women</li>
+                                                    <li>👉 night suit for women</li>
+                                                    <li>👉 cotton night suit for women</li>
+                                                    <li>👉 and stylish everyday women clothing</li>
+                                                </ul>
+                                                <p>But even after all these years, our focus remains the same:</p>
+                                                <ul className="list-none space-y-1 pl-4 border-l-2 border-[#8B3A2B]/20 font-medium">
+                                                    <li>👉 Creating wearable batik clothing for women that actually sells repeatedly.</li>
+                                                </ul>
+                                                <p className="font-bold text-[14px] md:text-base text-[#8B3A2B] italic mt-2">
+                                                    Because fashion changes. Comfort, quality, and trust do not.
+                                                </p>
+                                            </div>
+                                        )
+                                    }
+                                ].map((phase, i) => (
+                                    <details key={i} className="group border border-[#5A2A1F]/10 rounded-xl overflow-hidden bg-[#F5F1EC]/30 mb-3">
+                                        <summary className="p-4 md:p-5 flex justify-between items-center cursor-pointer list-none hover:bg-[#F5F1EC]/50 transition-colors">
+                                            <span className="font-bold text-[#5A2A1F] uppercase tracking-widest text-[11px] md:text-sm pr-4 leading-tight">{phase.t}</span>
+                                            <span className="text-[#8B3A2B] group-open:rotate-180 transition-transform flex-shrink-0">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
                                             </span>
                                         </summary>
-                                        <div className="p-6 pt-0 text-[#5A2A1F]/80 leading-relaxed font-medium">
+                                        <div className="p-4 md:p-5 pt-0 text-[12px] md:text-[14px] text-[#5A2A1F]/80 leading-relaxed">
                                             {phase.d}
                                         </div>
                                     </details>
-                                );
-                            })}
+                                ))}
+                            </div>
                         </div>
                     </div>
 
-                    <div className="lg:sticky lg:top-32 relative h-[700px] rounded-[60px] overflow-hidden shadow-2xl border-[15px] border-[#F5F1EC] group">
-                        <Image src="/history.png" alt="Aqsha Batik Legacy Journey" layout="fill" objectFit="cover" className="group-hover:scale-110 transition-all duration-[3s] brightness-90" />
+                    {/* Right Column (Desktop Image) */}
+                    <div className="hidden lg:block lg:sticky lg:top-32 relative w-full lg:w-1/2 h-[600px] rounded-[50px] overflow-hidden shadow-2xl border-[15px] border-[#F5F1EC] group">
+                        <Image src="/cotton-dress-material-image.webp" alt="Aqsha Batik Legacy Journey" layout="fill" objectFit="cover" objectPosition="top" className="group-hover:scale-110 transition-all duration-[3s] brightness-90" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                         <div className="absolute bottom-10 left-10 right-10 bg-white/90 backdrop-blur-md p-10 rounded-[40px] border border-[#5A2A1F]/5 shadow-xl">
                             <div className="flex flex-col gap-2">
@@ -301,7 +278,7 @@ export default function AboutPage() {
             <PremiumFeatureSection
                 tag="Guided by Principles"
                 title={<>What We <br />Stand For</>}
-                imageSrc="/batik_fabric_hero_premium.png"
+                imageSrc="/cotton-summer-dresses-image.webp"
                 quote="Every piece of batik cloth, cotton dress material, and batik fabric we produce is guided by principles that ensure quality, consistency, and long-term trust for buyers."
                 features={[
                     {
@@ -348,28 +325,28 @@ export default function AboutPage() {
             />
 
             {/* ── SECTION: MANUFACTURING EXCELLENCE ── */}
-            <section className="py-32 px-6 bg-white overflow-hidden">
-                <div className="max-w-7xl mx-auto flex flex-col gap-24">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-                        <div className="order-2 lg:order-1 relative h-[600px] rounded-[60px] overflow-hidden shadow-2xl border-[15px] border-[#F5F1EC] group">
-                            <Image src="/batik_fabric_hero.png" alt="Fabric Quality" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[3s]" />
+            <section className="py-16 md:py-32 px-6 bg-white overflow-hidden">
+                <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-24">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-24 items-center">
+                        <div className="order-2 lg:order-1 relative h-[300px] md:h-[600px] rounded-[30px] md:rounded-[60px] overflow-hidden shadow-2xl border-[8px] md:border-[15px] border-[#F5F1EC] group">
+                            <Image src="/batik-fabric-manufacturing.webp" alt="Fabric Quality" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[3s]" />
                         </div>
-                        <div className="order-1 lg:order-2 flex flex-col gap-10">
-                            <div className="flex flex-col gap-6">
-                                <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">The Process</span>
-                                <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#5A2A1F]">Our Whole Fabric Manufacturing Standards</h2>
+                        <div className="order-1 lg:order-2 flex flex-col gap-6 md:gap-10">
+                            <div className="flex flex-col gap-2 md:gap-6 text-center lg:text-left">
+                                <span className="text-[10px] md:text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.2em] md:tracking-[0.4em]">The Process</span>
+                                <h2 className="font-playfair text-2xl md:text-4xl font-bold text-[#5A2A1F]">Our Whole Fabric Manufacturing Standards</h2>
                             </div>
-                            <div className="flex flex-col gap-8">
+                            <div className="flex flex-col gap-5 md:gap-8">
                                 {[
                                     { t: "Premium Cotton Selection", d: "We use high-quality cotton fabric (60x60) known for comfort, durability, and suitability for daily wear and stitched garments." },
                                     { t: "Traditional Wax-Dyeing", d: "Our process follows original wax techniques to create detailed batik print designs with strong pattern suits clarity and lasting color." },
                                     { t: "Quality Control & Finishing", d: "Each batch is checked for consistency, color accuracy, and clean cutting—ensuring it is ready for bulk supply and retail use." }
                                 ].map((item, i) => (
-                                    <div key={i} className="flex gap-6 items-start group">
-                                        <div className="w-10 h-10 rounded-full bg-[#E8D9C0] flex items-center justify-center text-[#5A2A1F] font-black shrink-0 group-hover:bg-[#5A2A1F] group-hover:text-white transition-all">{i + 1}</div>
+                                    <div key={i} className="flex gap-4 md:gap-6 items-start group">
+                                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#E8D9C0] flex items-center justify-center text-[#5A2A1F] text-sm md:text-base font-black shrink-0 group-hover:bg-[#5A2A1F] group-hover:text-white transition-all">{i + 1}</div>
                                         <div className="flex flex-col gap-1">
-                                            <h4 className="font-bold text-xl">{item.t}</h4>
-                                            <p className="text-base text-[#5A2A1F]/60 font-medium">{item.d}</p>
+                                            <h4 className="font-bold text-[15px] md:text-xl text-[#5A2A1F]">{item.t}</h4>
+                                            <p className="text-[13px] md:text-base text-[#5A2A1F]/70 font-medium leading-relaxed">{item.d}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -380,19 +357,19 @@ export default function AboutPage() {
             </section>
 
             {/* ── FINAL CTAS ── */}
-            <section className="py-40 bg-[#F5F1EC] text-center px-6 border-t border-[#5A2A1F]/5">
-                <div className="max-w-4xl mx-auto flex flex-col gap-12">
-                    <div className="flex flex-col gap-6">
-                        <h2 className="font-playfair text-4xl md:text-5xl font-bold text-[#5A2A1F] leading-tight">Work Directly with the Manufacturer</h2>
-                        <p className="text-xl md:text-2xl text-[#5A2A1F]/60 font-medium max-w-2xl mx-auto italic leading-relaxed">
+            <section className="py-16 md:py-24 bg-[#F5F1EC] text-center px-6 border-t border-[#5A2A1F]/5">
+                <div className="max-w-4xl mx-auto flex flex-col gap-8 md:gap-10">
+                    <div className="flex flex-col gap-3 md:gap-5">
+                        <h2 className="font-playfair text-2xl md:text-4xl font-bold text-[#5A2A1F] leading-tight">Work Directly with the Manufacturer</h2>
+                        <p className="text-[13px] md:text-lg text-[#5A2A1F]/60 font-medium max-w-2xl mx-auto italic leading-relaxed">
                             Partner with a team focused on consistent quality, reliable supply, and long-term business relationships across Indian markets.
                         </p>
                     </div>
-                    <div className="flex flex-col md:flex-row justify-center gap-6">
-                        <a href={WA} target="_blank" rel="noreferrer" className="bg-[#5A2A1F] text-white px-12 py-7 rounded-2xl font-black text-xl hover:scale-105 transition-all shadow-2xl uppercase tracking-widest">
+                    <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-5">
+                        <a href={WA} target="_blank" rel="noreferrer" className="bg-[#5A2A1F] text-white px-6 py-3.5 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-bold text-[11px] md:text-sm hover:scale-105 transition-all shadow-xl uppercase tracking-widest border-2 border-[#5A2A1F]">
                             Get Wholesale Catalogue
                         </a>
-                        <a href="/wholesale" className="bg-white text-[#5A2A1F] border-2 border-[#5A2A1F] px-12 py-7 rounded-2xl font-black text-xl hover:scale-105 transition-all shadow-xl uppercase tracking-widest">
+                        <a href="/wholesale" className="bg-white text-[#5A2A1F] border-2 border-[#5A2A1F] px-6 py-3.5 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-bold text-[11px] md:text-sm hover:scale-105 transition-all shadow-md uppercase tracking-widest">
                             View Wholesale Terms
                         </a>
                     </div>

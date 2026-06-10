@@ -241,15 +241,17 @@ export default async function BatikSuitsPage() {
             {/* ── HOW TO ORDER SECTION ── */}
             <section className="py-16 md:py-24 px-6 bg-[#E8D9C0]/50 relative overflow-hidden">
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-12 md:gap-16 relative z-10">
-                    <div className="text-center flex flex-col gap-4">
-                        <span className="text-sm font-black text-[#8B3A2B] uppercase tracking-[0.5em] mb-2 block">Simple Process</span>
-                        <h2 className="font-playfair text-4xl md:text-6xl font-bold text-[#5A2A1F] leading-tight">How to Order Batik <span className='hero-highlight'>Suits Online</span></h2>
-                        <p className="text-lg md:text-xl text-[#5A2A1F]/70 font-medium italic max-w-4xl mx-auto leading-relaxed">
+                    <div className="flex flex-col gap-3 md:gap-4 max-w-4xl mx-auto w-full">
+                        <div className="text-center flex flex-col gap-1 md:gap-2 items-center">
+                            <span className="text-[10px] md:text-sm font-black text-[#8B3A2B] uppercase tracking-[0.5em] mb-1 block">Simple Process</span>
+                            <h2 className="font-playfair text-3xl md:text-6xl font-bold text-[#5A2A1F] leading-tight">How to Order Batik <span className='hero-highlight'>Suits Online</span></h2>
+                        </div>
+                        <p className="text-[13px] md:text-xl text-[#5A2A1F]/70 font-medium italic mx-0 lg:mx-auto leading-relaxed text-left md:text-center mt-2">
                             Five simple steps. Zero confusion. Fast delivery of premium batik fabric, Batik Cloth, trending batik color collections, and quality cotton cloth across India.
                         </p>
                     </div>
 
-                    <div className="relative flex flex-col lg:flex-row justify-between gap-10 lg:gap-6">
+                    <div className="relative grid grid-cols-2 lg:flex lg:flex-row justify-between gap-6 md:gap-10 lg:gap-6 mt-2 md:mt-0">
                         <div className="hidden lg:block absolute top-[32px] left-[10%] right-[10%] h-[3px] bg-[#5A2A1F]/5 z-0"></div>
 
                         {[
@@ -299,78 +301,76 @@ export default async function BatikSuitsPage() {
                                 )
                             }
                         ].map((step, i) => (
-                            <div key={i} className="flex flex-col items-center text-center gap-3 md:gap-4 lg:w-1/5 relative z-10">
-                                <div className="w-12 h-12 md:w-16 md:h-16 bg-white rounded-[16px] md:rounded-[24px] shadow-lg flex items-center justify-center hover:scale-110 transition-all duration-500 cursor-default border border-white relative group">
-                                    <span className="absolute -top-2 -left-2 w-6 h-6 bg-[#8B3A2B] text-white text-[9px] font-black rounded-full flex items-center justify-center shadow-md">{step.s}</span>
+                            <div key={i} className={`flex flex-col items-center text-center gap-2 md:gap-4 lg:w-1/5 relative z-10 ${i === 4 ? "col-span-2 lg:col-span-1" : ""}`}>
+                                <div className="w-10 h-10 md:w-16 md:h-16 bg-white rounded-[12px] md:rounded-[24px] shadow-lg flex items-center justify-center text-[#5A2A1F] hover:scale-110 transition-all duration-500 cursor-default border border-white relative group">
+                                    <span className="absolute -top-1.5 -left-1.5 md:-top-2 md:-left-2 w-5 h-5 md:w-6 md:h-6 bg-[#8B3A2B] text-white text-[8px] md:text-[9px] font-black rounded-full flex items-center justify-center shadow-md">{step.s}</span>
                                     {step.i}
                                 </div>
-                                <div className="flex flex-col gap-1.5 px-2">
-                                    <h4 className="text-base md:text-lg font-black tracking-tight text-[#5A2A1F] leading-tight">{step.t}</h4>
-                                    <p className="text-[11px] md:text-xs text-[#5A2A1F]/60 font-medium leading-relaxed">{step.d}</p>
+                                <div className="flex flex-col gap-1 md:gap-1.5 px-1 md:px-2">
+                                    <h4 className="text-[11px] md:text-lg font-black tracking-tight text-[#5A2A1F] leading-tight">{step.t}</h4>
+                                    <p className="text-[9px] md:text-xs text-[#5A2A1F]/70 font-medium leading-relaxed">{step.d}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
 
-                    <div className="flex justify-center mt-8 md:mt-12">
-                        <a href={WA} target="_blank" rel="noreferrer" className="inline-flex items-center gap-3 bg-[#5A2A1F] text-white px-8 py-4 md:px-10 md:py-5 rounded-2xl md:rounded-3xl font-bold text-lg md:text-xl shadow-[0_15px_40px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 transition-all duration-300 uppercase tracking-widest group">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.412 2.503 1.112 3.485l-.719 2.624 2.688-.705c.95.514 2.035.804 3.19.803 3.181 0 5.767-2.584 5.768-5.766 0-3.181-2.587-5.767-5.767-5.767zm3.39 8.2l-1.006 1.005c-.122.122-.318.159-.477.087-.514-.232-1.02-.555-1.504-1.039-.485-.484-.807-.989-1.039-1.504-.072-.159-.035-.355.087-.477l1.005-1.006c.115-.115.115-.301 0-.416l-1.139-1.139c-.115-.115-.301-.115-.416 0l-.798.797c-.506.507-.639 1.243-.374 1.874.457 1.087 1.214 2.064 2.223 3.073 1.009 1.009 1.986 1.766 3.073 2.223.631.265 1.367.132 1.874-.374l.797-.798c.115-.115.115-.301 0-.416l-1.139-1.139c-.115-.115-.301-.115-.416 0z" />
-                            </svg>
-                            <span>Start Your Order on WhatsApp</span>
+                    <div className="flex justify-center mt-6 md:mt-12">
+                        <a href={WA} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 md:gap-4 bg-[#5A2A1F] text-white px-4 py-3 md:px-10 md:py-5 rounded-xl md:rounded-3xl font-bold text-[11px] md:text-xl shadow-[0_15px_40px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 transition-all duration-300 uppercase tracking-widest group text-center">
+                            <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 md:w-6 md:h-6 shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" /></svg>
+                            START YOUR ORDER ON WHATSAPP
                         </a>
                     </div>
                 </div>
             </section>
 
             {/* ── SECTION: CONTINUE EXPLORING ── */}
-            <section className="py-32 px-6 bg-white relative overflow-hidden">
+            <section className="py-16 md:py-32 px-6 bg-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-pattern opacity-[0.02]"></div>
-                <div className="max-w-7xl mx-auto flex flex-col gap-20 relative z-10">
-                    <div className="text-center flex flex-col gap-6">
-                        <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Next Steps</span>
-                        <h2 className="font-playfair text-4xl md:text-5xl font-bold text-[#5A2A1F]">Continue Your Journey</h2>
+                <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20 relative z-10">
+                    <div className="flex flex-col gap-3 md:gap-6 text-left md:text-center">
+                        <span className="text-[10px] md:text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Next Steps</span>
+                        <h2 className="font-playfair text-2xl md:text-5xl font-bold text-[#5A2A1F] leading-tight">Continue Your Journey</h2>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-                        <a href="/batik-fabric" className="group relative aspect-[16/9] rounded-[40px] overflow-hidden shadow-2xl transition-all hover:-translate-y-2 border border-[#5A2A1F]/10">
-                            <Image src="/batik_fabric_hero.png" alt="Explore Batik Fabric" layout="fill" objectFit="cover" className="group-hover:scale-110 transition-all duration-[2s] brightness-75 group-hover:brightness-90" />
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10">
+                        <a href="/batik-fabric" className="group relative h-[200px] md:h-auto md:aspect-[16/9] rounded-[24px] md:rounded-[40px] overflow-hidden shadow-xl md:shadow-2xl transition-all hover:-translate-y-2 border border-[#5A2A1F]/10">
+                            <Image src="/cat_batik_fabric.webp" alt="Explore Batik Fabric" layout="fill" objectFit="cover" objectPosition="top" className="group-hover:scale-110 transition-all duration-[2s] brightness-75 group-hover:brightness-90" />
                             <div className="absolute inset-0 bg-gradient-to-t from-[#5A2A1F]/80 via-transparent to-transparent"></div>
-                            <div className="absolute bottom-10 left-10 right-10 flex items-center justify-between">
+                            <div className="absolute bottom-4 left-4 right-4 md:bottom-10 md:left-10 md:right-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 md:gap-0">
                                 <div className="flex flex-col gap-1">
-                                    <span className="text-xs font-black uppercase tracking-[0.3em] text-white/70">Category</span>
-                                    <h3 className="font-playfair text-3xl font-bold text-white">Explore Batik Fabric</h3>
+                                    <span className="text-[8px] md:text-xs font-black uppercase tracking-[0.3em] text-white/70">Category</span>
+                                    <h3 className="font-playfair text-sm md:text-3xl font-bold text-white leading-tight">Explore Batik Fabric</h3>
                                 </div>
-                                <div className="w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 group-hover:bg-[#FFD700] group-hover:text-[#5A2A1F] transition-all">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
+                                <div className="w-8 h-8 md:w-14 md:h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 group-hover:bg-[#FFD700] group-hover:text-[#5A2A1F] transition-all shrink-0">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 md:w-6 md:h-6"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
                                 </div>
                             </div>
                         </a>
 
-                        <a href={WA} target="_blank" rel="noreferrer" className="group relative aspect-[16/9] rounded-[40px] overflow-hidden shadow-2xl transition-all hover:-translate-y-2 border border-[#5A2A1F]/10">
-                            <Image src="/cta_suits.png" alt="Wholesale Inquiry" layout="fill" objectFit="cover" className="group-hover:scale-110 transition-all duration-[2s] brightness-75 group-hover:brightness-90" />
+                        <a href={WA} target="_blank" rel="noreferrer" className="group relative h-[200px] md:h-auto md:aspect-[16/9] rounded-[24px] md:rounded-[40px] overflow-hidden shadow-xl md:shadow-2xl transition-all hover:-translate-y-2 border border-[#5A2A1F]/10">
+                            <Image src="/cat_wholesale.webp" alt="Wholesale Inquiry" layout="fill" objectFit="cover" objectPosition="top" className="group-hover:scale-110 transition-all duration-[2s] brightness-75 group-hover:brightness-90" />
                             <div className="absolute inset-0 bg-gradient-to-t from-[#8B3A2B]/80 via-transparent to-transparent"></div>
-                            <div className="absolute bottom-10 left-10 right-10 flex items-center justify-between">
+                            <div className="absolute bottom-4 left-4 right-4 md:bottom-10 md:left-10 md:right-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 md:gap-0">
                                 <div className="flex flex-col gap-1">
-                                    <span className="text-xs font-black uppercase tracking-[0.3em] text-white/70">Inquiry</span>
-                                    <h3 className="font-playfair text-3xl font-bold text-white">Wholesale Inquiries</h3>
+                                    <span className="text-[8px] md:text-xs font-black uppercase tracking-[0.3em] text-white/70">Inquiry</span>
+                                    <h3 className="font-playfair text-sm md:text-3xl font-bold text-white leading-tight">Wholesale Inquiries</h3>
                                 </div>
-                                <div className="w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-xl group-hover:scale-110 transition-all">
-                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /></svg>
+                                <div className="w-8 h-8 md:w-14 md:h-14 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-xl group-hover:scale-110 transition-all shrink-0">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 md:w-[28px] md:h-[28px]"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /></svg>
                                 </div>
                             </div>
                         </a>
 
-                        <a href="#new-arrivals" className="group relative aspect-[16/9] rounded-[40px] overflow-hidden shadow-2xl transition-all hover:-translate-y-2 border border-[#5A2A1F]/10">
-                            <Image src="/history.png" alt="New Arrivals" layout="fill" objectFit="cover" className="group-hover:scale-110 transition-all duration-[2s] brightness-75 group-hover:brightness-90" />
+                        <a href="/new-batik-prints" className="group relative h-[160px] md:h-auto md:aspect-[16/9] rounded-[24px] md:rounded-[40px] overflow-hidden shadow-xl md:shadow-2xl transition-all hover:-translate-y-2 border border-[#5A2A1F]/10 col-span-2 md:col-span-1">
+                            <Image src="/cat_new_arrival.webp" alt="New Arrivals" layout="fill" objectFit="cover" objectPosition="top" className="group-hover:scale-110 transition-all duration-[2s] brightness-75 group-hover:brightness-90" />
                             <div className="absolute inset-0 bg-gradient-to-t from-[#5A2A1F]/80 via-transparent to-transparent"></div>
-                            <div className="absolute bottom-10 left-10 right-10 flex items-center justify-between">
+                            <div className="absolute bottom-4 left-4 right-4 md:bottom-10 md:left-10 md:right-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 md:gap-0">
                                 <div className="flex flex-col gap-1">
-                                    <span className="text-xs font-black uppercase tracking-[0.3em] text-white/70">Collection</span>
-                                    <h3 className="font-playfair text-3xl font-bold text-white">New Arrivals</h3>
+                                    <span className="text-[8px] md:text-xs font-black uppercase tracking-[0.3em] text-white/70">Collection</span>
+                                    <h3 className="font-playfair text-sm md:text-3xl font-bold text-white leading-tight">New Arrivals</h3>
                                 </div>
-                                <div className="w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 group-hover:bg-[#FFD700] group-hover:text-[#5A2A1F] transition-all">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
+                                <div className="w-8 h-8 md:w-14 md:h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 group-hover:bg-[#FFD700] group-hover:text-[#5A2A1F] transition-all shrink-0">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 md:w-6 md:h-6"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
                                 </div>
                             </div>
                         </a>
@@ -379,30 +379,30 @@ export default async function BatikSuitsPage() {
             </section>
 
             {/* ── SECTION: BATIK JOURNAL (BLOG) ── */}
-            <section className="py-32 px-6 bg-[#F5F1EC] border-t border-[#5A2A1F]/10">
-                <div className="max-w-7xl mx-auto flex flex-col gap-20">
-                    <div className="text-center flex flex-col gap-6">
-                        <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Editorial Corner</span>
-                        <h2 className="font-playfair text-4xl md:text-5xl font-bold text-[#5A2A1F]">The Batik Journal</h2>
-                        <p className="text-xl text-[#5A2A1F]/60 font-medium italic">Stories of heritage, craft, and contemporary style.</p>
+            <section className="py-16 md:py-32 px-6 bg-[#F5F1EC] border-t border-[#5A2A1F]/10">
+                <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
+                    <div className="flex flex-col gap-3 md:gap-6 text-left md:text-center">
+                        <span className="text-[10px] md:text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Editorial Corner</span>
+                        <h2 className="font-playfair text-2xl md:text-5xl font-bold text-[#5A2A1F] leading-tight">The Batik Journal</h2>
+                        <p className="text-[13px] md:text-xl text-[#5A2A1F]/60 font-medium italic mt-2">Stories of heritage, craft, and contemporary style.</p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10">
                         {[
                             { slug: "the-art-of-hand-blocked-batik", title: "The Art of Hand-Blocked Batik", date: "May 15, 2024", cat: "Craftsmanship", img: "/hero_bg.png" },
                             { slug: "batik-fashion-trends-2024", title: "Batik Fashion Trends 2024", date: "June 2, 2024", cat: "Fashion", img: "/cta_suits.png" },
                             { slug: "wholesale-success-stories", title: "Wholesale Success Stories", date: "June 10, 2024", cat: "Business", img: "/history.png" }
                         ].map((post, i) => (
-                            <a key={i} href={`/blog/${post.slug}`} className="group flex flex-col gap-6 bg-white p-6 rounded-[40px] shadow-sm hover:shadow-2xl transition-all border border-transparent hover:border-[#5A2A1F]/10">
-                                <div className="relative aspect-[4/3] rounded-[32px] overflow-hidden">
+                            <a key={i} href={`/blog/${post.slug}`} className={`group flex flex-col md:flex-col gap-3 md:gap-6 bg-white p-3 md:p-6 rounded-[24px] md:rounded-[40px] shadow-sm hover:shadow-2xl transition-all border border-transparent hover:border-[#5A2A1F]/10 ${i === 2 ? "col-span-2 md:col-span-1 flex-row md:flex-col" : ""}`}>
+                                <div className={`relative ${i === 2 ? "w-1/3 md:w-full md:aspect-[4/3] h-24 md:h-auto" : "aspect-[4/3] h-auto"} rounded-[16px] md:rounded-[32px] overflow-hidden`}>
                                     <Image src={post.img} alt={post.title} layout="fill" objectFit="cover" className="group-hover:scale-110 transition-transform duration-1000" />
                                 </div>
-                                <div className="flex flex-col gap-1 px-4 pb-4">
-                                    <span className="text-xs font-black uppercase tracking-widest text-[#8B3A2B] opacity-60">{post.cat}</span>
-                                    <h4 className="font-playfair text-2xl font-bold text-[#5A2A1F] leading-tight mt-2 group-hover:text-[#8B3A2B] transition-colors">{post.title}</h4>
-                                    <div className="flex items-center justify-between mt-6">
-                                        <span className="text-xs font-black uppercase tracking-widest text-[#5A2A1F]/30">{post.date}</span>
-                                        <div className="flex items-center gap-2 text-[#8B3A2B] font-bold text-xs uppercase tracking-widest group-hover:translate-x-2 transition-transform">
+                                <div className={`flex flex-col gap-1 px-1 md:px-4 pb-1 md:pb-4 flex-1 justify-center ${i === 2 ? "pl-3 md:pl-4" : ""}`}>
+                                    <span className="text-[8px] md:text-xs font-black uppercase tracking-widest text-[#8B3A2B] opacity-60">{post.cat}</span>
+                                    <h4 className="font-playfair text-[12px] md:text-2xl font-bold text-[#5A2A1F] leading-tight mt-1 md:mt-2 group-hover:text-[#8B3A2B] transition-colors">{post.title}</h4>
+                                    <div className="flex items-center justify-between mt-auto md:mt-6 pt-2 md:pt-0">
+                                        <span className="text-[8px] md:text-xs font-black uppercase tracking-widest text-[#5A2A1F]/30">{post.date}</span>
+                                        <div className="hidden md:flex items-center gap-2 text-[#8B3A2B] font-bold text-xs uppercase tracking-widest group-hover:translate-x-2 transition-transform">
                                             Read More
                                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
                                         </div>
