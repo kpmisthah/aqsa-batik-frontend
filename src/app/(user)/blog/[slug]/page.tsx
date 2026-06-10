@@ -24,7 +24,7 @@ const BLOG_POSTS: Record<string, any> = {
                 Our collection of <a href="/batik-fabric" class="text-[#8B3A2B] font-bold underline">premium batik fabric</a> is curated to meet the needs of modern boutiques and designers who value authenticity and durability.
             </p>
         `,
-        image: "/hero_bg.png"
+        image: "/journal_craftsmanship.png"
     },
     "batik-fashion-trends-2024": {
         title: "Batik Fashion Trends 2024: From Tradition to Modern Chic",
@@ -41,7 +41,7 @@ const BLOG_POSTS: Record<string, any> = {
                 Whether you prefer the soft drape of cotton silk or the crispness of pure cotton <a href="/batik-fabric" class="text-[#8B3A2B] font-bold underline">batik fabric</a>, our latest collection has something for every style preference.
             </p>
         `,
-        image: "/cta_suits.png"
+        image: "/journal_fashion.png"
     }
 };
 

@@ -406,21 +406,21 @@ export default async function CottonClothPage() {
                                 d: "Exploring the traditional craftsmanship behind every piece of fabric.",
                                 c: "Craftsmanship",
                                 date: "May 15, 2024",
-                                img: "/batik-fabric-category-image.webp"
+                                img: "/journal_craftsmanship.png"
                             },
                             {
                                 t: "Batik Fashion Trends 2024",
                                 d: "What's trending in the modern batik market for the upcoming season.",
                                 c: "Fashion",
                                 date: "June 2, 2024",
-                                img: "/new-batik-print-category-image.webp"
+                                img: "/journal_fashion.png"
                             },
                             {
                                 t: "Wholesale Success Stories",
                                 d: "How our partners are scaling their businesses with AQSHA Batik.",
                                 c: "Business",
                                 date: "June 10, 2024",
-                                img: "/dresses-for-women-image.webp"
+                                img: "/journal_business.png"
                             }
                         ].map((post, i) => (
                             <div key={i} className={`bg-white rounded-[24px] md:rounded-[40px] overflow-hidden shadow-xl border border-[#5A2A1F]/5 group cursor-pointer hover:shadow-2xl transition-all duration-500 flex flex-col ${i === 2 ? "col-span-2 md:col-span-1 flex-row md:flex-col" : ""}`}>
