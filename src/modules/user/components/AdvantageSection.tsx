@@ -7,6 +7,7 @@ interface AdvantageSectionProps {
     title: string | React.ReactNode;
     items: string[];
     imageSrc: string;
+    mobileImageSrc?: string;
     featureTag: string;
     featureTitle: string;
     featureDesc: string;
@@ -17,6 +18,7 @@ const AdvantageSection: React.FC<AdvantageSectionProps> = ({
     title,
     items,
     imageSrc,
+    mobileImageSrc,
     featureTag,
     featureTitle,
     featureDesc
@@ -44,7 +46,10 @@ const AdvantageSection: React.FC<AdvantageSectionProps> = ({
                     </div>
                 </div>
                 <div className="relative h-[300px] md:h-[500px] lg:h-[700px] rounded-[30px] md:rounded-[60px] overflow-hidden shadow-2xl border-[8px] md:border-[20px] border-white group mt-4 md:mt-0">
-                    <Image src={imageSrc} alt="Feature Highlight" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[2s]" />
+                    <Image src={imageSrc} alt="Feature Highlight Desktop" layout="fill" objectFit="cover" className={`group-hover:scale-105 transition-all duration-[2s] ${mobileImageSrc ? 'hidden md:block' : ''}`} />
+                    {mobileImageSrc && (
+                        <Image src={mobileImageSrc} alt="Feature Highlight Mobile" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[2s] block md:hidden" />
+                    )}
                     <div className="absolute bottom-6 left-6 right-6 md:bottom-12 md:left-12 md:right-12 bg-[#3D2B1F] p-5 md:p-10 rounded-[20px] md:rounded-[40px] shadow-2xl border border-white/5 text-center md:text-left">
                         <span className="text-[#FFD700] font-bold text-[10px] md:text-sm uppercase tracking-widest block mb-1 md:mb-2">{featureTag}</span>
                         <h4 className="font-playfair text-lg md:text-4xl font-bold text-[#EADDCB]">{featureTitle}</h4>

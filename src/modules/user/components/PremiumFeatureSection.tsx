@@ -14,6 +14,7 @@ interface PremiumFeatureSectionProps {
     title: string | React.ReactNode;
     features: Feature[];
     imageSrc?: string;
+    mobileImageSrc?: string;
     quote?: string;
 }
 
@@ -22,6 +23,7 @@ const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
     title,
     features,
     imageSrc = "/hero_bg.png",
+    mobileImageSrc,
     quote = "Our batik products combine breathable cotton comfort with elegant prints made for modern fashion"
 }) => {
     return (
@@ -51,7 +53,10 @@ const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
                 </div>
 
                 <div className="relative h-[220px] sm:h-[350px] lg:h-[600px] w-full rounded-[20px] md:rounded-[40px] overflow-hidden shadow-2xl border-[3px] md:border-[8px] border-white/10 group mt-2 lg:mt-0">
-                    <Image src={imageSrc} alt="Premium Feature Banner" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[2s] brightness-[0.6] object-[center_top] md:object-center" />
+                    <Image src={imageSrc} alt="Premium Feature Banner Desktop" layout="fill" objectFit="cover" className={`group-hover:scale-105 transition-all duration-[2s] brightness-[0.6] object-[center_top] md:object-center ${mobileImageSrc ? 'hidden md:block' : ''}`} />
+                    {mobileImageSrc && (
+                        <Image src={mobileImageSrc} alt="Premium Feature Banner Mobile" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[2s] brightness-[0.6] object-[center_top] md:object-center block md:hidden" />
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
                     <div className="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-8">
                         <p className="text-[15px] sm:text-lg md:text-2xl font-playfair font-bold text-white leading-snug drop-shadow-lg text-center lg:text-left">

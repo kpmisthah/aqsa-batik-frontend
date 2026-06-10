@@ -169,7 +169,8 @@ export default async function CottonClothPage() {
                     "Consistent Bulk Quality",
                     "Ready Stock Availability"
                 ]}
-                imageSrc="/history.png"
+                imageSrc="/cotton-fabric-quality-banner.webp"
+                mobileImageSrc="/cotton-summer-dresses-image.webp"
                 featureTag="FABRIC STANDARD"
                 featureTitle="Pure Cotton 60x60"
                 featureDesc="The gold standard for batik suits, ensuring longevity and maximum comfort in any weather."
@@ -240,7 +241,8 @@ export default async function CottonClothPage() {
                         )
                     }
                 ]}
-                imageSrc="/batik_fabric_hero.png"
+                imageSrc="/batik-fabric-manufacturing.webp"
+                mobileImageSrc="/cotton-dress-material-image.webp"
                 quote="Our premium batik cloth offers the perfect canvas for your fashion creations, blending traditional art with superior comfort."
             />
             {/* ── HOW TO START SECTION ── */}
