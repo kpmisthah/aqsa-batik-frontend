@@ -25,48 +25,36 @@ const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
     quote = "Our batik products combine breathable cotton comfort with elegant prints made for modern fashion"
 }) => {
     return (
-        <section className="py-32 px-6 bg-[#1a0f0a] text-white overflow-hidden relative">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-                <div className="flex flex-col gap-10">
-                    <div className="flex flex-col gap-6">
-                        <span className="text-xs font-bold text-[#FFD700] uppercase tracking-[0.4em]">{tag}</span>
-                        <h2 className="font-playfair text-3xl md:text-4xl font-bold leading-[1.1]">{title}</h2>
+        <section className="py-8 md:py-16 px-4 md:px-6 bg-[#1a0f0a] text-white overflow-hidden relative">
+            <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-6 lg:gap-16 items-center">
+                <div className="flex flex-col gap-5 md:gap-8">
+                    <div className="flex flex-col gap-2 md:gap-3 text-center lg:text-left">
+                        <span className="text-[9px] md:text-[10px] font-bold text-[#FFD700] uppercase tracking-[0.3em]">{tag}</span>
+                        <h2 className="font-playfair text-xl md:text-4xl font-bold leading-[1.1]">{title}</h2>
                     </div>
-                    <div className="grid grid-cols-1 gap-6">
+
+                    <div className="grid grid-cols-2 gap-2 md:gap-4">
                         {features.map((feature, i) => (
-                            <div key={i} className="flex items-start gap-8 group bg-white/5 p-8 rounded-[40px] border border-white/10 hover:bg-white/10 transition-all">
-                                <div className="relative w-24 h-24 flex items-center justify-center shrink-0">
-                                    {/* Scalloped Frame */}
-                                    <div className={`absolute inset-0 ${feature.c} opacity-10`}>
-                                        <svg viewBox="0 0 100 100" fill="currentColor">
-                                            <path d="M50 0 C55 10 65 10 70 15 C80 20 85 30 85 40 C85 50 95 55 95 65 C95 75 85 85 75 85 C65 85 60 95 50 95 C40 95 35 85 25 85 C15 85 5 75 5 65 C5 55 15 50 15 40 C15 30 20 20 30 15 C35 10 45 10 50 0" />
-                                        </svg>
-                                    </div>
-                                    <div className={`absolute inset-0 ${feature.c} opacity-5 group-hover:rotate-45 transition-transform duration-[2s]`}>
-                                        <svg viewBox="0 0 100 100" fill="currentColor">
-                                            <path d="M50 0 C55 10 65 10 70 15 C80 20 85 30 85 40 C85 50 95 55 95 65 C95 75 85 85 75 85 C65 85 60 95 50 95 C40 95 35 85 25 85 C15 85 5 75 5 65 C5 55 15 50 15 40 C15 30 20 20 30 15 C35 10 45 10 50 0" />
-                                        </svg>
-                                    </div>
-                                    <div className={`relative z-10 ${feature.c}`}>
+                            <div key={i} className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4 group bg-white/5 p-3 md:p-5 rounded-[12px] md:rounded-[24px] border border-white/10 hover:bg-white/10 transition-all duration-300 text-center md:text-left">
+                                <div className="relative w-8 h-8 md:w-12 md:h-12 flex items-center justify-center shrink-0">
+                                    <div className={`relative z-10 ${feature.c} w-4 h-4 md:w-6 md:h-6`}>
                                         {feature.i}
                                     </div>
                                 </div>
-
-                                <div className="h-20 w-px bg-white/20 mt-2 shrink-0 hidden md:block"></div>
-
-                                <div className="flex flex-col gap-3">
-                                    <h4 className="text-xl font-bold tracking-tight text-white" dangerouslySetInnerHTML={{ __html: feature.t }} />
-                                    <p className="text-base text-[#FFD700] leading-relaxed font-medium max-w-lg" dangerouslySetInnerHTML={{ __html: feature.d }} />
+                                <div className="flex flex-col gap-1">
+                                    <h4 className="text-[11px] md:text-base font-bold tracking-tight text-white leading-[1.15]" dangerouslySetInnerHTML={{ __html: feature.t }} />
+                                    <p className="text-[9px] md:text-[13px] text-[#FFD700] leading-tight font-medium opacity-90 group-hover:opacity-100 line-clamp-3 md:line-clamp-none" dangerouslySetInnerHTML={{ __html: feature.d }} />
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
-                <div className="relative h-[800px] rounded-[60px] overflow-hidden shadow-2xl border-[15px] border-white/10 group">
-                    <Image src={imageSrc} alt="Category Detail" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[2s] brightness-75" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div className="absolute bottom-12 left-12 right-12">
-                        <p className="text-xl md:text-2xl font-playfair font-bold text-white leading-relaxed">
+
+                <div className="relative h-[220px] sm:h-[350px] lg:h-[600px] w-full rounded-[20px] md:rounded-[40px] overflow-hidden shadow-2xl border-[3px] md:border-[8px] border-white/10 group mt-2 lg:mt-0">
+                    <Image src={imageSrc} alt="Premium Feature Banner" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[2s] brightness-[0.6] object-[center_top] md:object-center" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-8">
+                        <p className="text-[15px] sm:text-lg md:text-2xl font-playfair font-bold text-white leading-snug drop-shadow-lg text-center lg:text-left">
                             "{quote}"
                         </p>
                     </div>
