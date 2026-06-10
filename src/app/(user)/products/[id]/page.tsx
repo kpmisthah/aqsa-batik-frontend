@@ -139,7 +139,7 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
                         {/* Best For Cards */}
                         <div className="flex flex-col gap-6">
                             <div className="relative aspect-video rounded-[50px] overflow-hidden shadow-2xl border-4 border-white group">
-                                <Image src={mainImage} alt="Detail View" layout="fill" objectFit="cover" className="brightness-90 group-hover:scale-105 transition-transform duration-[2s]" />
+                                <Image src={mainImage} alt="Detail View" layout="fill" objectFit="cover" objectPosition="top" className="brightness-90 group-hover:scale-105 transition-transform duration-[2s]" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#5A2A1F]/60 to-transparent"></div>
                                 <div className="absolute bottom-10 left-10 text-white">
                                     <h4 className="text-4xl font-bold font-playfair italic">Ideal for Summer Collections</h4>

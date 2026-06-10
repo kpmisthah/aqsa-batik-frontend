@@ -18,11 +18,11 @@ export default function ProductGrid({ products, columns = 3, isWholesalePage = f
     }
 
     const gridColsClass = columns === 4
-        ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
-        : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
+        ? "grid-cols-2 lg:grid-cols-4"
+        : "grid-cols-2 lg:grid-cols-3";
 
     return (
-        <div className={`grid ${gridColsClass} gap-x-8 gap-y-16`}>
+        <div className={`grid ${gridColsClass} gap-x-3 md:gap-x-8 gap-y-10 md:gap-y-16`}>
             {products.map((product) => (
                 <ProductCard key={product._id || product.id} product={product} isWholesalePage={isWholesalePage} />
             ))}

@@ -96,6 +96,7 @@ export default function ProductInteractive({ product }: { product: any }) {
                         alt={product.seoTitle || product.name}
                         layout="fill"
                         objectFit="cover"
+                        objectPosition="top"
                         priority
                         className="transition-opacity duration-300"
                     />
@@ -126,7 +127,7 @@ export default function ProductInteractive({ product }: { product: any }) {
                                 onClick={() => setSelectedImage(img)}
                                 className={`aspect-square rounded-2xl overflow-hidden border-4 transition-all cursor-pointer ${selectedImage === img ? 'border-[#8B3A2B] scale-105' : 'border-transparent hover:border-[#8B3A2B]/30'}`}
                             >
-                                <Image src={img} alt={`Thumbnail ${i+1}`} width={200} height={200} objectFit="cover" className="brightness-95 hover:brightness-100 h-full" />
+                                <Image src={img} alt={`Thumbnail ${i+1}`} width={200} height={200} objectFit="cover" objectPosition="top" className="brightness-95 hover:brightness-100 h-full" />
                             </div>
                         ))}
                     </div>
