@@ -227,7 +227,7 @@ export default async function WholesalePage() {
                         sizes="100vw"
                         className="object-cover object-[center_top] md:object-[center_10%] brightness-75 contrast-[1.05]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black/20 via-black/20 to-black/90 md:from-black/50 md:via-transparent md:to-black/90"></div>
+                    <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black/20 via-black/20 to-black/90 md:from-black/80 md:via-black/20 md:to-transparent"></div>
                 </div>
 
                 <div className="relative z-10 max-w-[1500px] mx-auto px-5 md:px-10 w-full flex justify-start text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">

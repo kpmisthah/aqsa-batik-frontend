@@ -101,7 +101,7 @@ export default async function BatikSuitsPage() {
                         priority
                         className="brightness-[0.8] contrast-[1.1]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/80 shadow-2xl"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent shadow-2xl"></div>
                 </div>
 
                 <div className="relative z-10 max-w-[1500px] mx-auto px-6 md:px-10 w-full flex justify-center text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
