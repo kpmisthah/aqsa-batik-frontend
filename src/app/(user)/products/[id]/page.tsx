@@ -123,22 +123,22 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
                         {/* Specs List */}
-                        <div className="grid grid-cols-2 gap-3 md:gap-6">
+                        <div className="grid grid-cols-2 gap-2 md:gap-6">
                             {details.map((detail, i) => (
-                                <div key={i} className="flex flex-col gap-2 md:gap-4 p-5 md:p-8 bg-white rounded-2xl md:rounded-[40px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:shadow-2xl border border-[#5A2A1F]/5 group hover:border-[#8B3A2B]/20 transition-all duration-300 hover:-translate-y-1">
+                                <div key={i} className="flex flex-col gap-1 md:gap-4 p-4 md:p-8 bg-white rounded-2xl md:rounded-[40px] shadow-[0_4px_20px_rgb(0,0,0,0.04)] md:shadow-2xl border border-[#5A2A1F]/5 group hover:border-[#8B3A2B]/20 transition-all duration-300 hover:-translate-y-1">
                                     <span className="text-[9px] md:text-xs font-black uppercase tracking-[0.15em] md:tracking-[0.3em] text-[#8B3A2B] opacity-70 group-hover:opacity-100 transition-opacity line-clamp-1">{detail.label}</span>
-                                    <span className="text-sm md:text-2xl font-bold text-[#5A2A1F] tracking-tight leading-snug">{detail.value}</span>
+                                    <span className="text-xs md:text-2xl font-bold text-[#5A2A1F] tracking-tight leading-snug line-clamp-2 md:line-clamp-none">{detail.value}</span>
                                 </div>
                             ))}
                         </div>
 
                         {/* Best For Cards */}
                         <div className="flex flex-col gap-6">
-                            <div className="relative aspect-[4/5] md:aspect-video rounded-[30px] md:rounded-[50px] overflow-hidden shadow-xl md:shadow-2xl border-4 border-white group">
+                            <div className="relative aspect-[4/3] md:aspect-video rounded-[30px] md:rounded-[50px] overflow-hidden shadow-xl md:shadow-2xl border-4 border-white group">
                                 <Image src={mainImage} alt="Detail View" layout="fill" objectFit="cover" objectPosition="top" className="brightness-90 group-hover:scale-105 transition-transform duration-[2s]" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#5A2A1F]/60 to-transparent"></div>
                                 <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 text-white">
-                                    <h4 className="text-2xl md:text-4xl font-bold font-playfair italic">Ideal for Summer Collections</h4>
+                                    <h4 className="text-xl md:text-4xl font-bold font-playfair italic">Ideal for Summer Collections</h4>
                                 </div>
                             </div>
                         </div>
