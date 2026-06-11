@@ -239,7 +239,7 @@ export default async function WholesalePage() {
 
                         <div className="flex flex-col gap-2 md:gap-6">
                             <h1 className="font-playfair text-2xl md:text-4xl font-bold leading-[1.2] md:leading-[1.3] tracking-tight">
-                                <span className='hero-highlight'>Wholesale Cotton Dresses</span> in India for <br className="md:hidden" /> <span className='hero-highlight'>Batik Clothing</span> & <span className='hero-highlight'>Bulk Orders</span>
+                                <span className='hero-highlight'>Wholesale Cotton Dresses</span> in India <br /> for <span className='hero-highlight'>Batik Clothing</span> & <span className='hero-highlight'>Bulk Orders</span>
                             </h1>
                             <p className="font-playfair text-xs md:text-2xl font-medium tracking-tight opacity-95 leading-[1.3] md:leading-relaxed mt-1 md:mt-2 max-w-[280px] md:max-w-4xl">
                                 Stop guessing what will sell. Work with a direct manufacturer supplying high-demand batik fabric wholesale, premium batik print material, and consistent inventory for boutiques, resellers, and growing batik clothing brands across India.
