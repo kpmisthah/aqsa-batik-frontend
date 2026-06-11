@@ -81,18 +81,18 @@ export default function PremiumTrustSection() {
                 </div>
 
                 {/* Bottom Banner */}
-                <div className="bg-[#E8D9C0]/80 rounded-full py-1.5 px-4 flex flex-col md:flex-row items-center justify-between w-full max-w-3xl mx-auto gap-3 mt-2 shadow-sm border border-[#5A2A1F]/5">
-                    <div className="flex items-center gap-3">
-                        <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-sm shrink-0 text-[#8B3A2B]">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
+                <div className="bg-[#E8D9C0]/80 rounded-[2rem] md:rounded-full py-4 px-6 md:py-5 md:px-8 flex flex-col md:flex-row items-center justify-between w-full max-w-5xl mx-auto gap-4 md:gap-6 mt-6 md:mt-8 shadow-sm border border-[#5A2A1F]/10">
+                    <div className="flex items-center gap-3 md:gap-5 w-full md:w-auto justify-center md:justify-start">
+                        <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-white flex items-center justify-center shadow-sm shrink-0 text-[#8B3A2B]">
+                            <svg className="w-5 h-5 md:w-7 md:h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
                         </div>
                         <div className="flex flex-col text-left">
-                            <span className="font-bold text-[#5A2A1F] text-[11px] tracking-tight leading-tight">Your growth is our priority.</span>
-                            <span className="text-[9px] text-[#5A2A1F]/70 font-medium leading-none">Let&apos;s build something beautiful together.</span>
+                            <span className="font-bold text-[#5A2A1F] text-[14px] md:text-[20px] tracking-tight leading-tight">Your growth is our priority.</span>
+                            <span className="text-[12px] md:text-[15px] text-[#5A2A1F]/80 font-medium mt-0.5 md:mt-1 leading-none md:leading-relaxed">Let&apos;s build something beautiful together.</span>
                         </div>
                     </div>
-                    <a href={WA} target="_blank" rel="noreferrer" className="bg-[#5A2A1F] text-white px-5 py-2 rounded-full text-[9px] font-black uppercase tracking-[0.2em] hover:bg-[#8B3A2B] transition-colors flex items-center gap-1.5 shrink-0">
-                        PARTNER WITH US <span className="text-xs font-bold leading-none">&rarr;</span>
+                    <a href={WA} target="_blank" rel="noreferrer" className="w-full md:w-auto justify-center bg-[#5A2A1F] text-white px-6 py-3.5 md:px-10 md:py-4 rounded-full text-[12px] md:text-[14px] font-black uppercase tracking-[0.2em] hover:bg-[#8B3A2B] transition-colors flex items-center gap-2 shrink-0 mt-2 md:mt-0 shadow-md">
+                        PARTNER WITH US <span className="text-[16px] md:text-[20px] font-bold leading-none">&rarr;</span>
                     </a>
                 </div>
             </div>
