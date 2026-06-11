@@ -23,8 +23,10 @@ export default function Footer() {
 
                     {/* Brand Section (4 cols) */}
                     <div className="lg:col-span-4 flex flex-col gap-3">
-                        <div className="flex items-center gap-3 bg-white/5 p-2 rounded-xl w-fit">
+                        <div className="flex items-center gap-6 w-fit">
                             <img src="/aqdas-logo.svg" alt="Aqdas Logo" className="h-16 md:h-20 w-auto object-contain" />
+                            <div className="h-10 md:h-14 w-px bg-white/20 rounded-full"></div>
+                            <img src="/partner-logo.jpeg" alt="Partner Logo" className="h-12 md:h-14 w-auto object-contain rounded-md shadow-lg ring-1 ring-white/10" />
                         </div>
                         <p className="opacity-60 text-xs md:text-sm leading-relaxed font-medium max-w-sm">
                             Direct Manufacturer from Ujjain. Specializing in premium batik dress material & wholesale supply.
