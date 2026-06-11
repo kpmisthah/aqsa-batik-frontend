@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { UploadCloud, Save, Loader2, Image as ImageIcon } from 'lucide-react';
+import { UploadCloud, Save, Loader2, Image as ImageIcon, CheckCircle, XCircle } from 'lucide-react';
 
 const PAGES = ['home', 'wholesale', 'new-arrivals', 'batik-cloth', 'batik-fabric', 'about'];
 
@@ -11,6 +11,12 @@ export default function BannersAdmin() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState<string | null>(null);
   const [uploading, setUploading] = useState<string | null>(null);
+  const [toast, setToast] = useState<{message: string, type: 'success' | 'error'} | null>(null);
+
+  const showToast = (message: string, type: 'success' | 'error' = 'success') => {
+    setToast({ message, type });
+    setTimeout(() => setToast(null), 3000);
+  };
 
   const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
@@ -61,11 +67,11 @@ export default function BannersAdmin() {
           credentials: 'include',
         });
         if (!saveRes.ok) throw new Error('Auto-save failed');
-        alert(`Banner for ${page} uploaded and updated successfully!`);
+        showToast(`Banner for ${page} uploaded and updated successfully!`, 'success');
       }
     } catch (err) {
       console.error('Failed to upload and save image', err);
-      alert('Failed to upload and save image');
+      showToast('Failed to upload and save image', 'error');
     } finally {
       setUploading(null);
     }
@@ -74,7 +80,7 @@ export default function BannersAdmin() {
   const handleSave = async (page: string) => {
     const imageUrl = banners[page];
     if (!imageUrl) {
-      alert('Please upload an image first');
+      showToast('Please upload an image first', 'error');
       return;
     }
 
@@ -87,10 +93,10 @@ export default function BannersAdmin() {
         credentials: 'include',
       });
       if (!res.ok) throw new Error('Failed to save banner');
-      alert(`Banner for ${page} updated successfully!`);
+      showToast(`Banner for ${page} updated successfully!`, 'success');
     } catch (err) {
       console.error(err);
-      alert('Failed to save banner');
+      showToast('Failed to save banner', 'error');
     } finally {
       setSaving(null);
     }
@@ -171,6 +177,13 @@ export default function BannersAdmin() {
           </div>
         ))}
       </div>
+
+      {toast && (
+        <div className={`fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 flex items-center gap-3 px-6 py-4 rounded-xl shadow-2xl transition-all duration-300 ${toast.type === 'success' ? 'bg-[#5A2A1F] text-white' : 'bg-red-500 text-white'}`}>
+          {toast.type === 'success' ? <CheckCircle className="w-5 h-5" /> : <XCircle className="w-5 h-5" />}
+          <span className="font-medium text-sm tracking-wide">{toast.message}</span>
+        </div>
+      )}
     </div>
   );
 }
