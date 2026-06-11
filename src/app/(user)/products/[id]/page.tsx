@@ -94,24 +94,8 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
 
             <Nav />
 
-            {/* ── BREADCRUMBS ── */}
-            <div className="max-w-[1500px] mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-4 md:pb-8">
-                <nav className="flex items-center gap-2 md:gap-3 text-[10px] md:text-sm font-bold uppercase tracking-wider md:tracking-widest text-[#5A2A1F]/40 flex-wrap">
-                    <a href="/" className="hover:text-[#8B3A2B] transition-colors">Home</a>
-                    <span>/</span>
-                    <a href={
-                        product.category === 'Batik Fabric' ? '/batik-fabric' : 
-                        product.category === 'Batik Suits' ? '/batik-suits' : 
-                        product.category === 'New Batik Prints' ? '/new-batik-prints' : 
-                        '/cotton-cloth'
-                    } className="hover:text-[#8B3A2B] transition-colors">{product.category || 'Products'}</a>
-                    <span>/</span>
-                    <span className="text-[#5A2A1F]">{product.name}</span>
-                </nav>
-            </div>
-
             {/* ── MODERN PRODUCT HERO (Interactive) ── */}
-            <section className="pb-12 md:pb-20 px-6 md:px-10 max-w-[1500px] mx-auto">
+            <section className="pt-28 md:pt-36 pb-12 md:pb-20 px-6 md:px-10 max-w-[1500px] mx-auto">
                 <Suspense fallback={<div className="animate-pulse w-full h-[600px] bg-[#5A2A1F]/5 rounded-[40px]"></div>}>
                     <ProductInteractive product={product} />
                 </Suspense>
