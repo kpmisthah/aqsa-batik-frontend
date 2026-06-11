@@ -25,8 +25,6 @@ export default function Footer() {
                     <div className="lg:col-span-4 flex flex-col gap-3">
                         <div className="flex items-center gap-6 w-fit">
                             <img src="/aqdas-logo.svg" alt="Aqdas Logo" className="h-16 md:h-20 w-auto object-contain" />
-                            <div className="h-10 md:h-14 w-px bg-white/20 rounded-full"></div>
-                            <img src="/partner-logo.jpeg" alt="Partner Logo" className="h-12 md:h-14 w-auto object-contain rounded-md shadow-lg ring-1 ring-white/10" />
                         </div>
                         <p className="opacity-60 text-xs md:text-sm leading-relaxed font-medium max-w-sm">
                             Direct Manufacturer from Ujjain. Specializing in premium batik dress material & wholesale supply.
@@ -110,8 +108,8 @@ export default function Footer() {
                 </div>
 
                 {/* ── BOTTOM SECTION: LEGAL & COPYRIGHT ── */}
-                <div className="pt-4 flex flex-col md:flex-row items-center justify-between gap-4">
-                    <div className="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-2">
+                <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-4 w-full md:w-auto">
                         {[
                             { name: "Privacy Policy", link: "/privacy-policy" },
                             { name: "Terms & Conditions", link: "/terms-and-conditions" },
@@ -121,12 +119,18 @@ export default function Footer() {
                                 {legal.name}
                             </a>
                         ))}
+                        
+                        {/* Divider on desktop */}
+                        <div className="hidden md:block h-4 w-px bg-white/20 ml-2 mr-2"></div>
+                        
+                        <img src="/partner-logo.jpeg" alt="Partner Logo" className="h-8 md:h-10 w-auto object-contain rounded-md shadow-lg ring-1 ring-white/10 opacity-90 hover:opacity-100 transition-opacity" />
                     </div>
 
-                    <div className="flex items-center gap-4">
+                    <div className="flex flex-col md:flex-row items-center justify-center md:justify-end gap-3 md:gap-4 w-full md:w-auto">
                         <p className="text-[9px] font-black uppercase opacity-20">
                             © 2026 AQSHA Batik
                         </p>
+                        <div className="hidden md:block h-3 w-px bg-white/20"></div>
                         <a href="#" className="flex items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity">
                             <span className="text-[8px] font-black uppercase text-white/50">By:</span>
                             <div className="flex items-center font-black text-[10px] tracking-widest">

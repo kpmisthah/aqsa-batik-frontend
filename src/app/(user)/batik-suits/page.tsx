@@ -93,6 +93,7 @@ export default async function BatikSuitsPage() {
             <section className="relative h-screen w-full flex items-center overflow-hidden bg-[#5A2A1F]">
                 <div className="absolute inset-0 z-0">
                     <Image
+                        key={heroBannerUrl}
                         src={heroBannerUrl}
                         alt="Batik Suits Collection"
                         layout="fill"

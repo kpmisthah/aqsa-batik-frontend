@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export function useBanner(page: string, fallbackUrl: string) {
-  const [bannerUrl, setBannerUrl] = useState<string>(fallbackUrl);
+  const [bannerUrl, setBannerUrl] = useState<string>("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
 
   useEffect(() => {
     const fetchBanner = async () => {
@@ -12,15 +12,20 @@ export function useBanner(page: string, fallbackUrl: string) {
           const data = await res.json();
           if (data && data.imageUrl) {
             setBannerUrl(data.imageUrl);
+          } else {
+            setBannerUrl(fallbackUrl);
           }
+        } else {
+          setBannerUrl(fallbackUrl);
         }
       } catch (err) {
         console.error(`Failed to fetch banner for ${page}`, err);
+        setBannerUrl(fallbackUrl);
       }
     };
 
     fetchBanner();
-  }, [page]);
+  }, [page, fallbackUrl]);
 
   return bannerUrl;
 }

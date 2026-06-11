@@ -62,6 +62,7 @@ export default async function NewArrivalPage() {
             <section className="relative min-h-[60svh] md:min-h-screen w-full flex items-end md:items-center pb-8 md:pb-0 overflow-hidden bg-[#5A2A1F]">
                 <div className="absolute inset-0 z-0">
                     <Image
+                        key={heroBannerUrl}
                         src={heroBannerUrl}
                         alt="New Arrival Batik Prints"
                         fill
