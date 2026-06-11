@@ -95,8 +95,8 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
             <Nav />
 
             {/* ── BREADCRUMBS ── */}
-            <div className="max-w-[1500px] mx-auto px-6 md:px-10 pt-32 pb-8">
-                <nav className="flex items-center gap-3 text-xs md:text-sm font-bold uppercase tracking-widest text-[#5A2A1F]/40">
+            <div className="max-w-[1500px] mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-4 md:pb-8">
+                <nav className="flex items-center gap-2 md:gap-3 text-[10px] md:text-sm font-bold uppercase tracking-wider md:tracking-widest text-[#5A2A1F]/40 flex-wrap">
                     <a href="/" className="hover:text-[#8B3A2B] transition-colors">Home</a>
                     <span>/</span>
                     <a href="/products" className="hover:text-[#8B3A2B] transition-colors">Products</a>
@@ -106,7 +106,7 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
             </div>
 
             {/* ── MODERN PRODUCT HERO (Interactive) ── */}
-            <section className="pb-20 px-6 md:px-10 max-w-[1500px] mx-auto">
+            <section className="pb-12 md:pb-20 px-6 md:px-10 max-w-[1500px] mx-auto">
                 <Suspense fallback={<div className="animate-pulse w-full h-[600px] bg-[#5A2A1F]/5 rounded-[40px]"></div>}>
                     <ProductInteractive product={product} />
                 </Suspense>
@@ -114,22 +114,22 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
             <GoogleReviewBar />
 
             {/* ── TECHNICAL EXCELLENCE ── */}
-            <section className="py-32 px-6 bg-[#F5F1EC] relative overflow-hidden">
-                <div className="max-w-7xl mx-auto flex flex-col gap-20 relative z-10">
+            <section className="py-20 md:py-32 px-6 bg-[#F5F1EC] relative overflow-hidden">
+                <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20 relative z-10">
                     <div className="max-w-3xl">
                         <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Specifications</span>
-                        <h2 className="font-playfair text-4xl md:text-5xl font-bold text-[#5A2A1F] mt-4 mb-8">Technical Excellence</h2>
+                        <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-[#5A2A1F] mt-2 md:mt-4 mb-6 md:mb-8">Technical Excellence</h2>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
                         {/* Specs List */}
-                        <div className="bg-white p-12 rounded-[50px] shadow-2xl border border-[#5A2A1F]/10">
-                            <div className="flex flex-col gap-8">
+                        <div className="bg-white p-6 md:p-12 rounded-[30px] md:rounded-[50px] shadow-xl md:shadow-2xl border border-[#5A2A1F]/10">
+                            <div className="flex flex-col gap-4 md:gap-8">
                                 {details.map((detail, i) => (
-                                    <div key={i} className="flex items-center justify-between py-8 border-b border-[#5A2A1F]/10 last:border-0 group">
+                                    <div key={i} className="flex items-center justify-between py-4 md:py-8 border-b border-[#5A2A1F]/10 last:border-0 group">
                                         <div className="flex flex-col gap-1">
-                                            <span className="text-xs font-black uppercase tracking-[0.3em] text-[#8B3A2B] opacity-60 group-hover:opacity-100 transition-opacity">{detail.label}</span>
-                                            <span className="text-2xl font-bold text-[#5A2A1F] tracking-tight">{detail.value}</span>
+                                            <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#8B3A2B] opacity-80 md:opacity-60 md:group-hover:opacity-100 transition-opacity">{detail.label}</span>
+                                            <span className="text-lg md:text-2xl font-bold text-[#5A2A1F] tracking-tight">{detail.value}</span>
                                         </div>
                                     </div>
                                 ))}
@@ -138,11 +138,11 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
 
                         {/* Best For Cards */}
                         <div className="flex flex-col gap-6">
-                            <div className="relative aspect-video rounded-[50px] overflow-hidden shadow-2xl border-4 border-white group">
+                            <div className="relative aspect-[4/5] md:aspect-video rounded-[30px] md:rounded-[50px] overflow-hidden shadow-xl md:shadow-2xl border-4 border-white group">
                                 <Image src={mainImage} alt="Detail View" layout="fill" objectFit="cover" objectPosition="top" className="brightness-90 group-hover:scale-105 transition-transform duration-[2s]" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#5A2A1F]/60 to-transparent"></div>
-                                <div className="absolute bottom-10 left-10 text-white">
-                                    <h4 className="text-4xl font-bold font-playfair italic">Ideal for Summer Collections</h4>
+                                <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 text-white">
+                                    <h4 className="text-2xl md:text-4xl font-bold font-playfair italic">Ideal for Summer Collections</h4>
                                 </div>
                             </div>
                         </div>

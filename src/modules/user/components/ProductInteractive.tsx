@@ -82,14 +82,14 @@ export default function ProductInteractive({ product }: { product: any }) {
     const isWished = isInWishlist(product._id || product.id);
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-20">
             {/* Left: Image Gallery */}
-            <div className="lg:col-span-7 flex flex-col gap-6">
+            <div className="lg:col-span-7 flex flex-col gap-4 lg:gap-6">
                 <div 
                     ref={imageContainerRef}
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}
-                    className="relative aspect-square w-full rounded-[40px] overflow-hidden shadow-2xl border border-[#5A2A1F]/5 bg-white cursor-none group"
+                    className="relative aspect-square w-full rounded-3xl md:rounded-[40px] overflow-hidden shadow-2xl border border-[#5A2A1F]/5 bg-white cursor-none group"
                 >
                     <Image
                         src={selectedImage}
@@ -104,7 +104,7 @@ export default function ProductInteractive({ product }: { product: any }) {
                     {/* Circle Lens Zoomer */}
                     {lensState.show && (
                         <div 
-                            className="absolute pointer-events-none rounded-full border-2 border-white/50 shadow-[0_10px_40px_rgba(0,0,0,0.3)] z-50 bg-white"
+                            className="absolute pointer-events-none rounded-full border-2 border-white/50 shadow-[0_10px_40px_rgba(0,0,0,0.3)] z-50 bg-white hidden md:block"
                             style={{
                                 width: "220px",
                                 height: "220px",
@@ -120,12 +120,12 @@ export default function ProductInteractive({ product }: { product: any }) {
                 </div>
                 {/* Thumbnails */}
                 {product.images && product.images.length > 1 && (
-                    <div className="grid grid-cols-4 gap-4">
+                    <div className="grid grid-cols-4 gap-2 md:gap-4">
                         {product.images.map((img: string, i: number) => (
                             <div 
                                 key={i} 
                                 onClick={() => setSelectedImage(img)}
-                                className={`aspect-square rounded-2xl overflow-hidden border-4 transition-all cursor-pointer ${selectedImage === img ? 'border-[#8B3A2B] scale-105' : 'border-transparent hover:border-[#8B3A2B]/30'}`}
+                                className={`aspect-square rounded-xl md:rounded-2xl overflow-hidden border-2 md:border-4 transition-all cursor-pointer ${selectedImage === img ? 'border-[#8B3A2B] scale-100 md:scale-105' : 'border-transparent hover:border-[#8B3A2B]/30'}`}
                             >
                                 <Image src={img} alt={`Thumbnail ${i+1}`} width={200} height={200} objectFit="cover" objectPosition="top" className="brightness-95 hover:brightness-100 h-full" />
                             </div>
@@ -135,7 +135,7 @@ export default function ProductInteractive({ product }: { product: any }) {
             </div>
 
             {/* Right: Product Info */}
-            <div className="lg:col-span-5 flex flex-col gap-8 lg:sticky lg:top-32 h-fit">
+            <div className="lg:col-span-5 flex flex-col gap-6 lg:gap-8 lg:sticky lg:top-32 h-fit">
                 <div className="flex flex-col gap-4">
                     {product.isBestSeller && (
                         <div className="flex items-center gap-3 bg-[#8B3A2B]/5 border border-[#8B3A2B]/10 px-4 py-2 rounded-full w-fit">
@@ -143,7 +143,7 @@ export default function ProductInteractive({ product }: { product: any }) {
                             <span className="text-xs font-black uppercase tracking-[0.2em] text-[#8B3A2B]">Best Seller</span>
                         </div>
                     )}
-                    <h1 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-[#5A2A1F] leading-[1.1]">
+                    <h1 className="font-playfair text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#5A2A1F] leading-[1.2] lg:leading-[1.1]">
                         {product.name}
                     </h1>
                     <div className="flex items-center gap-4">
@@ -152,7 +152,7 @@ export default function ProductInteractive({ product }: { product: any }) {
                     </div>
 
                     <div className="flex flex-col gap-6 mt-4">
-                        <p className="text-lg md:text-xl text-[#5A2A1F]/80 font-medium leading-[1.8] whitespace-pre-wrap">
+                        <p className="text-base md:text-lg lg:text-xl text-[#5A2A1F]/80 font-medium leading-[1.6] md:leading-[1.8] whitespace-pre-wrap">
                             {product.description || "A premium, handcrafted addition to your collection. Designed with comfort and style in mind, this piece offers the perfect blend of ethnic charm and modern sophistication."}
                         </p>
                     </div>
@@ -160,7 +160,7 @@ export default function ProductInteractive({ product }: { product: any }) {
 
                 {/* Colours */}
                 {product.colours && product.colours.length > 0 && (
-                    <div className="flex flex-col gap-4 pt-4">
+                    <div className="flex flex-col gap-3 md:gap-4 pt-2 md:pt-4">
                         <h4 className="text-xs font-black uppercase tracking-widest text-[#5A2A1F]">
                             Fabric Colors: <span className="text-[#8B3A2B]">{getCombinedColorName(product.colours)}</span>
                         </h4>
@@ -169,7 +169,7 @@ export default function ProductInteractive({ product }: { product: any }) {
                                 {product.colours.map((color: string, i: number) => (
                                     <div 
                                         key={i} 
-                                        className="w-10 h-10 rounded-xl border border-[#5A2A1F]/15 shadow-sm relative overflow-hidden"
+                                        className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl border border-[#5A2A1F]/15 shadow-sm relative overflow-hidden"
                                         title={getColorName(color)}
                                     >
                                         <div style={{ backgroundColor: color }} className="w-full h-full rounded-lg"></div>
@@ -180,7 +180,7 @@ export default function ProductInteractive({ product }: { product: any }) {
                     </div>
                 )}
 
-                <div className="space-y-6 py-8 border-y border-[#5A2A1F]/10">
+                <div className="space-y-4 md:space-y-6 py-6 md:py-8 border-y border-[#5A2A1F]/10">
                     <div className="flex items-center justify-between">
                         <span className="text-sm font-black uppercase tracking-widest text-[#8B3A2B]">Retail Price</span>
                         <div className="flex flex-col items-end">
@@ -196,13 +196,13 @@ export default function ProductInteractive({ product }: { product: any }) {
                     </div>
                 </div>
 
-                <div className="flex flex-col gap-4 pt-4">
+                <div className="flex flex-col gap-3 md:gap-4 pt-2 md:pt-4">
                     {isWholesaleMode ? (
                         <a 
                             href={`https://wa.me/918815373767?text=${encodeURIComponent(`Hi, I'm interested in ordering the wholesale product ${product.name}.`)}`}
                             target="_blank"
                             rel="noreferrer"
-                            className="flex items-center justify-center gap-4 bg-[#075E54] text-white px-8 py-6 rounded-2xl font-black text-xl shadow-[0_20px_40px_rgba(7,94,84,0.2)] hover:bg-[#128C7E] hover:scale-[1.02] active:scale-95 transition-all uppercase tracking-widest"
+                            className="flex items-center justify-center gap-2 md:gap-4 bg-[#075E54] text-white px-4 py-4 md:px-8 md:py-6 rounded-xl md:rounded-2xl font-black text-base md:text-xl shadow-[0_10px_20px_rgba(7,94,84,0.2)] md:shadow-[0_20px_40px_rgba(7,94,84,0.2)] hover:bg-[#128C7E] hover:scale-[1.02] active:scale-95 transition-all uppercase tracking-wider md:tracking-widest"
                         >
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.412 2.503 1.112 3.485l-.719 2.624 2.688-.705c.95.514 2.035.804 3.19.803 3.181 0 5.767-2.584 5.768-5.766 0-3.181-2.587-5.767-5.767-5.767zm3.39 8.2l-1.006 1.005c-.122.122-.318.159-.477.087-.514-.232-1.02-.555-1.504-1.039-.485-.484-.807-.989-1.039-1.504-.072-.159-.035-.355.087-.477l1.005-1.006c.115-.115.115-.301 0-.416l-1.139-1.139c-.115-.115-.301-.115-.416 0l-.798.797c-.506.507-.639 1.243-.374 1.874.457 1.087 1.214 2.064 2.223 3.073 1.009 1.009 1.986 1.766 3.073 2.223.631.265 1.367.132 1.874-.374l.797-.798c.115-.115.115-.301 0-.416l-1.139-1.139c-.115-.115-.301-.115-.416 0z" />
@@ -212,14 +212,14 @@ export default function ProductInteractive({ product }: { product: any }) {
                     ) : (
                         <button 
                             onClick={handleAddToCart}
-                            className="flex items-center justify-center gap-4 bg-[#5A2A1F] text-white px-8 py-6 rounded-2xl font-black text-xl shadow-[0_20px_40px_rgba(90,42,31,0.2)] hover:bg-[#8B3A2B] hover:scale-[1.02] active:scale-95 transition-all uppercase tracking-widest"
+                            className="flex items-center justify-center gap-2 md:gap-4 bg-[#5A2A1F] text-white px-4 py-4 md:px-8 md:py-6 rounded-xl md:rounded-2xl font-black text-base md:text-xl shadow-[0_10px_20px_rgba(90,42,31,0.2)] md:shadow-[0_20px_40px_rgba(90,42,31,0.2)] hover:bg-[#8B3A2B] hover:scale-[1.02] active:scale-95 transition-all uppercase tracking-wider md:tracking-widest"
                         >
                             Add to Cart
                         </button>
                     )}
                     <button 
                         onClick={handleAddToWishlist}
-                        className={`flex items-center justify-center gap-4 border-2 px-8 py-4 rounded-2xl font-black text-lg transition-all uppercase tracking-widest ${isWished ? 'bg-[#5A2A1F] text-white border-[#5A2A1F]' : 'bg-white text-[#5A2A1F] border-[#5A2A1F]/20 hover:border-[#5A2A1F] hover:bg-[#5A2A1F]/5'}`}
+                        className={`flex items-center justify-center gap-2 md:gap-4 border-2 px-4 py-3 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-black text-sm md:text-lg transition-all uppercase tracking-wider md:tracking-widest ${isWished ? 'bg-[#5A2A1F] text-white border-[#5A2A1F]' : 'bg-white text-[#5A2A1F] border-[#5A2A1F]/20 hover:border-[#5A2A1F] hover:bg-[#5A2A1F]/5'}`}
                     >
                         {isWished ? '❤️ Saved to Wishlist' : '🤍 Add to Wishlist'}
                     </button>
