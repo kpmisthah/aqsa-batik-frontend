@@ -49,6 +49,7 @@ export default function Footer() {
                             <span className="text-[10px] uppercase font-black tracking-[0.2em] text-[#FFD700]">Quick Links</span>
                             <div className="flex flex-col gap-2">
                                 {[
+                                    { name: "Home", link: "/home" },
                                     { name: "Batik Cloth", link: "/cotton-cloth" },
                                     { name: "Batik Fabric", link: "/batik-fabric" },
                                     { name: "Wholesale", link: "/wholesale" },

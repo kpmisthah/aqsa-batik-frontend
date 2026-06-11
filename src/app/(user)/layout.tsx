@@ -8,12 +8,14 @@ export default function StoreLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <WelcomePopup />
       <AuthGuard>
-        {children}
+        <main className="flex-grow flex flex-col">
+          {children}
+        </main>
       </AuthGuard>
       <Footer />
-    </>
+    </div>
   );
 }
