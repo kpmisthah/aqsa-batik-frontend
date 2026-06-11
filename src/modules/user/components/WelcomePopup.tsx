@@ -66,12 +66,7 @@ export default function WelcomePopup() {
 
                     {/* Logo Section */}
                     <div className="flex flex-col items-center gap-1 mb-6">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="mb-1 text-[#7A2A1A]">
-                            <path d="M12 2L2 22h20L12 2z" />
-                            <circle cx="12" cy="14" r="3" fill="currentColor" />
-                            <path d="M12 11v-3" />
-                        </svg>
-                        <h2 className="font-playfair text-[28px] font-bold tracking-[0.2em] text-[#7A2A1A] leading-none">AQSHA</h2>
+                        <img src="/aqdas-logo.svg" alt="Aqdas Logo" className="h-12 md:h-14 w-auto mb-2" />
                         <div className="flex items-center gap-3 text-[8px] uppercase tracking-[0.35em] opacity-80 mt-1">
                             <span className="w-5 h-[1px] bg-[#7A2A1A]"></span>
                             BATIK SUITS

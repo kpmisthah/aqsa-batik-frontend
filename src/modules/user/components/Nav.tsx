@@ -57,7 +57,9 @@ export default function Nav() {
                     
                     {/* Logo Section */}
                     <div className="flex flex-col">
-                        <Link href="/" className="font-playfair text-3xl font-black tracking-tight text-[#5A2A1F] hover:text-[#8B3A2B] transition-colors">AQSHA</Link>
+                        <Link href="/" className="hover:opacity-80 transition-opacity">
+                            <img src="/aqdas-logo.svg" alt="Aqdas Logo" className="h-8 md:h-10 w-auto" />
+                        </Link>
                         <div className="flex items-center gap-2">
                             <span className="font-playfair text-[10px] font-black tracking-[0.3em] text-[#5A2A1F]/60 uppercase leading-tight">Batik Cloth</span>
                         </div>
@@ -194,7 +196,7 @@ export default function Nav() {
                 >
                     <div className="flex flex-col gap-6">
                         <div className="flex justify-between items-center mb-4">
-                            <span className="font-playfair text-3xl font-black text-[#5A2A1F] tracking-tight">AQSHA</span>
+                            <img src="/aqdas-logo.svg" alt="Aqdas Logo" className="h-8 w-auto" />
                             <button 
                                 onClick={() => setMenu(false)} 
                                 className="p-2 text-[#5A2A1F] hover:text-[#8B3A2B] transition-colors active:scale-95 focus:outline-none"

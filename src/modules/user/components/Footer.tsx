@@ -23,9 +23,8 @@ export default function Footer() {
                     
                     {/* Brand Section (4 cols) */}
                     <div className="lg:col-span-4 flex flex-col gap-3">
-                        <div className="flex items-center gap-3">
-                            <span className="font-playfair text-3xl md:text-4xl font-bold tracking-tight text-[#FFD700]">AQSHA</span>
-                            <span className="font-playfair text-[10px] font-black tracking-[0.2em] opacity-50 uppercase border-l border-white/20 pl-3">Batik Cloth</span>
+                        <div className="flex items-center gap-3 bg-white/5 p-2 rounded-xl w-fit">
+                            <img src="/aqdas-logo.svg" alt="Aqdas Logo" className="h-8 md:h-10 w-auto" />
                         </div>
                         <p className="opacity-60 text-xs md:text-sm leading-relaxed font-medium max-w-sm">
                             Direct Manufacturer from Ujjain. Specializing in premium batik dress material & wholesale supply.
