@@ -38,8 +38,8 @@ export default async function WholesalePage() {
     const allProducts = await getProducts();
     const heroBannerUrl = await getHeroBanner();
     const wholesaleProducts = allProducts.filter((p: any) => p.category === "Wholesale" || p.isWholesale === true);
-    const cottonClothProducts = allProducts.filter((p: any) => p.category === "Cotton Cloth" || p.category === "Batik Cloth");
-    const batikFabricProducts = allProducts.filter((p: any) => p.category === "Batik Fabric");
+    const otherProducts = allProducts.filter((p: any) => p.category !== "Wholesale" && p.isWholesale !== true);
+    const displayProducts = [...wholesaleProducts, ...otherProducts].slice(0, 10);
 
     const partnershipBenefits = [
         {
@@ -312,28 +312,8 @@ export default async function WholesalePage() {
                             <h2 className="font-playfair text-2xl md:text-4xl font-bold text-[#5A2A1F] leading-tight">Explore Signature Batik Dress Designs for Fabric Wholesale</h2>
                             <p className="text-[13px] md:text-xl text-[#5A2A1F]/70 font-medium italic leading-relaxed mt-2 text-left md:text-center w-full">Discover best-selling batik patterns, consistent quality, and ready-to-move collections trusted by boutiques, fabric shops, cloth shops, and resellers across India.</p>
                         </div>
-                        <ProductGrid products={wholesaleProducts.slice(0, 8)} columns={4} isWholesalePage={true} />
+                        <ProductGrid products={displayProducts} columns={4} isWholesalePage={true} />
                     </div>
-
-                    {cottonClothProducts.length > 0 && (
-                        <div className="flex flex-col gap-8 md:gap-12 mt-12 md:mt-24 border-t border-[#5A2A1F]/10 pt-12 md:pt-24">
-                            <div className="flex flex-col gap-3 md:gap-4 text-center items-center mx-auto max-w-4xl">
-                                <span className="text-[10px] md:text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Ready to Stitch</span>
-                                <h2 className="font-playfair text-2xl md:text-4xl font-bold text-[#5A2A1F] leading-tight">Batik Cloth Collection</h2>
-                            </div>
-                            <ProductGrid products={cottonClothProducts.slice(0, 8)} columns={4} isWholesalePage={true} />
-                        </div>
-                    )}
-
-                    {batikFabricProducts.length > 0 && (
-                        <div className="flex flex-col gap-8 md:gap-12 mt-12 md:mt-24 border-t border-[#5A2A1F]/10 pt-12 md:pt-24">
-                            <div className="flex flex-col gap-3 md:gap-4 text-center items-center mx-auto max-w-4xl">
-                                <span className="text-[10px] md:text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Premium Yardage</span>
-                                <h2 className="font-playfair text-2xl md:text-4xl font-bold text-[#5A2A1F] leading-tight">Batik Fabric Collection</h2>
-                            </div>
-                            <ProductGrid products={batikFabricProducts.slice(0, 8)} columns={4} isWholesalePage={true} />
-                        </div>
-                    )}
                 </div>
             </section>
 
