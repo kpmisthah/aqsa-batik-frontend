@@ -28,10 +28,13 @@ async function getProductBySlug(slug: string) {
             ? responseData.data 
             : [];
             
-        // Find matching product
-        const match = products.find((p: any) => 
-            productNames.some(n => p.name.trim().toLowerCase() === n.toLowerCase() || p.name.trim().toLowerCase().includes(n.toLowerCase()))
-        );
+        // Find matching product, ensuring category matches the directory logic to prevent duplicate name collisions
+        const match = products.find((p: any) => {
+            const nameMatch = productNames.some(n => p.name.trim().toLowerCase() === n.toLowerCase() || p.name.trim().toLowerCase().includes(n.toLowerCase()));
+            if (!nameMatch) return false;
+            const cat = p.category?.toLowerCase() || '';
+            return cat.includes('fabric');
+        });
         
         return match || null;
     } catch (error) {
