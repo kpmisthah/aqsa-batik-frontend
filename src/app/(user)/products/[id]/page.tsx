@@ -123,17 +123,13 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
                         {/* Specs List */}
-                        <div className="bg-white p-6 md:p-12 rounded-[30px] md:rounded-[50px] shadow-xl md:shadow-2xl border border-[#5A2A1F]/10">
-                            <div className="flex flex-col gap-4 md:gap-8">
-                                {details.map((detail, i) => (
-                                    <div key={i} className="flex items-center justify-between py-4 md:py-8 border-b border-[#5A2A1F]/10 last:border-0 group">
-                                        <div className="flex flex-col gap-1">
-                                            <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#8B3A2B] opacity-80 md:opacity-60 md:group-hover:opacity-100 transition-opacity">{detail.label}</span>
-                                            <span className="text-lg md:text-2xl font-bold text-[#5A2A1F] tracking-tight">{detail.value}</span>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
+                        <div className="grid grid-cols-2 gap-3 md:gap-6">
+                            {details.map((detail, i) => (
+                                <div key={i} className="flex flex-col gap-2 md:gap-4 p-5 md:p-8 bg-white rounded-2xl md:rounded-[40px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] md:shadow-2xl border border-[#5A2A1F]/5 group hover:border-[#8B3A2B]/20 transition-all duration-300 hover:-translate-y-1">
+                                    <span className="text-[9px] md:text-xs font-black uppercase tracking-[0.15em] md:tracking-[0.3em] text-[#8B3A2B] opacity-70 group-hover:opacity-100 transition-opacity line-clamp-1">{detail.label}</span>
+                                    <span className="text-sm md:text-2xl font-bold text-[#5A2A1F] tracking-tight leading-snug">{detail.value}</span>
+                                </div>
+                            ))}
                         </div>
 
                         {/* Best For Cards */}
