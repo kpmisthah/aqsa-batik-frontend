@@ -83,19 +83,8 @@ export default async function CottonClothSlugPage({ params }: { params: Promise<
 
             <Nav />
 
-            {/* Breadcrumbs */}
-            <div className="max-w-[1500px] mx-auto px-6 md:px-10 pt-32 pb-8">
-                <nav className="flex items-center gap-3 text-xs md:text-sm font-bold uppercase tracking-widest text-[#5A2A1F]/40">
-                    <a href="/" className="hover:text-[#8B3A2B] transition-colors">Home</a>
-                    <span>/</span>
-                    <a href="/products" className="hover:text-[#8B3A2B] transition-colors">Products</a>
-                    <span>/</span>
-                    <span className="text-[#5A2A1F]">{product.name}</span>
-                </nav>
-            </div>
-
             {/* Modern Product Hero */}
-            <section className="pb-20 px-6 md:px-10 max-w-[1500px] mx-auto">
+            <section className="pt-32 pb-20 px-6 md:px-10 max-w-[1500px] mx-auto">
                 <Suspense fallback={<div className="animate-pulse w-full h-[600px] bg-[#5A2A1F]/5 rounded-[40px]"></div>}>
                     <ProductInteractive product={product} />
                 </Suspense>
