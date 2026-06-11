@@ -66,7 +66,7 @@ export default function WelcomePopup() {
 
                     {/* Logo Section */}
                     <div className="flex flex-col items-center gap-1 mb-6">
-                        <img src="/aqdas-logo.svg" alt="Aqdas Logo" className="h-12 md:h-14 w-auto mb-2" />
+                        <img src="/aqdas-logo.svg" alt="Aqdas Logo" className="h-24 md:h-32 w-auto mb-2 object-contain" />
                         <div className="flex items-center gap-3 text-[8px] uppercase tracking-[0.35em] opacity-80 mt-1">
                             <span className="w-5 h-[1px] bg-[#7A2A1A]"></span>
                             BATIK SUITS

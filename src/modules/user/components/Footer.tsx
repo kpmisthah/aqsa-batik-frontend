@@ -63,13 +63,14 @@ export default function Footer() {
                             <span className="text-[10px] uppercase font-black tracking-[0.2em] text-[#FFD700]">Collections</span>
                             <div className="flex flex-col gap-2">
                                 {[
-                                    "Batik Dress Material",
-                                    "Cotton Collections",
-                                    "Printed Fabric",
-                                    "Ladies Cotton Suits",
+                                    { name: "Batik Dress Material", link: "/batik-fabric" },
+                                    { name: "Cotton Collections", link: "/cotton-cloth" },
+                                    { name: "Wholesale Batik Suits", link: "/wholesale" },
+                                    { name: "Ladies Cotton Suits", link: "/batik-suits" },
+                                    { name: "New Arrival Prints", link: "/new-batik-prints" }
                                 ].map((item, i) => (
-                                    <a key={i} href="/cotton-cloth" className="text-xs font-bold opacity-50 hover:opacity-100 hover:text-[#FFD700] transition-all">
-                                        {item}
+                                    <a key={i} href={item.link} className="text-xs font-bold opacity-50 hover:opacity-100 hover:text-[#FFD700] transition-all">
+                                        {item.name}
                                     </a>
                                 ))}
                             </div>

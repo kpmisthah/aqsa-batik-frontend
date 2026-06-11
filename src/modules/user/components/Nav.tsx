@@ -58,7 +58,7 @@ export default function Nav() {
                     {/* Logo Section */}
                     <div className="flex flex-col justify-center">
                         <Link href="/" className="hover:opacity-80 transition-opacity flex items-center">
-                            <img src="/aqdas-logo.svg" alt="Aqdas Logo" className="h-14 md:h-20 w-auto object-contain" />
+                            <img src="/aqdas-logo.svg" alt="Aqdas Logo" className="h-20 md:h-28 w-auto object-contain" />
                         </Link>
                     </div>
 
@@ -193,7 +193,7 @@ export default function Nav() {
                 >
                     <div className="flex flex-col gap-6">
                         <div className="flex justify-between items-center mb-4">
-                            <img src="/aqdas-logo.svg" alt="Aqdas Logo" className="h-16 w-auto object-contain" />
+                            <img src="/aqdas-logo.svg" alt="Aqdas Logo" className="h-24 w-auto object-contain" />
                             <button 
                                 onClick={() => setMenu(false)} 
                                 className="p-2 text-[#5A2A1F] hover:text-[#8B3A2B] transition-colors active:scale-95 focus:outline-none"
