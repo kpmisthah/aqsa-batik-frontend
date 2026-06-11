@@ -1,5 +1,5 @@
 "use client";
-
+import Nav from "@/modules/user/components/Nav";
 
 export default function TermsAndConditions() {
   return (
@@ -7,7 +7,7 @@ export default function TermsAndConditions() {
       <title>Terms & Conditions | AQSHA BATIK SUITS</title>
       <meta name="description" content="Read AQSHA BATIK SUITS terms for wholesale orders, minimum order value ₹25,000, pricing, product variations, and order conditions." />
       
-
+      <Nav />
 
       <main className="pt-40 pb-32 px-6">
         <div className="max-w-4xl mx-auto">

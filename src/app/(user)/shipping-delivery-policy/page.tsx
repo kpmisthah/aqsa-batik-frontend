@@ -1,5 +1,5 @@
 "use client";
-
+import Nav from "@/modules/user/components/Nav";
 
 export default function ShippingPolicy() {
   return (
@@ -7,7 +7,7 @@ export default function ShippingPolicy() {
       <title>Shipping & Delivery Policy | AQSHA BATIK SUITS</title>
       <meta name="description" content="Learn about AQSHA BATIK SUITS shipping process, dispatch timeline, courier partners, and delivery across India for wholesale orders." />
       
-
+      <Nav />
 
       <main className="pt-40 pb-32 px-6">
         <div className="max-w-4xl mx-auto">
