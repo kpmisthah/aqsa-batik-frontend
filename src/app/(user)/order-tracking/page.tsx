@@ -130,7 +130,7 @@ export default function OrderTrackingPage() {
                 </div>
             </section>
 
-            <Footer />
+
         </div>
     );
 }

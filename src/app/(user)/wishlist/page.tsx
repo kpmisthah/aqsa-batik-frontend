@@ -3,7 +3,6 @@
 import React from "react";
 import Link from "next/link";
 import Nav from "@/modules/user/components/Nav";
-import Footer from "@/modules/user/components/Footer";
 import { useWishlistStore } from "@/hooks/useWishlistStore";
 import { useCartStore } from "@/hooks/useCartStore";
 import { Trash2, Heart, ShoppingBag } from "lucide-react";
@@ -128,8 +127,6 @@ export default function WishlistPage() {
                     </div>
                 )}
             </main>
-
-            <Footer />
         </div>
     );
 }

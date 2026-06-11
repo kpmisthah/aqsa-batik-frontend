@@ -123,7 +123,7 @@ export default function BlogIndexPage() {
                 </div>
             </section>
 
-            <Footer />
+
         </div>
     );
 }

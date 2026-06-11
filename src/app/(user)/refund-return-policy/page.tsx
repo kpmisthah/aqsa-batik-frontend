@@ -69,7 +69,7 @@ export default function RefundPolicy() {
         </div>
       </main>
 
-      <Footer />
+
     </div>
   );
 }

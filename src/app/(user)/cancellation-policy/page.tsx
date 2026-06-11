@@ -62,7 +62,7 @@ export default function CancellationPolicy() {
         </div>
       </main>
 
-      <Footer />
+
     </div>
   );
 }

@@ -5,7 +5,6 @@ import { useCartStore, CartItem } from "@/hooks/useCartStore";
 import { useAuthSync } from "@/modules/user/hooks/useAuthSync";
 import Nav from "@/modules/user/components/Nav";
 import { useAuthStore } from "@/hooks/useAuthStore";
-import Footer from "@/modules/user/components/Footer";
 import { Trash2, Plus, Minus, ShoppingBag, CreditCard, Truck, Info, Lock, Loader2, Sparkles, CheckCircle2, Wallet } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -159,7 +158,7 @@ export default function CartPage() {
         currency: currency,
         name: "Aqsha Batik Store",
         description: `Batik Suit Order Checkout #${orderId.substring(18)}`,
-        image: "https://res.cloudinary.com/misthah/image/upload/v1/batik_store/logo.png",
+        // image field removed to allow fallback to the logo configured in the Razorpay Dashboard
         order_id: rzpOrderId,
         handler: async (response: any) => {
           // On Payment Success callback inside the client browser
@@ -557,8 +556,6 @@ export default function CartPage() {
           </div>
         )}
       </main>
-
-      <Footer />
     </div>
   );
 }
