@@ -24,7 +24,7 @@ export default function Footer() {
                     {/* Brand Section (4 cols) */}
                     <div className="lg:col-span-4 flex flex-col gap-3">
                         <div className="flex items-center gap-3 bg-white/5 p-2 rounded-xl w-fit">
-                            <img src="/aqdas-logo.svg" alt="Aqdas Logo" className="h-8 md:h-10 w-auto" />
+                            <img src="/aqdas-logo.svg" alt="Aqdas Logo" className="h-16 md:h-20 w-auto object-contain" />
                         </div>
                         <p className="opacity-60 text-xs md:text-sm leading-relaxed font-medium max-w-sm">
                             Direct Manufacturer from Ujjain. Specializing in premium batik dress material & wholesale supply.
@@ -51,6 +51,7 @@ export default function Footer() {
                                     { name: "Batik Cloth", link: "/cotton-cloth" },
                                     { name: "Batik Fabric", link: "/batik-fabric" },
                                     { name: "Wholesale", link: "/wholesale" },
+                                    { name: "New Arrival", link: "/new-batik-prints" },
                                 ].map((item, i) => (
                                     <a key={i} href={item.link} className="text-xs font-bold opacity-50 hover:opacity-100 hover:text-[#FFD700] transition-all">
                                         {item.name}
