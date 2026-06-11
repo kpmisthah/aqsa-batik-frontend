@@ -5,7 +5,7 @@ const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20get%20your%2
 
 export default function Footer() {
     return (
-        <footer id="contact" className="bg-[#0A0A0A] text-white pt-6 pb-2 px-4 md:px-12 border-t border-white/5 relative overflow-hidden">
+        <footer id="contact" className="bg-[#0A0A0A] text-white pt-6 pb-28 md:pb-6 px-4 md:px-12 border-t border-white/5 relative overflow-hidden">
             {/* Background Texture */}
             <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
                 <svg width="100%" height="100%">
@@ -109,21 +109,23 @@ export default function Footer() {
 
                 {/* ── BOTTOM SECTION: LEGAL & COPYRIGHT ── */}
                 <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-4 w-full md:w-auto">
-                        {[
-                            { name: "Privacy Policy", link: "/privacy-policy" },
-                            { name: "Terms & Conditions", link: "/terms-and-conditions" },
-                            { name: "Shipping Policy", link: "/shipping-delivery-policy" }
-                        ].map((legal, i) => (
-                            <a key={i} href={legal.link} className="text-[10px] md:text-[11px] font-black uppercase opacity-80 hover:opacity-100 hover:text-[#FFD700] transition-all">
-                                {legal.name}
-                            </a>
-                        ))}
+                    <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-4 md:gap-x-4 w-full md:w-auto">
+                        <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-4">
+                            {[
+                                { name: "Privacy Policy", link: "/privacy-policy" },
+                                { name: "Terms & Conditions", link: "/terms-and-conditions" },
+                                { name: "Shipping Policy", link: "/shipping-delivery-policy" }
+                            ].map((legal, i) => (
+                                <a key={i} href={legal.link} className="text-[10px] md:text-[11px] font-black uppercase opacity-80 hover:opacity-100 hover:text-[#FFD700] transition-all">
+                                    {legal.name}
+                                </a>
+                            ))}
+                        </div>
                         
                         {/* Divider on desktop */}
                         <div className="hidden md:block h-4 w-px bg-white/20 ml-2 mr-2"></div>
                         
-                        <img src="/partner-logo.jpeg" alt="Partner Logo" className="h-8 md:h-10 w-auto object-contain rounded-md shadow-lg ring-1 ring-white/10 opacity-90 hover:opacity-100 transition-opacity" />
+                        <img src="/partner-logo.jpeg" alt="Partner Logo" className="h-8 md:h-10 w-auto object-contain rounded-md shadow-lg ring-1 ring-white/10 opacity-90 hover:opacity-100 transition-opacity mt-2 md:mt-0" />
                     </div>
 
                     <div className="flex flex-col md:flex-row items-center justify-center md:justify-end gap-3 md:gap-4 w-full md:w-auto">
