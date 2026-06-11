@@ -20,7 +20,7 @@ export default function Footer() {
             <div className="max-w-[1600px] mx-auto relative z-10">
                 {/* ── TOP SECTION: BRAND, LINKS & CTA ── */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 pb-6 border-b border-white/5">
-                    
+
                     {/* Brand Section (4 cols) */}
                     <div className="lg:col-span-4 flex flex-col gap-3">
                         <div className="flex items-center gap-3 bg-white/5 p-2 rounded-xl w-fit">
@@ -47,7 +47,6 @@ export default function Footer() {
                             <span className="text-[10px] uppercase font-black tracking-[0.2em] text-[#FFD700]">Quick Links</span>
                             <div className="flex flex-col gap-2">
                                 {[
-                                    { name: "Home", link: "/" },
                                     { name: "Batik Cloth", link: "/cotton-cloth" },
                                     { name: "Batik Fabric", link: "/batik-fabric" },
                                     { name: "Wholesale", link: "/wholesale" },
