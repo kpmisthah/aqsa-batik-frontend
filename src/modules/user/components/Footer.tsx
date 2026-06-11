@@ -114,7 +114,7 @@ export default function Footer() {
                             { name: "Terms & Conditions", link: "/terms-and-conditions" },
                             { name: "Shipping Policy", link: "/shipping-delivery-policy" }
                         ].map((legal, i) => (
-                            <a key={i} href={legal.link} className="text-[9px] font-black uppercase opacity-40 hover:opacity-100 transition-all">
+                            <a key={i} href={legal.link} className="text-[10px] md:text-[11px] font-black uppercase opacity-80 hover:opacity-100 hover:text-[#FFD700] transition-all">
                                 {legal.name}
                             </a>
                         ))}

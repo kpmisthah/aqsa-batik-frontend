@@ -1,6 +1,5 @@
 "use client";
-import Nav from "@/modules/user/components/Nav";
-import Footer from "@/modules/user/components/Footer";
+
 
 export default function PrivacyPolicy() {
   return (
@@ -8,7 +7,7 @@ export default function PrivacyPolicy() {
       <title>Privacy Policy | AQSHA BATIK SUITS</title>
       <meta name="description" content="Understand how AQSHA BATIK SUITS collects, uses, and protects customer and wholesale inquiry data across website, WhatsApp, and business communication." />
       
-      <Nav />
+
 
       <main className="pt-40 pb-32 px-6">
         <div className="max-w-4xl mx-auto">
@@ -74,7 +73,7 @@ export default function PrivacyPolicy() {
         </div>
       </main>
 
-      <Footer />
+
     </div>
   );
 }
