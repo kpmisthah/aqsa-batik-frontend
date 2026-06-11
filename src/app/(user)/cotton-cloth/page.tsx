@@ -170,7 +170,7 @@ export default async function CottonClothPage() {
                     "Consistent Bulk Quality",
                     "Ready Stock Availability"
                 ]}
-                imageSrc="/cotton-fabric-quality-banner.webp"
+                imageSrc="/cotton-fabric-quality-img.webp"
                 mobileImageSrc="/cotton-summer-dresses-image.webp"
                 featureTag="FABRIC STANDARD"
                 featureTitle="Pure Cotton 60x60"
@@ -242,7 +242,7 @@ export default async function CottonClothPage() {
                         )
                     }
                 ]}
-                imageSrc="/premium-cotton-cloth-banner.webp"
+                imageSrc="/premium-cotton-cloth.webp"
                 mobileImageSrc="/cotton-dress-material-image.webp"
                 quote="Our premium batik cloth offers the perfect canvas for your fashion creations, blending traditional art with superior comfort."
             />

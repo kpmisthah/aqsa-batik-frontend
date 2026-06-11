@@ -180,7 +180,7 @@ export default async function BatikFabricPage() {
                     "Consistent bulk quality",
                     "Ready stock availability"
                 ]}
-                imageSrc="/best-dresses-for-women-quality-banner.webp"
+                imageSrc="/best-dresses-for-women-quality.webp"
                 featureTag="FABRIC STANDARD"
                 featureTitle="Pure Cotton 60x60"
                 featureDesc="The gold standard for batik fabric, ensuring longevity and maximum comfort in any weather."

@@ -39,6 +39,7 @@ export default function ProductCard({ product, isWholesalePage = false }: Produc
                     layout="fill"
                     objectFit="cover"
                     objectPosition="top"
+                    unoptimized={true}
                     className="group-hover:scale-110 transition-all duration-1000 brightness-[0.95] group-hover:brightness-100"
                 />
                 {product.isBestSeller && (
