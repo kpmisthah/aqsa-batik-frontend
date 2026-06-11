@@ -99,7 +99,12 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
                 <nav className="flex items-center gap-2 md:gap-3 text-[10px] md:text-sm font-bold uppercase tracking-wider md:tracking-widest text-[#5A2A1F]/40 flex-wrap">
                     <a href="/" className="hover:text-[#8B3A2B] transition-colors">Home</a>
                     <span>/</span>
-                    <a href="/products" className="hover:text-[#8B3A2B] transition-colors">Products</a>
+                    <a href={
+                        product.category === 'Batik Fabric' ? '/batik-fabric' : 
+                        product.category === 'Batik Suits' ? '/batik-suits' : 
+                        product.category === 'New Batik Prints' ? '/new-batik-prints' : 
+                        '/cotton-cloth'
+                    } className="hover:text-[#8B3A2B] transition-colors">{product.category || 'Products'}</a>
                     <span>/</span>
                     <span className="text-[#5A2A1F]">{product.name}</span>
                 </nav>
