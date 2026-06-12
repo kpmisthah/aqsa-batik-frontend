@@ -598,7 +598,7 @@ export default async function WholesalePage() {
                     <div className="bg-white p-6 md:p-16 rounded-[24px] md:rounded-[60px] shadow-2xl flex flex-col gap-4 md:gap-8 border border-white">
                         <div className="flex flex-col gap-1 md:gap-3">
                             <span className="text-[9px] md:text-xs font-black text-[#8B3A2B] uppercase tracking-[0.4em]">Commercial Terms</span>
-                            <h2 className="font-playfair text-2xl md:text-6xl font-bold text-[#5A2A1F] leading-tight">Minimum Order Requirement</h2>
+                            <h2 className="font-playfair text-2xl md:text-4xl font-bold text-[#5A2A1F] leading-tight">Minimum Order Requirement</h2>
                         </div>
                         <div className="flex flex-col gap-3 md:gap-6">
                             <div className="flex items-center justify-between py-3 md:py-6 border-b border-[#5A2A1F]/10">
