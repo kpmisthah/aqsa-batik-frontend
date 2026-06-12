@@ -66,7 +66,7 @@ export default function Nav() {
                     <div className="hidden lg:flex items-center gap-8 font-playfair font-bold text-[#5A2A1F] text-[13px] uppercase tracking-wider">
                         <Link href="/cotton-cloth" className="hover:text-[#8B3A2B] transition-colors">batik cloth</Link>
                         <Link href="/batik-fabric" className="hover:text-[#8B3A2B] transition-colors">batik fabric</Link>
-                        <Link href="/wholesale" className="hover:text-[#8B3A2B] transition-colors">wholesale</Link>
+                        <Link href="/fabric-wholesale" className="hover:text-[#8B3A2B] transition-colors">wholesale</Link>
                         <Link href="/new-batik-prints" className="text-[#8B3A2B] hover:text-[#5A2A1F] transition-colors relative">
                             new arrival
                             <span className="absolute -top-1 -right-2 w-1.5 h-1.5 rounded-full bg-[#8B3A2B] animate-pulse"></span>
@@ -206,7 +206,7 @@ export default function Nav() {
                         <div className="flex flex-col font-playfair text-3xl font-bold text-[#5A2A1F] space-y-2">
                             <Link onClick={() => setMenu(false)} href="/cotton-cloth" className="hover:text-[#8B3A2B] transition-colors py-3 border-b border-[#5A2A1F]/5">batik cloth</Link>
                             <Link onClick={() => setMenu(false)} href="/batik-fabric" className="hover:text-[#8B3A2B] transition-colors py-3 border-b border-[#5A2A1F]/5">batik fabric</Link>
-                            <Link onClick={() => setMenu(false)} href="/wholesale" className="hover:text-[#8B3A2B] transition-colors py-3 border-b border-[#5A2A1F]/5">wholesale</Link>
+                            <Link onClick={() => setMenu(false)} href="/fabric-wholesale" className="hover:text-[#8B3A2B] transition-colors py-3 border-b border-[#5A2A1F]/5">wholesale</Link>
                             <Link onClick={() => setMenu(false)} href="/new-batik-prints" className="text-[#8B3A2B] hover:text-[#5A2A1F] transition-colors py-3 border-b border-[#5A2A1F]/5 flex items-center justify-between">
                                 new arrival
                                 <span className="text-xs px-2 py-1 bg-[#8B3A2B] text-white rounded-full animate-pulse tracking-widest">NEW</span>

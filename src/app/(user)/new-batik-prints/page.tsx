@@ -93,7 +93,7 @@ export default async function NewArrivalPage() {
                             <a href={WA} target="_blank" rel="noreferrer" className="inline-block bg-[#FFD700] text-[#5A2A1F] px-4 py-3 md:px-10 md:py-5 rounded-[10px] md:rounded-2xl font-black text-sm md:text-xl shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 uppercase tracking-widest border-b-2 md:border-b-4 border-black/10 w-full sm:w-auto text-center">
                                 Shop New Arrivals
                             </a>
-                            <a href="/wholesale" className="inline-block bg-white/10 backdrop-blur-md text-white border-2 border-white/30 px-4 py-3 md:px-10 md:py-5 rounded-[10px] md:rounded-2xl font-black text-sm md:text-xl shadow-xl hover:bg-white hover:text-[#5A2A1F] active:scale-95 transition-all duration-300 uppercase tracking-widest w-full sm:w-auto text-center">
+                            <a href="/fabric-wholesale" className="inline-block bg-white/10 backdrop-blur-md text-white border-2 border-white/30 px-4 py-3 md:px-10 md:py-5 rounded-[10px] md:rounded-2xl font-black text-sm md:text-xl shadow-xl hover:bg-white hover:text-[#5A2A1F] active:scale-95 transition-all duration-300 uppercase tracking-widest w-full sm:w-auto text-center">
                                 Get Wholesale Pricing
                             </a>
                         </div>
@@ -302,7 +302,7 @@ export default async function NewArrivalPage() {
                             </div>
                         </a>
 
-                        <a href="/wholesale" className="group relative rounded-[24px] md:rounded-[40px] overflow-hidden shadow-xl md:shadow-2xl transition-all hover:-translate-y-2 border border-[#5A2A1F]/10 bg-white flex flex-col h-full col-span-2 md:col-span-1">
+                        <a href="/fabric-wholesale" className="group relative rounded-[24px] md:rounded-[40px] overflow-hidden shadow-xl md:shadow-2xl transition-all hover:-translate-y-2 border border-[#5A2A1F]/10 bg-white flex flex-col h-full col-span-2 md:col-span-1">
                             <div className="relative aspect-[16/10] overflow-hidden">
                                 <Image src="/batik-cloth-dresses-for-women-category-image.webp" alt="Explore Wholesale Women Dresses" layout="fill" objectFit="cover" objectPosition="top" className="group-hover:scale-110 transition-all duration-[2s] brightness-90" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>

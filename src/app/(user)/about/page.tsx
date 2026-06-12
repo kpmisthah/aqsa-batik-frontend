@@ -369,7 +369,7 @@ export default function AboutPage() {
                         <a href={WA} target="_blank" rel="noreferrer" className="bg-[#5A2A1F] text-white px-6 py-3.5 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-bold text-[11px] md:text-sm hover:scale-105 transition-all shadow-xl uppercase tracking-widest border-2 border-[#5A2A1F]">
                             Get Wholesale Catalogue
                         </a>
-                        <a href="/wholesale" className="bg-white text-[#5A2A1F] border-2 border-[#5A2A1F] px-6 py-3.5 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-bold text-[11px] md:text-sm hover:scale-105 transition-all shadow-md uppercase tracking-widest">
+                        <a href="/fabric-wholesale" className="bg-white text-[#5A2A1F] border-2 border-[#5A2A1F] px-6 py-3.5 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-bold text-[11px] md:text-sm hover:scale-105 transition-all shadow-md uppercase tracking-widest">
                             View Wholesale Terms
                         </a>
                     </div>

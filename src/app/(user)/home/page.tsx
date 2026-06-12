@@ -115,7 +115,7 @@ export default function HomePage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-10">
               {[
                 { t: "Batik Printed Cotton Cloth", b: "Best Seller", d: "Breathable cotton fabric crafted for comfort, repeat sales, and everyday women's fashion..", l: "/cotton-cloth", img: "/cat_batik_cloth.webp" },
-                { t: "Wholesale Women Dresses", b: "Bulk Saving", d: "Bulk-ready women clothing collections with stable quality and faster turnover.", l: "/wholesale", img: "/cat_wholesale.webp" },
+                { t: "Wholesale Women Dresses", b: "Bulk Saving", d: "Bulk-ready women clothing collections with stable quality and faster turnover.", l: "/fabric-wholesale", img: "/cat_wholesale.webp" },
                 { t: "New Arrival Batik Collection", b: "Trending", d: "Fresh batik design collections inspired by modern Indian dress fashion trends.", l: "/new-batik-prints", img: "/cat_new_arrival.webp" }
               ].map((item, i) => (
                 <a key={i} href={item.l} className="group cursor-pointer">

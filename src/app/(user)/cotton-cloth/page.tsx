@@ -355,7 +355,7 @@ export default async function CottonClothPage() {
                             {
                                 t: "Explore Wholesale Women Dresses",
                                 d: "Discover wholesale cotton cloth collections with bulk-ready stock and repeat-demand women fashion styles.",
-                                l: "/wholesale",
+                                l: "/fabric-wholesale",
                                 img: "/batik-cloth-dresses-for-women-category-image.webp",
                                 tag: "Inquiry"
                             },
