@@ -484,11 +484,11 @@ export default function HomePage() {
           <div className="max-w-[1600px] mx-auto flex flex-col gap-8 md:gap-16 relative z-10">
             <div className="flex flex-col gap-3 md:gap-4 max-w-4xl mx-auto w-full">
               <div className="text-center flex flex-col gap-1 md:gap-2 items-center">
-                <span className="text-[10px] md:text-sm font-black text-[#8B3A2B] uppercase tracking-[0.5em] mb-1 block">Simple Process</span>
-                <h2 className="font-playfair text-2xl md:text-4xl font-medium text-[#5A2A1F] leading-tight">How to Order Batik Cloth Online</h2>
+                <span className="text-[10px] md:text-sm font-black text-[#8B3A2B] uppercase tracking-[0.5em] mb-1 block">Simple Wholesale Process</span>
+                <h2 className="font-playfair text-2xl md:text-4xl font-medium text-[#5A2A1F] leading-tight">How To Order Batik Fabric Online</h2>
               </div>
               <p className="text-[13px] md:text-xl text-[#5A2A1F]/70 font-medium italic mx-0 lg:mx-auto leading-relaxed text-left md:text-center mt-2">
-                Five simple steps. Zero confusion. Fast delivery of premium batik fabric, Batik Cloth, trending batik color collections, and quality cotton cloth across India.
+                Simple process. Fast dispatch. Wholesale-ready batik cloth and premium women clothing online collections delivered across India.
               </p>
             </div>
 
@@ -499,7 +499,7 @@ export default function HomePage() {
               {[
                 {
                   s: "01", t: "Browse Designs",
-                  d: "Explore latest batik fabric prints with fresh collections of batik cloth design, and ready-to-sell styles in premium women clothing demand.",
+                  d: "Explore latest batik print designs, cotton dresses for women, and fresh stock collections.",
                   i: (
                     <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />
@@ -508,7 +508,7 @@ export default function HomePage() {
                 },
                 {
                   s: "02", t: "Select Quantity",
-                  d: "Choose required pieces for retail, boutique stock, or bulk orders in quality cotton cloth and ladies cloth collections.",
+                  d: "Choose pieces for retail stores, boutiques, wholesalers, or marketplace inventory.",
                   i: (
                     <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect width="16" height="20" x="4" y="2" rx="2" /><path d="M12 11h4" /><path d="M12 15h4" /><path d="M8 11h.01" /><path d="M8 15h.01" />
@@ -516,8 +516,8 @@ export default function HomePage() {
                   )
                 },
                 {
-                  s: "03", t: "Contact on WhatsApp",
-                  d: "Send your selected designs directly for quick support, stock updates, and easy buying assistance.",
+                  s: "03", t: "Connect On WhatsApp",
+                  d: "Get pricing, stock updates, and personalized support instantly.",
                   i: (
                     <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-10.6 8.38 8.38 0 0 1 3.8.9L21 3l-1.5 5.5Z" />
@@ -525,8 +525,8 @@ export default function HomePage() {
                   )
                 },
                 {
-                  s: "04", t: "Get Bulk Pricing",
-                  d: "Receive wholesale rates for printed batik fabric, reseller orders, and custom quantity requirements.",
+                  s: "04", t: "Receive Wholesale Pricing",
+                  d: "Bulk pricing support based on order volume and business requirements.",
                   i: (
                     <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="m15 5 4 4" /><path d="M13 7 8.7 2.7a2 2 0 0 0-2.8 0L2.7 5.9a2 2 0 0 0 0 2.8L7 13" /><path d="m19 11-4 4" /><path d="m21 15-4.5 4.5a2 2 0 0 1-2.8 0L10 15.8" /><circle cx="16" cy="16" r="2" />
@@ -535,7 +535,7 @@ export default function HomePage() {
                 },
                 {
                   s: "05", t: "Fast Dispatch",
-                  d: "Your order is packed securely and shipped quickly across India through trusted courier partners.",
+                  d: "Quick shipping across India through trusted logistics partners.",
                   i: (
                     <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M10 17h4V5H2v12h3" /><path d="M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5" /><path d="M14 17h1" /><circle cx="7.5" cy="17.5" r="2.5" /><circle cx="17.5" cy="17.5" r="2.5" />
