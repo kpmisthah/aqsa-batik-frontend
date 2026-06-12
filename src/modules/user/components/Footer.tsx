@@ -47,7 +47,6 @@ export default function Footer() {
                             <span className="text-[10px] uppercase font-black tracking-[0.2em] text-[#FFD700]">Quick Links</span>
                             <div className="flex flex-col gap-2">
                                 {[
-                                    { name: "Home", link: "/home" },
                                     { name: "Batik Cloth", link: "/cotton-cloth" },
                                     { name: "Batik Fabric", link: "/batik-fabric" },
                                     { name: "Wholesale", link: "/fabric-wholesale" },
@@ -121,10 +120,10 @@ export default function Footer() {
                                 </a>
                             ))}
                         </div>
-                        
+
                         {/* Divider on desktop */}
                         <div className="hidden md:block h-4 w-px bg-white/20 ml-2 mr-2"></div>
-                        
+
                         <img src="/partner-logo.jpeg" alt="Partner Logo" className="h-8 md:h-10 w-auto object-contain rounded-md shadow-lg ring-1 ring-white/10 opacity-90 hover:opacity-100 transition-opacity mt-2 md:mt-0" />
                     </div>
 
