@@ -574,12 +574,11 @@ export default function HomePage() {
             <div className="flex flex-col md:flex-row items-center gap-5">
               <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white/15 flex items-center justify-center text-white text-xl md:text-2xl shadow-inner shadow-white/20">⚡</div>
               <div className="flex flex-col gap-1">
-                <h3 className="text-white font-playfair text-xl md:text-2xl lg:text-3xl font-bold">Fast-Moving Designs. Stock Updates Regularly.</h3>
-                <p className="text-white/60 text-sm md:text-base font-medium tracking-tight">Bulk buyers get priority dispatch. Don&apos;t wait for restock cycles.</p>
+                <h3 className="text-white font-playfair text-xl md:text-2xl lg:text-3xl font-bold">Fast-Moving Batik Designs &bull; New Stock Added Weekly &bull; Bulk Dispatch Available</h3>
               </div>
             </div>
             <a href={WA} className="bg-white text-[#5A2A1F] px-8 py-3.5 md:py-4 rounded-xl font-black text-sm md:text-base hover:scale-105 transition-all shadow-[0_10px_30px_rgba(255,255,255,0.1)] uppercase tracking-widest flex-shrink-0">
-              Enquire Now →
+              Enquire Now
             </a>
           </div>
         </section>

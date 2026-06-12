@@ -55,20 +55,22 @@ export default function LeadGenerationForm() {
                 {/* Left Side: Content & Benefits */}
                 <div className="flex-1 flex flex-col gap-6 md:gap-10">
                     <div className="flex flex-col gap-3 md:gap-6 text-center md:text-left items-center md:items-start">
-                        <span className="text-[10px] font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Get Started</span>
+                        <span className="text-[10px] font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Get Wholesale Pricing</span>
                         <h2 className="font-playfair text-2xl md:text-4xl font-bold text-[#5A2A1F] leading-[1.1]">
-                            Get a Personalized <br className="hidden md:block" /> Batik Fabric Quote Today
+                            Get Personalized Batik Fabric Pricing &amp; Latest Catalog
                         </h2>
                         <p className="text-[13px] md:text-lg text-[#5A2A1F]/70 font-medium leading-relaxed max-w-xl text-left md:text-left mt-2 md:mt-0">
-                            Our trade experts will respond within 4 hours with the latest catalogue, wholesale pricing, and custom order options for premium batik fabric, Batik Cloth, and cotton cloth collections across India.
+                            Receive wholesale pricing, latest batik design collections, and ready-stock updates directly from AQSHA BATIK SUITS within hours.
                         </p>
                     </div>
 
                     <ul className="flex flex-col gap-3 md:gap-6 mt-2 md:mt-0">
                         {[
-                            "Free Digital Lookbook (Latest Collection)",
-                            "Fabric Sample Support on Request",
-                            "Priority WhatsApp Assistance"
+                            "Latest Batik Collection Catalog",
+                            "Wholesale Pricing Support",
+                            "Fast WhatsApp Assistance",
+                            "Bulk Order Guidance",
+                            "Ready Stock Updates"
                         ].map((benefit, i) => (
                             <li key={i} className="flex items-center gap-2 md:gap-4 text-[12px] md:text-lg font-bold text-[#5A2A1F]">
                                 <div className="w-4 h-4 md:w-6 md:h-6 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 shrink-0">
