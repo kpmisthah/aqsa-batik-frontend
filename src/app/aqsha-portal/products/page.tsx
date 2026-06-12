@@ -288,10 +288,6 @@ export default function AdminProducts() {
               <textarea name="description" defaultValue={editingProduct?.description || ""} rows={4} className="w-full border border-[#5A2A1F]/20 rounded-xl p-3 text-[#5A2A1F] focus:ring-2 focus:ring-[#FFD700] focus:outline-none font-medium resize-none" placeholder="Paste the long, marketing description here..." />
             </div>
 
-            <div>
-              <label className="block text-xs font-black uppercase tracking-widest text-[#8B3A2B] mb-2">SEO Title (For Google)</label>
-              <input type="text" name="seoTitle" defaultValue={editingProduct?.seoTitle || ""} className="w-full border border-[#5A2A1F]/20 rounded-xl p-3 text-[#5A2A1F] focus:ring-2 focus:ring-[#FFD700] focus:outline-none font-medium" placeholder="E.g. Premium Mustard Yellow Party Wear Batik Suit | Brand" />
-            </div>
 
             <div>
               <label className="block text-xs font-black uppercase tracking-widest text-[#8B3A2B] mb-2">Meta Description (For Google)</label>
