@@ -104,20 +104,19 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-left md:text-center mb-10 md:mb-16 flex flex-col gap-3 md:gap-5">
               <div className="w-full text-center">
-                <span className="text-[10px] md:text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Curated For Sales</span>
+                <span className="text-[10px] md:text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Curated For Daily Demand</span>
               </div>
-              <h2 className="font-playfair text-2xl md:text-4xl font-semibold text-[#5A2A1F] leading-tight">Explore Our Best-Selling Batik Designs Collection</h2>
+              <h2 className="font-playfair text-2xl md:text-4xl font-semibold text-[#5A2A1F] leading-tight">Explore Best-Selling Batik Fabric & Women Clothing Collections</h2>
               <p className="text-[#6E5238] opacity-80 text-sm md:text-xl max-w-4xl mx-auto font-medium italic leading-relaxed">
-                Explore premium batik print dress collections, breathable ladies cotton dresses, and every stylish dress for women designed for comfort, fashion, and everyday demand.
+                Discover breathable cotton dresses for women, premium batik cloth, and stylish women clothing collections designed for boutiques, resellers, marketplaces, and everyday fashion demand.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-10">
               {[
-                { t: "Batik Cloth", b: "Best Seller", d: "Breathable cotton materials for everyday style.", l: "/cotton-cloth", img: "/cat_batik_cloth.webp" },
-                { t: "Batik Fabric", b: "Top Quality", d: "Premium yardage for boutiques and designers.", l: "/batik-fabric", img: "/cat_batik_fabric.webp" },
-                { t: "Wholesale Batik Dresses", b: "Bulk Saving", d: "Best margins for boutique & resellers.", l: "/wholesale", img: "/cat_wholesale.webp" },
-                { t: "New Arrival Batik Clothing", b: "Trending", d: "Fresh patterns inspired by modern trends.", l: "/new-batik-prints", img: "/cat_new_arrival.webp" }
+                { t: "Batik Printed Cotton Cloth", b: "Best Seller", d: "Breathable cotton fabric crafted for comfort, repeat sales, and everyday women's fashion..", l: "/cotton-cloth", img: "/cat_batik_cloth.webp" },
+                { t: "Wholesale Women Dresses", b: "Bulk Saving", d: "Bulk-ready women clothing collections with stable quality and faster turnover.", l: "/wholesale", img: "/cat_wholesale.webp" },
+                { t: "New Arrival Batik Collection", b: "Trending", d: "Fresh batik design collections inspired by modern Indian dress fashion trends.", l: "/new-batik-prints", img: "/cat_new_arrival.webp" }
               ].map((item, i) => (
                 <a key={i} href={item.l} className="group cursor-pointer">
                   <div className="relative aspect-[4/5] md:aspect-square rounded-[24px] md:rounded-[40px] shadow-xl md:shadow-2xl mb-4 md:mb-8 transition-all hover:-translate-y-2 overflow-hidden border border-[#5A2A1F]/5">
@@ -133,7 +132,7 @@ export default function HomePage() {
             </div>
             <div className="mt-8 md:mt-20 text-center">
               <a href={WA} className="inline-block bg-[#5A2A1F] text-white px-8 py-4 md:px-12 md:py-5 rounded-xl md:rounded-2xl font-bold text-sm md:text-lg shadow-[0_20px_50px_rgba(90,42,31,0.2)] hover:bg-black transition-all uppercase tracking-widest">
-                Request Full Catalog on WhatsApp
+                Request Full WhatsApp Catalog
               </a>
             </div>
           </div>
@@ -145,13 +144,13 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto text-center flex flex-col gap-10 md:gap-16 relative z-10">
             <div className="flex flex-col gap-4 md:gap-6">
               <span className="text-[10px] md:text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Engineered For Resellers</span>
-              <h2 className="font-playfair text-2xl md:text-4xl font-medium text-[#5A2A1F]">If You Sell Clothing, <br className="hidden md:block" /> This Is Built for You</h2>
+              <h2 className="font-playfair text-2xl md:text-4xl font-medium text-[#5A2A1F]">If You Sell Women Clothing, <br className="hidden md:block" /> This Is Built For You</h2>
             </div>
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8">
               {[
                 {
-                  t: "Boutique Owners", d: "Get fast-moving designs that refresh your display and bring repeat footfall.", b: "Need fast-moving designs",
+                  t: "Boutique Owners", d: "Premium women clothing collections that refresh your shelves and increase repeat walk-ins.", b: "Need fast-moving designs",
                   i: (
                     <svg className="w-5 h-5 md:w-10 md:h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect width="16" height="20" x="4" y="2" rx="2" ry="2" />
@@ -160,7 +159,7 @@ export default function HomePage() {
                   )
                 },
                 {
-                  t: "Resellers", d: "Better margins than local suppliers. Consistent quality. Trusted supply chain.", b: "Need better margins",
+                  t: "Resellers", d: "Better pricing, stable stock updates, and fast-moving batik fabric collections customers actually buy.", b: "Need better margins",
                   i: (
                     <svg className="w-5 h-5 md:w-10 md:h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /><path d="M3 6h18" /><path d="M16 10a4 4 0 0 1-8 0" />
@@ -168,7 +167,7 @@ export default function HomePage() {
                   )
                 },
                 {
-                  t: "Wholesalers", d: "Bulk consistency guaranteed. 1500+ pieces per cycle with uniform quality.", b: "Need bulk consistency",
+                  t: "Wholesalers", d: "Bulk batik cloth manufacturing with consistent finishing and dependable quality control.", b: "Need bulk consistency",
                   i: (
                     <svg className="w-5 h-5 md:w-10 md:h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /><path d="m3.3 7 8.7 5 8.7-5" /><path d="M12 22V12" />
@@ -176,7 +175,7 @@ export default function HomePage() {
                   )
                 },
                 {
-                  t: "Marketplace Sellers", d: "Trending stock that performs on Meesho, Amazon, Flipkart, and Instagram.", b: "Need trending stock",
+                  t: "Marketplace Sellers", d: "Trending batik suit designs optimized for Amazon, Flipkart, Meesho, and Instagram selling.", b: "Need trending stock",
                   i: (
                     <svg className="w-5 h-5 md:w-10 md:h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect width="14" height="20" x="5" y="2" rx="2" ry="2" /><path d="M12 18h.01" />
