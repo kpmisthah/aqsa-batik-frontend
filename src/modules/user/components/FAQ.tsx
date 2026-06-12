@@ -16,24 +16,24 @@ export default function FAQ({ items }: FAQProps) {
     const [open, setOpen] = useState(0);
     const defaultFaqs = [
         { 
-            q: "What can I make from batik dress material?", 
-            a: "Batik dress material is ideal for stitched suits, kurtis, coordinated sets, casual wear, and festive outfits. Many buyers choose batik print dress material for elegant everyday fashion with traditional style." 
+            q: "What makes batik fabric popular in women's clothing collections?", 
+            a: "Batik fabric is loved for its unique print patterns, breathable comfort, and versatile styling. It is widely used in women's clothing collections, indian dresses, kurtis, and everyday ethnic fashion because of its lightweight feel and timeless appeal." 
         },
         { 
-            q: "Is batik cotton dress material good for daily wear?", 
-            a: "Yes. Batik cotton dress material is popular for daily wear because it is breathable, lightweight, and comfortable. It is perfect for warm weather, office outfits, and practical women clothing needs." 
+            q: "Is batik cloth suitable for cotton dresses for women?", 
+            a: "Yes. Batik cloth is commonly used for cotton dress for women's collections because it combines soft fabric comfort with stylish batik print designs that work perfectly for daily wear and festive ethnic fashion." 
         },
         { 
-            q: "Do you sell batik printed fabric for boutiques and resellers?", 
-            a: "Yes. We offer premium batik printed fabric and printed batik fabric collections suitable for boutiques, resellers, and retailers looking for stylish fast-moving stock and reliable quality." 
+            q: "Do you manufacture Indian dresses for girls using batik fabric?", 
+            a: "Yes. AQSHA BATIK SUITS manufactures batik fabric collections suitable for Indian dresses for girls, coordinated ethnic wear, casual cotton outfits, and modern women clothing trends." 
         },
         { 
-            q: "Do you have batik dresses and shirts for women?", 
-            a: "Yes. Our collection includes cotton batik dresses, elegant batik dress styles, modern batik shirt ladies designs, and fashionable batik shirt womens collections for daily and occasion wear." 
+            q: "Do you offer plus size clothing fabric options in batik prints?", 
+            a: "Absolutely. Our breathable batik fabric and cotton dress materials are ideal for plus size clothing collections, offering comfortable fitting, wearable styling, and lightweight fabric suitable for all-day wear." 
         },
         { 
-            q: "Do you offer plus size clothing in batik fabric?", 
-            a: "Yes. Our Batik Cloth is suitable for tailored plus size clothing, plus size womens clothing, and custom stitching for all body types. Many boutiques and plus size clothing stores choose batik fabric for stylish inclusive fashion." 
+            q: "Why are batik print designs trending in Indian dresses?", 
+            a: "Batik print design styles continue to trend because they blend traditional artistry with modern women's fashion. Their elegant patterns, wearable comfort, and versatile styling make them highly popular in Indian dresses and daily wear women clothing." 
         }
     ];
 
