@@ -251,9 +251,9 @@ export default async function BatikFabricPage() {
                         )
                     }
                 ]}
-                imageSrc="/premium-cotton-cloth.webp"
+                imageSrc="/batik-fabric-image.webp"
                 mobileImageSrc="/cotton-dress-material-image.webp"
-                quote="Our premium batik cloth offers the perfect canvas for your fashion creations, blending traditional art with superior comfort."
+                quote="Our batik fabric blends breathable cotton comfort with versatile design possibilities for modern fashion."
             />
 
 
