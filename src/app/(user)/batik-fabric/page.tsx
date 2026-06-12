@@ -186,6 +186,76 @@ export default async function BatikFabricPage() {
                 featureDesc="The gold standard for batik fabric, ensuring longevity and maximum comfort in any weather."
             />
 
+            <PremiumFeatureSection
+                tag="Why Buyers Choose Our Fabric"
+                title={<>Why Our Batik Fabric <br />Stands Out</>}
+                features={[
+                    {
+                        t: "Premium Batik Fabric Cotton",
+                        d: "Our batik fabric cotton is crafted for softness, durability, and comfort—ideal for cotton batik dress, latest ladies dress, and everyday fashion wear.",
+                        c: "text-blue-400",
+                        i: (
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
+                                <path d="M12 2v20" /><path d="M9 7v10" /><path d="M15 7v10" /><path d="M6 5h12v14H6z" />
+                            </svg>
+                        )
+                    },
+                    {
+                        t: "High-Quality Batik Fabric Prints",
+                        d: "We deliver refined batik fabric prints with clear patterns, rich colors, and consistent quality, perfect for batik design clothing and boutique collections.",
+                        c: "text-emerald-400",
+                        i: (
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                            </svg>
+                        )
+                    },
+                    {
+                        t: "Breathable Cotton for All-Day Wear",
+                        d: "Designed for Indian weather, our fabric supports sleeveless dress, full sleeve dress, and cotton night dress for ladies with long-lasting comfort.",
+                        c: "text-orange-400",
+                        i: (
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
+                                <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /><path d="m3.3 7 8.7 5 8.7-5" /><path d="M12 22V12" />
+                            </svg>
+                        )
+                    },
+                    {
+                        t: "Versatile for Modern Women Clothing",
+                        d: "Our fabric supports a wide range of styles—from short party dresses for women to elegant daily wear, making it a strong choice for evolving women clothing trends.",
+                        c: "text-yellow-400",
+                        i: (
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
+                                <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
+                            </svg>
+                        )
+                    },
+                    {
+                        t: "Trusted by Plus Size Clothing Stores",
+                        d: "Perfect for inclusive fashion, our fabric works well for plus size clothing, plus size womens clothing, and retailers targeting diverse body types.",
+                        c: "text-red-400",
+                        i: (
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
+                                <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /><circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /><circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /><circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.6-.7 1.6-1.6 0-.4-.2-.8-.5-1.1-.3-.3-.4-.7-.4-1.1 0-.9.7-1.6 1.6-1.6H16c3.3 0 6-2.7 6-6 0-4.4-4.5-8-10-8z" />
+                            </svg>
+                        )
+                    },
+                    {
+                        t: "Reliable for Stitching & Finishing",
+                        d: "Clean cuts, smooth texture, and consistent weave quality make it ideal for batik print suit, batik dress, and stitched garments for retail and wholesale.",
+                        c: "text-purple-400",
+                        i: (
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+                            </svg>
+                        )
+                    }
+                ]}
+                imageSrc="/premium-cotton-cloth.webp"
+                mobileImageSrc="/cotton-dress-material-image.webp"
+                quote="Our premium batik cloth offers the perfect canvas for your fashion creations, blending traditional art with superior comfort."
+            />
+
 
 
             {/* ── HOW TO ORDER SECTION ── */}
