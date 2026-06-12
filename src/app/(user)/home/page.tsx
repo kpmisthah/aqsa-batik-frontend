@@ -414,11 +414,11 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto flex flex-col gap-8 md:gap-12">
             <div className="flex flex-col gap-3 md:gap-4 max-w-4xl mx-auto w-full">
               <div className="text-center flex flex-col gap-2 md:gap-4 items-center">
-                <span className="text-[10px] md:text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Buyer Psychology</span>
-                <h2 className="font-playfair text-2xl md:text-3xl font-semibold text-[#5A2A1F]">Why Smart Retailers Prefer Our Batik Fabric</h2>
+                <span className="text-[10px] md:text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Why Retailers Reorder</span>
+                <h2 className="font-playfair text-2xl md:text-3xl font-semibold text-[#5A2A1F]">Why Smart Sellers Prefer Our Batik Fabric Collections</h2>
               </div>
               <p className="text-[13px] md:text-lg text-[#5A2A1F]/70 font-medium leading-relaxed italic text-left md:text-center mt-2">
-                You are not just buying Batik Cloth. You are choosing fast-moving demand, trusted quality, and repeat buyers looking for stylish women clothing, breathable cotton cloth, and premium everyday wear.
+                You are not just buying batik cloth. You are investing in women&apos;s clothing collections built around repeat demand, breathable comfort, stable quality, and wearable batik fabric styles that customers genuinely come back to buy again and again.
               </p>
             </div>
 
@@ -426,7 +426,7 @@ export default function HomePage() {
               {[
                 {
                   t: "SELLS EVERYWHERE",
-                  d: "Popular across boutiques, resellers, and local markets for stylish ladies cloth collections with broad customer appeal.",
+                  d: "Works across boutiques, marketplaces, resellers, and ethnic women clothing stores.",
                   i: (
                     <svg className="w-6 h-6 md:w-8 md:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" />
@@ -435,7 +435,7 @@ export default function HomePage() {
                 },
                 {
                   t: "DAILY WEAR DEMAND",
-                  d: "Soft batik fabric prints and breathable cotton cloth make it ideal for regular wear, office wear, and everyday comfort.",
+                  d: "Breathable cotton fabric designed for Indian weather and regular everyday wear.",
                   i: (
                     <svg className="w-6 h-6 md:w-8 md:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" />
@@ -444,7 +444,7 @@ export default function HomePage() {
                 },
                 {
                   t: "STABLE SALES",
-                  d: "Classic printed batik fabric performs beyond trends because comfort-driven fashion sells in every season.",
+                  d: "Classic batik print designs continue performing across seasons and fashion cycles.",
                   i: (
                     <svg className="w-6 h-6 md:w-8 md:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="m17 2 4 4-4 4" /><path d="M3 11V9a4 4 0 0 1 4-4h14" /><path d="m7 22-4-4 4-4" /><path d="M21 13v2a4 4 0 0 1-4 4H3" />
@@ -453,7 +453,7 @@ export default function HomePage() {
                 },
                 {
                   t: "EASY TO CUSTOMIZE",
-                  d: "Perfect for stitched suits, modern plus size clothing, and tailored plus size womens clothing collections.",
+                  d: "Ideal for kurtis, suits, plus size clothing, and stitched women dress collections.",
                   i: (
                     <svg className="w-6 h-6 md:w-8 md:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M14.47 14.48a6 6 0 1 1 5.05-5.05" /><path d="M8.12 8.12 12 12" /><circle cx="6" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><path d="M20 4 8.12 15.88" /><path d="M14.47 14.48 20 20" /><path d="m8.12 8.12 3.19 3.19" />
@@ -472,7 +472,7 @@ export default function HomePage() {
             <div className="flex justify-center mt-2">
               <div className="bg-[#E8D9C0] px-5 py-4 md:px-8 md:py-6 rounded-[20px] md:rounded-3xl border border-[#5A2A1F]/10 shadow-sm inline-block max-w-3xl">
                 <p className="text-[12px] md:text-xl font-bold italic text-[#5A2A1F] text-center">
-                  &quot;You are not selling fabric. You are selling comfort, confidence, and repeat demand.&quot;
+                  &quot;You are not selling fabric. You are selling repeat customer behavior.&quot;
                 </p>
               </div>
             </div>
