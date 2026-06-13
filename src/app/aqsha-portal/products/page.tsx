@@ -270,8 +270,8 @@ export default function AdminProducts() {
           {/* Colours */}
           <div>
             <label className="block text-xs font-black uppercase tracking-widest text-[#8B3A2B] mb-2">Colours / Variations</label>
-            <input type="text" name="colours" defaultValue={editingProduct?.colours?.join(", ") || ""} className="w-full border border-[#5A2A1F]/20 rounded-xl p-3 text-[#5A2A1F] focus:ring-2 focus:ring-[#FFD700] focus:outline-none font-medium" placeholder="E.g. #FFFFFF, #FFD700, #8B3A2B" />
-            <p className="text-xs text-[#5A2A1F]/40 mt-1">Enter hex codes or colour names, separated by commas.</p>
+            <input type="text" name="colours" defaultValue={editingProduct?.colours?.join(", ") || ""} className="w-full border border-[#5A2A1F]/20 rounded-xl p-3 text-[#5A2A1F] focus:ring-2 focus:ring-[#FFD700] focus:outline-none font-medium" placeholder="E.g. Red, Blue, Mustard Yellow" />
+            <p className="text-xs text-[#5A2A1F]/40 mt-1">Enter colour names, separated by commas.</p>
           </div>
 
           {/* Descriptions & SEO */}
