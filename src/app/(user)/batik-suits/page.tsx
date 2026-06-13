@@ -153,7 +153,7 @@ export default async function BatikSuitsPage() {
                         ))}
                     </div>
 
-                    <ProductGrid products={suitProducts.slice(0, 8)} columns={4} />
+                    <ProductGrid products={suitProducts} columns={4} />
                 </div>
             </section>
 

@@ -167,7 +167,7 @@ export default async function BatikFabricPage() {
                             <h3 className="font-playfair text-2xl md:text-4xl font-bold text-[#5A2A1F] leading-tight">Explore High Demand Batik Fabric Collections</h3>
                             <p className="text-[13px] md:text-xl text-[#5A2A1F]/70 font-medium italic leading-relaxed mt-2 text-left md:text-center w-full">Discover best-selling batik patterns, consistent quality, and ready-to-move collections trusted by boutiques, fabric shops, cloth shops, and resellers across India.</p>
                         </div>
-                        <ProductGrid products={fabricProducts.slice(0, 8)} columns={4} />
+                        <ProductGrid products={fabricProducts} columns={4} />
                     </div>
                 </div>
             </section>

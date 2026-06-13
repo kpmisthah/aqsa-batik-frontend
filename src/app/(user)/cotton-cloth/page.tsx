@@ -158,7 +158,7 @@ export default async function CottonClothPage() {
                         <p className="text-base md:text-xl text-[#5A2A1F]/70 font-medium leading-relaxed italic">Discover premium printed cotton cloth, breathable dress fabric, and stylish batik print dress material collections designed for modern women clothing and everyday fashion demand.</p>
                     </div>
 
-                    <ProductGrid products={clothProducts.slice(0, 8)} columns={4} />
+                    <ProductGrid products={clothProducts} columns={4} />
                 </div>
             </section>
 
