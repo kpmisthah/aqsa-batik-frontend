@@ -114,7 +114,7 @@ export default function BlogIndexPage() {
                                 <h4 className="font-playfair text-base md:text-xl font-bold text-[#3B1C14] mb-4">{cat.title}</h4>
                                 <p className="text-xs md:text-sm text-[#3B1C14]/70 mb-3 md:mb-6 flex-grow line-clamp-3">{cat.description}</p>
                                 <a href={cat.link} className="text-xs font-bold uppercase tracking-wider text-[#3B1C14] hover:text-[#D4AF37] transition-colors flex items-center gap-1 mt-auto">
-                                    View Articles &rarr;
+                                    View Collection&rarr;
                                 </a>
                             </div>
                         ))}
