@@ -6,6 +6,7 @@ import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
 import Link from "next/link";
 import { Share2 } from "lucide-react";
 import FAQ from "@/modules/user/components/FAQ";
+import BlogContent from "./BlogContent";
 
 import { BLOG_POSTS } from "@/data/blogPosts";
 
@@ -38,7 +39,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 .blog-content h3 { font-family: 'DM Sans', sans-serif; font-size: clamp(1.125rem, 3vw, 1.25rem); font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #8B3A2B; }
                 .blog-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 2rem; opacity: 0.9; }
                 .blog-content li { margin-bottom: 0.75rem; }
-                .blog-content a { color: #8B3A2B; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+                .blog-content a { color: #2563EB; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; transition: color 0.2s ease; }
+                .blog-content a:visited { color: #2563EB; }
+                .blog-content a:hover { color: #1D4ED8; }
                 .blog-content img { width: 100%; border-radius: 1.5rem; margin: 3rem 0; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
                 .blog-content table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 2rem 0; font-size: 1rem; }
                 .blog-content th { background-color: #F5F1EC; color: #8B3A2B; font-weight: 700; text-align: left; padding: 1rem 1.5rem; border-bottom: 2px solid rgba(90, 42, 31, 0.1); }
@@ -66,7 +69,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                             <span>By {post.author}</span>
                         </p>
 
-                        </div>
+                    </div>
 
                     <div className="relative aspect-[16/9] rounded-[40px] overflow-hidden shadow-2xl mb-16">
                         <Image src={post.image} alt={post.title} fill className="object-cover object-[75%_top] md:object-center" />
@@ -76,11 +79,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 <GoogleReviewBar />
 
                 <article className="max-w-4xl mx-auto pt-24 px-6">
-                    <div
-                        className="blog-content"
-                        dangerouslySetInnerHTML={{ __html: post.content }}
-                    />
-                    
+                    <BlogContent content={post.content} />
                 </article>
 
                 {post.faqs && <FAQ items={post.faqs} />}
