@@ -58,12 +58,12 @@ export default function Nav() {
                     {/* Logo Section */}
                     <div className="flex flex-col justify-center">
                         <Link href="/home" className="hover:opacity-80 transition-opacity flex items-center">
-                            <img src="/aqsha-logo.png" alt="Aqsha Logo" className="h-16 md:h-24 mt-2 w-auto object-contain" />
+                            <img src="/aqsha-logo.png" alt="Aqsha Logo" className="h-16 lg:h-20 w-auto object-contain" />
                         </Link>
                     </div>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden lg:flex items-center gap-8 font-playfair font-bold text-[#5A2A1F] text-[13px] uppercase tracking-wider">
+                    <div className="hidden lg:flex items-center gap-3 xl:gap-6 font-playfair font-bold text-[#5A2A1F] text-[10px] xl:text-[12px] uppercase tracking-wider whitespace-nowrap">
                         <Link href="/cotton-cloth" className="hover:text-[#8B3A2B] transition-colors">batik cloth</Link>
                         <Link href="/batik-fabric" className="hover:text-[#8B3A2B] transition-colors">batik fabric</Link>
                         <Link href="/fabric-wholesale" className="hover:text-[#8B3A2B] transition-colors">wholesale</Link>
