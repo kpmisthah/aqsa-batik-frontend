@@ -126,7 +126,10 @@ export default function Footer() {
                         {/* Divider on desktop */}
                         <div className="hidden md:block h-4 w-px bg-white/20 ml-2 mr-2"></div>
 
-                        <img src="/partner-logo.jpeg" alt="Partner Logo" className="h-8 md:h-10 w-auto object-contain rounded-md shadow-lg ring-1 ring-white/10 opacity-90 hover:opacity-100 transition-opacity mt-2 md:mt-0" />
+                        <div className="flex flex-col items-center gap-1 mt-2 md:mt-0">
+                            <img src="/partner-logo.jpeg" alt="Partner Logo" className="h-8 md:h-10 w-auto object-contain rounded-md shadow-lg ring-1 ring-white/10 opacity-90 hover:opacity-100 transition-opacity" />
+                            <span className="text-[7px] md:text-[8px] uppercase tracking-[0.2em] opacity-80 font-black">Powered By</span>
+                        </div>
                     </div>
 
                     {/* <div className="flex flex-col md:flex-row items-center justify-center md:justify-end gap-3 md:gap-4 w-full md:w-auto">
