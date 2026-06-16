@@ -9,8 +9,8 @@ import { blogPosts, categories, faqs } from '@/data/blogPosts';
 
 
 export const metadata: Metadata = {
-  title: 'Women Clothing & Batik Fabric Blog | Fashion Trends & Buying Guides',
-  description: 'Explore women clothing trends, batik fabric guides, cotton dresses for women, indian dresses, wholesale buying tips, and fashion insights from Aqsha Batik.',
+    title: 'Women Clothing & Batik Fabric Blog | Fashion Trends & Buying Guides',
+    description: 'Explore women clothing trends, batik fabric guides, cotton dresses for women, indian dresses, wholesale buying tips, and fashion insights from Aqsha Batik.',
 };
 
 
@@ -113,7 +113,7 @@ export default function BlogIndexPage() {
                                 </div>
                                 <h4 className="font-playfair text-base md:text-xl font-bold text-[#3B1C14] mb-4">{cat.title}</h4>
                                 <p className="text-xs md:text-sm text-[#3B1C14]/70 mb-3 md:mb-6 flex-grow line-clamp-3">{cat.description}</p>
-                                <a href="#articles" className="text-xs font-bold uppercase tracking-wider text-[#3B1C14] hover:text-[#D4AF37] transition-colors flex items-center gap-1 mt-auto">
+                                <a href={cat.link} className="text-xs font-bold uppercase tracking-wider text-[#3B1C14] hover:text-[#D4AF37] transition-colors flex items-center gap-1 mt-auto">
                                     View Articles &rarr;
                                 </a>
                             </div>
@@ -158,7 +158,7 @@ export default function BlogIndexPage() {
                             </Link>
                         ))}
                     </div>
-                    
+
                 </div>
             </section>
 
@@ -174,7 +174,7 @@ export default function BlogIndexPage() {
                         </div>
                         <h2 className="font-playfair text-2xl md:text-3xl lg:text-4xl font-bold text-[#3B1C14] mb-6">Why Fashion Retailers Trust Aqsha Batik</h2>
                         <p className="text-[#3B1C14]/80 text-base md:text-lg mb-8 md:mb-10 max-w-2xl">For over 15 years, Aqsha Batik has supplied premium batik fabric, batik cloth, and women clothing collections to retailers, wholesalers, and growing fashion brands across India.</p>
-                        
+
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                             {[
                                 { title: "Direct Manufacturer", desc: "No middleman, better quality & pricing", icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" },
@@ -195,9 +195,9 @@ export default function BlogIndexPage() {
                     <div className="lg:w-1/3">
                         <div className="bg-white p-6 md:p-10 rounded-xl shadow-lg text-center border border-[#5A2A1F]/5">
                             <h4 className="font-playfair text-2xl font-bold text-[#3B1C14] mb-6">Looking for bulk order or custom requirements?</h4>
-                            <button className="w-full bg-[#3B1C14] text-white px-6 py-4 rounded-md font-bold text-xs uppercase tracking-wider hover:bg-[#5A2A1F] transition-colors">
+                            <a href="https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20wholesale%20pricing" target="_blank" rel="noreferrer" className="block w-full bg-[#3B1C14] text-white px-6 py-4 rounded-md font-bold text-xs uppercase tracking-wider hover:bg-[#5A2A1F] transition-colors text-center">
                                 Request Wholesale Pricing
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -236,13 +236,13 @@ export default function BlogIndexPage() {
                         <p className="text-white/80 text-base md:text-lg">Partner directly with a trusted manufacturer for premium batik fabric, batik cloth, women clothing, indian dresses, and wholesale fashion collections.</p>
                     </div>
                     <div className="lg:w-1/3 flex flex-col sm:flex-row lg:flex-col gap-4 w-full">
-                        <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 border border-[#25D366] text-[#25D366] px-6 py-4 rounded-md font-bold text-xs uppercase tracking-wider hover:bg-[#25D366] hover:text-white transition-colors text-center w-full">
-                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.88-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.496.099-.198.05-.372-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+                        <a href="https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20get%20your%20latest%20batik%20catalogue." target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 border border-[#25D366] text-[#25D366] px-6 py-4 rounded-md font-bold text-xs uppercase tracking-wider hover:bg-[#25D366] hover:text-white transition-colors text-center w-full">
+                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.88-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.496.099-.198.05-.372-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" /></svg>
                             Get Catalogue On WhatsApp
                         </a>
-                        <button className="border border-white text-white px-6 py-4 rounded-md font-bold text-xs uppercase tracking-wider hover:bg-white hover:text-[#3B1C14] transition-colors text-center w-full">
+                        <a href="https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20wholesale%20pricing" target="_blank" rel="noreferrer" className="block border border-white text-white px-6 py-4 rounded-md font-bold text-xs uppercase tracking-wider hover:bg-white hover:text-[#3B1C14] transition-colors text-center w-full">
                             Request Wholesale Pricing
-                        </button>
+                        </a>
                     </div>
                 </div>
             </section>

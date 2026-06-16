@@ -707,21 +707,25 @@ export const categories = [
         title: "Batik Fabric Guide",
         description: "Learn everything about batik fabric, batik cloth, batik design, and premium textile selection for fashion businesses.",
         icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10",
+        link: "/batik-fabric",
     },
     {
         title: "Women Clothing Trends",
         description: "Explore the latest trends in women clothing online, stylish women clothing, indian dresses, and seasonal fashion collections.",
         icon: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z",
+        link: "/new-batik-prints",
     },
     {
         title: "Cotton Dress Collection",
         description: "Find guides on cotton dresses for women, cotton women clothing, long sleeve dress, and comfortable everyday wear.",
         icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
+        link: "/cotton-cloth",
     },
     {
         title: "Wholesale Business",
         description: "Wholesale buying tips, pricing strategies, and manufacturer sourcing guides for fashion retailers.",
         icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+        link: "/fabric-wholesale",
     }
 ];
 
