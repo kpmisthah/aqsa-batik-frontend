@@ -93,7 +93,7 @@ export default function ContactPage() {
                                 <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                             </div>
                             <h3 className="font-bold text-[#3B1C14] mb-1">Email Us</h3>
-                            <p className="text-[11px] md:text-sm font-semibold text-[#3B1C14]/80 break-all px-1">info@aqshabatiksuits.com</p>
+                            <p className="text-[11px] md:text-sm font-semibold text-[#3B1C14]/80 break-all px-1">Aqdaschhipa368@gmail.com</p>
                         </div>
                         <div className="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-[#5A2A1F]/5 flex flex-col items-center text-center hover:shadow-md transition-shadow">
                             <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#F5F1EC] flex items-center justify-center text-[#8B3A2B] mb-3 md:mb-4">
