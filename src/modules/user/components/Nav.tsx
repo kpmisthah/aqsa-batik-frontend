@@ -72,6 +72,8 @@ export default function Nav() {
                             <span className="absolute -top-1 -right-2 w-1.5 h-1.5 rounded-full bg-[#8B3A2B] animate-pulse"></span>
                         </Link>
                         <Link href="/about-us" className="hover:text-[#8B3A2B] transition-colors">about</Link>
+                        <Link href="/blog" className="hover:text-[#8B3A2B] transition-colors">blog</Link>
+                        <Link href="/contact-us" className="hover:text-[#8B3A2B] transition-colors">contact</Link>
 
                         {/* Authentication Section */}
                         {loading ? (
@@ -212,6 +214,8 @@ export default function Nav() {
                                 <span className="text-xs px-2 py-1 bg-[#8B3A2B] text-white rounded-full animate-pulse tracking-widest">NEW</span>
                             </Link>
                             <Link onClick={() => setMenu(false)} href="/about-us" className="hover:text-[#8B3A2B] transition-colors py-3 border-b border-[#5A2A1F]/5">about</Link>
+                            <Link onClick={() => setMenu(false)} href="/blog" className="hover:text-[#8B3A2B] transition-colors py-3 border-b border-[#5A2A1F]/5">blog</Link>
+                            <Link onClick={() => setMenu(false)} href="/contact-us" className="hover:text-[#8B3A2B] transition-colors py-3 border-b border-[#5A2A1F]/5">contact</Link>
                             
                             {!loading && isSignedIn && user ? (
                                 <Link 

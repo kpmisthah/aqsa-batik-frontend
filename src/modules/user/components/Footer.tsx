@@ -51,6 +51,8 @@ export default function Footer() {
                                     { name: "Batik Fabric", link: "/batik-fabric" },
                                     { name: "Wholesale", link: "/fabric-wholesale" },
                                     { name: "New Arrival", link: "/new-batik-prints" },
+                                    { name: "Blog", link: "/blog" },
+                                    { name: "Contact Us", link: "/contact-us" },
                                 ].map((item, i) => (
                                     <a key={i} href={item.link} className="text-xs font-bold opacity-50 hover:opacity-100 hover:text-[#FFD700] transition-all">
                                         {item.name}

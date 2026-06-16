@@ -5,6 +5,7 @@ import { useCartStore, CartItem } from "@/hooks/useCartStore";
 import { useAuthSync } from "@/modules/user/hooks/useAuthSync";
 import Nav from "@/modules/user/components/Nav";
 import { useAuthStore } from "@/hooks/useAuthStore";
+import Footer from "@/modules/user/components/Footer";
 import { Trash2, Plus, Minus, ShoppingBag, CreditCard, Truck, Info, Lock, Loader2, Sparkles, CheckCircle2, Wallet } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -158,7 +159,7 @@ export default function CartPage() {
         currency: currency,
         name: "Aqsha Batik Store",
         description: `Batik Suit Order Checkout #${orderId.substring(18)}`,
-        // image field removed to allow fallback to the logo configured in the Razorpay Dashboard
+        image: "https://res.cloudinary.com/misthah/image/upload/v1/batik_store/logo.png",
         order_id: rzpOrderId,
         handler: async (response: any) => {
           // On Payment Success callback inside the client browser
@@ -222,11 +223,10 @@ export default function CartPage() {
 
       {/* Dynamic Toast Alerts */}
       {toast && (
-        <div className={`fixed top-24 right-6 z-50 flex items-center gap-3 px-5 py-4 rounded-2xl shadow-2xl border transition-all duration-300 text-sm font-bold ${
-          toast.type === "success" 
-            ? "bg-emerald-50 border-emerald-200 text-emerald-800" 
-            : "bg-red-50 border-red-200 text-red-800"
-        }`}>
+        <div className={`fixed top-24 right-6 z-50 flex items-center gap-3 px-5 py-4 rounded-2xl shadow-2xl border transition-all duration-300 text-sm font-bold ${toast.type === "success"
+          ? "bg-emerald-50 border-emerald-200 text-emerald-800"
+          : "bg-red-50 border-red-200 text-red-800"
+          }`}>
           <span className={`w-2.5 h-2.5 rounded-full ${toast.type === 'success' ? 'bg-emerald-500' : 'bg-red-500'} ${toast.type === 'success' ? 'animate-ping' : ''}`} />
           <span>{toast.message}</span>
         </div>
@@ -243,7 +243,7 @@ export default function CartPage() {
           <div className="bg-[#FAF6F0] rounded-[32px] border border-[#5A2A1F]/10 p-12 text-center shadow-xl max-w-xl mx-auto my-12 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#8B3A2B]/30 rounded-tl-[32px]" />
             <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#8B3A2B]/30 rounded-br-[32px]" />
-            
+
             <div className="w-20 h-20 bg-white rounded-3xl flex items-center justify-center mx-auto mb-6 shadow border border-[#5A2A1F]/5 text-3xl">
               🛍️
             </div>
@@ -251,8 +251,8 @@ export default function CartPage() {
             <p className="text-xs opacity-60 max-w-xs mx-auto mb-8 leading-relaxed font-medium">
               Explore our hand-printed premium Batik collections and add suits or fabrics to your cart.
             </p>
-            <Link 
-              href="/cotton-cloth" 
+            <Link
+              href="/cotton-cloth"
               className="inline-block bg-[#5A2A1F] hover:bg-black text-white px-10 py-4 rounded-xl font-bold uppercase tracking-widest text-xs transition-all shadow-md active:scale-95"
             >
               Explore Collections
@@ -261,20 +261,20 @@ export default function CartPage() {
         ) : (
           /* Main Cart Grid */
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
+
             {/* Left Column: Cart Items List */}
             <div className="lg:col-span-7 space-y-4">
               {items.map((item) => (
-                <div 
-                  key={`${item.productId}-${item.variantColour}`} 
+                <div
+                  key={`${item.productId}-${item.variantColour}`}
                   className="bg-white rounded-3xl border border-[#5A2A1F]/10 p-4 md:p-5 flex gap-4 md:gap-5 shadow-sm hover:shadow transition-all relative overflow-hidden"
                 >
                   {/* Item Image */}
                   <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden bg-[#FAF6F0] border border-[#5A2A1F]/5 flex-shrink-0">
-                    <img 
-                      src={item.image || "placeholder.jpg"} 
-                      alt={item.name} 
-                      className="w-full h-full object-cover" 
+                    <img
+                      src={item.image || "placeholder.jpg"}
+                      alt={item.name}
+                      className="w-full h-full object-cover"
                     />
                   </div>
 
@@ -283,7 +283,7 @@ export default function CartPage() {
                     <div>
                       <div className="flex justify-between items-start gap-2">
                         <h3 className="font-bold text-sm md:text-base leading-tight hover:text-[#8B3A2B] transition-colors">{item.name}</h3>
-                        <button 
+                        <button
                           onClick={() => removeItem(item.productId, item.variantColour)}
                           className="text-[#5A2A1F]/30 hover:text-red-600 transition-colors p-1"
                         >
@@ -309,14 +309,14 @@ export default function CartPage() {
                     <div className="flex justify-between items-center mt-4">
                       {/* Quantity Controls */}
                       <div className="flex items-center border border-[#5A2A1F]/10 rounded-xl bg-[#FAF6F0]/30 p-1">
-                        <button 
+                        <button
                           onClick={() => handleUpdateQuantity(item.productId, item.quantity - 1, item.variantColour)}
                           className="w-8 h-8 flex items-center justify-center rounded-lg text-[#5A2A1F]/55 hover:bg-white hover:text-black transition-all active:scale-90"
                         >
                           <Minus size={14} />
                         </button>
                         <span className="w-10 text-center font-bold text-xs text-[#5A2A1F]">{item.quantity}</span>
-                        <button 
+                        <button
                           onClick={() => handleUpdateQuantity(item.productId, item.quantity + 1, item.variantColour)}
                           className="w-8 h-8 flex items-center justify-center rounded-lg text-[#5A2A1F]/55 hover:bg-white hover:text-black transition-all active:scale-90"
                         >
@@ -351,14 +351,13 @@ export default function CartPage() {
 
             {/* Right Column: Checkout Summary & Shipping details */}
             <div className="lg:col-span-5 space-y-6">
-              
+
               {/* Wholesaler MOQ Policy Checklist */}
               {userRole === "Wholesaler" && (
-                <div className={`rounded-3xl border p-5 shadow-sm relative overflow-hidden transition-all duration-300 ${
-                  wholesaleCheck.eligible 
-                    ? "bg-emerald-50/50 border-emerald-200/50 text-emerald-950" 
-                    : "bg-amber-50/50 border-amber-200/60 text-amber-950"
-                }`}>
+                <div className={`rounded-3xl border p-5 shadow-sm relative overflow-hidden transition-all duration-300 ${wholesaleCheck.eligible
+                  ? "bg-emerald-50/50 border-emerald-200/50 text-emerald-950"
+                  : "bg-amber-50/50 border-amber-200/60 text-amber-950"
+                  }`}>
                   <div className="flex items-start gap-3">
                     <div className="mt-0.5 flex-shrink-0">
                       {wholesaleCheck.eligible ? (
@@ -494,11 +493,10 @@ export default function CartPage() {
                       <button
                         type="button"
                         onClick={() => setPaymentMethod("Razorpay")}
-                        className={`px-4 py-3 rounded-2xl border font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${
-                          paymentMethod === "Razorpay"
-                            ? "bg-[#5A2A1F] border-[#5A2A1F] text-white shadow-sm"
-                            : "bg-[#FAF6F0]/30 border-[#5A2A1F]/20 text-[#5A2A1F] hover:bg-[#FAF6F0]/60"
-                        }`}
+                        className={`px-4 py-3 rounded-2xl border font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${paymentMethod === "Razorpay"
+                          ? "bg-[#5A2A1F] border-[#5A2A1F] text-white shadow-sm"
+                          : "bg-[#FAF6F0]/30 border-[#5A2A1F]/20 text-[#5A2A1F] hover:bg-[#FAF6F0]/60"
+                          }`}
                       >
                         <CreditCard size={14} />
                         <span>Pay Online</span>
@@ -506,11 +504,10 @@ export default function CartPage() {
                       <button
                         type="button"
                         onClick={() => setPaymentMethod("COD")}
-                        className={`px-4 py-3 rounded-2xl border font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${
-                          paymentMethod === "COD"
-                            ? "bg-[#5A2A1F] border-[#5A2A1F] text-white shadow-sm"
-                            : "bg-[#FAF6F0]/30 border-[#5A2A1F]/20 text-[#5A2A1F] hover:bg-[#FAF6F0]/60"
-                        }`}
+                        className={`px-4 py-3 rounded-2xl border font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${paymentMethod === "COD"
+                          ? "bg-[#5A2A1F] border-[#5A2A1F] text-white shadow-sm"
+                          : "bg-[#FAF6F0]/30 border-[#5A2A1F]/20 text-[#5A2A1F] hover:bg-[#FAF6F0]/60"
+                          }`}
                       >
                         <Truck size={14} />
                         <span>Cash On Delivery</span>
@@ -518,11 +515,10 @@ export default function CartPage() {
                       <button
                         type="button"
                         onClick={() => setPaymentMethod("Wallet")}
-                        className={`px-4 py-3 rounded-2xl border font-bold text-[10px] uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${
-                          paymentMethod === "Wallet"
-                            ? "bg-[#5A2A1F] border-[#5A2A1F] text-white shadow-sm"
-                            : "bg-[#FAF6F0]/30 border-[#5A2A1F]/20 text-[#5A2A1F] hover:bg-[#FAF6F0]/60"
-                        }`}
+                        className={`px-4 py-3 rounded-2xl border font-bold text-[10px] uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${paymentMethod === "Wallet"
+                          ? "bg-[#5A2A1F] border-[#5A2A1F] text-white shadow-sm"
+                          : "bg-[#FAF6F0]/30 border-[#5A2A1F]/20 text-[#5A2A1F] hover:bg-[#FAF6F0]/60"
+                          }`}
                       >
                         <Wallet size={14} className={paymentMethod === "Wallet" ? "text-white" : "text-[#8B3A2B]"} />
                         <span>Aqsha Wallet (₹{user?.walletBalance || 0})</span>
@@ -556,6 +552,8 @@ export default function CartPage() {
           </div>
         )}
       </main>
+
+      <Footer />
     </div>
   );
 }
