@@ -255,7 +255,7 @@ function ProfileContent() {
           email: user?.email || "",
         },
         theme: {
-          color: "#5A2A1F",
+          color: "#1A1A1A",
         },
       };
 
@@ -433,8 +433,8 @@ function ProfileContent() {
       <div className="min-h-screen bg-[#FDFBF7] flex flex-col">
         <Nav />
         <div className="flex-1 flex flex-col items-center justify-center py-20">
-          <div className="w-12 h-12 border-4 border-[#5A2A1F]/20 border-t-[#5A2A1F] rounded-full animate-spin mb-4" />
-          <p className="text-sm font-bold uppercase tracking-widest text-[#5A2A1F]/60">Loading Your Profile...</p>
+          <div className="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin mb-4" />
+          <p className="text-sm font-bold uppercase tracking-widest text-primary/60">Loading Your Profile...</p>
         </div>
       </div>
     );
@@ -487,24 +487,24 @@ function ProfileContent() {
 
       {/* Luxury Image Cropper Modal */}
       {isCropModalOpen && cropImageSrc && (
-        <div className="fixed inset-0 bg-[#5A2A1F]/40 backdrop-blur-sm flex items-center justify-center z-[250] p-4 animate-in fade-in duration-300">
-          <div className="bg-[#FAF6F0] rounded-[32px] border border-[#5A2A1F]/10 p-6 md:p-8 max-w-xl w-full shadow-2xl relative animate-in zoom-in-95 duration-200 flex flex-col gap-6">
+        <div className="fixed inset-0 bg-primary/40 backdrop-blur-sm flex items-center justify-center z-[250] p-4 animate-in fade-in duration-300">
+          <div className="bg-surface rounded-[32px] border border-primary/10 p-6 md:p-8 max-w-xl w-full shadow-2xl relative animate-in zoom-in-95 duration-200 flex flex-col gap-6">
             
             {/* Corner styling borders */}
-            <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-[#8B3A2B]/30 rounded-tl-[32px]" />
-            <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-[#8B3A2B]/30 rounded-tr-[32px]" />
-            <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-[#8B3A2B]/30 rounded-bl-[32px]" />
-            <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-[#8B3A2B]/30 rounded-br-[32px]" />
+            <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-secondary/30 rounded-tl-[32px]" />
+            <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-secondary/30 rounded-tr-[32px]" />
+            <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-secondary/30 rounded-bl-[32px]" />
+            <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-secondary/30 rounded-br-[32px]" />
 
             <div>
-              <span className="text-[10px] font-black tracking-widest text-[#8B3A2B] uppercase">IMAGE ADJUSTMENT</span>
-              <h3 className="font-playfair text-2xl font-black text-[#5A2A1F] mt-1">Crop Your Profile Photo</h3>
-              <p className="text-xs text-[#5A2A1F]/60 mt-1 font-medium leading-relaxed">
+              <span className="text-[10px] font-black tracking-widest text-secondary uppercase">IMAGE ADJUSTMENT</span>
+              <h3 className="font-heading text-2xl font-black text-primary mt-1">Crop Your Profile Photo</h3>
+              <p className="text-xs text-primary/60 mt-1 font-medium leading-relaxed">
                 Drag, scale, and adjust your photo perfectly within the square guidelines below.
               </p>
             </div>
 
-            <div className="rounded-2xl overflow-hidden border border-[#5A2A1F]/15 bg-white relative max-h-[350px] md:max-h-[400px]">
+            <div className="rounded-2xl overflow-hidden border border-primary/15 bg-white relative max-h-[350px] md:max-h-[400px]">
               <Cropper
                 src={cropImageSrc}
                 style={{ height: 350, width: "100%" }}
@@ -530,14 +530,14 @@ function ProfileContent() {
                   setIsCropModalOpen(false);
                   setCropImageSrc(null);
                 }}
-                className="flex-1 bg-white border border-[#5A2A1F]/20 text-[#5A2A1F] hover:bg-[#FAF6F0] py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-xs transition-all active:scale-[0.99]"
+                className="flex-1 bg-white border border-primary/20 text-primary hover:bg-surface py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-xs transition-all active:scale-[0.99]"
               >
                 Cancel
               </button>
               <button
                 type="button"
                 onClick={handleCropAndUpload}
-                className="flex-1 bg-[#5A2A1F] hover:bg-black text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-xs transition-all shadow hover:shadow-md active:scale-[0.99] flex items-center justify-center gap-2"
+                className="flex-1 bg-primary hover:bg-black text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-xs transition-all shadow hover:shadow-md active:scale-[0.99] flex items-center justify-center gap-2"
               >
                 <Check size={14} />
                 <span>Crop & Upload</span>
@@ -551,19 +551,19 @@ function ProfileContent() {
         {/* Back Link */}
         <Link 
           href="/" 
-          className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#8B3A2B] hover:text-[#5A2A1F] transition-colors mb-8"
+          className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider text-secondary hover:text-primary transition-colors mb-8"
         >
           <ArrowLeft size={14} />
           <span>Back to Store</span>
         </Link>
 
         {/* Profile Card Header */}
-        <div className="relative overflow-hidden rounded-[32px] border border-[#5A2A1F]/10 bg-[#FAF6F0] p-8 md:p-12 shadow-xl mb-8">
+        <div className="relative overflow-hidden rounded-[32px] border border-primary/10 bg-surface p-8 md:p-12 shadow-xl mb-8">
           {/* Decorative Corner Borders */}
-          <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#8B3A2B]/30 rounded-tl-[32px]" />
-          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#8B3A2B]/30 rounded-tr-[32px]" />
-          <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#8B3A2B]/30 rounded-bl-[32px]" />
-          <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#8B3A2B]/30 rounded-br-[32px]" />
+          <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-secondary/30 rounded-tl-[32px]" />
+          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-secondary/30 rounded-tr-[32px]" />
+          <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-secondary/30 rounded-bl-[32px]" />
+          <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-secondary/30 rounded-br-[32px]" />
 
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8 relative z-10">
             {/* Cloudinary Profile Avatar Upload Block */}
@@ -576,7 +576,7 @@ function ProfileContent() {
                 accept="image/*"
               />
               
-              <div className="w-28 h-28 rounded-3xl bg-[#5A2A1F] text-white flex items-center justify-center font-playfair text-5xl font-black shadow-lg relative border-4 border-white overflow-hidden transition-all duration-300 group-hover:brightness-90 group-hover:scale-[1.02]">
+              <div className="w-28 h-28 rounded-3xl bg-primary text-white flex items-center justify-center font-heading text-5xl font-black shadow-lg relative border-4 border-white overflow-hidden transition-all duration-300 group-hover:brightness-90 group-hover:scale-[1.02]">
                 {avatar ? (
                   <img src={avatar} alt={user.name} className="w-full h-full object-cover" />
                 ) : (
@@ -596,7 +596,7 @@ function ProfileContent() {
                 </div>
               </div>
               
-              <div className="absolute -bottom-2 -right-2 bg-[#8B3A2B] text-white p-2 rounded-xl shadow border border-white">
+              <div className="absolute -bottom-2 -right-2 bg-secondary text-white p-2 rounded-xl shadow border border-white">
                 <Award size={14} className="animate-bounce" />
               </div>
             </div>
@@ -604,24 +604,24 @@ function ProfileContent() {
             {/* Basic Info */}
             <div className="flex-1 text-center md:text-left">
               <div className="flex flex-col md:flex-row md:items-center gap-3 justify-center md:justify-start">
-                <h1 className="font-playfair text-2xl font-black text-[#5A2A1F] tracking-tight">{user.name}</h1>
+                <h1 className="font-heading text-2xl font-black text-primary tracking-tight">{user.name}</h1>
                 <span className={`inline-flex self-center px-3.5 py-1 text-[10px] font-black uppercase tracking-widest rounded-full border ${getRoleBadgeColor(user.role)}`}>
                   {user.role}
                 </span>
               </div>
-              <p className="text-sm text-[#5A2A1F]/60 font-medium mt-1">{user.email}</p>
+              <p className="text-sm text-primary/60 font-medium mt-1">{user.email}</p>
               
               <div className="mt-6 flex flex-wrap justify-center md:justify-start gap-4">
-                <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-[#5A2A1F]/5 text-xs text-[#5A2A1F] font-bold uppercase tracking-wider">
-                  <Shield size={14} className="text-[#8B3A2B]" />
+                <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-primary/5 text-xs text-primary font-bold uppercase tracking-wider">
+                  <Shield size={14} className="text-secondary" />
                   <span>Status: {user.status}</span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-[#5A2A1F]/5 text-xs text-[#5A2A1F] font-bold uppercase tracking-wider">
-                  <Clock size={14} className="text-[#8B3A2B]" />
+                <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-primary/5 text-xs text-primary font-bold uppercase tracking-wider">
+                  <Clock size={14} className="text-secondary" />
                   <span>Active Since: {formatDate(user.createdAt?.toString()) || "Today"}</span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#5A2A1F] border border-[#5A2A1F] text-xs text-white font-bold uppercase tracking-wider shadow-md">
-                  <Wallet size={14} className="text-[#FFD700]" />
+                <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary border border-primary text-xs text-white font-bold uppercase tracking-wider shadow-md">
+                  <Wallet size={14} className="text-accent" />
                   <span>Wallet: ₹{(user.walletBalance || 0).toLocaleString()}</span>
                 </div>
               </div>
@@ -630,7 +630,7 @@ function ProfileContent() {
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex border-b border-[#5A2A1F]/10 mb-8 gap-6 font-playfair">
+        <div className="flex border-b border-primary/10 mb-8 gap-6 font-heading">
           <button
             onClick={() => {
               setActiveTab("profile");
@@ -638,13 +638,13 @@ function ProfileContent() {
             }}
             className={`pb-4 text-xs font-black uppercase tracking-widest transition-all relative ${
               activeTab === "profile" 
-                ? "text-[#5A2A1F]" 
-                : "text-[#5A2A1F]/40 hover:text-[#5A2A1F]"
+                ? "text-primary" 
+                : "text-primary/40 hover:text-primary"
             }`}
           >
             Account Details
             {activeTab === "profile" && (
-              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#8B3A2B] animate-fade-in" />
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-secondary animate-fade-in" />
             )}
           </button>
           
@@ -655,18 +655,18 @@ function ProfileContent() {
             }}
             className={`pb-4 text-xs font-black uppercase tracking-widest transition-all relative flex items-center gap-2 ${
               activeTab === "orders" 
-                ? "text-[#5A2A1F]" 
-                : "text-[#5A2A1F]/40 hover:text-[#5A2A1F]"
+                ? "text-primary" 
+                : "text-primary/40 hover:text-primary"
             }`}
           >
             Order History
             {orders.length > 0 && (
-              <span className="px-1.5 py-0.5 bg-[#8B3A2B] text-white text-[9px] font-black rounded-md leading-none">
+              <span className="px-1.5 py-0.5 bg-secondary text-white text-[9px] font-black rounded-md leading-none">
                 {orders.length}
               </span>
             )}
             {activeTab === "orders" && (
-              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#8B3A2B] animate-fade-in" />
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-secondary animate-fade-in" />
             )}
           </button>
           
@@ -677,13 +677,13 @@ function ProfileContent() {
             }}
             className={`pb-4 text-xs font-black uppercase tracking-widest transition-all relative flex items-center gap-2 ${
               activeTab === "wallet" 
-                ? "text-[#5A2A1F]" 
-                : "text-[#5A2A1F]/40 hover:text-[#5A2A1F]"
+                ? "text-primary" 
+                : "text-primary/40 hover:text-primary"
             }`}
           >
             Wallet History
             {activeTab === "wallet" && (
-              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#8B3A2B] animate-fade-in" />
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-secondary animate-fade-in" />
             )}
           </button>
         </div>
@@ -693,14 +693,14 @@ function ProfileContent() {
           {/* Main profile form/info */}
           <div className="md:col-span-2 space-y-6">
             {activeTab === "profile" ? (
-              <form onSubmit={handleProfileSubmit} className="bg-white rounded-3xl border border-[#5A2A1F]/10 p-6 md:p-8 shadow-sm">
-                <h2 className="font-playfair text-xl font-black text-[#5A2A1F] mb-6">Account Details</h2>
+              <form onSubmit={handleProfileSubmit} className="bg-white rounded-3xl border border-primary/10 p-6 md:p-8 shadow-sm">
+                <h2 className="font-heading text-xl font-black text-primary mb-6">Account Details</h2>
                 
                 <div className="space-y-6">
                   <div>
-                    <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2">Edit Full Name</label>
+                    <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Edit Full Name</label>
                     <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#5A2A1F]/40">
+                      <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary/40">
                         <User size={16} />
                       </div>
                       <input
@@ -709,29 +709,29 @@ function ProfileContent() {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder="Your Name"
-                        className="w-full pl-11 pr-4 py-3.5 border border-[#5A2A1F]/20 rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 focus:ring-[#5A2A1F]/20 text-sm font-medium transition-all"
+                        className="w-full pl-11 pr-4 py-3.5 border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm font-medium transition-all"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2">Email Address (Read-only)</label>
-                    <div className="flex items-center gap-3 px-4 py-3.5 bg-[#FAF6F0]/50 border border-[#5A2A1F]/10 rounded-2xl text-sm font-bold text-[#5A2A1F]/60">
-                      <Mail size={16} className="text-[#5A2A1F]/30" />
+                    <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Email Address (Read-only)</label>
+                    <div className="flex items-center gap-3 px-4 py-3.5 bg-surface/50 border border-primary/10 rounded-2xl text-sm font-bold text-primary/60">
+                      <Mail size={16} className="text-primary/30" />
                       <span>{user.email}</span>
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2">Privilege Tier</label>
-                      <div className="px-4 py-3.5 bg-[#FAF6F0]/50 border border-[#5A2A1F]/10 rounded-2xl text-xs font-black uppercase tracking-wider text-[#5A2A1F]/60">
+                      <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Privilege Tier</label>
+                      <div className="px-4 py-3.5 bg-surface/50 border border-primary/10 rounded-2xl text-xs font-black uppercase tracking-wider text-primary/60">
                         {user.role} Member
                       </div>
                     </div>
                     <div>
-                      <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2">Last Login</label>
-                      <div className="px-4 py-3.5 bg-[#FAF6F0]/50 border border-[#5A2A1F]/10 rounded-2xl text-xs font-bold text-[#5A2A1F]/60 truncate">
+                      <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Last Login</label>
+                      <div className="px-4 py-3.5 bg-surface/50 border border-primary/10 rounded-2xl text-xs font-bold text-primary/60 truncate">
                         {formatDate(user.lastLogin)}
                       </div>
                     </div>
@@ -740,7 +740,7 @@ function ProfileContent() {
                   <button
                     type="submit"
                     disabled={saving || !name.trim() || name.trim() === user.name}
-                    className="w-full bg-[#5A2A1F] hover:bg-black text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-sm shadow hover:shadow-md active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-primary hover:bg-black text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-sm shadow hover:shadow-md active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {saving ? (
                       <Loader2 size={16} className="animate-spin" />
@@ -752,21 +752,21 @@ function ProfileContent() {
                 </div>
               </form>
             ) : activeTab === "orders" ? (
-              <div className="bg-white rounded-3xl border border-[#5A2A1F]/10 p-6 md:p-8 shadow-sm space-y-6">
+              <div className="bg-white rounded-3xl border border-primary/10 p-6 md:p-8 shadow-sm space-y-6">
                 <div className="flex items-center gap-3">
-                  <ShoppingBag className="text-[#8B3A2B]" size={22} />
-                  <h2 className="font-playfair text-xl font-black text-[#5A2A1F]">My Order History</h2>
+                  <ShoppingBag className="text-secondary" size={22} />
+                  <h2 className="font-heading text-xl font-black text-primary">My Order History</h2>
                 </div>
                 
                 {loadingOrders ? (
                   <div className="flex flex-col items-center justify-center py-10">
-                    <Loader2 className="animate-spin text-[#5A2A1F]" size={24} />
-                    <p className="text-xs text-[#5A2A1F]/60 font-bold uppercase tracking-wider mt-2">Loading Orders...</p>
+                    <Loader2 className="animate-spin text-primary" size={24} />
+                    <p className="text-xs text-primary/60 font-bold uppercase tracking-wider mt-2">Loading Orders...</p>
                   </div>
                 ) : orders.length === 0 ? (
-                  <div className="text-center py-12 border border-dashed border-[#5A2A1F]/10 rounded-2xl bg-[#FAF6F0]/20">
-                    <p className="text-sm opacity-60 font-medium text-[#5A2A1F] italic font-playfair">You have not placed any orders yet.</p>
-                    <Link href="/cotton-cloth" className="inline-block mt-4 text-xs font-black uppercase tracking-wider text-[#8B3A2B] hover:underline font-playfair">
+                  <div className="text-center py-12 border border-dashed border-primary/10 rounded-2xl bg-surface/20">
+                    <p className="text-sm opacity-60 font-medium text-primary italic font-heading">You have not placed any orders yet.</p>
+                    <Link href="/cotton-cloth" className="inline-block mt-4 text-xs font-black uppercase tracking-wider text-secondary hover:underline font-heading">
                       Browse Curated Collections &rarr;
                     </Link>
                   </div>
@@ -778,12 +778,12 @@ function ProfileContent() {
                         const dateStr = formatDate(order.createdAt);
                         
                         return (
-                          <div key={orderId} className="border border-[#5A2A1F]/10 rounded-2xl overflow-hidden bg-[#FAF6F0]/10 hover:bg-[#FAF6F0]/20 transition-all font-playfair">
+                          <div key={orderId} className="border border-primary/10 rounded-2xl overflow-hidden bg-surface/10 hover:bg-surface/20 transition-all font-heading">
                             {/* Summary Row */}
-                            <div className="p-5 md:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#5A2A1F]/5">
+                            <div className="p-5 md:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-primary/5">
                               <div className="space-y-1">
                                 <div className="flex flex-wrap items-center gap-3">
-                                  <span className="text-xs font-black uppercase tracking-widest text-[#8B3A2B]">ORDER #{orderId.substring(18).toUpperCase()}</span>
+                                  <span className="text-xs font-black uppercase tracking-widest text-secondary">ORDER #{orderId.substring(18).toUpperCase()}</span>
                                   <span className={`px-2.5 py-1 text-[10px] font-black uppercase tracking-wider rounded-md ${
                                     order.paymentStatus === 'Paid'
                                       ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
@@ -799,13 +799,13 @@ function ProfileContent() {
                                     </span>
                                   )}
                                 </div>
-                                <p className="text-sm text-[#5A2A1F]/70 font-medium">{dateStr}</p>
+                                <p className="text-sm text-primary/70 font-medium">{dateStr}</p>
                               </div>
                               
                               <div className="flex items-center gap-5 justify-between sm:justify-end">
                                 <div className="text-right">
                                   <span className="text-xs font-bold opacity-60 uppercase tracking-wider block mb-0.5">Total Amount</span>
-                                  <span className="text-lg font-black text-[#5A2A1F]">₹{order.totalAmount.toLocaleString()}</span>
+                                  <span className="text-lg font-black text-primary">₹{order.totalAmount.toLocaleString()}</span>
                                 </div>
                                 
                                 {/* Retry Payment Button */}
@@ -814,7 +814,7 @@ function ProfileContent() {
                                     type="button"
                                     onClick={() => handleRetryPayment(orderId)}
                                     disabled={retryingOrderId === orderId}
-                                    className="bg-[#5A2A1F] hover:bg-black text-white px-5 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 active:scale-95 disabled:opacity-50 shadow-md"
+                                    className="bg-primary hover:bg-black text-white px-5 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 active:scale-95 disabled:opacity-50 shadow-md"
                                   >
                                     {retryingOrderId === orderId ? (
                                       <Loader2 size={16} className="animate-spin" />
@@ -829,32 +829,32 @@ function ProfileContent() {
                             
                             {/* Order Items Info */}
                             <div className="p-5 md:p-6 bg-white/40 space-y-4">
-                              <span className="text-xs font-black uppercase tracking-widest text-[#5A2A1F]/50 block">Items Ordered ({order.items.reduce((acc: number, item: any) => acc + item.quantity, 0)})</span>
-                              <div className="divide-y divide-[#5A2A1F]/5">
+                              <span className="text-xs font-black uppercase tracking-widest text-primary/50 block">Items Ordered ({order.items.reduce((acc: number, item: any) => acc + item.quantity, 0)})</span>
+                              <div className="divide-y divide-primary/5">
                                 {order.items.map((item: any, idx: number) => (
                                   <div key={idx} className="py-3 first:pt-0 last:pb-0 flex justify-between items-center text-sm md:text-base">
                                     <div className="space-y-1">
-                                      <span className="font-bold text-[#5A2A1F] block">{item.name}</span>
+                                      <span className="font-bold text-primary block">{item.name}</span>
                                       {item.variantColour && (
-                                        <span className="block text-xs text-[#5A2A1F]/60 font-medium">Color: {getColorName(item.variantColour)}</span>
+                                        <span className="block text-xs text-primary/60 font-medium">Color: {getColorName(item.variantColour)}</span>
                                       )}
                                     </div>
                                     <div className="text-right font-medium">
                                       <span className="opacity-60">{item.quantity} x </span>
-                                      <span className="font-bold text-[#5A2A1F]">₹{item.price.toLocaleString()}</span>
+                                      <span className="font-bold text-primary">₹{item.price.toLocaleString()}</span>
                                     </div>
                                   </div>
                                 ))}
                               </div>
                               
                               {/* Shipping address summary */}
-                              <div className="pt-4 border-t border-[#5A2A1F]/5 flex flex-col md:flex-row justify-between gap-4 text-xs text-[#5A2A1F]/70 font-medium">
+                              <div className="pt-4 border-t border-primary/5 flex flex-col md:flex-row justify-between gap-4 text-xs text-primary/70 font-medium">
                                 <div className="max-w-md">
-                                  <span className="font-black uppercase text-[#8B3A2B]/90 block mb-1 text-[10px] md:text-xs">SHIPPING ADDRESS:</span>
+                                  <span className="font-black uppercase text-secondary/90 block mb-1 text-[10px] md:text-xs">SHIPPING ADDRESS:</span>
                                   <span className="leading-relaxed">{order.shippingAddress.address}, {order.shippingAddress.city}, {order.shippingAddress.state} - {order.shippingAddress.zip}</span>
                                 </div>
                                 <div className="md:text-right">
-                                  <span className="font-black uppercase text-[#8B3A2B]/90 block mb-1 text-[10px] md:text-xs">NEED HELP?</span>
+                                  <span className="font-black uppercase text-secondary/90 block mb-1 text-[10px] md:text-xs">NEED HELP?</span>
                                   <a href="https://wa.me/918815373767?text=Hi%2C%20I%20have%20an%20inquiry%20about%20my%20order." target="_blank" rel="noreferrer" className="text-emerald-700 hover:text-emerald-800 font-bold underline decoration-emerald-700/30 underline-offset-4 transition-colors">
                                     WhatsApp Support: +91 88153 73767
                                   </a>
@@ -862,7 +862,7 @@ function ProfileContent() {
                               </div>
 
                               {/* Order Action Buttons (Cancel / Return / Return Statuses) */}
-                              <div className="pt-4 border-t border-[#5A2A1F]/5 flex flex-wrap justify-between items-center gap-4">
+                              <div className="pt-4 border-t border-primary/5 flex flex-wrap justify-between items-center gap-4">
                                 {/* Fulfillment Status Text */}
                                 <div className="flex flex-wrap gap-2 items-center">
                                   <span className={`px-2.5 py-1 text-[10px] font-black uppercase tracking-wider rounded-md ${
@@ -883,7 +883,7 @@ function ProfileContent() {
 
                                   {/* Cancellation reason info badge if cancelled */}
                                   {order.status === 'Cancelled' && order.cancelReason && (
-                                    <span className="text-[10px] text-[#8B3A2B] font-bold italic">
+                                    <span className="text-[10px] text-secondary font-bold italic">
                                       Reason: &ldquo;{order.cancelReason}&rdquo;
                                     </span>
                                   )}
@@ -902,7 +902,7 @@ function ProfileContent() {
                                   )}
 
                                   {order.returnStatus === 'Pending' && order.returnReason && (
-                                    <span className="text-[10px] text-[#5A2A1F]/60 font-bold italic">
+                                    <span className="text-[10px] text-primary/60 font-bold italic">
                                       Reason: &ldquo;{order.returnReason}&rdquo;
                                     </span>
                                   )}
@@ -926,7 +926,7 @@ function ProfileContent() {
                                     <button
                                       type="button"
                                       onClick={() => setReturningOrderId(orderId)}
-                                      className="px-4 py-2 border border-[#5A2A1F]/20 hover:bg-[#FAF6F0] text-[#5A2A1F] rounded-xl text-xs font-black uppercase tracking-wider transition-colors active:scale-95 shadow-sm"
+                                      className="px-4 py-2 border border-primary/20 hover:bg-surface text-primary rounded-xl text-xs font-black uppercase tracking-wider transition-colors active:scale-95 shadow-sm"
                                     >
                                       Return Order
                                     </button>
@@ -941,23 +941,23 @@ function ProfileContent() {
 
                     {/* Premium Pagination Controls */}
                     {totalPages > 1 && (
-                      <div className="flex items-center justify-between gap-4 pt-6 border-t border-[#5A2A1F]/5 font-playfair">
+                      <div className="flex items-center justify-between gap-4 pt-6 border-t border-primary/5 font-heading">
                         <button
                           type="button"
                           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                           disabled={currentPage === 1}
-                          className="px-4 py-2.5 border border-[#5A2A1F]/15 rounded-xl text-xs font-bold uppercase tracking-wider text-[#5A2A1F] hover:bg-[#FAF6F0] transition-colors disabled:opacity-40"
+                          className="px-4 py-2.5 border border-primary/15 rounded-xl text-xs font-bold uppercase tracking-wider text-primary hover:bg-surface transition-colors disabled:opacity-40"
                         >
                           Previous
                         </button>
-                        <span className="text-xs font-bold text-[#5A2A1F]/70 tracking-widest uppercase">
+                        <span className="text-xs font-bold text-primary/70 tracking-widest uppercase">
                           Page {currentPage} of {totalPages}
                         </span>
                         <button
                           type="button"
                           onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
                           disabled={currentPage === totalPages}
-                          className="px-4 py-2.5 border border-[#5A2A1F]/15 rounded-xl text-xs font-bold uppercase tracking-wider text-[#5A2A1F] hover:bg-[#FAF6F0] transition-colors disabled:opacity-40"
+                          className="px-4 py-2.5 border border-primary/15 rounded-xl text-xs font-bold uppercase tracking-wider text-primary hover:bg-surface transition-colors disabled:opacity-40"
                         >
                           Next
                         </button>
@@ -967,28 +967,28 @@ function ProfileContent() {
                 )}
               </div>
             ) : activeTab === "wallet" ? (
-              <div className="bg-white rounded-3xl border border-[#5A2A1F]/10 p-6 md:p-8 shadow-sm space-y-6">
+              <div className="bg-white rounded-3xl border border-primary/10 p-6 md:p-8 shadow-sm space-y-6">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <Wallet className="text-[#8B3A2B]" size={22} />
-                    <h2 className="font-playfair text-xl font-black text-[#5A2A1F]">Wallet History</h2>
+                    <Wallet className="text-secondary" size={22} />
+                    <h2 className="font-heading text-xl font-black text-primary">Wallet History</h2>
                   </div>
-                  <div className="bg-[#5A2A1F] text-white px-4 py-2 rounded-xl text-xs font-bold shadow-md">
+                  <div className="bg-primary text-white px-4 py-2 rounded-xl text-xs font-bold shadow-md">
                     Current Balance: ₹{(user.walletBalance || 0).toLocaleString()}
                   </div>
                 </div>
                 
                 {(!user.walletHistory || user.walletHistory.length === 0) ? (
-                  <div className="text-center py-12 border border-dashed border-[#5A2A1F]/10 rounded-2xl bg-[#FAF6F0]/20">
-                    <p className="text-sm opacity-60 font-medium text-[#5A2A1F] italic font-playfair">You have no wallet transactions yet.</p>
+                  <div className="text-center py-12 border border-dashed border-primary/10 rounded-2xl bg-surface/20">
+                    <p className="text-sm opacity-60 font-medium text-primary italic font-heading">You have no wallet transactions yet.</p>
                   </div>
                 ) : (
                   <div className="space-y-4">
                     {[...user.walletHistory].reverse().map((tx: any, idx: number) => (
-                      <div key={idx} className="flex flex-col sm:flex-row sm:items-center justify-between p-5 border border-[#5A2A1F]/10 rounded-2xl bg-[#FAF6F0]/20 hover:bg-[#FAF6F0]/50 transition-all font-playfair gap-4">
+                      <div key={idx} className="flex flex-col sm:flex-row sm:items-center justify-between p-5 border border-primary/10 rounded-2xl bg-surface/20 hover:bg-surface/50 transition-all font-heading gap-4">
                         <div>
-                          <p className="text-sm font-bold text-[#5A2A1F] mb-1">{tx.description}</p>
-                          <p className="text-xs text-[#5A2A1F]/60 font-medium">{formatDate(tx.date)}</p>
+                          <p className="text-sm font-bold text-primary mb-1">{tx.description}</p>
+                          <p className="text-xs text-primary/60 font-medium">{formatDate(tx.date)}</p>
                         </div>
                         <div className={`font-bold text-sm px-4 py-2 rounded-xl border flex items-center justify-center min-w-[120px] shadow-sm ${tx.type === 'Credit' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-rose-50 text-rose-700 border-rose-200'}`}>
                           {tx.type === 'Credit' ? '+' : '-'} ₹{tx.amount.toLocaleString()}
@@ -1003,7 +1003,7 @@ function ProfileContent() {
 
           {/* Sidebar Trade/Wholesale Status */}
           <div className="space-y-6">
-            <div className="bg-[#5A2A1F] text-white rounded-3xl p-6 shadow-lg relative overflow-hidden">
+            <div className="bg-primary text-white rounded-3xl p-6 shadow-lg relative overflow-hidden">
               {/* Decorative background circles */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-8 -mt-8" />
               
@@ -1012,7 +1012,7 @@ function ProfileContent() {
                 
                 {user.role === "Wholesaler" ? (
                   <>
-                    <h3 className="font-playfair text-xl font-bold mt-2 mb-4">Trade Account Active</h3>
+                    <h3 className="font-heading text-xl font-bold mt-2 mb-4">Trade Account Active</h3>
                     <p className="text-xs text-white/80 leading-relaxed mb-6">
                       Welcome, valued trade partner. You enjoy custom bulk pricing tier discounts and pre-order catalog priority dispatch automatically.
                     </p>
@@ -1029,20 +1029,20 @@ function ProfileContent() {
                   </>
                 ) : user.role === "Admin" ? (
                   <>
-                    <h3 className="font-playfair text-xl font-bold mt-2 mb-4">Store Administrator</h3>
+                    <h3 className="font-heading text-xl font-bold mt-2 mb-4">Store Administrator</h3>
                     <p className="text-xs text-white/80 leading-relaxed mb-6">
                       Full system operations are active. You can manage products, category variants, images, and user accounts.
                     </p>
                     <Link 
                       href="/aqsha-portal" 
-                      className="w-full inline-block text-center bg-white text-[#5A2A1F] py-3.5 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-[#FAF6F0] transition-colors"
+                      className="w-full inline-block text-center bg-white text-primary py-3.5 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-surface transition-colors"
                     >
                       Admin Panel
                     </Link>
                   </>
                 ) : (
                   <>
-                    <h3 className="font-playfair text-xl font-bold mt-2 mb-4">Premium Customer</h3>
+                    <h3 className="font-heading text-xl font-bold mt-2 mb-4">Premium Customer</h3>
                     <p className="text-xs text-white/80 leading-relaxed mb-6">
                       Welcome to the Aqsha family! You have full access to our curated premium designs, order tracking, and hand-printed collection catalog.
                     </p>
@@ -1075,13 +1075,13 @@ function ProfileContent() {
 
       {/* Cancellation Reason Modal */}
       {cancellingOrderId && (
-        <div className="fixed inset-0 bg-[#5A2A1F]/40 backdrop-blur-sm flex items-center justify-center z-[150] p-4 animate-in fade-in duration-300">
-          <div className="bg-[#FAF6F0] rounded-[32px] border border-[#5A2A1F]/10 p-6 md:p-8 max-w-md w-full shadow-2xl relative animate-in zoom-in-95 duration-200 font-playfair">
-            <h3 className="font-playfair text-xl font-bold text-[#5A2A1F] mb-2">Cancel Your Order</h3>
-            <p className="text-xs text-[#5A2A1F]/60 mb-4">Please let us know why you are cancelling this order. Rest assured, your payment (if online) will be processed for refund automatically.</p>
+        <div className="fixed inset-0 bg-primary/40 backdrop-blur-sm flex items-center justify-center z-[150] p-4 animate-in fade-in duration-300">
+          <div className="bg-surface rounded-[32px] border border-primary/10 p-6 md:p-8 max-w-md w-full shadow-2xl relative animate-in zoom-in-95 duration-200 font-heading">
+            <h3 className="font-heading text-xl font-bold text-primary mb-2">Cancel Your Order</h3>
+            <p className="text-xs text-primary/60 mb-4">Please let us know why you are cancelling this order. Rest assured, your payment (if online) will be processed for refund automatically.</p>
             
             <div className="space-y-3">
-              <label className="block text-xs font-black uppercase tracking-widest text-[#8B3A2B] mb-1">Select cancellation reason</label>
+              <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-1">Select cancellation reason</label>
               {[
                 "Changed my mind",
                 "Ordered wrong size / style",
@@ -1095,8 +1095,8 @@ function ProfileContent() {
                   onClick={() => setCancelReasonStr(reasonOption)}
                   className={`w-full text-left p-3 rounded-xl border text-xs font-bold transition-all ${
                     cancelReasonStr === reasonOption
-                      ? "bg-[#5A2A1F] text-white border-[#5A2A1F] shadow-md shadow-[#5A2A1F]/20"
-                      : "bg-white border-[#5A2A1F]/10 text-[#5A2A1F] hover:bg-[#FAF6F0]"
+                      ? "bg-primary text-white border-primary shadow-md shadow-primary/20"
+                      : "bg-white border-primary/10 text-primary hover:bg-surface"
                   }`}
                 >
                   {reasonOption}
@@ -1111,7 +1111,7 @@ function ProfileContent() {
                   setCancellingOrderId(null);
                   setCancelReasonStr("");
                 }}
-                className="flex-1 px-4 py-3 border border-[#5A2A1F]/15 rounded-xl text-xs font-bold uppercase tracking-wider text-[#5A2A1F] hover:bg-[#FAF6F0] transition-colors"
+                className="flex-1 px-4 py-3 border border-primary/15 rounded-xl text-xs font-bold uppercase tracking-wider text-primary hover:bg-surface transition-colors"
               >
                 Go Back
               </button>
@@ -1130,13 +1130,13 @@ function ProfileContent() {
 
       {/* Return Reason Modal */}
       {returningOrderId && (
-        <div className="fixed inset-0 bg-[#5A2A1F]/40 backdrop-blur-sm flex items-center justify-center z-[150] p-4 animate-in fade-in duration-300">
-          <div className="bg-[#FAF6F0] rounded-[32px] border border-[#5A2A1F]/10 p-6 md:p-8 max-w-md w-full shadow-2xl relative animate-in zoom-in-95 duration-200 font-playfair">
-            <h3 className="font-playfair text-xl font-bold text-[#5A2A1F] mb-2">Request Order Return</h3>
-            <p className="text-xs text-[#5A2A1F]/60 mb-4">We are sorry to hear that your purchase didn&apos;t work out. Please specify a reason to submit this return request for administrator verification.</p>
+        <div className="fixed inset-0 bg-primary/40 backdrop-blur-sm flex items-center justify-center z-[150] p-4 animate-in fade-in duration-300">
+          <div className="bg-surface rounded-[32px] border border-primary/10 p-6 md:p-8 max-w-md w-full shadow-2xl relative animate-in zoom-in-95 duration-200 font-heading">
+            <h3 className="font-heading text-xl font-bold text-primary mb-2">Request Order Return</h3>
+            <p className="text-xs text-primary/60 mb-4">We are sorry to hear that your purchase didn&apos;t work out. Please specify a reason to submit this return request for administrator verification.</p>
             
             <div className="space-y-3">
-              <label className="block text-xs font-black uppercase tracking-widest text-[#8B3A2B] mb-1">Select reason for return</label>
+              <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-1">Select reason for return</label>
               {[
                 "Defective / damaged item",
                 "Wrong size / doesn't fit well",
@@ -1150,8 +1150,8 @@ function ProfileContent() {
                   onClick={() => setReturnReasonStr(reasonOption)}
                   className={`w-full text-left p-3 rounded-xl border text-xs font-bold transition-all ${
                     returnReasonStr === reasonOption
-                      ? "bg-[#5A2A1F] text-white border-[#5A2A1F] shadow-md shadow-[#5A2A1F]/20"
-                      : "bg-white border-[#5A2A1F]/10 text-[#5A2A1F] hover:bg-[#FAF6F0]"
+                      ? "bg-primary text-white border-primary shadow-md shadow-primary/20"
+                      : "bg-white border-primary/10 text-primary hover:bg-surface"
                   }`}
                 >
                   {reasonOption}
@@ -1166,7 +1166,7 @@ function ProfileContent() {
                   setReturningOrderId(null);
                   setReturnReasonStr("");
                 }}
-                className="flex-1 px-4 py-3 border border-[#5A2A1F]/15 rounded-xl text-xs font-bold uppercase tracking-wider text-[#5A2A1F] hover:bg-[#FAF6F0] transition-colors"
+                className="flex-1 px-4 py-3 border border-primary/15 rounded-xl text-xs font-bold uppercase tracking-wider text-primary hover:bg-surface transition-colors"
               >
                 Cancel
               </button>
@@ -1174,7 +1174,7 @@ function ProfileContent() {
                 type="button"
                 onClick={() => handleReturnOrder(returningOrderId, returnReasonStr)}
                 disabled={actionLoading || !returnReasonStr}
-                className="flex-1 px-4 py-3 bg-[#5A2A1F] hover:bg-black text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-colors disabled:opacity-40"
+                className="flex-1 px-4 py-3 bg-primary hover:bg-black text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-colors disabled:opacity-40"
               >
                 {actionLoading ? "Submitting..." : "Submit Return"}
               </button>
@@ -1189,9 +1189,9 @@ function ProfileContent() {
 export default function ProfilePage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-[#FDFBF7] flex flex-col justify-center items-center py-20 font-playfair">
-        <div className="w-12 h-12 border-4 border-[#5A2A1F]/20 border-t-[#5A2A1F] rounded-full animate-spin mb-4" />
-        <p className="text-sm font-bold uppercase tracking-widest text-[#5A2A1F]/60">Loading Your Profile...</p>
+      <div className="min-h-screen bg-[#FDFBF7] flex flex-col justify-center items-center py-20 font-heading">
+        <div className="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin mb-4" />
+        <p className="text-sm font-bold uppercase tracking-widest text-primary/60">Loading Your Profile...</p>
       </div>
     }>
       <ProfileContent />
