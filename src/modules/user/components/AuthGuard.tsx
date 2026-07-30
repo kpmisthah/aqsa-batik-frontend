@@ -31,8 +31,8 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
   if (isProtected && (!initialized || !isSignedIn)) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center">
-        <Loader2 size={32} className="animate-spin text-[#8B3A2B] mb-4" />
-        <p className="text-sm font-bold text-[#5A2A1F] uppercase tracking-widest animate-pulse">
+        <Loader2 size={32} className="animate-spin text-secondary mb-4" />
+        <p className="text-sm font-bold text-primary uppercase tracking-widest animate-pulse">
           Verifying Security...
         </p>
       </div>
