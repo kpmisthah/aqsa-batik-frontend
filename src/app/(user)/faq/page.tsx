@@ -73,14 +73,14 @@ export default function FAQPage() {
     })).filter(cat => cat.items.length > 0);
 
     return (
-        <div className="bg-[#F5F1EC] min-h-screen font-playfair text-[#5A2A1F]">
+        <div className="bg-cream min-h-screen font-heading text-primary">
             <Nav />
 
             {/* ── HERO ── */}
             <section className="pt-40 pb-20 px-6">
                 <div className="max-w-4xl mx-auto text-center flex flex-col gap-6">
-                    <span className="text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.5em]">Help Center</span>
-                    <h1 className="font-playfair text-4xl md:text-5xl font-bold leading-tight">Frequently <span className='hero-highlight'>Asked Questions</span></h1>
+                    <span className="text-xs font-bold text-secondary uppercase tracking-[0.5em]">Help Center</span>
+                    <h1 className="font-heading text-4xl md:text-5xl font-bold leading-tight">Frequently Asked Questions</h1>
                     <p className="text-xl opacity-60 font-medium italic">Find answers to common questions about our batik collections, wholesale process, and shipping.</p>
                 </div>
             </section>
@@ -89,7 +89,7 @@ export default function FAQPage() {
             <section className="pb-20 px-6">
                 <div className="max-w-3xl mx-auto">
                     <div className="relative group">
-                        <div className="absolute inset-y-0 left-6 flex items-center text-[#5A2A1F]/30 group-focus-within:text-[#5A2A1F] transition-colors">
+                        <div className="absolute inset-y-0 left-6 flex items-center text-primary/30 group-focus-within:text-primary transition-colors">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
                         </div>
                         <input 
@@ -97,7 +97,7 @@ export default function FAQPage() {
                             placeholder="Search for answers..." 
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full bg-white rounded-[30px] py-6 pl-16 pr-8 text-lg font-medium shadow-xl border border-[#5A2A1F]/5 focus:outline-none focus:ring-4 focus:ring-[#5A2A1F]/5 transition-all"
+                            className="w-full bg-white rounded-[30px] py-6 pl-16 pr-8 text-lg font-medium shadow-xl border border-primary/5 focus:outline-none focus:ring-4 focus:ring-primary/5 transition-all"
                         />
                     </div>
                 </div>
@@ -108,13 +108,13 @@ export default function FAQPage() {
                 <div className="max-w-4xl mx-auto flex flex-col gap-20">
                     {filteredFaqs.length > 0 ? filteredFaqs.map((cat, idx) => (
                         <div key={idx} className="flex flex-col gap-10">
-                            <h2 className="text-xs font-black uppercase tracking-[0.4em] text-[#8B3A2B] pb-4 border-b border-[#5A2A1F]/10">{cat.category}</h2>
+                            <h2 className="text-xs font-black uppercase tracking-[0.4em] text-secondary pb-4 border-b border-primary/10">{cat.category}</h2>
                             <div className="flex flex-col gap-4">
                                 {cat.items.map((item, i) => (
-                                    <details key={i} className="group bg-white rounded-[30px] border border-[#5A2A1F]/5 overflow-hidden transition-all duration-500 open:shadow-xl">
+                                    <details key={i} className="group bg-white rounded-[30px] border border-primary/5 overflow-hidden transition-all duration-500 open:shadow-xl">
                                         <summary className="p-8 flex justify-between items-center cursor-pointer list-none">
                                             <span className="text-xl font-bold leading-tight pr-6">{item.q}</span>
-                                            <span className="w-10 h-10 rounded-full bg-[#F5F1EC] flex items-center justify-center text-[#8B3A2B] group-open:rotate-180 transition-transform shrink-0">
+                                            <span className="w-10 h-10 rounded-full bg-cream flex items-center justify-center text-secondary group-open:rotate-180 transition-transform shrink-0">
                                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                                             </span>
                                         </summary>
@@ -136,12 +136,12 @@ export default function FAQPage() {
 
             {/* ── CTA ── */}
             <section className="pb-40 px-6">
-                <div className="max-w-4xl mx-auto bg-[#5A2A1F] rounded-[50px] p-12 md:p-20 text-center text-white flex flex-col gap-8 shadow-2xl relative overflow-hidden">
+                <div className="max-w-4xl mx-auto bg-primary rounded-[50px] p-12 md:p-20 text-center text-white flex flex-col gap-8 shadow-2xl relative overflow-hidden">
                     <div className="absolute inset-0 bg-pattern opacity-[0.05]"></div>
-                    <h3 className="font-playfair text-4xl md:text-5xl font-bold leading-tight relative z-10">Still Have Questions?</h3>
+                    <h3 className="font-heading text-4xl md:text-5xl font-bold leading-tight relative z-10">Still Have Questions?</h3>
                     <p className="text-xl opacity-70 font-medium relative z-10">We're here to help you with any custom requirements or business inquiries.</p>
                     <div className="flex flex-col md:flex-row justify-center gap-6 relative z-10 mt-4">
-                        <a href="/contact-us" className="bg-[#FFD700] text-black px-12 py-6 rounded-2xl font-black text-sm uppercase tracking-widest hover:scale-105 transition-all shadow-xl">Contact Us</a>
+                        <a href="/contact-us" className="bg-accent text-black px-12 py-6 rounded-2xl font-black text-sm uppercase tracking-widest hover:scale-105 transition-all shadow-xl">Contact Us</a>
                         <a href="https://wa.me/918815373767" className="bg-white/10 text-white border border-white/20 px-12 py-6 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white/20 transition-all">Chat on WhatsApp</a>
                     </div>
                 </div>
