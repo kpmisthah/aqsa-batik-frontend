@@ -185,33 +185,33 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
   return (
     <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
       <div 
-        className="relative w-full max-w-lg overflow-hidden rounded-[32px] border border-[#5A2A1F]/10 bg-[#F5F1EC] p-8 md:p-10 shadow-2xl transition-transform duration-300 scale-100"
+        className="relative w-full max-w-lg overflow-hidden rounded-[32px] border border-primary/10 bg-cream p-8 md:p-10 shadow-2xl transition-transform duration-300 scale-100"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Decorative corner borders */}
-        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#8B3A2B]/30 rounded-tl-[32px]" />
-        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#8B3A2B]/30 rounded-tr-[32px]" />
-        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#8B3A2B]/30 rounded-bl-[32px]" />
-        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#8B3A2B]/30 rounded-br-[32px]" />
+        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-secondary/30 rounded-tl-[32px]" />
+        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-secondary/30 rounded-tr-[32px]" />
+        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-secondary/30 rounded-bl-[32px]" />
+        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-secondary/30 rounded-br-[32px]" />
 
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 p-2 rounded-full text-[#5A2A1F]/50 hover:text-[#5A2A1F] hover:bg-[#5A2A1F]/5 transition-colors"
+          className="absolute top-6 right-6 p-2 rounded-full text-primary/50 hover:text-primary hover:bg-primary/5 transition-colors"
         >
           <X size={20} />
         </button>
 
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8B3A2B]/10 text-[#8B3A2B] text-xs font-black uppercase tracking-widest mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-black uppercase tracking-widest mb-3">
             <Sparkles size={12} className="animate-pulse" />
             <span>AQSHA AUTHENTICATION</span>
           </div>
-          <h2 className="font-playfair text-3xl font-black text-[#5A2A1F] tracking-tight">
+          <h2 className="font-heading text-3xl font-black text-primary tracking-tight">
             {isOtpStep ? "Verify Account" : isLogin ? "Welcome Back" : "Create Account"}
           </h2>
-          <p className="text-sm text-[#5A2A1F]/60 mt-2 font-medium">
+          <p className="text-sm text-primary/60 mt-2 font-medium">
             {isOtpStep 
               ? `We have sent a 6-digit verification code to ${email}`
               : isLogin 
@@ -242,7 +242,7 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
           <div>
             <form onSubmit={handleVerifyOtp} className="space-y-6">
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2 text-center">
+                <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2 text-center">
                   One-Time Password (OTP)
                 </label>
                 <input
@@ -252,14 +252,14 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
                   value={otp}
                   onChange={(e) => setOtp(e.target.value.replace(/\D/g, ""))}
                   placeholder="000000"
-                  className="w-full py-4 text-center tracking-[12px] text-2xl font-black border border-[#5A2A1F]/20 rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/20 focus:outline-none focus:ring-2 focus:ring-[#5A2A1F]/20"
+                  className="w-full py-4 text-center tracking-[12px] text-2xl font-black border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/20"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={loading || otp.length !== 6}
-                className="w-full bg-[#5A2A1F] hover:bg-black text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-sm shadow-lg hover:shadow-xl active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-primary hover:bg-black text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-sm shadow-lg hover:shadow-xl active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? (
                   <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
@@ -274,7 +274,7 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
                 type="button"
                 onClick={() => handleEmailSignUp()}
                 disabled={loading}
-                className="text-xs font-bold text-[#8B3A2B] hover:underline uppercase tracking-wider text-[10px] font-black"
+                className="text-xs font-bold text-secondary hover:underline uppercase tracking-wider text-[10px] font-black"
               >
                 Resend Code
               </button>
@@ -283,13 +283,13 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
         ) : (
           <>
             {/* Tab Selection */}
-            <div className="flex bg-[#5A2A1F]/5 p-1 rounded-2xl mb-6">
+            <div className="flex bg-primary/5 p-1 rounded-2xl mb-6">
               <button
                 onClick={() => { setIsLogin(true); setError(""); setConfirmPassword(""); }}
                 className={`flex-1 py-3 text-sm font-bold uppercase tracking-wider rounded-xl transition-all ${
                   isLogin 
-                    ? "bg-[#5A2A1F] text-white shadow-md" 
-                    : "text-[#5A2A1F]/60 hover:text-[#5A2A1F]"
+                    ? "bg-primary text-white shadow-md" 
+                    : "text-primary/60 hover:text-primary"
                 }`}
               >
                 Sign In
@@ -298,8 +298,8 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
                 onClick={() => { setIsLogin(false); setError(""); setConfirmPassword(""); }}
                 className={`flex-1 py-3 text-sm font-bold uppercase tracking-wider rounded-xl transition-all ${
                   !isLogin 
-                    ? "bg-[#5A2A1F] text-white shadow-md" 
-                    : "text-[#5A2A1F]/60 hover:text-[#5A2A1F]"
+                    ? "bg-primary text-white shadow-md" 
+                    : "text-primary/60 hover:text-primary"
                 }`}
               >
                 Sign Up
@@ -311,7 +311,7 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
               type="button"
               onClick={handleGoogleAuth}
               disabled={loading}
-              className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-white border border-[#5A2A1F]/15 rounded-2xl text-[#5A2A1F] font-bold text-sm hover:bg-[#F5F1EC] hover:border-[#5A2A1F]/30 transition-all shadow-sm hover:shadow active:scale-[0.99] disabled:opacity-50"
+              className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-white border border-primary/15 rounded-2xl text-primary font-bold text-sm hover:bg-cream hover:border-primary/30 transition-all shadow-sm hover:shadow active:scale-[0.99] disabled:opacity-50"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24">
                 <path
@@ -335,17 +335,17 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
             </button>
 
             <div className="relative my-6 text-center">
-              <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-[#5A2A1F]/10"></div></div>
-              <span className="relative px-4 text-xs font-bold text-[#5A2A1F]/40 uppercase tracking-widest bg-[#F5F1EC]">or</span>
+              <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-primary/10"></div></div>
+              <span className="relative px-4 text-xs font-bold text-primary/40 uppercase tracking-widest bg-cream">or</span>
             </div>
 
             {/* Credentials Form */}
             <form onSubmit={isLogin ? handleEmailSignIn : handleEmailSignUp} className="space-y-4">
               {!isLogin && (
                 <div>
-                  <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2">Full Name</label>
+                  <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Full Name</label>
                   <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#5A2A1F]/40">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary/40">
                       <User size={16} />
                     </div>
                     <input
@@ -354,16 +354,16 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="John Doe"
-                      className="w-full pl-11 pr-4 py-3.5 border border-[#5A2A1F]/20 rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 focus:ring-[#5A2A1F]/20 text-sm font-medium"
+                      className="w-full pl-11 pr-4 py-3.5 border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm font-medium"
                     />
                   </div>
                 </div>
               )}
 
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2">Email Address</label>
+                <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Email Address</label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#5A2A1F]/40">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary/40">
                     <Mail size={16} />
                   </div>
                   <input
@@ -372,20 +372,20 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="yourname@example.com"
-                    className="w-full pl-11 pr-4 py-3.5 border border-[#5A2A1F]/20 rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 focus:ring-[#5A2A1F]/20 text-sm font-medium"
+                    className="w-full pl-11 pr-4 py-3.5 border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm font-medium"
                   />
                 </div>
               </div>
 
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B]">Password</label>
+                  <label className="block text-[10px] font-black uppercase tracking-widest text-secondary">Password</label>
                   {isLogin && (
-                    <a href="#" className="text-[10px] font-black uppercase tracking-widest text-[#8B3A2B]/75 hover:text-[#8B3A2B]">Forgot?</a>
+                    <a href="#" className="text-[10px] font-black uppercase tracking-widest text-secondary/75 hover:text-secondary">Forgot?</a>
                   )}
                 </div>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#5A2A1F]/40">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary/40">
                     <Lock size={16} />
                   </div>
                   <input
@@ -394,12 +394,12 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="••••••••"
-                    className="w-full pl-11 pr-12 py-3.5 border border-[#5A2A1F]/20 rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 focus:ring-[#5A2A1F]/20 text-sm font-medium"
+                    className="w-full pl-11 pr-12 py-3.5 border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm font-medium"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-[#5A2A1F]/40 hover:text-[#5A2A1F] transition-colors focus:outline-none"
+                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-primary/40 hover:text-primary transition-colors focus:outline-none"
                   >
                     {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>
@@ -409,7 +409,7 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
                 {!isLogin && password.length > 0 && (
                   <div className="mt-3 space-y-2 animate-fade-in">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="font-bold text-[#5A2A1F]/60">Password Strength:</span>
+                      <span className="font-bold text-primary/60">Password Strength:</span>
                       <span className={`font-black uppercase tracking-wider text-[10px] ${
                         metCount <= 2 ? "text-red-500" : metCount <= 4 ? "text-amber-500" : "text-emerald-600"
                       }`}>
@@ -420,7 +420,7 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
                     {/* Segmented Strength Bar */}
                     <div className="flex gap-1.5 h-1.5 w-full">
                       {[1, 2, 3, 4].map((index) => {
-                        let barColor = "bg-[#5A2A1F]/10";
+                        let barColor = "bg-primary/10";
                         if (metCount > 0) {
                           if (metCount <= 2 && index <= metCount) {
                             barColor = "bg-red-500";
@@ -440,18 +440,18 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
                     </div>
 
                     {/* Checklist */}
-                    <div className="p-3 bg-[#5A2A1F]/5 border border-[#5A2A1F]/10 rounded-2xl space-y-1.5">
-                      <p className="text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-1">Safety Requirements</p>
+                    <div className="p-3 bg-primary/5 border border-primary/10 rounded-2xl space-y-1.5">
+                      <p className="text-[10px] font-black uppercase tracking-widest text-secondary mb-1">Safety Requirements</p>
                       {passwordCriteria.map((c, i) => (
                         <div key={i} className="flex items-center gap-2 text-xs">
                           <span className={`w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-black ${
                             c.met 
                               ? "bg-emerald-100 text-emerald-600 border border-emerald-200" 
-                              : "bg-[#5A2A1F]/5 text-[#5A2A1F]/40 border border-[#5A2A1F]/10"
+                              : "bg-primary/5 text-primary/40 border border-primary/10"
                           }`}>
                             {c.met ? "✓" : "•"}
                           </span>
-                          <span className={c.met ? "text-emerald-700 font-medium" : "text-[#5A2A1F]/60"}>
+                          <span className={c.met ? "text-emerald-700 font-medium" : "text-primary/60"}>
                             {c.label}
                           </span>
                         </div>
@@ -464,9 +464,9 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
               {/* Confirm Password Field (Only on Sign Up) */}
               {!isLogin && (
                 <div>
-                  <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2">Confirm Password</label>
+                  <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Confirm Password</label>
                   <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#5A2A1F]/40">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary/40">
                       <Lock size={16} />
                     </div>
                     <input
@@ -475,12 +475,12 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
                       placeholder="••••••••"
-                      className="w-full pl-11 pr-12 py-3.5 border border-[#5A2A1F]/20 rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 focus:ring-[#5A2A1F]/20 text-sm font-medium"
+                      className="w-full pl-11 pr-12 py-3.5 border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm font-medium"
                     />
                     <button
                       type="button"
                       onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                      className="absolute inset-y-0 right-0 pr-4 flex items-center text-[#5A2A1F]/40 hover:text-[#5A2A1F] transition-colors focus:outline-none"
+                      className="absolute inset-y-0 right-0 pr-4 flex items-center text-primary/40 hover:text-primary transition-colors focus:outline-none"
                     >
                       {showConfirmPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                     </button>
@@ -505,7 +505,7 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
               <button
                 type="submit"
                 disabled={loading || (!isLogin && password.length > 0 && (!isPasswordStrong || !doPasswordsMatch))}
-                className="w-full mt-4 bg-[#5A2A1F] hover:bg-black text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-sm shadow-lg hover:shadow-xl active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full mt-4 bg-primary hover:bg-black text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-sm shadow-lg hover:shadow-xl active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? (
                   <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
