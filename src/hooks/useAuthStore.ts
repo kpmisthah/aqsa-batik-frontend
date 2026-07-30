@@ -78,7 +78,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
       set({ user: null, isSignedIn: false, initialized: true });
     } catch (err) {
-      console.error("Failed to fetch local session profile:", err);
+      console.warn("Failed to fetch local session profile:", err);
       set({ user: null, isSignedIn: false, initialized: true });
     } finally {
       set({ loading: false });
@@ -105,7 +105,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         set({ user: null, isSignedIn: false, initialized: true });
       }
     } catch (err) {
-      console.error("Backend sync connection failure:", err);
+      console.warn("Backend sync connection failure:", err);
       set({ user: null, isSignedIn: false, initialized: true });
     } finally {
       set({ loading: false });
