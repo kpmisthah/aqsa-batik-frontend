@@ -105,7 +105,7 @@ export default function BannersAdmin() {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64">
-        <Loader2 className="w-8 h-8 animate-spin text-[#5A2A1F]" />
+        <Loader2 className="w-8 h-8 animate-spin text-primary" />
       </div>
     );
   }
@@ -113,18 +113,18 @@ export default function BannersAdmin() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-black text-[#5A2A1F] tracking-tight">Manage Banners</h1>
-        <p className="text-[#5A2A1F]/70 mt-1">Upload and update hero banners for your website pages.</p>
+        <h1 className="text-3xl font-black text-primary tracking-tight">Manage Banners</h1>
+        <p className="text-primary/70 mt-1">Upload and update hero banners for your website pages.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {PAGES.map((page) => (
-          <div key={page} className="bg-white rounded-2xl shadow-sm border border-[#5A2A1F]/10 p-5 flex flex-col">
-            <h2 className="text-lg font-bold text-[#5A2A1F] capitalize mb-4">
+          <div key={page} className="bg-white rounded-2xl shadow-sm border border-primary/10 p-5 flex flex-col">
+            <h2 className="text-lg font-bold text-primary capitalize mb-4">
               {page.replace('-', ' ')} Page
             </h2>
             
-            <div className="relative w-full aspect-video bg-gray-100 rounded-xl overflow-hidden mb-4 border border-dashed border-[#5A2A1F]/30 flex items-center justify-center group">
+            <div className="relative w-full aspect-video bg-gray-100 rounded-xl overflow-hidden mb-4 border border-dashed border-primary/30 flex items-center justify-center group">
               {banners[page] ? (
                 <Image src={banners[page]} alt={`${page} banner`} layout="fill" objectFit="cover" />
               ) : (
@@ -162,7 +162,7 @@ export default function BannersAdmin() {
               <button
                 onClick={() => handleSave(page)}
                 disabled={saving === page || !banners[page] || uploading === page}
-                className="w-full py-2.5 bg-[#5A2A1F] hover:bg-[#8B3A2B] text-white rounded-xl font-bold flex items-center justify-center transition-colors disabled:opacity-50"
+                className="w-full py-2.5 bg-primary hover:bg-secondary text-white rounded-xl font-bold flex items-center justify-center transition-colors disabled:opacity-50"
               >
                 {saving === page ? (
                   <Loader2 className="w-5 h-5 animate-spin" />
@@ -179,7 +179,7 @@ export default function BannersAdmin() {
       </div>
 
       {toast && (
-        <div className={`fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 flex items-center gap-3 px-6 py-4 rounded-xl shadow-2xl transition-all duration-300 ${toast.type === 'success' ? 'bg-[#5A2A1F] text-white' : 'bg-red-500 text-white'}`}>
+        <div className={`fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 flex items-center gap-3 px-6 py-4 rounded-xl shadow-2xl transition-all duration-300 ${toast.type === 'success' ? 'bg-primary text-white' : 'bg-red-500 text-white'}`}>
           {toast.type === 'success' ? <CheckCircle className="w-5 h-5" /> : <XCircle className="w-5 h-5" />}
           <span className="font-medium text-sm tracking-wide">{toast.message}</span>
         </div>
