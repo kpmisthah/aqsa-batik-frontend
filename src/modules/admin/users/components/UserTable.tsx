@@ -29,49 +29,49 @@ export function UserTable({ users, onToggleBlock, onEdit }: UserTableProps) {
   return (
     <div className="w-full">
       {/* Desktop Table View */}
-      <div className="hidden md:block bg-white shadow-lg shadow-[#5A2A1F]/5 rounded-2xl border border-[#5A2A1F]/10 overflow-hidden">
+      <div className="hidden md:block bg-white shadow-lg shadow-primary/5 rounded-2xl border border-primary/10 overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-[#5A2A1F]/10">
-            <thead className="bg-[#F5F1EC]">
+          <table className="min-w-full divide-y divide-primary/10">
+            <thead className="bg-cream">
               <tr>
-                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">User</th>
-                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Role</th>
-                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Status</th>
-                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Last Login</th>
-                <th scope="col" className="px-6 py-4 text-right text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Actions</th>
+                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">User</th>
+                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Role</th>
+                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Status</th>
+                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Last Login</th>
+                <th scope="col" className="px-6 py-4 text-right text-xs font-black text-secondary uppercase tracking-widest">Actions</th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-[#5A2A1F]/5">
+            <tbody className="bg-white divide-y divide-primary/5">
               {users.map((user) => (
-                <tr key={user.id} className={`hover:bg-[#F5F1EC]/50 transition-colors ${user.isBlocked ? 'opacity-60 bg-red-50/30' : ''}`}>
+                <tr key={user.id} className={`hover:bg-cream/50 transition-colors ${user.isBlocked ? 'opacity-60 bg-red-50/30' : ''}`}>
                   <td className="px-6 py-5 whitespace-nowrap">
                     <div className="flex items-center">
                       <div className="flex-shrink-0 h-12 w-12">
-                        <div className="h-12 w-12 rounded-xl bg-[#E8D9C0] flex items-center justify-center border border-[#5A2A1F]/10 text-[#5A2A1F] font-black text-lg shadow-inner">
+                        <div className="h-12 w-12 rounded-xl bg-tan flex items-center justify-center border border-primary/10 text-primary font-black text-lg shadow-inner">
                           {user.name.charAt(0)}
                         </div>
                       </div>
                       <div className="ml-5">
-                        <div className="text-sm font-bold text-[#5A2A1F]">
+                        <div className="text-sm font-bold text-primary">
                           {user.name} {user.isBlocked && <span className="text-red-500 font-bold ml-1">(Blocked)</span>}
                         </div>
-                        <div className="text-xs font-medium text-[#5A2A1F]/60 mt-1">{user.email}</div>
+                        <div className="text-xs font-medium text-primary/60 mt-1">{user.email}</div>
                       </div>
                     </div>
                   </td>
                   <td className="px-6 py-5 whitespace-nowrap">
-                    <div className="text-sm font-black text-[#8B3A2B] uppercase tracking-widest">{user.role}</div>
+                    <div className="text-sm font-black text-secondary uppercase tracking-widest">{user.role}</div>
                   </td>
                   <td className="px-6 py-5 whitespace-nowrap">
                     <span className={`px-3 py-1 inline-flex text-[10px] font-black uppercase tracking-widest rounded-full ${
                       user.status === "Active" ? "bg-green-100 text-green-800 border border-green-200" :
                       user.status === "Blocked" ? "bg-red-100 text-red-800 border border-red-200" :
-                      "bg-[#FFD700]/20 text-[#5A2A1F] border border-[#FFD700]/50"
+                      "bg-accent/20 text-primary border border-accent/50"
                     }`}>
                       {user.status}
                     </span>
                   </td>
-                  <td className="px-6 py-5 whitespace-nowrap text-sm font-medium text-[#5A2A1F]/60">
+                  <td className="px-6 py-5 whitespace-nowrap text-sm font-medium text-primary/60">
                     {formatLastLogin(user.lastLogin)}
                   </td>
                   <td className="px-6 py-5 whitespace-nowrap text-right text-sm font-medium">
@@ -88,7 +88,7 @@ export function UserTable({ users, onToggleBlock, onEdit }: UserTableProps) {
                       </button>
                       <button 
                         onClick={() => onEdit(user)}
-                        className="text-[#5A2A1F]/40 hover:text-[#FFD700] transition-colors"
+                        className="text-primary/40 hover:text-accent transition-colors"
                       >
                         <Edit className="w-5 h-5" />
                       </button>
@@ -106,7 +106,7 @@ export function UserTable({ users, onToggleBlock, onEdit }: UserTableProps) {
         {users.map((user) => (
           <div 
             key={user.id} 
-            className={`bg-white shadow-md shadow-[#5A2A1F]/5 rounded-2xl border border-[#5A2A1F]/10 p-5 space-y-4 transition-colors ${
+            className={`bg-white shadow-md shadow-primary/5 rounded-2xl border border-primary/10 p-5 space-y-4 transition-colors ${
               user.isBlocked ? 'opacity-80 bg-red-50/10' : ''
             }`}
           >
@@ -114,38 +114,38 @@ export function UserTable({ users, onToggleBlock, onEdit }: UserTableProps) {
             <div className="flex items-start justify-between gap-3">
               <div className="flex items-center space-x-3 min-w-0">
                 <div className="flex-shrink-0 h-10 w-10">
-                  <div className="h-10 w-10 rounded-xl bg-[#E8D9C0] flex items-center justify-center border border-[#5A2A1F]/10 text-[#5A2A1F] font-black text-base shadow-inner">
+                  <div className="h-10 w-10 rounded-xl bg-tan flex items-center justify-center border border-primary/10 text-primary font-black text-base shadow-inner">
                     {user.name.charAt(0)}
                   </div>
                 </div>
                 <div className="min-w-0">
-                  <div className="text-sm font-bold text-[#5A2A1F] truncate">
+                  <div className="text-sm font-bold text-primary truncate">
                     {user.name} {user.isBlocked && <span className="text-red-500 font-bold ml-1">(Blocked)</span>}
                   </div>
-                  <div className="text-xs font-medium text-[#5A2A1F]/60 break-all">{user.email}</div>
+                  <div className="text-xs font-medium text-primary/60 break-all">{user.email}</div>
                 </div>
               </div>
               <button 
                 onClick={() => onEdit(user)}
-                className="text-[#5A2A1F]/40 hover:text-[#FFD700] p-1 flex-shrink-0 transition-colors"
+                className="text-primary/40 hover:text-accent p-1 flex-shrink-0 transition-colors"
               >
                 <Edit className="w-5 h-5" />
               </button>
             </div>
 
             {/* Mid row: Role and Status */}
-            <div className="grid grid-cols-2 gap-4 border-t border-[#5A2A1F]/5 pt-3">
+            <div className="grid grid-cols-2 gap-4 border-t border-primary/5 pt-3">
               <div>
-                <span className="block text-[10px] font-black tracking-widest text-[#8B3A2B] uppercase">Role</span>
-                <span className="text-xs font-bold text-[#5A2A1F] uppercase">{user.role}</span>
+                <span className="block text-[10px] font-black tracking-widest text-secondary uppercase">Role</span>
+                <span className="text-xs font-bold text-primary uppercase">{user.role}</span>
               </div>
               <div>
-                <span className="block text-[10px] font-black tracking-widest text-[#8B3A2B] uppercase">Status</span>
+                <span className="block text-[10px] font-black tracking-widest text-secondary uppercase">Status</span>
                 <div>
                   <span className={`px-2 py-0.5 inline-flex text-[9px] font-black uppercase tracking-widest rounded-full ${
                     user.status === "Active" ? "bg-green-100 text-green-800 border border-green-200" :
                     user.status === "Blocked" ? "bg-red-100 text-red-800 border border-red-200" :
-                    "bg-[#FFD700]/20 text-[#5A2A1F] border border-[#FFD700]/50"
+                    "bg-accent/20 text-primary border border-accent/50"
                   }`}>
                     {user.status}
                   </span>
@@ -154,10 +154,10 @@ export function UserTable({ users, onToggleBlock, onEdit }: UserTableProps) {
             </div>
 
             {/* Bottom Row: Last login and Block action */}
-            <div className="border-t border-[#5A2A1F]/5 pt-3 flex items-center justify-between gap-2">
+            <div className="border-t border-primary/5 pt-3 flex items-center justify-between gap-2">
               <div className="min-w-0">
-                <span className="block text-[10px] font-black tracking-widest text-[#8B3A2B] uppercase">Last Login</span>
-                <span className="text-xs text-[#5A2A1F]/60 font-medium truncate block">
+                <span className="block text-[10px] font-black tracking-widest text-secondary uppercase">Last Login</span>
+                <span className="text-xs text-primary/60 font-medium truncate block">
                   {formatLastLogin(user.lastLogin)}
                 </span>
               </div>
