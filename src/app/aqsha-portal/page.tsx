@@ -175,30 +175,30 @@ export default function AdminDashboard() {
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center py-40">
-        <Loader2 className="animate-spin text-[#5A2A1F] mb-4" size={40} />
-        <p className="text-sm font-black uppercase tracking-widest text-[#5A2A1F]/60">Loading Store Analytics...</p>
+        <Loader2 className="animate-spin text-primary mb-4" size={40} />
+        <p className="text-sm font-black uppercase tracking-widest text-primary/60">Loading Store Analytics...</p>
       </div>
     );
   }
 
   return (
-    <div className="space-y-6 font-playfair">
+    <div className="space-y-6 font-heading">
       {/* Header section */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-[#5A2A1F] font-playfair tracking-tight">Dashboard Overview</h1>
-          <p className="mt-1 text-sm text-[#5A2A1F]/70 font-medium">Live store telemetry, payments, and product stock levels.</p>
+          <h1 className="text-3xl font-bold text-primary font-heading tracking-tight">Dashboard Overview</h1>
+          <p className="mt-1 text-sm text-primary/70 font-medium">Live store telemetry, payments, and product stock levels.</p>
         </div>
         <div className="flex items-center gap-3 self-start sm:self-center">
           <Link 
             href="/aqsha-portal/banners" 
-            className="px-4 py-2.5 bg-[#8B3A2B] text-white rounded-xl text-xs font-black uppercase tracking-wider hover:bg-[#5A2A1F] transition-colors shadow-md"
+            className="px-4 py-2.5 bg-secondary text-white rounded-xl text-xs font-black uppercase tracking-wider hover:bg-primary transition-colors shadow-md"
           >
             Manage Banners
           </Link>
           <button 
             onClick={fetchDashboardData}
-            className="px-4 py-2.5 bg-[#FAF6F0] text-[#5A2A1F] border border-[#5A2A1F]/10 rounded-xl text-xs font-black uppercase tracking-wider hover:bg-[#FAF6F0]/80 transition-colors"
+            className="px-4 py-2.5 bg-surface text-primary border border-primary/10 rounded-xl text-xs font-black uppercase tracking-wider hover:bg-surface/80 transition-colors"
           >
             Sync Data
           </button>
@@ -208,20 +208,20 @@ export default function AdminDashboard() {
       {/* Metrics Row */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((stat) => (
-          <div key={stat.name} className="bg-white overflow-hidden shadow-lg shadow-[#5A2A1F]/5 rounded-2xl border border-[#5A2A1F]/10 transition-transform hover:-translate-y-1">
+          <div key={stat.name} className="bg-white overflow-hidden shadow-lg shadow-primary/5 rounded-2xl border border-primary/10 transition-transform hover:-translate-y-1">
             <div className="p-6">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-xl bg-[#E8D9C0] flex items-center justify-center shadow-inner">
-                    <stat.icon className="w-6 h-6 text-[#5A2A1F]" aria-hidden="true" />
+                  <div className="w-12 h-12 rounded-xl bg-tan flex items-center justify-center shadow-inner">
+                    <stat.icon className="w-6 h-6 text-primary" aria-hidden="true" />
                   </div>
                 </div>
                 <div className="ml-4 w-0 flex-1">
                   <dl>
-                    <dt className="text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] truncate">{stat.name}</dt>
+                    <dt className="text-[10px] font-black uppercase tracking-widest text-secondary truncate">{stat.name}</dt>
                     <dd className="flex flex-col mt-0.5">
-                      <span className="text-2xl font-black text-[#5A2A1F] leading-tight">{stat.value}</span>
-                      <span className="text-[10px] text-[#5A2A1F]/50 font-medium tracking-wider mt-1">{stat.desc}</span>
+                      <span className="text-2xl font-black text-primary leading-tight">{stat.value}</span>
+                      <span className="text-[10px] text-primary/50 font-medium tracking-wider mt-1">{stat.desc}</span>
                     </dd>
                   </dl>
                 </div>
@@ -235,11 +235,11 @@ export default function AdminDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         {/* Sales Curve (2/3 col) */}
-        <div className="lg:col-span-2 bg-white shadow-lg shadow-[#5A2A1F]/5 rounded-2xl border border-[#5A2A1F]/10 p-6 flex flex-col justify-between">
+        <div className="lg:col-span-2 bg-white shadow-lg shadow-primary/5 rounded-2xl border border-primary/10 p-6 flex flex-col justify-between">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="font-playfair text-lg font-black text-[#5A2A1F]">Revenue Analytics</h3>
-              <p className="text-[10px] text-[#5A2A1F]/50 font-bold uppercase tracking-widest mt-0.5">Paid Orders Over Last 7 Days</p>
+              <h3 className="font-heading text-lg font-black text-primary">Revenue Analytics</h3>
+              <p className="text-[10px] text-primary/50 font-bold uppercase tracking-widest mt-0.5">Paid Orders Over Last 7 Days</p>
             </div>
             <div className="flex items-center gap-1.5 text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200 text-[10px] font-bold">
               <TrendingUp size={12} />
@@ -248,24 +248,24 @@ export default function AdminDashboard() {
           </div>
 
           {/* SVG Interactive Line Chart */}
-          <div className="relative w-full h-[180px] bg-[#FAF6F0]/20 rounded-2xl border border-[#5A2A1F]/5 p-2 flex items-center justify-center">
+          <div className="relative w-full h-[180px] bg-surface/20 rounded-2xl border border-primary/5 p-2 flex items-center justify-center">
             {salesChart.data.every(v => v === 0) ? (
-              <div className="text-center text-xs text-[#5A2A1F]/40 italic font-medium">
+              <div className="text-center text-xs text-primary/40 italic font-medium">
                 No revenue recorded in this 7-day window.
               </div>
             ) : (
               <svg className="w-full h-full" viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none">
                 <defs>
                   <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#8B3A2B" stopOpacity="0.25" />
-                    <stop offset="100%" stopColor="#8B3A2B" stopOpacity="0.0" />
+                    <stop offset="0%" stopColor="#1A1A1A" stopOpacity="0.25" />
+                    <stop offset="100%" stopColor="#1A1A1A" stopOpacity="0.0" />
                   </linearGradient>
                 </defs>
                 
                 {/* Horizontal Guide Lines */}
-                <line x1={padding} y1={padding} x2={width - padding} y2={padding} stroke="#5A2A1F" strokeOpacity="0.05" strokeDasharray="4,4" />
-                <line x1={padding} y1={padding + chartHeight/2} x2={width - padding} y2={padding + chartHeight/2} stroke="#5A2A1F" strokeOpacity="0.05" strokeDasharray="4,4" />
-                <line x1={padding} y1={padding + chartHeight} x2={width - padding} y2={padding + chartHeight} stroke="#5A2A1F" strokeOpacity="0.1" />
+                <line x1={padding} y1={padding} x2={width - padding} y2={padding} stroke="#1A1A1A" strokeOpacity="0.05" strokeDasharray="4,4" />
+                <line x1={padding} y1={padding + chartHeight/2} x2={width - padding} y2={padding + chartHeight/2} stroke="#1A1A1A" strokeOpacity="0.05" strokeDasharray="4,4" />
+                <line x1={padding} y1={padding + chartHeight} x2={width - padding} y2={padding + chartHeight} stroke="#1A1A1A" strokeOpacity="0.1" />
                 
                 {/* Gradient Fill Path */}
                 {fillD && <path d={fillD} fill="url(#chartGradient)" />}
@@ -275,7 +275,7 @@ export default function AdminDashboard() {
                   <path 
                     d={pathD} 
                     fill="none" 
-                    stroke="#8B3A2B" 
+                    stroke="#1A1A1A" 
                     strokeWidth="3" 
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -288,8 +288,8 @@ export default function AdminDashboard() {
                   const y = padding + chartHeight - (val / salesChart.maxVal) * chartHeight;
                   return (
                     <g key={index} className="group cursor-pointer">
-                      <circle cx={x} cy={y} r="5" fill="#8B3A2B" stroke="#ffffff" strokeWidth="2" />
-                      <circle cx={x} cy={y} r="8" fill="#8B3A2B" opacity="0" className="hover:opacity-20 transition-opacity" />
+                      <circle cx={x} cy={y} r="5" fill="#1A1A1A" stroke="#ffffff" strokeWidth="2" />
+                      <circle cx={x} cy={y} r="8" fill="#1A1A1A" opacity="0" className="hover:opacity-20 transition-opacity" />
                     </g>
                   );
                 })}
@@ -298,7 +298,7 @@ export default function AdminDashboard() {
           </div>
 
           {/* X Axis Labels */}
-          <div className="flex justify-between px-6 pt-3 text-[10px] font-black uppercase text-[#5A2A1F]/60 tracking-wider">
+          <div className="flex justify-between px-6 pt-3 text-[10px] font-black uppercase text-primary/60 tracking-wider">
             {salesChart.labels.map((lbl, idx) => (
               <span key={idx}>{lbl}</span>
             ))}
@@ -306,10 +306,10 @@ export default function AdminDashboard() {
         </div>
 
         {/* Payment Ratios & COD (1/3 col) */}
-        <div className="bg-white shadow-lg shadow-[#5A2A1F]/5 rounded-2xl border border-[#5A2A1F]/10 p-6 flex flex-col justify-between">
+        <div className="bg-white shadow-lg shadow-primary/5 rounded-2xl border border-primary/10 p-6 flex flex-col justify-between">
           <div>
-            <h3 className="font-playfair text-lg font-black text-[#5A2A1F]">Fulfillment Ratio</h3>
-            <p className="text-[10px] text-[#5A2A1F]/50 font-bold uppercase tracking-widest mt-0.5">Order fulfillment ratio</p>
+            <h3 className="font-heading text-lg font-black text-primary">Fulfillment Ratio</h3>
+            <p className="text-[10px] text-primary/50 font-bold uppercase tracking-widest mt-0.5">Order fulfillment ratio</p>
           </div>
 
           <div className="space-y-4 py-4">
@@ -324,27 +324,27 @@ export default function AdminDashboard() {
               return (
                 <>
                   <div className="space-y-1.5">
-                    <div className="flex justify-between text-xs font-bold text-[#5A2A1F]">
+                    <div className="flex justify-between text-xs font-bold text-primary">
                       <span className="flex items-center gap-1.5">
                         <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
                         <span>Paid Orders</span>
                       </span>
                       <span>{paidPercent}% ({paidCount})</span>
                     </div>
-                    <div className="w-full bg-[#FAF6F0] rounded-full h-2">
+                    <div className="w-full bg-surface rounded-full h-2">
                       <div className="bg-emerald-500 h-2 rounded-full" style={{ width: `${paidPercent}%` }} />
                     </div>
                   </div>
 
                   <div className="space-y-1.5">
-                    <div className="flex justify-between text-xs font-bold text-[#5A2A1F]">
+                    <div className="flex justify-between text-xs font-bold text-primary">
                       <span className="flex items-center gap-1.5">
                         <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
                         <span>Pending Payments</span>
                       </span>
                       <span>{pendingPercent}% ({pendingCount})</span>
                     </div>
-                    <div className="w-full bg-[#FAF6F0] rounded-full h-2">
+                    <div className="w-full bg-surface rounded-full h-2">
                       <div className="bg-amber-500 h-2 rounded-full" style={{ width: `${pendingPercent}%` }} />
                     </div>
                   </div>
@@ -361,16 +361,16 @@ export default function AdminDashboard() {
               const onlinePercent = Math.round((onlineCount / totalCount) * 100);
 
               return (
-                <div className="space-y-1.5 pt-2 border-t border-[#5A2A1F]/5">
-                  <div className="flex justify-between text-xs font-bold text-[#5A2A1F]">
+                <div className="space-y-1.5 pt-2 border-t border-primary/5">
+                  <div className="flex justify-between text-xs font-bold text-primary">
                     <span>Payment Methods Ratio</span>
-                    <span className="text-[10px] text-[#8B3A2B] font-black uppercase tracking-wider">COD vs Online</span>
+                    <span className="text-[10px] text-secondary font-black uppercase tracking-wider">COD vs Online</span>
                   </div>
-                  <div className="w-full bg-[#FAF6F0] rounded-full h-4 flex overflow-hidden">
-                    <div className="bg-[#8B3A2B] h-full" style={{ width: `${onlinePercent}%` }} title={`Online: ${onlinePercent}%`} />
-                    <div className="bg-[#E8D9C0] h-full" style={{ width: `${codPercent}%` }} title={`COD: ${codPercent}%`} />
+                  <div className="w-full bg-surface rounded-full h-4 flex overflow-hidden">
+                    <div className="bg-secondary h-full" style={{ width: `${onlinePercent}%` }} title={`Online: ${onlinePercent}%`} />
+                    <div className="bg-tan h-full" style={{ width: `${codPercent}%` }} title={`COD: ${codPercent}%`} />
                   </div>
-                  <div className="flex justify-between text-[9px] font-black uppercase text-[#5A2A1F]/60 tracking-wider">
+                  <div className="flex justify-between text-[9px] font-black uppercase text-primary/60 tracking-wider">
                     <span>Online ({onlinePercent}%)</span>
                     <span>COD ({codPercent}%)</span>
                   </div>
@@ -383,40 +383,40 @@ export default function AdminDashboard() {
       </div>
 
       {/* Recent Orders Listing */}
-      <div className="bg-white shadow-lg shadow-[#5A2A1F]/5 rounded-2xl border border-[#5A2A1F]/10 p-6 md:p-8">
+      <div className="bg-white shadow-lg shadow-primary/5 rounded-2xl border border-primary/10 p-6 md:p-8">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h2 className="text-2xl font-bold text-[#5A2A1F] font-playfair">Recent Store Transactions</h2>
-            <p className="text-xs text-[#5A2A1F]/60 font-medium">The most recent checkout logs registered on our store.</p>
+            <h2 className="text-2xl font-bold text-primary font-heading">Recent Store Transactions</h2>
+            <p className="text-xs text-primary/60 font-medium">The most recent checkout logs registered on our store.</p>
           </div>
           <Link 
             href="/aqsha-portal/orders" 
-            className="text-xs font-black uppercase tracking-widest text-[#8B3A2B] hover:text-[#5A2A1F] transition-colors border-b-2 border-transparent hover:border-[#5A2A1F]"
+            className="text-xs font-black uppercase tracking-widest text-secondary hover:text-primary transition-colors border-b-2 border-transparent hover:border-primary"
           >
             Fulfill Orders &rarr;
           </Link>
         </div>
         
         {orders.length === 0 ? (
-          <div className="text-center py-10 border border-dashed border-[#5A2A1F]/10 rounded-xl bg-[#FAF6F0]/10">
-            <p className="text-sm text-[#5A2A1F]/50 italic">No checkout orders registered yet.</p>
+          <div className="text-center py-10 border border-dashed border-primary/10 rounded-xl bg-surface/10">
+            <p className="text-sm text-primary/50 italic">No checkout orders registered yet.</p>
           </div>
         ) : (
           <div className="space-y-4">
             {/* Desktop Table View */}
-            <div className="hidden md:block border border-[#5A2A1F]/10 rounded-xl overflow-hidden overflow-x-auto w-full max-w-full">
-              <table className="min-w-full divide-y divide-[#5A2A1F]/10">
-                <thead className="bg-[#F5F1EC]">
+            <div className="hidden md:block border border-primary/10 rounded-xl overflow-hidden overflow-x-auto w-full max-w-full">
+              <table className="min-w-full divide-y divide-primary/10">
+                <thead className="bg-cream">
                   <tr>
-                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Order ID</th>
-                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Customer</th>
-                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Date</th>
-                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Payment</th>
-                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Fulfillment</th>
-                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-[#8B3A2B] uppercase tracking-widest">Total</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Order ID</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Customer</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Date</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Payment</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Fulfillment</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Total</th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-[#5A2A1F]/5">
+                <tbody className="bg-white divide-y divide-primary/5">
                   {orders.slice(0, 5).map((order) => {
                     const orderId = order._id || order.id || "";
                     let customerName = "Guest Customer";
@@ -430,14 +430,14 @@ export default function AdminDashboard() {
                     }
 
                     return (
-                      <tr key={orderId} className="hover:bg-[#F5F1EC]/30 transition-colors">
-                        <td className="px-6 py-5 whitespace-nowrap text-sm font-bold text-[#5A2A1F]">
+                      <tr key={orderId} className="hover:bg-cream/30 transition-colors">
+                        <td className="px-6 py-5 whitespace-nowrap text-sm font-bold text-primary">
                           #{orderId.substring(18).toUpperCase()}
                         </td>
-                        <td className="px-6 py-5 whitespace-nowrap text-sm font-medium text-[#5A2A1F]/80">
+                        <td className="px-6 py-5 whitespace-nowrap text-sm font-medium text-primary/80">
                           {customerName}
                         </td>
-                        <td className="px-6 py-5 whitespace-nowrap text-xs text-[#5A2A1F]/60">
+                        <td className="px-6 py-5 whitespace-nowrap text-xs text-primary/60">
                           {formatDate(order.createdAt)}
                         </td>
                         <td className="px-6 py-5 whitespace-nowrap">
@@ -460,7 +460,7 @@ export default function AdminDashboard() {
                             {order.status}
                           </span>
                         </td>
-                        <td className="px-6 py-5 whitespace-nowrap text-sm font-black text-[#5A2A1F]">
+                        <td className="px-6 py-5 whitespace-nowrap text-sm font-black text-primary">
                           ₹{order.totalAmount.toLocaleString()}
                         </td>
                       </tr>
@@ -487,33 +487,33 @@ export default function AdminDashboard() {
                 return (
                   <div 
                     key={orderId} 
-                    className="bg-[#FAF6F0]/30 shadow-sm rounded-2xl border border-[#5A2A1F]/10 p-5 space-y-3"
+                    className="bg-surface/30 shadow-sm rounded-2xl border border-primary/10 p-5 space-y-3"
                   >
                     <div className="flex justify-between items-start gap-2">
                       <div>
-                        <span className="text-[9px] font-black tracking-widest text-[#8B3A2B] uppercase">Order ID</span>
-                        <span className="block text-sm font-bold text-[#5A2A1F]">#{orderId.substring(18).toUpperCase()}</span>
+                        <span className="text-[9px] font-black tracking-widest text-secondary uppercase">Order ID</span>
+                        <span className="block text-sm font-bold text-primary">#{orderId.substring(18).toUpperCase()}</span>
                       </div>
                       <div className="text-right">
-                        <span className="block text-[9px] font-black tracking-widest text-[#8B3A2B] uppercase">Date</span>
-                        <span className="block text-xs text-[#5A2A1F]/60 font-medium">{formatDate(order.createdAt)}</span>
+                        <span className="block text-[9px] font-black tracking-widest text-secondary uppercase">Date</span>
+                        <span className="block text-xs text-primary/60 font-medium">{formatDate(order.createdAt)}</span>
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4 border-t border-[#5A2A1F]/5 pt-3">
+                    <div className="grid grid-cols-2 gap-4 border-t border-primary/5 pt-3">
                       <div>
-                        <span className="block text-[9px] font-black tracking-widest text-[#8B3A2B] uppercase">Customer</span>
-                        <span className="text-xs font-bold text-[#5A2A1F] truncate block">{customerName}</span>
+                        <span className="block text-[9px] font-black tracking-widest text-secondary uppercase">Customer</span>
+                        <span className="text-xs font-bold text-primary truncate block">{customerName}</span>
                       </div>
                       <div>
-                        <span className="block text-[9px] font-black tracking-widest text-[#8B3A2B] uppercase">Total</span>
-                        <span className="text-xs font-black text-[#5A2A1F]">₹{order.totalAmount.toLocaleString()}</span>
+                        <span className="block text-[9px] font-black tracking-widest text-secondary uppercase">Total</span>
+                        <span className="text-xs font-black text-primary">₹{order.totalAmount.toLocaleString()}</span>
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4 border-t border-[#5A2A1F]/5 pt-3">
+                    <div className="grid grid-cols-2 gap-4 border-t border-primary/5 pt-3">
                       <div>
-                        <span className="block text-[9px] font-black tracking-widest text-[#8B3A2B] uppercase mb-1">Payment</span>
+                        <span className="block text-[9px] font-black tracking-widest text-secondary uppercase mb-1">Payment</span>
                         <span className={`px-2 py-0.5 inline-flex text-[9px] font-black uppercase tracking-wider rounded-md ${
                           order.paymentStatus === "Paid" 
                             ? "bg-emerald-50 text-emerald-700 border border-emerald-200" 
@@ -523,7 +523,7 @@ export default function AdminDashboard() {
                         </span>
                       </div>
                       <div>
-                        <span className="block text-[9px] font-black tracking-widest text-[#8B3A2B] uppercase mb-1">Fulfillment</span>
+                        <span className="block text-[9px] font-black tracking-widest text-secondary uppercase mb-1">Fulfillment</span>
                         <span className={`px-2 py-0.5 inline-flex text-[9px] font-black uppercase tracking-wider rounded-md ${
                           order.status === "Delivered" 
                             ? "bg-emerald-50 text-emerald-700 border border-emerald-200" 
