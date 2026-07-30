@@ -31,12 +31,12 @@ export default function Footer() {
                         </p>
                         <div className="flex flex-col gap-2 text-xs font-bold mt-2">
                             <div className="flex items-center gap-3 group">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFD700" strokeWidth="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8A9A86" strokeWidth="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
                                 <span className="opacity-70">Bherugarh, Ujjain, MP 456010</span>
                             </div>
                             <div className="flex items-center gap-3 group">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFD700" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-                                <a href={WA} target="_blank" rel="noreferrer" className="font-sans tracking-wide opacity-70 hover:opacity-100 hover:text-[#FFD700] transition-colors">+91 88153 73767</a>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8A9A86" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+                                <a href={WA} target="_blank" rel="noreferrer" className="font-body tracking-wide opacity-70 hover:opacity-100 hover:text-accent transition-colors">+91 88153 73767</a>
                             </div>
                         </div>
                     </div>
@@ -44,7 +44,7 @@ export default function Footer() {
                     {/* Links Grid (5 cols) */}
                     <div className="lg:col-span-5 grid grid-cols-2 gap-4 lg:gap-8">
                         <div className="flex flex-col gap-3">
-                            <span className="text-[10px] uppercase font-black tracking-[0.2em] text-[#FFD700]">Quick Links</span>
+                            <span className="text-[10px] uppercase font-black tracking-[0.2em] text-accent">Quick Links</span>
                             <div className="flex flex-col gap-2">
                                 {[
                                     { name: "Batik Cloth", link: "/cotton-cloth" },
@@ -54,14 +54,14 @@ export default function Footer() {
                                     { name: "Blog", link: "/blog" },
                                     { name: "Contact Us", link: "/contact-us" },
                                 ].map((item, i) => (
-                                    <a key={i} href={item.link} className="text-xs font-bold opacity-50 hover:opacity-100 hover:text-[#FFD700] transition-all">
+                                    <a key={i} href={item.link} className="text-xs font-bold opacity-50 hover:opacity-100 hover:text-accent transition-all">
                                         {item.name}
                                     </a>
                                 ))}
                             </div>
                         </div>
                         <div className="flex flex-col gap-3">
-                            <span className="text-[10px] uppercase font-black tracking-[0.2em] text-[#FFD700]">Collections</span>
+                            <span className="text-[10px] uppercase font-black tracking-[0.2em] text-accent">Collections</span>
                             <div className="flex flex-col gap-2">
                                 {[
                                     { name: "Batik Dress Material", link: "/cotton-cloth" },
@@ -69,7 +69,7 @@ export default function Footer() {
                                     { name: "Printed Fabric", link: "/fabric-wholesale" },
                                     { name: "Ladies Cotton Suit", link: "/new-batik-prints" }
                                 ].map((item, i) => (
-                                    <a key={i} href={item.link} className="text-xs font-bold opacity-50 hover:opacity-100 hover:text-[#FFD700] transition-all">
+                                    <a key={i} href={item.link} className="text-xs font-bold opacity-50 hover:opacity-100 hover:text-accent transition-all">
                                         {item.name}
                                     </a>
                                 ))}
@@ -79,10 +79,10 @@ export default function Footer() {
 
                     {/* Newsletter & CTA (3 cols) */}
                     <div className="lg:col-span-3 flex flex-col gap-4">
-                        <span className="text-[10px] uppercase font-black tracking-[0.2em] text-[#FFD700]">Stay Updated</span>
+                        <span className="text-[10px] uppercase font-black tracking-[0.2em] text-accent">Stay Updated</span>
                         <div className="flex w-full relative">
-                            <input type="text" placeholder="Your email..." className="w-full bg-white/5 border border-white/10 rounded-lg py-3 px-4 text-xs focus:outline-none focus:border-[#FFD700]/50" />
-                            <button className="absolute right-1 top-1 bottom-1 px-4 bg-[#FFD700] text-black rounded font-black text-[10px] uppercase hover:bg-white transition-all">
+                            <input type="text" placeholder="Your email..." className="w-full bg-white/5 border border-white/10 rounded-lg py-3 px-4 text-xs focus:outline-none focus:border-accent/50" />
+                            <button className="absolute right-1 top-1 bottom-1 px-4 bg-accent text-black rounded font-black text-[10px] uppercase hover:bg-white transition-all">
                                 Go
                             </button>
                         </div>
@@ -102,7 +102,7 @@ export default function Footer() {
                         { val: "Fast", label: "Dispatch" }
                     ].map((stat, i) => (
                         <div key={i} className="flex flex-col items-center justify-center">
-                            <span className="text-sm md:text-lg font-playfair font-black text-[#FFD700]">{stat.val}</span>
+                            <span className="text-sm md:text-lg font-heading font-black text-accent">{stat.val}</span>
                             <span className="text-[8px] md:text-[10px] font-black uppercase tracking-widest opacity-40">{stat.label}</span>
                         </div>
                     ))}
@@ -117,7 +117,7 @@ export default function Footer() {
                                 { name: "Terms & Conditions", link: "/terms-and-conditions" },
                                 { name: "Shipping Policy", link: "/shipping-delivery-policy" }
                             ].map((legal, i) => (
-                                <a key={i} href={legal.link} className="text-[10px] md:text-[11px] font-black uppercase opacity-80 hover:opacity-100 hover:text-[#FFD700] transition-all">
+                                <a key={i} href={legal.link} className="text-[10px] md:text-[11px] font-black uppercase opacity-80 hover:opacity-100 hover:text-accent transition-all">
                                     {legal.name}
                                 </a>
                             ))}
@@ -148,7 +148,7 @@ export default function Footer() {
                 </div>
             </div>
             {/* Scalloped Decoration */}
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FFD700]/20 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
         </footer>
     );
 }
