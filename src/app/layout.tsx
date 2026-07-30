@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Playfair_Display, DM_Sans } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const fraunces = Fraunces({
+  variable: "--font-heading",
   subsets: ["latin"],
 });
 
-const dmSans = DM_Sans({
-  variable: "--font-playfair",
+const inter = Inter({
+  variable: "--font-body",
   subsets: ["latin"],
 });
 
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${dmSans.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${inter.variable} h-full antialiased font-body font-normal font-body`}
     >
       <Script id="google-tag-manager" strategy="afterInteractive">
         {`
@@ -37,7 +37,7 @@ export default function RootLayout({
           })(window,document,'script','dataLayer','GTM-58MC4FVH');
         `}
       </Script>
-      <body className="min-h-full flex flex-col font-playfair">
+      <body className="min-h-full flex flex-col font-body">
         <noscript
           dangerouslySetInnerHTML={{
             __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-58MC4FVH" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
