@@ -274,9 +274,9 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
   };
 
   return (
-    <div className="min-h-[80vh] flex items-center justify-center px-4 py-16 bg-[#FDFBF7] font-playfair">
+    <div className="min-h-[80vh] flex items-center justify-center px-4 py-16 bg-[#FDFBF7] font-heading">
       <div 
-        className="relative w-full max-w-lg overflow-hidden rounded-[32px] border border-[#5A2A1F]/10 bg-[#F5F1EC] p-8 md:p-10 shadow-2xl animate-fade-in"
+        className="relative w-full max-w-lg overflow-hidden rounded-[32px] border border-primary/10 bg-cream p-8 md:p-10 shadow-2xl animate-fade-in"
       >
         {/* Floating Toast Notification */}
         {toast && (
@@ -290,14 +290,14 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
           </div>
         )}
         {/* Decorative corner borders */}
-        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#8B3A2B]/30 rounded-tl-[32px]" />
-        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#8B3A2B]/30 rounded-tr-[32px]" />
-        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#8B3A2B]/30 rounded-bl-[32px]" />
-        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#8B3A2B]/30 rounded-br-[32px]" />
+        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-secondary/30 rounded-tl-[32px]" />
+        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-secondary/30 rounded-tr-[32px]" />
+        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-secondary/30 rounded-bl-[32px]" />
+        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-secondary/30 rounded-br-[32px]" />
 
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8B3A2B]/10 text-[#8B3A2B] text-xs font-black uppercase tracking-widest mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-black uppercase tracking-widest mb-3">
             {isAdmin ? (
               <>
                 <ShieldCheck size={12} className="animate-pulse" />
@@ -312,7 +312,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
               </>
             )}
           </div>
-          <h2 className="font-playfair text-3xl font-black text-[#5A2A1F] tracking-tight">
+          <h2 className="font-heading text-3xl font-black text-primary tracking-tight">
             {forgotStep === "none" 
               ? (isAdmin ? "Aqsha Administrator" : "Welcome Back")
               : forgotStep === "email"
@@ -322,7 +322,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
               : "Reset Password"
             }
           </h2>
-          <p className="text-sm text-[#5A2A1F]/60 mt-2 font-medium">
+          <p className="text-sm text-primary/60 mt-2 font-medium">
             {forgotStep === "none"
               ? (isAdmin 
                 ? "Sign in with your authorized admin credentials" 
@@ -352,7 +352,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
                   type="button"
                   onClick={handleGoogleAuth}
                   disabled={loading}
-                  className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-white border border-[#5A2A1F]/15 rounded-2xl text-[#5A2A1F] font-bold text-sm hover:bg-[#FDFBF7] hover:border-[#5A2A1F]/30 transition-all shadow-sm hover:shadow active:scale-[0.99] disabled:opacity-50"
+                  className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-white border border-primary/15 rounded-2xl text-primary font-bold text-sm hover:bg-[#FDFBF7] hover:border-primary/30 transition-all shadow-sm hover:shadow active:scale-[0.99] disabled:opacity-50"
                 >
                   <svg className="w-5 h-5" viewBox="0 0 24 24">
                     <path
@@ -376,8 +376,8 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
                 </button>
 
                 <div className="relative my-6 text-center">
-                  <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-[#5A2A1F]/10"></div></div>
-                  <span className="relative px-4 text-xs font-bold text-[#5A2A1F]/40 uppercase tracking-widest bg-[#F5F1EC]">or</span>
+                  <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-primary/10"></div></div>
+                  <span className="relative px-4 text-xs font-bold text-primary/40 uppercase tracking-widest bg-cream">or</span>
                 </div>
               </>
             )}
@@ -385,11 +385,11 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
             {/* Credentials Form */}
             <form onSubmit={handleSignInSubmit} className="space-y-4" noValidate>
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2">
+                <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">
                   {isAdmin ? "Admin Email" : "Email Address"}
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#5A2A1F]/40">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary/40">
                     <Mail size={16} />
                   </div>
                   <input
@@ -399,8 +399,8 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
                     onChange={(e) => { setEmail(e.target.value); if (emailError) setEmailError(""); }}
                     placeholder={isAdmin ? "Enter email" : "yourname@example.com"}
                     aria-invalid={!!emailError}
-                    className={`w-full pl-11 pr-4 py-3.5 border rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 text-sm font-medium ${
-                      emailError ? "border-red-400 focus:ring-red-200" : "border-[#5A2A1F]/20 focus:ring-[#5A2A1F]/20"
+                    className={`w-full pl-11 pr-4 py-3.5 border rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 text-sm font-medium ${
+                      emailError ? "border-red-400 focus:ring-red-200" : "border-primary/20 focus:ring-primary/20"
                     }`}
                   />
                 </div>
@@ -408,7 +408,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
                   <p className="mt-1.5 flex items-center gap-1.5 text-xs font-bold text-red-600">
                     <AlertCircle size={12} /> {emailError}
                     {emailError.toLowerCase().includes("no account") && !isAdmin && (
-                      <Link href="/signup" className="ml-1 underline text-[#8B3A2B]">Create one</Link>
+                      <Link href="/signup" className="ml-1 underline text-secondary">Create one</Link>
                     )}
                   </p>
                 )}
@@ -416,21 +416,21 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
 
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B]">
+                  <label className="block text-[10px] font-black uppercase tracking-widest text-secondary">
                     {isAdmin ? "Admin Password" : "Password"}
                   </label>
                   {!isAdmin && (
                     <button
                       type="button"
                       onClick={() => { setForgotStep("email"); setError(""); setEmailError(""); setPasswordError(""); }}
-                      className="text-[10px] font-black uppercase tracking-widest text-[#8B3A2B]/75 hover:text-[#8B3A2B] focus:outline-none transition-colors"
+                      className="text-[10px] font-black uppercase tracking-widest text-secondary/75 hover:text-secondary focus:outline-none transition-colors"
                     >
                       Forgot?
                     </button>
                   )}
                 </div>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#5A2A1F]/40">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary/40">
                     <Lock size={16} />
                   </div>
                   <input
@@ -440,14 +440,14 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
                     onChange={(e) => { setPassword(e.target.value); if (passwordError) setPasswordError(""); }}
                     placeholder="••••••••"
                     aria-invalid={!!passwordError}
-                    className={`w-full pl-11 pr-12 py-3.5 border rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 text-sm font-medium ${
-                      passwordError ? "border-red-400 focus:ring-red-200" : "border-[#5A2A1F]/20 focus:ring-[#5A2A1F]/20"
+                    className={`w-full pl-11 pr-12 py-3.5 border rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 text-sm font-medium ${
+                      passwordError ? "border-red-400 focus:ring-red-200" : "border-primary/20 focus:ring-primary/20"
                     }`}
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-[#5A2A1F]/40 hover:text-[#5A2A1F] transition-colors focus:outline-none"
+                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-primary/40 hover:text-primary transition-colors focus:outline-none"
                   >
                     {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>
@@ -462,7 +462,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full mt-4 bg-[#5A2A1F] hover:bg-black text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-sm shadow-lg hover:shadow-xl active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+                className="w-full mt-4 bg-primary hover:bg-black text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-sm shadow-lg hover:shadow-xl active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 {loading ? (
                   <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
@@ -475,9 +475,9 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
             {/* Toggle Option (Only for Customers) */}
             {!isAdmin && (
               <div className="text-center mt-6">
-                <p className="text-xs font-bold text-[#5A2A1F]/60">
+                <p className="text-xs font-bold text-primary/60">
                   New to Aqsha?{" "}
-                  <Link href="/signup" className="text-[#8B3A2B] hover:underline uppercase tracking-wider text-[10px] font-black ml-1">
+                  <Link href="/signup" className="text-secondary hover:underline uppercase tracking-wider text-[10px] font-black ml-1">
                     Create an Account
                   </Link>
                 </p>
@@ -487,11 +487,11 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
         ) : forgotStep === "email" ? (
           <form onSubmit={handleSendResetOtp} className="space-y-4 animate-fade-in" noValidate>
             <div>
-              <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2">
+              <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">
                 Email Address
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#5A2A1F]/40">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary/40">
                   <Mail size={16} />
                 </div>
                 <input
@@ -500,7 +500,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
                   value={forgotEmail}
                   onChange={(e) => setForgotEmail(e.target.value)}
                   placeholder="yourname@example.com"
-                  className="w-full pl-11 pr-4 py-3.5 border border-[#5A2A1F]/20 rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 focus:ring-[#5A2A1F]/20 text-sm font-medium"
+                  className="w-full pl-11 pr-4 py-3.5 border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm font-medium"
                 />
               </div>
             </div>
@@ -508,7 +508,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
             <button
               type="submit"
               disabled={loading || !forgotEmail}
-              className="w-full mt-4 bg-[#5A2A1F] hover:bg-black text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-sm shadow-lg hover:shadow-xl active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+              className="w-full mt-4 bg-primary hover:bg-black text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-sm shadow-lg hover:shadow-xl active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50"
             >
               {loading ? (
                 <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
@@ -521,7 +521,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
               <button
                 type="button"
                 onClick={() => { setForgotStep("none"); setError(""); }}
-                className="text-[#8B3A2B] hover:underline uppercase tracking-wider text-[10px] font-black"
+                className="text-secondary hover:underline uppercase tracking-wider text-[10px] font-black"
               >
                 Back to Sign In
               </button>
@@ -530,14 +530,14 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
         ) : forgotStep === "otp" ? (
           <form onSubmit={handleVerifyResetOtp} className="space-y-6 animate-fade-in" noValidate>
             <div className="text-center mb-4">
-              <p className="text-sm text-[#5A2A1F]/70 font-medium">
+              <p className="text-sm text-primary/70 font-medium">
                 We've sent a 6-digit password reset OTP to
               </p>
-              <p className="text-sm font-bold text-[#8B3A2B] mt-1">{forgotEmail}</p>
+              <p className="text-sm font-bold text-secondary mt-1">{forgotEmail}</p>
             </div>
 
             <div>
-              <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2 text-center">
+              <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2 text-center">
                 One-Time Password (OTP)
               </label>
               <input
@@ -547,14 +547,14 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
                 value={forgotOtp}
                 onChange={(e) => setForgotOtp(e.target.value.replace(/\D/g, ""))}
                 placeholder="000000"
-                className="w-full py-4 text-center tracking-[12px] text-2xl font-black border border-[#5A2A1F]/20 rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/20 focus:outline-none focus:ring-2 focus:ring-[#5A2A1F]/20"
+                className="w-full py-4 text-center tracking-[12px] text-2xl font-black border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/20"
               />
             </div>
 
             <button
               type="submit"
               disabled={loading || forgotOtp.length !== 6}
-              className="w-full bg-[#5A2A1F] hover:bg-black text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-sm shadow-lg hover:shadow-xl active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+              className="w-full bg-primary hover:bg-black text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-sm shadow-lg hover:shadow-xl active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50"
             >
               {loading ? (
                 <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
@@ -568,14 +568,14 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
                 type="button"
                 onClick={() => handleSendResetOtp()}
                 disabled={loading}
-                className="text-[#8B3A2B] hover:underline uppercase tracking-wider text-[10px] font-black"
+                className="text-secondary hover:underline uppercase tracking-wider text-[10px] font-black"
               >
                 Resend Code
               </button>
               <button
                 type="button"
                 onClick={() => { setForgotStep("none"); setError(""); }}
-                className="text-[#5A2A1F]/60 hover:text-[#5A2A1F] hover:underline uppercase tracking-wider text-[10px] font-black mt-1"
+                className="text-primary/60 hover:text-primary hover:underline uppercase tracking-wider text-[10px] font-black mt-1"
               >
                 Cancel and Back to Sign In
               </button>
@@ -584,11 +584,11 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
         ) : (
           <form onSubmit={handleResetPassword} className="space-y-4 animate-fade-in" noValidate>
             <div>
-              <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2">
+              <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">
                 New Password
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#5A2A1F]/40">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary/40">
                   <Lock size={16} />
                 </div>
                 <input
@@ -597,12 +597,12 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full pl-11 pr-12 py-3.5 border border-[#5A2A1F]/20 rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 focus:ring-[#5A2A1F]/20 text-sm font-medium"
+                  className="w-full pl-11 pr-12 py-3.5 border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm font-medium"
                 />
                 <button
                   type="button"
                   onClick={() => setShowNewPassword(!showNewPassword)}
-                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-[#5A2A1F]/40 hover:text-[#5A2A1F] transition-colors focus:outline-none"
+                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-primary/40 hover:text-primary transition-colors focus:outline-none"
                 >
                   {showNewPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                 </button>
@@ -612,7 +612,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
               {newPassword.length > 0 && (
                 <div className="mt-3 space-y-2 animate-fade-in">
                   <div className="flex items-center justify-between text-xs">
-                    <span className="font-bold text-[#5A2A1F]/60">Password Strength:</span>
+                    <span className="font-bold text-primary/60">Password Strength:</span>
                     <span className={`font-black uppercase tracking-wider text-[10px] ${
                       resetMetCount <= 2 ? "text-red-500" : resetMetCount <= 4 ? "text-amber-500" : "text-emerald-600"
                     }`}>
@@ -623,7 +623,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
                   {/* Segmented Strength Bar */}
                   <div className="flex gap-1.5 h-1.5 w-full">
                     {[1, 2, 3, 4].map((index) => {
-                      let barColor = "bg-[#5A2A1F]/10";
+                      let barColor = "bg-primary/10";
                       if (resetMetCount > 0) {
                         if (resetMetCount <= 2 && index <= resetMetCount) {
                           barColor = "bg-red-500";
@@ -643,18 +643,18 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
                   </div>
 
                   {/* Checklist */}
-                  <div className="p-3.5 bg-[#5A2A1F]/5 border border-[#5A2A1F]/10 rounded-2xl space-y-1.5">
-                    <p className="text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-1">Safety Requirements</p>
+                  <div className="p-3.5 bg-primary/5 border border-primary/10 rounded-2xl space-y-1.5">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-secondary mb-1">Safety Requirements</p>
                     {resetPasswordCriteria.map((c, i) => (
                       <div key={i} className="flex items-center gap-2 text-xs">
                         <span className={`w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-black ${
                           c.met 
                             ? "bg-emerald-100 text-emerald-600 border border-emerald-200" 
-                            : "bg-[#5A2A1F]/5 text-[#5A2A1F]/40 border border-[#5A2A1F]/10"
+                            : "bg-primary/5 text-primary/40 border border-primary/10"
                         }`}>
                           {c.met ? "✓" : "•"}
                         </span>
-                        <span className={c.met ? "text-emerald-700 font-medium" : "text-[#5A2A1F]/60"}>
+                        <span className={c.met ? "text-emerald-700 font-medium" : "text-primary/60"}>
                           {c.label}
                         </span>
                       </div>
@@ -665,11 +665,11 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
             </div>
 
             <div>
-              <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2">
+              <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">
                 Confirm New Password
               </label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#5A2A1F]/40">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary/40">
                   <Lock size={16} />
                 </div>
                 <input
@@ -678,12 +678,12 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
                   value={confirmNewPassword}
                   onChange={(e) => setConfirmNewPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full pl-11 pr-12 py-3.5 border border-[#5A2A1F]/20 rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 focus:ring-[#5A2A1F]/20 text-sm font-medium"
+                  className="w-full pl-11 pr-12 py-3.5 border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm font-medium"
                 />
                 <button
                   type="button"
                   onClick={() => setShowConfirmNewPassword(!showConfirmNewPassword)}
-                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-[#5A2A1F]/40 hover:text-[#5A2A1F] transition-colors focus:outline-none"
+                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-primary/40 hover:text-primary transition-colors focus:outline-none"
                 >
                   {showConfirmNewPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                 </button>
@@ -707,7 +707,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
             <button
               type="submit"
               disabled={loading || !isResetPasswordStrong || !doResetPasswordsMatch}
-              className="w-full mt-4 bg-[#5A2A1F] hover:bg-black text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-sm shadow-lg hover:shadow-xl active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full mt-4 bg-primary hover:bg-black text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-sm shadow-lg hover:shadow-xl active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
@@ -720,7 +720,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
               <button
                 type="button"
                 onClick={() => { setForgotStep("none"); setError(""); }}
-                className="text-[#8B3A2B] hover:underline uppercase tracking-wider text-[10px] font-black"
+                className="text-secondary hover:underline uppercase tracking-wider text-[10px] font-black"
               >
                 Back to Sign In
               </button>
