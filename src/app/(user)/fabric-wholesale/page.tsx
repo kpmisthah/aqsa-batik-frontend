@@ -203,21 +203,18 @@ export default async function WholesalePage() {
     ];
 
     return (
-        <div className="min-h-screen bg-[#F5F1EC] text-[#5A2A1F] font-playfair selection:bg-[#5A2A1F] selection:text-white scroll-smooth underline-offset-4">
+        <div className="min-h-screen bg-cream text-primary font-heading selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
             <title>Fabric Wholesale in India for Batik Clothing & Bulk Orders | AQSHA BATIK</title>
             <meta name="description" content="Direct Batik Manufacturer from Ujjain. Supply high-demand batik fabric wholesale, premium batik print material, and consistent inventory for boutiques and resellers across India." />
 
             <style>{`
-                @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
-                .font-playfair { font-family: 'Playfair Display', serif; }
-                .font-sans { font-family: 'Playfair Display', serif; }
-                .bg-pattern { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM24 30V26h-2v4h-4v2h4v4h2v-4h4v-2h-4z' fill='%235A2A1F' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E"); }
+                .bg-pattern { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM24 30V26h-2v4h-4v2h4v4h2v-4h4v-2h-4z' fill='%231A1A1A' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E"); }
             `}</style>
 
             <Nav />
 
             {/* ── HERO SECTION ── */}
-            <section className="relative min-h-[60svh] md:min-h-screen w-full flex items-end md:items-center pb-8 md:pb-0 overflow-hidden bg-[#5A2A1F]">
+            <section className="relative min-h-[60svh] md:min-h-screen w-full flex items-end md:items-center pb-8 md:pb-0 overflow-hidden bg-primary">
                 <div className="absolute inset-0 z-0">
                     <Image
                         key={heroBannerUrl}
@@ -234,24 +231,26 @@ export default async function WholesalePage() {
                 <div className="relative z-10 max-w-[1500px] mx-auto px-5 md:px-10 w-full flex justify-start text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
                     <div className="flex flex-col gap-4 md:gap-10 items-start text-left max-w-5xl">
                         <div className="flex items-center gap-2 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-1.5 md:px-6 md:py-2 rounded-full border border-white/20 w-fit">
-                            <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#FFD700] animate-pulse"></span>
+                            <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-tan animate-pulse"></span>
                             <span className="text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em]">Direct Batik Manufacturer from Ujjain</span>
                         </div>
 
                         <div className="flex flex-col gap-2 md:gap-6">
-                            <h1 className="font-playfair text-2xl md:text-4xl font-bold leading-[1.2] md:leading-[1.3] tracking-tight">
-                                <span className='hero-highlight'>Wholesale Cotton Dresses</span> in India <br /> for <span className='hero-highlight'>Batik Clothing</span> & <span className='hero-highlight'>Bulk Orders</span>
+                            <h1 className="text-h1">
+                                <span className='text-accent'>Wholesale Cotton</span> Dresses <br />
+                                in India for Batik Clothing & <br />
+                                <span className='text-accent'>Bulk Orders</span>
                             </h1>
-                            <p className="font-playfair text-xs md:text-2xl font-medium tracking-tight opacity-95 leading-[1.3] md:leading-relaxed mt-1 md:mt-2 max-w-[280px] md:max-w-4xl">
+                            <p className="text-h3 opacity-90 mt-1 md:mt-2 max-w-[280px] md:max-w-5xl text-white/90">
                                 Stop guessing what will sell. Work with a direct manufacturer supplying high-demand batik fabric wholesale, premium batik print material, and consistent inventory for boutiques, resellers, and growing batik clothing brands across India.
                             </p>
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-3 md:gap-6 pt-2 md:pt-10 items-start justify-start w-full">
-                            <a href={WA} target="_blank" rel="noreferrer" className="inline-block bg-[#FFD700] text-[#5A2A1F] px-4 py-3 md:px-8 md:py-4.5 rounded-[10px] md:rounded-[18px] font-black text-sm md:text-xl shadow-[0_15px_40px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 transition-all duration-300 uppercase tracking-wider border-b-2 md:border-b-4 border-black/10 w-full sm:w-auto text-center">
+                            <a href={WA} target="_blank" rel="noreferrer" className="inline-block bg-accent text-primary px-6 py-3.5 md:px-10 md:py-4 rounded-xl font-bold text-sm md:text-lg hover:-translate-y-1 hover:shadow-2xl hover:brightness-105 active:scale-95 transition-all duration-300 uppercase tracking-widest text-center w-full sm:w-auto">
                                 Contact for Bulk Orders
                             </a>
-                            <a href="#collection" className="inline-block bg-white/10 backdrop-blur-md text-white border-2 border-white/30 px-4 py-3 md:px-8 md:py-4.5 rounded-[10px] md:rounded-[18px] font-black text-sm md:text-xl shadow-[0_15px_40px_rgba(0,0,0,0.2)] hover:bg-white hover:text-[#5A2A1F] active:scale-95 transition-all duration-300 uppercase tracking-wider w-full sm:w-auto text-center">
+                            <a href="#collection" className="inline-block border border-white/40 text-white hover:bg-white hover:text-primary px-6 py-3.5 md:px-10 md:py-4 rounded-xl font-bold text-sm md:text-lg hover:-translate-y-1 hover:shadow-2xl active:scale-95 transition-all duration-300 uppercase tracking-widest text-center w-full sm:w-auto">
                                 View Collections
                             </a>
                         </div>
@@ -265,7 +264,7 @@ export default async function WholesalePage() {
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-12 md:gap-20">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center max-w-6xl mx-auto w-full">
                         <div className="flex flex-col gap-6 md:gap-10 text-center lg:text-left">
-                            <h2 className="font-playfair text-2xl md:text-4xl font-bold leading-tight">If your current supplier is giving you...</h2>
+                            <h2 className="font-heading text-2xl md:text-4xl font-bold leading-tight">If your current supplier is giving you...</h2>
                             <div className="flex flex-col gap-3 md:gap-4 mx-auto lg:mx-0 text-left">
                                 {["Inconsistent quality", "Slow-moving designs", "Low margins"].map((item, i) => (
                                     <div key={i} className="flex items-center gap-3 md:gap-5 text-lg md:text-2xl font-bold opacity-60">
@@ -276,7 +275,7 @@ export default async function WholesalePage() {
                             </div>
                         </div>
                         <div className="p-8 md:p-16 bg-white/5 backdrop-blur-3xl rounded-[32px] md:rounded-[60px] border border-white/10 flex flex-col gap-6 md:gap-8 shadow-2xl text-center lg:text-left">
-                            <p className="text-xl md:text-3xl font-playfair font-bold text-[#FFD700] leading-snug">You don't have a sourcing problem. You have a supply system problem.</p>
+                            <p className="text-xl md:text-3xl font-heading font-bold text-accent leading-snug">You don't have a sourcing problem. You have a supply system problem.</p>
                             <h3 className="text-2xl md:text-4xl font-black italic">We fix that.</h3>
                             <p className="text-[13px] md:text-lg opacity-70 leading-relaxed font-medium">AQSHA Batik Cloth is a 15+ year manufacturer specialising in high-demand, high-rotation batik dress materials.</p>
                         </div>
@@ -288,20 +287,20 @@ export default async function WholesalePage() {
             <section id="collection" className="py-16 md:py-24 px-6 bg-white relative overflow-hidden">
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-12 md:gap-16">
                     <div className="flex flex-col gap-3 md:gap-6 text-center items-center mx-auto max-w-4xl">
-                        <span className="text-[10px] md:text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Built for Real Market Use</span>
-                        <h2 className="font-playfair text-2xl md:text-4xl font-bold text-[#5A2A1F] leading-tight">Wholesale Fabric That Supports Every Batik Business Need</h2>
-                        <p className="text-[13px] md:text-xl text-[#5A2A1F]/80 font-medium leading-relaxed italic mt-2 text-left md:text-center w-full">From boutique collections to bulk supply, our batik fabric wholesale is designed for consistent demand—ideal for batik clothing, printed dresses for women, and scalable retail inventory across India.</p>
+                        <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">Built for Real Market Use</span>
+                        <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary leading-tight">Wholesale Fabric That Supports Every Batik Business Need</h2>
+                        <p className="text-[13px] md:text-xl text-primary/80 font-medium leading-relaxed italic mt-2 text-left md:text-center w-full">From boutique collections to bulk supply, our batik fabric wholesale is designed for consistent demand—ideal for batik clothing, printed dresses for women, and scalable retail inventory across India.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
                         {wholesaleCapabilities.map((item, i) => (
-                            <div key={i} className="p-4 md:p-8 bg-white rounded-[20px] md:rounded-[32px] border border-[#5A2A1F]/5 group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 text-left md:text-center flex flex-row md:flex-col items-start md:items-center gap-4 md:gap-6">
-                                <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-[20px] bg-[#F5F1EC] text-[#5A2A1F] flex items-center justify-center group-hover:bg-[#5A2A1F] group-hover:text-white transition-colors duration-500 shrink-0 [&>svg]:!w-6 [&>svg]:!h-6 md:[&>svg]:!w-8 md:[&>svg]:!h-8">
+                            <div key={i} className="p-4 md:p-8 bg-white rounded-[20px] md:rounded-[32px] border border-primary/5 group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 text-left md:text-center flex flex-row md:flex-col items-start md:items-center gap-4 md:gap-6">
+                                <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-[20px] bg-cream text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-500 shrink-0 [&>svg]:!w-6 [&>svg]:!h-6 md:[&>svg]:!w-8 md:[&>svg]:!h-8">
                                     {item.i}
                                 </div>
                                 <div className="flex flex-col gap-1 md:gap-3 flex-1">
-                                    <h3 className="text-base md:text-xl font-black uppercase tracking-tight text-[#5A2A1F]">{item.t}</h3>
-                                    <p className="text-[13px] md:text-base text-[#5A2A1F]/70 font-medium leading-relaxed">{item.d}</p>
+                                    <h3 className="text-base md:text-xl font-black uppercase tracking-tight text-primary">{item.t}</h3>
+                                    <p className="text-[13px] md:text-base text-primary/70 font-medium leading-relaxed">{item.d}</p>
                                 </div>
                             </div>
                         ))}
@@ -309,9 +308,9 @@ export default async function WholesalePage() {
 
                     <div className="flex flex-col gap-8 md:gap-12 mt-6 md:mt-12">
                         <div className="flex flex-col gap-3 md:gap-4 text-center items-center mx-auto max-w-4xl">
-                            <span className="text-[10px] md:text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">High-Demand Fabric Library</span>
-                            <h2 className="font-playfair text-2xl md:text-4xl font-bold text-[#5A2A1F] leading-tight">Explore Signature Batik Dress Designs for Fabric Wholesale</h2>
-                            <p className="text-[13px] md:text-xl text-[#5A2A1F]/70 font-medium italic leading-relaxed mt-2 text-left md:text-center w-full">Discover best-selling batik patterns, consistent quality, and ready-to-move collections trusted by boutiques, fabric shops, cloth shops, and resellers across India.</p>
+                            <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">High-Demand Fabric Library</span>
+                            <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary leading-tight">Explore Signature Batik Dress Designs for Fabric Wholesale</h2>
+                            <p className="text-[13px] md:text-xl text-primary/70 font-medium italic leading-relaxed mt-2 text-left md:text-center w-full">Discover best-selling batik patterns, consistent quality, and ready-to-move collections trusted by boutiques, fabric shops, cloth shops, and resellers across India.</p>
                         </div>
                         <ProductGrid products={displayProducts} columns={4} isWholesalePage={true} />
                     </div>
@@ -388,21 +387,21 @@ export default async function WholesalePage() {
             />
 
             {/* ── HOW TO START SECTION ── */}
-            <section className="py-16 md:py-24 px-6 bg-[#F5F1EC] text-[#5A2A1F] relative overflow-hidden">
+            <section className="py-16 md:py-24 px-6 bg-cream text-primary relative overflow-hidden">
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-12 md:gap-16 relative z-10">
                     <div className="flex flex-col gap-3 md:gap-4 max-w-4xl mx-auto w-full">
                         <div className="text-center flex flex-col gap-1 md:gap-2 items-center">
-                            <span className="text-[10px] md:text-sm font-black text-[#8B3A2B] uppercase tracking-[0.5em] mb-1 block">Simple Process</span>
-                            <h2 className="font-playfair text-2xl md:text-4xl font-bold leading-tight">How to Order Batik Fabric Online</h2>
+                            <span className="text-[10px] md:text-sm font-black text-secondary uppercase tracking-[0.5em] mb-1 block">Simple Process</span>
+                            <h2 className="font-heading text-2xl md:text-4xl font-bold leading-tight">How to Order Batik Fabric Online</h2>
                         </div>
-                        <p className="text-[13px] md:text-xl text-[#5A2A1F]/70 font-medium italic mx-0 lg:mx-auto leading-relaxed text-left md:text-center mt-2">
+                        <p className="text-[13px] md:text-xl text-primary/70 font-medium italic mx-0 lg:mx-auto leading-relaxed text-left md:text-center mt-2">
                             Five simple steps. Zero confusion. Fast delivery of premium batik fabric, Batik Cloth, trending batik color collections, and quality cotton cloth across India.
                         </p>
                     </div>
 
                     <div className="relative grid grid-cols-2 lg:flex lg:flex-row justify-between gap-6 md:gap-10 lg:gap-6 mt-2 md:mt-0">
                         {/* Connector Line (Desktop) */}
-                        <div className="hidden lg:block absolute top-[32px] left-[10%] right-[10%] h-[1px] bg-[#5A2A1F]/10 z-0"></div>
+                        <div className="hidden lg:block absolute top-[32px] left-[10%] right-[10%] h-[1px] bg-primary/10 z-0"></div>
 
                         {[
                             {
@@ -452,21 +451,21 @@ export default async function WholesalePage() {
                             }
                         ].map((step, i) => (
                             <div key={i} className={`flex flex-col items-center text-center gap-2 md:gap-4 lg:w-1/5 relative z-10 ${i === 4 ? "col-span-2 lg:col-span-1" : ""}`}>
-                                <div className="w-10 h-10 md:w-16 md:h-16 bg-white rounded-[12px] md:rounded-[24px] shadow-lg flex items-center justify-center text-[#5A2A1F] hover:scale-110 transition-all duration-500 cursor-default border border-[#5A2A1F]/5 relative group">
-                                    <span className="absolute -top-1.5 -left-1.5 md:-top-2 md:-left-2 w-5 h-5 md:w-6 md:h-6 bg-[#8B3A2B] text-white text-[8px] md:text-[9px] font-black rounded-full flex items-center justify-center shadow-md">{step.s}</span>
+                                <div className="w-10 h-10 md:w-16 md:h-16 bg-white rounded-[12px] md:rounded-[24px] shadow-lg flex items-center justify-center text-primary hover:scale-110 transition-all duration-500 cursor-default border border-primary/5 relative group">
+                                    <span className="absolute -top-1.5 -left-1.5 md:-top-2 md:-left-2 w-5 h-5 md:w-6 md:h-6 bg-secondary text-white text-[8px] md:text-[9px] font-black rounded-full flex items-center justify-center shadow-md">{step.s}</span>
                                     {step.i}
                                 </div>
                                 <div className="flex flex-col gap-1 md:gap-1.5 px-1 md:px-2">
-                                    <h4 className="text-[11px] md:text-lg font-black tracking-tight text-[#5A2A1F] leading-tight">{step.t}</h4>
-                                    <p className="text-[9px] md:text-xs text-[#5A2A1F]/60 font-medium leading-relaxed">{step.d}</p>
+                                    <h4 className="text-[11px] md:text-lg font-black tracking-tight text-primary leading-tight">{step.t}</h4>
+                                    <p className="text-[9px] md:text-xs text-primary/60 font-medium leading-relaxed">{step.d}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
 
                     <div className="flex justify-center mt-6 md:mt-12">
-                        <a href={WA} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 md:gap-4 bg-[#5A2A1F] text-white px-4 py-3 md:px-10 md:py-5 rounded-xl md:rounded-3xl font-bold text-[11px] md:text-xl shadow-[0_15px_40px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 transition-all duration-300 uppercase tracking-widest group text-center">
-                            <span className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-[#FFD700] animate-pulse shrink-0"></span>
+                        <a href={WA} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 md:gap-4 bg-primary text-white px-4 py-3 md:px-10 md:py-5 rounded-xl md:rounded-3xl font-bold text-[11px] md:text-xl shadow-[0_15px_40px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 transition-all duration-300 uppercase tracking-widest group text-center">
+                            <span className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-tan animate-pulse shrink-0"></span>
                             START YOUR ORDER ON WHATSAPP
                         </a>
                     </div>
@@ -477,9 +476,9 @@ export default async function WholesalePage() {
             <section className="py-16 md:py-32 px-6 bg-white">
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
                     <div className="flex flex-col gap-3 md:gap-6 text-center items-center max-w-3xl mx-auto w-full">
-                        <span className="text-[10px] md:text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Next Step</span>
-                        <h2 className="font-playfair text-2xl md:text-4xl font-bold text-[#5A2A1F] leading-tight">Continue Your Sourcing Journey</h2>
-                        <p className="text-[13px] md:text-xl text-[#5A2A1F]/60 font-medium italic leading-relaxed mt-2 text-left md:text-center w-full">
+                        <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">Next Step</span>
+                        <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary leading-tight">Continue Your Sourcing Journey</h2>
+                        <p className="text-[13px] md:text-xl text-primary/60 font-medium italic leading-relaxed mt-2 text-left md:text-center w-full">
                             Explore our batik suit designs, evaluate fabric options, or move directly to bulk ordering—built for businesses ready to scale.
                         </p>
                     </div>
@@ -519,10 +518,10 @@ export default async function WholesalePage() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 md:opacity-80"></div>
                                 <div className="absolute bottom-4 left-4 right-4 md:bottom-10 md:left-10 md:right-10 flex flex-col gap-2 md:gap-4">
-                                    <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#FFD700] bg-white/10 backdrop-blur-md px-2 py-1 md:px-4 md:py-1.5 rounded-full w-fit border border-white/20">{item.tag}</span>
-                                    <h4 className="text-white text-base md:text-3xl font-playfair font-bold leading-tight">{item.t}</h4>
+                                    <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-accent bg-white/10 backdrop-blur-md px-2 py-1 md:px-4 md:py-1.5 rounded-full w-fit border border-white/20">{item.tag}</span>
+                                    <h4 className="text-white text-base md:text-3xl font-heading font-bold leading-tight">{item.t}</h4>
                                     <p className="text-white/70 font-medium text-[9px] md:text-sm leading-relaxed opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 line-clamp-2">{item.d}</p>
-                                    <div className="hidden md:flex items-center gap-3 text-[#FFD700] font-black uppercase text-[10px] tracking-widest mt-2 group-hover:gap-5 transition-all">
+                                    <div className="hidden md:flex items-center gap-3 text-accent font-black uppercase text-[10px] tracking-widest mt-2 group-hover:gap-5 transition-all">
                                         Explore Collection
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
                                     </div>
@@ -534,12 +533,12 @@ export default async function WholesalePage() {
             </section>
 
             {/* ── SECTION: EDITORIAL CORNER ── */}
-            <section className="py-16 md:py-32 px-6 bg-[#F5F1EC]">
+            <section className="py-16 md:py-32 px-6 bg-cream">
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
                     <div className="flex flex-col gap-3 md:gap-6 text-center items-center max-w-4xl mx-auto w-full">
-                        <span className="text-[10px] md:text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Editorial Corner</span>
-                        <h2 className="font-playfair text-2xl md:text-4xl font-bold text-[#5A2A1F] leading-tight">The Batik Wholesale Fabric Journal</h2>
-                        <p className="text-[13px] md:text-xl text-[#5A2A1F]/60 font-medium italic leading-relaxed mt-2 text-left md:text-center w-full">Insights on fabric wholesale, sourcing strategies, trending batik clothing, and practical dress design ideas to help boutiques and resellers choose the right stock, improve margins, and scale with confidence.</p>
+                        <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">Editorial Corner</span>
+                        <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary leading-tight">The Batik Wholesale Fabric Journal</h2>
+                        <p className="text-[13px] md:text-xl text-primary/60 font-medium italic leading-relaxed mt-2 text-left md:text-center w-full">Insights on fabric wholesale, sourcing strategies, trending batik clothing, and practical dress design ideas to help boutiques and resellers choose the right stock, improve margins, and scale with confidence.</p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10">
@@ -566,18 +565,18 @@ export default async function WholesalePage() {
                                 img: "/journal_business.png"
                             }
                         ].map((post, i) => (
-                            <div key={i} className={`bg-white rounded-[24px] md:rounded-[40px] overflow-hidden shadow-xl border border-[#5A2A1F]/5 group cursor-pointer hover:shadow-2xl transition-all duration-500 flex flex-col ${i === 2 ? "col-span-2 md:col-span-1 flex-row md:flex-col" : ""}`}>
+                            <div key={i} className={`bg-white rounded-[24px] md:rounded-[40px] overflow-hidden shadow-xl border border-primary/5 group cursor-pointer hover:shadow-2xl transition-all duration-500 flex flex-col ${i === 2 ? "col-span-2 md:col-span-1 flex-row md:flex-col" : ""}`}>
                                 <div className={`relative overflow-hidden shrink-0 ${i === 2 ? "w-1/3 md:w-full h-28 md:h-64" : "h-32 md:h-64"}`}>
                                     <Image src={post.img} alt={post.t} layout="fill" objectFit="cover" objectPosition="top" className="group-hover:scale-110 transition-transform duration-700" />
                                     <div className="absolute top-2 left-2 md:top-6 md:left-6">
-                                        <span className="bg-white/90 backdrop-blur-md px-2 py-1 md:px-4 md:py-1.5 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-widest text-[#5A2A1F]">{post.c}</span>
+                                        <span className="bg-white/90 backdrop-blur-md px-2 py-1 md:px-4 md:py-1.5 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-widest text-primary">{post.c}</span>
                                     </div>
                                 </div>
                                 <div className={`p-4 md:p-10 flex flex-col gap-2 md:gap-4 flex-1 justify-center`}>
-                                    <h4 className="text-[13px] md:text-2xl font-playfair font-bold text-[#5A2A1F] leading-tight">{post.t}</h4>
+                                    <h4 className="text-[13px] md:text-2xl font-heading font-bold text-primary leading-tight">{post.t}</h4>
                                     <div className="flex justify-between items-center mt-auto md:mt-4">
-                                        <span className="text-[9px] md:text-xs font-medium text-[#5A2A1F]/40 uppercase tracking-widest">{post.date}</span>
-                                        <div className="hidden md:flex items-center gap-2 text-[#8B3A2B] font-bold text-[10px] uppercase tracking-widest">
+                                        <span className="text-[9px] md:text-xs font-medium text-primary/40 uppercase tracking-widest">{post.date}</span>
+                                        <div className="hidden md:flex items-center gap-2 text-secondary font-bold text-[10px] uppercase tracking-widest">
                                             Read More
                                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
                                         </div>
@@ -592,36 +591,36 @@ export default async function WholesalePage() {
 
 
             {/* ── SECTION: MOQ & TARGET ── */}
-            <section className="py-16 md:py-32 px-6 bg-[#E8D9C0] relative overflow-hidden text-[#5A2A1F]">
+            <section className="py-16 md:py-32 px-6 bg-tan relative overflow-hidden text-primary">
                 <div className="absolute inset-0 bg-pattern opacity-[0.05]"></div>
                 <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 relative z-10 items-center">
                     <div className="bg-white p-6 md:p-16 rounded-[24px] md:rounded-[60px] shadow-2xl flex flex-col gap-4 md:gap-8 border border-white">
                         <div className="flex flex-col gap-1 md:gap-3">
-                            <span className="text-[9px] md:text-xs font-black text-[#8B3A2B] uppercase tracking-[0.4em]">Commercial Terms</span>
-                            <h2 className="font-playfair text-2xl md:text-4xl font-bold text-[#5A2A1F] leading-tight">Minimum Order Requirement</h2>
+                            <span className="text-[9px] md:text-xs font-black text-secondary uppercase tracking-[0.4em]">Commercial Terms</span>
+                            <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary leading-tight">Minimum Order Requirement</h2>
                         </div>
                         <div className="flex flex-col gap-3 md:gap-6">
-                            <div className="flex items-center justify-between py-3 md:py-6 border-b border-[#5A2A1F]/10">
-                                <span className="font-black uppercase text-[10px] md:text-sm tracking-widest text-[#8B3A2B]">Minimum Billing</span>
+                            <div className="flex items-center justify-between py-3 md:py-6 border-b border-primary/10">
+                                <span className="font-black uppercase text-[10px] md:text-sm tracking-widest text-secondary">Minimum Billing</span>
                                 <span className="text-xl md:text-4xl font-black">₹25,000</span>
                             </div>
-                            <p className="text-[12px] md:text-lg font-medium text-[#5A2A1F]/70 italic leading-snug md:leading-relaxed">
+                            <p className="text-[12px] md:text-lg font-medium text-primary/70 italic leading-snug md:leading-relaxed">
                                 Bulk pricing available for larger volumes. Flexible repeat order structures for regular buyers. We work with serious retail partners ONLY.
                             </p>
                         </div>
-                        <a href={WA} target="_blank" rel="noreferrer" className="w-full bg-[#5A2A1F] text-white py-3 md:py-6 rounded-xl md:rounded-2xl font-black text-[12px] md:text-xl hover:scale-105 transition-all shadow-xl text-center uppercase tracking-widest mt-1 md:mt-2">
+                        <a href={WA} target="_blank" rel="noreferrer" className="w-full bg-primary text-white py-3 md:py-6 rounded-xl md:rounded-2xl font-black text-[12px] md:text-xl hover:scale-105 transition-all shadow-xl text-center uppercase tracking-widest mt-1 md:mt-2">
                             Request Wholesale Quote
                         </a>
                     </div>
-                    <div className="flex flex-col gap-6 md:gap-12 text-[#5A2A1F]">
+                    <div className="flex flex-col gap-6 md:gap-12 text-primary">
                         <div className="flex flex-col gap-2 md:gap-4 text-center lg:text-left">
-                            <span className="text-[10px] md:text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Who This Is For</span>
-                            <h3 className="font-playfair text-xl md:text-4xl font-bold leading-tight">Built for serious clothing retailers</h3>
+                            <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">Who This Is For</span>
+                            <h3 className="font-heading text-xl md:text-4xl font-bold leading-tight">Built for serious clothing retailers</h3>
                         </div>
                         <div className="grid grid-cols-2 gap-3 md:gap-6">
                             {targetAudience.map((item, i) => (
                                 <div key={i} className="p-4 md:p-8 bg-white/40 backdrop-blur-md rounded-[16px] md:rounded-3xl border border-white/50 flex flex-col items-center sm:items-start gap-2 md:gap-3 text-center sm:text-left">
-                                    <span className="flex items-center justify-center w-10 h-10 md:w-14 md:h-14 rounded-[10px] md:rounded-[16px] bg-white/60 text-[#5A2A1F] [&>svg]:!w-5 [&>svg]:!h-5 md:[&>svg]:!w-8 md:[&>svg]:!h-8">
+                                    <span className="flex items-center justify-center w-10 h-10 md:w-14 md:h-14 rounded-[10px] md:rounded-[16px] bg-white/60 text-primary [&>svg]:!w-5 [&>svg]:!h-5 md:[&>svg]:!w-8 md:[&>svg]:!h-8">
                                         {item.i}
                                     </span>
                                     <div className="flex flex-col gap-1 md:gap-2">
@@ -636,26 +635,26 @@ export default async function WholesalePage() {
             </section>
 
             {/* ── SECTION: BUSINESS ADVANTAGE ── */}
-            <section className="py-16 md:py-32 px-6 bg-white overflow-hidden text-[#5A2A1F]">
+            <section className="py-16 md:py-32 px-6 bg-white overflow-hidden text-primary">
                 <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center">
-                    <div className="relative h-[400px] md:h-[700px] rounded-[40px] md:rounded-[100px] overflow-hidden shadow-2xl group border-[10px] md:border-[20px] border-[#F5F1EC]">
+                    <div className="relative h-[400px] md:h-[700px] rounded-[40px] md:rounded-[100px] overflow-hidden shadow-2xl group border-[10px] md:border-[20px] border-cream">
                         <Image src="/dresses-for-women-image.webp" alt="Manufacturer Advantage" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[3s]" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#5A2A1F]/90 via-[#5A2A1F]/40 to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
                         <div className="absolute bottom-6 left-6 right-6 md:bottom-16 md:left-16 md:right-16 flex flex-col gap-3 md:gap-6">
-                            <h4 className="text-white text-[22px] md:text-4xl font-playfair font-bold leading-tight">"Their products don't sit in inventory. They sell."</h4>
+                            <h4 className="text-white text-[22px] md:text-4xl font-heading font-bold leading-tight">"Their products don't sit in inventory. They sell."</h4>
                             <div className="flex gap-2 md:gap-4">
-                                <span className="bg-[#FFD700] p-1.5 md:p-2 rounded text-[10px] md:text-base text-[#5A2A1F]">★</span>
-                                <span className="bg-[#FFD700] p-1.5 md:p-2 rounded text-[10px] md:text-base text-[#5A2A1F]">★</span>
-                                <span className="bg-[#FFD700] p-1.5 md:p-2 rounded text-[10px] md:text-base text-[#5A2A1F]">★</span>
-                                <span className="bg-[#FFD700] p-1.5 md:p-2 rounded text-[10px] md:text-base text-[#5A2A1F]">★</span>
-                                <span className="bg-[#FFD700] p-1.5 md:p-2 rounded text-[10px] md:text-base text-[#5A2A1F]">★</span>
+                                <span className="bg-accent p-1.5 md:p-2 rounded text-[10px] md:text-base text-primary">★</span>
+                                <span className="bg-accent p-1.5 md:p-2 rounded text-[10px] md:text-base text-primary">★</span>
+                                <span className="bg-accent p-1.5 md:p-2 rounded text-[10px] md:text-base text-primary">★</span>
+                                <span className="bg-accent p-1.5 md:p-2 rounded text-[10px] md:text-base text-primary">★</span>
+                                <span className="bg-accent p-1.5 md:p-2 rounded text-[10px] md:text-base text-primary">★</span>
                             </div>
                         </div>
                     </div>
                     <div className="flex flex-col gap-8 md:gap-12">
                         <div className="flex flex-col gap-3 md:gap-6 text-center lg:text-left">
-                            <span className="text-[10px] md:text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">The Market Reality</span>
-                            <h2 className="font-playfair text-2xl md:text-4xl font-bold leading-tight">Most sellers compete on price. Our clients compete on demand.</h2>
+                            <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">The Market Reality</span>
+                            <h2 className="font-heading text-2xl md:text-4xl font-bold leading-tight">Most sellers compete on price. Our clients compete on demand.</h2>
                         </div>
                         <div className="flex flex-col gap-5 md:gap-8">
                             {[
@@ -663,11 +662,11 @@ export default async function WholesalePage() {
                                 { t: "Cotton fabric = Every-day necessity", d: "Breathable material that ensures repeat buys and customer loyalty." },
                                 { t: "Affordable pricing = Direct margins", d: "Manufacturer Pricing lets you win the price war while keeping your profit." }
                             ].map((item, i) => (
-                                <div key={i} className="flex gap-4 md:gap-6 items-start bg-[#F5F1EC] md:bg-transparent p-4 md:p-0 rounded-[16px] md:rounded-none">
-                                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white md:bg-[#E8D9C0] flex items-center justify-center text-[#5A2A1F] font-black shrink-0 text-[10px] md:text-base shadow-sm md:shadow-none">✔</div>
+                                <div key={i} className="flex gap-4 md:gap-6 items-start bg-cream md:bg-transparent p-4 md:p-0 rounded-[16px] md:rounded-none">
+                                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white md:bg-tan flex items-center justify-center text-primary font-black shrink-0 text-[10px] md:text-base shadow-sm md:shadow-none">✔</div>
                                     <div className="flex flex-col gap-1 text-left">
                                         <h4 className="font-bold text-[15px] md:text-xl leading-tight">{item.t}</h4>
-                                        <p className="text-[12px] md:text-base text-[#5A2A1F]/70 font-medium leading-relaxed">{item.d}</p>
+                                        <p className="text-[12px] md:text-base text-primary/70 font-medium leading-relaxed">{item.d}</p>
                                     </div>
                                 </div>
                             ))}
