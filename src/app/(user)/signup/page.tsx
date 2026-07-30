@@ -176,24 +176,24 @@ export default function SignupPage() {
   return (
     <div className="min-h-[80vh] flex items-center justify-center px-4 py-16 bg-[#FDFBF7]">
       <div 
-        className="relative w-full max-w-lg overflow-hidden rounded-[32px] border border-[#5A2A1F]/10 bg-[#F5F1EC] p-8 md:p-10 shadow-2xl"
+        className="relative w-full max-w-lg overflow-hidden rounded-[32px] border border-primary/10 bg-cream p-8 md:p-10 shadow-2xl"
       >
         {/* Decorative corner borders */}
-        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#8B3A2B]/30 rounded-tl-[32px]" />
-        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#8B3A2B]/30 rounded-tr-[32px]" />
-        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#8B3A2B]/30 rounded-bl-[32px]" />
-        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#8B3A2B]/30 rounded-br-[32px]" />
+        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-secondary/30 rounded-tl-[32px]" />
+        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-secondary/30 rounded-tr-[32px]" />
+        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-secondary/30 rounded-bl-[32px]" />
+        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-secondary/30 rounded-br-[32px]" />
 
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#8B3A2B]/10 text-[#8B3A2B] text-xs font-black uppercase tracking-widest mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-black uppercase tracking-widest mb-3">
             <Sparkles size={12} className="animate-pulse" />
             <span>AQSHA REGISTER</span>
           </div>
-          <h2 className="font-playfair text-3xl font-black text-[#5A2A1F] tracking-tight">
+          <h2 className="font-heading text-3xl font-black text-primary tracking-tight">
             Create Account
           </h2>
-          <p className="text-sm text-[#5A2A1F]/60 mt-2 font-medium">
+          <p className="text-sm text-primary/60 mt-2 font-medium">
             Register to explore exclusive batik dress materials and wholesale rates
           </p>
         </div>
@@ -219,15 +219,15 @@ export default function SignupPage() {
         {isOtpStep ? (
           <div>
             <div className="text-center mb-6">
-              <p className="text-sm text-[#5A2A1F]/70 font-medium">
+              <p className="text-sm text-primary/70 font-medium">
                 We've sent a 6-digit verification code to
               </p>
-              <p className="text-sm font-bold text-[#8B3A2B] mt-1">{email}</p>
+              <p className="text-sm font-bold text-secondary mt-1">{email}</p>
             </div>
 
             <form onSubmit={handleVerifyOtp} className="space-y-6">
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2 text-center">
+                <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2 text-center">
                   One-Time Password (OTP)
                 </label>
                 <input
@@ -237,14 +237,14 @@ export default function SignupPage() {
                   value={otp}
                   onChange={(e) => setOtp(e.target.value.replace(/\D/g, ""))}
                   placeholder="000000"
-                  className="w-full py-4 text-center tracking-[12px] text-2xl font-black border border-[#5A2A1F]/20 rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/20 focus:outline-none focus:ring-2 focus:ring-[#5A2A1F]/20"
+                  className="w-full py-4 text-center tracking-[12px] text-2xl font-black border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/20"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={loading || otp.length !== 6}
-                className="w-full bg-[#5A2A1F] hover:bg-black text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-sm shadow-lg hover:shadow-xl active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-primary hover:bg-black text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-sm shadow-lg hover:shadow-xl active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? (
                   <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
@@ -259,7 +259,7 @@ export default function SignupPage() {
                 type="button"
                 onClick={() => handleEmailSignUp()}
                 disabled={loading}
-                className="text-xs font-bold text-[#8B3A2B] hover:underline uppercase tracking-wider text-[10px] font-black"
+                className="text-xs font-bold text-secondary hover:underline uppercase tracking-wider text-[10px] font-black"
               >
                 Resend Code
               </button>
@@ -269,8 +269,8 @@ export default function SignupPage() {
           <>
         
             <div className="relative my-6 text-center">
-              <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-[#5A2A1F]/10"></div></div>
-              <span className="relative px-4 text-xs font-bold text-[#5A2A1F]/40 uppercase tracking-widest bg-[#F5F1EC]">or</span>
+              <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-primary/10"></div></div>
+              <span className="relative px-4 text-xs font-bold text-primary/40 uppercase tracking-widest bg-cream">or</span>
             </div>
           </>
         )}
@@ -280,9 +280,9 @@ export default function SignupPage() {
           <>
             <form onSubmit={handleEmailSignUp} className="space-y-4" noValidate>
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2">Full Name</label>
+                <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Full Name</label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#5A2A1F]/40">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary/40">
                     <User size={16} />
                   </div>
                   <input
@@ -292,8 +292,8 @@ export default function SignupPage() {
                     onChange={(e) => { setName(e.target.value); if (nameError) setNameError(""); }}
                     placeholder="John Doe"
                     aria-invalid={!!nameError}
-                    className={`w-full pl-11 pr-4 py-3.5 border rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 text-sm font-medium ${
-                      nameError ? "border-red-400 focus:ring-red-200" : "border-[#5A2A1F]/20 focus:ring-[#5A2A1F]/20"
+                    className={`w-full pl-11 pr-4 py-3.5 border rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 text-sm font-medium ${
+                      nameError ? "border-red-400 focus:ring-red-200" : "border-primary/20 focus:ring-primary/20"
                     }`}
                   />
                 </div>
@@ -305,9 +305,9 @@ export default function SignupPage() {
               </div>
 
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2">Email Address</label>
+                <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Email Address</label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#5A2A1F]/40">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary/40">
                     <Mail size={16} />
                   </div>
                   <input
@@ -317,8 +317,8 @@ export default function SignupPage() {
                     onChange={(e) => { setEmail(e.target.value); if (emailError) setEmailError(""); }}
                     placeholder="yourname@example.com"
                     aria-invalid={!!emailError}
-                    className={`w-full pl-11 pr-4 py-3.5 border rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 text-sm font-medium ${
-                      emailError ? "border-red-400 focus:ring-red-200" : "border-[#5A2A1F]/20 focus:ring-[#5A2A1F]/20"
+                    className={`w-full pl-11 pr-4 py-3.5 border rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 text-sm font-medium ${
+                      emailError ? "border-red-400 focus:ring-red-200" : "border-primary/20 focus:ring-primary/20"
                     }`}
                   />
                 </div>
@@ -326,16 +326,16 @@ export default function SignupPage() {
                   <p className="mt-1.5 flex items-center gap-1.5 text-xs font-bold text-red-600">
                     <AlertCircle size={12} /> {emailError}
                     {emailError.toLowerCase().includes("exist") && (
-                      <Link href="/login" className="ml-1 underline text-[#8B3A2B]">Sign in instead</Link>
+                      <Link href="/login" className="ml-1 underline text-secondary">Sign in instead</Link>
                     )}
                   </p>
                 )}
               </div>
 
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2">Password</label>
+                <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Password</label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#5A2A1F]/40">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary/40">
                     <Lock size={16} />
                   </div>
                   <input
@@ -345,14 +345,14 @@ export default function SignupPage() {
                     onChange={(e) => { setPassword(e.target.value); if (passwordError) setPasswordError(""); }}
                     placeholder="••••••••"
                     aria-invalid={!!passwordError}
-                    className={`w-full pl-11 pr-12 py-3.5 border rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 text-sm font-medium ${
-                      passwordError ? "border-red-400 focus:ring-red-200" : "border-[#5A2A1F]/20 focus:ring-[#5A2A1F]/20"
+                    className={`w-full pl-11 pr-12 py-3.5 border rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 text-sm font-medium ${
+                      passwordError ? "border-red-400 focus:ring-red-200" : "border-primary/20 focus:ring-primary/20"
                     }`}
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-[#5A2A1F]/40 hover:text-[#5A2A1F] transition-colors focus:outline-none"
+                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-primary/40 hover:text-primary transition-colors focus:outline-none"
                   >
                     {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>
@@ -367,7 +367,7 @@ export default function SignupPage() {
                 {password.length > 0 && (
                   <div className="mt-3 space-y-2 animate-fade-in">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="font-bold text-[#5A2A1F]/60">Password Strength:</span>
+                      <span className="font-bold text-primary/60">Password Strength:</span>
                       <span className={`font-black uppercase tracking-wider text-[10px] ${
                         metCount <= 2 ? "text-red-500" : metCount <= 4 ? "text-amber-500" : "text-emerald-600"
                       }`}>
@@ -378,7 +378,7 @@ export default function SignupPage() {
                     {/* Segmented Strength Bar */}
                     <div className="flex gap-1.5 h-1.5 w-full">
                       {[1, 2, 3, 4].map((index) => {
-                        let barColor = "bg-[#5A2A1F]/10";
+                        let barColor = "bg-primary/10";
                         if (metCount > 0) {
                           if (metCount <= 2 && index <= metCount) {
                             barColor = "bg-red-500";
@@ -398,18 +398,18 @@ export default function SignupPage() {
                     </div>
 
                     {/* Checklist */}
-                    <div className="p-3.5 bg-[#5A2A1F]/5 border border-[#5A2A1F]/10 rounded-2xl space-y-1.5">
-                      <p className="text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-1">Safety Requirements</p>
+                    <div className="p-3.5 bg-primary/5 border border-primary/10 rounded-2xl space-y-1.5">
+                      <p className="text-[10px] font-black uppercase tracking-widest text-secondary mb-1">Safety Requirements</p>
                       {passwordCriteria.map((c, i) => (
                         <div key={i} className="flex items-center gap-2 text-xs">
                           <span className={`w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-black ${
                             c.met 
                               ? "bg-emerald-100 text-emerald-600 border border-emerald-200" 
-                              : "bg-[#5A2A1F]/5 text-[#5A2A1F]/40 border border-[#5A2A1F]/10"
+                              : "bg-primary/5 text-primary/40 border border-primary/10"
                           }`}>
                             {c.met ? "✓" : "•"}
                           </span>
-                          <span className={c.met ? "text-emerald-700 font-medium" : "text-[#5A2A1F]/60"}>
+                          <span className={c.met ? "text-emerald-700 font-medium" : "text-primary/60"}>
                             {c.label}
                           </span>
                         </div>
@@ -421,9 +421,9 @@ export default function SignupPage() {
 
               {/* Confirm Password Field */}
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-[#8B3A2B] mb-2">Confirm Password</label>
+                <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Confirm Password</label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#5A2A1F]/40">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary/40">
                     <Lock size={16} />
                   </div>
                   <input
@@ -433,14 +433,14 @@ export default function SignupPage() {
                     onChange={(e) => { setConfirmPassword(e.target.value); if (confirmPasswordError) setConfirmPasswordError(""); }}
                     placeholder="••••••••"
                     aria-invalid={!!confirmPasswordError}
-                    className={`w-full pl-11 pr-12 py-3.5 border rounded-2xl text-[#5A2A1F] bg-white placeholder-[#5A2A1F]/30 focus:outline-none focus:ring-2 text-sm font-medium ${
-                      confirmPasswordError ? "border-red-400 focus:ring-red-200" : "border-[#5A2A1F]/20 focus:ring-[#5A2A1F]/20"
+                    className={`w-full pl-11 pr-12 py-3.5 border rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 text-sm font-medium ${
+                      confirmPasswordError ? "border-red-400 focus:ring-red-200" : "border-primary/20 focus:ring-primary/20"
                     }`}
                   />
                   <button
                     type="button"
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-[#5A2A1F]/40 hover:text-[#5A2A1F] transition-colors focus:outline-none"
+                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-primary/40 hover:text-primary transition-colors focus:outline-none"
                   >
                     {showConfirmPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>
@@ -469,7 +469,7 @@ export default function SignupPage() {
               <button
                 type="submit"
                 disabled={loading || (password.length > 0 && (!isPasswordStrong || !doPasswordsMatch))}
-                className="w-full mt-4 bg-[#5A2A1F] hover:bg-black text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-sm shadow-lg hover:shadow-xl active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full mt-4 bg-primary hover:bg-black text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-sm shadow-lg hover:shadow-xl active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? (
                   <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
@@ -481,9 +481,9 @@ export default function SignupPage() {
 
             {/* Toggle Option */}
             <div className="text-center mt-6">
-              <p className="text-xs font-bold text-[#5A2A1F]/60">
+              <p className="text-xs font-bold text-primary/60">
                 Already have an account?{" "}
-                <Link href="/login" className="text-[#8B3A2B] hover:underline uppercase tracking-wider text-[10px] font-black ml-1">
+                <Link href="/login" className="text-secondary hover:underline uppercase tracking-wider text-[10px] font-black ml-1">
                   Sign In
                 </Link>
               </p>
