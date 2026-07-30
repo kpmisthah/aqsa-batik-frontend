@@ -89,7 +89,7 @@ export default function ProductInteractive({ product }: { product: any }) {
                     ref={imageContainerRef}
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}
-                    className="relative aspect-square w-full rounded-3xl md:rounded-[40px] overflow-hidden shadow-2xl border border-[#5A2A1F]/5 bg-white cursor-none group"
+                    className="relative aspect-square w-full rounded-3xl md:rounded-[40px] overflow-hidden shadow-2xl border border-primary/5 bg-white cursor-none group"
                 >
                     <Image
                         src={selectedImage}
@@ -125,7 +125,7 @@ export default function ProductInteractive({ product }: { product: any }) {
                             <div 
                                 key={i} 
                                 onClick={() => setSelectedImage(img)}
-                                className={`aspect-square rounded-xl md:rounded-2xl overflow-hidden border-2 md:border-4 transition-all cursor-pointer ${selectedImage === img ? 'border-[#8B3A2B] scale-100 md:scale-105' : 'border-transparent hover:border-[#8B3A2B]/30'}`}
+                                className={`aspect-square rounded-xl md:rounded-2xl overflow-hidden border-2 md:border-4 transition-all cursor-pointer ${selectedImage === img ? 'border-secondary scale-100 md:scale-105' : 'border-transparent hover:border-secondary/30'}`}
                             >
                                 <Image src={img} alt={`Thumbnail ${i+1}`} width={200} height={200} objectFit="cover" objectPosition="top" className="brightness-95 hover:brightness-100 h-full" />
                             </div>
@@ -138,21 +138,21 @@ export default function ProductInteractive({ product }: { product: any }) {
             <div className="lg:col-span-5 flex flex-col gap-6 lg:gap-8 lg:sticky lg:top-32 h-fit">
                 <div className="flex flex-col gap-4">
                     {product.isBestSeller && (
-                        <div className="flex items-center gap-3 bg-[#8B3A2B]/5 border border-[#8B3A2B]/10 px-4 py-2 rounded-full w-fit">
-                            <span className="w-2 h-2 rounded-full bg-[#8B3A2B] animate-pulse"></span>
-                            <span className="text-xs font-black uppercase tracking-[0.2em] text-[#8B3A2B]">Best Seller</span>
+                        <div className="flex items-center gap-3 bg-secondary/5 border border-secondary/10 px-4 py-2 rounded-full w-fit">
+                            <span className="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                            <span className="text-xs font-black uppercase tracking-[0.2em] text-secondary">Best Seller</span>
                         </div>
                     )}
-                    <h1 className="font-playfair text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#5A2A1F] leading-[1.2] lg:leading-[1.1]">
+                    <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary leading-[1.2] lg:leading-[1.1]">
                         {product.name}
                     </h1>
                     <div className="flex items-center gap-4">
-                        <div className="flex text-[#FFD700] text-lg">{"★★★★★"}</div>
-                        <span className="text-xs font-black uppercase tracking-widest text-[#5A2A1F]/40">(4.9 • 1,200+ Reviews)</span>
+                        <div className="flex text-accent text-lg">{"★★★★★"}</div>
+                        <span className="text-xs font-black uppercase tracking-widest text-primary/40">(4.9 • 1,200+ Reviews)</span>
                     </div>
 
                     <div className="flex flex-col gap-6 mt-4">
-                        <p className="text-base md:text-lg lg:text-xl text-[#5A2A1F]/80 font-medium leading-[1.6] md:leading-[1.8] whitespace-pre-wrap">
+                        <p className="text-base md:text-lg lg:text-xl text-primary/80 font-medium leading-[1.6] md:leading-[1.8] whitespace-pre-wrap">
                             {product.description || "A premium, handcrafted addition to your collection. Designed with comfort and style in mind, this piece offers the perfect blend of ethnic charm and modern sophistication."}
                         </p>
                     </div>
@@ -161,15 +161,15 @@ export default function ProductInteractive({ product }: { product: any }) {
                 {/* Colours */}
                 {product.colours && product.colours.length > 0 && (
                     <div className="flex flex-col gap-3 md:gap-4 pt-2 md:pt-4">
-                        <h4 className="text-xs font-black uppercase tracking-widest text-[#5A2A1F]">
-                            Fabric Colors: <span className="text-[#8B3A2B]">{getCombinedColorName(product.colours)}</span>
+                        <h4 className="text-xs font-black uppercase tracking-widest text-primary">
+                            Fabric Colors: <span className="text-secondary">{getCombinedColorName(product.colours)}</span>
                         </h4>
                         <div className="flex items-center gap-4">
                             <div className="flex gap-3">
                                 {product.colours.map((color: string, i: number) => (
                                     <div 
                                         key={i} 
-                                        className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl border border-[#5A2A1F]/15 shadow-sm relative overflow-hidden"
+                                        className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl border border-primary/15 shadow-sm relative overflow-hidden"
                                         title={getColorName(color)}
                                     >
                                         <div style={{ backgroundColor: color }} className="w-full h-full rounded-lg"></div>
@@ -180,18 +180,18 @@ export default function ProductInteractive({ product }: { product: any }) {
                     </div>
                 )}
 
-                <div className="space-y-4 md:space-y-6 py-6 md:py-8 border-y border-[#5A2A1F]/10">
+                <div className="space-y-4 md:space-y-6 py-6 md:py-8 border-y border-primary/10">
                     <div className="flex items-center justify-between">
-                        <span className="text-sm font-black uppercase tracking-widest text-[#8B3A2B]">Retail Price</span>
+                        <span className="text-sm font-black uppercase tracking-widest text-secondary">Retail Price</span>
                         <div className="flex flex-col items-end">
-                            <span className="text-lg font-bold text-[#5A2A1F]">₹{product.discountPrice?.toLocaleString()}</span>
+                            <span className="text-lg font-bold text-primary">₹{product.discountPrice?.toLocaleString()}</span>
                             {product.fullPrice > product.discountPrice && (
-                                <span className="text-sm text-[#5A2A1F]/50 line-through">₹{product.fullPrice?.toLocaleString()}</span>
+                                <span className="text-sm text-primary/50 line-through">₹{product.fullPrice?.toLocaleString()}</span>
                             )}
                         </div>
                     </div>
                     <div className="flex items-center justify-between">
-                        <span className="text-sm font-black uppercase tracking-widest text-[#8B3A2B]">Wholesale/Bulk</span>
+                        <span className="text-sm font-black uppercase tracking-widest text-secondary">Wholesale/Bulk</span>
                         <span className="text-lg font-bold text-green-600">Contact for Rates</span>
                     </div>
                 </div>
@@ -212,14 +212,14 @@ export default function ProductInteractive({ product }: { product: any }) {
                     ) : (
                         <button 
                             onClick={handleAddToCart}
-                            className="flex items-center justify-center gap-2 md:gap-4 bg-[#5A2A1F] text-white px-4 py-4 md:px-8 md:py-6 rounded-xl md:rounded-2xl font-black text-base md:text-xl shadow-[0_10px_20px_rgba(90,42,31,0.2)] md:shadow-[0_20px_40px_rgba(90,42,31,0.2)] hover:bg-[#8B3A2B] hover:scale-[1.02] active:scale-95 transition-all uppercase tracking-wider md:tracking-widest"
+                            className="flex items-center justify-center gap-2 md:gap-4 bg-primary text-white px-4 py-4 md:px-8 md:py-6 rounded-xl md:rounded-2xl font-black text-base md:text-xl shadow-[0_10px_20px_rgba(90,42,31,0.2)] md:shadow-[0_20px_40px_rgba(90,42,31,0.2)] hover:bg-secondary hover:scale-[1.02] active:scale-95 transition-all uppercase tracking-wider md:tracking-widest"
                         >
                             Add to Cart
                         </button>
                     )}
                     <button 
                         onClick={handleAddToWishlist}
-                        className={`flex items-center justify-center gap-2 md:gap-4 border-2 px-4 py-3 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-black text-sm md:text-lg transition-all uppercase tracking-wider md:tracking-widest ${isWished ? 'bg-[#5A2A1F] text-white border-[#5A2A1F]' : 'bg-white text-[#5A2A1F] border-[#5A2A1F]/20 hover:border-[#5A2A1F] hover:bg-[#5A2A1F]/5'}`}
+                        className={`flex items-center justify-center gap-2 md:gap-4 border-2 px-4 py-3 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-black text-sm md:text-lg transition-all uppercase tracking-wider md:tracking-widest ${isWished ? 'bg-primary text-white border-primary' : 'bg-white text-primary border-primary/20 hover:border-primary hover:bg-primary/5'}`}
                     >
                         {isWished ? '❤️ Saved to Wishlist' : '🤍 Add to Wishlist'}
                     </button>
