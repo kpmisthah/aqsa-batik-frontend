@@ -71,7 +71,7 @@ export default function GoogleReviewBar() {
                 <div className="flex items-center gap-5 shrink-0">
                     {/* Logo mark */}
                     <div className="flex flex-col items-center leading-none select-none">
-                        <span className="font-playfair text-lg font-bold tracking-tight text-[#1a0f0a]">
+                        <span className="font-heading text-lg font-bold tracking-tight text-[#1a0f0a]">
                             AQSHA
                         </span>
                         <span className="text-[6px] font-black tracking-[0.2em] uppercase text-[#1a0f0a]/50">
