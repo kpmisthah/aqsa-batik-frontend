@@ -31,8 +31,8 @@ const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
             <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-6 lg:gap-16 items-center">
                 <div className="flex flex-col gap-5 md:gap-8">
                     <div className="flex flex-col gap-2 md:gap-3 text-center lg:text-left">
-                        <span className="text-[9px] md:text-[10px] font-bold text-[#FFD700] uppercase tracking-[0.3em]">{tag}</span>
-                        <h2 className="font-playfair text-xl md:text-4xl font-bold leading-[1.1]">{title}</h2>
+                        <span className="text-[9px] md:text-[10px] font-bold text-accent uppercase tracking-[0.3em]">{tag}</span>
+                        <h2 className="font-heading text-xl md:text-4xl font-bold leading-[1.1]">{title}</h2>
                     </div>
 
                     <div className="grid grid-cols-2 gap-2 md:gap-4">
@@ -45,7 +45,7 @@ const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
                                 </div>
                                 <div className="flex flex-col gap-1">
                                     <h4 className="text-[11px] md:text-base font-bold tracking-tight text-white leading-[1.15]" dangerouslySetInnerHTML={{ __html: feature.t }} />
-                                    <p className="text-[9px] md:text-[13px] text-[#FFD700] leading-tight font-medium opacity-90 group-hover:opacity-100 line-clamp-3 md:line-clamp-none" dangerouslySetInnerHTML={{ __html: feature.d }} />
+                                    <p className="text-[9px] md:text-[13px] text-accent leading-tight font-medium opacity-90 group-hover:opacity-100 line-clamp-3 md:line-clamp-none" dangerouslySetInnerHTML={{ __html: feature.d }} />
                                 </div>
                             </div>
                         ))}
@@ -59,7 +59,7 @@ const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
                     <div className="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-8">
-                        <p className="text-[15px] sm:text-lg md:text-2xl font-playfair font-bold text-white leading-snug drop-shadow-lg text-center lg:text-left">
+                        <p className="text-[15px] sm:text-lg md:text-2xl font-heading font-bold text-white leading-snug drop-shadow-lg text-center lg:text-left">
                             "{quote}"
                         </p>
                     </div>
