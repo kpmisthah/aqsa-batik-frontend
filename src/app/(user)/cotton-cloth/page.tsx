@@ -36,21 +36,18 @@ export default async function CottonClothPage() {
     const heroBannerUrl = await getHeroBanner();
 
     return (
-        <div className="min-h-screen bg-[#F5F1EC] text-[#5A2A1F] font-playfair selection:bg-[#5A2A1F] selection:text-white scroll-smooth underline-offset-4">
-            <title>Batik Printed Cotton Cloth & Cotton Fabric Online</title>
+        <div className="min-h-screen bg-cream text-primary font-heading selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
+            <title><span className='text-accent'>Batik Printed Cotton Cloth</span> & <span className='text-accent'>Cotton Fabric Online</span></title>
             <meta name="description" content="Shop premium batik printed cotton cloth, printed cotton fabric, and women dress material online. Breathable cotton fabric for daily wear and women fashion." />
 
             <style>{`
-                @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
-                .font-playfair { font-family: 'Playfair Display', serif; }
-                .font-sans { font-family: 'Playfair Display', serif; }
-                .bg-pattern { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM24 30V26h-2v4h-4v2h4v4h2v-4h4v-2h-4z' fill='%235A2A1F' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E"); }
+                .bg-pattern { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM24 30V26h-2v4h-4v2h4v4h2v-4h4v-2h-4z' fill='%231A1A1A' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E"); }
             `}</style>
 
             <Nav />
 
             {/* ── HERO BANNER ── */}
-            <section className="relative min-h-[60svh] md:min-h-screen w-full flex items-end md:items-center pb-8 md:pb-0 overflow-hidden bg-[#5A2A1F]">
+            <section className="relative min-h-[60svh] md:min-h-screen w-full flex items-end md:items-center pb-8 md:pb-0 overflow-hidden bg-primary">
                 <div className="absolute inset-0 z-0">
                     <Image
                         key={heroBannerUrl}
@@ -67,24 +64,25 @@ export default async function CottonClothPage() {
                 <div className="relative z-10 max-w-[1500px] mx-auto px-5 md:px-10 w-full flex justify-start text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
                     <div className="flex flex-col gap-4 md:gap-10 items-start text-left max-w-5xl">
                         <div className="flex items-center gap-2 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-1.5 md:px-6 md:py-2 rounded-full border border-white/20 w-fit">
-                            <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#FFD700] animate-pulse"></span>
+                            <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-tan animate-pulse"></span>
                             <span className="text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em]">Traditional Batik Craft. Modern Cotton Comfort.</span>
                         </div>
 
                         <div className="flex flex-col gap-2 md:gap-6">
-                            <h1 className="font-playfair text-2xl md:text-4xl font-bold leading-[1.2] md:leading-[1.3] tracking-tight">
-                                <span className='hero-highlight'>Batik Printed Cotton Cloth</span> & Premium <br className="hidden md:block" /> <span className='hero-highlight'>Cotton Fabric Online</span>
+                            <h1 className="text-h1">
+                                <span className='text-accent'>Batik Printed</span> Cotton Cloth & <br className="hidden md:block" />
+                                Premium Cotton <span className='text-accent'>Fabric Online</span>
                             </h1>
-                            <p className="font-playfair text-xs md:text-2xl font-medium tracking-tight opacity-95 leading-[1.3] md:leading-relaxed mt-1 md:mt-2 max-w-[280px] md:max-w-4xl">
+                            <p className="text-h3 opacity-90 mt-1 md:mt-2 max-w-[280px] md:max-w-5xl text-white/90">
                                 Explore breathable batik printed cotton cloth, stylish printed cotton fabric, and premium women dress material collections designed for cotton dresses, boutiques, resellers, and everyday women fashion across India.
                             </p>
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-3 md:gap-6 pt-2 md:pt-10 items-start justify-start w-full">
-                            <a href="#collection" className="inline-block bg-[#FFD700] text-[#5A2A1F] px-4 py-3 md:px-8 md:py-4.5 rounded-[10px] md:rounded-[18px] font-black text-sm md:text-xl shadow-[0_15px_40px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 transition-all duration-300 uppercase tracking-wider border-b-2 md:border-b-4 border-black/10 w-full sm:w-auto text-center">
+                            <a href="#collection" className="inline-block bg-accent text-primary px-6 py-3.5 md:px-10 md:py-4 rounded-xl font-bold text-sm md:text-lg hover:-translate-y-1 hover:shadow-2xl hover:brightness-105 active:scale-95 transition-all duration-300 uppercase tracking-widest text-center w-full sm:w-auto">
                                 Shop Now
                             </a>
-                            <a href={WA} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 md:gap-3 bg-white/10 backdrop-blur-md text-white border-2 border-white/30 px-4 py-3 md:px-8 md:py-4.5 rounded-[10px] md:rounded-[18px] font-black text-sm md:text-xl shadow-[0_15px_40px_rgba(0,0,0,0.2)] hover:bg-white hover:text-[#5A2A1F] active:scale-95 transition-all duration-300 uppercase tracking-wider w-full sm:w-auto text-center">
+                            <a href={WA} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 md:gap-3 border border-white/40 text-white hover:bg-white hover:text-primary px-6 py-3.5 md:px-10 md:py-4 rounded-xl font-bold text-sm md:text-lg hover:-translate-y-1 hover:shadow-2xl active:scale-95 transition-all duration-300 uppercase tracking-widest text-center w-full sm:w-auto">
                                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 md:w-6 md:h-6"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" /></svg>
                                 Get Wholesale Pricing
                             </a>
@@ -95,12 +93,12 @@ export default async function CottonClothPage() {
             <GoogleReviewBar />
 
             {/* ── SECTION: APPLICATIONS ── */}
-            <section className="py-16 md:py-24 px-4 md:px-6 bg-[#F5F1EC] relative overflow-hidden">
+            <section className="py-16 md:py-24 px-4 md:px-6 bg-cream relative overflow-hidden">
                 <div className="max-w-7xl mx-auto flex flex-col gap-10 md:gap-16">
                     <div className="flex flex-col gap-4 md:gap-6 text-left md:text-center items-start md:items-center mx-auto max-w-4xl">
-                        <span className="text-[10px] md:text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em] self-center md:self-auto mb-2 md:mb-0">Applications</span>
-                        <h2 className="font-playfair text-2xl md:text-4xl font-bold text-[#5A2A1F]">Perfect Batik Printed Cotton Cloth For Every Fashion Creation</h2>
-                        <p className="text-base md:text-lg text-[#5A2A1F]/70 font-medium leading-relaxed italic">Our premium batik printed cotton cloth combines breathable cotton fabric with modern women fashion styling—perfect for batik print dress material, cotton dresses, women dress material, and boutique clothing collections.</p>
+                        <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em] self-center md:self-auto mb-2 md:mb-0">Applications</span>
+                        <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary">Perfect <span className='text-accent'>Batik Printed Cotton Cloth</span> For Every Fashion Creation</h2>
+                        <p className="text-base md:text-lg text-primary/70 font-medium leading-relaxed italic">Our premium batik printed cotton cloth combines breathable cotton fabric with modern women fashion styling—perfect for batik print dress material, cotton dresses, women dress material, and boutique clothing collections.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
@@ -135,13 +133,13 @@ export default async function CottonClothPage() {
                                 )
                             }
                         ].map((item, i) => (
-                            <div key={i} className="p-4 md:p-8 bg-white rounded-[20px] md:rounded-[32px] border border-[#5A2A1F]/5 group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 text-left md:text-center flex flex-row md:flex-col items-start md:items-center gap-4 md:gap-6">
-                                <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-[20px] bg-[#F5F1EC] text-[#5A2A1F] flex items-center justify-center group-hover:bg-[#5A2A1F] group-hover:text-white transition-colors duration-500 shrink-0">
+                            <div key={i} className="p-4 md:p-8 bg-white rounded-[20px] md:rounded-[32px] border border-primary/5 group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 text-left md:text-center flex flex-row md:flex-col items-start md:items-center gap-4 md:gap-6">
+                                <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-[20px] bg-cream text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-500 shrink-0">
                                     {item.i}
                                 </div>
                                 <div className="flex flex-col gap-1 md:gap-4">
-                                    <h3 className="text-base md:text-xl font-black tracking-tight text-[#5A2A1F] uppercase">{item.t}</h3>
-                                    <p className="text-[13px] md:text-base text-[#5A2A1F]/60 font-medium leading-relaxed">{item.d}</p>
+                                    <h3 className="text-base md:text-xl font-black tracking-tight text-primary uppercase">{item.t}</h3>
+                                    <p className="text-[13px] md:text-base text-primary/60 font-medium leading-relaxed">{item.d}</p>
                                 </div>
                             </div>
                         ))}
@@ -153,9 +151,9 @@ export default async function CottonClothPage() {
             <section id="collection" className="py-16 md:py-32 px-4 md:px-6 bg-white relative">
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-10 md:gap-20">
                     <div className="flex flex-col gap-4 md:gap-6 text-left md:text-center items-start md:items-center mx-auto max-w-4xl">
-                        <span className="text-[10px] md:text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em] self-center md:self-auto mb-2 md:mb-0">Fabric Library</span>
-                        <h2 className="font-playfair text-2xl md:text-4xl font-bold text-[#5A2A1F]">Explore Signature Batik Cotton Fabric Designs</h2>
-                        <p className="text-base md:text-xl text-[#5A2A1F]/70 font-medium leading-relaxed italic">Discover premium printed cotton cloth, breathable dress fabric, and stylish batik print dress material collections designed for modern women clothing and everyday fashion demand.</p>
+                        <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em] self-center md:self-auto mb-2 md:mb-0">Fabric Library</span>
+                        <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary">Explore Signature Batik Cotton Fabric Designs</h2>
+                        <p className="text-base md:text-xl text-primary/70 font-medium leading-relaxed italic">Discover premium printed cotton cloth, breathable dress fabric, and stylish batik print dress material collections designed for modern women clothing and everyday fashion demand.</p>
                     </div>
 
                     <ProductGrid products={clothProducts} columns={4} />
@@ -179,7 +177,7 @@ export default async function CottonClothPage() {
 
             <PremiumFeatureSection
                 tag="The AQSHA Fabric Advantage"
-                title={<>Why Our Batik Printed Cotton Cloth <br />Stands Out</>}
+                title={<>Why Our <span className='text-accent'>Batik Printed Cotton Cloth</span> <br />Stands Out</>}
                 features={[
                     {
                         t: "Pure Cotton Excellence",
@@ -247,21 +245,21 @@ export default async function CottonClothPage() {
                 quote="Our premium batik cloth offers the perfect canvas for your fashion creations, blending traditional art with superior comfort."
             />
             {/* ── HOW TO START SECTION ── */}
-            <section className="py-16 md:py-24 px-6 bg-[#F5F1EC] text-[#5A2A1F] relative overflow-hidden">
+            <section className="py-16 md:py-24 px-6 bg-cream text-primary relative overflow-hidden">
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-12 md:gap-16 relative z-10">
                     <div className="flex flex-col gap-3 md:gap-4 max-w-4xl mx-auto w-full">
                         <div className="text-center flex flex-col gap-1 md:gap-2 items-center">
-                            <span className="text-[10px] md:text-sm font-black text-[#8B3A2B] uppercase tracking-[0.5em] mb-1 block">Simple Process</span>
-                            <h2 className="font-playfair text-2xl md:text-4xl font-bold leading-tight">How to Order Batik Cloth Online</h2>
+                            <span className="text-[10px] md:text-sm font-black text-secondary uppercase tracking-[0.5em] mb-1 block">Simple Process</span>
+                            <h2 className="font-heading text-2xl md:text-4xl font-bold leading-tight">How to Order Batik Cloth Online</h2>
                         </div>
-                        <p className="text-[13px] md:text-xl text-[#5A2A1F]/70 font-medium italic mx-0 lg:mx-auto leading-relaxed text-left md:text-center mt-2">
+                        <p className="text-[13px] md:text-xl text-primary/70 font-medium italic mx-0 lg:mx-auto leading-relaxed text-left md:text-center mt-2">
                             Five simple steps. Zero confusion. Fast delivery of premium batik fabric, Batik Cloth, trending batik color collections, and quality cotton cloth across India.
                         </p>
                     </div>
 
                     <div className="relative grid grid-cols-2 lg:flex lg:flex-row justify-between gap-6 md:gap-10 lg:gap-6 mt-2 md:mt-0">
                         {/* Connector Line (Desktop) */}
-                        <div className="hidden lg:block absolute top-[32px] left-[10%] right-[10%] h-[1px] bg-[#5A2A1F]/10 z-0"></div>
+                        <div className="hidden lg:block absolute top-[32px] left-[10%] right-[10%] h-[1px] bg-primary/10 z-0"></div>
 
                         {[
                             {
@@ -311,20 +309,20 @@ export default async function CottonClothPage() {
                             }
                         ].map((step, i) => (
                             <div key={i} className={`flex flex-col items-center text-center gap-2 md:gap-4 lg:w-1/5 relative z-10 ${i === 4 ? "col-span-2 lg:col-span-1" : ""}`}>
-                                <div className="w-10 h-10 md:w-16 md:h-16 bg-white rounded-[12px] md:rounded-[24px] shadow-lg flex items-center justify-center text-[#5A2A1F] hover:scale-110 transition-all duration-500 cursor-default border border-[#5A2A1F]/5 relative group">
-                                    <span className="absolute -top-1.5 -left-1.5 md:-top-2 md:-left-2 w-5 h-5 md:w-6 md:h-6 bg-[#8B3A2B] text-white text-[8px] md:text-[9px] font-black rounded-full flex items-center justify-center shadow-md">{step.s}</span>
+                                <div className="w-10 h-10 md:w-16 md:h-16 bg-white rounded-[12px] md:rounded-[24px] shadow-lg flex items-center justify-center text-primary hover:scale-110 transition-all duration-500 cursor-default border border-primary/5 relative group">
+                                    <span className="absolute -top-1.5 -left-1.5 md:-top-2 md:-left-2 w-5 h-5 md:w-6 md:h-6 bg-secondary text-white text-[8px] md:text-[9px] font-black rounded-full flex items-center justify-center shadow-md">{step.s}</span>
                                     {step.i}
                                 </div>
                                 <div className="flex flex-col gap-1 md:gap-1.5 px-1 md:px-2">
-                                    <h4 className="text-[11px] md:text-lg font-black tracking-tight text-[#5A2A1F] leading-tight">{step.t}</h4>
-                                    <p className="text-[9px] md:text-xs text-[#5A2A1F]/60 font-medium leading-relaxed">{step.d}</p>
+                                    <h4 className="text-[11px] md:text-lg font-black tracking-tight text-primary leading-tight">{step.t}</h4>
+                                    <p className="text-[9px] md:text-xs text-primary/60 font-medium leading-relaxed">{step.d}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
 
                     <div className="flex justify-center mt-6 md:mt-12">
-                        <a href={WA} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 md:gap-4 bg-[#5A2A1F] text-white px-4 py-3 md:px-10 md:py-5 rounded-xl md:rounded-3xl font-bold text-[11px] md:text-xl shadow-[0_15px_40px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 transition-all duration-300 uppercase tracking-widest group text-center">
+                        <a href={WA} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 md:gap-4 bg-primary text-white px-4 py-3 md:px-10 md:py-5 rounded-xl md:rounded-3xl font-bold text-[11px] md:text-xl shadow-[0_15px_40px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 transition-all duration-300 uppercase tracking-widest group text-center">
                             <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 md:w-6 md:h-6 shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" /></svg>
                             START YOUR ORDER ON WHATSAPP
                         </a>
@@ -336,9 +334,9 @@ export default async function CottonClothPage() {
             <section className="py-16 md:py-32 px-6 bg-white">
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
                     <div className="flex flex-col gap-3 md:gap-6 text-left md:text-center max-w-3xl mx-auto w-full">
-                        <span className="text-[10px] md:text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Next Step</span>
-                        <h2 className="font-playfair text-2xl md:text-4xl font-bold text-[#5A2A1F] leading-tight">Continue Your Batik Fabric Shopping Journey</h2>
-                        <p className="text-[13px] md:text-xl text-[#5A2A1F]/60 font-medium italic leading-relaxed mt-2">
+                        <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">Next Step</span>
+                        <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary leading-tight">Continue Your Batik Fabric Shopping Journey</h2>
+                        <p className="text-[13px] md:text-xl text-primary/60 font-medium italic leading-relaxed mt-2">
                             Explore premium cotton fabric collections, wholesale women dress material, and breathable printed cotton cloth designed for modern women clothing businesses.
                         </p>
                     </div>
@@ -378,10 +376,10 @@ export default async function CottonClothPage() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 md:opacity-80"></div>
                                 <div className="absolute bottom-4 left-4 right-4 md:bottom-10 md:left-10 md:right-10 flex flex-col gap-2 md:gap-4">
-                                    <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#FFD700] bg-white/10 backdrop-blur-md px-2 py-1 md:px-4 md:py-1.5 rounded-full w-fit border border-white/20">{item.tag}</span>
-                                    <h4 className="text-white text-base md:text-3xl font-playfair font-bold leading-tight">{item.t}</h4>
+                                    <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-accent bg-white/10 backdrop-blur-md px-2 py-1 md:px-4 md:py-1.5 rounded-full w-fit border border-white/20">{item.tag}</span>
+                                    <h4 className="text-white text-base md:text-3xl font-heading font-bold leading-tight">{item.t}</h4>
                                     <p className="text-white/70 font-medium text-[9px] md:text-sm leading-relaxed opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 line-clamp-2">{item.d}</p>
-                                    <div className="hidden md:flex items-center gap-3 text-[#FFD700] font-black uppercase text-[10px] tracking-widest mt-2 group-hover:gap-5 transition-all">
+                                    <div className="hidden md:flex items-center gap-3 text-accent font-black uppercase text-[10px] tracking-widest mt-2 group-hover:gap-5 transition-all">
                                         Explore More
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
                                     </div>
@@ -392,12 +390,12 @@ export default async function CottonClothPage() {
                 </div>
             </section>
             {/* ── SECTION: EDITORIAL CORNER ── */}
-            <section className="py-16 md:py-32 px-6 bg-[#F5F1EC]">
+            <section className="py-16 md:py-32 px-6 bg-cream">
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
                     <div className="flex flex-col gap-3 md:gap-6 text-left md:text-center max-w-4xl mx-auto w-full">
-                        <span className="text-[10px] md:text-xs font-bold text-[#8B3A2B] uppercase tracking-[0.4em]">Fashion & Fabric Journal</span>
-                        <h2 className="font-playfair text-2xl md:text-4xl font-bold text-[#5A2A1F] leading-tight">The Printed Cotton Fabric Style Guide</h2>
-                        <p className="text-[13px] md:text-xl text-[#5A2A1F]/60 font-medium italic leading-relaxed mt-2">Explore insights on printed cotton fabric, breathable dress fabric, cotton dresses, and modern women clothing trends shaping today’s fashion market.</p>
+                        <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">Fashion & Fabric Journal</span>
+                        <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary leading-tight">The Printed Cotton Fabric Style Guide</h2>
+                        <p className="text-[13px] md:text-xl text-primary/60 font-medium italic leading-relaxed mt-2">Explore insights on printed cotton fabric, breathable dress fabric, cotton dresses, and modern women clothing trends shaping today’s fashion market.</p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10">
@@ -424,18 +422,18 @@ export default async function CottonClothPage() {
                                 img: "/journal_business.png"
                             }
                         ].map((post, i) => (
-                            <div key={i} className={`bg-white rounded-[24px] md:rounded-[40px] overflow-hidden shadow-xl border border-[#5A2A1F]/5 group cursor-pointer hover:shadow-2xl transition-all duration-500 flex flex-col ${i === 2 ? "col-span-2 md:col-span-1 flex-row md:flex-col" : ""}`}>
+                            <div key={i} className={`bg-white rounded-[24px] md:rounded-[40px] overflow-hidden shadow-xl border border-primary/5 group cursor-pointer hover:shadow-2xl transition-all duration-500 flex flex-col ${i === 2 ? "col-span-2 md:col-span-1 flex-row md:flex-col" : ""}`}>
                                 <div className={`relative overflow-hidden shrink-0 ${i === 2 ? "w-1/3 md:w-full h-28 md:h-64" : "h-32 md:h-64"}`}>
                                     <Image src={post.img} alt={post.t} layout="fill" objectFit="cover" objectPosition="top" className="group-hover:scale-110 transition-transform duration-700" />
                                     <div className="absolute top-2 left-2 md:top-6 md:left-6">
-                                        <span className="bg-white/90 backdrop-blur-md px-2 py-1 md:px-4 md:py-1.5 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-widest text-[#5A2A1F]">{post.c}</span>
+                                        <span className="bg-white/90 backdrop-blur-md px-2 py-1 md:px-4 md:py-1.5 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-widest text-primary">{post.c}</span>
                                     </div>
                                 </div>
                                 <div className={`p-4 md:p-10 flex flex-col gap-2 md:gap-4 flex-1 justify-center`}>
-                                    <h4 className="text-[13px] md:text-2xl font-playfair font-bold text-[#5A2A1F] leading-tight">{post.t}</h4>
+                                    <h4 className="text-[13px] md:text-2xl font-heading font-bold text-primary leading-tight">{post.t}</h4>
                                     <div className="flex justify-between items-center mt-auto md:mt-4">
-                                        <span className="text-[9px] md:text-xs font-medium text-[#5A2A1F]/40 uppercase tracking-widest">{post.date}</span>
-                                        <div className="hidden md:flex items-center gap-2 text-[#8B3A2B] font-bold text-[10px] uppercase tracking-widest">
+                                        <span className="text-[9px] md:text-xs font-medium text-primary/40 uppercase tracking-widest">{post.date}</span>
+                                        <div className="hidden md:flex items-center gap-2 text-secondary font-bold text-[10px] uppercase tracking-widest">
                                             Read More
                                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
                                         </div>
