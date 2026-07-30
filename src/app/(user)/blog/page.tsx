@@ -21,15 +21,15 @@ export const metadata: Metadata = {
 
 export default function BlogIndexPage() {
     return (
-        <div className="bg-[#FDFBF7] min-h-screen font-sans text-[#3B1C14]">
+        <div className="bg-[#FDFBF7] min-h-screen font-body text-[#3B1C14]">
             <Nav />
 
             {/* ── HERO BANNER ── */}
-            <section className="relative min-h-[60svh] md:min-h-screen w-full flex items-end md:items-center pb-8 md:pb-0 overflow-hidden bg-[#5A2A1F] pt-24 md:pt-0">
+            <section className="relative min-h-[60svh] md:min-h-screen w-full flex items-end md:items-center pb-8 md:pb-0 overflow-hidden bg-primary pt-24 md:pt-0">
                 <div className="absolute inset-0 z-0">
                     <Image
                         src="/cotton dress for women hero banner image .webp"
-                        alt="Women Clothing & Batik Fashion Trends Blog"
+                        alt="Women Clothing & Batik <span className='text-accent'>Fashion Trends</span> Blog"
                         fill
                         priority
                         sizes="100vw"
@@ -41,24 +41,24 @@ export default function BlogIndexPage() {
                 <div className="relative z-10 max-w-[1500px] mx-auto px-5 md:px-10 w-full flex justify-start text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
                     <div className="flex flex-col gap-4 md:gap-10 items-start text-left max-w-5xl">
                         <div className="flex items-center gap-2 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-1.5 md:px-6 md:py-2 rounded-full border border-white/20 w-fit">
-                            <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#FFD700] animate-pulse"></span>
+                            <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-tan animate-pulse"></span>
                             <span className="text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em]">Home &gt; Blog</span>
                         </div>
 
                         <div className="flex flex-col gap-2 md:gap-6">
-                            <h1 className="font-playfair text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight">
-                                <span className='hero-highlight'>Women Clothing,</span> Batik Fabric <br className="hidden md:block" /> &amp; <span className='hero-highlight'>Fashion Trends Blog</span>
+                            <h1 className="text-h1">
+                                <span className='text-accent'>Women Clothing</span>, Batik Fabric <br className="hidden md:block" /> &amp; <span className='text-accent'>Fashion Trends</span> Blog
                             </h1>
-                            <p className="font-playfair text-xs md:text-2xl font-medium tracking-tight opacity-95 leading-[1.3] md:leading-relaxed mt-1 md:mt-2 max-w-[280px] md:max-w-4xl">
+                            <p className="text-h3 opacity-90 mt-1 md:mt-2 max-w-[280px] md:max-w-5xl text-white/90">
                                 Explore expert insights on women clothing, batik fabric, batik cloth, cotton dresses for women, and the latest fashion trends. Learn how to choose premium fabrics, discover stylish women clothing collections, and stay updated with wholesale buying guides directly from manufacturers.
                             </p>
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-3 md:gap-6 pt-2 md:pt-10 items-start justify-start w-full">
-                            <a href="#articles" className="inline-block bg-[#FFD700] text-[#5A2A1F] px-4 py-3 md:px-8 md:py-4.5 rounded-[10px] md:rounded-[18px] font-black text-sm md:text-xl shadow-[0_15px_40px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 transition-all duration-300 uppercase tracking-wider border-b-2 md:border-b-4 border-black/10 w-full sm:w-auto text-center">
+                            <a href="#articles" className="inline-block bg-accent text-primary px-6 py-3.5 md:px-10 md:py-4 rounded-xl font-bold text-sm md:text-lg hover:-translate-y-1 hover:shadow-2xl hover:brightness-105 active:scale-95 transition-all duration-300 uppercase tracking-widest text-center w-full sm:w-auto">
                                 Explore Articles
                             </a>
-                            <a href="/wholesale" className="inline-flex items-center justify-center gap-2 md:gap-3 bg-white/10 backdrop-blur-md text-white border-2 border-white/30 px-4 py-3 md:px-8 md:py-4.5 rounded-[10px] md:rounded-[18px] font-black text-sm md:text-xl shadow-[0_15px_40px_rgba(0,0,0,0.2)] hover:bg-white hover:text-[#5A2A1F] active:scale-95 transition-all duration-300 uppercase tracking-wider w-full sm:w-auto text-center">
+                            <a href="/wholesale" className="inline-flex items-center justify-center gap-2 md:gap-3 border border-white/40 text-white hover:bg-white hover:text-primary px-6 py-3.5 md:px-10 md:py-4 rounded-xl font-bold text-sm md:text-lg hover:-translate-y-1 hover:shadow-2xl active:scale-95 transition-all duration-300 uppercase tracking-widest text-center w-full sm:w-auto">
                                 Get Wholesale Catalogue
                             </a>
                         </div>
@@ -69,13 +69,13 @@ export default function BlogIndexPage() {
             {/* ── FEATURED ARTICLE ── */}
             <section className="py-20 px-6 bg-[#FDFBF7]">
                 <div className="max-w-7xl mx-auto">
-                    <div className="bg-white rounded-2xl shadow-sm border border-[#5A2A1F]/10 overflow-hidden flex flex-col lg:flex-row">
+                    <div className="bg-white rounded-2xl shadow-sm border border-primary/10 overflow-hidden flex flex-col lg:flex-row">
                         <div className="lg:w-[55%] relative h-[250px] md:h-[350px] lg:h-auto">
                             <Image src="/indian dresses for girls.webp" alt="Featured Article" layout="fill" objectFit="cover" className="object-top" />
                         </div>
                         <div className="lg:w-[45%] p-10 lg:p-16 flex flex-col justify-center">
-                            <span className="text-xs font-bold uppercase tracking-widest text-[#5A2A1F] mb-4">Featured Article</span>
-                            <h2 className="font-playfair text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-[#3B1C14] mb-6">
+                            <span className="text-xs font-bold uppercase tracking-widest text-primary mb-4">Featured Article</span>
+                            <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-[#3B1C14] mb-6">
                                 How To Choose Premium Batik Fabric For Women Clothing Collections
                             </h2>
                             <div className="flex items-center gap-4 text-sm opacity-60 mb-6 font-medium">
@@ -85,7 +85,7 @@ export default function BlogIndexPage() {
                             <p className="text-[#3B1C14]/80 leading-relaxed mb-8">
                                 Discover how retailers and wholesalers select high-quality batik fabric, cotton fabric for kurti, and printed cotton fabric for kurtis that attract customers and increase repeat sales.
                             </p>
-                            <Link href="/blog/choose-premium-batik-fabric" className="text-[#3B1C14] font-bold text-sm uppercase tracking-wider flex items-center gap-2 hover:text-[#8B3A2B] transition-colors w-fit">
+                            <Link href="/blog/choose-premium-batik-fabric" className="text-[#3B1C14] font-bold text-sm uppercase tracking-wider flex items-center gap-2 hover:text-secondary transition-colors w-fit">
                                 Read Full Article <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                             </Link>
                         </div>
@@ -97,23 +97,23 @@ export default function BlogIndexPage() {
             <section className="py-16 px-6 bg-[#FDFBF7]">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12 flex items-center justify-center gap-4">
-                        <span className="w-12 h-[1px] bg-[#D4AF37]"></span>
+                        <span className="w-12 h-[1px] bg-[#8A9A86]"></span>
                         <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[#3B1C14]">
                             Explore By Category
                         </h3>
-                        <span className="w-12 h-[1px] bg-[#D4AF37]"></span>
+                        <span className="w-12 h-[1px] bg-[#8A9A86]"></span>
                     </div>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
                         {categories.map((cat, i) => (
-                            <div key={i} className="bg-white p-3 md:p-8 rounded-xl border border-[#5A2A1F]/10 text-center flex flex-col items-center hover:shadow-lg transition-shadow">
-                                <div className="w-10 h-10 md:w-16 md:h-16 rounded-full bg-[#FDFBF7] flex items-center justify-center text-[#D4AF37] mb-3 md:mb-6 shadow-sm border border-[#5A2A1F]/5">
+                            <div key={i} className="bg-white p-3 md:p-8 rounded-xl border border-primary/10 text-center flex flex-col items-center hover:shadow-lg transition-shadow">
+                                <div className="w-10 h-10 md:w-16 md:h-16 rounded-full bg-[#FDFBF7] flex items-center justify-center text-[#8A9A86] mb-3 md:mb-6 shadow-sm border border-primary/5">
                                     <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d={cat.icon}></path>
                                     </svg>
                                 </div>
-                                <h4 className="font-playfair text-base md:text-xl font-bold text-[#3B1C14] mb-4">{cat.title}</h4>
+                                <h4 className="font-heading text-base md:text-xl font-bold text-[#3B1C14] mb-4">{cat.title}</h4>
                                 <p className="text-xs md:text-sm text-[#3B1C14]/70 mb-3 md:mb-6 flex-grow line-clamp-3">{cat.description}</p>
-                                <a href={cat.link} className="text-xs font-bold uppercase tracking-wider text-[#3B1C14] hover:text-[#D4AF37] transition-colors flex items-center gap-1 mt-auto">
+                                <a href={cat.link} className="text-xs font-bold uppercase tracking-wider text-[#3B1C14] hover:text-[#8A9A86] transition-colors flex items-center gap-1 mt-auto">
                                     View Collection&rarr;
                                 </a>
                             </div>
@@ -127,32 +127,32 @@ export default function BlogIndexPage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <div className="flex items-center justify-center gap-4 mb-6">
-                            <span className="w-12 h-[1px] bg-[#D4AF37]"></span>
+                            <span className="w-12 h-[1px] bg-[#8A9A86]"></span>
                             <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[#3B1C14]">
                                 Latest Articles
                             </h3>
-                            <span className="w-12 h-[1px] bg-[#D4AF37]"></span>
+                            <span className="w-12 h-[1px] bg-[#8A9A86]"></span>
                         </div>
-                        <h2 className="font-playfair text-2xl md:text-3xl lg:text-4xl font-bold text-[#3B1C14] mb-6">Latest Women Clothing &amp; Batik Fashion Articles</h2>
+                        <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-[#3B1C14] mb-6">Latest Women Clothing &amp; Batik Fashion Articles</h2>
                         <p className="text-[#3B1C14]/70 max-w-2xl mx-auto">Stay informed with expert articles covering women clothing India, batik suit designs, indian dresses for girls, and premium fabric buying guides.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {blogPosts.map((post, i) => (
-                            <Link key={i} href={`/blog/${post.slug}`} className="group bg-white rounded-xl border border-[#5A2A1F]/10 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                            <Link key={i} href={`/blog/${post.slug}`} className="group bg-white rounded-xl border border-primary/10 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
                                 <div className="relative aspect-[4/3] overflow-hidden bg-white">
                                     <Image src={post.image} alt={post.title} layout="fill" objectFit="contain" className="group-hover:scale-105 transition-transform duration-500" />
                                 </div>
                                 <div className="p-4 md:p-6 flex flex-col flex-grow">
-                                    <h4 className="font-playfair text-lg md:text-[22px] font-bold text-[#3B1C14] mb-3 group-hover:text-[#D4AF37] transition-colors leading-tight line-clamp-2">{post.title}</h4>
+                                    <h4 className="font-heading text-lg md:text-[22px] font-bold text-[#3B1C14] mb-3 group-hover:text-[#8A9A86] transition-colors leading-tight line-clamp-2">{post.title}</h4>
                                     <p className="text-xs md:text-sm text-[#3B1C14]/70 mb-4 md:mb-6 flex-grow line-clamp-2">{post.excerpt}</p>
-                                    <div className="flex items-center justify-between mt-auto pt-4 border-t border-[#5A2A1F]/10">
+                                    <div className="flex items-center justify-between mt-auto pt-4 border-t border-primary/10">
                                         <div className="flex items-center gap-3 text-xs font-medium text-[#3B1C14]/60">
                                             <span className="flex items-center gap-1"><svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> {post.readTime}</span>
                                             <span>•</span>
                                             <span>{post.date}</span>
                                         </div>
-                                        <span className="text-xs font-bold uppercase tracking-wider text-[#3B1C14] group-hover:text-[#D4AF37] transition-colors">Read More &rarr;</span>
+                                        <span className="text-xs font-bold uppercase tracking-wider text-[#3B1C14] group-hover:text-[#8A9A86] transition-colors">Read More &rarr;</span>
                                     </div>
                                 </div>
                             </Link>
@@ -163,16 +163,16 @@ export default function BlogIndexPage() {
             </section>
 
             {/* ── TRUST SECTION ── */}
-            <section className="py-20 px-6 bg-[#F5F1EC]">
+            <section className="py-20 px-6 bg-cream">
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
                     <div className="lg:w-2/3">
                         <div className="flex items-center gap-4 mb-6">
-                            <span className="w-12 h-[1px] bg-[#D4AF37]"></span>
+                            <span className="w-12 h-[1px] bg-[#8A9A86]"></span>
                             <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[#3B1C14]">
                                 Why Trust Aqsha Batik?
                             </h3>
                         </div>
-                        <h2 className="font-playfair text-2xl md:text-3xl lg:text-4xl font-bold text-[#3B1C14] mb-6">Why Fashion Retailers Trust Aqsha Batik</h2>
+                        <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold text-[#3B1C14] mb-6">Why Fashion Retailers Trust Aqsha Batik</h2>
                         <p className="text-[#3B1C14]/80 text-base md:text-lg mb-8 md:mb-10 max-w-2xl">For over 15 years, Aqsha Batik has supplied premium batik fabric, batik cloth, and women clothing collections to retailers, wholesalers, and growing fashion brands across India.</p>
 
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
@@ -183,7 +183,7 @@ export default function BlogIndexPage() {
                                 { title: "Premium Quality Control", desc: "Strict quality checks at every stage", icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" },
                             ].map((item, i) => (
                                 <div key={i}>
-                                    <div className="w-10 h-10 mb-3 flex items-center justify-center text-[#D4AF37]">
+                                    <div className="w-10 h-10 mb-3 flex items-center justify-center text-[#8A9A86]">
                                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d={item.icon}></path></svg>
                                     </div>
                                     <h4 className="font-bold text-[#3B1C14] text-sm mb-1">{item.title}</h4>
@@ -193,9 +193,9 @@ export default function BlogIndexPage() {
                         </div>
                     </div>
                     <div className="lg:w-1/3">
-                        <div className="bg-white p-6 md:p-10 rounded-xl shadow-lg text-center border border-[#5A2A1F]/5">
-                            <h4 className="font-playfair text-2xl font-bold text-[#3B1C14] mb-6">Looking for bulk order or custom requirements?</h4>
-                            <a href="https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20wholesale%20pricing" target="_blank" rel="noreferrer" className="block w-full bg-[#3B1C14] text-white px-6 py-4 rounded-md font-bold text-xs uppercase tracking-wider hover:bg-[#5A2A1F] transition-colors text-center">
+                        <div className="bg-white p-6 md:p-10 rounded-xl shadow-lg text-center border border-primary/5">
+                            <h4 className="font-heading text-2xl font-bold text-[#3B1C14] mb-6">Looking for bulk order or custom requirements?</h4>
+                            <a href="https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20wholesale%20pricing" target="_blank" rel="noreferrer" className="block w-full bg-[#3B1C14] text-white px-6 py-4 rounded-md font-bold text-xs uppercase tracking-wider hover:bg-primary transition-colors text-center">
                                 Request Wholesale Pricing
                             </a>
                         </div>
@@ -211,14 +211,14 @@ export default function BlogIndexPage() {
                             <svg className="w-6 h-6 text-[#3B1C14]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                         </div>
                         <div>
-                            <h3 className="font-playfair text-lg md:text-2xl font-bold text-[#3B1C14] mb-2 uppercase tracking-wide">Stay Updated With Women Clothing & Batik Fashion Trends</h3>
+                            <h3 className="font-heading text-lg md:text-2xl font-bold text-[#3B1C14] mb-2 uppercase tracking-wide">Stay Updated With Women Clothing & Batik Fashion Trends</h3>
                             <p className="text-[#3B1C14]/80 text-sm leading-relaxed">Get the latest updates on batik fabric collections, indian dresses, cotton dresses for women, and wholesale fashion opportunities delivered directly to your inbox.</p>
                         </div>
                     </div>
                     <div className="w-full md:w-1/2">
                         <form action="https://wa.me/918815373767" target="_blank" className="flex flex-col sm:flex-row w-full gap-2">
                             <input type="email" name="email" placeholder="Enter your email address" className="flex-grow px-6 py-4 rounded-md outline-none text-[#3B1C14] placeholder:text-[#3B1C14]/40 shadow-sm" required />
-                            <button type="submit" className="bg-[#3B1C14] text-white px-8 py-4 rounded-md font-bold text-sm uppercase tracking-wider hover:bg-[#5A2A1F] transition-colors shadow-sm whitespace-nowrap">
+                            <button type="submit" className="bg-[#3B1C14] text-white px-8 py-4 rounded-md font-bold text-sm uppercase tracking-wider hover:bg-primary transition-colors shadow-sm whitespace-nowrap">
                                 Subscribe Now
                             </button>
                         </form>
@@ -232,7 +232,7 @@ export default function BlogIndexPage() {
             <section className="py-20 px-6 bg-[#3B1C14] text-white">
                 <div className="max-w-5xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
                     <div className="lg:w-2/3 text-left">
-                        <h2 className="font-playfair text-2xl md:text-3xl lg:text-4xl font-bold mb-4">Looking For Premium Batik Fabric &amp; Women Clothing At Wholesale Prices?</h2>
+                        <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-bold mb-4">Looking For Premium Batik Fabric &amp; Women Clothing At Wholesale Prices?</h2>
                         <p className="text-white/80 text-base md:text-lg">Partner directly with a trusted manufacturer for premium batik fabric, batik cloth, women clothing, indian dresses, and wholesale fashion collections.</p>
                     </div>
                     <div className="lg:w-1/3 flex flex-col sm:flex-row lg:flex-col gap-4 w-full">
