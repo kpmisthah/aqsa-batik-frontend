@@ -40,11 +40,11 @@ export default function FAQ({ items }: FAQProps) {
     const faqs = items || defaultFaqs;
 
     return (
-        <section id="faq" className="py-24 px-6 bg-[#E8D9C0]">
+        <section id="faq" className="py-24 px-6 bg-tan">
             <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-16">
-                    <span className="text-[11px] font-bold text-[#5A2A1F]/60 uppercase tracking-[0.4em]">Common Questions</span>
-                    <h2 className="font-playfair text-3xl md:text-4xl font-bold text-[#5A2A1F] mt-4">Frequently Asked Questions</h2>
+                    <span className="text-[11px] font-bold text-primary/60 uppercase tracking-[0.4em]">Common Questions</span>
+                    <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mt-4">Frequently Asked Questions</h2>
                 </div>
 
                 <div className="flex flex-col gap-4">
@@ -52,15 +52,15 @@ export default function FAQ({ items }: FAQProps) {
                         <div key={i} className="rounded-2xl overflow-hidden shadow-sm">
                             <button
                                 onClick={() => setOpen(open === i ? -1 : i)}
-                                className={`w-full text-left p-6 flex justify-between items-center transition-colors ${open === i ? "bg-white" : "bg-[#F5F1EC]/50 hover:bg-[#F5F1EC]"}`}
+                                className={`w-full text-left p-6 flex justify-between items-center transition-colors ${open === i ? "bg-white" : "bg-cream/50 hover:bg-cream"}`}
                             >
-                                <span className="font-bold text-base md:text-lg text-[#5A2A1F]">{f.q}</span>
+                                <span className="font-bold text-base md:text-lg text-primary">{f.q}</span>
                                 <span className={`text-2xl transition-transform duration-300 ${open === i ? "rotate-180" : ""}`}>
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
                                 </span>
                             </button>
                             {open === i && (
-                                <div className="bg-white p-6 pt-0 text-[#5A2A1F]/80 leading-relaxed font-medium">
+                                <div className="bg-white p-6 pt-0 text-primary/80 leading-relaxed font-medium">
                                     {f.a}
                                 </div>
                             )}
@@ -69,8 +69,8 @@ export default function FAQ({ items }: FAQProps) {
                 </div>
 
                 <div className="mt-16 text-center">
-                    <p className="text-[#5A2A1F]/60 font-medium mb-6">Still have questions? We're just a message away.</p>
-                    <a href={WA} target="_blank" rel="noreferrer" className="inline-block bg-[#5A2A1F] text-white px-10 py-4 rounded-xl font-bold hover:bg-black transition-all shadow-xl">
+                    <p className="text-primary/60 font-medium mb-6">Still have questions? We're just a message away.</p>
+                    <a href={WA} target="_blank" rel="noreferrer" className="inline-block bg-primary text-white px-10 py-4 rounded-xl font-bold hover:bg-black transition-all shadow-xl">
                         Ask on WhatsApp
                     </a>
                 </div>
