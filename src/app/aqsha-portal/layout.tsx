@@ -33,8 +33,8 @@ export default function AdminLayout({
   // 🛡️ Protected Route Logic
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#F5F1EC] flex items-center justify-center font-playfair">
-        <Loader2 className="w-12 h-12 text-[#5A2A1F] animate-spin" />
+      <div className="min-h-screen bg-cream flex items-center justify-center font-heading">
+        <Loader2 className="w-12 h-12 text-primary animate-spin" />
       </div>
     );
   }
@@ -48,18 +48,18 @@ export default function AdminLayout({
   }
 
   return (
-    <div className="min-h-screen bg-[#F5F1EC] flex font-playfair">
+    <div className="min-h-screen bg-cream flex font-heading">
       {/* Mobile sidebar backdrop */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 z-40 bg-[#5A2A1F]/80 lg:hidden backdrop-blur-sm"
+          className="fixed inset-0 z-40 bg-primary/80 lg:hidden backdrop-blur-sm"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
       {/* Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-64 bg-[#E8D9C0] border-r border-[#5A2A1F]/10 transform transition-transform duration-200 ease-in-out lg:translate-x-0 lg:static lg:flex-shrink-0 ${
+        className={`fixed inset-y-0 left-0 z-50 w-64 bg-tan border-r border-primary/10 transform transition-transform duration-200 ease-in-out lg:translate-x-0 lg:static lg:flex-shrink-0 ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -67,13 +67,13 @@ export default function AdminLayout({
           {/* subtle pattern bg */}
           <div className="absolute inset-0 bg-pattern opacity-[0.03] pointer-events-none"></div>
           
-          <div className="h-16 flex items-center justify-between px-6 border-b border-[#5A2A1F]/10 bg-[#E8D9C0] relative z-10">
-            <span className="text-xl font-black font-playfair tracking-tight text-[#5A2A1F] uppercase">
+          <div className="h-16 flex items-center justify-between px-6 border-b border-primary/10 bg-tan relative z-10">
+            <span className="text-xl font-black font-heading tracking-tight text-primary uppercase">
               Aqsha Admin
             </span>
             <button
               onClick={() => setSidebarOpen(false)}
-              className="lg:hidden text-[#5A2A1F]/60 hover:text-[#5A2A1F]"
+              className="lg:hidden text-primary/60 hover:text-primary"
             >
               <X className="w-5 h-5" />
             </button>
@@ -88,13 +88,13 @@ export default function AdminLayout({
                   href={item.href}
                   className={`flex items-center px-4 py-3 text-sm font-bold rounded-xl transition-all ${
                     isActive
-                      ? "bg-[#5A2A1F] text-white shadow-lg shadow-[#5A2A1F]/20 translate-x-1"
-                      : "text-[#5A2A1F]/70 hover:bg-white/50 hover:text-[#5A2A1F]"
+                      ? "bg-primary text-white shadow-lg shadow-primary/20 translate-x-1"
+                      : "text-primary/70 hover:bg-white/50 hover:text-primary"
                   }`}
                 >
                   <item.icon
                     className={`w-5 h-5 mr-3 flex-shrink-0 ${
-                      isActive ? "text-[#FFD700]" : "text-[#5A2A1F]/50"
+                      isActive ? "text-accent" : "text-primary/50"
                     }`}
                   />
                   {item.name}
@@ -103,10 +103,10 @@ export default function AdminLayout({
             })}
           </nav>
 
-          <div className="p-4 border-t border-[#5A2A1F]/10 relative z-10">
+          <div className="p-4 border-t border-primary/10 relative z-10">
             <button 
               onClick={() => logout()}
-              className="flex items-center w-full px-4 py-3 text-sm font-bold text-[#8B3A2B] rounded-xl hover:bg-[#8B3A2B] hover:text-white transition-colors"
+              className="flex items-center w-full px-4 py-3 text-sm font-bold text-secondary rounded-xl hover:bg-secondary hover:text-white transition-colors"
             >
               <LogOut className="w-5 h-5 mr-3 opacity-80" />
               Sign Out
@@ -117,10 +117,10 @@ export default function AdminLayout({
 
       {/* Main content */}
       <div className="flex-1 flex flex-col min-w-0">
-        <header className="h-16 flex items-center justify-between px-4 sm:px-6 lg:px-8 bg-white border-b border-[#5A2A1F]/10 sticky top-0 z-30 shadow-sm">
+        <header className="h-16 flex items-center justify-between px-4 sm:px-6 lg:px-8 bg-white border-b border-primary/10 sticky top-0 z-30 shadow-sm">
           <button
             onClick={() => setSidebarOpen(true)}
-            className="lg:hidden text-[#5A2A1F]/60 hover:text-[#5A2A1F] -ml-2 p-2"
+            className="lg:hidden text-primary/60 hover:text-primary -ml-2 p-2"
           >
             <Menu className="w-6 h-6" />
           </button>
@@ -128,12 +128,12 @@ export default function AdminLayout({
           <div className="flex-1" />
 
           <div className="flex items-center space-x-4">
-            <button className="text-[#5A2A1F]/60 hover:text-[#5A2A1F] relative p-2">
+            <button className="text-primary/60 hover:text-primary relative p-2">
               <Bell className="w-5 h-5" />
-              <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-[#8B3A2B] rounded-full border-2 border-white"></span>
+              <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-secondary rounded-full border-2 border-white"></span>
             </button>
-            <div className="w-9 h-9 rounded-full bg-[#FFD700] flex items-center justify-center border-2 border-[#5A2A1F]/10 shadow-sm">
-              <span className="text-sm font-black text-[#5A2A1F]">AD</span>
+            <div className="w-9 h-9 rounded-full bg-accent flex items-center justify-center border-2 border-primary/10 shadow-sm">
+              <span className="text-sm font-black text-primary">AD</span>
             </div>
           </div>
         </header>
