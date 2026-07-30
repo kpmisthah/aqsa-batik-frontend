@@ -30,7 +30,7 @@ export default function ContactForm() {
                 </div>
                 <h3 className="text-2xl font-bold text-[#3B1C14]">Message Sent!</h3>
                 <p className="text-sm opacity-70 text-[#3B1C14]">Thank you for reaching out. Our team will contact you shortly.</p>
-                <button onClick={() => setFormState('idle')} className="mt-4 text-[#8B3A2B] font-bold uppercase tracking-wider text-xs border-b border-[#8B3A2B] pb-1">Send Another Message</button>
+                <button onClick={() => setFormState('idle')} className="mt-4 text-secondary font-bold uppercase tracking-wider text-xs border-b border-secondary pb-1">Send Another Message</button>
             </div>
         );
     }
@@ -39,23 +39,23 @@ export default function ContactForm() {
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-8">
             <div className="flex flex-col gap-1.5 md:gap-3">
                 <label className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-[#3B1C14] ml-1">Full Name</label>
-                <input required name="fullName" type="text" placeholder="John Doe" className="w-full bg-[#FDFBF7] md:bg-white border border-[#5A2A1F]/20 rounded-xl md:rounded-2xl px-3 py-2.5 md:px-5 md:py-4 text-sm md:text-base text-[#5A2A1F] font-bold placeholder:text-[#5A2A1F]/40 focus:outline-none focus:ring-2 focus:ring-[#8B3A2B]/20 transition-all shadow-sm md:shadow-md" />
+                <input required name="fullName" type="text" placeholder="John Doe" className="w-full bg-[#FDFBF7] md:bg-white border border-primary/20 rounded-xl md:rounded-2xl px-3 py-2.5 md:px-5 md:py-4 text-sm md:text-base text-primary font-bold placeholder:text-primary/40 focus:outline-none focus:ring-2 focus:ring-secondary/20 transition-all shadow-sm md:shadow-md" />
             </div>
             
             <div className="flex flex-col gap-1.5 md:gap-3">
                 <label className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-[#3B1C14] ml-1">Business Phone Number</label>
-                <input required name="phone" type="tel" placeholder="+91 00000 00000" className="w-full bg-[#FDFBF7] md:bg-white border border-[#5A2A1F]/20 rounded-xl md:rounded-2xl px-3 py-2.5 md:px-5 md:py-4 text-sm md:text-base text-[#5A2A1F] font-bold placeholder:text-[#5A2A1F]/40 focus:outline-none focus:ring-2 focus:ring-[#8B3A2B]/20 transition-all shadow-sm md:shadow-md" />
+                <input required name="phone" type="tel" placeholder="+91 00000 00000" className="w-full bg-[#FDFBF7] md:bg-white border border-primary/20 rounded-xl md:rounded-2xl px-3 py-2.5 md:px-5 md:py-4 text-sm md:text-base text-primary font-bold placeholder:text-primary/40 focus:outline-none focus:ring-2 focus:ring-secondary/20 transition-all shadow-sm md:shadow-md" />
             </div>
 
             <div className="flex flex-col gap-1.5 md:gap-3">
                 <label className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-[#3B1C14] ml-1">Business Name</label>
-                <input required name="businessName" type="text" placeholder="Boutique or Export House Name" className="w-full bg-[#FDFBF7] md:bg-white border border-[#5A2A1F]/20 rounded-xl md:rounded-2xl px-3 py-2.5 md:px-5 md:py-4 text-sm md:text-base text-[#5A2A1F] font-bold placeholder:text-[#5A2A1F]/40 focus:outline-none focus:ring-2 focus:ring-[#8B3A2B]/20 transition-all shadow-sm md:shadow-md" />
+                <input required name="businessName" type="text" placeholder="Boutique or Export House Name" className="w-full bg-[#FDFBF7] md:bg-white border border-primary/20 rounded-xl md:rounded-2xl px-3 py-2.5 md:px-5 md:py-4 text-sm md:text-base text-primary font-bold placeholder:text-primary/40 focus:outline-none focus:ring-2 focus:ring-secondary/20 transition-all shadow-sm md:shadow-md" />
             </div>
 
             <div className="flex flex-col gap-1.5 md:gap-3">
                 <label className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-[#3B1C14] ml-1">Estimated Order Value</label>
                 <div className="relative">
-                    <select required name="orderValue" defaultValue="" className="w-full bg-[#FDFBF7] md:bg-white border border-[#5A2A1F]/20 rounded-xl md:rounded-2xl px-3 py-2.5 md:px-5 md:py-4 text-sm md:text-base text-[#5A2A1F] font-bold appearance-none focus:outline-none focus:ring-2 focus:ring-[#8B3A2B]/20 transition-all shadow-sm md:shadow-md cursor-pointer">
+                    <select required name="orderValue" defaultValue="" className="w-full bg-[#FDFBF7] md:bg-white border border-primary/20 rounded-xl md:rounded-2xl px-3 py-2.5 md:px-5 md:py-4 text-sm md:text-base text-primary font-bold appearance-none focus:outline-none focus:ring-2 focus:ring-secondary/20 transition-all shadow-sm md:shadow-md cursor-pointer">
                         <option value="" disabled>Select range</option>
                         <option value="₹25k - ₹50k">₹25,000 - ₹50,000</option>
                         <option value="₹50k - ₹1 Lakh">₹50,000 - ₹1,00,000</option>
@@ -68,7 +68,7 @@ export default function ContactForm() {
                 </div>
             </div>
 
-            <button type="submit" disabled={formState === 'submitting'} className="w-full bg-[#5A2A1F] text-white py-3 md:py-5 rounded-xl md:rounded-2xl font-black text-[13px] md:text-xl hover:bg-black hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl uppercase tracking-widest flex items-center justify-center gap-2 md:gap-4 mt-2 md:mt-4 disabled:opacity-70 disabled:hover:scale-100">
+            <button type="submit" disabled={formState === 'submitting'} className="w-full bg-primary text-white py-3 md:py-5 rounded-xl md:rounded-2xl font-black text-[13px] md:text-xl hover:bg-black hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl uppercase tracking-widest flex items-center justify-center gap-2 md:gap-4 mt-2 md:mt-4 disabled:opacity-70 disabled:hover:scale-100">
                 {formState === 'submitting' ? 'Sending...' : 'Get Wholesale Price List →'}
             </button>
         </form>
