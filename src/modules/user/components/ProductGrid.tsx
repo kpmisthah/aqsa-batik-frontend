@@ -12,7 +12,7 @@ export default function ProductGrid({ products, columns = 3, isWholesalePage = f
     if (!products || products.length === 0) {
         return (
             <div className="text-center py-20">
-                <p className="text-xl text-[#5A2A1F]/50 font-medium italic">No products found in this category.</p>
+                <p className="text-xl text-primary/50 font-medium italic">No products found in this category.</p>
             </div>
         );
     }
