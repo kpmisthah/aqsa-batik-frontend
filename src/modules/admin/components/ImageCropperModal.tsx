@@ -42,13 +42,13 @@ export default function ImageCropperModal({ imageFile, onClose, onCropSave }: Im
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
       <div className="bg-white rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
-        <div className="p-5 border-b border-[#5A2A1F]/10 flex items-center justify-between bg-[#F5F1EC]">
+        <div className="p-5 border-b border-primary/10 flex items-center justify-between bg-cream">
           <div>
-            <h3 className="font-black text-xl text-[#5A2A1F]">Crop Product Image</h3>
-            <p className="text-xs font-bold text-[#5A2A1F]/50 uppercase tracking-widest mt-1">4:5 Aspect Ratio (Portrait)</p>
+            <h3 className="font-black text-xl text-primary">Crop Product Image</h3>
+            <p className="text-xs font-bold text-primary/50 uppercase tracking-widest mt-1">4:5 Aspect Ratio (Portrait)</p>
           </div>
           <button onClick={onClose} className="p-2 hover:bg-white rounded-full transition-colors">
-            <X size={20} className="text-[#5A2A1F]" />
+            <X size={20} className="text-primary" />
           </button>
         </div>
 
@@ -63,20 +63,20 @@ export default function ImageCropperModal({ imageFile, onClose, onCropSave }: Im
             dragMode="move"
             background={false}
             ref={cropperRef}
-            className="rounded-xl overflow-hidden shadow-inner border border-[#5A2A1F]/10"
+            className="rounded-xl overflow-hidden shadow-inner border border-primary/10"
           />
         </div>
 
-        <div className="p-5 border-t border-[#5A2A1F]/10 flex justify-end gap-3 bg-white">
+        <div className="p-5 border-t border-primary/10 flex justify-end gap-3 bg-white">
           <button
             onClick={onClose}
-            className="px-6 py-2.5 rounded-xl font-bold text-[#5A2A1F] bg-gray-100 hover:bg-gray-200 transition-colors"
+            className="px-6 py-2.5 rounded-xl font-bold text-primary bg-gray-100 hover:bg-gray-200 transition-colors"
           >
             Cancel
           </button>
           <button
             onClick={handleSave}
-            className="px-6 py-2.5 rounded-xl font-bold text-[#5A2A1F] bg-[#FFD700] hover:bg-[#F4C430] transition-colors shadow-sm"
+            className="px-6 py-2.5 rounded-xl font-bold text-primary bg-accent hover:bg-[#F4C430] transition-colors shadow-sm"
           >
             Apply Crop & Add
           </button>
