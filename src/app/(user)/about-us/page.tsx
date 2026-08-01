@@ -34,14 +34,17 @@ export default function AboutPage() {
                     <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-t from-primary/20 via-primary/40 to-primary/90 md:from-primary/90 md:via-primary/20 md:to-transparent"></div>
                 </div>
 
-                <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-6 w-full text-white">
-                    <div className="max-w-5xl flex flex-col gap-2 md:gap-6">
-                        <span className="text-[10px] md:text-xs font-bold text-accent uppercase tracking-[0.3em] md:tracking-[0.4em]">Our Heritage</span>
+                <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-6 w-full flex justify-center md:justify-start text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                    <div className="max-w-5xl flex flex-col gap-2 md:gap-6 items-center md:items-start text-center md:text-left w-full">
+                        <div className="flex items-center gap-2 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-1.5 md:px-6 md:py-2 rounded-full border border-white/20 w-fit mx-auto md:mx-0">
+                            <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-tan animate-pulse"></span>
+                            <span className="text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em]">Our Heritage</span>
+                        </div>
                         <h1 className="text-h1">
                             <span className="block md:whitespace-nowrap"><span className='text-accent'>Legacy</span> Craftsmanship</span>
                             <span className="block md:whitespace-nowrap">Behind <span className='text-accent'>Every Design</span></span>
                         </h1>
-                        <p className="text-h3 opacity-90 mt-1 md:mt-2 max-w-[280px] md:max-w-5xl text-white/90">Rooted in Bherugarh, Ujjain, we carry forward the legacy of traditional wax batik—refined over 15+ years into premium batik cloth, batik dresses, and high-quality batik fabric. Our collections focus on durable cotton dress material and consistent women cotton wholesale fabric, built for real market demand and ready-to-sell use.</p>
+                        <p className="text-body1 opacity-90 mt-2 md:mt-2 max-w-sm md:max-w-5xl text-white/90 text-center md:text-left mx-auto md:mx-0">Rooted in Bherugarh, Ujjain, we carry forward the legacy of traditional wax batik—refined over 15+ years into premium batik cloth, batik dresses, and high-quality batik fabric. Our collections focus on durable cotton dress material and consistent women cotton wholesale fabric, built for real market demand and ready-to-sell use.</p>
                     </div>
                 </div>
             </section>
@@ -55,8 +58,8 @@ export default function AboutPage() {
                     {/* Left Column (Header + Text) */}
                     <div className="flex flex-col w-full lg:w-1/2 h-full lg:max-h-[600px]">
                         {/* Header */}
-                        <div className="flex flex-col gap-3 md:gap-4 text-left mb-6 lg:mb-8 flex-shrink-0">
-                            <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.2em] leading-relaxed">From Handmade Batik To Trusted Women Fashion Supply</span>
+                        <div className="flex flex-col gap-3 md:gap-4 text-center lg:text-left mb-6 lg:mb-8 flex-shrink-0">
+                            <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.2em] leading-relaxed">From Handmade Batik To Trusted <br className="lg:hidden" /> Women Fashion Supply</span>
                             <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary leading-tight">The Journey Behind AQSHA BATIK SUITS</h2>
                         </div>
 
@@ -74,7 +77,7 @@ export default function AboutPage() {
 
                         {/* Scrollable Text Content */}
                         <div className="flex flex-col gap-6 overflow-y-auto max-h-[350px] sm:max-h-[450px] lg:max-h-none pr-2 lg:pr-6 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-primary/20 [&::-webkit-scrollbar-thumb]:rounded-full pb-4 md:pb-10 overscroll-contain flex-grow relative">
-                            <div className="flex flex-col gap-4 text-[13px] md:text-base leading-relaxed text-primary/80">
+                            <div className="flex flex-col gap-4 text-sm md:text-base leading-relaxed text-primary/80">
                                 <p className="font-bold text-[14px] md:text-lg text-primary leading-relaxed italic border-l-2 border-secondary pl-4 md:pl-6 py-1">
                                     From 15 handmade suits for women in Bherugarh, Ujjain to supplying wholesalers, boutiques, and resellers across India—this journey was built on consistency, correction, and understanding what women actually want to wear.
                                 </p>
@@ -277,7 +280,7 @@ export default function AboutPage() {
             {/* ── SECTION: WHAT WE STAND FOR (Premium Layout) ── */}
             <PremiumFeatureSection
                 tag="Guided by Principles"
-                title={<>What We <br />Stand For</>}
+                title="What We Stand For"
                 imageSrc="/cotton-summer-dresses-image.webp"
                 quote="Every piece of batik cloth, cotton dress material, and batik fabric we produce is guided by principles that ensure quality, consistency, and long-term trust for buyers."
                 features={[
@@ -329,7 +332,8 @@ export default function AboutPage() {
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-24">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-24 items-center">
                         <div className="order-2 lg:order-1 relative h-[300px] md:h-[600px] rounded-[30px] md:rounded-[60px] overflow-hidden shadow-2xl border-[8px] md:border-[15px] border-cream group">
-                            <Image src="/batik-fabric-manufacturing.webp" alt="Fabric Quality" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[3s]" />
+                            {/* <Image src="/batik-fabric-manufacturing.webp" alt="Fabric Quality" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[3s]" /> */}
+                            <Image src="/batik-fabric-manufacturing-new.png" alt="Fabric Quality" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[3s]" />
                         </div>
                         <div className="order-1 lg:order-2 flex flex-col gap-6 md:gap-10">
                             <div className="flex flex-col gap-2 md:gap-6 text-center lg:text-left">
@@ -346,7 +350,7 @@ export default function AboutPage() {
                                         <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-tan flex items-center justify-center text-primary text-sm md:text-base font-black shrink-0 group-hover:bg-primary group-hover:text-white transition-all">{i + 1}</div>
                                         <div className="flex flex-col gap-1">
                                             <h4 className="font-bold text-[15px] md:text-xl text-primary">{item.t}</h4>
-                                            <p className="text-[13px] md:text-base text-primary/70 font-medium leading-relaxed">{item.d}</p>
+                                            <p className="text-sm md:text-base text-primary/90 font-medium leading-relaxed">{item.d}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -361,7 +365,7 @@ export default function AboutPage() {
                 <div className="max-w-4xl mx-auto flex flex-col gap-8 md:gap-10">
                     <div className="flex flex-col gap-3 md:gap-5">
                         <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary leading-tight">Work Directly with the Manufacturer</h2>
-                        <p className="text-[13px] md:text-lg text-primary/60 font-medium max-w-2xl mx-auto italic leading-relaxed">
+                        <p className="text-lg md:text-xl text-primary max-w-2xl mx-auto font-medium leading-relaxed">
                             Partner with a team focused on consistent quality, reliable supply, and long-term business relationships across Indian markets.
                         </p>
                     </div>

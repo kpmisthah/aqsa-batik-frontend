@@ -59,7 +59,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     <div className="mb-12 flex flex-col gap-6 items-center text-center">
                         <span className="text-sm font-black uppercase tracking-[0.4em] text-secondary">{post.category}</span>
                         <h1 className="font-heading text-2xl md:text-4xl font-bold leading-tight">{post.title}</h1>
-                        <p className="text-primary/60 font-bold uppercase tracking-widest text-sm flex items-center gap-4 flex-wrap justify-center mt-2">
+                        <p className="text-primary/80 font-bold uppercase tracking-widest text-sm flex items-center gap-4 flex-wrap justify-center mt-2">
                             <span>{post.date}</span>
                             <span className="w-1 h-1 rounded-full bg-primary/30"></span>
                             <span>By {post.author}</span>
