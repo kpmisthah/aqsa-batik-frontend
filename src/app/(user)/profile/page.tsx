@@ -434,7 +434,7 @@ function ProfileContent() {
         <Nav />
         <div className="flex-1 flex flex-col items-center justify-center py-20">
           <div className="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin mb-4" />
-          <p className="text-sm font-bold uppercase tracking-widest text-primary/60">Loading Your Profile...</p>
+          <p className="text-sm font-bold uppercase tracking-widest text-primary/80">Loading Your Profile...</p>
         </div>
       </div>
     );
@@ -499,7 +499,7 @@ function ProfileContent() {
             <div>
               <span className="text-[10px] font-black tracking-widest text-secondary uppercase">IMAGE ADJUSTMENT</span>
               <h3 className="font-heading text-2xl font-black text-primary mt-1">Crop Your Profile Photo</h3>
-              <p className="text-xs text-primary/60 mt-1 font-medium leading-relaxed">
+              <p className="text-xs text-primary/80 mt-1 font-medium leading-relaxed">
                 Drag, scale, and adjust your photo perfectly within the square guidelines below.
               </p>
             </div>
@@ -609,7 +609,7 @@ function ProfileContent() {
                   {user.role}
                 </span>
               </div>
-              <p className="text-sm text-primary/60 font-medium mt-1">{user.email}</p>
+              <p className="text-sm text-primary/80 font-medium mt-1">{user.email}</p>
               
               <div className="mt-6 flex flex-wrap justify-center md:justify-start gap-4">
                 <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-primary/5 text-xs text-primary font-bold uppercase tracking-wider">
@@ -716,7 +716,7 @@ function ProfileContent() {
 
                   <div>
                     <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Email Address (Read-only)</label>
-                    <div className="flex items-center gap-3 px-4 py-3.5 bg-surface/50 border border-primary/10 rounded-2xl text-sm font-bold text-primary/60">
+                    <div className="flex items-center gap-3 px-4 py-3.5 bg-surface/50 border border-primary/10 rounded-2xl text-sm font-bold text-primary/80">
                       <Mail size={16} className="text-primary/30" />
                       <span>{user.email}</span>
                     </div>
@@ -725,13 +725,13 @@ function ProfileContent() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Privilege Tier</label>
-                      <div className="px-4 py-3.5 bg-surface/50 border border-primary/10 rounded-2xl text-xs font-black uppercase tracking-wider text-primary/60">
+                      <div className="px-4 py-3.5 bg-surface/50 border border-primary/10 rounded-2xl text-xs font-black uppercase tracking-wider text-primary/80">
                         {user.role} Member
                       </div>
                     </div>
                     <div>
                       <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Last Login</label>
-                      <div className="px-4 py-3.5 bg-surface/50 border border-primary/10 rounded-2xl text-xs font-bold text-primary/60 truncate">
+                      <div className="px-4 py-3.5 bg-surface/50 border border-primary/10 rounded-2xl text-xs font-bold text-primary/80 truncate">
                         {formatDate(user.lastLogin)}
                       </div>
                     </div>
@@ -761,7 +761,7 @@ function ProfileContent() {
                 {loadingOrders ? (
                   <div className="flex flex-col items-center justify-center py-10">
                     <Loader2 className="animate-spin text-primary" size={24} />
-                    <p className="text-xs text-primary/60 font-bold uppercase tracking-wider mt-2">Loading Orders...</p>
+                    <p className="text-xs text-primary/80 font-bold uppercase tracking-wider mt-2">Loading Orders...</p>
                   </div>
                 ) : orders.length === 0 ? (
                   <div className="text-center py-12 border border-dashed border-primary/10 rounded-2xl bg-surface/20">
@@ -799,7 +799,7 @@ function ProfileContent() {
                                     </span>
                                   )}
                                 </div>
-                                <p className="text-sm text-primary/70 font-medium">{dateStr}</p>
+                                <p className="text-sm text-primary/90 font-medium">{dateStr}</p>
                               </div>
                               
                               <div className="flex items-center gap-5 justify-between sm:justify-end">
@@ -836,7 +836,7 @@ function ProfileContent() {
                                     <div className="space-y-1">
                                       <span className="font-bold text-primary block">{item.name}</span>
                                       {item.variantColour && (
-                                        <span className="block text-xs text-primary/60 font-medium">Color: {getColorName(item.variantColour)}</span>
+                                        <span className="block text-xs text-primary/80 font-medium">Color: {getColorName(item.variantColour)}</span>
                                       )}
                                     </div>
                                     <div className="text-right font-medium">
@@ -848,7 +848,7 @@ function ProfileContent() {
                               </div>
                               
                               {/* Shipping address summary */}
-                              <div className="pt-4 border-t border-primary/5 flex flex-col md:flex-row justify-between gap-4 text-xs text-primary/70 font-medium">
+                              <div className="pt-4 border-t border-primary/5 flex flex-col md:flex-row justify-between gap-4 text-xs text-primary/90 font-medium">
                                 <div className="max-w-md">
                                   <span className="font-black uppercase text-secondary/90 block mb-1 text-[10px] md:text-xs">SHIPPING ADDRESS:</span>
                                   <span className="leading-relaxed">{order.shippingAddress.address}, {order.shippingAddress.city}, {order.shippingAddress.state} - {order.shippingAddress.zip}</span>
@@ -902,7 +902,7 @@ function ProfileContent() {
                                   )}
 
                                   {order.returnStatus === 'Pending' && order.returnReason && (
-                                    <span className="text-[10px] text-primary/60 font-bold italic">
+                                    <span className="text-[10px] text-primary/80 font-bold italic">
                                       Reason: &ldquo;{order.returnReason}&rdquo;
                                     </span>
                                   )}
@@ -950,7 +950,7 @@ function ProfileContent() {
                         >
                           Previous
                         </button>
-                        <span className="text-xs font-bold text-primary/70 tracking-widest uppercase">
+                        <span className="text-xs font-bold text-primary/90 tracking-widest uppercase">
                           Page {currentPage} of {totalPages}
                         </span>
                         <button
@@ -988,7 +988,7 @@ function ProfileContent() {
                       <div key={idx} className="flex flex-col sm:flex-row sm:items-center justify-between p-5 border border-primary/10 rounded-2xl bg-surface/20 hover:bg-surface/50 transition-all font-heading gap-4">
                         <div>
                           <p className="text-sm font-bold text-primary mb-1">{tx.description}</p>
-                          <p className="text-xs text-primary/60 font-medium">{formatDate(tx.date)}</p>
+                          <p className="text-xs text-primary/80 font-medium">{formatDate(tx.date)}</p>
                         </div>
                         <div className={`font-bold text-sm px-4 py-2 rounded-xl border flex items-center justify-center min-w-[120px] shadow-sm ${tx.type === 'Credit' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-rose-50 text-rose-700 border-rose-200'}`}>
                           {tx.type === 'Credit' ? '+' : '-'} ₹{tx.amount.toLocaleString()}
@@ -1078,7 +1078,7 @@ function ProfileContent() {
         <div className="fixed inset-0 bg-primary/40 backdrop-blur-sm flex items-center justify-center z-[150] p-4 animate-in fade-in duration-300">
           <div className="bg-surface rounded-[32px] border border-primary/10 p-6 md:p-8 max-w-md w-full shadow-2xl relative animate-in zoom-in-95 duration-200 font-heading">
             <h3 className="font-heading text-xl font-bold text-primary mb-2">Cancel Your Order</h3>
-            <p className="text-xs text-primary/60 mb-4">Please let us know why you are cancelling this order. Rest assured, your payment (if online) will be processed for refund automatically.</p>
+            <p className="text-xs text-primary/80 mb-4">Please let us know why you are cancelling this order. Rest assured, your payment (if online) will be processed for refund automatically.</p>
             
             <div className="space-y-3">
               <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-1">Select cancellation reason</label>
@@ -1133,7 +1133,7 @@ function ProfileContent() {
         <div className="fixed inset-0 bg-primary/40 backdrop-blur-sm flex items-center justify-center z-[150] p-4 animate-in fade-in duration-300">
           <div className="bg-surface rounded-[32px] border border-primary/10 p-6 md:p-8 max-w-md w-full shadow-2xl relative animate-in zoom-in-95 duration-200 font-heading">
             <h3 className="font-heading text-xl font-bold text-primary mb-2">Request Order Return</h3>
-            <p className="text-xs text-primary/60 mb-4">We are sorry to hear that your purchase didn&apos;t work out. Please specify a reason to submit this return request for administrator verification.</p>
+            <p className="text-xs text-primary/80 mb-4">We are sorry to hear that your purchase didn&apos;t work out. Please specify a reason to submit this return request for administrator verification.</p>
             
             <div className="space-y-3">
               <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-1">Select reason for return</label>
@@ -1191,7 +1191,7 @@ export default function ProfilePage() {
     <Suspense fallback={
       <div className="min-h-screen bg-[#FDFBF7] flex flex-col justify-center items-center py-20 font-heading">
         <div className="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin mb-4" />
-        <p className="text-sm font-bold uppercase tracking-widest text-primary/60">Loading Your Profile...</p>
+        <p className="text-sm font-bold uppercase tracking-widest text-primary/80">Loading Your Profile...</p>
       </div>
     }>
       <ProfileContent />

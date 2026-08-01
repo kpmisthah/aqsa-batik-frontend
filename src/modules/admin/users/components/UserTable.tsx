@@ -55,7 +55,7 @@ export function UserTable({ users, onToggleBlock, onEdit }: UserTableProps) {
                         <div className="text-sm font-bold text-primary">
                           {user.name} {user.isBlocked && <span className="text-red-500 font-bold ml-1">(Blocked)</span>}
                         </div>
-                        <div className="text-xs font-medium text-primary/60 mt-1">{user.email}</div>
+                        <div className="text-xs font-medium text-primary/80 mt-1">{user.email}</div>
                       </div>
                     </div>
                   </td>
@@ -71,7 +71,7 @@ export function UserTable({ users, onToggleBlock, onEdit }: UserTableProps) {
                       {user.status}
                     </span>
                   </td>
-                  <td className="px-6 py-5 whitespace-nowrap text-sm font-medium text-primary/60">
+                  <td className="px-6 py-5 whitespace-nowrap text-sm font-medium text-primary/80">
                     {formatLastLogin(user.lastLogin)}
                   </td>
                   <td className="px-6 py-5 whitespace-nowrap text-right text-sm font-medium">
@@ -122,7 +122,7 @@ export function UserTable({ users, onToggleBlock, onEdit }: UserTableProps) {
                   <div className="text-sm font-bold text-primary truncate">
                     {user.name} {user.isBlocked && <span className="text-red-500 font-bold ml-1">(Blocked)</span>}
                   </div>
-                  <div className="text-xs font-medium text-primary/60 break-all">{user.email}</div>
+                  <div className="text-xs font-medium text-primary/80 break-all">{user.email}</div>
                 </div>
               </div>
               <button 
@@ -157,7 +157,7 @@ export function UserTable({ users, onToggleBlock, onEdit }: UserTableProps) {
             <div className="border-t border-primary/5 pt-3 flex items-center justify-between gap-2">
               <div className="min-w-0">
                 <span className="block text-[10px] font-black tracking-widest text-secondary uppercase">Last Login</span>
-                <span className="text-xs text-primary/60 font-medium truncate block">
+                <span className="text-xs text-primary/80 font-medium truncate block">
                   {formatLastLogin(user.lastLogin)}
                 </span>
               </div>

@@ -114,7 +114,7 @@ export default function BannersAdmin() {
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-black text-primary tracking-tight">Manage Banners</h1>
-        <p className="text-primary/70 mt-1">Upload and update hero banners for your website pages.</p>
+        <p className="text-primary/90 mt-1">Upload and update hero banners for your website pages.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

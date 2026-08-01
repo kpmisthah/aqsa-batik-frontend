@@ -322,7 +322,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
               : "Reset Password"
             }
           </h2>
-          <p className="text-sm text-primary/60 mt-2 font-medium">
+          <p className="text-sm text-primary/80 mt-2 font-medium">
             {forgotStep === "none"
               ? (isAdmin 
                 ? "Sign in with your authorized admin credentials" 
@@ -475,7 +475,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
             {/* Toggle Option (Only for Customers) */}
             {!isAdmin && (
               <div className="text-center mt-6">
-                <p className="text-xs font-bold text-primary/60">
+                <p className="text-xs font-bold text-primary/80">
                   New to Aqsha?{" "}
                   <Link href="/signup" className="text-secondary hover:underline uppercase tracking-wider text-[10px] font-black ml-1">
                     Create an Account
@@ -530,7 +530,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
         ) : forgotStep === "otp" ? (
           <form onSubmit={handleVerifyResetOtp} className="space-y-6 animate-fade-in" noValidate>
             <div className="text-center mb-4">
-              <p className="text-sm text-primary/70 font-medium">
+              <p className="text-sm text-primary/90 font-medium">
                 We've sent a 6-digit password reset OTP to
               </p>
               <p className="text-sm font-bold text-secondary mt-1">{forgotEmail}</p>
@@ -575,7 +575,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
               <button
                 type="button"
                 onClick={() => { setForgotStep("none"); setError(""); }}
-                className="text-primary/60 hover:text-primary hover:underline uppercase tracking-wider text-[10px] font-black mt-1"
+                className="text-primary/80 hover:text-primary hover:underline uppercase tracking-wider text-[10px] font-black mt-1"
               >
                 Cancel and Back to Sign In
               </button>
@@ -612,7 +612,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
               {newPassword.length > 0 && (
                 <div className="mt-3 space-y-2 animate-fade-in">
                   <div className="flex items-center justify-between text-xs">
-                    <span className="font-bold text-primary/60">Password Strength:</span>
+                    <span className="font-bold text-primary/80">Password Strength:</span>
                     <span className={`font-black uppercase tracking-wider text-[10px] ${
                       resetMetCount <= 2 ? "text-red-500" : resetMetCount <= 4 ? "text-amber-500" : "text-emerald-600"
                     }`}>
@@ -654,7 +654,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
                         }`}>
                           {c.met ? "✓" : "•"}
                         </span>
-                        <span className={c.met ? "text-emerald-700 font-medium" : "text-primary/60"}>
+                        <span className={c.met ? "text-emerald-700 font-medium" : "text-primary/80"}>
                           {c.label}
                         </span>
                       </div>

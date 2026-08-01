@@ -204,14 +204,14 @@ export function ProductTable({ products, onToggleBlock, onEdit, onDelete }: Prod
               </button>
               <button 
                 onClick={() => onEdit(product)}
-                className="flex items-center gap-1 text-xs font-bold text-primary/60 hover:text-accent transition-colors"
+                className="flex items-center gap-1 text-xs font-bold text-primary/80 hover:text-accent transition-colors"
               >
                 <Edit className="w-4 h-4" />
                 <span>Edit</span>
               </button>
               <button 
                 onClick={() => onDelete(product.id)}
-                className="flex items-center gap-1 text-xs font-bold text-primary/60 hover:text-red-600 transition-colors"
+                className="flex items-center gap-1 text-xs font-bold text-primary/80 hover:text-red-600 transition-colors"
               >
                 <Trash2 className="w-4 h-4" />
                 <span>Delete</span>

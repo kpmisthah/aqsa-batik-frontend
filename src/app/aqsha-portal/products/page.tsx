@@ -169,7 +169,7 @@ export default function AdminProducts() {
           {/* Pagination Controls */}
           {pagination.totalPages > 1 && (
             <div className="flex items-center justify-between bg-white px-6 py-4 border border-primary/10 rounded-2xl shadow-sm">
-              <span className="text-sm text-primary/60 font-medium">
+              <span className="text-sm text-primary/80 font-medium">
                 Showing page <span className="font-bold text-primary">{pagination.page}</span> of <span className="font-bold text-primary">{pagination.totalPages}</span>
               </span>
               <div className="flex gap-2">

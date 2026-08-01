@@ -73,7 +73,7 @@ export default function AdminLayout({
             </span>
             <button
               onClick={() => setSidebarOpen(false)}
-              className="lg:hidden text-primary/60 hover:text-primary"
+              className="lg:hidden text-primary/80 hover:text-primary"
             >
               <X className="w-5 h-5" />
             </button>
@@ -89,7 +89,7 @@ export default function AdminLayout({
                   className={`flex items-center px-4 py-3 text-sm font-bold rounded-xl transition-all ${
                     isActive
                       ? "bg-primary text-white shadow-lg shadow-primary/20 translate-x-1"
-                      : "text-primary/70 hover:bg-white/50 hover:text-primary"
+                      : "text-primary/90 hover:bg-white/50 hover:text-primary"
                   }`}
                 >
                   <item.icon
@@ -120,7 +120,7 @@ export default function AdminLayout({
         <header className="h-16 flex items-center justify-between px-4 sm:px-6 lg:px-8 bg-white border-b border-primary/10 sticky top-0 z-30 shadow-sm">
           <button
             onClick={() => setSidebarOpen(true)}
-            className="lg:hidden text-primary/60 hover:text-primary -ml-2 p-2"
+            className="lg:hidden text-primary/80 hover:text-primary -ml-2 p-2"
           >
             <Menu className="w-6 h-6" />
           </button>
@@ -128,7 +128,7 @@ export default function AdminLayout({
           <div className="flex-1" />
 
           <div className="flex items-center space-x-4">
-            <button className="text-primary/60 hover:text-primary relative p-2">
+            <button className="text-primary/80 hover:text-primary relative p-2">
               <Bell className="w-5 h-5" />
               <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-secondary rounded-full border-2 border-white"></span>
             </button>

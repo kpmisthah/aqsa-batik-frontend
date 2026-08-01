@@ -193,7 +193,7 @@ export default function SignupPage() {
           <h2 className="font-heading text-3xl font-black text-primary tracking-tight">
             Create Account
           </h2>
-          <p className="text-sm text-primary/60 mt-2 font-medium">
+          <p className="text-sm text-primary/80 mt-2 font-medium">
             Register to explore exclusive batik dress materials and wholesale rates
           </p>
         </div>
@@ -219,7 +219,7 @@ export default function SignupPage() {
         {isOtpStep ? (
           <div>
             <div className="text-center mb-6">
-              <p className="text-sm text-primary/70 font-medium">
+              <p className="text-sm text-primary/90 font-medium">
                 We've sent a 6-digit verification code to
               </p>
               <p className="text-sm font-bold text-secondary mt-1">{email}</p>
@@ -367,7 +367,7 @@ export default function SignupPage() {
                 {password.length > 0 && (
                   <div className="mt-3 space-y-2 animate-fade-in">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="font-bold text-primary/60">Password Strength:</span>
+                      <span className="font-bold text-primary/80">Password Strength:</span>
                       <span className={`font-black uppercase tracking-wider text-[10px] ${
                         metCount <= 2 ? "text-red-500" : metCount <= 4 ? "text-amber-500" : "text-emerald-600"
                       }`}>
@@ -409,7 +409,7 @@ export default function SignupPage() {
                           }`}>
                             {c.met ? "✓" : "•"}
                           </span>
-                          <span className={c.met ? "text-emerald-700 font-medium" : "text-primary/60"}>
+                          <span className={c.met ? "text-emerald-700 font-medium" : "text-primary/80"}>
                             {c.label}
                           </span>
                         </div>
@@ -481,7 +481,7 @@ export default function SignupPage() {
 
             {/* Toggle Option */}
             <div className="text-center mt-6">
-              <p className="text-xs font-bold text-primary/60">
+              <p className="text-xs font-bold text-primary/80">
                 Already have an account?{" "}
                 <Link href="/login" className="text-secondary hover:underline uppercase tracking-wider text-[10px] font-black ml-1">
                   Sign In

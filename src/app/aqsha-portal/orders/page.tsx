@@ -311,7 +311,7 @@ export default function AdminOrders() {
       {loading ? (
         <div className="flex flex-col items-center justify-center py-20 bg-white rounded-2xl border border-primary/10">
           <Loader2 className="animate-spin text-primary mb-2" size={32} />
-          <p className="text-sm text-primary/60 font-bold uppercase tracking-wider">Loading Orders Data...</p>
+          <p className="text-sm text-primary/80 font-bold uppercase tracking-wider">Loading Orders Data...</p>
         </div>
       ) : filteredOrders.length === 0 ? (
         <div className="text-center py-20 bg-white rounded-2xl border border-primary/10 font-heading">
@@ -357,7 +357,7 @@ export default function AdminOrders() {
                         </td>
 
                         {/* Date */}
-                        <td className="px-6 py-5 whitespace-nowrap text-xs text-primary/70 font-medium">
+                        <td className="px-6 py-5 whitespace-nowrap text-xs text-primary/90 font-medium">
                           {formatDate(order.createdAt)}
                         </td>
 
@@ -470,7 +470,7 @@ export default function AdminOrders() {
                     </div>
                     <div className="text-right">
                       <span className="block text-[10px] font-black tracking-widest text-secondary uppercase">Date</span>
-                      <span className="block text-xs text-primary/70 font-medium">{formatDate(order.createdAt)}</span>
+                      <span className="block text-xs text-primary/90 font-medium">{formatDate(order.createdAt)}</span>
                     </div>
                   </div>
 
@@ -568,7 +568,7 @@ export default function AdminOrders() {
               >
                 Previous
               </button>
-              <span className="text-xs font-bold text-primary/70 tracking-widest uppercase">
+              <span className="text-xs font-bold text-primary/90 tracking-widest uppercase">
                 Page {currentPage} of {totalPages}
               </span>
               <button
@@ -626,7 +626,7 @@ export default function AdminOrders() {
                   </span>
                 </div>
                 { typeof selectedOrder.user === "object" && selectedOrder.user.email && (
-                  <div className="text-xs text-primary/70 font-medium pl-6">
+                  <div className="text-xs text-primary/90 font-medium pl-6">
                     {selectedOrder.user.email}
                   </div>
                 )}
@@ -667,7 +667,7 @@ export default function AdminOrders() {
                   : 'bg-rose-50 border-rose-200 text-rose-950'
               }`}>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-primary/60">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-primary/80">
                     🔄 Return Request Status: {selectedOrder.returnStatus}
                   </span>
                   {selectedOrder.returnStatus === 'Pending' && (
@@ -730,7 +730,7 @@ export default function AdminOrders() {
               <div className="space-y-1">
                 <span className="text-[9px] font-black tracking-widest text-secondary uppercase">Order Total</span>
                 <div className="text-2xl font-black text-primary">₹{selectedOrder.totalAmount.toLocaleString()}</div>
-                <div className="text-[10px] font-black tracking-wider text-primary/60 uppercase">Method: {selectedOrder.paymentMethod}</div>
+                <div className="text-[10px] font-black tracking-wider text-primary/80 uppercase">Method: {selectedOrder.paymentMethod}</div>
               </div>
 
               <div className="flex flex-wrap gap-2">

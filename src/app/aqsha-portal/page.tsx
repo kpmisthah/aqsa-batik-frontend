@@ -176,7 +176,7 @@ export default function AdminDashboard() {
     return (
       <div className="flex flex-col items-center justify-center py-40">
         <Loader2 className="animate-spin text-primary mb-4" size={40} />
-        <p className="text-sm font-black uppercase tracking-widest text-primary/60">Loading Store Analytics...</p>
+        <p className="text-sm font-black uppercase tracking-widest text-primary/80">Loading Store Analytics...</p>
       </div>
     );
   }
@@ -187,7 +187,7 @@ export default function AdminDashboard() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold text-primary font-heading tracking-tight">Dashboard Overview</h1>
-          <p className="mt-1 text-sm text-primary/70 font-medium">Live store telemetry, payments, and product stock levels.</p>
+          <p className="mt-1 text-sm text-primary/90 font-medium">Live store telemetry, payments, and product stock levels.</p>
         </div>
         <div className="flex items-center gap-3 self-start sm:self-center">
           <Link 
@@ -298,7 +298,7 @@ export default function AdminDashboard() {
           </div>
 
           {/* X Axis Labels */}
-          <div className="flex justify-between px-6 pt-3 text-[10px] font-black uppercase text-primary/60 tracking-wider">
+          <div className="flex justify-between px-6 pt-3 text-[10px] font-black uppercase text-primary/80 tracking-wider">
             {salesChart.labels.map((lbl, idx) => (
               <span key={idx}>{lbl}</span>
             ))}
@@ -370,7 +370,7 @@ export default function AdminDashboard() {
                     <div className="bg-secondary h-full" style={{ width: `${onlinePercent}%` }} title={`Online: ${onlinePercent}%`} />
                     <div className="bg-tan h-full" style={{ width: `${codPercent}%` }} title={`COD: ${codPercent}%`} />
                   </div>
-                  <div className="flex justify-between text-[9px] font-black uppercase text-primary/60 tracking-wider">
+                  <div className="flex justify-between text-[9px] font-black uppercase text-primary/80 tracking-wider">
                     <span>Online ({onlinePercent}%)</span>
                     <span>COD ({codPercent}%)</span>
                   </div>
@@ -387,7 +387,7 @@ export default function AdminDashboard() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h2 className="text-2xl font-bold text-primary font-heading">Recent Store Transactions</h2>
-            <p className="text-xs text-primary/60 font-medium">The most recent checkout logs registered on our store.</p>
+            <p className="text-xs text-primary/80 font-medium">The most recent checkout logs registered on our store.</p>
           </div>
           <Link 
             href="/aqsha-portal/orders" 
@@ -437,7 +437,7 @@ export default function AdminDashboard() {
                         <td className="px-6 py-5 whitespace-nowrap text-sm font-medium text-primary/80">
                           {customerName}
                         </td>
-                        <td className="px-6 py-5 whitespace-nowrap text-xs text-primary/60">
+                        <td className="px-6 py-5 whitespace-nowrap text-xs text-primary/80">
                           {formatDate(order.createdAt)}
                         </td>
                         <td className="px-6 py-5 whitespace-nowrap">
@@ -496,7 +496,7 @@ export default function AdminDashboard() {
                       </div>
                       <div className="text-right">
                         <span className="block text-[9px] font-black tracking-widest text-secondary uppercase">Date</span>
-                        <span className="block text-xs text-primary/60 font-medium">{formatDate(order.createdAt)}</span>
+                        <span className="block text-xs text-primary/80 font-medium">{formatDate(order.createdAt)}</span>
                       </div>
                     </div>
 
