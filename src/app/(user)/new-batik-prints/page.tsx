@@ -5,16 +5,30 @@ import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
 import ProductGrid from "@/modules/user/components/ProductGrid";
 import PremiumFeatureSection from "@/modules/user/components/PremiumFeatureSection";
 import AdvantageSection from "@/modules/user/components/AdvantageSection";
+import ProductFilterLayout from "@/modules/user/components/ProductFilterLayout";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
-async function getProducts() {
+async function getProducts({ page = "1", search = "", sort = "newest", minPrice = "", maxPrice = "" }: any) {
     try {
-        const res = await fetch(`${API_BASE}/products?limit=100`, { cache: 'no-store' });
+        const queryParams = new URLSearchParams({
+            limit: "12",
+            page: page,
+            ...(search && { search }),
+            ...(sort && { sort }),
+            ...(minPrice && { minPrice }),
+            ...(maxPrice && { maxPrice }),
+        });
+
+        const res = await fetch(`${API_BASE}/products?${queryParams.toString()}`, { cache: 'no-store' });
         const json = await res.json();
-        return json.data || [];
+        return {
+            products: json.data || [],
+            totalPages: json.totalPages || 1,
+            currentPage: json.page || 1
+        };
     } catch (e) {
-        return [];
+        return { products: [], totalPages: 1, currentPage: 1 };
     }
 }
 
@@ -30,19 +44,10 @@ async function getHeroBanner() {
 
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20New%20Arrival%20Batik%20Clothing";
 
-export default async function NewArrivalPage() {
-    const allProducts = await getProducts();
+export default async function NewArrivalPage({ searchParams }: { searchParams: Promise<any> }) {
+    const resolvedParams = await searchParams;
+    const { products, totalPages, currentPage } = await getProducts(resolvedParams || {});
     const heroBannerUrl = await getHeroBanner();
-
-    // Sort all products by createdAt in descending order (newest first)
-    const sortedProducts = [...allProducts].sort((a: any, b: any) => {
-        const dateA = new Date(a.createdAt || 0).getTime();
-        const dateB = new Date(b.createdAt || 0).getTime();
-        return dateB - dateA;
-    });
-
-    // Display the 12 most recent products
-    const displayProducts = sortedProducts.slice(0, 12);
 
     return (
         <div className="min-h-screen bg-cream text-primary font-heading selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
@@ -65,13 +70,13 @@ export default async function NewArrivalPage() {
                         fill
                         priority
                         sizes="100vw"
-                        className="object-cover object-[center_top] md:object-[center_20%] brightness-[0.7] contrast-[1.1]"
+                        className="object-cover object-[75%_top] md:object-[center_20%] brightness-[0.7] contrast-[1.1]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black/20 via-black/20 to-black/90 md:from-black/80 md:via-black/20 md:to-transparent shadow-2xl"></div>
                 </div>
 
-                <div className="relative z-10 max-w-[1500px] mx-auto px-5 md:px-10 w-full flex justify-start text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-                    <div className="flex flex-col gap-4 md:gap-10 items-start text-left max-w-5xl">
+                <div className="relative z-10 max-w-[1500px] mx-auto px-5 md:px-10 pt-20 md:pt-0 w-full flex justify-center md:justify-start text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                    <div className="flex flex-col gap-6 md:gap-10 items-center md:items-start text-center md:text-left max-w-5xl w-full">
                         <div className="flex items-center gap-2 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-1.5 md:px-6 md:py-2 rounded-full border border-white/20 w-fit">
                             <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-tan animate-pulse"></span>
                             <span className="text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em]">Fresh Batik Styles. Modern Women Fashion.</span>
@@ -82,12 +87,12 @@ export default async function NewArrivalPage() {
                                 <span className='text-accent'>New Arrival</span> Batik Prints & <br className="hidden md:block" />
                                 Cotton Dress <span className='text-accent'>Material Collection</span>
                             </h1>
-                            <p className="text-h3 opacity-90 mt-1 md:mt-2 max-w-[280px] md:max-w-5xl text-white/90">
+                            <p className="text-body1 opacity-90 mt-2 md:mt-2 max-w-sm md:max-w-5xl text-white/90 text-center md:text-left mx-auto md:mx-0 ">
                                 Explore new arrival batik prints, premium cotton dress material, floral cotton fabric, and designer printed fabric collections crafted for cotton kurtis, women clothing, boutiques, and trending ethnic fashion.
                             </p>
                         </div>
 
-                        <div className="flex flex-col sm:flex-row gap-3 md:gap-6 pt-2 md:pt-10 items-start justify-start w-full">
+                        <div className="flex flex-col sm:flex-row gap-3 md:gap-6 pt-2 md:pt-10 items-center md:items-start justify-center md:justify-start w-full">
                             <a href={WA} target="_blank" rel="noreferrer" className="inline-block bg-accent text-primary px-6 py-3.5 md:px-10 md:py-4 rounded-xl font-bold text-sm md:text-lg hover:-translate-y-1 hover:shadow-2xl hover:brightness-105 active:scale-95 transition-all duration-300 uppercase tracking-widest text-center w-full sm:w-auto">
                                 Shop New Arrivals
                             </a>
@@ -102,15 +107,18 @@ export default async function NewArrivalPage() {
             <GoogleReviewBar />
 
             {/* ── SECTION: TREND VALUE (WHY NEW ARRIVALS) ── */}
-            <section className="py-16 md:py-24 px-6 bg-cream relative overflow-hidden">
-                <div className="max-w-[1600px] mx-auto flex flex-col gap-12 md:gap-16">
-                    <div className="flex flex-col gap-3 md:gap-6 text-center items-center mx-auto max-w-4xl">
-                        <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">Built Around Fashion Demand</span>
-                        <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary leading-tight">New Batik Print Collections Women Actually Want To Wear</h2>
-                        <p className="text-[13px] md:text-xl text-primary/80 font-medium italic leading-relaxed mt-2 text-left md:text-center w-full">Fashion trends evolve quickly. Women still choose comfort first. Our latest batik print fabric, cotton dress material, and floral print collections are designed around wearable fashion, breathable comfort, and modern ethnic styling trends.</p>
+            <section className="py-16 md:py-32 px-6 bg-[#F9F7F1] relative overflow-hidden">
+                <div className="max-w-[1600px] mx-auto flex flex-col gap-16 md:gap-20">
+                    <div className="flex flex-col gap-4 text-center items-center mx-auto max-w-4xl">
+                        <span className="text-overline text-secondary">Built Around Fashion Demand</span>
+                        <h2 className="text-h2 text-primary">New Batik Print Collections Women <br /> Actually Want To Wear</h2>
+                        <div className="w-12 h-[2px] bg-secondary/30 mt-4"></div>
+                        <p className="text-lg md:text-xl text-primary font-medium leading-relaxed mt-4 max-w-3xl">
+                            Fashion trends evolve quickly. Women still choose comfort first. Our latest batik print fabric, cotton dress material, and floral print collections are designed around wearable fashion, breathable comfort, and modern ethnic styling trends.
+                        </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 max-w-6xl mx-auto w-full">
                         {[
                             {
                                 t: "Trending Batik Print Designs",
@@ -141,13 +149,22 @@ export default async function NewArrivalPage() {
                                 )
                             }
                         ].map((item, i) => (
-                            <div key={i} className="p-4 md:p-8 bg-white rounded-[20px] md:rounded-[32px] border border-primary/5 group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 text-left md:text-center flex flex-row md:flex-col items-start md:items-center gap-4 md:gap-6">
-                                <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-[20px] bg-cream text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-500 shrink-0 [&>svg]:!w-6 [&>svg]:!h-6 md:[&>svg]:!w-8 md:[&>svg]:!h-8">
+                            <div key={i} className="bg-primary rounded-[24px] md:rounded-[36px] p-8 md:p-10 lg:p-12 shadow-[0_10px_40px_rgba(90,42,31,0.2)] border border-[#E8D9C0]/10 flex flex-col items-center text-center gap-8 group hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden h-full">
+                                {/* Subtle inner glow */}
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-[#E8D9C0]/5 rounded-full blur-[80px] pointer-events-none"></div>
+
+                                <div className="text-[#E8D9C0] group-hover:scale-110 transition-transform duration-500 [&>svg]:!w-10 [&>svg]:!h-10 md:[&>svg]:!w-12 md:[&>svg]:!h-12 relative z-10">
                                     {item.i}
                                 </div>
-                                <div className="flex flex-col gap-1 md:gap-3 flex-1">
-                                    <h3 className="text-base md:text-xl font-black uppercase tracking-tight text-primary">{item.t}</h3>
-                                    <p className="text-[13px] md:text-base text-primary/70 font-medium leading-relaxed">{item.d}</p>
+                                <div className="flex flex-col flex-1 relative z-10 w-full justify-between">
+                                    <div className="flex flex-col gap-4">
+                                        <h3 className="text-h4 text-cream font-medium tracking-wide">{item.t}</h3>
+                                        <p className="text-body2 text-cream/95 leading-relaxed font-medium tracking-wide">{item.d}</p>
+                                    </div>
+                                    <div className="mt-8 flex items-center justify-center gap-2 text-[#E8D9C0] text-[10px] md:text-[11px] font-bold uppercase tracking-widest opacity-70 group-hover:opacity-100 transition-opacity">
+                                        <span>Learn More</span>
+                                        <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                                    </div>
                                 </div>
                             </div>
                         ))}
@@ -159,12 +176,19 @@ export default async function NewArrivalPage() {
             <section id="collection" className="py-16 md:py-24 px-6 bg-white relative">
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-12 md:gap-16">
                     <div className="flex flex-col gap-3 md:gap-4 text-center items-center mx-auto max-w-4xl">
-                        <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">Fresh Collection</span>
-                        <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary leading-tight">Explore New Arrival Batik Print Fabric Collections</h2>
-                        <p className="text-[13px] md:text-xl text-primary/70 font-medium italic leading-relaxed mt-2 text-left md:text-center w-full">Browse premium batik print fabric, cotton suit dress material, and designer printed fabric collections created for boutiques, resellers, and modern women clothing trends.</p>
+                        <span className="text-overline text-secondary">Fresh Collection</span>
+                        <h2 className="text-h3 text-primary">Explore New Arrival Batik Print Fabric Collections</h2>
+                        <p className="text-lg md:text-xl text-primary font-medium leading-relaxed mt-2 w-full text-center">
+                            Browse premium batik print fabric, cotton suit dress material, and designer printed fabric collections created for boutiques, resellers, and modern women clothing trends.
+                        </p>
                     </div>
 
-                    <ProductGrid products={displayProducts} columns={4} />
+                    <ProductFilterLayout
+                        products={products}
+                        currentPage={currentPage}
+                        totalPages={totalPages}
+                        searchParams={{ sort: "newest", ...(resolvedParams || {}) }}
+                    />
                 </div>
             </section>
 
@@ -259,7 +283,7 @@ export default async function NewArrivalPage() {
                     <div className="flex flex-col gap-3 md:gap-6 text-center items-center max-w-4xl mx-auto w-full">
                         <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">Explore More</span>
                         <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary leading-tight">Continue Your Batik Fashion Shopping Journey</h2>
-                        <p className="text-[13px] md:text-xl text-primary/60 font-medium italic leading-relaxed mt-2 text-left md:text-center w-full">Browse breathable cotton fabric, wholesale women dress material, and trending batik print collections designed for boutiques, resellers, and modern women fashion.</p>
+                        <p className="text-lg md:text-xl text-primary font-medium leading-relaxed leading-relaxed mt-2 text-left md:text-center w-full">Browse breathable cotton fabric, wholesale women dress material, and trending batik print collections designed for boutiques, resellers, and modern women fashion.</p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10">
@@ -273,7 +297,7 @@ export default async function NewArrivalPage() {
                                 </div>
                             </div>
                             <div className="p-4 md:p-8 flex flex-col gap-3 md:gap-6 flex-grow">
-                                <p className="text-[9px] md:text-base text-primary/70 font-medium leading-relaxed line-clamp-3 md:line-clamp-none">Discover breathable printed cotton fabric and stylish women dress material collections.</p>
+                                <p className="text-sm md:text-base text-primary/90 font-medium leading-relaxed line-clamp-3 md:line-clamp-none">Discover breathable printed cotton fabric and stylish women dress material collections.</p>
                                 <div className="hidden md:flex items-center gap-3 text-secondary font-bold text-sm uppercase tracking-widest mt-auto">
                                     View Collection
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-2 transition-transform"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
@@ -292,7 +316,7 @@ export default async function NewArrivalPage() {
                                 </div>
                             </div>
                             <div className="p-4 md:p-8 flex flex-col gap-3 md:gap-6 flex-grow">
-                                <p className="text-[9px] md:text-base text-primary/70 font-medium leading-relaxed line-clamp-3 md:line-clamp-none">Browse premium cotton fabric and print-focused collections.</p>
+                                <p className="text-sm md:text-base text-primary/90 font-medium leading-relaxed line-clamp-3 md:line-clamp-none">Browse premium cotton fabric and print-focused collections.</p>
                                 <div className="hidden md:flex items-center gap-3 text-secondary font-bold text-sm uppercase tracking-widest mt-auto">
                                     View Fabric
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-2 transition-transform"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
@@ -310,7 +334,7 @@ export default async function NewArrivalPage() {
                                 </div>
                             </div>
                             <div className="p-4 md:p-8 flex flex-col gap-3 md:gap-6 flex-grow">
-                                <p className="text-[9px] md:text-base text-primary/70 font-medium leading-relaxed line-clamp-3 md:line-clamp-none">Browse wholesale-ready women clothing collections with fast-moving fashion demand.</p>
+                                <p className="text-sm md:text-base text-primary/90 font-medium leading-relaxed line-clamp-3 md:line-clamp-none">Browse wholesale-ready women clothing collections with fast-moving fashion demand.</p>
                                 <div className="hidden md:flex items-center gap-3 text-secondary font-bold text-sm uppercase tracking-widest mt-auto">
                                     View Wholesale
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-2 transition-transform"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
@@ -326,8 +350,8 @@ export default async function NewArrivalPage() {
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
                     <div className="flex flex-col gap-3 md:gap-6 text-center items-center max-w-4xl mx-auto w-full">
                         <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">Fashion & Trend Journal</span>
-                        <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary leading-tight">The Batik Print Fashion Guide</h2>
-                        <p className="text-[13px] md:text-xl text-primary/60 font-medium italic leading-relaxed mt-2 text-left md:text-center w-full">Explore insights on batik print fabric, cotton dress material, designer printed fabric, and trending women ethnic fashion collections shaping today’s style market.</p>
+                        <h2 className="font-heading text-xl sm:text-2xl md:text-4xl font-bold text-primary leading-tight whitespace-nowrap sm:whitespace-normal">The Batik Print Fashion Guide</h2>
+                        <p className="text-lg md:text-xl text-primary font-medium leading-relaxed mt-2 text-center w-full">Explore insights on batik print fabric, cotton dress material, designer printed fabric, and trending women ethnic fashion collections shaping today’s style market.</p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10">

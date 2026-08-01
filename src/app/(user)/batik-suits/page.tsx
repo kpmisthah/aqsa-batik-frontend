@@ -7,16 +7,32 @@ import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
 import ProductGrid from "@/modules/user/components/ProductGrid";
 import PremiumFeatureSection from "@/modules/user/components/PremiumFeatureSection";
 import AdvantageSection from "@/modules/user/components/AdvantageSection";
+import HowToOrderSection from "@/modules/user/components/HowToOrderSection";
+import ProductFilterLayout from "@/modules/user/components/ProductFilterLayout";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
-async function getProducts() {
+async function getProducts({ page = "1", search = "", sort = "", minPrice = "", maxPrice = "" }: any) {
     try {
-        const res = await fetch(`${API_BASE}/products?limit=100&category=Batik+Cloth`, { cache: 'no-store' });
+        const queryParams = new URLSearchParams({
+            limit: "12",
+            page: page,
+            category: "Batik Suits,Batik Suit",
+            ...(search && { search }),
+            ...(sort && { sort }),
+            ...(minPrice && { minPrice }),
+            ...(maxPrice && { maxPrice }),
+        });
+        
+        const res = await fetch(`${API_BASE}/products?${queryParams.toString()}`, { cache: 'no-store' });
         const json = await res.json();
-        return json.data || [];
+        return {
+            products: json.data || [],
+            totalPages: json.totalPages || 1,
+            currentPage: json.page || 1
+        };
     } catch (e) {
-        return [];
+        return { products: [], totalPages: 1, currentPage: 1 };
     }
 }
 
@@ -32,10 +48,10 @@ async function getHeroBanner() {
 
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20Batik%20Suits";
 
-export default async function BatikSuitsPage() {
-    const allProducts = await getProducts();
+export default async function BatikSuitsPage({ searchParams }: { searchParams: Promise<any> }) {
+    const resolvedParams = await searchParams;
+    const { products, totalPages, currentPage } = await getProducts(resolvedParams || {});
     const heroBannerUrl = await getHeroBanner();
-    const suitProducts = allProducts.filter((p: any) => p.category === "Batik Cloth");
 
     const collectionHighlights = [
         {
@@ -102,8 +118,8 @@ export default async function BatikSuitsPage() {
                     <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent shadow-2xl"></div>
                 </div>
 
-                <div className="relative z-10 max-w-[1500px] mx-auto px-6 md:px-10 w-full flex justify-center text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-                    <div className="flex flex-col gap-6 md:gap-10 items-center text-center max-w-5xl">
+                <div className="relative z-10 max-w-[1500px] mx-auto px-6 md:px-10 pt-20 md:pt-0 w-full flex justify-center md:justify-start text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                    <div className="flex flex-col gap-6 md:gap-10 items-center md:items-start text-center md:text-left max-w-5xl w-full">
                         <div className="flex items-center gap-4 bg-white/10 backdrop-blur-md px-6 py-2 rounded-full border border-white/20 w-fit">
                             <span className="w-2 h-2 rounded-full bg-tan animate-pulse"></span>
                             <span className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.3em]">Pure Cotton Dress Materials</span>
@@ -113,12 +129,12 @@ export default async function BatikSuitsPage() {
                             <h1 className="text-h1">
                                 <span className='text-accent'>Batik Suits</span> Online – <br className="md:hidden" /> Cotton Dress Material Collection
                             </h1>
-                            <p className="text-h3 opacity-90 mt-1 md:mt-2 max-w-[280px] md:max-w-5xl text-white/90">
+                            <p className="text-body1 opacity-90 mt-2 md:mt-2 max-w-sm md:max-w-5xl text-white/90 text-center md:text-left mx-auto md:mx-0 ">
                                 Explore High-Demand Batik <br className="md:hidden" /> Suit Designs
                             </p>
                         </div>
 
-                        <div className="flex flex-col md:flex-row gap-4 md:gap-6 pt-8 md:pt-10 items-center justify-center">
+                        <div className="flex flex-col md:flex-row gap-4 md:gap-6 pt-8 md:pt-10 items-center md:items-start justify-center md:justify-start w-full">
                             <a href={WA} target="_blank" rel="noreferrer" className="inline-block bg-accent text-primary px-6 py-3.5 md:px-10 md:py-4 rounded-xl font-bold text-sm md:text-lg hover:-translate-y-1 hover:shadow-2xl hover:brightness-105 active:scale-95 transition-all duration-300 uppercase tracking-widest text-center w-full sm:w-auto">
                                 Get Wholesale Pricing
                             </a>
@@ -137,7 +153,7 @@ export default async function BatikSuitsPage() {
                     <div className="flex flex-col gap-6 text-center mx-auto max-w-3xl">
                         <span className="text-xs font-bold text-secondary uppercase tracking-[0.4em]">Optimized for Profit</span>
                         <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary">Looking for Batik Cloth that actually sell?</h2>
-                        <p className="text-xl text-primary/70 font-medium leading-relaxed italic">Our collection is curated specifically for the demands of the modern Indian market.</p>
+                        <p className="text-lg md:text-xl text-primary font-medium leading-relaxed">Our collection is curated specifically for the demands of the modern Indian market.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -145,12 +161,17 @@ export default async function BatikSuitsPage() {
                             <div key={i} className="p-12 bg-cream rounded-[40px] border border-primary/5 group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
                                 <div className="text-6xl mb-8 group-hover:scale-110 transition-transform inline-block">{item.i}</div>
                                 <h3 className="text-2xl font-black mb-4 uppercase tracking-tight">{item.t}</h3>
-                                <p className="text-primary/60 font-medium leading-relaxed">{item.d}</p>
+                                <p className="text-primary/80 font-medium leading-relaxed">{item.d}</p>
                             </div>
                         ))}
                     </div>
 
-                    <ProductGrid products={suitProducts} columns={4} />
+                    <ProductFilterLayout 
+                        products={products} 
+                        currentPage={currentPage}
+                        totalPages={totalPages}
+                        searchParams={resolvedParams || {}}
+                    />
                 </div>
             </section>
 
@@ -236,90 +257,11 @@ export default async function BatikSuitsPage() {
                 quote="The gold standard for Batik Cloth, ensuring longevity and maximum comfort in any weather."
             />
 
-            {/* ── HOW TO ORDER SECTION ── */}
-            <section className="py-16 md:py-24 px-6 bg-tan/50 relative overflow-hidden">
-                <div className="max-w-[1600px] mx-auto flex flex-col gap-12 md:gap-16 relative z-10">
-                    <div className="flex flex-col gap-3 md:gap-4 max-w-4xl mx-auto w-full">
-                        <div className="text-center flex flex-col gap-1 md:gap-2 items-center">
-                            <span className="text-[10px] md:text-sm font-black text-secondary uppercase tracking-[0.5em] mb-1 block">Simple Process</span>
-                            <h2 className="font-heading text-3xl md:text-6xl font-bold text-primary leading-tight">How to Order <span className='text-accent'>Batik Suits</span> Online</h2>
-                        </div>
-                        <p className="text-[13px] md:text-xl text-primary/70 font-medium italic mx-0 lg:mx-auto leading-relaxed text-left md:text-center mt-2">
-                            Five simple steps. Zero confusion. Fast delivery of premium batik fabric, Batik Cloth, trending batik color collections, and quality cotton cloth across India.
-                        </p>
-                    </div>
+            <HowToOrderSection
+                title={<>How to Order <span className='text-accent'>Batik Suits</span> Online</>}
+                whatsappLink={WA}
+            />
 
-                    <div className="relative grid grid-cols-2 lg:flex lg:flex-row justify-between gap-6 md:gap-10 lg:gap-6 mt-2 md:mt-0">
-                        <div className="hidden lg:block absolute top-[32px] left-[10%] right-[10%] h-[3px] bg-primary/5 z-0"></div>
-
-                        {[
-                            {
-                                s: "01", t: "Browse Designs",
-                                d: "Explore latest batik fabric prints with fresh collections of batik suits design, and ready-to-sell styles in premium women clothing demand.",
-                                i: (
-                                    <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />
-                                    </svg>
-                                )
-                            },
-                            {
-                                s: "02", t: "Select Quantity",
-                                d: "Choose required pieces for retail, boutique stock, or bulk orders in quality cotton cloth and ladies cloth collections.",
-                                i: (
-                                    <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <rect width="16" height="20" x="4" y="2" rx="2" /><path d="M12 11h4" /><path d="M12 15h4" /><path d="M8 11h.01" /><path d="M8 15h.01" />
-                                    </svg>
-                                )
-                            },
-                            {
-                                s: "03", t: "Contact on WhatsApp",
-                                d: "Send your selected designs directly for quick support, stock updates, and easy buying assistance.",
-                                i: (
-                                    <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-10.6 8.38 8.38 0 0 1 3.8.9L21 3l-1.5 5.5Z" />
-                                    </svg>
-                                )
-                            },
-                            {
-                                s: "04", t: "Get Bulk Pricing",
-                                d: "Receive wholesale rates for printed batik fabric, reseller orders, and custom quantity requirements.",
-                                i: (
-                                    <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="m15 5 4 4" /><path d="M13 7 8.7 2.7a2 2 0 0 0-2.8 0L2.7 5.9a2 2 0 0 0 0 2.8L7 13" /><path d="m19 11-4 4" /><path d="m21 15-4.5 4.5a2 2 0 0 1-2.8 0L10 15.8" /><circle cx="16" cy="16" r="2" />
-                                    </svg>
-                                )
-                            },
-                            {
-                                s: "05", t: "Fast Dispatch",
-                                d: "Your order is packed securely and shipped quickly across India through trusted courier partners.",
-                                i: (
-                                    <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M10 17h4V5H2v12h3" /><path d="M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5" /><path d="M14 17h1" /><circle cx="7.5" cy="17.5" r="2.5" /><circle cx="17.5" cy="17.5" r="2.5" />
-                                    </svg>
-                                )
-                            }
-                        ].map((step, i) => (
-                            <div key={i} className={`flex flex-col items-center text-center gap-2 md:gap-4 lg:w-1/5 relative z-10 ${i === 4 ? "col-span-2 lg:col-span-1" : ""}`}>
-                                <div className="w-10 h-10 md:w-16 md:h-16 bg-white rounded-[12px] md:rounded-[24px] shadow-lg flex items-center justify-center text-primary hover:scale-110 transition-all duration-500 cursor-default border border-white relative group">
-                                    <span className="absolute -top-1.5 -left-1.5 md:-top-2 md:-left-2 w-5 h-5 md:w-6 md:h-6 bg-secondary text-white text-[8px] md:text-[9px] font-black rounded-full flex items-center justify-center shadow-md">{step.s}</span>
-                                    {step.i}
-                                </div>
-                                <div className="flex flex-col gap-1 md:gap-1.5 px-1 md:px-2">
-                                    <h4 className="text-[11px] md:text-lg font-black tracking-tight text-primary leading-tight">{step.t}</h4>
-                                    <p className="text-[9px] md:text-xs text-primary/70 font-medium leading-relaxed">{step.d}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className="flex justify-center mt-6 md:mt-12">
-                        <a href={WA} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 md:gap-4 bg-primary text-white px-4 py-3 md:px-10 md:py-5 rounded-xl md:rounded-3xl font-bold text-[11px] md:text-xl shadow-[0_15px_40px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 transition-all duration-300 uppercase tracking-widest group text-center">
-                            <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 md:w-6 md:h-6 shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" /></svg>
-                            START YOUR ORDER ON WHATSAPP
-                        </a>
-                    </div>
-                </div>
-            </section>
 
             {/* ── SECTION: CONTINUE EXPLORING ── */}
             <section className="py-16 md:py-32 px-6 bg-white relative overflow-hidden">
@@ -382,7 +324,7 @@ export default async function BatikSuitsPage() {
                     <div className="flex flex-col gap-3 md:gap-6 text-left md:text-center">
                         <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">Editorial Corner</span>
                         <h2 className="font-heading text-2xl md:text-5xl font-bold text-primary leading-tight">The Batik Journal</h2>
-                        <p className="text-[13px] md:text-xl text-primary/60 font-medium italic mt-2">Stories of heritage, craft, and contemporary style.</p>
+                        <p className="text-lg md:text-xl text-primary font-medium leading-relaxed mt-2">Stories of heritage, craft, and contemporary style.</p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10">

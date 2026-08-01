@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Nav from "@/modules/user/components/Nav";
 import FAQ from "@/modules/user/components/FAQ";
 import PremiumTrustSection from "@/modules/user/components/PremiumTrustSection";
@@ -9,16 +10,32 @@ import StickyEnquiryButton from "@/modules/user/components/StickyEnquiryButton";
 import ProductGrid from "@/modules/user/components/ProductGrid";
 import PremiumFeatureSection from "@/modules/user/components/PremiumFeatureSection";
 import AdvantageSection from "@/modules/user/components/AdvantageSection";
+import HowToOrderSection from "@/modules/user/components/HowToOrderSection";
+import ProductFilterLayout from "@/modules/user/components/ProductFilterLayout";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
-async function getProducts() {
+async function getProducts({ page = "1", search = "", sort = "", minPrice = "", maxPrice = "" }: any) {
     try {
-        const res = await fetch(`${API_BASE}/products?limit=100`, { cache: 'no-store' });
+        const queryParams = new URLSearchParams({
+            limit: "12",
+            page: page,
+            category: "Wholesale",
+            ...(search && { search }),
+            ...(sort && { sort }),
+            ...(minPrice && { minPrice }),
+            ...(maxPrice && { maxPrice }),
+        });
+
+        const res = await fetch(`${API_BASE}/products?${queryParams.toString()}`, { cache: 'no-store' });
         const json = await res.json();
-        return json.data || [];
+        return {
+            products: json.data || [],
+            totalPages: json.totalPages || 1,
+            currentPage: json.page || 1
+        };
     } catch (e) {
-        return [];
+        return { products: [], totalPages: 1, currentPage: 1 };
     }
 }
 
@@ -34,12 +51,10 @@ async function getHeroBanner() {
 
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20Wholesale%20Manufacturer%20Pricing";
 
-export default async function WholesalePage() {
-    const allProducts = await getProducts();
+export default async function WholesalePage({ searchParams }: { searchParams: Promise<any> }) {
+    const resolvedParams = await searchParams;
+    const { products, totalPages, currentPage } = await getProducts(resolvedParams || {});
     const heroBannerUrl = await getHeroBanner();
-    const wholesaleProducts = allProducts.filter((p: any) => p.category === "Wholesale" || p.isWholesale === true);
-    const otherProducts = allProducts.filter((p: any) => p.category !== "Wholesale" && p.isWholesale !== true);
-    const displayProducts = [...wholesaleProducts, ...otherProducts].slice(0, 10);
 
     const partnershipBenefits = [
         {
@@ -228,8 +243,8 @@ export default async function WholesalePage() {
                     <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black/20 via-black/20 to-black/90 md:from-black/80 md:via-black/20 md:to-transparent"></div>
                 </div>
 
-                <div className="relative z-10 max-w-[1500px] mx-auto px-5 md:px-10 w-full flex justify-start text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-                    <div className="flex flex-col gap-4 md:gap-10 items-start text-left max-w-5xl">
+                <div className="relative z-10 max-w-[1500px] mx-auto px-5 md:px-10 pt-20 md:pt-0 w-full flex justify-center md:justify-start text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                    <div className="flex flex-col gap-6 md:gap-10 items-center md:items-start text-center md:text-left max-w-5xl w-full">
                         <div className="flex items-center gap-2 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-1.5 md:px-6 md:py-2 rounded-full border border-white/20 w-fit">
                             <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-tan animate-pulse"></span>
                             <span className="text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em]">Direct Batik Manufacturer from Ujjain</span>
@@ -241,12 +256,12 @@ export default async function WholesalePage() {
                                 in India for Batik Clothing & <br />
                                 <span className='text-accent'>Bulk Orders</span>
                             </h1>
-                            <p className="text-h3 opacity-90 mt-1 md:mt-2 max-w-[280px] md:max-w-5xl text-white/90">
+                            <p className="text-body1 opacity-90 mt-2 md:mt-2 max-w-sm md:max-w-5xl text-white/90 text-center md:text-left mx-auto md:mx-0 ">
                                 Stop guessing what will sell. Work with a direct manufacturer supplying high-demand batik fabric wholesale, premium batik print material, and consistent inventory for boutiques, resellers, and growing batik clothing brands across India.
                             </p>
                         </div>
 
-                        <div className="flex flex-col sm:flex-row gap-3 md:gap-6 pt-2 md:pt-10 items-start justify-start w-full">
+                        <div className="flex flex-col sm:flex-row gap-3 md:gap-6 pt-2 md:pt-10 items-center md:items-start justify-center md:justify-start w-full">
                             <a href={WA} target="_blank" rel="noreferrer" className="inline-block bg-accent text-primary px-6 py-3.5 md:px-10 md:py-4 rounded-xl font-bold text-sm md:text-lg hover:-translate-y-1 hover:shadow-2xl hover:brightness-105 active:scale-95 transition-all duration-300 uppercase tracking-widest text-center w-full sm:w-auto">
                                 Contact for Bulk Orders
                             </a>
@@ -259,48 +274,80 @@ export default async function WholesalePage() {
             </section>
             <GoogleReviewBar />
 
-            {/* ── SECTION: PROBLEM/SOLUTION ── */}
-            <section className="py-16 md:py-32 px-6 bg-[#1a0f0a] text-white">
-                <div className="max-w-[1600px] mx-auto flex flex-col gap-12 md:gap-20">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center max-w-6xl mx-auto w-full">
-                        <div className="flex flex-col gap-6 md:gap-10 text-center lg:text-left">
-                            <h2 className="font-heading text-2xl md:text-4xl font-bold leading-tight">If your current supplier is giving you...</h2>
-                            <div className="flex flex-col gap-3 md:gap-4 mx-auto lg:mx-0 text-left">
+            {/* ── SECTION: PROBLEM/SOLUTION (BENTO BOX) ── */}
+            <section className="py-16 md:py-32 px-6 bg-[#F9F7F1]">
+                <div className="max-w-[1400px] mx-auto flex flex-col gap-12 md:gap-16">
+                    <div className="flex flex-col gap-3 md:gap-4 text-center items-center max-w-3xl mx-auto w-full">
+                        <span className="text-overline text-secondary">Streamline Your Sourcing</span>
+                        <h2 className="text-h2 text-primary">Solving Challenges for Retailers</h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 max-w-5xl mx-auto w-full">
+
+                        {/* LEFT: THE PROBLEM */}
+                        <div className="bg-white rounded-[32px] md:rounded-[48px] p-8 md:p-12 lg:p-16 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-primary/5 flex flex-col gap-10 hover:-translate-y-1 transition-transform duration-500 justify-center h-full">
+                            <h3 className="text-h2 text-[#b91c1c]">If your current supplier is giving you...</h3>
+
+                            <div className="flex flex-col gap-6">
                                 {["Inconsistent quality", "Slow-moving designs", "Low margins"].map((item, i) => (
-                                    <div key={i} className="flex items-center gap-3 md:gap-5 text-lg md:text-2xl font-bold opacity-60">
-                                        <span className="text-red-500 text-xl md:text-2xl shrink-0">✕</span>
-                                        <span>{item}</span>
+                                    <div key={i} className="flex items-center gap-4 relative">
+                                        <div className="w-2 h-2 rounded-full bg-red-400 shrink-0"></div>
+                                        <h4 className="text-h4 text-primary">{item}</h4>
                                     </div>
                                 ))}
                             </div>
                         </div>
-                        <div className="p-8 md:p-16 bg-white/5 backdrop-blur-3xl rounded-[32px] md:rounded-[60px] border border-white/10 flex flex-col gap-6 md:gap-8 shadow-2xl text-center lg:text-left">
-                            <p className="text-xl md:text-3xl font-heading font-bold text-accent leading-snug">You don't have a sourcing problem. You have a supply system problem.</p>
-                            <h3 className="text-2xl md:text-4xl font-black italic">We fix that.</h3>
-                            <p className="text-[13px] md:text-lg opacity-70 leading-relaxed font-medium">AQSHA Batik Cloth is a 15+ year manufacturer specialising in high-demand, high-rotation batik dress materials.</p>
+
+                        {/* RIGHT: THE SOLUTION */}
+                        <div className="bg-primary rounded-[32px] md:rounded-[48px] p-8 md:p-12 lg:p-16 shadow-2xl border border-primary/20 flex flex-col gap-8 relative overflow-hidden hover:-translate-y-1 transition-transform duration-500 justify-center h-full">
+                            {/* Subtle premium gradient/glow in the background */}
+                            <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+                            <div className="flex flex-col gap-6 relative z-10">
+                                <p className="text-h3 text-white">
+                                    You don't have a sourcing problem.<br />You have a supply system problem.
+                                </p>
+                                <h3 className="text-h2 italic text-[#FDB953]">We fix that.</h3>
+                                <p className="text-body1 text-white/95 font-medium tracking-wide max-w-lg">
+                                    AQSHA Batik Cloth is a 15+ year manufacturer specialising in high-demand, high-rotation batik dress materials.
+                                </p>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </section>
 
             {/* ── SECTION: CAPABILITIES + PRODUCT GRID ── */}
-            <section id="collection" className="py-16 md:py-24 px-6 bg-white relative overflow-hidden">
-                <div className="max-w-[1600px] mx-auto flex flex-col gap-12 md:gap-16">
-                    <div className="flex flex-col gap-3 md:gap-6 text-center items-center mx-auto max-w-4xl">
-                        <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">Built for Real Market Use</span>
-                        <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary leading-tight">Wholesale Fabric That Supports Every Batik Business Need</h2>
-                        <p className="text-[13px] md:text-xl text-primary/80 font-medium leading-relaxed italic mt-2 text-left md:text-center w-full">From boutique collections to bulk supply, our batik fabric wholesale is designed for consistent demand—ideal for batik clothing, printed dresses for women, and scalable retail inventory across India.</p>
+            <section id="collection" className="py-16 md:py-32 px-6 bg-[#F9F7F1] relative overflow-hidden">
+                <div className="max-w-[1600px] mx-auto flex flex-col gap-16 md:gap-20">
+                    <div className="flex flex-col gap-4 text-center items-center mx-auto max-w-4xl">
+                        <span className="text-overline text-secondary">Built for Real Market Use</span>
+                        <h2 className="text-h2 text-primary">Wholesale Fabric That Supports Every Business Need</h2>
+                        <div className="w-12 h-[2px] bg-secondary/30 mt-4"></div>
+                        <p className="text-lg md:text-xl text-primary font-medium leading-relaxed mt-4 max-w-3xl">
+                            From boutique collections to bulk supply, our batik fabric wholesale is designed for consistent demand—ideal for batik clothing, printed dresses for women, and scalable retail inventory across India.
+                        </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 max-w-6xl mx-auto w-full">
                         {wholesaleCapabilities.map((item, i) => (
-                            <div key={i} className="p-4 md:p-8 bg-white rounded-[20px] md:rounded-[32px] border border-primary/5 group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 text-left md:text-center flex flex-row md:flex-col items-start md:items-center gap-4 md:gap-6">
-                                <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-[20px] bg-cream text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-500 shrink-0 [&>svg]:!w-6 [&>svg]:!h-6 md:[&>svg]:!w-8 md:[&>svg]:!h-8">
+                            <div key={i} className="bg-primary rounded-[24px] md:rounded-[36px] p-8 md:p-10 lg:p-12 shadow-[0_10px_40px_rgba(90,42,31,0.2)] border border-[#E8D9C0]/10 flex flex-col items-center text-center gap-8 group hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden h-full">
+                                {/* Subtle inner glow */}
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-[#E8D9C0]/5 rounded-full blur-[80px] pointer-events-none"></div>
+
+                                <div className="text-[#E8D9C0] group-hover:scale-110 transition-transform duration-500 [&>svg]:!w-10 [&>svg]:!h-10 md:[&>svg]:!w-12 md:[&>svg]:!h-12 relative z-10">
                                     {item.i}
                                 </div>
-                                <div className="flex flex-col gap-1 md:gap-3 flex-1">
-                                    <h3 className="text-base md:text-xl font-black uppercase tracking-tight text-primary">{item.t}</h3>
-                                    <p className="text-[13px] md:text-base text-primary/70 font-medium leading-relaxed">{item.d}</p>
+                                <div className="flex flex-col flex-1 relative z-10 w-full justify-between">
+                                    <div className="flex flex-col gap-4">
+                                        <h3 className="text-h4 text-cream font-medium tracking-wide">{item.t}</h3>
+                                        <p className="text-body2 text-cream/95 leading-relaxed font-medium tracking-wide">{item.d}</p>
+                                    </div>
+                                    <div className="mt-8 flex items-center justify-center gap-2 text-[#E8D9C0] text-[10px] md:text-[11px] font-bold uppercase tracking-widest opacity-70 group-hover:opacity-100 transition-opacity">
+                                        <span>Learn More</span>
+                                        <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                                    </div>
                                 </div>
                             </div>
                         ))}
@@ -308,11 +355,17 @@ export default async function WholesalePage() {
 
                     <div className="flex flex-col gap-8 md:gap-12 mt-6 md:mt-12">
                         <div className="flex flex-col gap-3 md:gap-4 text-center items-center mx-auto max-w-4xl">
-                            <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">High-Demand Fabric Library</span>
-                            <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary leading-tight">Explore Signature Batik Dress Designs for Fabric Wholesale</h2>
-                            <p className="text-[13px] md:text-xl text-primary/70 font-medium italic leading-relaxed mt-2 text-left md:text-center w-full">Discover best-selling batik patterns, consistent quality, and ready-to-move collections trusted by boutiques, fabric shops, cloth shops, and resellers across India.</p>
+                            <span className="text-overline text-secondary">High-Demand Fabric Library</span>
+                            <h2 className="text-h3 text-primary">Explore Signature Batik Dress Designs for Fabric Wholesale</h2>
+                            <p className="text-lg md:text-xl text-primary font-medium leading-relaxed mt-2 w-full text-center">Discover best-selling batik patterns, consistent quality, and ready-to-move collections trusted by boutiques, fabric shops, cloth shops, and resellers across India.</p>
                         </div>
-                        <ProductGrid products={displayProducts} columns={4} isWholesalePage={true} />
+                        <ProductFilterLayout
+                            products={products}
+                            currentPage={currentPage}
+                            totalPages={totalPages}
+                            searchParams={resolvedParams || {}}
+                            isWholesalePage={true}
+                        />
                     </div>
                 </div>
             </section>
@@ -386,203 +439,137 @@ export default async function WholesalePage() {
                 quote="Consistent fabric. Reliable supply. Built for businesses that sell, not just stock."
             />
 
-            {/* ── HOW TO START SECTION ── */}
-            <section className="py-16 md:py-24 px-6 bg-cream text-primary relative overflow-hidden">
-                <div className="max-w-[1600px] mx-auto flex flex-col gap-12 md:gap-16 relative z-10">
-                    <div className="flex flex-col gap-3 md:gap-4 max-w-4xl mx-auto w-full">
-                        <div className="text-center flex flex-col gap-1 md:gap-2 items-center">
-                            <span className="text-[10px] md:text-sm font-black text-secondary uppercase tracking-[0.5em] mb-1 block">Simple Process</span>
-                            <h2 className="font-heading text-2xl md:text-4xl font-bold leading-tight">How to Order Batik Fabric Online</h2>
-                        </div>
-                        <p className="text-[13px] md:text-xl text-primary/70 font-medium italic mx-0 lg:mx-auto leading-relaxed text-left md:text-center mt-2">
-                            Five simple steps. Zero confusion. Fast delivery of premium batik fabric, Batik Cloth, trending batik color collections, and quality cotton cloth across India.
-                        </p>
-                    </div>
+            <HowToOrderSection
+                title="How to Order Batik Fabric Online"
+                whatsappLink={WA}
+            />
 
-                    <div className="relative grid grid-cols-2 lg:flex lg:flex-row justify-between gap-6 md:gap-10 lg:gap-6 mt-2 md:mt-0">
-                        {/* Connector Line (Desktop) */}
-                        <div className="hidden lg:block absolute top-[32px] left-[10%] right-[10%] h-[1px] bg-primary/10 z-0"></div>
-
-                        {[
-                            {
-                                s: "01", t: "Browse Designs",
-                                d: "Explore latest batik fabric prints with fresh collections of batik suits design, and ready-to-sell styles in premium women clothing demand.",
-                                i: (
-                                    <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />
-                                    </svg>
-                                )
-                            },
-                            {
-                                s: "02", t: "Select Quantity",
-                                d: "Choose required pieces for retail, boutique stock, or bulk orders in quality cotton cloth and ladies cloth collections.",
-                                i: (
-                                    <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <rect width="16" height="20" x="4" y="2" rx="2" /><path d="M12 11h4" /><path d="M12 15h4" /><path d="M8 11h.01" /><path d="M8 15h.01" />
-                                    </svg>
-                                )
-                            },
-                            {
-                                s: "03", t: "Contact on WhatsApp",
-                                d: "Send your selected designs directly for quick support, stock updates, and easy buying assistance.",
-                                i: (
-                                    <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-10.6 8.38 8.38 0 0 1 3.8.9L21 3l-1.5 5.5Z" />
-                                    </svg>
-                                )
-                            },
-                            {
-                                s: "04", t: "Get Bulk Pricing",
-                                d: "Receive wholesale rates for printed batik fabric, reseller orders, and custom quantity requirements.",
-                                i: (
-                                    <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="m15 5 4 4" /><path d="M13 7 8.7 2.7a2 2 0 0 0-2.8 0L2.7 5.9a2 2 0 0 0 0 2.8L7 13" /><path d="m19 11-4 4" /><path d="m21 15-4.5 4.5a2 2 0 0 1-2.8 0L10 15.8" /><circle cx="16" cy="16" r="2" />
-                                    </svg>
-                                )
-                            },
-                            {
-                                s: "05", t: "Fast Dispatch",
-                                d: "Your order is packed securely and shipped quickly across India through trusted courier partners.",
-                                i: (
-                                    <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M10 17h4V5H2v12h3" /><path d="M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5" /><path d="M14 17h1" /><circle cx="7.5" cy="17.5" r="2.5" /><circle cx="17.5" cy="17.5" r="2.5" />
-                                    </svg>
-                                )
-                            }
-                        ].map((step, i) => (
-                            <div key={i} className={`flex flex-col items-center text-center gap-2 md:gap-4 lg:w-1/5 relative z-10 ${i === 4 ? "col-span-2 lg:col-span-1" : ""}`}>
-                                <div className="w-10 h-10 md:w-16 md:h-16 bg-white rounded-[12px] md:rounded-[24px] shadow-lg flex items-center justify-center text-primary hover:scale-110 transition-all duration-500 cursor-default border border-primary/5 relative group">
-                                    <span className="absolute -top-1.5 -left-1.5 md:-top-2 md:-left-2 w-5 h-5 md:w-6 md:h-6 bg-secondary text-white text-[8px] md:text-[9px] font-black rounded-full flex items-center justify-center shadow-md">{step.s}</span>
-                                    {step.i}
-                                </div>
-                                <div className="flex flex-col gap-1 md:gap-1.5 px-1 md:px-2">
-                                    <h4 className="text-[11px] md:text-lg font-black tracking-tight text-primary leading-tight">{step.t}</h4>
-                                    <p className="text-[9px] md:text-xs text-primary/60 font-medium leading-relaxed">{step.d}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className="flex justify-center mt-6 md:mt-12">
-                        <a href={WA} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 md:gap-4 bg-primary text-white px-4 py-3 md:px-10 md:py-5 rounded-xl md:rounded-3xl font-bold text-[11px] md:text-xl shadow-[0_15px_40px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 transition-all duration-300 uppercase tracking-widest group text-center">
-                            <span className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-tan animate-pulse shrink-0"></span>
-                            START YOUR ORDER ON WHATSAPP
-                        </a>
-                    </div>
-                </div>
-            </section>
 
             {/* ── SECTION: NEXT STEPS ── */}
-            <section className="py-16 md:py-32 px-6 bg-white">
+            <section className="py-16 md:py-32 px-6 bg-white overflow-hidden text-primary">
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
-                    <div className="flex flex-col gap-3 md:gap-6 text-center items-center max-w-3xl mx-auto w-full">
-                        <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">Next Step</span>
-                        <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary leading-tight">Continue Your Sourcing Journey</h2>
-                        <p className="text-[13px] md:text-xl text-primary/60 font-medium italic leading-relaxed mt-2 text-left md:text-center w-full">
+                    <div className="flex flex-col gap-3 md:gap-6 text-left md:text-center max-w-4xl mx-auto w-full">
+                        <span className="text-overline text-secondary">Next Step</span>
+                        <h2 className="text-h2 font-bold text-primary">Continue Your Sourcing Journey</h2>
+                        <p className="text-lg md:text-xl text-primary font-medium leading-relaxed mt-2">
                             Explore our batik suit designs, evaluate fabric options, or move directly to bulk ordering—built for businesses ready to scale.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-8">
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10">
                         {[
                             {
                                 t: "Explore Batik Cloth",
-                                d: "Browse ready-to-sell collections including cotton dress, ladies cotton suit, and everyday woman dress styles built for fast-moving retail demand.",
                                 l: "/cotton-cloth",
-                                img: "/batik-fabric-category-image.webp",
+                                img: "/gallery_explore.png",
                                 tag: "Category"
                             },
                             {
                                 t: "Explore Batik Fabric",
-                                d: "Discover premium cotton fabric, detailed prints, and versatile materials ideal for unstitched cotton dress for women and bulk stitching needs.",
                                 l: "/batik-fabric",
-                                img: "/batik-cloth-dresses-for-women-category-image.webp",
+                                img: "/gallery_wholesale.png",
                                 tag: "Category"
                             },
                             {
-                                t: "New Arrival Batik Clothing",
-                                d: "Stay ahead of demand with fresh collections of batik clothing, trending styles, and newly added designs in cotton dress and fast-moving fashion inventory.",
+                                t: "New Arrival Clothing",
                                 l: "/new-batik-prints",
-                                img: "/new-batik-print-category-image.webp",
+                                img: "/gallery_arrival.png",
                                 tag: "Category"
                             }
                         ].map((item, i) => (
-                            <a key={i} href={item.l} className={`group relative h-[220px] md:h-[500px] rounded-[24px] md:rounded-[40px] overflow-hidden shadow-xl md:shadow-2xl ${i === 2 ? "col-span-2 md:col-span-1 h-[180px] md:h-[500px]" : ""}`}>
+                            <Link key={i} href={item.l} className="group relative rounded-[24px] overflow-hidden bg-primary aspect-[4/5] md:aspect-[3/4] flex flex-col items-center justify-center border border-primary/10">
                                 <Image
                                     src={item.img}
                                     alt={item.t}
-                                    layout="fill"
-                                    objectFit="cover"
-                                    objectPosition="top"
-                                    className="group-hover:scale-110 transition-transform duration-700 brightness-[0.7] group-hover:brightness-[0.5]"
+                                    fill
+                                    sizes="(max-width: 768px) 50vw, 33vw"
+                                    className="object-cover object-center group-hover:scale-105 transition-transform duration-[1500ms] ease-out brightness-100 group-hover:brightness-95"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 md:opacity-80"></div>
-                                <div className="absolute bottom-4 left-4 right-4 md:bottom-10 md:left-10 md:right-10 flex flex-col gap-2 md:gap-4">
-                                    <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-accent bg-white/10 backdrop-blur-md px-2 py-1 md:px-4 md:py-1.5 rounded-full w-fit border border-white/20">{item.tag}</span>
-                                    <h4 className="text-white text-base md:text-3xl font-heading font-bold leading-tight">{item.t}</h4>
-                                    <p className="text-white/70 font-medium text-[9px] md:text-sm leading-relaxed opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 line-clamp-2">{item.d}</p>
-                                    <div className="hidden md:flex items-center gap-3 text-accent font-black uppercase text-[10px] tracking-widest mt-2 group-hover:gap-5 transition-all">
-                                        Explore Collection
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
+                                <div className="absolute top-4 left-4 md:top-6 md:left-6">
+                                    <span className="bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-primary shadow-sm">{item.tag}</span>
+                                </div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none"></div>
+                                <div className="absolute inset-0 flex flex-col items-center justify-end p-6 md:p-10 text-center">
+                                    <h3 className="font-heading text-xl md:text-3xl font-bold text-white leading-tight mb-2 md:mb-4">{item.t}</h3>
+
+                                    <div className="flex items-center gap-2 mt-2 bg-white/20 backdrop-blur-sm px-4 md:px-6 py-2 md:py-3 rounded-full text-white font-bold text-[10px] md:text-xs uppercase tracking-widest overflow-hidden">
+                                        <span>Explore</span>
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transform -translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500">
+                                            <path d="M5 12h14m-7-7 7 7-7 7" />
+                                        </svg>
                                     </div>
                                 </div>
-                            </a>
+                            </Link>
                         ))}
                     </div>
                 </div>
             </section>
 
             {/* ── SECTION: EDITORIAL CORNER ── */}
-            <section className="py-16 md:py-32 px-6 bg-cream">
-                <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
-                    <div className="flex flex-col gap-3 md:gap-6 text-center items-center max-w-4xl mx-auto w-full">
-                        <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">Editorial Corner</span>
-                        <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary leading-tight">The Batik Wholesale Fabric Journal</h2>
-                        <p className="text-[13px] md:text-xl text-primary/60 font-medium italic leading-relaxed mt-2 text-left md:text-center w-full">Insights on fabric wholesale, sourcing strategies, trending batik clothing, and practical dress design ideas to help boutiques and resellers choose the right stock, improve margins, and scale with confidence.</p>
+            <section className="py-16 md:py-24 px-4 md:px-6 bg-[#F9F7F1]">
+                <div className="max-w-[1400px] mx-auto flex flex-col gap-10 md:gap-16">
+                    {/* Section Header */}
+                    <div className="flex flex-col gap-3 md:gap-4 text-center items-center max-w-2xl mx-auto w-full">
+                        <span className="text-overline text-accent tracking-[0.3em] font-bold">FASHION & FABRIC JOURNAL</span>
+                        <h2 className="text-h2 font-heading text-primary leading-tight">The Batik Wholesale Fabric Journal</h2>
+                        <div className="w-16 h-[2px] bg-accent/30 mt-2"></div>
+                        <p className="text-lg md:text-xl text-primary font-medium leading-relaxed mt-2">
+                            Insights on fabric wholesale, sourcing strategies, trending batik clothing, and practical dress design ideas to help boutiques and resellers choose the right stock, improve margins, and scale with confidence.
+                        </p>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10">
+                    {/* Kinfolk Editorial Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
                         {[
-                            {
-                                t: "The Art of Hand-Blocked Batik",
-                                d: "Exploring the traditional craftsmanship behind every piece of fabric.",
-                                c: "Craftsmanship",
-                                date: "May 15, 2024",
-                                img: "/journal_craftsmanship.png"
-                            },
-                            {
-                                t: "Batik Fashion Trends 2024",
-                                d: "What's trending in the modern batik market for the upcoming season.",
-                                c: "Fashion",
-                                date: "June 2, 2024",
-                                img: "/journal_fashion.png"
-                            },
-                            {
-                                t: "Wholesale Success Stories",
-                                d: "How our partners are scaling their businesses with AQSHA Batik.",
-                                c: "Business",
-                                date: "June 10, 2024",
-                                img: "/journal_business.png"
-                            }
+                            { slug: "the-art-of-hand-blocked-batik", title: "The Art of Hand-Blocked Batik", date: "May 15, 2024", cat: "Craftsmanship", img: "/journal_craftsmanship.png", d: "Exploring the traditional craftsmanship behind every piece of fabric." },
+                            { slug: "batik-fashion-trends-2024", title: "Batik Fashion Trends 2024", date: "June 2, 2024", cat: "Fashion", img: "/journal_fashion.png", d: "What's trending in the modern batik market for the upcoming season." },
+                            { slug: "wholesale-success-stories", title: "Wholesale Success Stories", date: "June 10, 2024", cat: "Business", img: "/journal_business.png", d: "How our partners are scaling their businesses with AQSHA Batik." }
                         ].map((post, i) => (
-                            <div key={i} className={`bg-white rounded-[24px] md:rounded-[40px] overflow-hidden shadow-xl border border-primary/5 group cursor-pointer hover:shadow-2xl transition-all duration-500 flex flex-col ${i === 2 ? "col-span-2 md:col-span-1 flex-row md:flex-col" : ""}`}>
-                                <div className={`relative overflow-hidden shrink-0 ${i === 2 ? "w-1/3 md:w-full h-28 md:h-64" : "h-32 md:h-64"}`}>
-                                    <Image src={post.img} alt={post.t} layout="fill" objectFit="cover" objectPosition="top" className="group-hover:scale-110 transition-transform duration-700" />
-                                    <div className="absolute top-2 left-2 md:top-6 md:left-6">
-                                        <span className="bg-white/90 backdrop-blur-md px-2 py-1 md:px-4 md:py-1.5 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-widest text-primary">{post.c}</span>
+                            <Link key={i} href={`/blog/${post.slug}`} className="group flex flex-col gap-5 md:gap-6 block">
+                                {/* Image Wrapper */}
+                                <div className="relative w-full aspect-[4/5] rounded-[24px] overflow-hidden shadow-sm hover:shadow-2xl transition-shadow duration-500 border border-primary/5">
+                                    <Image
+                                        src={post.img}
+                                        alt={post.title}
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                        className="object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-out brightness-[0.95] group-hover:brightness-100"
+                                    />
+                                </div>
+
+                                {/* Text Content */}
+                                <div className="flex flex-col gap-2 md:gap-3 px-2">
+                                    <span className="text-[10px] md:text-xs text-primary/50 font-bold uppercase tracking-[0.2em]">
+                                        {post.cat} &nbsp;&mdash;&nbsp; {post.date}
+                                    </span>
+
+                                    <h4 className="text-2xl md:text-3xl font-heading font-bold text-primary decoration-primary/30 underline-offset-4 group-hover:underline transition-all duration-300">
+                                        {post.title}
+                                    </h4>
+
+                                    <p className="text-body2 text-primary/90 line-clamp-2">
+                                        {post.d}
+                                    </p>
+
+                                    {/* Minimalist Read More */}
+                                    <div className="flex items-center gap-2 text-primary/90 font-bold text-[10px] uppercase tracking-widest mt-2 group-hover:text-primary transition-colors duration-300">
+                                        <span>Read Article</span>
+                                        <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            className="transform transition-transform duration-500 group-hover:translate-x-1"
+                                        >
+                                            <path d="M5 12h14m-7-7 7 7-7 7" />
+                                        </svg>
                                     </div>
                                 </div>
-                                <div className={`p-4 md:p-10 flex flex-col gap-2 md:gap-4 flex-1 justify-center`}>
-                                    <h4 className="text-[13px] md:text-2xl font-heading font-bold text-primary leading-tight">{post.t}</h4>
-                                    <div className="flex justify-between items-center mt-auto md:mt-4">
-                                        <span className="text-[9px] md:text-xs font-medium text-primary/40 uppercase tracking-widest">{post.date}</span>
-                                        <div className="hidden md:flex items-center gap-2 text-secondary font-bold text-[10px] uppercase tracking-widest">
-                                            Read More
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 </div>
@@ -591,41 +578,49 @@ export default async function WholesalePage() {
 
 
             {/* ── SECTION: MOQ & TARGET ── */}
-            <section className="py-16 md:py-32 px-6 bg-tan relative overflow-hidden text-primary">
-                <div className="absolute inset-0 bg-pattern opacity-[0.05]"></div>
-                <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 relative z-10 items-center">
-                    <div className="bg-white p-6 md:p-16 rounded-[24px] md:rounded-[60px] shadow-2xl flex flex-col gap-4 md:gap-8 border border-white">
-                        <div className="flex flex-col gap-1 md:gap-3">
-                            <span className="text-[9px] md:text-xs font-black text-secondary uppercase tracking-[0.4em]">Commercial Terms</span>
-                            <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary leading-tight">Minimum Order Requirement</h2>
+            <section className="py-16 md:py-32 px-6 bg-[#F9F7F1] relative overflow-hidden text-primary border-y border-primary/5">
+                <div className="absolute inset-0 bg-pattern opacity-[0.03]"></div>
+                <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 relative z-10 items-center">
+                    
+                    {/* LEFT: MOQ CARD */}
+                    {/* LEFT: MOQ CARD */}
+                    <div className="bg-primary p-8 md:p-14 lg:p-16 rounded-[24px] md:rounded-[36px] shadow-2xl flex flex-col gap-6 md:gap-10 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[80px] pointer-events-none"></div>
+
+                        <div className="flex flex-col gap-3 relative z-10">
+                            <span className="text-overline text-[#E8D9C0]">Commercial Terms</span>
+                            <h2 className="text-h2 text-white">Minimum Order Requirement</h2>
                         </div>
-                        <div className="flex flex-col gap-3 md:gap-6">
-                            <div className="flex items-center justify-between py-3 md:py-6 border-b border-primary/10">
-                                <span className="font-black uppercase text-[10px] md:text-sm tracking-widest text-secondary">Minimum Billing</span>
-                                <span className="text-xl md:text-4xl font-black">₹25,000</span>
+                        <div className="flex flex-col gap-6 md:gap-8 relative z-10">
+                            <div className="flex items-center justify-between py-6 border-b border-white/20">
+                                <span className="text-overline text-white/90 font-medium">Minimum Billing</span>
+                                <span className="text-h2 font-black text-[#FDB953] tracking-tight">₹25,000</span>
                             </div>
-                            <p className="text-[12px] md:text-lg font-medium text-primary/70 italic leading-snug md:leading-relaxed">
+                            <p className="text-body1 text-white/95 font-medium tracking-wide italic max-w-sm">
                                 Bulk pricing available for larger volumes. Flexible repeat order structures for regular buyers. We work with serious retail partners ONLY.
                             </p>
                         </div>
-                        <a href={WA} target="_blank" rel="noreferrer" className="w-full bg-primary text-white py-3 md:py-6 rounded-xl md:rounded-2xl font-black text-[12px] md:text-xl hover:scale-105 transition-all shadow-xl text-center uppercase tracking-widest mt-1 md:mt-2">
+                        <a href={WA} target="_blank" rel="noreferrer" className="w-full bg-[#E8D9C0] text-primary py-4 md:py-5 rounded-xl font-bold text-sm md:text-base hover:bg-white transition-colors shadow-lg text-center uppercase tracking-widest mt-2 flex items-center justify-center gap-3 group relative z-10">
                             Request Wholesale Quote
+                            <span className="group-hover:translate-x-1 transition-transform">→</span>
                         </a>
                     </div>
-                    <div className="flex flex-col gap-6 md:gap-12 text-primary">
-                        <div className="flex flex-col gap-2 md:gap-4 text-center lg:text-left">
-                            <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">Who This Is For</span>
-                            <h3 className="font-heading text-xl md:text-4xl font-bold leading-tight">Built for serious clothing retailers</h3>
+
+                    {/* RIGHT: WHO THIS IS FOR */}
+                    <div className="flex flex-col gap-8 md:gap-12 text-primary lg:pl-10">
+                        <div className="flex flex-col gap-4 text-center lg:text-left">
+                            <span className="text-overline text-secondary">Who This Is For</span>
+                            <h3 className="text-h2">Built for serious clothing retailers</h3>
                         </div>
-                        <div className="grid grid-cols-2 gap-3 md:gap-6">
+                        <div className="grid grid-cols-2 sm:grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-8 sm:gap-y-12 mt-2">
                             {targetAudience.map((item, i) => (
-                                <div key={i} className="p-4 md:p-8 bg-white/40 backdrop-blur-md rounded-[16px] md:rounded-3xl border border-white/50 flex flex-col items-center sm:items-start gap-2 md:gap-3 text-center sm:text-left">
-                                    <span className="flex items-center justify-center w-10 h-10 md:w-14 md:h-14 rounded-[10px] md:rounded-[16px] bg-white/60 text-primary [&>svg]:!w-5 [&>svg]:!h-5 md:[&>svg]:!w-8 md:[&>svg]:!h-8">
+                                <div key={i} className="flex flex-col items-center text-center lg:items-start lg:text-left gap-2 sm:gap-4 group">
+                                    <span className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 mx-auto lg:mx-0 rounded-xl bg-white text-secondary shadow-sm group-hover:-translate-y-1 transition-transform duration-300 [&>svg]:!w-5 [&>svg]:!h-5 sm:[&>svg]:!w-6 sm:[&>svg]:!h-6 shrink-0">
                                         {item.i}
                                     </span>
-                                    <div className="flex flex-col gap-1 md:gap-2">
-                                        <h4 className="font-bold text-[12px] md:text-lg leading-tight">{item.t}</h4>
-                                        <p className="hidden sm:block text-[12px] md:text-sm font-medium opacity-70 leading-relaxed">{item.d}</p>
+                                    <div className="flex flex-col gap-1 sm:gap-2">
+                                        <h4 className="text-[14px] sm:text-h4 font-medium text-primary leading-snug">{item.t}</h4>
+                                        <p className="text-[11px] sm:text-body2 text-primary/90 mt-1 leading-snug">{item.d}</p>
                                     </div>
                                 </div>
                             ))}
@@ -638,7 +633,10 @@ export default async function WholesalePage() {
             <section className="py-16 md:py-32 px-6 bg-white overflow-hidden text-primary">
                 <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center">
                     <div className="relative h-[400px] md:h-[700px] rounded-[40px] md:rounded-[100px] overflow-hidden shadow-2xl group border-[10px] md:border-[20px] border-cream">
+                        {/* 
                         <Image src="/dresses-for-women-image.webp" alt="Manufacturer Advantage" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[3s]" />
+                        */}
+                        <Image src="/wholesale-inventory-premium.png" alt="High rotation premium wholesale batik inventory" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[3s]" />
                         <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
                         <div className="absolute bottom-6 left-6 right-6 md:bottom-16 md:left-16 md:right-16 flex flex-col gap-3 md:gap-6">
                             <h4 className="text-white text-[22px] md:text-4xl font-heading font-bold leading-tight">"Their products don't sit in inventory. They sell."</h4>
@@ -666,7 +664,7 @@ export default async function WholesalePage() {
                                     <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white md:bg-tan flex items-center justify-center text-primary font-black shrink-0 text-[10px] md:text-base shadow-sm md:shadow-none">✔</div>
                                     <div className="flex flex-col gap-1 text-left">
                                         <h4 className="font-bold text-[15px] md:text-xl leading-tight">{item.t}</h4>
-                                        <p className="text-[12px] md:text-base text-primary/70 font-medium leading-relaxed">{item.d}</p>
+                                        <p className="text-sm md:text-base text-primary/90 font-medium leading-relaxed">{item.d}</p>
                                     </div>
                                 </div>
                             ))}

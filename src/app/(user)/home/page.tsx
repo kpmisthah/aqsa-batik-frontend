@@ -9,6 +9,7 @@ import TrendingProductsSection from "@/modules/user/components/TrendingProductsS
 import NewArrivalsSection from "@/modules/user/components/NewArrivalsSection";
 import StickyEnquiryButton from "@/modules/user/components/StickyEnquiryButton";
 import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
+import HowToOrderSection from "@/modules/user/components/HowToOrderSection";
 import { useBanner } from "@/modules/user/hooks/useBanner";
 
 
@@ -58,30 +59,30 @@ export default function HomePage() {
         </div>
 
         {/* Left Aligned Content */}
-        <div className="relative z-10 max-w-[1500px] mx-auto px-5 md:px-10 w-full flex justify-start text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-          <div className="flex flex-col gap-4 md:gap-10 items-start text-left max-w-5xl w-full">
+        <div className="relative z-10 max-w-[1500px] mx-auto px-5 md:px-10 pt-20 md:pt-0 w-full flex justify-center md:justify-start text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+          <div className="flex flex-col gap-6 md:gap-10 items-center md:items-start text-center md:text-left max-w-5xl w-full">
             <div className="flex items-center gap-2 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-1.5 md:px-5 md:py-2.5 rounded-full border border-white/20">
               <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-tan animate-pulse"></span>
               <span className="font-heading text-[8px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-white">DIRECT WAX BATIK MANUFACTURER FROM UJJAIN</span>
             </div>
 
-            <div className="flex flex-col gap-2 md:gap-6">
+            <div className="flex flex-col gap-2 md:gap-6 w-full">
               <h1 className="text-h1">
                 <span className="hidden md:block">
                   Premium <span className='text-accent'>Batik Designs</span><br />
                   That Turn <span className='text-accent'>Attention</span> Into <span className='text-accent'>Orders</span>
                 </span>
                 <span className="block md:hidden">
-                  Premium <span className='text-accent'>Batik</span> <span className='text-accent'>Designs</span><br />
+                  Premium <span className='text-accent'>Batik Designs</span><br />
                   That Sell <span className='text-accent'>Faster</span>
                 </span>
               </h1>
-              <p className="text-h3 opacity-90 mt-1 md:mt-2 max-w-[280px] md:max-w-5xl text-white/90">
+              <p className="text-body1 opacity-90 mt-2 md:mt-2 max-w-sm md:max-w-2xl text-white/90 text-center md:text-left mx-auto md:mx-0">
                 Shop stylish women clothing, breathable cotton dresses for women, and premium batik fabric collections trusted by boutiques, wholesalers, and resellers across India.
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-6 pt-2 md:pt-10 items-start md:items-center justify-start w-full">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-6 pt-2 md:pt-10 items-center md:items-start justify-center md:justify-start w-full">
               <a href="#collection" className="inline-block bg-accent text-primary px-6 py-3.5 md:px-10 md:py-4 rounded-xl font-bold text-sm md:text-lg hover:-translate-y-1 hover:shadow-2xl hover:brightness-105 active:scale-95 transition-all duration-300 uppercase tracking-widest text-center w-full sm:w-auto">
                 Shop Now
               </a>
@@ -106,7 +107,7 @@ export default function HomePage() {
         {/* ── COLLECTION SECTION ── */}
         <section id="collection" className="pt-12 pb-24 md:pt-16 md:pb-32 border-b border-primary/5">
           <div className="max-w-[1500px] mx-auto px-6 md:px-12">
-            <div className="text-left md:text-center mb-12 md:mb-20 flex flex-col gap-3 md:gap-5">
+            <div className="text-center mb-12 md:mb-20 flex flex-col gap-3 md:gap-5">
               <div className="w-full text-center">
                 <span className="text-overline tracking-[0.4em] text-secondary">Curated For Daily Demand</span>
               </div>
@@ -226,7 +227,7 @@ export default function HomePage() {
             <div className="flex flex-col gap-4 md:gap-6">
               <div className="flex flex-col gap-2 md:gap-4 text-center md:text-left items-center md:items-start">
                 <span className="text-overline tracking-[0.4em] text-secondary">From Handmade Batik To Trusted Women Fashion Supply</span>
-                <h2 className="text-h2 text-primary">The Journey Behind <br className="hidden md:block" /> AQSHA BATIK SUITS</h2>
+                <h2 className="text-h2 text-primary">The Journey Behind <br /> AQSHA BATIK SUITS</h2>
               </div>
               <div className="flex flex-col gap-4 md:gap-5 text-body1 text-neutral-900/90 leading-relaxed font-medium max-w-xl text-left">
                 <p className="border-l-[3px] md:border-l-4 border-secondary pl-4 md:pl-8 py-1 md:py-2 italic">
@@ -303,104 +304,143 @@ export default function HomePage() {
         {/* ── WHAT BUYERS SAY SECTION ── */}
         <section className="py-12 px-6 md:px-20 bg-tan relative overflow-hidden border-y border-primary/5">
           <div className="absolute inset-0 bg-pattern opacity-[0.04]"></div>
-          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24 items-center relative z-10">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
             {/* Left Column: Text & Stats */}
-            <div className="flex flex-col gap-6 md:gap-8 text-left">
-              <div className="flex flex-col gap-3 md:gap-4 items-center lg:items-start text-center lg:text-left">
+            <div className="flex flex-col gap-6 md:gap-10 text-left">
+              <div className="flex flex-col gap-3 md:gap-5 items-center lg:items-start text-center lg:text-left">
                 <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">Real Buyers. Real Results.</span>
-                <h2 className="font-heading text-2xl md:text-4xl lg:text-5xl font-semibold text-primary leading-tight">Don't Just Take <br className="hidden lg:block" /> Our Word For It.</h2>
-                <p className="text-[13px] md:text-base lg:text-lg text-primary/70 font-medium leading-relaxed max-w-xl mx-0 lg:mx-0 text-left mt-1 md:mt-2">
-                  Over 1,000+ retail partners, boutique owners, and online resellers trust our batik and cotton fabric every day. Swipe through raw, unedited feedback directly from our WhatsApp orders.
-                </p>
-              </div>
-              <div className="flex flex-wrap items-center justify-start gap-6 md:gap-8 mt-1 md:mt-2">
-                <div className="flex flex-col gap-1">
-                  <span className="text-2xl md:text-3xl font-black text-primary">4.9/5</span>
-                  <span className="text-[9px] md:text-[10px] font-black text-secondary uppercase tracking-[0.2em]">Average Rating</span>
+                <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl font-semibold text-primary leading-[1.1]">Don't Just Take <br className="hidden lg:block" /> Our Word For It.</h2>
+                <div className="bg-white/40 backdrop-blur-md border border-white/60 p-5 md:p-6 rounded-2xl shadow-sm text-left mt-4 mb-2 lg:mx-0 w-full max-w-xl self-center lg:self-start">
+                  <div className="flex gap-4 md:gap-5 items-start">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-[#25D366]/10 text-[#25D366] rounded-full flex items-center justify-center shrink-0 mt-1">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" /></svg>
+                    </div>
+                    <div className="flex flex-col gap-1.5 md:gap-2">
+                      <p className="text-sm md:text-base text-primary/80 font-medium leading-relaxed">
+                        Over 1,000+ retail partners, boutique owners, and online resellers trust our batik and cotton fabric every day. Swipe through raw, unedited feedback directly from our WhatsApp orders.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className="w-px h-8 md:h-10 bg-primary/10"></div>
-                <div className="flex flex-col gap-1">
-                  <span className="text-2xl md:text-3xl font-black text-primary">10k+</span>
-                  <span className="text-[9px] md:text-[10px] font-black text-secondary uppercase tracking-[0.2em]">Orders Delivered</span>
+              </div>
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-8 md:gap-12 mt-2 md:mt-4">
+                <div className="flex flex-col gap-1.5 md:gap-2">
+                  <span className="text-4xl md:text-5xl font-black text-primary font-heading">4.9/5</span>
+                  <span className="text-[9px] md:text-[11px] font-black text-secondary uppercase tracking-[0.2em]">Average Rating</span>
+                </div>
+                <div className="w-px h-10 md:h-14 bg-primary/20"></div>
+                <div className="flex flex-col gap-1.5 md:gap-2">
+                  <span className="text-4xl md:text-5xl font-black text-primary font-heading">10k+</span>
+                  <span className="text-[9px] md:text-[11px] font-black text-secondary uppercase tracking-[0.2em]">Orders Delivered</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Slider */}
-            <div className="bg-cream/90 backdrop-blur-xl p-4 md:p-8 rounded-[24px] md:rounded-[40px] shadow-[0_20px_40px_rgba(90,42,31,0.15)] md:shadow-[0_30px_60px_rgba(90,42,31,0.15)] border border-white relative max-w-[320px] md:max-w-md mx-auto w-full lg:mr-0">
-              <div className="flex items-center justify-center md:justify-start gap-2 md:gap-3 mb-4 md:mb-6 px-1 md:px-2">
-                <div className="w-3 h-3 md:w-4 md:h-4 rounded-full bg-green-500 shadow-inner animate-pulse"></div>
-                <span className="text-[9px] md:text-xs font-black uppercase tracking-[0.1em] md:tracking-[0.2em] opacity-40">WhatsApp Verified Testimonials</span>
+            {/* Right Column: Floating Device Hero */}
+            <div className="relative max-w-[280px] sm:max-w-[320px] md:max-w-[380px] mx-auto w-full lg:mr-4 flex justify-center items-center mt-6 lg:mt-0">
+
+              {/* Ambient Spotlight & Glow Behind Phone */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130%] h-[120%] bg-white/60 blur-[120px] rounded-full z-0 pointer-events-none"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/4 w-[90%] h-[90%] bg-secondary/15 blur-[90px] rounded-full z-0 pointer-events-none"></div>
+
+              {/* Floating Trust Badges */}
+              <div className="absolute -left-6 md:-left-12 top-16 md:top-24 bg-white/80 backdrop-blur-xl border border-white/60 p-3 md:p-4 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.08)] z-20 animate-[float_6s_ease-in-out_infinite] ring-1 ring-black/5">
+                <div className="flex items-center gap-3">
+                  <div className="flex -space-x-1.5 border-r border-primary/10 pr-3">
+                    {[...Array(5)].map((_, i) => <svg key={i} className="w-3.5 h-3.5 md:w-4 md:h-4 text-amber-500 fill-amber-500 drop-shadow-sm" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>)}
+                  </div>
+                  <span className="text-[11px] md:text-sm font-black text-primary tracking-wide">5.0</span>
+                </div>
               </div>
 
-              <div className="overflow-hidden"
-                onTouchStart={(e) => setTouchStart(e.targetTouches[0].clientX)}
-                onTouchMove={(e) => setTouchEnd(e.targetTouches[0].clientX)}
-                onTouchEnd={() => {
-                  if (!touchStart || !touchEnd) return;
-                  const distance = touchStart - touchEnd;
-                  if (distance > 50) setActiveIndex(prev => (prev === 5 ? 0 : prev + 1));
-                  if (distance < -50) setActiveIndex(prev => (prev === 0 ? 5 : prev - 1));
-                  setTouchStart(null);
-                  setTouchEnd(null);
-                }}
-              >
-                <div
-                  className="flex transition-transform duration-700 ease-in-out"
-                  style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+              <div className="absolute -right-4 md:-right-10 bottom-24 md:bottom-32 bg-white/80 backdrop-blur-xl border border-white/60 p-3 md:p-5 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.08)] z-20 animate-[float_8s_ease-in-out_infinite_reverse] ring-1 ring-black/5">
+                <div className="flex items-center gap-2.5 md:gap-3">
+                  <div className="bg-green-100 p-1.5 rounded-full shadow-inner">
+                    <svg className="w-4 h-4 md:w-5 md:h-5 text-green-600 drop-shadow-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+                  </div>
+                  <span className="text-[9px] md:text-xs font-black uppercase text-primary tracking-[0.15em] hidden sm:block">Verified</span>
+                </div>
+              </div>
+
+              {/* Glass Device Frame */}
+              <div className="relative w-full aspect-[9/19] rounded-[2.5rem] md:rounded-[3rem] overflow-hidden border-[6px] md:border-[10px] border-[#222] shadow-[0_40px_100px_rgba(26,26,26,0.3)] bg-[#050505] ring-1 ring-white/10 z-10 transition-transform duration-700 hover:scale-[1.02]">
+
+                {/* Inner Screen Bezel Highlight */}
+                <div className="absolute inset-0 rounded-[2rem] md:rounded-[2.4rem] border border-white/10 pointer-events-none z-50"></div>
+
+                {/* Notch / Dynamic Island */}
+                <div className="absolute top-0 inset-x-0 h-6 md:h-8 bg-[#050505] z-30 flex justify-center w-[35%] mx-auto rounded-b-2xl md:rounded-b-3xl shadow-[0_5px_10px_rgba(0,0,0,0.3)]"></div>
+
+                <div className="overflow-hidden w-full h-full relative"
+                  onTouchStart={(e) => setTouchStart(e.targetTouches[0].clientX)}
+                  onTouchMove={(e) => setTouchEnd(e.targetTouches[0].clientX)}
+                  onTouchEnd={() => {
+                    if (!touchStart || !touchEnd) return;
+                    const distance = touchStart - touchEnd;
+                    if (distance > 50) setActiveIndex(prev => (prev === 5 ? 0 : prev + 1));
+                    if (distance < -50) setActiveIndex(prev => (prev === 0 ? 5 : prev - 1));
+                    setTouchStart(null);
+                    setTouchEnd(null);
+                  }}
                 >
-                  {[
-                    "/WhatsApp Image 2026-06-10 at 1.15.20 PM.jpeg",
-                    "/WhatsApp Image 2026-06-10 at 1.15.21 PM (1).jpeg",
-                    "/WhatsApp Image 2026-06-10 at 1.15.21 PM (2).jpeg",
-                    "/WhatsApp Image 2026-06-10 at 1.15.21 PM.jpeg",
-                    "/WhatsApp Image 2026-06-10 at 1.15.22 PM (1).jpeg",
-                    "/WhatsApp Image 2026-06-10 at 1.15.22 PM.jpeg"
-                  ].map((src, i) => (
-                    <div key={i} className="w-full flex-shrink-0 flex justify-center items-center px-2 md:px-4">
-                      <div className="relative w-full max-w-[160px] sm:max-w-[200px] md:max-w-[240px] aspect-[9/19] rounded-[20px] md:rounded-[30px] overflow-hidden border-[4px] md:border-[8px] border-white shadow-xl bg-tan">
-                        <Image src={src} alt={`WhatsApp Testimonial ${i + 1}`} layout="fill" objectFit="cover" className="hover:scale-[1.02] transition-transform duration-500" />
+                  <div
+                    className="flex h-full w-full transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
+                    style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+                  >
+                    {[
+                      "/WhatsApp Image 2026-06-10 at 1.15.20 PM.jpeg",
+                      "/WhatsApp Image 2026-06-10 at 1.15.21 PM (1).jpeg",
+                      "/WhatsApp Image 2026-06-10 at 1.15.21 PM (2).jpeg",
+                      "/WhatsApp Image 2026-06-10 at 1.15.21 PM.jpeg",
+                      "/WhatsApp Image 2026-06-10 at 1.15.22 PM (1).jpeg",
+                      "/WhatsApp Image 2026-06-10 at 1.15.22 PM.jpeg"
+                    ].map((src, i) => (
+                      <div key={i} className="w-full h-full flex-shrink-0 relative bg-[#E5DDD5]">
+                        <Image priority={i === 0} src={src} alt={`WhatsApp Testimonial ${i + 1}`} layout="fill" objectFit="cover" className="hover:scale-[1.05] transition-transform duration-[2.5s] ease-out opacity-90" />
 
                         {/* Privacy Blur Overlay for the top header */}
-                        <div className="absolute top-0 left-0 right-0 h-[11%] bg-black/40 backdrop-blur-xl z-10 flex items-center justify-center border-b border-white/20 shadow-lg">
-                          <div className="flex items-center gap-1.5 md:gap-2">
-                            <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-green-400 animate-pulse"></div>
-                            <span className="text-white/90 text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] drop-shadow-md">
+                        <div className="absolute top-6 md:top-8 left-0 right-0 h-10 md:h-12 bg-black/70 backdrop-blur-xl z-20 flex items-center justify-center border-b border-white/5 shadow-2xl">
+                          <div className="flex items-center gap-1.5 md:gap-2 bg-black/40 px-3 py-1 rounded-full border border-white/10">
+                            <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-green-400 animate-[pulse_2s_ease-in-out_infinite] shadow-[0_0_8px_rgba(74,222,128,0.8)]"></div>
+                            <span className="text-white text-[8px] md:text-[10px] font-black uppercase tracking-[0.25em] font-sans">
                               Identity Protected
                             </span>
                           </div>
                         </div>
+
+                        {/* Bottom fade for chat app realism */}
+                        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/20 to-transparent z-10 pointer-events-none"></div>
                       </div>
-                    </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Overlapping Slider Controls */}
+                <div className="absolute bottom-5 md:bottom-7 left-0 right-0 flex justify-center gap-4 md:gap-6 z-40">
+                  <button
+                    type="button"
+                    onTouchStart={(e) => { e.preventDefault(); setActiveIndex(prev => (prev === 0 ? 5 : prev - 1)); }}
+                    onClick={() => setActiveIndex(prev => (prev === 0 ? 5 : prev - 1))}
+                    className="w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/20 backdrop-blur-2xl border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-[#222] hover:scale-110 transition-all duration-300 shadow-[0_10px_25px_rgba(0,0,0,0.3)] active:scale-95 group"
+                  >
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-80 group-hover:opacity-100"><path d="m15 18-6-6 6-6" /></svg>
+                  </button>
+                  <button
+                    type="button"
+                    onTouchStart={(e) => { e.preventDefault(); setActiveIndex(prev => (prev === 5 ? 0 : prev + 1)); }}
+                    onClick={() => setActiveIndex(prev => (prev === 5 ? 0 : prev + 1))}
+                    className="w-11 h-11 md:w-14 md:h-14 rounded-full bg-white/20 backdrop-blur-2xl border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-[#222] hover:scale-110 transition-all duration-300 shadow-[0_10px_25px_rgba(0,0,0,0.3)] active:scale-95 group"
+                  >
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-80 group-hover:opacity-100"><path d="m9 18 6-6-6-6" /></svg>
+                  </button>
+                </div>
+
+                {/* Dots inside device */}
+                <div className="absolute bottom-20 md:bottom-28 left-0 right-0 flex justify-center gap-1.5 md:hidden z-40">
+                  {[0, 1, 2, 3, 4, 5].map(i => (
+                    <div key={i} className={`h-1.5 rounded-full transition-all duration-500 shadow-sm ${activeIndex === i ? 'bg-white w-5' : 'bg-white/40 w-1.5'}`}></div>
                   ))}
                 </div>
-              </div>
-
-              {/* Slider Controls */}
-              <div className="flex justify-center md:justify-end gap-3 mt-4 md:mt-6 relative z-50">
-                <button
-                  type="button"
-                  onTouchStart={(e) => { e.preventDefault(); setActiveIndex(prev => (prev === 0 ? 5 : prev - 1)); }}
-                  onClick={() => setActiveIndex(prev => (prev === 0 ? 5 : prev - 1))}
-                  className="pointer-events-auto z-50 w-10 h-10 md:w-12 md:h-12 rounded-full border border-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all group shadow-md bg-white cursor-pointer active:scale-95"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
-                </button>
-                <button
-                  type="button"
-                  onTouchStart={(e) => { e.preventDefault(); setActiveIndex(prev => (prev === 5 ? 0 : prev + 1)); }}
-                  onClick={() => setActiveIndex(prev => (prev === 5 ? 0 : prev + 1))}
-                  className="pointer-events-auto z-50 w-10 h-10 md:w-12 md:h-12 rounded-full border border-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all group shadow-md bg-white cursor-pointer active:scale-95"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-                </button>
-              </div>
-
-              {/* Dots */}
-              <div className="flex justify-center gap-2 mt-4 md:hidden">
-                {[0, 1, 2, 3, 4, 5].map(i => (
-                  <div key={i} className={`w-2 h-2 rounded-full transition-all ${activeIndex === i ? 'bg-primary w-5' : 'bg-primary/20'}`}></div>
-                ))}
               </div>
             </div>
           </div>
@@ -412,56 +452,65 @@ export default function HomePage() {
             <div className="flex flex-col gap-3 md:gap-4 max-w-4xl mx-auto w-full">
               <div className="text-center flex flex-col gap-2 md:gap-4 items-center">
                 <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">Why Retailers Reorder</span>
-                <h2 className="font-heading text-2xl md:text-3xl font-semibold text-primary">Why Smart Sellers Prefer Our Batik Fabric Collections</h2>
+                <h2 className="font-heading text-xl md:text-3xl font-semibold text-primary text-center leading-snug">Why Smart Sellers Prefer <br className="block md:hidden" /> Our Batik Fabric Collections</h2>
               </div>
-              <p className="text-[13px] md:text-lg text-primary/70 font-medium leading-relaxed italic text-left md:text-center mt-2">
+              <p className="text-lg md:text-xl text-primary font-medium leading-relaxed text-center mt-2">
                 You are not just buying batik cloth. You are investing in women&apos;s clothing collections built around repeat demand, breathable comfort, stable quality, and wearable batik fabric styles that customers genuinely come back to buy again and again.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8">
               {[
                 {
-                  t: "SELLS EVERYWHERE",
+                  t: "Sells Everywhere",
                   d: "Works across boutiques, marketplaces, resellers, and ethnic women clothing stores.",
+                  b: "Global Appeal",
                   i: (
-                    <svg className="w-6 h-6 md:w-8 md:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg className="w-8 h-8 md:w-10 md:h-10 text-primary mb-4 md:mb-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M2 12h20" />
                     </svg>
                   )
                 },
                 {
-                  t: "DAILY WEAR DEMAND",
+                  t: "Daily Wear Demand",
                   d: "Breathable cotton fabric designed for Indian weather and regular everyday wear.",
+                  b: "Everyday Comfort",
                   i: (
-                    <svg className="w-6 h-6 md:w-8 md:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg className="w-8 h-8 md:w-10 md:h-10 text-primary mb-4 md:mb-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" />
                     </svg>
                   )
                 },
                 {
-                  t: "STABLE SALES",
+                  t: "Stable Sales",
                   d: "Classic batik print designs continue performing across seasons and fashion cycles.",
+                  b: "Evergreen Designs",
                   i: (
-                    <svg className="w-6 h-6 md:w-8 md:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg className="w-8 h-8 md:w-10 md:h-10 text-primary mb-4 md:mb-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="m17 2 4 4-4 4" /><path d="M3 11V9a4 4 0 0 1 4-4h14" /><path d="m7 22-4-4 4-4" /><path d="M21 13v2a4 4 0 0 1-4 4H3" />
                     </svg>
                   )
                 },
                 {
-                  t: "EASY TO CUSTOMIZE",
+                  t: "Easy to Customize",
                   d: "Ideal for kurtis, suits, plus size clothing, and stitched women dress collections.",
+                  b: "Versatile Fabric",
                   i: (
-                    <svg className="w-6 h-6 md:w-8 md:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg className="w-8 h-8 md:w-10 md:h-10 text-primary mb-4 md:mb-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M14.47 14.48a6 6 0 1 1 5.05-5.05" /><path d="M8.12 8.12 12 12" /><circle cx="6" cy="6" r="3" /><circle cx="6" cy="18" r="3" /><path d="M20 4 8.12 15.88" /><path d="M14.47 14.48 20 20" /><path d="m8.12 8.12 3.19 3.19" />
                     </svg>
                   )
                 }
               ].map((item, i) => (
-                <div key={i} className="p-4 md:p-8 bg-white rounded-[20px] md:rounded-[30px] shadow-sm hover:shadow-2xl transition-all border border-primary/5 text-center flex flex-col items-center gap-2 md:gap-4 group">
-                  <div className="w-10 h-10 md:w-14 md:h-14 bg-primary text-white rounded-[12px] md:rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">{item.i}</div>
-                  <h3 className="text-[11px] md:text-xl font-black uppercase tracking-tight text-primary leading-tight">{item.t}</h3>
-                  <p className="text-[10px] md:text-base opacity-60 font-medium leading-snug md:leading-relaxed text-primary">{item.d}</p>
+                <div key={i} className="flex flex-col items-center justify-between text-center p-5 md:p-8 bg-white rounded-[16px] md:rounded-[24px] border border-primary/10 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group h-full gap-4">
+                  <div className="scale-90 md:scale-100 origin-center text-primary">{item.i}</div>
+                  <h3 className="text-sm md:text-xl font-bold font-heading text-primary leading-tight px-1">{item.t}</h3>
+                  <p className="text-xs md:text-sm text-primary/80 font-medium leading-relaxed mb-2 md:mb-6">{item.d}</p>
+
+                  <span className="mt-auto text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-secondary flex flex-wrap items-center justify-center gap-1.5 transition-colors">
+                    <span>{item.b}</span>
+                    <span className="text-lg leading-none">&rarr;</span>
+                  </span>
                 </div>
               ))}
             </div>
@@ -476,93 +525,12 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── HOW TO ORDER SECTION ── */}
-        <section className="py-12 md:py-24 px-6 bg-tan/50 relative overflow-hidden">
-          <div className="max-w-[1600px] mx-auto flex flex-col gap-8 md:gap-16 relative z-10">
-            <div className="flex flex-col gap-3 md:gap-4 max-w-4xl mx-auto w-full">
-              <div className="text-center flex flex-col gap-1 md:gap-2 items-center">
-                <span className="text-[10px] md:text-sm font-black text-secondary uppercase tracking-[0.5em] mb-1 block">Simple Wholesale Process</span>
-                <h2 className="font-heading text-2xl md:text-4xl font-medium text-primary leading-tight">How To Order Batik Fabric Online</h2>
-              </div>
-              <p className="text-[13px] md:text-xl text-primary/70 font-medium italic mx-0 lg:mx-auto leading-relaxed text-left md:text-center mt-2">
-                Simple process. Fast dispatch. Wholesale-ready batik cloth and premium women clothing online collections delivered across India.
-              </p>
-            </div>
-
-            <div className="relative grid grid-cols-2 lg:flex lg:flex-row justify-between gap-6 md:gap-10 lg:gap-6 mt-2 md:mt-0">
-              {/* Connector Line (Desktop) */}
-              <div className="hidden lg:block absolute top-[32px] left-[10%] right-[10%] h-[3px] bg-primary/5 z-0"></div>
-
-              {[
-                {
-                  s: "01", t: "Browse Designs",
-                  d: "Explore latest batik print designs, cotton dresses for women, and fresh stock collections.",
-                  i: (
-                    <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />
-                    </svg>
-                  )
-                },
-                {
-                  s: "02", t: "Select Quantity",
-                  d: "Choose pieces for retail stores, boutiques, wholesalers, or marketplace inventory.",
-                  i: (
-                    <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect width="16" height="20" x="4" y="2" rx="2" /><path d="M12 11h4" /><path d="M12 15h4" /><path d="M8 11h.01" /><path d="M8 15h.01" />
-                    </svg>
-                  )
-                },
-                {
-                  s: "03", t: "Connect On WhatsApp",
-                  d: "Get pricing, stock updates, and personalized support instantly.",
-                  i: (
-                    <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-10.6 8.38 8.38 0 0 1 3.8.9L21 3l-1.5 5.5Z" />
-                    </svg>
-                  )
-                },
-                {
-                  s: "04", t: "Receive Wholesale Pricing",
-                  d: "Bulk pricing support based on order volume and business requirements.",
-                  i: (
-                    <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="m15 5 4 4" /><path d="M13 7 8.7 2.7a2 2 0 0 0-2.8 0L2.7 5.9a2 2 0 0 0 0 2.8L7 13" /><path d="m19 11-4 4" /><path d="m21 15-4.5 4.5a2 2 0 0 1-2.8 0L10 15.8" /><circle cx="16" cy="16" r="2" />
-                    </svg>
-                  )
-                },
-                {
-                  s: "05", t: "Fast Dispatch",
-                  d: "Quick shipping across India through trusted logistics partners.",
-                  i: (
-                    <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M10 17h4V5H2v12h3" /><path d="M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5" /><path d="M14 17h1" /><circle cx="7.5" cy="17.5" r="2.5" /><circle cx="17.5" cy="17.5" r="2.5" />
-                    </svg>
-                  )
-                }
-              ].map((step, i) => (
-                <div key={i} className={`flex flex-col items-center text-center gap-2 md:gap-4 lg:w-1/5 relative z-10 ${i === 4 ? "col-span-2 lg:col-span-1" : ""}`}>
-                  <div className="w-10 h-10 md:w-16 md:h-16 bg-white rounded-[12px] md:rounded-[24px] shadow-lg flex items-center justify-center hover:scale-110 transition-all duration-500 cursor-default border border-white relative group">
-                    <span className="absolute -top-1.5 -left-1.5 md:-top-2 md:-left-2 w-5 h-5 md:w-6 md:h-6 bg-secondary text-white text-[8px] md:text-[9px] font-black rounded-full flex items-center justify-center shadow-md">{step.s}</span>
-                    {step.i}
-                  </div>
-                  <div className="flex flex-col gap-1 md:gap-1.5 px-1 md:px-2">
-                    <h4 className="text-[11px] md:text-lg font-black tracking-tight text-primary leading-tight">{step.t}</h4>
-                    <p className="text-[9px] md:text-xs text-primary/70 font-medium leading-relaxed">{step.d}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex justify-center mt-6 md:mt-12">
-              <a href={WA} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 md:gap-4 bg-primary text-white px-4 py-3 md:px-10 md:py-5 rounded-xl md:rounded-3xl font-bold text-[11px] md:text-xl shadow-[0_15px_40px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 transition-all duration-300 uppercase tracking-widest group text-center">
-                <svg className="w-4 h-4 md:w-6 md:h-6 shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.412 2.503 1.112 3.485l-.719 2.624 2.688-.705c.95.514 2.035.804 3.19.803 3.181 0 5.767-2.584 5.768-5.766 0-3.181-2.587-5.767-5.767-5.767zm3.39 8.2l-1.006 1.005c-.122.122-.318.159-.477.087-.514-.232-1.02-.555-1.504-1.039-.485-.484-.807-.989-1.039-1.504-.072-.159-.035-.355.087-.477l1.005-1.006c.115-.115.115-.301 0-.416l-1.139-1.139c-.115-.115-.301-.115-.416 0l-.798.797c-.506.507-.639 1.243-.374 1.874.457 1.087 1.214 2.064 2.223 3.073 1.009 1.009 1.986 1.766 3.073 2.223.631.265 1.367.132 1.874-.374l.797-.798c.115-.115.115-.301 0-.416l-1.139-1.139c-.115-.115-.301-.115-.416 0z" />
-                </svg>
-                <span>Start Your Order on WhatsApp</span>
-              </a>
-            </div>
-          </div>
-        </section>
+        <HowToOrderSection
+          title="How To Order Batik Fabric Online"
+          whatsappLink={WA}
+          tag="Simple Wholesale Process"
+          subtitle="Simple process. Fast dispatch. Wholesale-ready batik cloth and premium women clothing online collections delivered across India."
+        />
 
         {/* ── BANNER + CATALOG LEAD GEN ── */}
 
