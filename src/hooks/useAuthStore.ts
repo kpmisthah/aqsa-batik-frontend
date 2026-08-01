@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { useWishlistStore } from "./useWishlistStore";
 
 export interface SyncedUser {
   id: string;
@@ -58,6 +59,16 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         const data = await res.json();
         if (data.success) {
           set({ user: data.user, isSignedIn: true, initialized: true });
+          
+          // Hydrate Wishlist Sync
+          try {
+             const wishlistRes = await fetch(`${API_BASE_URL}/wishlist/ids`, { credentials: "include" });
+             if (wishlistRes.ok) {
+                 const ids = await wishlistRes.json();
+                 useWishlistStore.getState().setWishlistIds(ids);
+             }
+          } catch(e) { console.warn("Failed to sync wishlist ids", e); }
+          
           return;
         }
       }
@@ -72,6 +83,16 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         const refreshData = await refreshRes.json();
         if (refreshData.success) {
           set({ user: refreshData.user, isSignedIn: true, initialized: true });
+
+          // Hydrate Wishlist Sync
+          try {
+             const wishlistRes = await fetch(`${API_BASE_URL}/wishlist/ids`, { credentials: "include" });
+             if (wishlistRes.ok) {
+                 const ids = await wishlistRes.json();
+                 useWishlistStore.getState().setWishlistIds(ids);
+             }
+          } catch(e) { console.warn("Failed to sync wishlist ids", e); }
+
           return;
         }
       }
@@ -100,6 +121,16 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       const data = await res.json();
       if (data.success) {
         set({ user: data.user, isSignedIn: true, initialized: true });
+
+        // Hydrate Wishlist Sync
+        try {
+            const wishlistRes = await fetch(`${API_BASE_URL}/wishlist/ids`, { credentials: "include" });
+            if (wishlistRes.ok) {
+                const ids = await wishlistRes.json();
+                useWishlistStore.getState().setWishlistIds(ids);
+            }
+        } catch(e) { console.warn("Failed to sync wishlist ids", e); }
+        
       } else {
         console.error("Backend sync rejection:", data.message);
         set({ user: null, isSignedIn: false, initialized: true });
@@ -131,6 +162,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       });
       
       set({ user: null, isSignedIn: false });
+      useWishlistStore.getState().clearWishlist();
     } catch (err) {
       console.error("Failed during logout sequence:", err);
     } finally {

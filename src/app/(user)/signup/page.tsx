@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Mail, Lock, User, Sparkles, Eye, EyeOff, AlertCircle } from "lucide-react";
 import Link from "next/link";
@@ -29,6 +29,43 @@ export default function SignupPage() {
   const [isOtpStep, setIsOtpStep] = useState(false);
   const [otp, setOtp] = useState("");
   const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
+
+  const otpRefs = useRef<(HTMLInputElement | null)[]>([]);
+
+  const handleOtpChange = (index: number, e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.replace(/\D/g, "");
+    if (!value) return;
+
+    let newOtp = otp.split("");
+    if (value.length > 1) {
+       newOtp = value.split("").slice(0, 6);
+       setOtp(newOtp.join(""));
+       otpRefs.current[Math.min(value.length, 5)]?.focus();
+       return;
+    }
+    
+    newOtp[index] = value[value.length - 1]; // Take the last char in case of weird insertions
+    setOtp(newOtp.join(""));
+
+    if (index < 5 && value) {
+      otpRefs.current[index + 1]?.focus();
+    }
+  };
+
+  const handleOtpKeyDown = (index: number, e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Backspace") {
+      e.preventDefault();
+      let newOtp = otp.split("");
+      if (newOtp[index]) {
+        newOtp[index] = "";
+        setOtp(newOtp.join(""));
+      } else if (index > 0) {
+        newOtp[index - 1] = "";
+        setOtp(newOtp.join(""));
+        otpRefs.current[index - 1]?.focus();
+      }
+    }
+  };
 
   const showToast = (message: string, type: "success" | "error") => {
     setToast({ message, type });
@@ -227,18 +264,27 @@ export default function SignupPage() {
 
             <form onSubmit={handleVerifyOtp} className="space-y-6">
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2 text-center">
+                <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-3 text-center">
                   One-Time Password (OTP)
                 </label>
-                <input
-                  type="text"
-                  maxLength={6}
-                  required
-                  value={otp}
-                  onChange={(e) => setOtp(e.target.value.replace(/\D/g, ""))}
-                  placeholder="000000"
-                  className="w-full py-4 text-center tracking-[12px] text-2xl font-black border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/20"
-                />
+                <div className="flex justify-center gap-2 sm:gap-3">
+                  {[0, 1, 2, 3, 4, 5].map((index) => (
+                    <input
+                      key={index}
+                      ref={(el) => {
+                        otpRefs.current[index] = el;
+                      }}
+                      type="text"
+                      inputMode="numeric"
+                      maxLength={6} // Allow pasting
+                      required
+                      value={otp[index] || ""}
+                      onChange={(e) => handleOtpChange(index, e)}
+                      onKeyDown={(e) => handleOtpKeyDown(index, e)}
+                      className="w-10 h-12 sm:w-12 sm:h-14 text-center text-xl sm:text-2xl font-black border-2 border-primary/10 rounded-xl text-primary bg-white focus:outline-none focus:border-secondary focus:ring-4 focus:ring-secondary/10 transition-all shadow-sm"
+                    />
+                  ))}
+                </div>
               </div>
 
               <button

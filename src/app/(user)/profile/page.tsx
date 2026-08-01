@@ -7,8 +7,6 @@ import { useAuthStore } from "@/hooks/useAuthStore";
 import Nav from "@/modules/user/components/Nav";
 import { User, Mail, Shield, Clock, Award, ArrowLeft, LogOut, Camera, Loader2, Check, CreditCard, ShoppingBag, Wallet } from "lucide-react";
 import Link from "next/link";
-import Cropper, { ReactCropperElement } from "react-cropper";
-import "cropperjs/dist/cropper.css";
 import { getColorName } from "@/utils/colorHelper";
 
 function ProfileContent() {
@@ -22,10 +20,6 @@ function ProfileContent() {
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
-  
-  // Image Cropping States
-  const [cropImageSrc, setCropImageSrc] = useState<string | null>(null);
-  const [isCropModalOpen, setIsCropModalOpen] = useState(false);
 
   // Routing, Search Parameters and Tab States
   const searchParams = useSearchParams();
@@ -54,69 +48,71 @@ function ProfileContent() {
   
   // Cancellation and Return States
   const [cancellingOrderId, setCancellingOrderId] = useState<string | null>(null);
+  const [cancellingItemId, setCancellingItemId] = useState<string | null>(null);
   const [cancelReasonStr, setCancelReasonStr] = useState("");
   const [returningOrderId, setReturningOrderId] = useState<string | null>(null);
+  const [returningItemId, setReturningItemId] = useState<string | null>(null);
   const [returnReasonStr, setReturnReasonStr] = useState("");
   const [actionLoading, setActionLoading] = useState(false);
 
   const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
-  const handleCancelOrder = async (orderId: string, reason: string) => {
+  const handleCancelOrder = async (orderId: string, itemId: string | null, reason: string) => {
     setActionLoading(true);
     try {
-      const res = await fetch(`${API_BASE}/orders/${orderId}/cancel`, {
+      const endpoint = itemId 
+        ? `${API_BASE}/orders/${orderId}/items/${itemId}/cancel`
+        : `${API_BASE}/orders/${orderId}/cancel`;
+
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ reason: reason || "Cancelled by buyer" }),
         credentials: "include",
       });
 
-      if (!res.ok) throw new Error("Failed to cancel this order.");
+      if (!res.ok) throw new Error("Failed to cancel.");
+      const data = await res.json();
       
-      setOrders((prevOrders) =>
-        prevOrders.map((o) =>
-          (o.id === orderId || o._id === orderId) 
-            ? { ...o, status: "Cancelled", orderStatus: "Cancelled", cancelReason: reason } 
-            : o
-        )
-      );
+      setOrders(prevOrders => prevOrders.map(o => (o.id === orderId || o._id === orderId) ? data.order : o));
 
-      setToast({ message: "Order cancelled successfully! Stock restored.", type: "success" });
+      setToast({ message: "Cancellation successful! Stock restored.", type: "success" });
       setCancellingOrderId(null);
+      setCancellingItemId(null);
       setCancelReasonStr("");
       
       // Refresh user profile to immediately synchronize wallet balance
       fetchLocalProfile();
     } catch (err: any) {
       console.error(err);
-      setToast({ message: err.message || "Failed to cancel order.", type: "error" });
+      setToast({ message: err.message || "Failed to cancel.", type: "error" });
     } finally {
       setActionLoading(false);
     }
   };
 
-  const handleReturnOrder = async (orderId: string, reason: string) => {
+  const handleReturnOrder = async (orderId: string, itemId: string | null, reason: string) => {
     setActionLoading(true);
     try {
-      const res = await fetch(`${API_BASE}/orders/${orderId}/return`, {
+      const endpoint = itemId 
+        ? `${API_BASE}/orders/${orderId}/items/${itemId}/return`
+        : `${API_BASE}/orders/${orderId}/return`;
+
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ reason: reason || "Returned by buyer" }),
         credentials: "include",
       });
 
-      if (!res.ok) throw new Error("Failed to request order return.");
+      if (!res.ok) throw new Error("Failed to request return.");
+      const data = await res.json();
       
-      setOrders((prevOrders) =>
-        prevOrders.map((o) =>
-          (o.id === orderId || o._id === orderId) 
-            ? { ...o, returnStatus: "Pending", returnReason: reason } 
-            : o
-        )
-      );
+      setOrders(prevOrders => prevOrders.map(o => (o.id === orderId || o._id === orderId) ? data.order : o));
 
       setToast({ message: "Return request submitted successfully for verification!", type: "success" });
       setReturningOrderId(null);
+      setReturningItemId(null);
       setReturnReasonStr("");
     } catch (err: any) {
       console.error(err);
@@ -126,9 +122,6 @@ function ProfileContent() {
     }
   };
   
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  const cropperRef = useRef<ReactCropperElement>(null);
-
   // Derived Pagination Calculations
   const indexOfLastOrder = currentPage * ordersPerPage;
   const indexOfFirstOrder = indexOfLastOrder - ordersPerPage;
@@ -145,13 +138,30 @@ function ProfileContent() {
 
   // 📜 Fetch user's past order history
   useEffect(() => {
+    let isFetchingLogs = false; // crude lock to prevent infinite refresh loops
+
     const fetchOrders = async () => {
       try {
         const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
         const res = await fetch(`${API_BASE}/orders/history`, {
           credentials: "include",
         });
-        if (!res.ok) throw new Error("Failed to load your past orders.");
+        
+        if (!res.ok) {
+          // Access token expired or missing
+          if (res.status === 401 && !isFetchingLogs) {
+             console.warn("Session expired. Triggering token refresh...");
+             isFetchingLogs = true;
+             // Call fetchLocalProfile which hits /auth/refresh automatically
+             await useAuthStore.getState().fetchLocalProfile();
+             return;
+          }
+          
+          const errorText = await res.text();
+          console.error("Backend Error Response for orders/history:", res.status, res.statusText, errorText);
+          throw new Error(`Failed to load your past orders. Status: ${res.status}`);
+        }
+        
         const data = await res.json();
         setOrders(data);
       } catch (err: any) {
@@ -281,116 +291,6 @@ function ProfileContent() {
     setTimeout(() => setToast(null), 4000);
   };
 
-  const handleAvatarClick = () => {
-    if (fileInputRef.current) {
-      fileInputRef.current.click();
-    }
-  };
-
-  // Triggered when file selected: reads it and opens crop modal
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file || !user) return;
-
-    // Validate type and size
-    if (!file.type.startsWith("image/")) {
-      showToast("Please upload a valid image file.", "error");
-      return;
-    }
-    if (file.size > 10 * 1024 * 1024) {
-      showToast("Image size must be smaller than 10MB.", "error");
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = () => {
-      setCropImageSrc(reader.result as string);
-      setIsCropModalOpen(true);
-    };
-    reader.readAsDataURL(file);
-
-    // Reset input value so user can select the same file again
-    if (e.target) {
-      e.target.value = "";
-    }
-  };
-
-  // Crops and uploads to Cloudinary backend
-  const handleCropAndUpload = async () => {
-    const cropper = cropperRef.current?.cropper;
-    if (!cropper || !user) return;
-
-    // Close crop modal instantly to avoid double actions
-    setIsCropModalOpen(false);
-    setUploading(true);
-    showToast("Processing cropped avatar image...", "success");
-
-    try {
-      // Get cropped image canvas (force high-res square)
-      const canvas = cropper.getCroppedCanvas({
-        width: 500,
-        height: 500,
-        imageSmoothingQuality: "high",
-      });
-
-      if (!canvas) throw new Error("Could not crop avatar image.");
-
-      // Convert canvas to blob/file to upload
-      const croppedFile = await new Promise<File | null>((resolve) => {
-        canvas.toBlob((blob) => {
-          if (!blob) {
-            resolve(null);
-            return;
-          }
-          const file = new File([blob], "cropped-avatar.jpg", { type: "image/jpeg" });
-          resolve(file);
-        }, "image/jpeg", 0.9);
-      });
-
-      if (!croppedFile) throw new Error("Could not process cropped file.");
-
-      // 1. Upload to Cloudinary backend
-      const formData = new FormData();
-      formData.append("image", croppedFile);
-
-      const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
-      const uploadRes = await fetch(`${API_BASE}/upload`, {
-        method: "POST",
-        body: formData,
-      });
-
-      if (!uploadRes.ok) throw new Error("Upload failed");
-      const uploadData = await uploadRes.json();
-      const imageUrl = uploadData.imageUrl;
-
-      // 2. Update backend database
-      const updateRes = await fetch(`${API_BASE}/users/${user.id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ avatar: imageUrl }),
-      });
-
-      if (!updateRes.ok) throw new Error("Failed to save avatar image to account");
-
-      // 3. Sync state locally
-      setAvatar(imageUrl);
-      setUser({
-        ...user,
-        avatar: imageUrl,
-      });
-
-      showToast("Profile image cropped and updated successfully!", "success");
-    } catch (err: any) {
-      console.error(err);
-      showToast(err.message || "Failed to crop or upload image. Please try again.", "error");
-    } finally {
-      setUploading(false);
-      setCropImageSrc(null);
-    }
-  };
-
   // Submit name/profile updates
   const handleProfileSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -485,68 +385,7 @@ function ProfileContent() {
         </div>
       )}
 
-      {/* Luxury Image Cropper Modal */}
-      {isCropModalOpen && cropImageSrc && (
-        <div className="fixed inset-0 bg-primary/40 backdrop-blur-sm flex items-center justify-center z-[250] p-4 animate-in fade-in duration-300">
-          <div className="bg-surface rounded-[32px] border border-primary/10 p-6 md:p-8 max-w-xl w-full shadow-2xl relative animate-in zoom-in-95 duration-200 flex flex-col gap-6">
-            
-            {/* Corner styling borders */}
-            <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-secondary/30 rounded-tl-[32px]" />
-            <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-secondary/30 rounded-tr-[32px]" />
-            <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-secondary/30 rounded-bl-[32px]" />
-            <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-secondary/30 rounded-br-[32px]" />
-
-            <div>
-              <span className="text-[10px] font-black tracking-widest text-secondary uppercase">IMAGE ADJUSTMENT</span>
-              <h3 className="font-heading text-2xl font-black text-primary mt-1">Crop Your Profile Photo</h3>
-              <p className="text-xs text-primary/80 mt-1 font-medium leading-relaxed">
-                Drag, scale, and adjust your photo perfectly within the square guidelines below.
-              </p>
-            </div>
-
-            <div className="rounded-2xl overflow-hidden border border-primary/15 bg-white relative max-h-[350px] md:max-h-[400px]">
-              <Cropper
-                src={cropImageSrc}
-                style={{ height: 350, width: "100%" }}
-                initialAspectRatio={1}
-                aspectRatio={1}
-                guides={true}
-                ref={cropperRef}
-                viewMode={1}
-                dragMode="move"
-                scalable={true}
-                cropBoxMovable={true}
-                cropBoxResizable={true}
-                background={false}
-                responsive={true}
-                checkOrientation={false}
-              />
-            </div>
-
-            <div className="flex gap-4">
-              <button
-                type="button"
-                onClick={() => {
-                  setIsCropModalOpen(false);
-                  setCropImageSrc(null);
-                }}
-                className="flex-1 bg-white border border-primary/20 text-primary hover:bg-surface py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-xs transition-all active:scale-[0.99]"
-              >
-                Cancel
-              </button>
-              <button
-                type="button"
-                onClick={handleCropAndUpload}
-                className="flex-1 bg-primary hover:bg-black text-white py-4 px-6 rounded-2xl font-bold uppercase tracking-wider text-xs transition-all shadow hover:shadow-md active:scale-[0.99] flex items-center justify-center gap-2"
-              >
-                <Check size={14} />
-                <span>Crop & Upload</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-      
+      {/* Main Container */}
       <main className="flex-1 max-w-4xl w-full mx-auto px-6 py-12">
         {/* Back Link */}
         <Link 
@@ -566,34 +405,14 @@ function ProfileContent() {
           <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-secondary/30 rounded-br-[32px]" />
 
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8 relative z-10">
-            {/* Cloudinary Profile Avatar Upload Block */}
-            <div className="relative group cursor-pointer" onClick={handleAvatarClick}>
-              <input 
-                type="file" 
-                ref={fileInputRef} 
-                onChange={handleFileChange} 
-                className="hidden" 
-                accept="image/*"
-              />
-              
-              <div className="w-28 h-28 rounded-3xl bg-primary text-white flex items-center justify-center font-heading text-5xl font-black shadow-lg relative border-4 border-white overflow-hidden transition-all duration-300 group-hover:brightness-90 group-hover:scale-[1.02]">
+            {/* Profile Avatar Display */}
+            <div className="relative">
+              <div className="w-28 h-28 rounded-3xl bg-primary text-white flex items-center justify-center font-heading text-5xl font-black shadow-lg relative border-4 border-white overflow-hidden">
                 {avatar ? (
                   <img src={avatar} alt={user.name} className="w-full h-full object-cover" />
                 ) : (
                   <span>{user.name.charAt(0).toUpperCase()}</span>
                 )}
-                
-                {/* Upload Hover Overlay */}
-                <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {uploading ? (
-                    <Loader2 size={24} className="text-white animate-spin" />
-                  ) : (
-                    <>
-                      <Camera size={20} className="text-white mb-1" />
-                      <span className="text-[8px] font-black uppercase text-white/95 tracking-widest">Change</span>
-                    </>
-                  )}
-                </div>
               </div>
               
               <div className="absolute -bottom-2 -right-2 bg-secondary text-white p-2 rounded-xl shadow border border-white">
@@ -772,7 +591,7 @@ function ProfileContent() {
                   </div>
                 ) : (
                   <>
-                    <div className="space-y-6">
+                    <div className="space-y-6 max-h-[600px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-primary/10 hover:scrollbar-thumb-primary/20 scrollbar-track-transparent">
                       {currentOrders.map((order: any) => {
                         const orderId = order.id || order._id;
                         const dateStr = formatDate(order.createdAt);
@@ -830,22 +649,74 @@ function ProfileContent() {
                             {/* Order Items Info */}
                             <div className="p-5 md:p-6 bg-white/40 space-y-4">
                               <span className="text-xs font-black uppercase tracking-widest text-primary/50 block">Items Ordered ({order.items.reduce((acc: number, item: any) => acc + item.quantity, 0)})</span>
-                              <div className="divide-y divide-primary/5">
-                                {order.items.map((item: any, idx: number) => (
-                                  <div key={idx} className="py-3 first:pt-0 last:pb-0 flex justify-between items-center text-sm md:text-base">
-                                    <div className="space-y-1">
-                                      <span className="font-bold text-primary block">{item.name}</span>
+                                {order.items.map((item: any, idx: number) => {
+                                  const itemId = item.id || item._id;
+                                  return (
+                                  <div key={idx} className="py-4 border-b border-primary/5 last:border-0 flex flex-col md:flex-row justify-between items-start md:items-center text-sm gap-4">
+                                    <div className="space-y-1.5 flex-1">
+                                      <div className="flex items-center gap-2 flex-wrap">
+                                        <span className="font-bold text-primary">{item.name}</span>
+                                        {/* Status Badge */}
+                                        {item.itemStatus && item.itemStatus !== 'Active' && (
+                                          <span className={`px-2 py-0.5 text-[9px] font-black uppercase tracking-wider rounded-md ${
+                                            item.itemStatus === 'Cancelled' ? 'bg-red-50 text-red-700 border border-red-200' : 'bg-purple-50 text-purple-700 border border-purple-200'
+                                          }`}>
+                                            {item.itemStatus}
+                                          </span>
+                                        )}
+                                        {item.returnStatus && item.returnStatus !== 'None' && (
+                                          <span className={`px-2 py-0.5 text-[9px] font-black uppercase tracking-wider rounded-md ${
+                                            item.returnStatus === 'Approved' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-surface text-primary border border-primary/20'
+                                          }`}>
+                                            Return {item.returnStatus}
+                                          </span>
+                                        )}
+                                      </div>
                                       {item.variantColour && (
-                                        <span className="block text-xs text-primary/80 font-medium">Color: {getColorName(item.variantColour)}</span>
+                                        <span className="block text-xs text-primary/80 font-medium">Color: {item.variantColour}</span>
+                                      )}
+                                      {(item.cancelReason || item.returnReason) && (
+                                        <span className="block text-[10px] text-primary/60 italic font-bold mt-0.5">
+                                          Reason: {item.cancelReason || item.returnReason}
+                                        </span>
                                       )}
                                     </div>
-                                    <div className="text-right font-medium">
-                                      <span className="opacity-60">{item.quantity} x </span>
-                                      <span className="font-bold text-primary">₹{item.price.toLocaleString()}</span>
+                                    <div className="flex items-center justify-between md:justify-end gap-6 w-full md:w-auto">
+                                      <div className="text-right font-medium">
+                                        <span className="opacity-60">{item.quantity} x </span>
+                                        <span className="font-bold text-primary">₹{item.price.toLocaleString()}</span>
+                                      </div>
+                                      
+                                      {/* Item Actions */}
+                                      <div className="flex items-center gap-2">
+                                        {(order.status === 'Pending' || order.status === 'Processing') && (!item.itemStatus || item.itemStatus === 'Active') && order.items.length > 1 && (
+                                          <button
+                                            type="button"
+                                            onClick={() => {
+                                              setCancellingOrderId(orderId);
+                                              setCancellingItemId(itemId);
+                                            }}
+                                            className="px-3 py-1.5 border border-red-100 hover:bg-red-50 text-red-700 rounded-lg text-[10px] font-black uppercase tracking-wider transition-colors active:scale-95 shadow-sm bg-white"
+                                          >
+                                            Cancel
+                                          </button>
+                                        )}
+                                        {order.status === 'Delivered' && (!item.itemStatus || item.itemStatus === 'Active') && (!item.returnStatus || item.returnStatus === 'None') && order.items.length > 1 && (
+                                          <button
+                                            type="button"
+                                            onClick={() => {
+                                              setReturningOrderId(orderId);
+                                              setReturningItemId(itemId);
+                                            }}
+                                            className="px-3 py-1.5 border border-primary/20 hover:bg-surface text-primary rounded-lg text-[10px] font-black uppercase tracking-wider transition-colors active:scale-95 shadow-sm bg-white"
+                                          >
+                                            Return
+                                          </button>
+                                        )}
+                                      </div>
                                     </div>
                                   </div>
-                                ))}
-                              </div>
+                                )})}
                               
                               {/* Shipping address summary */}
                               <div className="pt-4 border-t border-primary/5 flex flex-col md:flex-row justify-between gap-4 text-xs text-primary/90 font-medium">
@@ -914,10 +785,13 @@ function ProfileContent() {
                                   {(order.status === 'Pending' || order.status === 'Processing') && (
                                     <button
                                       type="button"
-                                      onClick={() => setCancellingOrderId(orderId)}
+                                      onClick={() => {
+                                         setCancellingOrderId(orderId);
+                                         setCancellingItemId(null); // specific to root order
+                                      }}
                                       className="px-4 py-2 border border-red-200 hover:bg-red-50 text-red-700 rounded-xl text-xs font-black uppercase tracking-wider transition-colors active:scale-95 shadow-sm"
                                     >
-                                      Cancel Order
+                                      Cancel Entire Order
                                     </button>
                                   )}
 
@@ -925,10 +799,13 @@ function ProfileContent() {
                                   {order.status === 'Delivered' && order.returnStatus === 'None' && (
                                     <button
                                       type="button"
-                                      onClick={() => setReturningOrderId(orderId)}
+                                      onClick={() => {
+                                         setReturningOrderId(orderId);
+                                         setReturningItemId(null);
+                                      }}
                                       className="px-4 py-2 border border-primary/20 hover:bg-surface text-primary rounded-xl text-xs font-black uppercase tracking-wider transition-colors active:scale-95 shadow-sm"
                                     >
-                                      Return Order
+                                      Return Entire Order
                                     </button>
                                   )}
                                 </div>
@@ -983,7 +860,7 @@ function ProfileContent() {
                     <p className="text-sm opacity-60 font-medium text-primary italic font-heading">You have no wallet transactions yet.</p>
                   </div>
                 ) : (
-                  <div className="space-y-4">
+                  <div className="space-y-4 max-h-[600px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-primary/10 hover:scrollbar-thumb-primary/20 scrollbar-track-transparent">
                     {[...user.walletHistory].reverse().map((tx: any, idx: number) => (
                       <div key={idx} className="flex flex-col sm:flex-row sm:items-center justify-between p-5 border border-primary/10 rounded-2xl bg-surface/20 hover:bg-surface/50 transition-all font-heading gap-4">
                         <div>
@@ -1109,6 +986,7 @@ function ProfileContent() {
                 type="button"
                 onClick={() => {
                   setCancellingOrderId(null);
+                  setCancellingItemId(null);
                   setCancelReasonStr("");
                 }}
                 className="flex-1 px-4 py-3 border border-primary/15 rounded-xl text-xs font-bold uppercase tracking-wider text-primary hover:bg-surface transition-colors"
@@ -1117,7 +995,7 @@ function ProfileContent() {
               </button>
               <button
                 type="button"
-                onClick={() => handleCancelOrder(cancellingOrderId, cancelReasonStr)}
+                onClick={() => handleCancelOrder(cancellingOrderId, cancellingItemId, cancelReasonStr)}
                 disabled={actionLoading || !cancelReasonStr}
                 className="flex-1 px-4 py-3 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-colors disabled:opacity-40"
               >
@@ -1164,6 +1042,7 @@ function ProfileContent() {
                 type="button"
                 onClick={() => {
                   setReturningOrderId(null);
+                  setReturningItemId(null);
                   setReturnReasonStr("");
                 }}
                 className="flex-1 px-4 py-3 border border-primary/15 rounded-xl text-xs font-bold uppercase tracking-wider text-primary hover:bg-surface transition-colors"
@@ -1172,7 +1051,7 @@ function ProfileContent() {
               </button>
               <button
                 type="button"
-                onClick={() => handleReturnOrder(returningOrderId, returnReasonStr)}
+                onClick={() => handleReturnOrder(returningOrderId, returningItemId, returnReasonStr)}
                 disabled={actionLoading || !returnReasonStr}
                 className="flex-1 px-4 py-3 bg-primary hover:bg-black text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-colors disabled:opacity-40"
               >
