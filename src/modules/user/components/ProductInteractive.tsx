@@ -9,6 +9,12 @@ import { getColorName, getCombinedColorName } from "@/utils/colorHelper";
 
 export default function ProductInteractive({ product }: { product: any }) {
     const [selectedImage, setSelectedImage] = useState(product.images?.[0] || product.image || "/product_white_mustard.png");
+    const [mainImageLoaded, setMainImageLoaded] = useState(false);
+    
+    React.useEffect(() => {
+        setMainImageLoaded(false);
+    }, [selectedImage]);
+
     const [lensState, setLensState] = useState<{ show: boolean, x: number, y: number, bgPosX: number, bgPosY: number, containerW: number, containerH: number }>({ show: false, x: 0, y: 0, bgPosX: 0, bgPosY: 0, containerW: 0, containerH: 0 });
     const [toast, setToast] = useState<{ show: boolean, message: string }>({ show: false, message: "" });
     const imageContainerRef = useRef<HTMLDivElement>(null);
@@ -89,7 +95,7 @@ export default function ProductInteractive({ product }: { product: any }) {
                     ref={imageContainerRef}
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}
-                    className="relative aspect-square w-full rounded-3xl md:rounded-[40px] overflow-hidden shadow-2xl border border-primary/5 bg-white cursor-none group"
+                    className={`relative aspect-square w-full rounded-3xl md:rounded-[40px] overflow-hidden shadow-2xl border border-primary/5 cursor-none group transition-colors duration-500 ${!mainImageLoaded ? 'bg-tan animate-pulse' : 'bg-white'}`}
                 >
                     <Image
                         src={selectedImage}
@@ -98,7 +104,9 @@ export default function ProductInteractive({ product }: { product: any }) {
                         objectFit="cover"
                         objectPosition="top"
                         priority
-                        className="transition-opacity duration-300"
+                        unoptimized={true}
+                        onLoadingComplete={() => setMainImageLoaded(true)}
+                        className={`transition-all duration-700 ${mainImageLoaded ? 'opacity-100' : 'opacity-0'}`}
                     />
                     
                     {/* Circle Lens Zoomer */}

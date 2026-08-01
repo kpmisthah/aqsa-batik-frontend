@@ -28,10 +28,10 @@ export default function PremiumTrustSection() {
                 </div>
 
                 {/* Modern Bento-Box Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-rows-[auto] gap-4 md:gap-6 w-full auto-rows-[160px] md:auto-rows-[200px]">
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 grid-rows-[auto] gap-3 md:gap-6 w-full auto-rows-[minmax(160px,auto)] md:auto-rows-[200px]">
                     
                     {/* Bento Box 1: The Large Cinematic Card (Spans 2 columns, 2 rows on large screens) */}
-                    <div className="md:col-span-2 lg:col-span-2 lg:row-span-2 relative rounded-[32px] md:rounded-[40px] overflow-hidden group shadow-sm hover:shadow-xl transition-all duration-500">
+                    <div className="col-span-2 lg:col-span-2 lg:row-span-2 min-h-[350px] md:min-h-[unset] h-full relative rounded-[24px] md:rounded-[40px] overflow-hidden group shadow-sm hover:shadow-xl transition-all duration-500">
                         <Image
                             src="/artisanal_batik_workshop.png"
                             alt="Retail and Manufacturing Craftsmanship"
@@ -55,57 +55,57 @@ export default function PremiumTrustSection() {
                     </div>
 
                     {/* Bento Box 2: Metric 1 */}
-                    <div className="bg-white rounded-[32px] md:rounded-[40px] p-5 lg:p-8 border border-primary/5 flex flex-col justify-start gap-4 md:gap-6 shadow-sm hover:shadow-md transition-shadow group">
-                        <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-tan/30 text-secondary flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-colors shrink-0">
-                            <span className="font-heading font-black text-lg lg:text-xl">01</span>
+                    <div className="bg-white rounded-[24px] md:rounded-[40px] p-4 lg:p-8 border border-primary/5 flex flex-col justify-start gap-3 md:gap-6 shadow-sm hover:shadow-md transition-shadow group">
+                        <div className="w-8 h-8 lg:w-12 lg:h-12 rounded-full bg-tan/30 text-secondary flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-colors shrink-0">
+                            <span className="font-heading font-black text-sm lg:text-xl">01</span>
                         </div>
-                        <div className="flex flex-col gap-2 z-10">
-                            <h4 className="font-heading text-lg lg:text-2xl text-primary font-bold leading-tight">15+ Years Heritage</h4>
-                            <p className="text-xs lg:text-sm font-medium text-primary/70 max-w-[200px]">Mastering consistency and precision finishing since 2008.</p>
+                        <div className="flex flex-col gap-1 md:gap-2 z-10 w-full">
+                            <h4 className="font-heading text-base md:text-lg lg:text-2xl text-primary font-bold leading-tight">15+ Years Heritage</h4>
+                            <p className="text-[11px] sm:text-xs lg:text-sm font-bold text-primary/90 leading-relaxed mt-1">Mastering consistency and precision finishing since 2008.</p>
                         </div>
                     </div>
 
                     {/* Bento Box 3: Metric 2 */}
-                    <div className="bg-tan/20 rounded-[32px] md:rounded-[40px] p-5 lg:p-8 border border-primary/5 flex flex-col justify-start gap-4 md:gap-6 shadow-sm hover:shadow-md transition-shadow group">
-                        <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white text-secondary flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-colors shrink-0">
-                            <span className="font-heading font-black text-lg lg:text-xl">02</span>
+                    <div className="bg-tan/20 rounded-[24px] md:rounded-[40px] p-4 lg:p-8 border border-primary/5 flex flex-col justify-start gap-3 md:gap-6 shadow-sm hover:shadow-md transition-shadow group">
+                        <div className="w-8 h-8 lg:w-12 lg:h-12 rounded-full bg-white text-secondary flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-colors shrink-0">
+                            <span className="font-heading font-black text-sm lg:text-xl">02</span>
                         </div>
-                        <div className="flex flex-col gap-2 z-10">
-                            <h4 className="font-heading text-lg lg:text-2xl text-primary font-bold leading-tight">Pan-India Supply</h4>
-                            <p className="text-xs lg:text-sm font-medium text-primary/70 max-w-[200px]">Fulfilling daily demand across all major growing markets.</p>
+                        <div className="flex flex-col gap-1 md:gap-2 z-10 w-full">
+                            <h4 className="font-heading text-base md:text-lg lg:text-2xl text-primary font-bold leading-tight">Pan-India Supply</h4>
+                            <p className="text-[11px] sm:text-xs lg:text-sm font-bold text-primary/90 leading-relaxed mt-1">Fulfilling daily demand across all major growing markets.</p>
                         </div>
                     </div>
                     
                     {/* Bento Box 4: Metric 3 */}
-                    <div className="bg-tan/20 rounded-[32px] md:rounded-[40px] p-5 lg:p-8 border border-primary/5 flex flex-col justify-start gap-4 md:gap-6 shadow-sm hover:shadow-md transition-shadow group">
-                        <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white text-secondary flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-colors shrink-0">
-                            <span className="font-heading font-black text-lg lg:text-xl">03</span>
+                    <div className="bg-tan/20 rounded-[24px] md:rounded-[40px] p-4 lg:p-8 border border-primary/5 flex flex-col justify-start gap-3 md:gap-6 shadow-sm hover:shadow-md transition-shadow group">
+                        <div className="w-8 h-8 lg:w-12 lg:h-12 rounded-full bg-white text-secondary flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-colors shrink-0">
+                            <span className="font-heading font-black text-sm lg:text-xl">03</span>
                         </div>
-                        <div className="flex flex-col gap-2 z-10">
-                            <h4 className="font-heading text-lg lg:text-2xl text-primary font-bold leading-tight">Ready Dispatch</h4>
-                            <p className="text-xs lg:text-sm font-medium text-primary/70 max-w-[200px]">Fastest exact turnaround with trusted logistics partners.</p>
+                        <div className="flex flex-col gap-1 md:gap-2 z-10 w-full">
+                            <h4 className="font-heading text-base md:text-lg lg:text-2xl text-primary font-bold leading-tight">Ready Dispatch</h4>
+                            <p className="text-[11px] sm:text-xs lg:text-sm font-bold text-primary/90 leading-relaxed mt-1">Fastest exact turnaround with trusted logistics partners.</p>
                         </div>
                     </div>
                     
                     {/* Bento Box 5: Metric 4 */}
-                    <div className="bg-white rounded-[32px] md:rounded-[40px] p-5 lg:p-8 border border-primary/5 flex flex-col justify-start gap-4 md:gap-6 shadow-sm hover:shadow-md transition-shadow group">
-                        <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-tan/30 text-secondary flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-colors shrink-0">
-                            <span className="font-heading font-black text-lg lg:text-xl">04</span>
+                    <div className="bg-white rounded-[24px] md:rounded-[40px] p-4 lg:p-8 border border-primary/5 flex flex-col justify-start gap-3 md:gap-6 shadow-sm hover:shadow-md transition-shadow group">
+                        <div className="w-8 h-8 lg:w-12 lg:h-12 rounded-full bg-tan/30 text-secondary flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-colors shrink-0">
+                            <span className="font-heading font-black text-sm lg:text-xl">04</span>
                         </div>
-                        <div className="flex flex-col gap-2 z-10">
-                            <h4 className="font-heading text-lg lg:text-2xl text-primary font-bold leading-tight">Direct Margins</h4>
-                            <p className="text-xs lg:text-sm font-medium text-primary/70 max-w-[200px]">We manufacture, allowing you to maximize all profit.</p>
+                        <div className="flex flex-col gap-1 md:gap-2 z-10 w-full">
+                            <h4 className="font-heading text-base md:text-lg lg:text-2xl text-primary font-bold leading-tight">Direct Margins</h4>
+                            <p className="text-[11px] sm:text-xs lg:text-sm font-bold text-primary/90 leading-relaxed mt-1">We manufacture, allowing you to maximize all profit.</p>
                         </div>
                     </div>
 
                     {/* Bento Box 6: Full Width CTA Card */}
-                    <div className="md:col-span-2 lg:col-span-4 bg-[#E5E0D8] rounded-[32px] md:rounded-[40px] px-6 py-5 md:px-10 md:py-6 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-sm hover:shadow-lg transition-all relative overflow-hidden group border border-primary/10">
+                    <div className="col-span-2 md:col-span-2 lg:col-span-4 bg-[#E5E0D8] rounded-[24px] md:rounded-[40px] px-6 py-5 md:px-10 md:py-6 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-sm hover:shadow-lg transition-all relative overflow-hidden group border border-primary/10">
                         {/* Decorative background element */}
                         <div className="absolute right-0 top-0 w-64 h-64 bg-white/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-1000 z-0"></div>
                         
                         <div className="flex flex-col gap-2 z-10 w-full lg:w-auto text-center lg:text-left">
                             <h4 className="font-heading text-2xl md:text-4xl text-primary font-black drop-shadow-sm">Join Our Verified Retail Network</h4>
-                            <p className="text-sm md:text-base font-bold text-primary/70 mb-2">Partner with an honest, transparent supply chain that scales with you.</p>
+                            <p className="text-sm md:text-base font-bold text-primary/90 mb-2">Partner with an honest, transparent supply chain that scales with you.</p>
                         </div>
 
                         <a href={WA} target="_blank" rel="noreferrer" className="z-10 inline-flex items-center justify-center gap-3 bg-primary text-white px-8 py-5 md:px-10 md:py-6 rounded-2xl md:rounded-3xl hover:bg-black transition-all shadow-xl font-bold uppercase tracking-[0.2em] text-[11px] md:text-sm hover:scale-105 active:scale-95 w-full lg:w-auto shrink-0">
