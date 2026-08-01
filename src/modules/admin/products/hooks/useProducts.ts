@@ -213,6 +213,85 @@ export function useProducts() {
     }
   };
 
+  const bulkUpload = async (csvFile: File, zipFile: File) => {
+    try {
+      setIsSaving(true);
+      // 1. Upload zip
+      const zipData = new FormData();
+      zipData.append('file', zipFile);
+      const zipRes = await fetch(`${API_BASE}/upload/bulk-images`, { method: "POST", body: zipData });
+      if (!zipRes.ok) throw new Error("Failed to upload images zip");
+      const zipResult = await zipRes.json();
+      const uploadedFiles = zipResult.files || [];
+
+      // 2. Parse CSV
+      const Papa = (await import('papaparse')).default;
+      const csvText = await csvFile.text();
+      
+      const parsed = Papa.parse(csvText, {
+        header: true,
+        skipEmptyLines: true
+      });
+      
+      const rows = parsed.data;
+      const payload: any[] = [];
+      
+      let rowIndex = 1;
+      for (const row of rows as any[]) {
+        // Validation checks
+        if (!row.name || row.name.trim() === '') {
+           throw new Error(`Row ${rowIndex}: "name" is missing.`);
+        }
+        if (!row.category || row.category.trim() === '') {
+           throw new Error(`Row ${rowIndex}: "category" is missing for product "${row.name}".`);
+        }
+        if (!row.fullPrice || isNaN(Number(row.fullPrice))) {
+           throw new Error(`Row ${rowIndex}: "fullPrice" must be a valid number for product "${row.name}".`);
+        }
+
+        const rowImages = row.images ? row.images.split('|').map((i: string) => i.trim()).filter(Boolean) : [];
+        const mappedImages = rowImages.map((imgName: string) => {
+          const match = uploadedFiles.find((f: any) => f.filename === imgName);
+          return match ? match.url : imgName;
+        });
+
+        payload.push({
+          name: row.name.trim(),
+          category: row.category.trim(),
+          subCategory: row.subCategory?.trim() || '',
+          images: mappedImages,
+          colours: row.colours ? row.colours.split('|').map((c: string) => c.trim()).filter(Boolean) : [],
+          fabricDetails: row.fabricDetails || '',
+          quantity: Number(row.quantity) || 0,
+          fullPrice: Number(row.fullPrice) || 0,
+          discountPrice: Number(row.discountPrice) || Number(row.fullPrice) || 0,
+          isBestSeller: row.isBestSeller?.toLowerCase() === 'true',
+          isWholesale: row.isWholesale?.toLowerCase() === 'true',
+          seoTitle: row.seoTitle || '',
+          metaDescription: row.metaDescription || '',
+          description: row.description || '',
+        });
+        rowIndex++;
+      }
+
+      // 3. Submit
+      const res = await fetch(`${API_BASE}/products/bulk`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error("Failed to create bulk products");
+      await fetchProducts(1, pagination.limit);
+      return { success: true, count: payload.length };
+    } catch (error: any) {
+      console.error("Bulk upload error:", error);
+      throw error;
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
   const openAddModal = () => setIsAddModalOpen(true);
 
   const closeModals = () => {
@@ -233,6 +312,7 @@ export function useProducts() {
     updateProduct,
     toggleBlock,
     deleteProduct,
+    bulkUpload,
     openAddModal,
     closeModals,
     searchTerm,

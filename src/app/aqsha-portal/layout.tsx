@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { LayoutDashboard, Users, ShoppingBag, Settings, Menu, X, LogOut, Bell, Package, Loader2 } from "lucide-react";
+import { LayoutDashboard, Users, ShoppingBag, Settings, Menu, X, LogOut, Bell, Package, Loader2, UploadCloud } from "lucide-react";
 import { useAuthSync } from "@/modules/user/hooks/useAuthSync";
 
 export default function AdminLayout({
@@ -21,6 +21,7 @@ export default function AdminLayout({
     { name: "Dashboard", href: "/aqsha-portal", icon: LayoutDashboard },
     { name: "Orders", href: "/aqsha-portal/orders", icon: ShoppingBag },
     { name: "Products", href: "/aqsha-portal/products", icon: Package },
+    { name: "Bulk Upload", href: "/aqsha-portal/bulk-upload", icon: UploadCloud },
     { name: "Users", href: "/aqsha-portal/users", icon: Users },
     { name: "Banners", href: "/aqsha-portal/banners", icon: Settings },
   ];

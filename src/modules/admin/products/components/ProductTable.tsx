@@ -1,16 +1,14 @@
 import React from "react";
-import { Edit, Trash2, AlertCircle } from "lucide-react";
+import { Edit, Ban, CheckCircle2 } from "lucide-react";
 import type { AdminProduct } from "../hooks/useProducts";
 
 interface ProductTableProps {
   products: AdminProduct[];
   onToggleBlock: (id: string) => void;
   onEdit: (product: AdminProduct) => void;
-  onDelete: (id: string) => void;
 }
 
-
-export function ProductTable({ products, onToggleBlock, onEdit, onDelete }: ProductTableProps) {
+export function ProductTable({ products, onToggleBlock, onEdit }: ProductTableProps) {
   return (
     <div className="w-full">
       {/* Desktop Table View */}
@@ -75,6 +73,9 @@ export function ProductTable({ products, onToggleBlock, onEdit, onDelete }: Prod
                   </td>
                   <td className="px-6 py-5 whitespace-nowrap">
                     <div className="flex flex-col gap-2">
+                      <span className={`px-2 py-0.5 inline-flex text-[10px] font-black uppercase tracking-widest rounded-sm w-fit ${product.isBlocked ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`}>
+                        {product.isBlocked ? 'Blocked' : 'Active'}
+                      </span>
                       {product.isBestSeller && (
                         <span className="px-2 py-0.5 inline-flex text-[10px] font-black uppercase tracking-widest rounded-sm bg-accent text-primary w-fit">
                           Best Seller
@@ -90,23 +91,17 @@ export function ProductTable({ products, onToggleBlock, onEdit, onDelete }: Prod
                   <td className="px-6 py-5 whitespace-nowrap text-right text-sm font-medium">
                     <div className="flex items-center justify-end space-x-4">
                       <button 
-                        onClick={() => onToggleBlock(product.id)}
-                        title={product.isBlocked ? "Unblock" : "Block"}
-                        className={`${product.isBlocked ? 'text-green-600 hover:text-green-800' : 'text-secondary hover:text-red-700'} transition-colors`}
-                      >
-                        <AlertCircle className="w-5 h-5" />
-                      </button>
-                      <button 
                         onClick={() => onEdit(product)}
                         className="text-primary/40 hover:text-accent transition-colors"
+                        title="Edit Product"
                       >
                         <Edit className="w-5 h-5" />
                       </button>
                       <button 
-                        onClick={() => onDelete(product.id)}
-                        className="text-primary/40 hover:text-red-600 transition-colors"
+                        onClick={() => onToggleBlock(product.id)}
+                        className={`px-4 py-1.5 text-xs font-bold rounded-md transition-colors border ${product.isBlocked ? 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100' : 'bg-red-50 text-red-700 border-red-200 hover:bg-red-100'}`}
                       >
-                        <Trash2 className="w-5 h-5" />
+                        {product.isBlocked ? "Unblock" : "Block"}
                       </button>
                     </div>
                   </td>
@@ -176,8 +171,11 @@ export function ProductTable({ products, onToggleBlock, onEdit, onDelete }: Prod
                 </span>
               </div>
               <div>
-                <span className="block text-[10px] font-black tracking-widest text-secondary uppercase">Badges</span>
+                <span className="block text-[10px] font-black tracking-widest text-secondary uppercase">Status / Badges</span>
                 <div className="flex flex-wrap gap-1 mt-1">
+                  <span className={`px-1.5 py-0.5 inline-flex text-[8px] font-black uppercase tracking-widest rounded-sm ${product.isBlocked ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`}>
+                    {product.isBlocked ? 'Blocked' : 'Active'}
+                  </span>
                   {product.isBestSeller && (
                     <span className="px-1.5 py-0.5 inline-flex text-[8px] font-black uppercase tracking-widest rounded-sm bg-accent text-primary">
                       Best Seller
@@ -195,14 +193,6 @@ export function ProductTable({ products, onToggleBlock, onEdit, onDelete }: Prod
             {/* Bottom Row Actions */}
             <div className="border-t border-primary/5 pt-3 flex items-center justify-end space-x-6">
               <button 
-                onClick={() => onToggleBlock(product.id)}
-                title={product.isBlocked ? "Unblock" : "Block"}
-                className={`flex items-center gap-1 text-xs font-bold ${product.isBlocked ? 'text-green-600 hover:text-green-800' : 'text-secondary hover:text-red-700'} transition-colors`}
-              >
-                <AlertCircle className="w-4 h-4" />
-                <span>{product.isBlocked ? "Unblock" : "Block"}</span>
-              </button>
-              <button 
                 onClick={() => onEdit(product)}
                 className="flex items-center gap-1 text-xs font-bold text-primary/80 hover:text-accent transition-colors"
               >
@@ -210,11 +200,10 @@ export function ProductTable({ products, onToggleBlock, onEdit, onDelete }: Prod
                 <span>Edit</span>
               </button>
               <button 
-                onClick={() => onDelete(product.id)}
-                className="flex items-center gap-1 text-xs font-bold text-primary/80 hover:text-red-600 transition-colors"
+                onClick={() => onToggleBlock(product.id)}
+                className={`px-4 py-1.5 text-xs font-bold rounded-md transition-colors border ${product.isBlocked ? 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100' : 'bg-red-50 text-red-700 border-red-200 hover:bg-red-100'}`}
               >
-                <Trash2 className="w-4 h-4" />
-                <span>Delete</span>
+                {product.isBlocked ? "Unblock" : "Block"}
               </button>
             </div>
           </div>

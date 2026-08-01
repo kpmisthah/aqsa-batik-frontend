@@ -7,6 +7,7 @@ import AdminHeader from "@/modules/admin/components/AdminHeader";
 import AdminModal from "@/modules/admin/components/AdminModal";
 import { ProductTable } from "@/modules/admin/products/components/ProductTable";
 import ImageCropperModal from "@/modules/admin/components/ImageCropperModal";
+import Link from "next/link";
 
 export default function AdminProducts() {
   const {
@@ -21,7 +22,6 @@ export default function AdminProducts() {
     createProduct,
     updateProduct,
     toggleBlock,
-    deleteProduct,
     openAddModal,
     closeModals,
     searchTerm,
@@ -34,6 +34,8 @@ export default function AdminProducts() {
   type ImageItem = { id: string; type: 'existing'; url: string } | { id: string; type: 'new'; file: File; previewUrl: string };
   const [imageItems, setImageItems] = useState<ImageItem[]>([]);
   const [croppingFile, setCroppingFile] = useState<File | null>(null);
+  
+  const [confirmAction, setConfirmAction] = useState<{ id: string, name: string, isBlocked: boolean } | null>(null);
 
   // Clear files when modal closes or editing product changes
   useEffect(() => {
@@ -111,12 +113,26 @@ export default function AdminProducts() {
 
   return (
     <div className="space-y-6">
-      <AdminHeader
-        title="Products"
-        description="Manage your product catalog, categories, and inventory."
-        buttonText="Add Product"
-        onAddClick={openAddModal}
-      />
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-6 rounded-2xl shadow-sm border border-primary/10">
+        <div>
+          <h1 className="text-2xl font-black font-heading text-primary">Products</h1>
+          <p className="text-sm text-primary/60 mt-1 font-medium">Manage your product catalog, categories, and inventory.</p>
+        </div>
+        <div className="flex gap-3 relative shrink-0">
+          <Link
+            href="/aqsha-portal/bulk-upload"
+            className="flex items-center justify-center px-4 py-2 bg-cream text-primary rounded-xl font-bold text-sm shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all uppercase tracking-widest border border-primary/10"
+          >
+            Bulk Upload Mode
+          </Link>
+          <button
+            onClick={openAddModal}
+            className="flex items-center justify-center px-6 py-2 bg-primary text-white rounded-xl font-bold shadow-md hover:bg-primary/90 hover:shadow-lg transition-all active:scale-95 whitespace-nowrap text-sm"
+          >
+            + Add Product
+          </button>
+        </div>
+      </div>
 
       {/* Filter & Search */}
       <div className="bg-white p-5 rounded-2xl shadow-lg shadow-primary/5 border border-primary/10 flex flex-col sm:flex-row gap-4 justify-between items-center">
@@ -162,9 +178,12 @@ export default function AdminProducts() {
         <div className="space-y-4">
           <ProductTable
             products={productList}
-            onToggleBlock={toggleBlock}
+            onToggleBlock={(id) => {
+              const product = productList.find(p => p.id === id);
+              if (!product) return;
+              setConfirmAction({ id: product.id, name: product.name, isBlocked: product.isBlocked });
+            }}
             onEdit={setEditingProduct}
-            onDelete={deleteProduct}
           />
           {/* Pagination Controls */}
           {pagination.totalPages > 1 && (
@@ -334,6 +353,23 @@ export default function AdminProducts() {
           onCropSave={handleCropSave}
         />
       )}
+
+      {/* Confirmation Modal */}
+      <AdminModal
+        isOpen={!!confirmAction}
+        onClose={() => setConfirmAction(null)}
+        title={confirmAction?.isBlocked ? "Unblock Product" : "Block Product"}
+        onSave={() => {
+          if (confirmAction) toggleBlock(confirmAction.id);
+          setConfirmAction(null);
+        }}
+        saveText="Confirm"
+      >
+        <p className="text-primary/70 font-medium text-lg">
+          Are you sure you want to {confirmAction?.isBlocked ? "unblock" : "block"}{" "}
+          <strong className="text-primary font-black uppercase tracking-widest text-sm bg-tan/50 px-2 py-1 rounded inline-block ml-1">{confirmAction?.name}</strong>?
+        </p>
+      </AdminModal>
     </div>
   );
 }
