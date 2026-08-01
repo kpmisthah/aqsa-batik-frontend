@@ -43,7 +43,7 @@ export default function FAQ({ items }: FAQProps) {
         <section id="faq" className="py-24 px-6 bg-tan">
             <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-16">
-                    <span className="text-[11px] font-bold text-primary/60 uppercase tracking-[0.4em]">Common Questions</span>
+                    <span className="text-[11px] font-bold text-primary/80 uppercase tracking-[0.4em]">Common Questions</span>
                     <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mt-4">Frequently Asked Questions</h2>
                 </div>
 
@@ -69,7 +69,7 @@ export default function FAQ({ items }: FAQProps) {
                 </div>
 
                 <div className="mt-16 text-center">
-                    <p className="text-primary/60 font-medium mb-6">Still have questions? We're just a message away.</p>
+                    <p className="text-primary/80 font-medium mb-6">Still have questions? We're just a message away.</p>
                     <a href={WA} target="_blank" rel="noreferrer" className="inline-block bg-primary text-white px-10 py-4 rounded-xl font-bold hover:bg-black transition-all shadow-xl">
                         Ask on WhatsApp
                     </a>

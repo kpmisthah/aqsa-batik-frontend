@@ -59,12 +59,12 @@ export default function LeadGenerationForm() {
                         <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary leading-[1.1]">
                             Get Personalized Batik Fabric Pricing &amp; Latest Catalog
                         </h2>
-                        <p className="text-[13px] md:text-lg text-primary/70 font-medium leading-relaxed max-w-xl text-left md:text-left mt-2 md:mt-0">
+                        <p className="text-sm md:text-lg text-primary/90 font-medium leading-relaxed max-w-xl text-center md:text-left mt-2 md:mt-0">
                             Receive wholesale pricing, latest batik design collections, and ready-stock updates directly from AQSHA BATIK SUITS within hours.
                         </p>
                     </div>
 
-                    <ul className="flex flex-col gap-3 md:gap-6 mt-2 md:mt-0">
+                    <ul className="flex flex-col gap-3 md:gap-6 mt-2 md:mt-0 w-fit mx-auto md:mx-0 text-left">
                         {[
                             "Latest Batik Collection Catalog",
                             "Wholesale Pricing Support",
@@ -150,7 +150,7 @@ export default function LeadGenerationForm() {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="w-full bg-primary text-white py-3 md:py-5 rounded-xl md:rounded-2xl font-black text-[13px] md:text-xl hover:bg-black hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl uppercase tracking-widest flex items-center justify-center gap-2 md:gap-4 mt-2 md:mt-4 disabled:opacity-70 disabled:hover:scale-100"
+                                className="w-full bg-primary text-white py-3 md:py-5 rounded-xl md:rounded-2xl font-black text-sm md:text-xl hover:bg-black hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl uppercase tracking-widest flex items-center justify-center gap-2 md:gap-4 mt-2 md:mt-4 disabled:opacity-70 disabled:hover:scale-100"
                             >
                                 {isSubmitting ? (
                                     <>

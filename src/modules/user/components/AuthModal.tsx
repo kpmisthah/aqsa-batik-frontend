@@ -211,7 +211,7 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
           <h2 className="font-heading text-3xl font-black text-primary tracking-tight">
             {isOtpStep ? "Verify Account" : isLogin ? "Welcome Back" : "Create Account"}
           </h2>
-          <p className="text-sm text-primary/60 mt-2 font-medium">
+          <p className="text-sm text-primary/80 mt-2 font-medium">
             {isOtpStep 
               ? `We have sent a 6-digit verification code to ${email}`
               : isLogin 
@@ -289,7 +289,7 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
                 className={`flex-1 py-3 text-sm font-bold uppercase tracking-wider rounded-xl transition-all ${
                   isLogin 
                     ? "bg-primary text-white shadow-md" 
-                    : "text-primary/60 hover:text-primary"
+                    : "text-primary/80 hover:text-primary"
                 }`}
               >
                 Sign In
@@ -299,7 +299,7 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
                 className={`flex-1 py-3 text-sm font-bold uppercase tracking-wider rounded-xl transition-all ${
                   !isLogin 
                     ? "bg-primary text-white shadow-md" 
-                    : "text-primary/60 hover:text-primary"
+                    : "text-primary/80 hover:text-primary"
                 }`}
               >
                 Sign Up
@@ -409,7 +409,7 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
                 {!isLogin && password.length > 0 && (
                   <div className="mt-3 space-y-2 animate-fade-in">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="font-bold text-primary/60">Password Strength:</span>
+                      <span className="font-bold text-primary/80">Password Strength:</span>
                       <span className={`font-black uppercase tracking-wider text-[10px] ${
                         metCount <= 2 ? "text-red-500" : metCount <= 4 ? "text-amber-500" : "text-emerald-600"
                       }`}>
@@ -451,7 +451,7 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
                           }`}>
                             {c.met ? "✓" : "•"}
                           </span>
-                          <span className={c.met ? "text-emerald-700 font-medium" : "text-primary/60"}>
+                          <span className={c.met ? "text-emerald-700 font-medium" : "text-primary/80"}>
                             {c.label}
                           </span>
                         </div>

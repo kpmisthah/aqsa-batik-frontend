@@ -11,7 +11,8 @@ export function useBanner(page: string, fallbackUrl: string) {
         if (res.ok) {
           const data = await res.json();
           if (data && data.imageUrl) {
-            setBannerUrl(data.imageUrl);
+            const cacheBuster = data.updatedAt ? `?v=${new Date(data.updatedAt).getTime()}` : '';
+            setBannerUrl(`${data.imageUrl}${cacheBuster}`);
           } else {
             setBannerUrl(fallbackUrl);
           }

@@ -5,47 +5,38 @@ const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20get%20your%2
 
 export default function Footer() {
     return (
-        <footer id="contact" className="bg-[#0A0A0A] text-white pt-6 pb-28 md:pb-6 px-4 md:px-12 border-t border-white/5 relative overflow-hidden">
-            {/* Background Texture */}
-            <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
-                <svg width="100%" height="100%">
-                    <pattern id="footer-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-                        <path d="M0 0h100v100H0z" fill="none" />
-                        <path d="M10 10l10 10M90 10L80 20M10 90l10-10M90 90l-10-10" stroke="currentColor" strokeWidth="0.5" />
-                    </pattern>
-                    <rect width="100%" height="100%" fill="url(#footer-pattern)" />
-                </svg>
-            </div>
+        <footer id="contact" className="bg-[#0A0A0A] text-[#FDFBF7] pt-16 pb-28 md:pb-8 px-6 md:px-12 border-t border-white/5 relative overflow-hidden">
+            {/* Background Texture Glows */}
+            <div className="absolute top-0 right-0 -mr-32 -mt-32 w-[600px] h-[600px] bg-accent opacity-[0.03] rounded-full blur-[100px] pointer-events-none transition-all"></div>
+            <div className="absolute bottom-0 left-0 -ml-32 -mb-32 w-[600px] h-[600px] bg-accent opacity-[0.03] rounded-full blur-[100px] pointer-events-none transition-all"></div>
 
             <div className="max-w-[1600px] mx-auto relative z-10">
-                {/* ── TOP SECTION: BRAND, LINKS & CTA ── */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 pb-6 border-b border-white/5">
-
-                    {/* Brand Section (4 cols) */}
-                    <div className="lg:col-span-4 flex flex-col gap-3">
-                        <div className="flex items-center gap-6 w-fit">
-                            <img src="/aqsha-logo.png" alt="Aqsha Logo" className="h-16 md:h-20 w-auto object-contain" />
-                        </div>
-                        <p className="opacity-60 text-xs md:text-sm leading-relaxed font-medium max-w-sm">
-                            Direct Manufacturer from Ujjain. Specializing in premium batik dress material & wholesale supply.
+                {/* ── MAIN GRID ── */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 pb-16 border-b border-[#FDFBF7]/10">
+                    
+                    {/* Brand Section */}
+                    <div className="lg:col-span-4 flex flex-col gap-8">
+                        <img src="/aqsha-logo.png" alt="Aqsha Logo" className="h-16 md:h-20 w-auto object-contain self-start brightness-0 invert opacity-90 hover:opacity-100 transition-opacity" />
+                        <p className="text-white/70 text-sm md:text-base leading-relaxed font-medium max-w-sm">
+                            Direct Fabric Manufacturer from Ujjain. Specializing in premium batik printed dress materials and wholesale supply for the modern Indian market.
                         </p>
-                        <div className="flex flex-col gap-2 text-xs font-bold mt-2">
-                            <div className="flex items-center gap-3 group">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8A9A86" strokeWidth="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
-                                <span className="opacity-70">Bherugarh, Ujjain, MP 456010</span>
+                        <div className="flex flex-col gap-4 mt-2">
+                            <div className="flex items-center gap-3">
+                                <span className="w-1.5 h-1.5 bg-[#FDB953] rounded-full"></span>
+                                <span className="opacity-90 font-medium tracking-wide">Bherugarh, Ujjain, MP 456010</span>
                             </div>
-                            <div className="flex items-center gap-3 group">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8A9A86" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-                                <a href={WA} target="_blank" rel="noreferrer" className="font-body tracking-wide opacity-70 hover:opacity-100 hover:text-accent transition-colors">+91 88153 73767</a>
+                            <div className="flex items-center gap-3 group w-fit">
+                                <span className="w-1.5 h-1.5 bg-[#FDB953] rounded-full group-hover:scale-150 transition-transform"></span>
+                                <a href={WA} target="_blank" rel="noreferrer" className="font-heading text-lg tracking-wide opacity-90 group-hover:opacity-100 group-hover:text-[#FDB953] transition-colors">+91 88153 73767</a>
                             </div>
                         </div>
                     </div>
 
-                    {/* Links Grid (5 cols) */}
-                    <div className="lg:col-span-5 grid grid-cols-2 gap-4 lg:gap-8">
-                        <div className="flex flex-col gap-3">
-                            <span className="text-[10px] uppercase font-black tracking-[0.2em] text-accent">Quick Links</span>
-                            <div className="flex flex-col gap-2">
+                    {/* Links Grid */}
+                    <div className="lg:col-span-4 grid grid-cols-2 gap-8 lg:gap-16">
+                        <div className="flex flex-col gap-8">
+                            <span className="text-[10px] uppercase font-black tracking-[0.3em] text-[#FDB953]">Quick Links</span>
+                            <div className="flex flex-col gap-4">
                                 {[
                                     { name: "Batik Cloth", link: "/cotton-cloth" },
                                     { name: "Batik Fabric", link: "/batik-fabric" },
@@ -54,22 +45,22 @@ export default function Footer() {
                                     { name: "Blog", link: "/blog" },
                                     { name: "Contact Us", link: "/contact-us" },
                                 ].map((item, i) => (
-                                    <a key={i} href={item.link} className="text-xs font-bold opacity-50 hover:opacity-100 hover:text-accent transition-all">
+                                    <a key={i} href={item.link} className="text-sm font-medium text-white/60 hover:text-white hover:translate-x-1 transition-all">
                                         {item.name}
                                     </a>
                                 ))}
                             </div>
                         </div>
-                        <div className="flex flex-col gap-3">
-                            <span className="text-[10px] uppercase font-black tracking-[0.2em] text-accent">Collections</span>
-                            <div className="flex flex-col gap-2">
+                        <div className="flex flex-col gap-8">
+                            <span className="text-[10px] uppercase font-black tracking-[0.3em] text-[#FDB953]">Collections</span>
+                            <div className="flex flex-col gap-4">
                                 {[
                                     { name: "Batik Dress Material", link: "/cotton-cloth" },
                                     { name: "Cotton Collection", link: "/batik-fabric" },
                                     { name: "Printed Fabric", link: "/fabric-wholesale" },
                                     { name: "Ladies Cotton Suit", link: "/new-batik-prints" }
                                 ].map((item, i) => (
-                                    <a key={i} href={item.link} className="text-xs font-bold opacity-50 hover:opacity-100 hover:text-accent transition-all">
+                                    <a key={i} href={item.link} className="text-sm font-medium text-white/60 hover:text-white hover:translate-x-1 transition-all">
                                         {item.name}
                                     </a>
                                 ))}
@@ -77,78 +68,68 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Newsletter & CTA (3 cols) */}
-                    <div className="lg:col-span-3 flex flex-col gap-4">
-                        <span className="text-[10px] uppercase font-black tracking-[0.2em] text-accent">Stay Updated</span>
-                        <div className="flex w-full relative">
-                            <input type="text" placeholder="Your email..." className="w-full bg-white/5 border border-white/10 rounded-lg py-3 px-4 text-xs focus:outline-none focus:border-accent/50" />
-                            <button className="absolute right-1 top-1 bottom-1 px-4 bg-accent text-black rounded font-black text-[10px] uppercase hover:bg-white transition-all">
-                                Go
-                            </button>
+                    {/* Newsletter & CTA */}
+                    <div className="lg:col-span-4 flex flex-col gap-8">
+                        <span className="text-[10px] uppercase font-black tracking-[0.3em] text-[#FDB953]">Catalogue Access</span>
+                        
+                        <div className="flex flex-col gap-4 w-full relative">
+                            <label className="text-white/60 text-xs uppercase tracking-widest font-black">Stay updated on new stock</label>
+                            <div className="flex border-b border-white/20 hover:border-white focus-within:border-[#FDB953] transition-colors pb-2">
+                                <input type="text" placeholder="Your email address" className="w-full bg-transparent text-sm placeholder:text-white/30 focus:outline-none" />
+                                <button className="text-[10px] uppercase font-black tracking-widest text-[#FDB953] hover:brightness-125 transition-all">Submit</button>
+                            </div>
                         </div>
-                        <a href={WA} target="_blank" rel="noreferrer" className="w-full py-3 bg-[#25D366]/10 text-[#25D366] border border-[#25D366]/20 rounded-lg font-bold text-xs flex items-center justify-center gap-2 hover:bg-[#25D366] hover:text-white transition-all mt-2">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /></svg>
-                            Get Catalogue on WhatsApp
+
+                        <a href={WA} target="_blank" rel="noreferrer" className="w-full mt-4 py-5 px-6 bg-[#FDB953] text-primary rounded-xl font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-3 hover:brightness-110 active:scale-[0.98] transition-all shadow-[0_10px_30px_rgba(253,185,83,0.2)]">
+                            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /></svg>
+                            Direct WhatsApp Chat
                         </a>
                     </div>
                 </div>
 
-                {/* ── MIDDLE SECTION: TRUST STRIP ── */}
-                <div className="py-4 grid grid-cols-4 gap-2 text-center border-b border-white/5">
+                {/* ── MIDDLE SECTION: TRUST RIBBON ── */}
+                <div className="py-8 grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-4 border-b border-[#FDFBF7]/10">
                     {[
-                        { val: "15+", label: "Years" },
-                        { val: "1000+", label: "Buyers" },
-                        { val: "Ready", label: "Stock" },
-                        { val: "Fast", label: "Dispatch" }
+                        { val: "15+", label: "Years Experience" },
+                        { val: "1000+", label: "Wholesale Buyers" },
+                        { val: "Ready", label: "Stock Availability" },
+                        { val: "Fast", label: "National Dispatch" }
                     ].map((stat, i) => (
-                        <div key={i} className="flex flex-col items-center justify-center">
-                            <span className="text-sm md:text-lg font-heading font-black text-accent">{stat.val}</span>
-                            <span className="text-[8px] md:text-[10px] font-black uppercase tracking-widest opacity-40">{stat.label}</span>
+                        <div key={i} className="flex flex-col items-center justify-center gap-1 md:gap-2 text-center group">
+                            <span className="text-3xl md:text-4xl lg:text-5xl font-heading font-black text-[#FDB953] italic group-hover:scale-105 transition-transform">{stat.val}</span>
+                            <span className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] opacity-60 max-w-[120px] leading-relaxed">{stat.label}</span>
                         </div>
                     ))}
                 </div>
 
                 {/* ── BOTTOM SECTION: LEGAL & COPYRIGHT ── */}
-                <div className="pt-6 flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-4 md:gap-x-4 w-full md:w-auto">
-                        <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-4">
-                            {[
-                                { name: "Privacy Policy", link: "/privacy-policy" },
-                                { name: "Terms & Conditions", link: "/terms-and-conditions" },
-                                { name: "Shipping Policy", link: "/shipping-delivery-policy" }
-                            ].map((legal, i) => (
-                                <a key={i} href={legal.link} className="text-[10px] md:text-[11px] font-black uppercase opacity-80 hover:opacity-100 hover:text-accent transition-all">
-                                    {legal.name}
-                                </a>
-                            ))}
-                        </div>
-
-                        {/* Divider on desktop */}
-                        <div className="hidden md:block h-4 w-px bg-white/20 ml-2 mr-2"></div>
-
-                        <a href="https://ufuqtechs.com" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 mt-2 md:mt-0 cursor-pointer">
-                            <img src="/partner-logo.jpeg" alt="Partner Logo" className="h-8 md:h-10 w-auto object-contain rounded-md shadow-lg ring-1 ring-white/10 opacity-90 hover:opacity-100 transition-opacity" />
-                            <span className="text-[7px] md:text-[8px] uppercase tracking-[0.2em] opacity-80 font-black">Powered By</span>
-                        </a>
+                <div className="pt-8 pb-4 flex flex-col items-center justify-center gap-6">
+                    <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
+                        {[
+                            { name: "Privacy Policy", link: "/privacy-policy" },
+                            { name: "Terms & Conditions", link: "/terms-and-conditions" },
+                            { name: "Shipping Policy", link: "/shipping-delivery-policy" }
+                        ].map((legal, i) => (
+                            <a key={i} href={legal.link} className="text-[10px] font-black uppercase tracking-[0.1em] text-white/50 hover:text-white transition-colors">
+                                {legal.name}
+                            </a>
+                        ))}
                     </div>
 
-                    {/* <div className="flex flex-col md:flex-row items-center justify-center md:justify-end gap-3 md:gap-4 w-full md:w-auto">
-                        <p className="text-[9px] font-black uppercase opacity-20">
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 w-full">
+                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 text-center">
                             © 2026 AQSHA Batik
                         </p>
-                        <div className="hidden md:block h-3 w-px bg-white/20"></div>
-                        <a href="#" className="flex items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity">
-                            <span className="text-[8px] font-black uppercase text-white/50">By:</span>
-                            <div className="flex items-center font-black text-[10px] tracking-widest">
-                                <span className="text-[#3B82F6]">UFUQ</span>
-                                <span className="text-[#06b6d4]">TECHS</span>
-                            </div>
+                        
+                        <div className="hidden md:block h-1 w-1 bg-white/20 rounded-full mx-2"></div>
+
+                        <a href="https://ufuqtechs.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 cursor-pointer group">
+                            <span className="text-[8px] uppercase tracking-[0.3em] text-white/50 font-black group-hover:text-white transition-colors">Powered By</span>
+                            <img src="/partner-logo.jpeg" alt="Partner Logo" className="h-6 w-auto md:h-8 object-contain rounded opacity-80 group-hover:opacity-100 transition-opacity" />
                         </a>
-                    </div> */}
+                    </div>
                 </div>
             </div>
-            {/* Scalloped Decoration */}
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
         </footer>
     );
 }

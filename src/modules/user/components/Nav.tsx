@@ -112,7 +112,7 @@ export default function Nav() {
                                         <div className="px-3.5 py-2.5 mb-2 border-b border-primary/5 text-left">
                                             <div className="text-[10px] font-black tracking-widest text-secondary uppercase">Logged In As</div>
                                             <div className="text-sm font-bold text-primary truncate mt-0.5">{user.name}</div>
-                                            <div className="text-xs text-primary/60 truncate font-medium">{user.email}</div>
+                                            <div className="text-xs text-primary/80 truncate font-medium">{user.email}</div>
                                         </div>
 
                                         <Link
