@@ -13,13 +13,20 @@ export const metadata: Metadata = {
     description: 'Explore women clothing trends, batik fabric guides, cotton dresses for women, indian dresses, wholesale buying tips, and fashion insights from Aqsha Batik.',
 };
 
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
+async function getHeroBanner() {
+    try {
+        const res = await fetch(`${API_BASE}/banners/blog`, { cache: 'no-store' });
+        const json = await res.json();
+        return json.imageUrl || "/cotton dress for women hero banner image .webp";
+    } catch (e) {
+        return "/cotton dress for women hero banner image .webp";
+    }
+}
 
-
-
-
-
-export default function BlogIndexPage() {
+export default async function BlogIndexPage() {
+    const heroBannerUrl = await getHeroBanner();
     return (
         <div className="bg-[#FDFBF7] min-h-screen font-body text-[#3B1C14]">
             <Nav />
@@ -28,7 +35,8 @@ export default function BlogIndexPage() {
             <section className="relative min-h-[60svh] md:min-h-screen w-full flex items-end md:items-center pb-8 md:pb-0 overflow-hidden bg-primary pt-24 md:pt-0">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/cotton dress for women hero banner image .webp"
+                        key={heroBannerUrl}
+                        src={heroBannerUrl}
                         alt="Women Clothing & Batik <span className='text-accent'>Fashion Trends</span> Blog"
                         fill
                         priority

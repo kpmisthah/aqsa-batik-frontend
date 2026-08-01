@@ -12,7 +12,20 @@ export const metadata: Metadata = {
     description: "Get in touch with Aqsha Batik for premium batik fabric, women clothing collections, wholesale pricing, catalogue requests, and bulk order support across India.",
 };
 
-export default function ContactPage() {
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+
+async function getHeroBanner() {
+    try {
+        const res = await fetch(`${API_BASE}/banners/contact`, { cache: 'no-store' });
+        const json = await res.json();
+        return json.imageUrl || "/best-dresses-for-women-hero-banner-image.webp";
+    } catch (e) {
+        return "/best-dresses-for-women-hero-banner-image.webp";
+    }
+}
+
+export default async function ContactPage() {
+    const heroBannerUrl = await getHeroBanner();
     return (
         <div className="bg-[#FDFBF7] min-h-screen font-body text-[#3B1C14] selection:bg-primary selection:text-white">
             <Nav />
@@ -21,7 +34,8 @@ export default function ContactPage() {
             <section className="relative w-full min-h-[60svh] md:min-h-[800px] flex items-end md:items-center overflow-hidden pt-28 pb-12 md:pb-0 md:pt-0">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/best-dresses-for-women-hero-banner-image.webp"
+                        key={heroBannerUrl}
+                        src={heroBannerUrl}
                         alt="Contact Aqsha Batik"
                         fill
                         priority

@@ -163,7 +163,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-10 md:gap-20">
                     <div className="flex flex-col gap-4 md:gap-6 text-center items-center mx-auto max-w-4xl">
                         <span className="text-overline text-secondary mb-2 md:mb-0">Fabric Library</span>
-                        <h2 className="text-h2 text-primary">Explore Signature Batik Cotton Fabric Designs</h2>
+                        <h2 className="text-h2 text-primary">Explore Signature Batik Cotton <br className="hidden md:block" /> Fabric Designs</h2>
                         <p className="text-lg md:text-xl text-primary font-medium leading-relaxed">Discover premium printed cotton cloth, breathable dress fabric, and stylish batik print dress material collections designed for modern women clothing and everyday fashion demand.</p>
                     </div>
 
