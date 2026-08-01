@@ -4,13 +4,14 @@ import React, { useState, useRef, MouseEvent } from "react";
 import Image from "next/image";
 import { useCartStore } from "@/hooks/useCartStore";
 import { useWishlistStore } from "@/hooks/useWishlistStore";
+import { useAuthSync } from "@/modules/user/hooks/useAuthSync";
 import { useSearchParams, usePathname } from "next/navigation";
 import { getColorName, getCombinedColorName } from "@/utils/colorHelper";
 
 export default function ProductInteractive({ product }: { product: any }) {
     const [selectedImage, setSelectedImage] = useState(product.images?.[0] || product.image || "/product_white_mustard.png");
     const [mainImageLoaded, setMainImageLoaded] = useState(false);
-    
+
     React.useEffect(() => {
         setMainImageLoaded(false);
     }, [selectedImage]);
@@ -23,8 +24,9 @@ export default function ProductInteractive({ product }: { product: any }) {
     const isWholesaleMode = product.isWholesale || searchParams.get('wholesale') === 'true' || pathname.startsWith('/wholesale-women-dresses');
 
     const { addItem: addCartItem } = useCartStore();
-    const { addItem: addWishlistItem, isInWishlist, removeItem: removeWishlistItem } = useWishlistStore();
-    
+    const { addId: addWishlistId, isInWishlist, removeId: removeWishlistId } = useWishlistStore();
+    const { isSignedIn } = useAuthSync();
+
     const showToast = (message: string) => {
         setToast({ show: true, message });
         setTimeout(() => setToast({ show: false, message: "" }), 3000);
@@ -33,7 +35,7 @@ export default function ProductInteractive({ product }: { product: any }) {
     const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
         if (!imageContainerRef.current) return;
         const { left, top, width, height } = imageContainerRef.current.getBoundingClientRect();
-        
+
         // Mouse position relative to container
         const x = e.clientX - left;
         const y = e.clientY - top;
@@ -68,20 +70,42 @@ export default function ProductInteractive({ product }: { product: any }) {
         }
     };
 
-    const handleAddToWishlist = () => {
+    const handleAddToWishlist = async () => {
+        if (!isSignedIn) {
+            showToast("Please log in to save items to your wishlist.");
+            return;
+        }
+
         const id = product._id || product.id;
-        if (isInWishlist(id)) {
-            removeWishlistItem(id);
-            showToast("Removed from Wishlist");
-        } else {
-            addWishlistItem({
-                productId: id,
-                name: product.name,
-                image: product.images?.[0] || product.image || "/product_white_mustard.png",
-                fullPrice: product.fullPrice,
-                discountPrice: product.discountPrice || product.fullPrice,
+        const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+        const wasWished = isInWishlist(id);
+        
+        // Optimistic UI Update
+        if (wasWished) removeWishlistId(id);
+        else addWishlistId(id);
+
+        try {
+            const res = await fetch(`${API_BASE}/wishlist/toggle`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+                body: JSON.stringify({ productId: id })
             });
-            showToast("Added to Wishlist!");
+
+            const data = await res.json();
+            if (res.ok) {
+                showToast(data.message);
+            } else {
+                // Revert optimistic update
+                if (wasWished) addWishlistId(id);
+                else removeWishlistId(id);
+                showToast(data.message || "Failed to update wishlist.");
+            }
+        } catch (err) {
+            // Revert optimistic update
+            if (wasWished) addWishlistId(id);
+            else removeWishlistId(id);
+            showToast("Error connecting to server.");
         }
     };
 
@@ -91,7 +115,7 @@ export default function ProductInteractive({ product }: { product: any }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-20">
             {/* Left: Image Gallery */}
             <div className="lg:col-span-7 flex flex-col gap-4 lg:gap-6">
-                <div 
+                <div
                     ref={imageContainerRef}
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}
@@ -100,18 +124,16 @@ export default function ProductInteractive({ product }: { product: any }) {
                     <Image
                         src={selectedImage}
                         alt={product.seoTitle || product.name}
-                        layout="fill"
-                        objectFit="cover"
-                        objectPosition="top"
+                        fill
                         priority
                         unoptimized={true}
-                        onLoadingComplete={() => setMainImageLoaded(true)}
-                        className={`transition-all duration-700 ${mainImageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                        onLoad={() => setMainImageLoaded(true)}
+                        className={`object-cover object-top transition-all duration-700 ${mainImageLoaded ? 'opacity-100' : 'opacity-0'}`}
                     />
-                    
+
                     {/* Circle Lens Zoomer */}
                     {lensState.show && (
-                        <div 
+                        <div
                             className="absolute pointer-events-none rounded-full border-2 border-white/50 shadow-[0_10px_40px_rgba(0,0,0,0.3)] z-50 bg-white hidden md:block"
                             style={{
                                 width: "220px",
@@ -130,12 +152,12 @@ export default function ProductInteractive({ product }: { product: any }) {
                 {product.images && product.images.length > 1 && (
                     <div className="grid grid-cols-4 gap-2 md:gap-4">
                         {product.images.map((img: string, i: number) => (
-                            <div 
-                                key={i} 
+                            <div
+                                key={i}
                                 onClick={() => setSelectedImage(img)}
                                 className={`aspect-square rounded-xl md:rounded-2xl overflow-hidden border-2 md:border-4 transition-all cursor-pointer ${selectedImage === img ? 'border-secondary scale-100 md:scale-105' : 'border-transparent hover:border-secondary/30'}`}
                             >
-                                <Image src={img} alt={`Thumbnail ${i+1}`} width={200} height={200} objectFit="cover" objectPosition="top" className="brightness-95 hover:brightness-100 h-full" />
+                                <Image src={img} alt={`Thumbnail ${i + 1}`} width={200} height={200} className="object-cover object-top brightness-95 hover:brightness-100 h-full" />
                             </div>
                         ))}
                     </div>
@@ -175,8 +197,8 @@ export default function ProductInteractive({ product }: { product: any }) {
                         <div className="flex items-center gap-4">
                             <div className="flex gap-3">
                                 {product.colours.map((color: string, i: number) => (
-                                    <div 
-                                        key={i} 
+                                    <div
+                                        key={i}
                                         className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl border border-primary/15 shadow-sm relative overflow-hidden"
                                         title={getColorName(color)}
                                     >
@@ -206,7 +228,7 @@ export default function ProductInteractive({ product }: { product: any }) {
 
                 <div className="flex flex-col gap-3 md:gap-4 pt-2 md:pt-4">
                     {isWholesaleMode ? (
-                        <a 
+                        <a
                             href={`https://wa.me/918815373767?text=${encodeURIComponent(`Hi, I'm interested in ordering the wholesale product ${product.name}.`)}`}
                             target="_blank"
                             rel="noreferrer"
@@ -218,14 +240,14 @@ export default function ProductInteractive({ product }: { product: any }) {
                             Order via WhatsApp
                         </a>
                     ) : (
-                        <button 
+                        <button
                             onClick={handleAddToCart}
                             className="flex items-center justify-center gap-2 md:gap-4 bg-primary text-white px-4 py-4 md:px-8 md:py-6 rounded-xl md:rounded-2xl font-black text-base md:text-xl shadow-[0_10px_20px_rgba(90,42,31,0.2)] md:shadow-[0_20px_40px_rgba(90,42,31,0.2)] hover:bg-secondary hover:scale-[1.02] active:scale-95 transition-all uppercase tracking-wider md:tracking-widest"
                         >
                             Add to Cart
                         </button>
                     )}
-                    <button 
+                    <button
                         onClick={handleAddToWishlist}
                         className={`flex items-center justify-center gap-2 md:gap-4 border-2 px-4 py-3 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-black text-sm md:text-lg transition-all uppercase tracking-wider md:tracking-widest ${isWished ? 'bg-primary text-white border-primary' : 'bg-white text-primary border-primary/20 hover:border-primary hover:bg-primary/5'}`}
                     >

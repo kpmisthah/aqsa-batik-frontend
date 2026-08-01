@@ -10,6 +10,7 @@ import { Trash2, Plus, Minus, ShoppingBag, CreditCard, Truck, Info, Lock, Loader
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { getColorName } from "@/utils/colorHelper";
+import { checkoutOrder, verifyOrderPayment } from "@/services/orderService";
 
 export default function CartPage() {
   const { isSignedIn, user, loading: authLoading } = useAuthSync();
@@ -24,9 +25,18 @@ export default function CartPage() {
   const [zip, setZip] = useState("");
   const [phone, setPhone] = useState("");
 
+  const hasSavedAddress = !!(user?.address && user?.city && user?.state && user?.zip && user?.phone);
+  const [addressMode, setAddressMode] = useState<"saved" | "new">("new");
+
+  // Remove Item Modal State
+  const [itemToRemove, setItemToRemove] = useState<{ productId: string, variantColour?: string } | null>(null);
+
   // Populate default address if available in user profile
   useEffect(() => {
     if (user) {
+      if (user.address && user.city && user.state && user.zip && user.phone) {
+        setAddressMode("saved");
+      }
       if (user.address) setAddress(user.address);
       if (user.city) setCity(user.city);
       if (user.state) setState(user.state);
@@ -92,8 +102,14 @@ export default function CartPage() {
       return;
     }
 
+    const finalAddress = addressMode === "saved" && user?.address ? user.address : address;
+    const finalCity = addressMode === "saved" && user?.city ? user.city : city;
+    const finalState = addressMode === "saved" && user?.state ? user.state : state;
+    const finalZip = addressMode === "saved" && user?.zip ? user.zip : zip;
+    const finalPhone = addressMode === "saved" && user?.phone ? user.phone : phone;
+
     // Validate that all shipping address fields are filled out completely
-    if (!address.trim() || !city.trim() || !state.trim() || !zip.trim() || !phone.trim()) {
+    if (!finalAddress?.trim() || !finalCity?.trim() || !finalState?.trim() || !finalZip?.trim() || !finalPhone?.trim()) {
       showToast("Please fill out all address and contact details completely before placing your order.", "error");
       return;
     }
@@ -116,28 +132,32 @@ export default function CartPage() {
         }
       }
 
-      // 2. Request backend order creation
-      const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
-      const checkoutRes = await fetch(`${API_BASE}/orders/checkout`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({
+      // 2. Request backend order creation (with silent token refresh retry)
+      const executeOrderRequest = async () => {
+        return await checkoutOrder({
           items: items.map((i) => ({
             productId: i.productId,
             name: i.name,
             quantity: i.quantity,
             variantColour: i.variantColour || "",
           })),
-          shippingAddress: { address, city, state, zip, phone },
+          shippingAddress: { address: finalAddress, city: finalCity, state: finalState, zip: finalZip, phone: finalPhone },
           paymentMethod,
-        }),
-      });
+        });
+      };
+
+      let checkoutRes = await executeOrderRequest();
+
+      // If Access Token expired natively while on the cart page
+      if (checkoutRes.status === 401) {
+        showToast("Refreshing secure session...", "success");
+        await fetchLocalProfile(); // This triggers the backend /auth/refresh automatically
+        checkoutRes = await executeOrderRequest(); // Try again immediately
+      }
 
       const checkoutData = await checkoutRes.json();
       if (!checkoutRes.ok) {
+        // If it still fails, or failed for another reason
         throw new Error(checkoutData.message || "Failed to initiate payment session.");
       }
 
@@ -146,7 +166,7 @@ export default function CartPage() {
         showToast(`Order placed successfully via ${paymentMethod}!`, "success");
         clearCart();
         await fetchLocalProfile();
-        router.push(`/thank-you?method=${paymentMethod.toLowerCase()}`);
+        router.push(`/order-success?method=${paymentMethod.toLowerCase()}`);
         return;
       }
 
@@ -165,18 +185,11 @@ export default function CartPage() {
           // On Payment Success callback inside the client browser
           showToast("Payment captured. Verifying signature...", "success");
           try {
-            const verifyRes = await fetch(`${API_BASE}/orders/verify`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              credentials: "include",
-              body: JSON.stringify({
-                rzpOrderId: response.razorpay_order_id,
-                rzpPaymentId: response.razorpay_payment_id,
-                rzpSignature: response.razorpay_signature,
-                orderId: orderId,
-              }),
+            const verifyRes = await verifyOrderPayment({
+              rzpOrderId: response.razorpay_order_id,
+              rzpPaymentId: response.razorpay_payment_id,
+              rzpSignature: response.razorpay_signature,
+              orderId: orderId,
             });
 
             const verifyData = await verifyRes.json();
@@ -187,7 +200,7 @@ export default function CartPage() {
             showToast("Payment verified! Order placed.", "success");
             clearCart();
             await fetchLocalProfile();
-            router.push("/thank-you");
+            router.push("/order-success");
           } catch (err: any) {
             console.error(err);
             showToast(err.message || "Payment verification failed.", "error");
@@ -274,7 +287,7 @@ export default function CartPage() {
                     <img
                       src={item.image || "placeholder.jpg"}
                       alt={item.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-top"
                     />
                   </div>
 
@@ -284,7 +297,7 @@ export default function CartPage() {
                       <div className="flex justify-between items-start gap-2">
                         <h3 className="font-bold text-sm md:text-base leading-tight hover:text-secondary transition-colors">{item.name}</h3>
                         <button
-                          onClick={() => removeItem(item.productId, item.variantColour)}
+                          onClick={() => setItemToRemove({ productId: item.productId, variantColour: item.variantColour })}
                           className="text-primary/30 hover:text-red-600 transition-colors p-1"
                         >
                           <Trash2 size={16} />
@@ -422,67 +435,103 @@ export default function CartPage() {
                 </h3>
 
                 <div className="space-y-4">
-                  <div>
-                    <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Delivery Address</label>
-                    <textarea
-                      required
-                      rows={2}
-                      value={address}
-                      onChange={(e) => setAddress(e.target.value)}
-                      placeholder="Street address, apartment, locality"
-                      className="w-full px-4 py-3 border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm font-medium transition-all"
-                    />
-                  </div>
+                  {/* Address Toggle */}
+                  {hasSavedAddress && (
+                    <div className="flex gap-6 border-b border-primary/10 pb-4 mb-4">
+                      <label className="flex items-center gap-2.5 cursor-pointer group">
+                        <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center transition-colors ${addressMode === 'saved' ? 'border-primary bg-primary' : 'border-primary/30 group-hover:border-primary/60'}`}>
+                          {addressMode === 'saved' && <div className="w-1.5 h-1.5 bg-white rounded-full"></div>}
+                        </div>
+                        <input type="radio" className="hidden" checked={addressMode === "saved"} onChange={() => setAddressMode("saved")} />
+                        <span className={`text-[11px] font-black uppercase tracking-wider transition-colors ${addressMode === 'saved' ? 'text-primary' : 'text-primary/60'}`}>Use Saved Address</span>
+                      </label>
+                      <label className="flex items-center gap-2.5 cursor-pointer group">
+                        <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center transition-colors ${addressMode === 'new' ? 'border-primary bg-primary' : 'border-primary/30 group-hover:border-primary/60'}`}>
+                          {addressMode === 'new' && <div className="w-1.5 h-1.5 bg-white rounded-full"></div>}
+                        </div>
+                        <input type="radio" className="hidden" checked={addressMode === "new"} onChange={() => setAddressMode("new")} />
+                        <span className={`text-[11px] font-black uppercase tracking-wider transition-colors ${addressMode === 'new' ? 'text-primary' : 'text-primary/60'}`}>Add New Address</span>
+                      </label>
+                    </div>
+                  )}
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">City</label>
-                      <input
-                        type="text"
-                        required
-                        value={city}
-                        onChange={(e) => setCity(e.target.value)}
-                        placeholder="e.g. Ujjain"
-                        className="w-full px-4 py-3 border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm font-medium transition-all"
-                      />
+                  {addressMode === "saved" && hasSavedAddress ? (
+                    <div className="bg-surface/60 rounded-2xl p-5 border border-primary/10 hover:border-primary/30 transition-colors">
+                      <div className="font-heading text-lg font-bold mb-1">{user?.name}</div>
+                      <div className="text-sm font-medium opacity-80 leading-relaxed max-w-sm">
+                        {user?.address}<br />
+                        {user?.city}, {user?.state} {user?.zip}
+                      </div>
+                      <div className="mt-4 pt-4 border-t border-primary/10 flex items-center gap-2 text-xs font-bold uppercase tracking-wider">
+                        <Truck size={14} className="text-secondary" />
+                        <span>Phone: {user?.phone}</span>
+                      </div>
                     </div>
-                    <div>
-                      <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">State</label>
-                      <input
-                        type="text"
-                        required
-                        value={state}
-                        onChange={(e) => setState(e.target.value)}
-                        placeholder="e.g. Madhya Pradesh"
-                        className="w-full px-4 py-3 border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm font-medium transition-all"
-                      />
-                    </div>
-                  </div>
+                  ) : (
+                    <div className="space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                      <div>
+                        <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Delivery Address</label>
+                        <textarea
+                          required={addressMode === "new"}
+                          rows={2}
+                          value={address}
+                          onChange={(e) => setAddress(e.target.value)}
+                          placeholder="Street address, apartment, locality"
+                          className="w-full px-4 py-3 border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm font-medium transition-all"
+                        />
+                      </div>
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">PIN / Zip Code</label>
-                      <input
-                        type="text"
-                        required
-                        value={zip}
-                        onChange={(e) => setZip(e.target.value)}
-                        placeholder="6-digit ZIP"
-                        className="w-full px-4 py-3 border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm font-medium transition-all"
-                      />
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">City</label>
+                          <input
+                            type="text"
+                            required={addressMode === "new"}
+                            value={city}
+                            onChange={(e) => setCity(e.target.value)}
+                            placeholder="e.g. Ujjain"
+                            className="w-full px-4 py-3 border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm font-medium transition-all"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">State</label>
+                          <input
+                            type="text"
+                            required={addressMode === "new"}
+                            value={state}
+                            onChange={(e) => setState(e.target.value)}
+                            placeholder="e.g. Madhya Pradesh"
+                            className="w-full px-4 py-3 border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm font-medium transition-all"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">PIN / Zip Code</label>
+                          <input
+                            type="text"
+                            required={addressMode === "new"}
+                            value={zip}
+                            onChange={(e) => setZip(e.target.value)}
+                            placeholder="6-digit ZIP"
+                            className="w-full px-4 py-3 border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm font-medium transition-all"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Mobile Phone</label>
+                          <input
+                            type="tel"
+                            required={addressMode === "new"}
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
+                            placeholder="10-digit number"
+                            className="w-full px-4 py-3 border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm font-medium transition-all"
+                          />
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Mobile Phone</label>
-                      <input
-                        type="tel"
-                        required
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        placeholder="10-digit number"
-                        className="w-full px-4 py-3 border border-primary/20 rounded-2xl text-primary bg-white placeholder-primary/30 focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm font-medium transition-all"
-                      />
-                    </div>
-                  </div>
+                  )}
                 </div>
 
                 <div className="pt-4 border-t border-primary/10 space-y-4">
@@ -552,6 +601,42 @@ export default function CartPage() {
           </div>
         )}
       </main>
+
+      {/* Remove Confirmation Modal */}
+      {itemToRemove && (
+        <div className="fixed inset-0 bg-primary/40 backdrop-blur-sm flex items-center justify-center z-[150] p-4 animate-in fade-in duration-300">
+          <div className="bg-surface rounded-[32px] border border-primary/10 p-6 md:p-8 max-w-sm w-full shadow-2xl relative animate-in zoom-in-95 duration-200 font-heading text-center">
+            <div className="w-16 h-16 bg-red-50 text-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Trash2 size={24} />
+            </div>
+            <h3 className="font-heading text-xl font-bold text-primary mb-2">Remove Item?</h3>
+            <p className="text-xs text-primary/80 mb-6 px-4">
+              Are you sure you want to remove this item from your shopping bag?
+            </p>
+            
+            <div className="flex gap-3">
+              <button
+                type="button"
+                onClick={() => setItemToRemove(null)}
+                className="flex-1 px-4 py-3 border border-primary/15 rounded-xl text-xs font-bold uppercase tracking-wider text-primary hover:bg-white transition-colors shadow-sm"
+              >
+                Go Back
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  removeItem(itemToRemove.productId, itemToRemove.variantColour);
+                  setItemToRemove(null);
+                  showToast("Item removed from cart", "success");
+                }}
+                className="flex-1 px-4 py-3 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </div>

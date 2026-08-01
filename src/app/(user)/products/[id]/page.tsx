@@ -5,6 +5,7 @@ import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
 import ProductInteractive from "@/modules/user/components/ProductInteractive";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { getColorName } from "@/utils/colorHelper";
 
 // Define the fetch function
 async function getProduct(id: string) {
@@ -12,7 +13,7 @@ async function getProduct(id: string) {
         const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:5000/api";
         // Force 127.0.0.1 if using localhost to avoid IPv6 connection refused in Node 18+
         const url = `${apiUrl.replace('localhost', '127.0.0.1')}/products/${id}`;
-        
+
         const res = await fetch(url, { cache: 'no-store' });
         if (!res.ok) {
             console.error(`Failed to fetch product ${id}: ${res.status} ${res.statusText}`);
@@ -53,10 +54,10 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
     const mainImage = product.images?.[0] || "/product_white_mustard.png";
 
     const details = [
-        { label: "Fabric", value: product.fabricDetails || "Pure Cotton 60x60" },
-        { label: "Category", value: product.category },
-        { label: "Sub Category", value: product.subCategory || "Batik" },
-        { label: "Colours Available", value: product.colours?.join(", ") || "Standard" }
+        { label: "Fabric", value: product.fabricDetails || "Pure Cotton 60x60", icon: "🧵" },
+        { label: "Category", value: product.category, icon: "🏷️" },
+        { label: "Sub Category", value: product.subCategory || "Batik", icon: "✨" },
+        { label: "Colors Available", value: product.colours?.map((c: string) => getColorName(c)).join(", ") || "Standard", icon: "🎨" }
     ];
 
     const whyItSells = [
@@ -108,23 +109,37 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-                        {/* Specs List */}
-                        <div className="grid grid-cols-2 gap-2 md:gap-6">
+                        {/* Specs List (Sleek Row Layout) */}
+                        <div className="flex flex-col justify-center gap-4 md:gap-5">
                             {details.map((detail, i) => (
-                                <div key={i} className="flex flex-col gap-1 md:gap-4 p-4 md:p-8 bg-white rounded-2xl md:rounded-[40px] shadow-[0_4px_20px_rgb(0,0,0,0.04)] md:shadow-2xl border border-primary/5 group hover:border-secondary/20 transition-all duration-300 hover:-translate-y-1">
-                                    <span className="text-[9px] md:text-xs font-black uppercase tracking-[0.15em] md:tracking-[0.3em] text-secondary opacity-70 group-hover:opacity-100 transition-opacity line-clamp-1">{detail.label}</span>
-                                    <span className="text-xs md:text-2xl font-bold text-primary tracking-tight leading-snug line-clamp-2 md:line-clamp-none">{detail.value}</span>
+                                <div key={i} className="flex items-center gap-5 p-4 md:p-6 bg-white rounded-[24px] shadow-sm hover:shadow-xl border border-primary/5 hover:border-secondary/20 transition-all duration-300 group hover:-translate-y-1">
+                                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-cream flex items-center justify-center text-xl md:text-3xl text-primary group-hover:scale-110 transition-transform">
+                                        {detail.icon}
+                                    </div>
+                                    <div className="flex flex-col flex-1">
+                                        <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-secondary opacity-70 group-hover:opacity-100 transition-opacity">
+                                            {detail.label}
+                                        </span>
+                                        <span className="text-sm md:text-lg font-bold text-primary tracking-tight leading-snug mt-1 max-w-[90%]">
+                                            {detail.value}
+                                        </span>
+                                    </div>
                                 </div>
                             ))}
                         </div>
 
-                        {/* Best For Cards */}
-                        <div className="flex flex-col gap-6">
-                            <div className="relative aspect-[4/3] md:aspect-video rounded-[30px] md:rounded-[50px] overflow-hidden shadow-xl md:shadow-2xl border-4 border-white group">
-                                <Image src={mainImage} alt="Detail View" layout="fill" objectFit="cover" objectPosition="top" className="brightness-90 group-hover:scale-105 transition-transform duration-[2s]" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
-                                <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 text-white">
-                                    <h4 className="text-xl md:text-4xl font-bold font-heading italic">Ideal for Summer Collections</h4>
+                        {/* Best For Image Canvas */}
+                        <div className="h-full min-h-[400px] md:min-h-[500px]">
+                            <div className="relative h-full w-full rounded-[32px] md:rounded-[40px] overflow-hidden shadow-2xl border-[6px] md:border-[12px] border-white group">
+                                <Image src={mainImage} alt="Detail View" layout="fill" objectFit="cover" objectPosition="center top" className="brightness-95 group-hover:scale-105 transition-transform duration-[2s]" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+                                <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 text-white max-w-[80%]">
+                                    <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-[10px] font-black uppercase tracking-widest text-white mb-3">
+                                        Collection Feature
+                                    </span>
+                                    <h4 className="text-3xl md:text-5xl font-black font-heading leading-tight tracking-tight">
+                                        Ideal for<br />Summer Collections
+                                    </h4>
                                 </div>
                             </div>
                         </div>

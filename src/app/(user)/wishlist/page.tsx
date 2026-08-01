@@ -1,33 +1,89 @@
 "use client";
-
 import React from "react";
 import Link from "next/link";
 import Nav from "@/modules/user/components/Nav";
 import { useWishlistStore } from "@/hooks/useWishlistStore";
+import { useAuthSync } from "@/modules/user/hooks/useAuthSync";
 import { useCartStore } from "@/hooks/useCartStore";
 import { Trash2, Heart, ShoppingBag } from "lucide-react";
 
 export default function WishlistPage() {
-    const { items, removeItem } = useWishlistStore();
-    const { addItem } = useCartStore();
+    const { addItem: addCartItem } = useCartStore();
+    const { removeId: removeWishlistId } = useWishlistStore();
+    const { isSignedIn, loading: authLoading } = useAuthSync();
     const [toast, setToast] = React.useState<{ message: string; type: "success" | "error" } | null>(null);
+
+    const [items, setItems] = React.useState<any[]>([]);
+    const [page, setPage] = React.useState(1);
+    const [totalPages, setTotalPages] = React.useState(1);
+    const [loading, setLoading] = React.useState(true);
+
+    const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+
+    const fetchWishlist = async (pageNumber: number) => {
+        if (!isSignedIn) return;
+        setLoading(true);
+        try {
+            const res = await fetch(`${API_BASE}/wishlist?page=${pageNumber}&limit=12`, {
+                credentials: "include"
+            });
+            const data = await res.json();
+            if (res.ok) {
+                setItems(data.items || []);
+                setTotalPages(data.pages || 1);
+            }
+        } catch (err) {
+            console.error("Failed to fetch wishlist", err);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    React.useEffect(() => {
+        if (!authLoading) {
+            if (isSignedIn) {
+                fetchWishlist(page);
+            } else {
+                setLoading(false);
+            }
+        }
+    }, [page, isSignedIn, authLoading]);
 
     const showToast = (message: string, type: "success" | "error") => {
         setToast({ message, type });
         setTimeout(() => setToast(null), 4000);
     };
 
-    const handleMoveToCart = (item: any) => {
+    const handleRemove = async (productId: string) => {
+        // Optimistic
+        removeWishlistId(productId);
+        setItems(prev => prev.filter(item => item.product._id !== productId && item.product.id !== productId));
+        
         try {
-            addItem({
-                productId: item.productId,
-                name: item.name,
-                image: item.image,
-                fullPrice: item.fullPrice,
-                discountPrice: item.discountPrice,
+            await fetch(`${API_BASE}/wishlist/toggle`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                credentials: "include",
+                body: JSON.stringify({ productId })
+            });
+            showToast("Removed from wishlist", "success");
+        } catch (err) {
+            showToast("Failed to remove item", "error");
+        }
+    };
+
+    const handleMoveToCart = async (item: any) => {
+        try {
+            const prod = item.product;
+            addCartItem({
+                productId: prod._id || prod.id,
+                name: prod.name,
+                image: prod.images?.[0] || prod.image || "/product_white_mustard.png",
+                fullPrice: prod.fullPrice,
+                discountPrice: prod.discountPrice || prod.fullPrice,
                 isWholesaleOnly: false,
             });
-            removeItem(item.productId);
+            await handleRemove(prod._id || prod.id);
             showToast("Moved to Cart!", "success");
         } catch (error: any) {
             showToast(error.message || "Failed to move to cart.", "error");
@@ -50,80 +106,91 @@ export default function WishlistPage() {
                 </div>
             )}
 
-            <main className="flex-1 max-w-[1300px] w-full mx-auto px-6 py-12">
+            <main className="flex-1 max-w-[1300px] w-full mx-auto px-6 py-12 flex flex-col">
                 <h1 className="font-heading text-3xl md:text-4xl font-black text-left mb-2 tracking-tight">Your Wishlist</h1>
                 <p className="text-sm opacity-60 text-left mb-10 font-medium font-heading">
                     Keep track of all the beautiful Batik items you'd love to own.
                 </p>
 
-                {items.length === 0 ? (
-                    /* Empty Wishlist State */
+                {authLoading || loading ? (
+                    <div className="flex-1 flex justify-center items-center opacity-50 py-20">
+                        <div className="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+                    </div>
+                ) : !isSignedIn ? (
+                    <div className="bg-surface rounded-[32px] border border-primary/10 p-12 text-center shadow-xl max-w-xl mx-auto my-12">
+                        <h2 className="font-heading text-2xl font-black mb-2">Sign in to view Wishlist</h2>
+                        <p className="text-xs opacity-60 max-w-xs mx-auto mb-8 font-medium">Log in to save items across all your devices and seamlessly pick up where you left off.</p>
+                        <Link href="/login" className="inline-block bg-primary hover:bg-black text-white px-10 py-4 rounded-xl font-bold uppercase tracking-widest text-xs shadow-md">
+                            Sign In / Register
+                        </Link>
+                    </div>
+                ) : items.length === 0 ? (
                     <div className="bg-surface rounded-[32px] border border-primary/10 p-12 text-center shadow-xl max-w-xl mx-auto my-12 relative overflow-hidden">
-                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-secondary/30 rounded-tl-[32px]" />
-                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-secondary/30 rounded-br-[32px]" />
-
-                        <div className="w-20 h-20 bg-white rounded-3xl flex items-center justify-center mx-auto mb-6 shadow border border-primary/5 text-3xl">
-                            ❤️
-                        </div>
+                        <div className="w-20 h-20 bg-white rounded-3xl flex items-center justify-center mx-auto mb-6 shadow border border-primary/5 text-3xl">❤️</div>
                         <h2 className="font-heading text-2xl font-black mb-2">Your wishlist is empty</h2>
-                        <p className="text-xs opacity-60 max-w-xs mx-auto mb-8 leading-relaxed font-medium">
-                            Explore our premium collections and add your favorite items to save them for later.
-                        </p>
-                        <Link
-                            href="/cotton-cloth"
-                            className="inline-block bg-primary hover:bg-black text-white px-10 py-4 rounded-xl font-bold uppercase tracking-widest text-xs transition-all shadow-md active:scale-95"
-                        >
+                        <p className="text-xs opacity-60 max-w-xs mx-auto mb-8 font-medium">Explore our premium collections and add your favorite items to save them for later.</p>
+                        <Link href="/cotton-cloth" className="inline-block bg-primary hover:bg-black text-white px-10 py-4 rounded-xl font-bold uppercase tracking-widest text-xs shadow-md">
                             Explore Collections
                         </Link>
                     </div>
                 ) : (
-                    /* Wishlist Grid */
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {items.map((item) => (
-                            <div
-                                key={item.productId}
-                                className="bg-white rounded-[32px] border border-primary/10 p-5 flex flex-col gap-5 shadow-sm hover:shadow-xl transition-all relative overflow-hidden group"
-                            >
+                    <div className="flex-1 flex flex-col">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                            {items.map((item) => {
+                                const prod = item.product;
+                                return (
+                                    <div key={prod._id || prod.id} className="bg-white rounded-[32px] border border-primary/10 p-5 flex flex-col gap-5 shadow-sm hover:shadow-xl transition-all relative overflow-hidden group">
+                                        <button
+                                            onClick={() => handleRemove(prod._id || prod.id)}
+                                            className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-red-500 hover:bg-red-500 hover:text-white transition-all shadow-sm opacity-0 group-hover:opacity-100"
+                                        >
+                                            <Trash2 size={18} />
+                                        </button>
+                                        <Link href={`/products/${prod._id || prod.id}`}>
+                                            <div className="w-full aspect-square rounded-2xl overflow-hidden bg-surface border border-primary/5">
+                                                <img src={prod.images?.[0] || prod.image || "/product_white_mustard.png"} alt={prod.name} className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700" />
+                                            </div>
+                                        </Link>
+                                        <div className="flex flex-col gap-2">
+                                            <Link href={`/products/${prod._id || prod.id}`}>
+                                                <h3 className="font-bold text-lg leading-tight hover:text-secondary transition-colors">{prod.name}</h3>
+                                            </Link>
+                                            <div className="flex items-center gap-2">
+                                                <span className="font-bold text-xl text-primary">₹{prod.discountPrice?.toLocaleString()}</span>
+                                                {prod.fullPrice > prod.discountPrice && (
+                                                    <span className="text-sm text-primary/40 line-through">₹{prod.fullPrice?.toLocaleString()}</span>
+                                                )}
+                                            </div>
+                                        </div>
+                                        <button onClick={() => handleMoveToCart(item)} className="mt-auto w-full bg-primary hover:bg-secondary text-white py-4 rounded-xl font-bold uppercase tracking-wider text-xs shadow hover:shadow-lg flex items-center justify-center gap-2">
+                                            <ShoppingBag size={16} /> <span>Move to Cart</span>
+                                        </button>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                        {/* Pagination */}
+                        {totalPages > 1 && (
+                            <div className="flex items-center justify-center gap-4 mt-auto pt-8 border-t border-primary/10">
                                 <button
-                                    onClick={() => removeItem(item.productId)}
-                                    className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-red-500 hover:bg-red-500 hover:text-white transition-all shadow-sm opacity-0 group-hover:opacity-100"
-                                    title="Remove from Wishlist"
+                                    onClick={() => setPage(Math.max(1, page - 1))}
+                                    disabled={page === 1}
+                                    className="px-6 py-3 border border-primary/20 rounded-xl font-bold text-xs uppercase tracking-widest disabled:opacity-30 hover:bg-primary hover:text-white transition-all"
                                 >
-                                    <Trash2 size={18} />
+                                    Previous
                                 </button>
-
-                                <Link href={`/products/${item.productId}`}>
-                                    <div className="w-full aspect-square rounded-2xl overflow-hidden bg-surface border border-primary/5">
-                                        <img
-                                            src={item.image || "/product_white_mustard.png"}
-                                            alt={item.name}
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                        />
-                                    </div>
-                                </Link>
-
-                                <div className="flex flex-col gap-2">
-                                    <Link href={`/products/${item.productId}`}>
-                                        <h3 className="font-bold text-lg leading-tight hover:text-secondary transition-colors">{item.name}</h3>
-                                    </Link>
-
-                                    <div className="flex items-center gap-2">
-                                        <span className="font-bold text-xl text-primary">₹{item.discountPrice?.toLocaleString()}</span>
-                                        {item.fullPrice > item.discountPrice && (
-                                            <span className="text-sm text-primary/40 line-through">₹{item.fullPrice?.toLocaleString()}</span>
-                                        )}
-                                    </div>
-                                </div>
-
+                                <span className="font-bold text-sm tracking-widest">
+                                    {page} / {totalPages}
+                                </span>
                                 <button
-                                    onClick={() => handleMoveToCart(item)}
-                                    className="mt-auto w-full bg-primary hover:bg-secondary text-white py-4 rounded-xl font-bold uppercase tracking-wider text-xs shadow hover:shadow-lg active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+                                    onClick={() => setPage(Math.min(totalPages, page + 1))}
+                                    disabled={page === totalPages}
+                                    className="px-6 py-3 border border-primary/20 rounded-xl font-bold text-xs uppercase tracking-widest disabled:opacity-30 hover:bg-primary hover:text-white transition-all"
                                 >
-                                    <ShoppingBag size={16} />
-                                    <span>Move to Cart</span>
+                                    Next
                                 </button>
                             </div>
-                        ))}
+                        )}
                     </div>
                 )}
             </main>

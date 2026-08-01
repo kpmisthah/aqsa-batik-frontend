@@ -14,7 +14,7 @@ export default function Nav() {
     const dropdownRef = useRef<HTMLDivElement>(null);
     const { isSignedIn, user, loading, logout } = useAuthSync();
     const { getTotalItemsCount } = useCartStore();
-    const { getTotalItemsCount: getWishlistCount } = useWishlistStore();
+    const { wishlistIds } = useWishlistStore();
 
     // Fix hydration mismatch with Zustand persist
     const [isMounted, setIsMounted] = useState(false);
@@ -158,9 +158,9 @@ export default function Nav() {
                         {/* Dynamic Wishlist Icon Link */}
                         <Link href="/wishlist" className="relative p-2.5 text-primary hover:text-secondary transition-colors active:scale-95">
                             <Heart size={22} />
-                            {isMounted && getWishlistCount() > 0 && (
+                            {isMounted && wishlistIds.length > 0 && (
                                 <span className="absolute -top-1 -right-1 bg-rose-500 text-white text-[9px] font-black w-4.5 h-4.5 rounded-full flex items-center justify-center border border-white animate-bounce">
-                                    {getWishlistCount()}
+                                    {wishlistIds.length}
                                 </span>
                             )}
                         </Link>
@@ -261,7 +261,7 @@ export default function Nav() {
                             className="w-full bg-white hover:bg-surface border border-primary/15 text-primary text-center py-4 rounded-2xl font-bold uppercase tracking-wider text-xs active:scale-95 flex items-center justify-center gap-2 transition-colors shadow-sm"
                         >
                             <Heart size={16} />
-                            <span>Wishlist {isMounted && `(${getWishlistCount()})`}</span>
+                            <span>Wishlist {isMounted && `(${wishlistIds.length})`}</span>
                         </Link>
                         <Link
                             onClick={() => setMenu(false)}
