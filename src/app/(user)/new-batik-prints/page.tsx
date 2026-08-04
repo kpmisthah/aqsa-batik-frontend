@@ -6,6 +6,8 @@ import ProductGrid from "@/modules/user/components/ProductGrid";
 import PremiumFeatureSection from "@/modules/user/components/PremiumFeatureSection";
 import AdvantageSection from "@/modules/user/components/AdvantageSection";
 import ProductFilterLayout from "@/modules/user/components/ProductFilterLayout";
+import ScrollObserver from "@/modules/user/components/ScrollObserver";
+import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
@@ -59,8 +61,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
             `}</style>
 
             <Nav />
-
-            {/* ── HERO SECTION ── */}
+            <ScrollObserver />            {/* ── HERO SECTION ── */}
             <section className="relative min-h-[60svh] md:min-h-screen w-full flex items-end md:items-center pb-8 md:pb-0 overflow-hidden bg-primary">
                 <div className="absolute inset-0 z-0">
                     <Image
@@ -102,12 +103,13 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                         </div>
                     </div>
                 </div>
+                <ScrollIndicator />
             </section>
 
             <GoogleReviewBar />
 
             {/* ── SECTION: TREND VALUE (WHY NEW ARRIVALS) ── */}
-            <section className="py-16 md:py-32 px-6 bg-[#F9F7F1] relative overflow-hidden">
+            <section className="scroll-animate py-16 md:py-32 px-6 bg-[#F9F7F1] relative overflow-hidden">
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-16 md:gap-20">
                     <div className="flex flex-col gap-4 text-center items-center mx-auto max-w-4xl">
                         <span className="text-overline text-secondary">Built Around Fashion Demand</span>
@@ -173,7 +175,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
             </section>
 
             {/* ── PRODUCT GRID ── */}
-            <section id="collection" className="py-16 md:py-24 px-6 bg-white relative">
+            <section id="collection" className="scroll-animate py-16 md:py-24 px-6 bg-white relative">
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-12 md:gap-16">
                     <div className="flex flex-col gap-3 md:gap-4 text-center items-center mx-auto max-w-4xl">
                         <span className="text-overline text-secondary">Fresh Collection</span>
@@ -277,7 +279,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
             />
 
             {/* ── SECTION: Navigation / Next Step ── */}
-            <section className="py-16 md:py-32 px-6 bg-white relative overflow-hidden">
+            <section className="scroll-animate py-16 md:py-32 px-6 bg-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-pattern opacity-[0.02]"></div>
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20 relative z-10">
                     <div className="flex flex-col gap-3 md:gap-6 text-center items-center max-w-4xl mx-auto w-full">
@@ -346,7 +348,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
             </section>
 
             {/* ── SECTION: BATIK JOURNAL (BLOG) ── */}
-            <section className="py-16 md:py-32 px-6 bg-cream border-t border-primary/10">
+            <section className="scroll-animate py-16 md:py-32 px-6 bg-cream border-t border-primary/10">
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
                     <div className="flex flex-col gap-3 md:gap-6 text-center items-center max-w-4xl mx-auto w-full">
                         <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">Fashion & Trend Journal</span>
