@@ -9,6 +9,8 @@ import AdvantageSection from "@/modules/user/components/AdvantageSection";
 import HowToOrderSection from "@/modules/user/components/HowToOrderSection";
 
 import ProductFilterLayout from "@/modules/user/components/ProductFilterLayout";
+import ScrollObserver from "@/modules/user/components/ScrollObserver";
+import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
@@ -63,8 +65,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
             `}</style>
 
             <Nav />
-
-            {/* ── HERO BANNER ── */}
+            <ScrollObserver />            {/* ── HERO BANNER ── */}
             <section className="relative min-h-[60svh] md:min-h-screen w-full flex items-end md:items-center pb-8 md:pb-0 overflow-hidden bg-primary">
                 <div className="absolute inset-0 z-0">
                     <Image
@@ -107,15 +108,16 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                         </div>
                     </div>
                 </div>
+                <ScrollIndicator />
             </section>
             <GoogleReviewBar />
 
             {/* ── SECTION: APPLICATIONS ── */}
-            <section className="py-16 md:py-24 px-4 md:px-6 bg-cream relative overflow-hidden">
+            <section className="scroll-animate py-16 md:py-24 px-4 md:px-6 bg-cream relative overflow-hidden">
                 <div className="max-w-7xl mx-auto flex flex-col gap-10 md:gap-16">
                     <div className="flex flex-col gap-4 md:gap-6 text-center items-center mx-auto max-w-4xl">
                         <span className="text-overline text-secondary mb-2 md:mb-0">Applications</span>
-                        <h2 className="text-h2 text-primary">Perfect Batik Printed Cotton Cloth For Every Fashion Creation</h2>
+                        <h2 className="text-h2 text-primary">Perfect Batik Printed Cotton Cloth <br className="hidden md:block" /> For Every Fashion Creation</h2>
                         <p className="text-lg md:text-xl text-primary font-medium leading-relaxed">Our premium batik printed cotton cloth combines breathable cotton fabric with modern women fashion styling—perfect for batik print dress material, cotton dresses, women dress material, and boutique clothing collections.</p>
                     </div>
 
@@ -159,7 +161,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
             </section>
 
             {/* ── PRODUCT GRID ── */}
-            <section id="collection" className="py-16 md:py-32 px-4 md:px-6 bg-white relative">
+            <section id="collection" className="scroll-animate py-16 md:py-32 px-4 md:px-6 bg-white relative">
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-10 md:gap-20">
                     <div className="flex flex-col gap-4 md:gap-6 text-center items-center mx-auto max-w-4xl">
                         <span className="text-overline text-secondary mb-2 md:mb-0">Fabric Library</span>
@@ -266,13 +268,13 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
             />
 
             {/* ── SECTION: NEXT STEPS ── */}
-            <section className="py-16 md:py-24 px-4 md:px-6 bg-white overflow-hidden">
+            <section className="scroll-animate py-16 md:py-24 px-4 md:px-6 bg-white overflow-hidden">
                 <div className="max-w-[1400px] mx-auto flex flex-col gap-10 md:gap-16">
                     {/* Section Header */}
                     <div className="flex flex-col gap-3 md:gap-4 text-center items-center max-w-2xl mx-auto w-full">
-                        <span className="text-overline text-accent tracking-[0.3em] font-bold">NEXT STEP</span>
+                        <span className="text-overline text-secondary tracking-[0.3em] font-bold">NEXT STEP</span>
                         <h2 className="text-h2 font-heading text-primary leading-tight">Continue Your Batik Fabric Shopping Journey</h2>
-                        <div className="w-16 h-[2px] bg-accent/30 mt-2"></div>
+                        <div className="w-16 h-[2px] bg-secondary/30 mt-2"></div>
                     </div>
 
                     {/* Editorial Gallery Grid */}
@@ -344,7 +346,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                 </div>
             </section>
             {/* ── SECTION: EDITORIAL CORNER ── */}
-            <section className="py-16 md:py-32 px-6 bg-cream">
+            <section className="scroll-animate py-16 md:py-32 px-6 bg-cream">
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
                     <div className="flex flex-col gap-3 md:gap-6 text-left md:text-center max-w-4xl mx-auto w-full">
                         <span className="text-overline text-secondary">Fashion & Fabric Journal</span>
@@ -382,7 +384,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                                 </div>
                                 <div className={`py-4 flex flex-col gap-2 md:gap-3 flex-1`}>
                                     <span className="text-overline text-secondary">{post.c}</span>
-                                    <h4 className="text-h4 text-primary group-hover:text-accent transition-colors">{post.t}</h4>
+                                    <h4 className="text-h4 text-primary">{post.t}</h4>
                                     <div className="flex justify-between items-center mt-auto pt-6 border-t border-primary/20">
                                         <span className="text-overline text-primary/50">{post.date}</span>
                                         <div className="hidden md:flex items-center gap-2 text-primary font-bold text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-500">
