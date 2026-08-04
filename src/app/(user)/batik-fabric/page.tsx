@@ -10,6 +10,8 @@ import PremiumFeatureSection from "@/modules/user/components/PremiumFeatureSecti
 import AdvantageSection from "@/modules/user/components/AdvantageSection";
 import HowToOrderSection from "@/modules/user/components/HowToOrderSection";
 import ProductFilterLayout from "@/modules/user/components/ProductFilterLayout";
+import ScrollObserver from "@/modules/user/components/ScrollObserver";
+import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
@@ -24,7 +26,7 @@ async function getProducts({ page = "1", search = "", sort = "", minPrice = "", 
             ...(minPrice && { minPrice }),
             ...(maxPrice && { maxPrice }),
         });
-        
+
         const res = await fetch(`${API_BASE}/products?${queryParams.toString()}`, { cache: 'no-store' });
         const json = await res.json();
         return {
@@ -107,8 +109,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
             `}</style>
 
             <Nav />
-
-            {/* ── HERO BANNER ── */}
+            <ScrollObserver />            {/* ── HERO BANNER ── */}
             <section className="relative min-h-[60svh] md:min-h-screen w-full flex items-end md:items-center pb-8 md:pb-0 overflow-hidden bg-primary">
                 <div className="absolute inset-0 z-0">
                     <Image
@@ -150,11 +151,12 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                         </div>
                     </div>
                 </div>
+                <ScrollIndicator />
             </section>
             <GoogleReviewBar />
 
             {/* ── SECTION: PERFECT FOR + PRODUCT GRID ── */}
-            <section id="collection" className="py-16 md:py-32 px-6 bg-[#F9F7F1] relative overflow-hidden">
+            <section id="collection" className="scroll-animate py-16 md:py-32 px-6 bg-[#F9F7F1] relative overflow-hidden">
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-16 md:gap-20">
                     <div className="flex flex-col gap-4 text-center items-center mx-auto max-w-4xl">
                         <span className="text-overline text-secondary">Optimized for Demand</span>
@@ -194,12 +196,12 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                             <h2 className="text-h3 text-primary">Explore High Demand <br className="md:hidden" /> Batik Fabric Collections</h2>
                             <p className="text-lg md:text-xl text-primary font-medium leading-relaxed mt-2 w-full text-center">Discover best-selling batik patterns, consistent quality, and ready-to-move collections trusted by boutiques, fabric shops, cloth shops, and resellers across India.</p>
                         </div>
-                        <ProductFilterLayout 
-                        products={products} 
-                        currentPage={currentPage}
-                        totalPages={totalPages}
-                        searchParams={resolvedParams || {}}
-                    />
+                        <ProductFilterLayout
+                            products={products}
+                            currentPage={currentPage}
+                            totalPages={totalPages}
+                            searchParams={resolvedParams || {}}
+                        />
                     </div>
                 </div>
             </section>
@@ -220,7 +222,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
 
             <PremiumFeatureSection
                 tag="Why Buyers Choose Our Fabric"
-                title={<>Why Our Batik Fabric <br />Stands Out</>}
+                title={<>Why Our Batik Fabric Stands Out</>}
                 features={[
                     {
                         t: "Premium Batik Fabric Cotton",
@@ -297,7 +299,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
 
 
             {/* ── SECTION: NEXT STEPS ── */}
-            <section className="py-16 md:py-32 px-6 bg-white overflow-hidden text-primary">
+            <section className="scroll-animate py-16 md:py-32 px-6 bg-white overflow-hidden text-primary">
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
                     <div className="flex flex-col gap-3 md:gap-6 text-left md:text-center max-w-4xl mx-auto w-full">
                         <span className="text-overline text-secondary">Next Step</span>
@@ -342,7 +344,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none"></div>
                                 <div className="absolute inset-0 flex flex-col items-center justify-end p-6 md:p-10 text-center">
                                     <h3 className="font-heading text-xl md:text-3xl font-bold text-white leading-tight mb-2 md:mb-4">{item.t}</h3>
-                                    
+
                                     <div className="flex items-center gap-2 mt-2 bg-white/20 backdrop-blur-sm px-4 md:px-6 py-2 md:py-3 rounded-full text-white font-bold text-[10px] md:text-xs uppercase tracking-widest overflow-hidden">
                                         <span>Explore</span>
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transform -translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500">
@@ -357,13 +359,13 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
             </section>
 
             {/* ── SECTION: EDITORIAL CORNER ── */}
-            <section className="py-16 md:py-24 px-4 md:px-6 bg-[#F9F7F1]">
+            <section className="scroll-animate py-16 md:py-24 px-4 md:px-6 bg-[#F9F7F1]">
                 <div className="max-w-[1400px] mx-auto flex flex-col gap-10 md:gap-16">
                     {/* Section Header */}
-                    <div className="flex flex-col gap-3 md:gap-4 text-center items-center max-w-2xl mx-auto w-full">
-                        <span className="text-overline text-accent tracking-[0.3em] font-bold">FASHION & FABRIC JOURNAL</span>
+                    <div className="flex flex-col gap-3 md:gap-4 text-center items-center max-w-5xl mx-auto w-full">
+                        <span className="text-overline text-secondary tracking-[0.3em] font-bold">FASHION & FABRIC JOURNAL</span>
                         <h2 className="text-h2 font-heading text-primary leading-tight">The Batik Fabric Journal</h2>
-                        <div className="w-16 h-[2px] bg-accent/30 mt-2"></div>
+                        <div className="w-16 h-[2px] bg-secondary/30 mt-2"></div>
                         <p className="text-lg md:text-xl text-primary font-medium leading-relaxed mt-2">
                             Insights on batik fabric, latest batik fabric prints, styling ideas, and trends shaping modern women clothing and dress material demand.
                         </p>
@@ -379,12 +381,12 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                             <Link key={i} href={`/blog/${post.slug}`} className="group flex flex-col gap-5 md:gap-6 block">
                                 {/* Image Wrapper */}
                                 <div className="relative w-full aspect-[4/5] rounded-[24px] overflow-hidden shadow-sm hover:shadow-2xl transition-shadow duration-500 border border-primary/5">
-                                    <Image 
-                                        src={post.img} 
-                                        alt={post.title} 
+                                    <Image
+                                        src={post.img}
+                                        alt={post.title}
                                         fill
                                         sizes="(max-width: 768px) 100vw, 33vw"
-                                        className="object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-out brightness-[0.95] group-hover:brightness-100" 
+                                        className="object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-out brightness-[0.95] group-hover:brightness-100"
                                     />
                                 </div>
 
@@ -393,26 +395,26 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                                     <span className="text-[10px] md:text-xs text-primary/50 font-bold uppercase tracking-[0.2em]">
                                         {post.cat} &nbsp;&mdash;&nbsp; {post.date}
                                     </span>
-                                    
+
                                     <h4 className="text-2xl md:text-3xl font-heading font-bold text-primary decoration-primary/30 underline-offset-4 group-hover:underline transition-all duration-300">
                                         {post.title}
                                     </h4>
-                                    
+
                                     <p className="text-body2 text-primary/90 line-clamp-2">
                                         {post.d}
                                     </p>
-                                    
+
                                     {/* Minimalist Read More */}
                                     <div className="flex items-center gap-2 text-primary/90 font-bold text-[10px] uppercase tracking-widest mt-2 group-hover:text-primary transition-colors duration-300">
                                         <span>Read Article</span>
-                                        <svg 
-                                            width="16" 
-                                            height="16" 
-                                            viewBox="0 0 24 24" 
-                                            fill="none" 
-                                            stroke="currentColor" 
-                                            strokeWidth="2" 
-                                            strokeLinecap="round" 
+                                        <svg
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
                                             strokeLinejoin="round"
                                             className="transform transition-transform duration-500 group-hover:translate-x-1"
                                         >
