@@ -6,7 +6,8 @@ import PremiumTrustSection from "@/modules/user/components/PremiumTrustSection";
 import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
 import PremiumFeatureSection from "@/modules/user/components/PremiumFeatureSection";
 import { useBanner } from "@/modules/user/hooks/useBanner";
-
+import ScrollObserver from "@/modules/user/components/ScrollObserver";
+import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
 
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Aqsha%20Batik";
 
@@ -19,8 +20,7 @@ export default function AboutPage() {
 
 
             <Nav />
-
-            {/* ── HERO SECTION ── */}
+            <ScrollObserver />            {/* ── HERO SECTION ── */}
             <section className="relative min-h-[60svh] md:min-h-[80vh] py-32 md:py-0 w-full flex items-end md:items-center pb-8 md:pb-0 overflow-hidden bg-primary">
                 <div className="absolute inset-0 z-0">
                     <Image
@@ -47,11 +47,12 @@ export default function AboutPage() {
                         <p className="text-body1 opacity-90 mt-2 md:mt-2 max-w-sm md:max-w-5xl text-white/90 text-center md:text-left mx-auto md:mx-0">Rooted in Bherugarh, Ujjain, we carry forward the legacy of traditional wax batik—refined over 15+ years into premium batik cloth, batik dresses, and high-quality batik fabric. Our collections focus on durable cotton dress material and consistent women cotton wholesale fabric, built for real market demand and ready-to-sell use.</p>
                     </div>
                 </div>
+                <ScrollIndicator />
             </section>
             <GoogleReviewBar />
 
             {/* ── SECTION: OUR STORY ── */}
-            <section className="py-16 md:py-24 px-6 bg-white relative overflow-hidden">
+            <section className="scroll-animate py-16 md:py-24 px-6 bg-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-pattern opacity-[0.03]"></div>
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-16 relative z-10 items-start">
 
@@ -328,7 +329,7 @@ export default function AboutPage() {
             />
 
             {/* ── SECTION: MANUFACTURING EXCELLENCE ── */}
-            <section className="py-16 md:py-32 px-6 bg-white overflow-hidden">
+            <section className="scroll-animate py-16 md:py-32 px-6 bg-white overflow-hidden">
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-24">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-24 items-center">
                         <div className="order-2 lg:order-1 relative h-[300px] md:h-[600px] rounded-[30px] md:rounded-[60px] overflow-hidden shadow-2xl border-[8px] md:border-[15px] border-cream group">
@@ -361,7 +362,7 @@ export default function AboutPage() {
             </section>
 
             {/* ── FINAL CTAS ── */}
-            <section className="py-16 md:py-24 bg-cream text-center px-6 border-t border-primary/5">
+            <section className="scroll-animate py-16 md:py-24 bg-cream text-center px-6 border-t border-primary/5">
                 <div className="max-w-4xl mx-auto flex flex-col gap-8 md:gap-10">
                     <div className="flex flex-col gap-3 md:gap-5">
                         <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary leading-tight">Work Directly with the Manufacturer</h2>
