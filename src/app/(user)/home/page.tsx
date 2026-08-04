@@ -11,6 +11,9 @@ import StickyEnquiryButton from "@/modules/user/components/StickyEnquiryButton";
 import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
 import HowToOrderSection from "@/modules/user/components/HowToOrderSection";
 import { useBanner } from "@/modules/user/hooks/useBanner";
+import { useScrollAnimation } from "@/modules/user/hooks/useScrollAnimation";
+import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
+import ScrollObserver from "@/modules/user/components/ScrollObserver";
 
 
 
@@ -30,14 +33,14 @@ export default function HomePage() {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const heroBanner = useBanner('home', '/full_hero_new.png');
+  useScrollAnimation();
 
   return (
     <div className="min-h-screen bg-cream text-primary font-heading selection:bg-primary selection:text-white scroll-smooth">
-      <style>{`
-        .bg-pattern { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM24 30V26h-2v4h-4v2h4v4h2v-4h4v-2h-4z' fill='%231A1A1A' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E"); }
-      `}</style>
+
 
       <Nav />
+      <ScrollObserver />
 
       {/* ── FULL SCREEN HERO SECTION ── */}
       <section className="relative min-h-[60svh] md:h-[95vh] md:min-h-[750px] w-full flex items-end md:items-center pb-8 md:pb-0 overflow-hidden bg-primary">
@@ -68,9 +71,10 @@ export default function HomePage() {
 
             <div className="flex flex-col gap-2 md:gap-6 w-full">
               <h1 className="text-h1">
-                <span className="hidden md:block">
+                <span className="hidden md:block whitespace-nowrap">
                   Premium <span className='text-accent'>Batik Designs</span><br />
-                  That Turn <span className='text-accent'>Attention</span> Into <span className='text-accent'>Orders</span>
+                  That Turn <span className='text-accent'>Attention</span><br />
+                  Into <span className='text-accent'>Orders</span>
                 </span>
                 <span className="block md:hidden">
                   Premium <span className='text-accent'>Batik Designs</span><br />
@@ -93,6 +97,7 @@ export default function HomePage() {
 
           </div>
         </div>
+        <ScrollIndicator />
       </section>
 
       <GoogleReviewBar />
@@ -148,7 +153,7 @@ export default function HomePage() {
         </section>
 
         {/* ── TARGET AUDIENCE SECTION ── */}
-        <section className="bg-tan py-16 md:py-32 px-6 relative overflow-hidden">
+        <section className="scroll-animate bg-tan py-16 md:py-32 px-6 relative overflow-hidden">
           <div className="absolute inset-0 bg-pattern opacity-[0.03]"></div>
           <div className="max-w-[1500px] mx-auto text-center flex flex-col gap-16 md:gap-24 relative z-10 px-6 md:px-12">
             <div className="flex flex-col gap-4 md:gap-6">
@@ -302,7 +307,7 @@ export default function HomePage() {
         </section>
 
         {/* ── WHAT BUYERS SAY SECTION ── */}
-        <section className="py-12 px-6 md:px-20 bg-tan relative overflow-hidden border-y border-primary/5">
+        <section className="scroll-animate py-12 px-6 md:px-20 bg-tan relative overflow-hidden border-y border-primary/5">
           <div className="absolute inset-0 bg-pattern opacity-[0.04]"></div>
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
             {/* Left Column: Text & Stats */}
@@ -447,7 +452,7 @@ export default function HomePage() {
         </section>
 
         {/* ── BUYER PSYCHOLOGY SECTION ── */}
-        <section className="py-12 md:py-20 px-6 bg-cream">
+        <section className="scroll-animate py-12 md:py-20 px-6 bg-cream">
           <div className="max-w-7xl mx-auto flex flex-col gap-8 md:gap-12">
             <div className="flex flex-col gap-3 md:gap-4 max-w-4xl mx-auto w-full">
               <div className="text-center flex flex-col gap-2 md:gap-4 items-center">
