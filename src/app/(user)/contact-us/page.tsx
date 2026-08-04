@@ -4,6 +4,8 @@ import Nav from '@/modules/user/components/Nav';
 import Image from 'next/image';
 import ContactForm from './ContactForm';
 import FAQ from '@/modules/user/components/FAQ';
+import ScrollObserver from "@/modules/user/components/ScrollObserver";
+import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
 
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20discuss%20a%20business%20inquiry.";
 
@@ -29,8 +31,7 @@ export default async function ContactPage() {
     return (
         <div className="bg-[#FDFBF7] min-h-screen font-body text-[#3B1C14] selection:bg-primary selection:text-white">
             <Nav />
-
-            {/* ── HERO SECTION ── */}
+            <ScrollObserver />            {/* ── HERO SECTION ── */}
             <section className="relative w-full min-h-[60svh] md:min-h-[800px] flex items-end md:items-center overflow-hidden pt-28 pb-12 md:pb-0 md:pt-0">
                 <div className="absolute inset-0 z-0">
                     <Image
@@ -72,10 +73,11 @@ export default async function ContactPage() {
                         </div>
                     </div>
                 </div>
+                <ScrollIndicator />
             </section>
 
             {/* ── CONTACT INFO SECTION ── */}
-            <section className="py-20 md:py-28 px-6 bg-white border-b border-primary/10">
+            <section className="scroll-animate py-20 md:py-28 px-6 bg-white border-b border-primary/10">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16 flex flex-col items-center">
                         <div className="flex items-center justify-center mb-6 w-full">
@@ -113,7 +115,7 @@ export default async function ContactPage() {
                                 <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                             </div>
                             <h3 className="font-heading text-base sm:text-lg md:text-xl font-bold text-primary mb-1.5 sm:mb-3">Email Us</h3>
-                            <p className="text-[10px] sm:text-xs md:text-base font-medium text-primary/90 break-all px-1 sm:px-2 leading-relaxed">Aqdaschhipa368<br className="hidden md:block lg:hidden"/>@gmail.com</p>
+                            <p className="text-[10px] sm:text-xs md:text-base font-medium text-primary/90 break-all px-1 sm:px-2 leading-relaxed">Aqdaschhipa368<br className="hidden md:block lg:hidden" />@gmail.com</p>
                         </div>
                         {/* WhatsApp Support */}
                         <div className="flex flex-col items-center text-center group">
@@ -130,7 +132,7 @@ export default async function ContactPage() {
             </section>
 
             {/* ── FORM SECTION ── */}
-            <section id="form" className="py-20 md:py-28 px-6 bg-[#FDFBF7]">
+            <section id="form" className="scroll-animate py-20 md:py-28 px-6 bg-[#FDFBF7]">
                 <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
                     <div className="lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left w-full">
                         <div className="flex items-center justify-center lg:justify-start mb-6 w-full">
@@ -142,7 +144,7 @@ export default async function ContactPage() {
                         <h2 className="text-h2 text-primary mb-8 leading-[1.1]">
                             Get Personalized Batik Fabric Pricing & Expert Guidance
                         </h2>
-                        
+
                         <div className="space-y-6 mb-12">
                             <p className="text-body1 text-primary/80">
                                 The right supplier doesn't just provide fabric. They help you choose collections that sell.
@@ -179,7 +181,7 @@ export default async function ContactPage() {
                         <div className="bg-primary p-8 md:p-12 lg:p-14 shadow-[0_30px_100px_rgba(59,28,20,0.2)] rounded-[24px] md:rounded-[32px] border border-white/10 relative overflow-hidden transition-transform duration-500 group-hover:-translate-y-2">
                             {/* Decorative Glow */}
                             <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-accent opacity-20 rounded-full blur-[80px] pointer-events-none transition-opacity duration-500 group-hover:opacity-40"></div>
-                            
+
                             <div className="relative z-10">
                                 <h3 className="font-heading text-2xl md:text-3xl font-bold text-white mb-8">Request Wholesale Access</h3>
                                 <ContactForm />
@@ -190,7 +192,7 @@ export default async function ContactPage() {
             </section>
 
             {/* ── TRUST SECTION ── */}
-            <section className="py-20 px-6 bg-[#FDFBF7]">
+            <section className="scroll-animate py-20 px-6 bg-[#FDFBF7]">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12 flex flex-col items-center w-full">
                         <div className="flex items-center justify-center mb-6 w-full">
@@ -241,7 +243,7 @@ export default async function ContactPage() {
             ]} />
 
             {/* ── FINAL CTA ── */}
-            <section className="py-20 px-6 bg-[#3B1C14] text-white">
+            <section className="scroll-animate py-20 px-6 bg-[#3B1C14] text-white">
                 <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
                     <div className="lg:w-1/2 text-left">
                         <h2 className="font-heading text-2xl md:text-4xl font-bold mb-4 leading-tight">Looking For Premium Batik Fabric At Wholesale Prices?</h2>
