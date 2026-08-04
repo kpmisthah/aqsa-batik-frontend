@@ -37,16 +37,12 @@ export default function CartPage() {
       if (user.address && user.city && user.state && user.zip && user.phone) {
         setAddressMode("saved");
       }
-      if (user.address) setAddress(user.address);
-      if (user.city) setCity(user.city);
-      if (user.state) setState(user.state);
-      if (user.zip) setZip(user.zip);
-      if (user.phone) setPhone(user.phone);
     }
   }, [user]);
 
   // Payment states
   const [checkingOut, setCheckingOut] = useState(false);
+  const [checkoutSuccess, setCheckoutSuccess] = useState(false);
   const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
   const [paymentMethod, setPaymentMethod] = useState<"Razorpay" | "COD" | "Wallet">("Razorpay");
 
@@ -161,8 +157,8 @@ export default function CartPage() {
         throw new Error(checkoutData.message || "Failed to initiate payment session.");
       }
 
-      // 3. For Cash on Delivery or Wallet, order is placed successfully on backend immediately!
       if (paymentMethod === "COD" || paymentMethod === "Wallet") {
+        setCheckoutSuccess(true);
         showToast(`Order placed successfully via ${paymentMethod}!`, "success");
         clearCart();
         await fetchLocalProfile();
@@ -198,6 +194,7 @@ export default function CartPage() {
             }
 
             showToast("Payment verified! Order placed.", "success");
+            setCheckoutSuccess(true);
             clearCart();
             await fetchLocalProfile();
             router.push("/order-success");
@@ -251,7 +248,12 @@ export default function CartPage() {
           Review your items, complete shipping details, and finalize your secure transaction in Indian Rupees (₹).
         </p>
 
-        {items.length === 0 ? (
+        {checkoutSuccess ? (
+          <div className="flex flex-col items-center justify-center py-32 space-y-4">
+            <div className="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+            <p className="text-sm font-bold uppercase tracking-widest text-primary/80">Securing your order...</p>
+          </div>
+        ) : items.length === 0 ? (
           /* Empty Cart State */
           <div className="bg-surface rounded-[32px] border border-primary/10 p-12 text-center shadow-xl max-w-xl mx-auto my-12 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-secondary/30 rounded-tl-[32px]" />
@@ -613,7 +615,7 @@ export default function CartPage() {
             <p className="text-xs text-primary/80 mb-6 px-4">
               Are you sure you want to remove this item from your shopping bag?
             </p>
-            
+
             <div className="flex gap-3">
               <button
                 type="button"
