@@ -27,7 +27,7 @@ const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
     quote = "Our batik products combine breathable cotton comfort with elegant prints made for modern fashion"
 }) => {
     return (
-        <section className="py-12 md:py-16 px-4 md:px-6 bg-[#1a0f0a] text-white overflow-hidden relative">
+        <section className="scroll-animate py-12 md:py-16 px-4 md:px-6 bg-[#1a0f0a] text-white overflow-hidden relative">
             <div className="max-w-[1400px] mx-auto flex flex-col gap-8 md:gap-12">
                 
                 {/* Full-width Centered Title */}
@@ -42,15 +42,15 @@ const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
                     <div className="flex flex-col justify-center">
                         <div className="grid grid-cols-2 gap-3 sm:gap-5">
                             {features.map((feature, i) => (
-                                <div key={i} className="flex flex-col xl:flex-row items-center justify-center gap-2 sm:gap-4 p-3 sm:p-5 md:p-6 bg-white/5 backdrop-blur-md rounded-[16px] md:rounded-2xl border border-white/10 hover:border-accent/40 hover:bg-white/10 hover:shadow-2xl transition-all duration-300 group text-center xl:text-left h-full">
+                                <div key={i} className="flex flex-col items-center justify-center gap-3 sm:gap-4 p-4 sm:p-5 md:px-5 md:py-6 bg-white/5 backdrop-blur-md rounded-[16px] md:rounded-2xl border border-white/10 hover:border-accent/40 hover:bg-white/10 hover:shadow-2xl transition-all duration-300 group text-center h-full">
                                     <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 shrink-0 bg-white/10 rounded-[12px] sm:rounded-2xl flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-[#1a0f0a] transition-all duration-300 transform group-hover:-translate-y-1">
-                                        <div className="flex items-center justify-center [&>svg]:w-5 [&>svg]:h-5 [&>svg]:sm:w-6 [&>svg]:sm:h-6 [&>svg]:md:w-8 [&>svg]:md:h-8">
+                                        <div className="flex items-center justify-center [&>svg]:w-5 [&>svg]:h-5 [&>svg]:sm:w-6 [&>svg]:sm:h-6 [&>svg]:md:w-7 [&>svg]:md:h-7">
                                             {feature.i}
                                         </div>
                                     </div>
-                                    <div className="flex flex-col gap-1 md:gap-2">
-                                        <h4 className="text-[11px] sm:text-body1 md:text-h6 font-bold text-white leading-tight group-hover:text-accent transition-colors" dangerouslySetInnerHTML={{ __html: feature.t }} />
-                                        <p className="text-[10px] sm:text-body2 text-white/50 leading-snug font-normal hidden sm:block" dangerouslySetInnerHTML={{ __html: feature.d }} />
+                                    <div className="flex flex-col gap-1.5 md:gap-2 w-full mt-1">
+                                        <h4 className="text-[14px] sm:text-lg md:text-lg font-bold text-white leading-tight group-hover:text-accent transition-colors" dangerouslySetInnerHTML={{ __html: feature.t }} />
+                                        <p className="text-[12px] sm:text-[14px] md:text-[14px] text-white/90 leading-relaxed font-normal hidden sm:block mx-auto max-w-[90%]" dangerouslySetInnerHTML={{ __html: feature.d }} />
                                     </div>
                                 </div>
                             ))}
