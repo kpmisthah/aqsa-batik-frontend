@@ -82,7 +82,7 @@ export default function HowToOrderSection({
     subtitle = DEFAULT_SUBTITLE,
 }: HowToOrderSectionProps) {
     return (
-        <section className="py-12 md:py-24 px-6 bg-tan/50 relative overflow-hidden">
+        <section className="scroll-animate py-12 md:py-24 px-6 bg-tan/50 relative overflow-hidden">
             <div className="max-w-[1600px] mx-auto flex flex-col gap-8 md:gap-16 relative z-10">
                 {/* ── Header ── */}
                 <div className="flex flex-col gap-3 md:gap-4 max-w-4xl mx-auto w-full">
