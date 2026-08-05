@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { LayoutDashboard, Users, ShoppingBag, Settings, Menu, X, LogOut, Bell, Package, Loader2, UploadCloud } from "lucide-react";
+import { LayoutDashboard, Users, ShoppingBag, Settings, Menu, X, LogOut, Bell, Package, Loader2, UploadCloud, ClipboardList, PenTool } from "lucide-react";
 import { useAuthSync } from "@/modules/user/hooks/useAuthSync";
 
 export default function AdminLayout({
@@ -14,13 +14,15 @@ export default function AdminLayout({
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-  
+
   const { user, loading, logout, isSignedIn } = useAuthSync();
 
   const navigation = [
     { name: "Dashboard", href: "/aqsha-portal", icon: LayoutDashboard },
     { name: "Orders", href: "/aqsha-portal/orders", icon: ShoppingBag },
     { name: "Products", href: "/aqsha-portal/products", icon: Package },
+    { name: "Inventory", href: "/aqsha-portal/inventory", icon: ClipboardList },
+    { name: "Blogs", href: "/aqsha-portal/blogs", icon: PenTool },
     { name: "Bulk Upload", href: "/aqsha-portal/bulk-upload", icon: UploadCloud },
     { name: "Users", href: "/aqsha-portal/users", icon: Users },
     { name: "Banners", href: "/aqsha-portal/banners", icon: Settings },
@@ -60,14 +62,13 @@ export default function AdminLayout({
 
       {/* Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-64 bg-tan border-r border-primary/10 transform transition-transform duration-200 ease-in-out lg:translate-x-0 lg:static lg:flex-shrink-0 ${
-          sidebarOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed inset-y-0 left-0 z-50 w-64 bg-tan border-r border-primary/10 transform transition-transform duration-200 ease-in-out lg:translate-x-0 lg:static lg:flex-shrink-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
       >
         <div className="h-full flex flex-col relative overflow-hidden">
           {/* subtle pattern bg */}
           <div className="absolute inset-0 bg-pattern opacity-[0.03] pointer-events-none"></div>
-          
+
           <div className="h-16 flex items-center justify-between px-6 border-b border-primary/10 bg-tan relative z-10">
             <span className="text-xl font-black font-heading tracking-tight text-primary uppercase">
               Aqsha Admin
@@ -87,16 +88,14 @@ export default function AdminLayout({
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`flex items-center px-4 py-3 text-sm font-bold rounded-xl transition-all ${
-                    isActive
+                  className={`flex items-center px-4 py-3 text-sm font-bold rounded-xl transition-all ${isActive
                       ? "bg-primary text-white shadow-lg shadow-primary/20 translate-x-1"
                       : "text-primary/90 hover:bg-white/50 hover:text-primary"
-                  }`}
+                    }`}
                 >
                   <item.icon
-                    className={`w-5 h-5 mr-3 flex-shrink-0 ${
-                      isActive ? "text-accent" : "text-primary/50"
-                    }`}
+                    className={`w-5 h-5 mr-3 flex-shrink-0 ${isActive ? "text-accent" : "text-primary/50"
+                      }`}
                   />
                   {item.name}
                 </Link>
@@ -105,7 +104,7 @@ export default function AdminLayout({
           </nav>
 
           <div className="p-4 border-t border-primary/10 relative z-10">
-            <button 
+            <button
               onClick={() => logout()}
               className="flex items-center w-full px-4 py-3 text-sm font-bold text-secondary rounded-xl hover:bg-secondary hover:text-white transition-colors"
             >
@@ -125,7 +124,7 @@ export default function AdminLayout({
           >
             <Menu className="w-6 h-6" />
           </button>
-          
+
           <div className="flex-1" />
 
           <div className="flex items-center space-x-4">
@@ -140,10 +139,10 @@ export default function AdminLayout({
         </header>
 
         <main className="flex-1 overflow-y-auto overflow-x-hidden p-4 sm:p-6 lg:p-8 relative w-full max-w-full">
-           <div className="absolute inset-0 bg-pattern opacity-[0.02] pointer-events-none"></div>
-           <div className="relative z-10 w-full max-w-full">
-             {children}
-           </div>
+          <div className="absolute inset-0 bg-pattern opacity-[0.02] pointer-events-none"></div>
+          <div className="relative z-10 w-full max-w-full">
+            {children}
+          </div>
         </main>
       </div>
     </div>
