@@ -512,9 +512,8 @@ export default function HomePage() {
                   <h3 className="text-sm md:text-xl font-bold font-heading text-primary leading-tight px-1">{item.t}</h3>
                   <p className="text-xs md:text-sm text-primary/80 font-medium leading-relaxed mb-2 md:mb-6">{item.d}</p>
 
-                  <span className="mt-auto text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-secondary flex flex-wrap items-center justify-center gap-1.5 transition-colors">
-                    <span>{item.b}</span>
-                    <span className="text-lg leading-none">&rarr;</span>
+                  <span className="mt-auto text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-secondary flex justify-center text-center">
+                    {item.b}
                   </span>
                 </div>
               ))}
