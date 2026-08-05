@@ -5,7 +5,7 @@ import FAQ from '@/modules/user/components/FAQ';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { blogPosts, categories, faqs } from '@/data/blogPosts';
+import { categories, faqs } from '@/data/blogPosts';
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
 import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
 
@@ -27,8 +27,33 @@ async function getHeroBanner() {
     }
 }
 
+async function getBlogs() {
+    try {
+        const res = await fetch(`${API_BASE}/blogs`, { cache: 'no-store' });
+        const json = await res.json();
+        return json.data || [];
+    } catch (e) {
+        return [];
+    }
+}
+
 export default async function BlogIndexPage() {
     const heroBannerUrl = await getHeroBanner();
+    const apiBlogs = await getBlogs();
+
+    // Map database blog format to frontend structure
+    const blogPosts = apiBlogs.map((blog: any) => ({
+        title: blog.title,
+        excerpt: blog.excerpt || "",
+        category: blog.category || "General",
+        date: new Date(blog.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+        readTime: "5 min read",
+        image: blog.featuredImg || "/dummy.png",
+        slug: blog.slug
+    }));
+
+    const displayedBlogs = blogPosts.slice(0, 6);
+
     return (
         <div className="bg-[#FDFBF7] min-h-screen font-body text-primary">
             <Nav />
@@ -156,8 +181,18 @@ export default async function BlogIndexPage() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {blogPosts.map((post, i) => (
-                            <Link key={i} href={`/blog/${post.slug}`} className="group bg-white rounded-xl border border-primary/10 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        {displayedBlogs.map((post: any, i: number) => {
+                            const isOnlyOneLastLg = displayedBlogs.length % 3 === 1 && i === displayedBlogs.length - 1;
+                            const isOnlyOneLastMd = displayedBlogs.length % 2 === 1 && i === displayedBlogs.length - 1;
+                            
+                            return (
+                            <Link 
+                                key={i} 
+                                href={`/blog/${post.slug}`} 
+                                className={`group bg-white rounded-xl border border-primary/10 overflow-hidden hover:shadow-xl transition-shadow flex flex-col 
+                                ${isOnlyOneLastLg ? "lg:col-start-2" : ""} 
+                                ${isOnlyOneLastMd ? "md:[grid-column:1/-1] md:justify-self-center md:w-[calc(50%-1rem)] lg:w-full lg:col-auto lg:justify-self-auto" : ""}`}
+                            >
                                 <div className="relative aspect-[4/3] overflow-hidden bg-white">
                                     <Image src={post.image} alt={post.title} layout="fill" objectFit="contain" className="group-hover:scale-105 transition-transform duration-500" />
                                 </div>
@@ -174,8 +209,20 @@ export default async function BlogIndexPage() {
                                     </div>
                                 </div>
                             </Link>
-                        ))}
+                            );
+                        })}
                     </div>
+                    
+                    {blogPosts.length > 6 && (
+                        <div className="mt-12 flex justify-center">
+                            <Link 
+                                href="/blog/all"
+                                className="bg-accent text-primary px-10 py-4 rounded-xl font-bold uppercase tracking-widest hover:-translate-y-1 hover:shadow-xl transition-all shadow-sm active:scale-95 text-xs md:text-sm"
+                            >
+                                Read More Articles
+                            </Link>
+                        </div>
+                    )}
 
                 </div>
             </section>
@@ -273,7 +320,8 @@ export default async function BlogIndexPage() {
                     </div>
                 </div>
             </section>
-
+            
+            <Footer />
         </div>
     );
 }
