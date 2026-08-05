@@ -20,10 +20,6 @@ export default function BannersAdmin() {
 
   const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
-  useEffect(() => {
-    fetchBanners();
-  }, []);
-
   const fetchBanners = async () => {
     try {
       const res = await fetch(`${API_BASE}/banners`, { cache: 'no-store', credentials: 'include' });
@@ -41,6 +37,10 @@ export default function BannersAdmin() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchBanners();
+  }, []);
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>, page: string) => {
     const file = e.target.files?.[0];
