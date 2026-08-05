@@ -8,9 +8,10 @@ interface ImageCropperModalProps {
   imageFile: File | null;
   onClose: () => void;
   onCropSave: (croppedFile: File) => void;
+  aspectRatio?: number;
 }
 
-export default function ImageCropperModal({ imageFile, onClose, onCropSave }: ImageCropperModalProps) {
+export default function ImageCropperModal({ imageFile, onClose, onCropSave, aspectRatio = 4 / 5 }: ImageCropperModalProps) {
   const cropperRef = useRef<ReactCropperElement>(null);
 
   if (!imageFile) return null;
@@ -22,8 +23,8 @@ export default function ImageCropperModal({ imageFile, onClose, onCropSave }: Im
     if (!cropper) return;
 
     const canvas = cropper.getCroppedCanvas({
-      width: 800, // standard width for product
-      height: 1000, // 4:5 ratio
+      width: 800, 
+      height: 800 / aspectRatio, 
     });
 
     if (!canvas) {
@@ -44,8 +45,10 @@ export default function ImageCropperModal({ imageFile, onClose, onCropSave }: Im
       <div className="bg-white rounded-3xl w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
         <div className="p-5 border-b border-primary/10 flex items-center justify-between bg-cream">
           <div>
-            <h3 className="font-black text-xl text-primary">Crop Product Image</h3>
-            <p className="text-xs font-bold text-primary/50 uppercase tracking-widest mt-1">4:5 Aspect Ratio (Portrait)</p>
+            <h3 className="font-black text-xl text-primary">Crop Image</h3>
+            <p className="text-xs font-bold text-primary/50 uppercase tracking-widest mt-1">
+               {aspectRatio === 4/5 ? "4:5 Aspect Ratio (Portrait)" : "16:9 Aspect Ratio (Landscape)"}
+            </p>
           </div>
           <button onClick={onClose} className="p-2 hover:bg-white rounded-full transition-colors">
             <X size={20} className="text-primary" />
@@ -56,8 +59,8 @@ export default function ImageCropperModal({ imageFile, onClose, onCropSave }: Im
           <Cropper
             src={imageUrl}
             style={{ height: 400, width: "100%" }}
-            initialAspectRatio={4 / 5}
-            aspectRatio={4 / 5}
+            initialAspectRatio={aspectRatio}
+            aspectRatio={aspectRatio}
             guides={true}
             viewMode={1}
             dragMode="move"

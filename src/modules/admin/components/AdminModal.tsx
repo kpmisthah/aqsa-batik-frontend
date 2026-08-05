@@ -9,6 +9,7 @@ interface AdminModalProps {
   onSave: () => void;
   saveText?: string;
   isSaving?: boolean;
+  maxWidth?: string;
 }
 
 export default function AdminModal({ 
@@ -18,13 +19,14 @@ export default function AdminModal({
   children, 
   onSave, 
   saveText = "Save Changes",
-  isSaving = false
+  isSaving = false,
+  maxWidth = "max-w-lg"
 }: AdminModalProps) {
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/40 backdrop-blur-sm">
-      <div className="bg-white rounded-[32px] p-8 max-w-lg w-full shadow-2xl border border-white relative">
+      <div className={`bg-white rounded-[32px] p-8 w-full shadow-2xl border border-white relative ${maxWidth}`}>
         <button 
           onClick={onClose}
           className="absolute top-6 right-6 text-primary/40 hover:text-primary"
