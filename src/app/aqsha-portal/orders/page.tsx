@@ -10,6 +10,10 @@ interface OrderItem {
   price: number;
   quantity: number;
   variantColour?: string;
+  itemStatus?: "Active" | "Cancelled";
+  returnStatus?: "None" | "Pending" | "Approved" | "Rejected";
+  cancelReason?: string;
+  returnReason?: string;
 }
 
 interface ShippingAddress {
@@ -51,6 +55,10 @@ export default function AdminOrders() {
   const [statusFilter, setStatusFilter] = useState("All");
   const [paymentFilter, setPaymentFilter] = useState("All");
 
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
+  
   // Debounce search input for high-speed typing responsiveness
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -59,10 +67,6 @@ export default function AdminOrders() {
     }, 350);
     return () => clearTimeout(timer);
   }, [searchTerm]);
-  
-  // Pagination state
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8;
 
   // Details Modal state
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
@@ -709,14 +713,33 @@ export default function AdminOrders() {
               <h4 className="text-[10px] font-black uppercase tracking-widest text-secondary mb-3">Itemized Purchases</h4>
               <div className="divide-y divide-primary/5 text-xs">
                 {selectedOrder.items.map((item, idx) => (
-                  <div key={idx} className="py-3 first:pt-0 last:pb-0 flex justify-between items-center">
-                    <div className="space-y-0.5">
-                      <span className="font-bold text-primary">{item.name}</span>
+                  <div key={idx} className="py-3 first:pt-0 last:pb-0 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                    <div className="space-y-0.5 max-w-sm">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="font-bold text-primary">{item.name}</span>
+                        {item.itemStatus && item.itemStatus === 'Cancelled' && (
+                          <span className="px-1.5 py-0.5 bg-red-50 text-red-700 border border-red-200 text-[8px] font-black uppercase tracking-wider rounded">Cancelled</span>
+                        )}
+                        {item.returnStatus && item.returnStatus !== 'None' && (
+                          <span className={`px-1.5 py-0.5 text-[8px] font-black uppercase tracking-wider rounded ${
+                            item.returnStatus === 'Approved' ? 'bg-emerald-50 border border-emerald-200 text-emerald-700' : 
+                            item.returnStatus === 'Pending' ? 'bg-purple-50 border border-purple-200 text-purple-700' :
+                            'bg-rose-50 border border-rose-200 text-rose-700'
+                          }`}>Return: {item.returnStatus}</span>
+                        )}
+                      </div>
                       {item.variantColour && (
                         <span className="block text-[10px] text-primary/50 font-medium">Color: {getColorName(item.variantColour)}</span>
                       )}
+                      
+                      {/* Show Item specific reasons */}
+                      {(item.cancelReason || item.returnReason) && (
+                        <span className="block text-[10px] text-primary/60 italic font-bold">
+                          Reason: {item.cancelReason || item.returnReason}
+                        </span>
+                      )}
                     </div>
-                    <div className="text-right font-medium">
+                    <div className="text-right font-medium whitespace-nowrap mt-1 sm:mt-0">
                       <span className="opacity-60">{item.quantity} x </span>
                       <span className="font-bold">₹{item.price.toLocaleString()}</span>
                     </div>
