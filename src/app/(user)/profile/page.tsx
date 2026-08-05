@@ -26,6 +26,7 @@ function ProfileContent() {
   const [activeTab, setActiveTab] = useState<"profile" | "orders" | "wallet">("profile");
 
   // Sync activeTab with URL search params (e.g. ?tab=orders)
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => {
     const tabParam = searchParams.get("tab");
     if (tabParam === "orders") {
@@ -128,7 +129,8 @@ function ProfileContent() {
   const currentOrders = orders.slice(indexOfFirstOrder, indexOfLastOrder);
   const totalPages = Math.ceil(orders.length / ordersPerPage);
 
-  // Sync state with user details once loaded
+  // Populate localized form state once user successfully downloads
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => {
     if (user) {
       setName(user.name);
@@ -247,17 +249,12 @@ function ProfileContent() {
               throw new Error(verifyData.message || "Transaction signature verification failed.");
             }
 
-            showToast("Payment verified! Order placed successfully.", "success");
-            
-            // Mark the order as Paid in local state
-            setOrders((prev) =>
-              prev.map((o) =>
-                (o.id === orderId || o._id === orderId) ? { ...o, paymentStatus: "Paid" } : o
-              )
-            );
+            // Redirect to order success page
+            router.push("/order-success");
           } catch (err: any) {
             console.error(err);
-            showToast(err.message || "Payment signature verification failed.", "error");
+            setRetryingOrderId(null);
+            router.push(`/payment-failed?reason=${encodeURIComponent(err.message || "Payment verification failed.")}`);
           }
         },
         prefill: {
@@ -270,6 +267,10 @@ function ProfileContent() {
       };
 
       const paymentObject = new (window as any).Razorpay(options);
+      paymentObject.on('payment.failed', function (response: any) {
+        setRetryingOrderId(null);
+        router.push(`/payment-failed?reason=${encodeURIComponent(response.error?.description || "Transaction failed.")}`);
+      });
       paymentObject.open();
     } catch (err: any) {
       console.error(err);

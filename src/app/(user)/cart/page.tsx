@@ -200,7 +200,8 @@ export default function CartPage() {
             router.push("/order-success");
           } catch (err: any) {
             console.error(err);
-            showToast(err.message || "Payment verification failed.", "error");
+            setCheckingOut(false);
+            router.push(`/payment-failed?reason=${encodeURIComponent(err.message || "Payment verification failed.")}`);
           }
         },
         prefill: {
@@ -218,6 +219,10 @@ export default function CartPage() {
       };
 
       const paymentObject = new (window as any).Razorpay(options);
+      paymentObject.on('payment.failed', function (response: any) {
+        setCheckingOut(false);
+        router.push(`/payment-failed?reason=${encodeURIComponent(response.error?.description || "Transaction failed.")}`);
+      });
       paymentObject.open();
     } catch (err: any) {
       console.error(err);
