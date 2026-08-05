@@ -292,6 +292,25 @@ export function useProducts() {
     }
   };
 
+  const bulkUpdateInventory = async (updates: { id: string; quantity: number }[]) => {
+    try {
+      setIsSaving(true);
+      const res = await fetch(`${API_BASE}/products/inventory`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ updates }),
+      });
+      if (!res.ok) throw new Error("Failed to update inventory");
+      await fetchProducts(pagination.page, pagination.limit);
+      return true;
+    } catch (error: any) {
+      console.error("Bulk inventory update error:", error);
+      throw error;
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
   const openAddModal = () => setIsAddModalOpen(true);
 
   const closeModals = () => {
@@ -313,6 +332,7 @@ export function useProducts() {
     toggleBlock,
     deleteProduct,
     bulkUpload,
+    bulkUpdateInventory,
     openAddModal,
     closeModals,
     searchTerm,
