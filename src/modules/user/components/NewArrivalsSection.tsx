@@ -14,7 +14,7 @@ export default function NewArrivalsSection() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                // Fetch exactly 3 products for the perfect Apple-style Bento Box
+                // Fetch exactly 3 products
                 const res = await fetch(`${API_BASE}/products?limit=3`);
                 const json = await res.json();
                 if (json.data) {
@@ -46,17 +46,17 @@ export default function NewArrivalsSection() {
                     objectFit="cover"
                     objectPosition="top"
                     unoptimized={true}
-                    className="group-hover:scale-105 transition-transform duration-[2s] ease-out brightness-[0.85] group-hover:brightness-[0.95] absolute inset-0 z-0"
+                    className="group-hover:scale-105 transition-transform duration-[4s] ease-out absolute inset-0 z-0"
                 />
                 
-                {/* Clean dark gradient for pure text legibility */}
-                <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10 transition-opacity duration-500"></div>
+                {/* Elegant White Gradient for Minimalist Text */}
+                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-white via-white/80 to-transparent z-10 transition-opacity duration-500 opacity-90"></div>
                 
-                <div className="relative z-20 flex flex-col gap-1 md:gap-2 text-left pointer-events-none">
-                    <span className="text-[10px] md:text-[11px] font-bold text-white/70 uppercase tracking-[0.3em] font-heading">
+                <div className="relative z-20 flex flex-col gap-1 md:gap-2 text-center items-center pb-8 pt-4 pointer-events-none">
+                    <span className="text-[9px] md:text-[10px] font-bold text-accent uppercase tracking-[0.2em]">
                         {product.category || (isHero ? "Featured Edit" : "Just Added")}
                     </span>
-                    <h3 className={`font-heading text-white font-bold leading-tight drop-shadow-md group-hover:text-cream transition-colors ${isHero ? 'text-3xl md:text-5xl lg:text-6xl max-w-lg' : 'text-xl md:text-3xl'}`}>
+                    <h3 className={`font-heading text-primary font-medium leading-tight group-hover:text-accent transition-colors ${isHero ? 'text-2xl md:text-4xl lg:text-4xl max-w-lg' : 'text-lg md:text-xl'}`}>
                         {product.name}
                     </h3>
                 </div>
@@ -65,47 +65,38 @@ export default function NewArrivalsSection() {
     };
 
     return (
-        <section className="bg-white pt-12 md:pt-16 pb-16 md:pb-24 px-4 md:px-12 relative overflow-hidden">
+        <section className="bg-surface pt-16 pb-12 md:pt-20 md:pb-16 px-6 md:px-12 relative overflow-hidden text-center border-t border-border/40">
             <div className="max-w-[1400px] mx-auto w-full relative z-10 flex flex-col items-center">
 
-                {/* Header with Title and Inline Button */}
-                <div className="w-full flex flex-col md:flex-row justify-between items-center md:items-end mb-10 md:mb-16 gap-6 lg:gap-12 pl-2">
-                    <div className="text-center md:text-left flex flex-col gap-2 md:gap-4 max-w-xl">
-                        <h2 className="text-h1 text-primary">
-                            New Arrivals
-                        </h2>
-                        <p className="text-body1 text-primary/90 italic px-2 md:px-0">
-                            Fresh off the loom. Clean prints, sharp contrast, and traditional wax resilience.
-                        </p>
-                    </div>
-                    
-                    {/* Top-Aligned CTA Button */}
-                    <Link href="/new-batik-prints" className="group text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-primary border border-primary px-6 md:px-8 py-3 md:py-4 hover:bg-primary hover:text-white transition-all duration-300 flex items-center gap-2 md:gap-3 shrink-0 rounded-full md:rounded-none">
-                        View All Prints
-                        <svg className="w-4 h-4 md:w-5 md:h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </Link>
+                {/* Header Subtitle Component */}
+                <div className="w-full flex flex-col items-center mb-12 gap-3">
+                    <span className="text-overline">Fresh Off The Loom</span>
+                    <h2 className="text-h2 text-primary">
+                        New Arrivals
+                    </h2>
+                    <p className="text-body1 max-w-md mx-auto mt-1">
+                        Clean prints, sharp contrast, and traditional wax resilience. Unveil the newest batch of masterpieces.
+                    </p>
                 </div>
 
-                {/* The Bento Box Mosaic (Option 3) */}
-                <div className="flex flex-col lg:flex-row gap-4 md:gap-6 w-full h-[850px] lg:h-[550px]">
+                {/* Glass Container Mosaic */}
+                <div className="flex flex-col lg:flex-row gap-5 md:gap-6 w-full h-[900px] lg:h-[550px]">
                     
                     {/* Left: Huge Hero Block */}
                     <Link
                         href={getProductPathByName(heroProduct.name, heroProduct.category) || `/products/${heroProduct._id || heroProduct.id}`}
-                        className="group relative w-full lg:w-[60%] h-[55%] lg:h-full rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-neutral-900 flex flex-col justify-end p-8 md:p-12 shadow-md hover:shadow-xl transition-shadow duration-500"
+                        className="group relative w-full lg:w-[60%] h-[50%] lg:h-full rounded-2xl overflow-hidden bg-white flex flex-col justify-end shadow-md border border-border/40 transition-transform duration-500 hover:-translate-y-1"
                     >
                         {renderBentoCard(heroProduct, true)}
                     </Link>
 
                     {/* Right: Stacked Sub-Blocks */}
-                    <div className="w-full lg:w-[40%] flex flex-col gap-4 md:gap-6 h-[45%] lg:h-full">
+                    <div className="w-full lg:w-[40%] flex flex-col gap-5 md:gap-6 h-[50%] lg:h-full">
                         
                         {/* Top Right */}
                         <Link
                             href={getProductPathByName(product2.name, product2.category) || `/products/${product2._id || product2.id}`}
-                            className="group relative w-full h-[50%] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-neutral-900 flex flex-col justify-end p-6 md:p-10 shadow-sm hover:shadow-xl transition-shadow duration-500"
+                            className="group relative w-full h-[50%] rounded-2xl overflow-hidden bg-white flex flex-col justify-end shadow-md border border-border/40 transition-transform duration-500 hover:-translate-y-1"
                         >
                             {renderBentoCard(product2, false)}
                         </Link>
@@ -113,12 +104,18 @@ export default function NewArrivalsSection() {
                         {/* Bottom Right */}
                         <Link
                             href={getProductPathByName(product3.name, product3.category) || `/products/${product3._id || product3.id}`}
-                            className="group relative w-full h-[50%] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-neutral-900 flex flex-col justify-end p-6 md:p-10 shadow-sm hover:shadow-xl transition-shadow duration-500"
+                            className="group relative w-full h-[50%] rounded-2xl overflow-hidden bg-white flex flex-col justify-end shadow-md border border-border/40 transition-transform duration-500 hover:-translate-y-1"
                         >
                             {renderBentoCard(product3, false)}
                         </Link>
                         
                     </div>
+                </div>
+
+                <div className="mt-12 w-full flex justify-center">
+                    <Link href="/new-batik-prints" className="bg-transparent border border-primary/15 hover:border-accent text-primary px-8 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shrink-0 hover:text-accent">
+                        View All Collections
+                    </Link>
                 </div>
             </div>
         </section>
