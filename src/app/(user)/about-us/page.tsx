@@ -8,6 +8,7 @@ import PremiumFeatureSection from "@/modules/user/components/PremiumFeatureSecti
 import { useBanner } from "@/modules/user/hooks/useBanner";
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
 import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
+import WavyHero from "@/modules/user/components/WavyHero";
 
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Aqsha%20Batik";
 
@@ -20,35 +21,25 @@ export default function AboutPage() {
 
 
             <Nav />
-            <ScrollObserver />            {/* ── HERO SECTION ── */}
-            <section className="relative min-h-[60svh] md:min-h-[80vh] py-32 md:py-0 w-full flex items-end md:items-center pb-8 md:pb-0 overflow-hidden bg-primary">
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src={heroBannerUrl}
-                        alt="Aqsha Batik Heritage"
-                        fill
-                        priority
-                        sizes="100vw"
-                        className="object-cover object-[center_top] md:object-center brightness-75 contrast-[1.1]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-t from-primary/20 via-primary/40 to-primary/90 md:from-primary/90 md:via-primary/20 md:to-transparent"></div>
-                </div>
-
-                <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-6 w-full flex justify-center md:justify-start text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-                    <div className="max-w-5xl flex flex-col gap-2 md:gap-6 items-center md:items-start text-center md:text-left w-full">
-                        <div className="flex items-center gap-2 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-1.5 md:px-6 md:py-2 rounded-full border border-white/20 w-fit mx-auto md:mx-0">
-                            <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-tan animate-pulse"></span>
-                            <span className="text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em]">Our Heritage</span>
-                        </div>
-                        <h1 className="text-h1">
-                            <span className="block md:whitespace-nowrap"><span className='text-accent'>Legacy</span> Craftsmanship</span>
-                            <span className="block md:whitespace-nowrap">Behind <span className='text-accent'>Every Design</span></span>
-                        </h1>
-                        <p className="text-body1 opacity-90 mt-2 md:mt-2 max-w-sm md:max-w-5xl text-white/90 text-center md:text-left mx-auto md:mx-0">Rooted in Bherugarh, Ujjain, we carry forward the legacy of traditional wax batik—refined over 15+ years into premium batik cloth, batik dresses, and high-quality batik fabric. Our collections focus on durable cotton dress material and consistent women cotton wholesale fabric, built for real market demand and ready-to-sell use.</p>
-                    </div>
-                </div>
-                <ScrollIndicator />
-            </section>
+            <ScrollObserver />            <WavyHero
+                pillText="Our Heritage"
+                pillHighlight=""
+                title={
+                    <>
+                        <span className="block md:whitespace-nowrap"><span className='text-accent'>Legacy</span> Craftsmanship</span>
+                        <span className="block md:whitespace-nowrap">Behind <span className='text-accent'>Every Design</span></span>
+                    </>
+                }
+                description="Rooted in Bherugarh, Ujjain, we carry forward the legacy of traditional wax batik—refined over 15+ years into premium batik cloth, batik dresses, and high-quality batik fabric. Our collections focus on durable cotton dress material and consistent women cotton wholesale fabric, built for real market demand and ready-to-sell use."
+                imageSrc="/about_wavy_hero.png" // Updated image
+                imageAlt="Aqsha Batik Heritage"
+                buttons={
+                    <a href={WA} target="_blank" rel="noreferrer" className="bg-accent hover:bg-accent/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z" /></svg>
+                        Get In Touch
+                    </a>
+                }
+            />
             <GoogleReviewBar />
 
             {/* ── SECTION: OUR STORY ── */}

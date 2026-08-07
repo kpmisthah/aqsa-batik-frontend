@@ -36,7 +36,7 @@ export default function NewArrivalsSection() {
     // Helper to generate the card internals
     const renderBentoCard = (product: UserProduct, isHero: boolean) => {
         const imageSrc = product.images?.[0] || product.image || "/placeholder.png";
-        
+
         return (
             <>
                 <Image
@@ -48,10 +48,10 @@ export default function NewArrivalsSection() {
                     unoptimized={true}
                     className="group-hover:scale-105 transition-transform duration-[4s] ease-out absolute inset-0 z-0"
                 />
-                
+
                 {/* Elegant White Gradient for Minimalist Text */}
                 <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-white via-white/80 to-transparent z-10 transition-opacity duration-500 opacity-90"></div>
-                
+
                 <div className="relative z-20 flex flex-col gap-1 md:gap-2 text-center items-center pb-8 pt-4 pointer-events-none">
                     <span className="text-[9px] md:text-[10px] font-bold text-accent uppercase tracking-[0.2em]">
                         {product.category || (isHero ? "Featured Edit" : "Just Added")}
@@ -81,7 +81,7 @@ export default function NewArrivalsSection() {
 
                 {/* Glass Container Mosaic */}
                 <div className="flex flex-col lg:flex-row gap-5 md:gap-6 w-full h-[900px] lg:h-[550px]">
-                    
+
                     {/* Left: Huge Hero Block */}
                     <Link
                         href={getProductPathByName(heroProduct.name, heroProduct.category) || `/products/${heroProduct._id || heroProduct.id}`}
@@ -92,7 +92,7 @@ export default function NewArrivalsSection() {
 
                     {/* Right: Stacked Sub-Blocks */}
                     <div className="w-full lg:w-[40%] flex flex-col gap-5 md:gap-6 h-[50%] lg:h-full">
-                        
+
                         {/* Top Right */}
                         <Link
                             href={getProductPathByName(product2.name, product2.category) || `/products/${product2._id || product2.id}`}
@@ -108,7 +108,7 @@ export default function NewArrivalsSection() {
                         >
                             {renderBentoCard(product3, false)}
                         </Link>
-                        
+
                     </div>
                 </div>
 

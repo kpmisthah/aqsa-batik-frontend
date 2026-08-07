@@ -8,6 +8,7 @@ import AdvantageSection from "@/modules/user/components/AdvantageSection";
 import ProductFilterLayout from "@/modules/user/components/ProductFilterLayout";
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
 import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
+import WavyHero from "@/modules/user/components/WavyHero";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
@@ -61,50 +62,29 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
             `}</style>
 
             <Nav />
-            <ScrollObserver />            {/* ── HERO SECTION ── */}
-            <section className="relative min-h-[60svh] md:min-h-screen w-full flex items-end md:items-center pb-8 md:pb-0 overflow-hidden bg-primary">
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        key={heroBannerUrl}
-                        src={heroBannerUrl}
-                        alt="<span className='text-accent'>New Arrival Batik Prints</span>"
-                        fill
-                        priority
-                        sizes="100vw"
-                        className="object-cover object-[75%_top] md:object-[center_20%] brightness-[0.7] contrast-[1.1]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black/20 via-black/20 to-black/90 md:from-black/80 md:via-black/20 md:to-transparent shadow-2xl"></div>
-                </div>
-
-                <div className="relative z-10 max-w-[1500px] mx-auto px-5 md:px-10 pt-20 md:pt-0 w-full flex justify-center md:justify-start text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-                    <div className="flex flex-col gap-6 md:gap-10 items-center md:items-start text-center md:text-left max-w-5xl w-full">
-                        <div className="flex items-center gap-2 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-1.5 md:px-6 md:py-2 rounded-full border border-white/20 w-fit">
-                            <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-tan animate-pulse"></span>
-                            <span className="text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em]">Fresh Batik Styles. Modern Women Fashion.</span>
-                        </div>
-
-                        <div className="flex flex-col gap-2 md:gap-6">
-                            <h1 className="text-h1">
-                                <span className='text-accent'>New Arrival</span> Batik Prints & <br className="hidden md:block" />
-                                Cotton Dress <span className='text-accent'>Material Collection</span>
-                            </h1>
-                            <p className="text-body1 opacity-90 mt-2 md:mt-2 max-w-sm md:max-w-5xl text-white/90 text-center md:text-left mx-auto md:mx-0 ">
-                                Explore new arrival batik prints, premium cotton dress material, floral cotton fabric, and designer printed fabric collections crafted for cotton kurtis, women clothing, boutiques, and trending ethnic fashion.
-                            </p>
-                        </div>
-
-                        <div className="flex flex-col sm:flex-row gap-3 md:gap-6 pt-2 md:pt-10 items-center md:items-start justify-center md:justify-start w-full">
-                            <a href={WA} target="_blank" rel="noreferrer" className="inline-block bg-accent text-primary px-6 py-3.5 md:px-10 md:py-4 rounded-xl font-bold text-sm md:text-lg hover:-translate-y-1 hover:shadow-2xl hover:brightness-105 active:scale-95 transition-all duration-300 uppercase tracking-widest text-center w-full sm:w-auto">
-                                Shop New Arrivals
-                            </a>
-                            <a href="/fabric-wholesale" className="inline-block bg-white/10 backdrop-blur-md text-white border-2 border-white/30 px-4 py-3 md:px-10 md:py-5 rounded-[10px] md:rounded-2xl font-black text-sm md:text-xl shadow-xl hover:bg-white hover:text-primary active:scale-95 transition-all duration-300 uppercase tracking-widest w-full sm:w-auto text-center">
-                                Get Wholesale Pricing
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <ScrollIndicator />
-            </section>
+            <ScrollObserver />            <WavyHero
+                pillText="Fresh Batik Styles. Modern Women Fashion."
+                pillHighlight=""
+                title={
+                    <>
+                        <span className='text-accent'>New Arrival</span> Batik Prints & <br className="hidden md:block" />
+                        Cotton Dress <span className='text-accent'>Material Collection</span>
+                    </>
+                }
+                description="Explore new arrival batik prints, premium cotton dress material, floral cotton fabric, and designer printed fabric collections crafted for cotton kurtis, women clothing, boutiques, and trending ethnic fashion."
+                imageSrc="/category_wavy_hero.png" // Updated image
+                imageAlt="New Arrival Batik Prints"
+                buttons={
+                    <>
+                        <a href={WA} target="_blank" rel="noreferrer" className="bg-accent hover:bg-accent/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm">
+                            Shop New Arrivals
+                        </a>
+                        <a href="/fabric-wholesale" className="border border-primary/15 hover:border-accent text-primary px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors bg-transparent hover:text-accent">
+                            Get Wholesale Pricing
+                        </a>
+                    </>
+                }
+            />
 
             <GoogleReviewBar />
 

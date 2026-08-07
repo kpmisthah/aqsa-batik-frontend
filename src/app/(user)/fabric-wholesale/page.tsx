@@ -15,6 +15,7 @@ import ProductFilterLayout from "@/modules/user/components/ProductFilterLayout";
 import { useBanner } from "@/modules/user/hooks/useBanner";
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
 import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
+import WavyHero from "@/modules/user/components/WavyHero";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
@@ -230,51 +231,30 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
             `}</style>
 
             <Nav />
-            <ScrollObserver />            {/* ── HERO SECTION ── */}
-            <section className="relative min-h-[60svh] md:min-h-screen w-full flex items-end md:items-center pb-8 md:pb-0 overflow-hidden bg-primary">
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        key={heroBannerUrl}
-                        src={heroBannerUrl}
-                        alt="Wholesale Batik Cloth Manufacturing"
-                        fill
-                        priority
-                        sizes="100vw"
-                        className="object-cover object-[center_top] md:object-[center_10%] brightness-75 contrast-[1.05]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black/20 via-black/20 to-black/90 md:from-black/80 md:via-black/20 md:to-transparent"></div>
-                </div>
-
-                <div className="relative z-10 max-w-[1500px] mx-auto px-5 md:px-10 pt-20 md:pt-0 w-full flex justify-center md:justify-start text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-                    <div className="flex flex-col gap-6 md:gap-10 items-center md:items-start text-center md:text-left max-w-5xl w-full">
-                        <div className="flex items-center gap-2 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-1.5 md:px-6 md:py-2 rounded-full border border-white/20 w-fit">
-                            <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-tan animate-pulse"></span>
-                            <span className="text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em]">Direct Batik Manufacturer from Ujjain</span>
-                        </div>
-
-                        <div className="flex flex-col gap-2 md:gap-6">
-                            <h1 className="text-h1">
-                                <span className='text-accent'>Wholesale Cotton</span> Dresses <br />
-                                in India for Batik Clothing & <br />
-                                <span className='text-accent'>Bulk Orders</span>
-                            </h1>
-                            <p className="text-body1 opacity-90 mt-2 md:mt-2 max-w-sm md:max-w-5xl text-white/90 text-center md:text-left mx-auto md:mx-0 ">
-                                Stop guessing what will sell. Work with a direct manufacturer supplying high-demand batik fabric wholesale, premium batik print material, and consistent inventory for boutiques, resellers, and growing batik clothing brands across India.
-                            </p>
-                        </div>
-
-                        <div className="flex flex-col sm:flex-row gap-3 md:gap-6 pt-2 md:pt-10 items-center md:items-start justify-center md:justify-start w-full">
-                            <a href={WA} target="_blank" rel="noreferrer" className="inline-block bg-accent text-primary px-6 py-3.5 md:px-10 md:py-4 rounded-xl font-bold text-sm md:text-lg hover:-translate-y-1 hover:shadow-2xl hover:brightness-105 active:scale-95 transition-all duration-300 uppercase tracking-widest text-center w-full sm:w-auto">
-                                Contact for Bulk Orders
-                            </a>
-                            <a href="#collection" className="inline-block border border-white/40 text-white hover:bg-white hover:text-primary px-6 py-3.5 md:px-10 md:py-4 rounded-xl font-bold text-sm md:text-lg hover:-translate-y-1 hover:shadow-2xl active:scale-95 transition-all duration-300 uppercase tracking-widest text-center w-full sm:w-auto">
-                                View Collections
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <ScrollIndicator />
-            </section>
+            <WavyHero
+                pillText="Direct Batik Manufacturer from Ujjain"
+                pillHighlight=""
+                title={
+                    <>
+                        <span className='text-accent'>Wholesale Cotton</span> Dresses <br />
+                        in India for Batik Clothing & <br />
+                        <span className='text-accent'>Bulk Orders</span>
+                    </>
+                }
+                description="Stop guessing what will sell. Work with a direct manufacturer supplying high-demand batik fabric wholesale, premium batik print material, and consistent inventory for boutiques, resellers, and growing batik clothing brands across India."
+                imageSrc="/wholesale_wavy_hero.png" // Updated image
+                imageAlt="Wholesale Batik Cloth Manufacturing"
+                buttons={
+                    <>
+                        <a href={WA} target="_blank" rel="noreferrer" className="bg-accent hover:bg-accent/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm">
+                            Contact for Bulk Orders
+                        </a>
+                        <a href="#collection" className="border border-primary/15 hover:border-accent text-primary px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors bg-transparent hover:text-accent">
+                            View Collections
+                        </a>
+                    </>
+                }
+            />
             <GoogleReviewBar />
 
             {/* ── SECTION: PROBLEM/SOLUTION (BENTO BOX) ── */}

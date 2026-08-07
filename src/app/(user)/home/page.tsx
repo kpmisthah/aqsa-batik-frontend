@@ -227,8 +227,8 @@ export default function HomePage() {
               <div key={i} className="flex flex-col group border-t border-border/60 pt-6 hover:border-accent/40 transition-colors duration-500">
                 <span className="text-overline text-foreground mb-6 font-mono">0{i + 1}</span>
                 <h4 className="text-h4 mb-3">{item.t}</h4>
-                <p className="text-body2 mb-6 flex-grow">{item.d}</p>
-                <a href={WA} className="text-[10px] uppercase tracking-[0.15em] font-medium opacity-50 group-hover:opacity-100 group-hover:text-accent flex items-center gap-3 transition-all">
+                <p className="text-[13px] leading-relaxed text-foreground font-medium mb-6 flex-grow">{item.d}</p>
+                <a href={WA} className="text-[10px] text-foreground uppercase tracking-[0.15em] font-bold group-hover:text-accent flex items-center gap-3 transition-all">
                   {item.b} <span className="text-base leading-none">&rarr;</span>
                 </a>
               </div>
@@ -241,7 +241,7 @@ export default function HomePage() {
       <section id="about" className="pt-20 pb-24 md:pt-28 md:pb-40 bg-cream">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-32 items-center">
           <div className="relative w-full aspect-[4/5] bg-cream overflow-hidden">
-            <Image src="/beautiful dresses for women image.webp" alt="Aqsha Roots" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover opacity-80 grayscale-[20%] hover:scale-105 transition-transform duration-[3s]" />
+            <Image src="/batik_heritage_editorial.png" alt="Aqsha Roots" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover hover:scale-105 transition-transform duration-[3s]" />
           </div>
 
           <div className="flex flex-col gap-12">
@@ -250,7 +250,7 @@ export default function HomePage() {
               <h2 className="text-h2">The Journey Behind Aqsha Suits</h2>
             </div>
 
-            <div className="flex flex-col gap-8 text-body1">
+            <div className="flex flex-col gap-8 text-black text-[13px] md:text-[15px] font-medium leading-relaxed">
               <p>
                 From 15 handmade suits for women in Bherugarh, Ujjain to supplying wholesalers and boutiques across India. This journey was built on consistency and an intimate understanding of modern apparel demand.
               </p>
@@ -271,7 +271,7 @@ export default function HomePage() {
               ].map((stat, i) => (
                 <div key={i} className="flex flex-col gap-2">
                   <span className="text-h3">{stat.v}</span>
-                  <span className="text-[10px] uppercase tracking-widest text-foreground">{stat.l}</span>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-black">{stat.l}</span>
                 </div>
               ))}
             </div>

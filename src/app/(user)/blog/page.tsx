@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { categories, faqs } from '@/data/blogPosts';
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
 import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
+import WavyHero from "@/modules/user/components/WavyHero";
 
 
 export const metadata: Metadata = {
@@ -57,49 +58,28 @@ export default async function BlogIndexPage() {
     return (
         <div className="bg-[#FDFBF7] min-h-screen font-body text-primary">
             <Nav />
-            <ScrollObserver />            {/* ── HERO BANNER ── */}
-            <section className="relative min-h-[60svh] md:min-h-screen w-full flex items-end md:items-center pb-8 md:pb-0 overflow-hidden bg-primary pt-24 md:pt-0">
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        key={heroBannerUrl}
-                        src={heroBannerUrl}
-                        alt="Women Clothing & Batik <span className='text-accent'>Fashion Trends</span> Blog"
-                        fill
-                        priority
-                        sizes="100vw"
-                        className="object-cover object-[75%_top] md:object-center brightness-[0.8] contrast-[1.1]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black/40 via-black/40 to-black/90 md:from-black/90 md:via-black/50 md:to-transparent shadow-2xl"></div>
-                </div>
-
-                <div className="relative z-10 max-w-[1500px] mx-auto px-5 md:px-10 pt-20 md:pt-0 w-full flex justify-center md:justify-start text-white drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-                    <div className="flex flex-col gap-6 md:gap-10 items-center md:items-start text-center md:text-left max-w-5xl w-full">
-                        <div className="flex items-center gap-2 md:gap-4 bg-white/10 backdrop-blur-md px-3 py-1.5 md:px-6 md:py-2 rounded-full border border-white/20 w-fit">
-                            <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-tan animate-pulse"></span>
-                            <span className="text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em]">Home &gt; Blog</span>
-                        </div>
-
-                        <div className="flex flex-col gap-2 md:gap-6">
-                            <h1 className="text-h1">
-                                <span className='text-accent'>Women Clothing</span>, Batik Fabric <br className="hidden md:block" /> &amp; <span className='text-accent'>Fashion Trends</span> Blog
-                            </h1>
-                            <p className="text-body1 opacity-90 mt-2 md:mt-2 max-w-sm md:max-w-5xl text-white/90 text-center md:text-left mx-auto md:mx-0 ">
-                                Explore expert insights on women clothing, batik fabric, batik cloth, cotton dresses for women, and the latest fashion trends. Learn how to choose premium fabrics, discover stylish women clothing collections, and stay updated with wholesale buying guides directly from manufacturers.
-                            </p>
-                        </div>
-
-                        <div className="flex flex-col sm:flex-row gap-3 md:gap-6 pt-2 md:pt-10 items-center md:items-start justify-center md:justify-start w-full">
-                            <a href="#articles" className="inline-block bg-accent text-primary px-6 py-3.5 md:px-10 md:py-4 rounded-xl font-bold text-sm md:text-lg hover:-translate-y-1 hover:shadow-2xl hover:brightness-105 active:scale-95 transition-all duration-300 uppercase tracking-widest text-center w-full sm:w-auto">
-                                Explore Articles
-                            </a>
-                            <a href="/wholesale" className="inline-flex items-center justify-center gap-2 md:gap-3 border border-white/40 text-white hover:bg-white hover:text-primary px-6 py-3.5 md:px-10 md:py-4 rounded-xl font-bold text-sm md:text-lg hover:-translate-y-1 hover:shadow-2xl active:scale-95 transition-all duration-300 uppercase tracking-widest text-center w-full sm:w-auto">
-                                Get Wholesale Catalogue
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <ScrollIndicator />
-            </section>
+            <WavyHero
+                pillText="Home > Blog"
+                pillHighlight=""
+                title={
+                    <>
+                        <span className='text-accent'>Women Clothing</span>, Batik Fabric <br className="hidden md:block" /> &amp; <span className='text-accent'>Fashion Trends</span> Blog
+                    </>
+                }
+                description="Explore expert insights on women clothing, batik fabric, batik cloth, cotton dresses for women, and the latest fashion trends. Learn how to choose premium fabrics, discover stylish women clothing collections, and stay updated with wholesale buying guides directly from manufacturers."
+                imageSrc="/blog_wavy_hero.png" // Updated image
+                imageAlt="Women Clothing &amp; Batik Fashion Trends Blog"
+                buttons={
+                    <>
+                        <a href="#articles" className="bg-accent hover:bg-accent/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm">
+                            Explore Articles
+                        </a>
+                        <a href="/wholesale" className="border border-primary/15 hover:border-accent text-primary px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors bg-transparent hover:text-accent">
+                            Get Wholesale Catalogue
+                        </a>
+                    </>
+                }
+            />
 
             {/* ── FEATURED ARTICLE ── */}
             <section className="scroll-animate py-20 px-6 bg-[#FDFBF7]">
