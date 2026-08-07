@@ -22,21 +22,15 @@ export default function LeadGenerationForm() {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // WhatsApp Phone Number (using the support number)
         const waNumber = "8815373767";
-
-        // Construct the pre-filled message
         const message = `*New Wholesale Inquiry* 🏢\n\n*Name:* ${formData.fullName}\n*Phone:* ${formData.phone}\n*Business:* ${formData.businessName}\n*Est. Order Value:* ${formData.orderValue || 'Not specified'}\n\nHi team, I would like to get a personalized quote and the latest wholesale price list.`;
 
-        // Encode and create URL
         const encodedMessage = encodeURIComponent(message);
         const waUrl = `https://wa.me/${waNumber}?text=${encodedMessage}`;
 
-        // Small delay for UX button feedback, then open WhatsApp
         setTimeout(() => {
             window.open(waUrl, '_blank');
             setIsSubmitting(false);
-            // Reset form
             setFormData({
                 fullName: "",
                 phone: "",
@@ -47,34 +41,30 @@ export default function LeadGenerationForm() {
     };
 
     return (
-        <section id="enquiry-form" className="py-10 md:py-24 lg:py-32 px-6 bg-white relative overflow-hidden">
-            {/* Subtle background element */}
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-cream/30 -skew-x-12 translate-x-1/2 pointer-events-none"></div>
-
-            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-20 items-center relative z-10">
+        <section id="enquiry-form" className="py-16 lg:py-24 px-6 bg-cream relative overflow-hidden border-t border-primary/5">
+            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-center relative z-10">
                 {/* Left Side: Content & Benefits */}
-                <div className="flex-1 flex flex-col gap-6 md:gap-10">
-                    <div className="flex flex-col gap-3 md:gap-6 text-center md:text-left items-center md:items-start">
-                        <span className="text-[10px] font-bold text-secondary uppercase tracking-[0.4em]">Get Wholesale Pricing</span>
-                        <h2 className="font-heading text-2xl md:text-4xl font-bold text-primary leading-[1.1]">
-                            Get Personalized Batik Fabric Pricing &amp; Latest Catalog
+                <div className="flex-1 flex flex-col gap-8 md:gap-10 text-center md:text-left">
+                    <div className="flex flex-col gap-4 items-center md:items-start">
+                        <span className="text-xl leading-none text-accent">&diams; <span className="text-[11px] font-bold uppercase tracking-[0.25em] ml-2 text-foreground">Partnership</span></span>
+                        <h2 className="text-h2 font-medium text-primary">
+                            Get Personalized Batik Fabric Pricing & Catalog
                         </h2>
-                        <p className="text-sm md:text-lg text-primary/90 font-medium leading-relaxed max-w-xl text-center md:text-left mt-2 md:mt-0">
+                        <p className="text-body1 text-foreground font-medium leading-relaxed max-w-xl text-center md:text-left mt-2">
                             Receive wholesale pricing, latest batik design collections, and ready-stock updates directly from AQSHA BATIK SUITS within hours.
                         </p>
                     </div>
 
-                    <ul className="flex flex-col gap-3 md:gap-6 mt-2 md:mt-0 w-fit mx-auto md:mx-0 text-left">
+                    <ul className="flex flex-col gap-4 w-fit mx-auto md:mx-0 text-left">
                         {[
                             "Latest Batik Collection Catalog",
                             "Wholesale Pricing Support",
                             "Fast WhatsApp Assistance",
                             "Bulk Order Guidance",
-                            "Ready Stock Updates"
                         ].map((benefit, i) => (
-                            <li key={i} className="flex items-center gap-2 md:gap-4 text-[12px] md:text-lg font-bold text-primary">
-                                <div className="w-4 h-4 md:w-6 md:h-6 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 shrink-0">
-                                    <svg className="w-2.5 h-2.5 md:w-3.5 md:h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+                            <li key={i} className="flex items-center gap-4 text-base font-medium text-primary">
+                                <div className="w-8 h-8 rounded-full bg-white border border-primary/10 flex items-center justify-center text-accent shrink-0 shadow-sm">
+                                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
                                 </div>
                                 {benefit}
                             </li>
@@ -83,11 +73,11 @@ export default function LeadGenerationForm() {
                 </div>
 
                 {/* Right Side: Form Card */}
-                <div className="flex-1 w-full max-w-xl">
-                    <div className="bg-cream p-5 md:p-12 rounded-[24px] md:rounded-[50px] shadow-[0_30px_100px_rgba(0,0,0,0.05)] border border-white">
-                        <form onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-8">
-                            <div className="flex flex-col gap-1.5 md:gap-3">
-                                <label className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-primary ml-1">Full Name</label>
+                <div className="flex-1 w-full max-w-lg">
+                    <div className="bg-white p-8 md:p-12 rounded-[2rem] shadow-xl border border-primary/5">
+                        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+                            <div className="flex flex-col gap-2">
+                                <label className="text-[10px] font-bold uppercase tracking-widest text-foreground ml-1">Full Name</label>
                                 <input
                                     type="text"
                                     name="fullName"
@@ -95,12 +85,12 @@ export default function LeadGenerationForm() {
                                     value={formData.fullName}
                                     onChange={handleChange}
                                     placeholder="John Doe"
-                                    className="w-full bg-white border border-primary/20 rounded-xl md:rounded-2xl px-3 py-2.5 md:px-5 md:py-4 text-sm md:text-base text-primary font-bold placeholder:text-primary/40 focus:outline-none focus:ring-2 focus:ring-secondary/20 transition-all shadow-sm md:shadow-md"
+                                    className="w-full bg-cream border border-primary/10 rounded-xl px-5 py-3.5 text-sm text-primary font-medium placeholder:text-primary/40 focus:outline-none focus:ring-1 focus:ring-accent transition-all"
                                 />
                             </div>
 
-                            <div className="flex flex-col gap-1.5 md:gap-3">
-                                <label className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-primary ml-1">Business Phone Number</label>
+                            <div className="flex flex-col gap-2">
+                                <label className="text-[10px] font-bold uppercase tracking-widest text-foreground ml-1">Business Phone</label>
                                 <input
                                     type="tel"
                                     name="phone"
@@ -108,32 +98,32 @@ export default function LeadGenerationForm() {
                                     value={formData.phone}
                                     onChange={handleChange}
                                     placeholder="+91 00000 00000"
-                                    className="w-full bg-white border border-primary/20 rounded-xl md:rounded-2xl px-3 py-2.5 md:px-5 md:py-4 text-sm md:text-base text-primary font-bold placeholder:text-primary/40 focus:outline-none focus:ring-2 focus:ring-secondary/20 transition-all shadow-sm md:shadow-md"
+                                    className="w-full bg-cream border border-primary/10 rounded-xl px-5 py-3.5 text-sm text-primary font-medium placeholder:text-primary/40 focus:outline-none focus:ring-1 focus:ring-accent transition-all"
                                 />
                             </div>
 
-                            <div className="flex flex-col gap-1.5 md:gap-3">
-                                <label className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-primary ml-1">Business Name</label>
+                            <div className="flex flex-col gap-2">
+                                <label className="text-[10px] font-bold uppercase tracking-widest text-foreground ml-1">Business Name</label>
                                 <input
                                     type="text"
                                     name="businessName"
                                     required
                                     value={formData.businessName}
                                     onChange={handleChange}
-                                    placeholder="Boutique or Export House Name"
-                                    className="w-full bg-white border border-primary/20 rounded-xl md:rounded-2xl px-3 py-2.5 md:px-5 md:py-4 text-sm md:text-base text-primary font-bold placeholder:text-primary/40 focus:outline-none focus:ring-2 focus:ring-secondary/20 transition-all shadow-sm md:shadow-md"
+                                    placeholder="Boutique or Export House"
+                                    className="w-full bg-cream border border-primary/10 rounded-xl px-5 py-3.5 text-sm text-primary font-medium placeholder:text-primary/40 focus:outline-none focus:ring-1 focus:ring-accent transition-all"
                                 />
                             </div>
 
-                            <div className="flex flex-col gap-1.5 md:gap-3">
-                                <label className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-primary ml-1">Estimated Order Value</label>
+                            <div className="flex flex-col gap-2">
+                                <label className="text-[10px] font-bold uppercase tracking-widest text-foreground ml-1">Order Value</label>
                                 <div className="relative">
                                     <select
                                         name="orderValue"
                                         required
                                         value={formData.orderValue}
                                         onChange={handleChange}
-                                        className="w-full bg-white border border-primary/20 rounded-xl md:rounded-2xl px-3 py-2.5 md:px-5 md:py-4 text-sm md:text-base text-primary font-bold appearance-none focus:outline-none focus:ring-2 focus:ring-secondary/20 transition-all shadow-sm md:shadow-md cursor-pointer"
+                                        className={`w-full bg-cream border border-primary/10 rounded-xl px-5 py-3.5 text-sm font-medium focus:outline-none focus:ring-1 focus:ring-accent transition-all appearance-none cursor-pointer ${!formData.orderValue ? 'text-primary/40' : 'text-primary'}`}
                                     >
                                         <option value="" disabled>Select range</option>
                                         <option value="₹25k - ₹50k">₹25,000 - ₹50,000</option>
@@ -141,8 +131,8 @@ export default function LeadGenerationForm() {
                                         <option value="₹1 Lakh - ₹5 Lakh">₹1,00,000 - ₹5,00,000</option>
                                         <option value="Above ₹5 Lakh">Above ₹5,00,000</option>
                                     </select>
-                                    <div className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 pointer-events-none opacity-60">
-                                        <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
+                                    <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none opacity-50">
+                                        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
                                     </div>
                                 </div>
                             </div>
@@ -150,17 +140,16 @@ export default function LeadGenerationForm() {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="w-full bg-primary text-white py-3 md:py-5 rounded-xl md:rounded-2xl font-black text-sm md:text-xl hover:bg-black hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl uppercase tracking-widest flex items-center justify-center gap-2 md:gap-4 mt-2 md:mt-4 disabled:opacity-70 disabled:hover:scale-100"
+                                className="w-full bg-accent hover:bg-[#a68246] text-white py-4 rounded-full font-bold text-[11px] uppercase tracking-widest transition-colors shadow-xl shadow-accent/20 flex items-center justify-center gap-3 mt-4 disabled:opacity-70"
                             >
                                 {isSubmitting ? (
                                     <>
-                                        <Loader2 size={24} className="animate-spin" />
+                                        <Loader2 size={18} className="animate-spin" />
                                         Processing...
                                     </>
                                 ) : (
                                     <>
                                         Get Wholesale Price List
-                                        <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
                                     </>
                                 )}
                             </button>
