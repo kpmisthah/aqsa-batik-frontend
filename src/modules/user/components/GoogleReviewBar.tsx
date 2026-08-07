@@ -65,16 +65,16 @@ export default function GoogleReviewBar() {
     const review = reviews[reviewIndex];
 
     return (
-        <section className="scroll-animate relative z-20 bg-[#f5f5f5] border-y border-gray-200 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
+        <section className="scroll-animate relative z-20 bg-white border-y border-primary/5 shadow-sm">
             <div className="max-w-[1400px] mx-auto px-6 md:px-20 py-6 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
                 {/* LEFT — Business + Rating */}
                 <div className="flex items-center gap-5 shrink-0">
                     {/* Logo mark */}
                     <div className="flex flex-col items-center leading-none select-none">
-                        <span className="font-heading text-lg font-bold tracking-tight text-[#1a0f0a]">
+                        <span className="font-heading text-lg font-medium tracking-tight text-primary">
                             AQSHA
                         </span>
-                        <span className="text-[6px] font-black tracking-[0.2em] uppercase text-[#1a0f0a]/50">
+                        <span className="text-[6px] font-bold tracking-[0.25em] uppercase text-foreground">
                             Batik Cloth
                         </span>
                     </div>
@@ -82,7 +82,7 @@ export default function GoogleReviewBar() {
                     <div className="flex flex-col gap-1">
                         <div className="flex items-center gap-2">
                             <GoogleGIcon />
-                            <span className="font-semibold text-[#1a0f0a] text-base">
+                            <span className="font-medium text-primary text-base">
                                 Google Review
                             </span>
                         </div>
@@ -91,24 +91,24 @@ export default function GoogleReviewBar() {
                                 <StarIcon key={i} />
                             ))}
                         </div>
-                        <span className="text-sm text-gray-500 font-medium">
+                        <span className="text-xs text-foreground font-medium">
                             Rating 4.9 | 794 reviews
                         </span>
-                        <span className="text-xs text-gray-400 font-medium">
+                        <span className="text-[10px] uppercase font-bold tracking-widest text-foreground">
                             Premium Batik Manufacturer
                         </span>
                     </div>
                 </div>
 
                 {/* DIVIDER */}
-                <div className="hidden lg:block w-px h-20 bg-gray-300" />
+                <div className="hidden lg:block w-px h-20 bg-primary/10" />
 
                 {/* CENTER — Testimonial */}
-                <div className="flex-1 min-w-0">
-                    <p className="font-semibold text-base text-[#1a0f0a] mb-1">
+                <div className="flex-1 min-w-0 px-2 lg:px-6">
+                    <p className="font-medium font-heading text-lg text-primary mb-2">
                         {review.name}
                     </p>
-                    <p className="text-base text-gray-600 leading-relaxed line-clamp-3">
+                    <p className="text-sm md:text-base text-foreground leading-relaxed font-medium line-clamp-3">
                         &ldquo;{review.text}&rdquo;
                     </p>
                 </div>
@@ -116,7 +116,7 @@ export default function GoogleReviewBar() {
                 {/* RIGHT — Badge + CTA */}
                 <div className="flex items-center gap-5 shrink-0">
                     {/* Rating badge */}
-                    <div className="bg-[#1a0f0a] text-white rounded-lg px-4 py-3 flex flex-col items-center justify-center gap-1 min-w-[64px]">
+                    <div className="bg-primary text-white rounded-xl px-4 py-3 flex flex-col items-center justify-center gap-1 min-w-[64px] shadow-sm">
                         <div className="flex gap-0.5">
                             {[...Array(5)].map((_, i) => (
                                 <svg
@@ -124,20 +124,20 @@ export default function GoogleReviewBar() {
                                     width="10"
                                     height="10"
                                     viewBox="0 0 24 24"
-                                    fill="#FBBC04"
+                                    fill="#c29b57"
                                 >
                                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                 </svg>
                             ))}
                         </div>
-                        <span className="text-xl font-bold leading-none">4.9</span>
+                        <span className="text-xl font-heading font-medium leading-none">4.9</span>
                     </div>
 
                     <a
                         href={GOOGLE_REVIEW_URL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="border border-gray-400 text-[#1a0f0a] text-sm font-semibold px-5 py-2.5 rounded hover:bg-gray-200 transition-colors whitespace-nowrap"
+                        className="bg-transparent border border-primary/20 text-primary hover:border-primary text-[10px] uppercase tracking-widest font-bold px-6 py-3 rounded-full transition-colors whitespace-nowrap"
                     >
                         Go to Google Reviews
                     </a>
