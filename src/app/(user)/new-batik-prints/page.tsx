@@ -100,7 +100,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 max-w-6xl mx-auto w-full">
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10 max-w-6xl mx-auto w-full">
                         {[
                             {
                                 t: "Trending Batik Print Designs",
@@ -131,13 +131,13 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                                 )
                             }
                         ].map((item, i) => (
-                            <div key={i} className="flex flex-col items-start gap-4 p-6 sm:p-8 bg-white rounded-[24px] shadow-sm border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group text-left h-full">
-                                <div className="flex items-center justify-center w-12 h-12 rounded-[14px] bg-[#F5F1EC] border border-border text-primary group-hover:bg-accent group-hover:text-white transition-all duration-300 shrink-0 [&>svg]:w-5 [&>svg]:h-5">
+                            <div key={i} className={`flex flex-col items-center sm:items-start gap-3 sm:gap-4 p-4 sm:p-8 bg-white rounded-[24px] shadow-sm border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group text-center sm:text-left h-full ${i === 2 ? 'col-span-2 md:col-span-1' : ''}`}>
+                                <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-[14px] bg-[#F5F1EC] border border-border text-primary group-hover:bg-accent group-hover:text-white transition-all duration-300 shrink-0 [&>svg]:w-5 [&>svg]:h-5">
                                     {item.i}
                                 </div>
                                 <div className="flex flex-col gap-2 mt-1">
-                                    <h4 className="text-h4 text-primary leading-tight">{item.t}</h4>
-                                    <p className="text-[13px] sm:text-[14px] text-primary/80 leading-relaxed font-medium">{item.d}</p>
+                                    <h4 className="text-[13px] sm:text-h4 text-primary leading-tight font-bold sm:font-heading sm:font-normal">{item.t}</h4>
+                                    <p className="text-[11px] sm:text-[14px] text-primary/80 leading-relaxed font-medium">{item.d}</p>
                                 </div>
                             </div>
                         ))}
@@ -323,7 +323,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
                     <div className="flex flex-col gap-3 md:gap-6 text-center items-center max-w-4xl mx-auto w-full">
                         <span className="text-overline">Fashion & Trend Journal</span>
-                        <h2 className="font-heading text-xl sm:text-2xl md:text-4xl font-normal text-primary leading-tight whitespace-nowrap sm:whitespace-normal">The Batik Print Fashion Guide</h2>
+                        <h2 className="font-heading text-xl sm:text-2xl md:text-4xl font-normal text-primary leading-tight">The Batik Print <br className="block md:hidden"/> Fashion Guide</h2>
                         <p className="text-lg md:text-xl text-primary/80 font-normal leading-relaxed mt-2 text-center w-full">Explore insights on batik print fabric, cotton dress material, designer printed fabric, and trending women ethnic fashion collections shaping today’s style market.</p>
                     </div>
 

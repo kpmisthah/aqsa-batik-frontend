@@ -344,7 +344,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                     {/* Section Header */}
                     <div className="flex flex-col gap-3 md:gap-4 text-center items-center max-w-5xl mx-auto w-full">
                         <span className="text-overline">FASHION & FABRIC JOURNAL</span>
-                        <h2 className="text-h2 font-heading text-primary leading-tight">The Batik Fabric Journal</h2>
+                        <h2 className="text-h2 font-heading text-primary leading-tight">The Batik Fabric <br className="block md:hidden"/> Journal</h2>
                         <div className="w-16 h-[2px] bg-secondary mt-2"></div>
                         <p className="text-lg md:text-xl text-primary leading-relaxed mt-2">
                             Insights on batik fabric, latest batik fabric prints, styling ideas, and trends shaping modern women clothing and dress material demand.

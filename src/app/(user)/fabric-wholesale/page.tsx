@@ -237,9 +237,10 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                 pillHighlight=""
                 title={
                     <>
-                        <span className='text-accent'>Wholesale Cotton</span> Dresses <br />
-                        in India for Batik Clothing & <br />
-                        <span className='text-accent'>Bulk Orders</span>
+                        <span className='text-accent'>wholesale cotton</span> <br className="block md:hidden" />
+                        Dresses in India <br className="block md:hidden" />
+                        for batik clothing & <br className="hidden md:block" /> <br className="block md:hidden" />
+                        <span className='text-accent'>Bulk orders</span>
                     </>
                 }
                 description="Stop guessing what will sell. Work with a direct manufacturer supplying high-demand batik fabric wholesale, premium batik print material, and consistent inventory for boutiques, resellers, and growing batik clothing brands across India."
@@ -259,11 +260,11 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
             <GoogleReviewBar />
 
             {/* ── SECTION: PROBLEM/SOLUTION (BENTO BOX) ── */}
-            <section className="scroll-animate pt-16 md:pt-32 pb-4 md:pb-8 px-6 bg-transparent">
+            <section className="scroll-animate pt-8 md:pt-32 pb-4 md:pb-8 px-6 bg-transparent">
                 <div className="max-w-[1400px] mx-auto flex flex-col gap-12 md:gap-16">
                     <div className="flex flex-col gap-3 md:gap-4 text-center items-center max-w-3xl mx-auto w-full">
                         <span className="text-overline">Streamline Your Sourcing</span>
-                        <h2 className="text-h2 font-heading text-primary">Solving Challenges for Retailers</h2>
+                        <h2 className="text-h2 font-heading text-primary">Solving Challenges <br className="block md:hidden" /> for Retailers</h2>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 max-w-5xl mx-auto w-full">
@@ -427,7 +428,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
             {/* ── SECTION: NEXT STEPS ── */}
             <section className="scroll-animate py-16 md:py-32 px-6 bg-[#F4F0EA] overflow-hidden text-primary">
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
-                    <div className="flex flex-col gap-3 md:gap-6 text-left md:text-center max-w-4xl mx-auto w-full">
+                    <div className="flex flex-col gap-3 md:gap-6 text-center items-center max-w-4xl mx-auto w-full">
                         <span className="text-overline">Next Step</span>
                         <h2 className="text-h2 font-heading text-primary">Continue Your Sourcing Journey</h2>
                         <p className="text-lg md:text-xl text-primary font-normal leading-relaxed mt-2">
@@ -435,7 +436,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-10">
                         {[
                             {
                                 t: "Explore Batik Cloth",
@@ -490,7 +491,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                     {/* Section Header */}
                     <div className="flex flex-col gap-3 md:gap-4 text-center items-center max-w-5xl mx-auto w-full">
                         <span className="text-overline">FASHION & FABRIC JOURNAL</span>
-                        <h2 className="text-h2 font-heading text-primary leading-tight">The Batik Wholesale Fabric Journal</h2>
+                        <h2 className="text-h2 font-heading text-primary leading-tight">The Batik Wholesale <br className="block md:hidden"/> Fabric Journal</h2>
                         <div className="w-16 h-[2px] bg-secondary mt-2"></div>
                         <p className="text-lg md:text-xl text-primary font-normal leading-relaxed mt-2">
                             Insights on fabric wholesale, sourcing strategies, trending batik clothing, and practical dress design ideas to help boutiques and resellers choose the right stock, improve margins, and scale with confidence.
