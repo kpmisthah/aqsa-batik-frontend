@@ -227,16 +227,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── TARGET AUDIENCE / PARTNERSHIP ── */}
+      {/* ── TARGET AUDIENCE ── */}
       <section className="scroll-animate pt-16 pb-24 md:pt-20 md:pb-32 bg-cream">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col gap-12 md:gap-16">
           <div className="flex flex-col gap-3 text-center items-center">
             <span className="text-overline">Engineered For Partners</span>
             <h2 className="text-h2">A Partnership in Style</h2>
-          </div>
-          
-          <div className="-mx-6 md:-mx-12">
-             <LeadGenerationForm />
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 md:gap-x-10 gap-y-8 md:gap-y-12">
@@ -271,7 +267,9 @@ export default function HomePage() {
           {/* Mobile-Only Heading (Appears before image on mobile) */}
           <div className="flex lg:hidden flex-col gap-3 text-center items-center w-full">
             <span className="text-[11px] uppercase tracking-[0.3em] font-bold text-accent">Our Story</span>
-            <h2 className="text-h2 text-primary leading-[1.1]">The Journey Behind Aqsha Suits</h2>
+            <h2 className="text-h2 text-primary leading-[1.1]">
+              The Journey Behind <br /> Aqsha Suits
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24 items-center w-full">
@@ -359,7 +357,9 @@ export default function HomePage() {
 
           <div className="flex flex-col gap-3 md:gap-6 lg:w-[400px] shrink-0 min-w-0 text-center lg:text-left items-center lg:items-start w-full">
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/80">Real Buyers. Real Results.</span>
-            <h2 className="text-h2 text-center lg:text-left">Don't Just Take Our Word For It.</h2>
+            <h2 className="text-h2 text-center lg:text-left">
+              Don't Just Take <br className="md:hidden" /> Our Word For It.
+            </h2>
             {/* Desktop Only Paragraph */}
             <p className="hidden lg:block text-sm md:text-base text-primary/80 font-medium leading-relaxed max-w-md mt-2">
               Over 1,000+ retail partners and boutique owners trust our fabric every day. Swipe through raw, unedited feedback directly from our WhatsApp orders.
@@ -448,7 +448,9 @@ export default function HomePage() {
         <div className="max-w-[1400px] mx-auto flex flex-col items-center text-center gap-12">
           <div className="flex flex-col gap-3 max-w-2xl items-center">
             <span className="text-overline">The Investment</span>
-            <h2 className="text-h2">Why Smart Sellers Prefer Aqsha</h2>
+            <h2 className="text-h2">
+              Why Smart Sellers <br className="md:hidden" /> Prefer Aqsha
+            </h2>
             <p className="text-body1 mt-1 leading-relaxed text-primary/80 font-medium">
               You are investing in clothing collections built around repeat demand, breathable comfort, and wearable styles that customers genuinely come back to buy.
             </p>
@@ -497,6 +499,7 @@ export default function HomePage() {
       </section>
 
       <FAQ />
+      <LeadGenerationForm />
       <StickyEnquiryButton />
     </div>
   );

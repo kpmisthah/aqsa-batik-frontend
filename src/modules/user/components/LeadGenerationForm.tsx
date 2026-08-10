@@ -55,7 +55,8 @@ export default function LeadGenerationForm() {
                         </p>
                     </div>
 
-                    <ul className="flex flex-col gap-4 w-fit mx-auto md:mx-0 text-left">
+                    {/* Desktop Points (Hidden on mobile) */}
+                    <ul className="hidden lg:flex flex-col gap-4 w-fit mx-auto md:mx-0 text-left">
                         {[
                             "Latest Batik Collection Catalog",
                             "Wholesale Pricing Support",
@@ -156,6 +157,26 @@ export default function LeadGenerationForm() {
                         </form>
                     </div>
                 </div>
+
+                {/* Mobile Points (Shown after form on mobile) */}
+                <div className="flex lg:hidden w-full flex-col mt-4">
+                    <ul className="flex flex-col gap-4 w-fit mx-auto text-left">
+                        {[
+                            "Latest Batik Collection Catalog",
+                            "Wholesale Pricing Support",
+                            "Fast WhatsApp Assistance",
+                            "Bulk Order Guidance",
+                        ].map((benefit, i) => (
+                            <li key={i} className="flex items-center gap-4 text-sm font-medium text-primary">
+                                <div className="w-8 h-8 rounded-full bg-white border border-primary/10 flex items-center justify-center text-accent shrink-0 shadow-sm">
+                                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+                                </div>
+                                {benefit}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
             </div>
         </section>
     );
