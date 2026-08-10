@@ -281,7 +281,7 @@ export default async function BlogIndexPage() {
             <FAQ items={faqs} />
 
             {/* ── FINAL CTA ── */}
-            <section className="scroll-animate py-24 px-6 bg-cream border-t border-primary/10">
+            <section className="scroll-animate pt-2 pb-24 md:py-24 px-6 bg-cream border-t-0 border-primary/10">
                 <div className="max-w-5xl mx-auto bg-white rounded-3xl p-12 md:p-16 text-center border border-primary/10 shadow-sm flex flex-col items-center">
                     <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-normal text-primary mb-4 leading-tight">Looking For Premium Batik Fabric &amp; Women Clothing At Wholesale Prices?</h2>
                     <p className="text-primary/80 text-base md:text-lg mb-10 max-w-2xl font-medium">Partner directly with a trusted manufacturer for premium batik fabric, batik cloth, women clothing, indian dresses, and wholesale fashion collections.</p>
