@@ -27,7 +27,7 @@ export default function ProductFilterLayout({
         <div className="flex flex-col gap-6 md:gap-10 w-full max-w-[1600px] mx-auto items-start">
             
             {/* Horizontal Filter Bar Header (replaces sidebar) */}
-            <div className="w-full z-20 sticky top-[70px] md:top-[80px]">
+            <div className="w-full relative">
                 <ProductFilterSidebar 
                     initialSort={sort}
                     initialMinPrice={minPrice}
@@ -38,8 +38,8 @@ export default function ProductFilterLayout({
 
             {/* Product Grid Area */}
             <div className="w-full flex flex-col gap-10 min-w-0">
-                <div className="flex items-center justify-between pb-2 border-b border-gray-100/50">
-                    <p className="text-sm font-semibold text-gray-500 tracking-wide">
+                <div className="flex items-center justify-between pb-2 border-b border-primary/10">
+                    <p className="text-sm font-semibold text-accent/80 tracking-wide">
                         Showing <span className="text-primary font-bold">{products.length}</span> Results
                     </p>
                 </div>
