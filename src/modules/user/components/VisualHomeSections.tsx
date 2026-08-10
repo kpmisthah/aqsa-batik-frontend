@@ -240,12 +240,12 @@ export function SocialFeedSection() {
 export function DualCategoryBannerSection() {
     return (
         <section className="w-full h-auto flex flex-col md:flex-row bg-cream">
-            <Link href="/batik-fabric" className="relative h-[50vh] md:h-[60vh] flex-1 group overflow-hidden bg-cream flex justify-center border-b md:border-b-0 md:border-r border-primary/10">
+            <Link href="/batik-fabric" className="relative h-[60vh] md:h-[85vh] flex-1 group overflow-hidden bg-cream flex justify-center border-b md:border-b-0 md:border-r border-primary/10">
                 <Image
-                    src="/batik_fabric_bright.png"
+                    src="/batik_fabric_tall.png"
                     alt="Premium Batik Fabric"
                     fill
-                    className="object-cover object-[center_20%] opacity-90 group-hover:scale-[1.03] transition-all duration-[2s] ease-out"
+                    className="object-cover object-top opacity-90 group-hover:scale-[1.03] transition-all duration-[2s] ease-out"
                 />
                 {/* Minimal gradient for readability without being dark and heavy */}
                 <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-black/50 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
@@ -257,9 +257,9 @@ export function DualCategoryBannerSection() {
                 </div>
             </Link>
 
-            <Link href="/cotton-cloth" className="relative h-[50vh] md:h-[60vh] flex-1 group overflow-hidden bg-cream flex justify-center">
+            <Link href="/cotton-cloth" className="relative h-[60vh] md:h-[85vh] flex-1 group overflow-hidden bg-cream flex justify-center">
                 <Image
-                    src="/batik_cloth_bright.png"
+                    src="/batik_cloth_tall.png"
                     alt="Premium Cotton Clothing"
                     fill
                     className="object-cover object-top opacity-90 group-hover:scale-[1.03] transition-all duration-[2s] ease-out"
