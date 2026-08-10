@@ -60,24 +60,24 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     return (
         <div className="min-h-screen bg-cream text-primary selection:bg-primary selection:text-white">
             <style>{`
-                .blog-content { color: #3B1C14; line-height: 1.8; font-size: 1.125rem; }
-                .blog-content p { margin-bottom: 1.75rem; opacity: 0.9; }
-                .blog-content h2 {  font-family: var(--font-heading); font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: #1A1A1A; line-height: 1.2; }
-                .blog-content h3 { font-family: var(--font-heading); font-size: clamp(1.125rem, 3vw, 1.25rem); font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #1A1A1A; }
-                .blog-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 2rem; opacity: 0.9; }
+                .blog-content { color: var(--color-primary); line-height: 1.8; font-size: 1.125rem; }
+                .blog-content p { margin-bottom: 1.75rem; opacity: 0.8; }
+                .blog-content h2 { font-family: var(--font-heading); font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 400; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--color-primary); line-height: 1.2; opacity: 1; }
+                .blog-content h3 { font-family: var(--font-heading); font-size: clamp(1.125rem, 3vw, 1.25rem); font-weight: 400; margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--color-primary); opacity: 1; }
+                .blog-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 2rem; opacity: 0.8; }
                 .blog-content li { margin-bottom: 0.75rem; }
-                .blog-content a { color: #2563EB; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; transition: color 0.2s ease; }
-                .blog-content a:visited { color: #2563EB; }
-                .blog-content a:hover { color: #1D4ED8; }
+                .blog-content a { color: var(--color-accent); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; transition: color 0.2s ease; }
+                .blog-content a:visited { color: var(--color-accent); }
+                .blog-content a:hover { color: var(--color-primary); }
                 .blog-content img { max-width: 100%; height: auto; border-radius: 1.5rem; margin-top: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); display: inline-block; }
                 .blog-content table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 2rem 0; font-size: 1rem; }
-                .blog-content th { background-color: #E5E0D8; color: #1A1A1A; font-weight: 700; text-align: left; padding: 1rem 1.5rem; border-bottom: 2px solid rgba(90, 42, 31, 0.1); }
+                .blog-content th { background-color: var(--color-tan); color: var(--color-primary); font-family: var(--font-heading); font-weight: 400; text-align: left; padding: 1rem 1.5rem; border-bottom: 2px solid rgba(90, 42, 31, 0.1); }
                 .blog-content th:first-child { border-top-left-radius: 1rem; }
                 .blog-content th:last-child { border-top-right-radius: 1rem; }
                 .blog-content td { padding: 1rem 1.5rem; border-bottom: 1px solid rgba(90, 42, 31, 0.05); background-color: white; }
                 .blog-content tr:last-child td:first-child { border-bottom-left-radius: 1rem; }
                 .blog-content tr:last-child td:last-child { border-bottom-right-radius: 1rem; }
-                .blog-content td:first-child { font-weight: 600; color: #1A1A1A; }
+                .blog-content td:first-child { font-weight: 600; color: var(--color-primary); }
                 .blog-content .faq-section { background-color: white; padding: 2.5rem; border-radius: 1.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); margin-top: 4rem; border: 1px solid rgba(90, 42, 31, 0.05); }
                 .blog-content .faq-section h2 { margin-top: 0; text-align: center; }
                 
@@ -95,12 +95,12 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
             <main className="pt-40">
                 <article className="max-w-4xl mx-auto px-6">
-                    <div className="mb-12 flex flex-col gap-6 items-center text-center">
-                        <span className="text-sm font-black uppercase tracking-[0.4em] text-secondary">{post.category}</span>
-                        <h1 className="font-heading text-2xl md:text-4xl font-bold leading-tight">{post.title}</h1>
-                        <p className="text-primary/80 font-bold uppercase tracking-widest text-sm flex items-center gap-4 flex-wrap justify-center mt-2">
+                    <div className="mb-12 flex flex-col gap-6 items-center text-center max-w-3xl mx-auto">
+                        <span className="text-overline">{post.category}</span>
+                        <h1 className="text-h2 md:text-5xl text-primary font-normal leading-tight">{post.title}</h1>
+                        <p className="text-accent font-bold uppercase tracking-widest text-[10px] md:text-xs flex items-center gap-4 flex-wrap justify-center mt-2">
                             <span>{post.date}</span>
-                            <span className="w-1 h-1 rounded-full bg-primary/30"></span>
+                            <span className="w-1 h-1 rounded-full bg-accent"></span>
                             <span>By {post.author}</span>
                         </p>
 
