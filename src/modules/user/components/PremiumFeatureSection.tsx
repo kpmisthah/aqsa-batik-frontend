@@ -16,6 +16,7 @@ interface PremiumFeatureSectionProps {
     imageSrc?: string;
     mobileImageSrc?: string;
     quote?: string;
+    wrapperClassName?: string;
 }
 
 const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
@@ -24,10 +25,11 @@ const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
     features,
     imageSrc = "/hero_bg.png",
     mobileImageSrc,
-    quote = "Our batik products combine breathable cotton comfort with elegant prints made for modern fashion"
+    quote = "Our batik products combine breathable cotton comfort with elegant prints made for modern fashion",
+    wrapperClassName = "py-8 md:py-24 px-4 md:px-6 bg-cream"
 }) => {
     return (
-        <section className="scroll-animate py-8 md:py-24 px-4 md:px-6 bg-cream overflow-hidden">
+        <section className={`scroll-animate overflow-hidden ${wrapperClassName}`}>
             <div className="max-w-7xl mx-auto flex flex-col gap-8 md:gap-20">
                 
                 {/* Full-width Centered Title */}

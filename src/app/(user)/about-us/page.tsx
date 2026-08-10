@@ -43,7 +43,7 @@ export default function AboutPage() {
             <GoogleReviewBar />
 
             {/* ── SECTION: OUR STORY ── */}
-            <section className="scroll-animate pt-12 pb-2 md:py-16 px-6 bg-[#F4F0EA] relative overflow-hidden">
+            <section className="scroll-animate pt-12 pb-0 md:py-16 px-6 bg-[#F4F0EA] relative overflow-hidden">
                 <div className="absolute inset-0 bg-pattern opacity-[0.03]"></div>
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-16 relative z-10 items-start">
 
@@ -68,7 +68,7 @@ export default function AboutPage() {
                         </div>
 
                         {/* Scrollable Text Content */}
-                        <div className="flex flex-col gap-6 overflow-y-auto max-h-[350px] sm:max-h-[450px] lg:max-h-none pr-2 lg:pr-6 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-primary/20 [&::-webkit-scrollbar-thumb]:rounded-full pb-4 md:pb-10 overscroll-contain flex-grow relative">
+                        <div className="flex flex-col gap-6 overflow-y-auto max-h-[350px] sm:max-h-[450px] lg:max-h-none pr-2 lg:pr-6 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-primary/20 [&::-webkit-scrollbar-thumb]:rounded-full pb-0 md:pb-10 overscroll-contain flex-grow relative">
                             <div className="flex flex-col gap-4 text-sm md:text-base leading-relaxed text-primary/80">
                                 <p className="font-normal text-[14px] md:text-lg text-primary leading-relaxed italic border-l-2 border-accent pl-4 md:pl-6 py-1">
                                     From 15 handmade suits for women in Bherugarh, Ujjain to supplying wholesalers, boutiques, and resellers across India—this journey was built on consistency, correction, and understanding what women actually want to wear.
@@ -271,6 +271,7 @@ export default function AboutPage() {
             </section>
             {/* ── SECTION: WHAT WE STAND FOR (Premium Layout) ── */}
             <PremiumFeatureSection
+                wrapperClassName="py-0 mt-8 md:mt-0 md:py-24 px-4 md:px-6 bg-[#F4F0EA]"
                 tag="Guided by Principles"
                 title="What We Stand For"
                 imageSrc="/cotton-summer-dresses-image.webp"
@@ -320,7 +321,7 @@ export default function AboutPage() {
             />
 
             {/* ── SECTION: MANUFACTURING EXCELLENCE ── */}
-            <section className="scroll-animate pt-2 pb-12 md:py-16 px-6 bg-[#F4F0EA] overflow-hidden">
+            <section className="scroll-animate pt-8 md:pt-16 pb-12 md:pb-16 px-6 bg-[#F4F0EA] overflow-hidden">
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-24">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-24 items-center">
                         <div className="order-2 lg:order-1 relative h-[300px] md:h-[600px] rounded-[30px] md:rounded-[60px] overflow-hidden shadow-2xl border-[8px] md:border-[15px] border-cream group">
