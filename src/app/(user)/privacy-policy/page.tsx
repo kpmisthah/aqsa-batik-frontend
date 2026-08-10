@@ -3,7 +3,7 @@ import Nav from "@/modules/user/components/Nav";
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-cream text-primary font-heading selection:bg-primary selection:text-white scroll-smooth">
+    <div className="min-h-screen bg-cream text-primary selection:bg-primary selection:text-white scroll-smooth">
       <title>Privacy Policy | AQSHA BATIK SUITS</title>
       <meta name="description" content="Understand how AQSHA BATIK SUITS collects, uses, and protects customer and wholesale inquiry data across website, WhatsApp, and business communication." />
       

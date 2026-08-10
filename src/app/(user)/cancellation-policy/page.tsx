@@ -4,7 +4,7 @@ import Footer from "@/modules/user/components/Footer";
 
 export default function CancellationPolicy() {
   return (
-    <div className="min-h-screen bg-cream text-primary font-heading selection:bg-primary selection:text-white scroll-smooth">
+    <div className="min-h-screen bg-cream text-primary selection:bg-primary selection:text-white scroll-smooth">
       <title>Cancellation Policy | AQSHA BATIK SUITS</title>
       <meta name="description" content="Understand AQSHA BATIK SUITS cancellation rules for wholesale and bulk orders before dispatch or production stage." />
       

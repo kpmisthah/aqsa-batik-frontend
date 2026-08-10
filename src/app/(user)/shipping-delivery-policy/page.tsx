@@ -3,7 +3,7 @@ import Nav from "@/modules/user/components/Nav";
 
 export default function ShippingPolicy() {
   return (
-    <div className="min-h-screen bg-cream text-primary font-heading selection:bg-primary selection:text-white scroll-smooth">
+    <div className="min-h-screen bg-cream text-primary selection:bg-primary selection:text-white scroll-smooth">
       <title>Shipping & Delivery Policy | AQSHA BATIK SUITS</title>
       <meta name="description" content="Learn about AQSHA BATIK SUITS shipping process, dispatch timeline, courier partners, and delivery across India for wholesale orders." />
       

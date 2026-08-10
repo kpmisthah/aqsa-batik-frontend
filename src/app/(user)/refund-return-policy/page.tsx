@@ -4,7 +4,7 @@ import Footer from "@/modules/user/components/Footer";
 
 export default function RefundPolicy() {
   return (
-    <div className="min-h-screen bg-cream text-primary font-heading selection:bg-primary selection:text-white scroll-smooth">
+    <div className="min-h-screen bg-cream text-primary selection:bg-primary selection:text-white scroll-smooth">
       <title>Refund & Return Policy | AQSHA BATIK SUITS</title>
       <meta name="description" content="Check AQSHA BATIK SUITS return policy for damaged or incorrect products with 48-hour reporting and replacement or refund process." />
       

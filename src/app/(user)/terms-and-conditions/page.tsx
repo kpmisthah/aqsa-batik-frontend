@@ -3,7 +3,7 @@ import Nav from "@/modules/user/components/Nav";
 
 export default function TermsAndConditions() {
   return (
-    <div className="min-h-screen bg-cream text-primary font-heading selection:bg-primary selection:text-white scroll-smooth">
+    <div className="min-h-screen bg-cream text-primary selection:bg-primary selection:text-white scroll-smooth">
       <title>Terms & Conditions | AQSHA BATIK SUITS</title>
       <meta name="description" content="Read AQSHA BATIK SUITS terms for wholesale orders, minimum order value ₹25,000, pricing, product variations, and order conditions." />
       
