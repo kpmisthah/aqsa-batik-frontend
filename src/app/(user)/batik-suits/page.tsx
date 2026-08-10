@@ -249,7 +249,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
             <section className="py-16 md:py-32 px-6 bg-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-pattern opacity-[0.02]"></div>
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20 relative z-10">
-                    <div className="flex flex-col gap-3 md:gap-6 text-left md:text-center">
+                    <div className="flex flex-col gap-3 md:gap-6 text-center items-center">
                         <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">Next Steps</span>
                         <h2 className="font-heading text-2xl md:text-5xl font-bold text-primary leading-tight">Continue Your Journey</h2>
                     </div>
@@ -303,9 +303,9 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
             {/* ── SECTION: BATIK JOURNAL (BLOG) ── */}
             <section className="py-16 md:py-32 px-6 bg-cream border-t border-primary/10">
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
-                    <div className="flex flex-col gap-3 md:gap-6 text-left md:text-center">
+                    <div className="flex flex-col gap-3 md:gap-6 text-center items-center">
                         <span className="text-[10px] md:text-xs font-bold text-secondary uppercase tracking-[0.4em]">Editorial Corner</span>
-                        <h2 className="font-heading text-2xl md:text-5xl font-bold text-primary leading-tight">The Batik Journal</h2>
+                        <h2 className="font-heading text-2xl md:text-5xl font-bold text-primary leading-tight">The Batik <br className="block md:hidden"/> Journal</h2>
                         <p className="text-lg md:text-xl text-primary font-medium leading-relaxed mt-2">Stories of heritage, craft, and contemporary style.</p>
                     </div>
 

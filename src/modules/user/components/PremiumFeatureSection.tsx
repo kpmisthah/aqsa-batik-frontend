@@ -27,8 +27,8 @@ const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
     quote = "Our batik products combine breathable cotton comfort with elegant prints made for modern fashion"
 }) => {
     return (
-        <section className="scroll-animate py-16 md:py-24 px-4 md:px-6 bg-cream overflow-hidden">
-            <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
+        <section className="scroll-animate py-8 md:py-24 px-4 md:px-6 bg-cream overflow-hidden">
+            <div className="max-w-7xl mx-auto flex flex-col gap-8 md:gap-20">
                 
                 {/* Full-width Centered Title */}
                 <div className="flex flex-col gap-4 text-center items-center px-4 max-w-4xl mx-auto">

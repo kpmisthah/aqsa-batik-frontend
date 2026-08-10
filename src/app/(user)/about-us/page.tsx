@@ -43,7 +43,7 @@ export default function AboutPage() {
             <GoogleReviewBar />
 
             {/* ── SECTION: OUR STORY ── */}
-            <section className="scroll-animate py-12 md:py-16 px-6 bg-[#F4F0EA] relative overflow-hidden">
+            <section className="scroll-animate pt-12 pb-2 md:py-16 px-6 bg-[#F4F0EA] relative overflow-hidden">
                 <div className="absolute inset-0 bg-pattern opacity-[0.03]"></div>
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-16 relative z-10 items-start">
 
@@ -320,7 +320,7 @@ export default function AboutPage() {
             />
 
             {/* ── SECTION: MANUFACTURING EXCELLENCE ── */}
-            <section className="scroll-animate py-12 md:py-16 px-6 bg-[#F4F0EA] overflow-hidden">
+            <section className="scroll-animate pt-2 pb-12 md:py-16 px-6 bg-[#F4F0EA] overflow-hidden">
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-24">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-24 items-center">
                         <div className="order-2 lg:order-1 relative h-[300px] md:h-[600px] rounded-[30px] md:rounded-[60px] overflow-hidden shadow-2xl border-[8px] md:border-[15px] border-cream group">
