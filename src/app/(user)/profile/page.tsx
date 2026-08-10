@@ -1069,7 +1069,7 @@ function ProfileContent() {
 export default function ProfilePage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-[#FDFBF7] flex flex-col justify-center items-center py-20 font-heading">
+      <div className="min-h-screen bg-[#FDFBF7] flex flex-col justify-center items-center py-20">
         <div className="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin mb-4" />
         <p className="text-sm font-bold uppercase tracking-widest text-primary/80">Loading Your Profile...</p>
       </div>

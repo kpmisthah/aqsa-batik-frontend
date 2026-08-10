@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Nav from "@/modules/user/components/Nav";
 import FAQ from "@/modules/user/components/FAQ";
-import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
 import ProductInteractive from "@/modules/user/components/ProductInteractive";
+import YouMightAlsoLike from "@/modules/user/components/YouMightAlsoLike";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { getColorName } from "@/utils/colorHelper";
@@ -85,7 +85,7 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
     ];
 
     return (
-        <div className="min-h-screen bg-cream text-primary font-heading selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
+        <div className="min-h-screen bg-cream text-primary selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
             <style>{`
         .bg-pattern { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM24 30V26h-2v4h-4v2h4v4h2v-4h4v-2h-4z' fill='%231A1A1A' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E"); }
       `}</style>
@@ -93,19 +93,18 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
             <Nav />
 
             {/* ── MODERN PRODUCT HERO (Interactive) ── */}
-            <section className="pt-28 md:pt-36 pb-12 md:pb-20 px-6 md:px-10 max-w-[1500px] mx-auto">
+            <section className="pt-28 md:pt-36 pb-2 px-6 md:px-10 max-w-[1500px] mx-auto">
                 <Suspense fallback={<div className="animate-pulse w-full h-[600px] bg-primary/5 rounded-[40px]"></div>}>
                     <ProductInteractive product={product} />
                 </Suspense>
             </section>
-            <GoogleReviewBar />
 
             {/* ── TECHNICAL EXCELLENCE ── */}
-            <section className="py-20 md:py-32 px-6 bg-cream relative overflow-hidden">
+            <section className="py-8 md:py-16 px-6 bg-cream relative overflow-hidden text-center md:text-left">
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20 relative z-10">
                     <div className="max-w-3xl">
-                        <span className="text-xs font-bold text-secondary uppercase tracking-[0.4em]">Specifications</span>
-                        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary mt-2 md:mt-4 mb-6 md:mb-8">Technical Excellence</h2>
+                        <span className="text-overline mb-2 md:mb-4 inline-block">Specifications</span>
+                        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-normal text-primary mt-2 md:mt-4 mb-6 md:mb-8">Technical Excellence</h2>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
@@ -147,6 +146,7 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
                 </div>
             </section>
 
+            <YouMightAlsoLike currentProductId={id} />
             <FAQ />
         </div>
     );

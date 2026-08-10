@@ -91,7 +91,7 @@ export default function WishlistPage() {
     };
 
     return (
-        <div className="min-h-screen bg-[#FDFBF7] flex flex-col text-primary">
+        <div className="min-h-screen bg-cream flex flex-col text-primary">
             <Nav />
 
             {/* Dynamic Toast Alerts */}
@@ -107,8 +107,8 @@ export default function WishlistPage() {
             )}
 
             <main className="flex-1 max-w-[1300px] w-full mx-auto px-6 py-12 flex flex-col">
-                <h1 className="font-heading text-3xl md:text-4xl font-black text-left mb-2 tracking-tight">Your Wishlist</h1>
-                <p className="text-sm opacity-60 text-left mb-10 font-medium font-heading">
+                <h1 className="font-heading text-3xl md:text-4xl font-normal text-left mb-2 tracking-tight">Your Wishlist</h1>
+                <p className="text-sm text-primary/60 text-left mb-10 font-normal">
                     Keep track of all the beautiful Batik items you'd love to own.
                 </p>
 
@@ -118,18 +118,18 @@ export default function WishlistPage() {
                     </div>
                 ) : !isSignedIn ? (
                     <div className="bg-surface rounded-[32px] border border-primary/10 p-12 text-center shadow-xl max-w-xl mx-auto my-12">
-                        <h2 className="font-heading text-2xl font-black mb-2">Sign in to view Wishlist</h2>
-                        <p className="text-xs opacity-60 max-w-xs mx-auto mb-8 font-medium">Log in to save items across all your devices and seamlessly pick up where you left off.</p>
-                        <Link href="/login" className="inline-block bg-primary hover:bg-black text-white px-10 py-4 rounded-xl font-bold uppercase tracking-widest text-xs shadow-md">
+                        <h2 className="font-heading text-2xl font-normal mb-2">Sign in to view Wishlist</h2>
+                        <p className="text-xs text-primary/60 max-w-xs mx-auto mb-8 font-normal">Log in to save items across all your devices and seamlessly pick up where you left off.</p>
+                        <Link href="/login" className="inline-block bg-accent hover:bg-accent/90 text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs shadow-md">
                             Sign In / Register
                         </Link>
                     </div>
                 ) : items.length === 0 ? (
                     <div className="bg-surface rounded-[32px] border border-primary/10 p-12 text-center shadow-xl max-w-xl mx-auto my-12 relative overflow-hidden">
                         <div className="w-20 h-20 bg-white rounded-3xl flex items-center justify-center mx-auto mb-6 shadow border border-primary/5 text-3xl">❤️</div>
-                        <h2 className="font-heading text-2xl font-black mb-2">Your wishlist is empty</h2>
-                        <p className="text-xs opacity-60 max-w-xs mx-auto mb-8 font-medium">Explore our premium collections and add your favorite items to save them for later.</p>
-                        <Link href="/cotton-cloth" className="inline-block bg-primary hover:bg-black text-white px-10 py-4 rounded-xl font-bold uppercase tracking-widest text-xs shadow-md">
+                        <h2 className="font-heading text-2xl font-normal mb-2">Your wishlist is empty</h2>
+                        <p className="text-xs text-primary/60 max-w-xs mx-auto mb-8 font-normal">Explore our premium collections and add your favorite items to save them for later.</p>
+                        <Link href="/cotton-cloth" className="inline-block bg-accent hover:bg-accent/90 text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs shadow-md">
                             Explore Collections
                         </Link>
                     </div>
@@ -153,16 +153,16 @@ export default function WishlistPage() {
                                         </Link>
                                         <div className="flex flex-col gap-2">
                                             <Link href={`/products/${prod._id || prod.id}`}>
-                                                <h3 className="font-bold text-lg leading-tight hover:text-secondary transition-colors">{prod.name}</h3>
+                                                <h3 className="font-heading font-normal text-lg leading-tight hover:text-accent transition-colors">{prod.name}</h3>
                                             </Link>
                                             <div className="flex items-center gap-2">
-                                                <span className="font-bold text-xl text-primary">₹{prod.discountPrice?.toLocaleString()}</span>
+                                                <span className="font-bold text-xl text-accent">₹{prod.discountPrice?.toLocaleString()}</span>
                                                 {prod.fullPrice > prod.discountPrice && (
                                                     <span className="text-sm text-primary/40 line-through">₹{prod.fullPrice?.toLocaleString()}</span>
                                                 )}
                                             </div>
                                         </div>
-                                        <button onClick={() => handleMoveToCart(item)} className="mt-auto w-full bg-primary hover:bg-secondary text-white py-4 rounded-xl font-bold uppercase tracking-wider text-xs shadow hover:shadow-lg flex items-center justify-center gap-2">
+                                        <button onClick={() => handleMoveToCart(item)} className="mt-auto w-full bg-accent hover:bg-accent/90 text-white py-4 rounded-full font-bold uppercase tracking-wider text-xs shadow hover:shadow-lg flex items-center justify-center gap-2">
                                             <ShoppingBag size={16} /> <span>Move to Cart</span>
                                         </button>
                                     </div>
@@ -175,7 +175,7 @@ export default function WishlistPage() {
                                 <button
                                     onClick={() => setPage(Math.max(1, page - 1))}
                                     disabled={page === 1}
-                                    className="px-6 py-3 border border-primary/20 rounded-xl font-bold text-xs uppercase tracking-widest disabled:opacity-30 hover:bg-primary hover:text-white transition-all"
+                                    className="px-6 py-3 border border-primary/20 rounded-full font-bold text-xs uppercase tracking-widest disabled:opacity-30 hover:bg-accent hover:text-white transition-all"
                                 >
                                     Previous
                                 </button>
@@ -185,7 +185,7 @@ export default function WishlistPage() {
                                 <button
                                     onClick={() => setPage(Math.min(totalPages, page + 1))}
                                     disabled={page === totalPages}
-                                    className="px-6 py-3 border border-primary/20 rounded-xl font-bold text-xs uppercase tracking-widest disabled:opacity-30 hover:bg-primary hover:text-white transition-all"
+                                    className="px-6 py-3 border border-primary/20 rounded-full font-bold text-xs uppercase tracking-widest disabled:opacity-30 hover:bg-accent hover:text-white transition-all"
                                 >
                                     Next
                                 </button>

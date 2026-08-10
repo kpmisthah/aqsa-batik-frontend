@@ -5,7 +5,7 @@ import { useCartStore, CartItem } from "@/hooks/useCartStore";
 import { useAuthSync } from "@/modules/user/hooks/useAuthSync";
 import Nav from "@/modules/user/components/Nav";
 import { useAuthStore } from "@/hooks/useAuthStore";
-import Footer from "@/modules/user/components/Footer";
+
 import { Trash2, Plus, Minus, ShoppingBag, CreditCard, Truck, Info, Lock, Loader2, Sparkles, CheckCircle2, Wallet } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -233,7 +233,7 @@ export default function CartPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] flex flex-col text-primary">
+    <div className="min-h-screen bg-cream flex flex-col text-primary">
       <Nav />
 
       {/* Dynamic Toast Alerts */}
@@ -248,8 +248,8 @@ export default function CartPage() {
       )}
 
       <main className="flex-1 max-w-[1300px] w-full mx-auto px-6 py-12">
-        <h1 className="font-heading text-3xl md:text-4xl font-black text-left mb-2 tracking-tight">Shopping Bag</h1>
-        <p className="text-sm opacity-60 text-left mb-10 font-medium font-heading">
+        <h1 className="font-heading text-3xl md:text-4xl font-normal text-left mb-2 tracking-tight">Shopping Bag</h1>
+        <p className="text-sm text-primary/60 text-left mb-10 font-normal">
           Review your items, complete shipping details, and finalize your secure transaction in Indian Rupees (₹).
         </p>
 
@@ -267,13 +267,13 @@ export default function CartPage() {
             <div className="w-20 h-20 bg-white rounded-3xl flex items-center justify-center mx-auto mb-6 shadow border border-primary/5 text-3xl">
               🛍️
             </div>
-            <h2 className="font-heading text-2xl font-black mb-2">Your cart is empty</h2>
-            <p className="text-xs opacity-60 max-w-xs mx-auto mb-8 leading-relaxed font-medium">
+            <h2 className="font-heading text-2xl font-normal mb-2">Your cart is empty</h2>
+            <p className="text-xs text-primary/60 max-w-xs mx-auto mb-8 leading-relaxed">
               Explore our hand-printed premium Batik collections and add suits or fabrics to your cart.
             </p>
             <Link
               href="/cotton-cloth"
-              className="inline-block bg-primary hover:bg-black text-white px-10 py-4 rounded-xl font-bold uppercase tracking-widest text-xs transition-all shadow-md active:scale-95"
+              className="inline-block bg-accent hover:bg-accent/90 text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-all shadow-md active:scale-95"
             >
               Explore Collections
             </Link>
@@ -302,7 +302,7 @@ export default function CartPage() {
                   <div className="flex-1 flex flex-col justify-between">
                     <div>
                       <div className="flex justify-between items-start gap-2">
-                        <h3 className="font-bold text-sm md:text-base leading-tight hover:text-secondary transition-colors">{item.name}</h3>
+                        <h3 className="font-heading font-normal text-sm md:text-base leading-tight hover:text-accent transition-colors">{item.name}</h3>
                         <button
                           onClick={() => setItemToRemove({ productId: item.productId, variantColour: item.variantColour })}
                           className="text-primary/30 hover:text-red-600 transition-colors p-1"
@@ -351,7 +351,7 @@ export default function CartPage() {
                             <div className="text-xs text-primary/40 line-through">₹{item.fullPrice * item.quantity}</div>
                             <div className="flex items-center gap-1.5">
                               <span className="text-[10px] font-black uppercase text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">Wholesale</span>
-                              <span className="font-bold text-sm md:text-base text-secondary">₹{getSingleItemDisplayPrice(item) * item.quantity}</span>
+                              <span className="font-bold text-sm md:text-base text-accent">₹{getSingleItemDisplayPrice(item) * item.quantity}</span>
                             </div>
                           </>
                         ) : (
@@ -414,7 +414,7 @@ export default function CartPage() {
 
               {/* Order Cost Card */}
               <div className="bg-white rounded-3xl border border-primary/10 p-6 md:p-8 shadow-sm">
-                <h2 className="font-heading text-xl font-black mb-6">Summary</h2>
+                <h2 className="font-heading text-xl font-normal mb-6">Summary</h2>
                 <div className="space-y-4">
                   <div className="flex justify-between text-sm font-medium">
                     <span className="opacity-60">Subtotal ({getTotalItemsCount()} items)</span>
@@ -422,11 +422,11 @@ export default function CartPage() {
                   </div>
                   <div className="flex justify-between text-sm font-medium">
                     <span className="opacity-60">Shipping (Indian Post / Priority Express)</span>
-                    <span className="text-emerald-700 font-bold uppercase tracking-wider text-[11px]">Free delivery</span>
+                    <span className="text-accent font-bold uppercase tracking-wider text-[11px]">Free delivery</span>
                   </div>
                   <div className="border-t border-primary/10 pt-4 flex justify-between items-center">
                     <div>
-                      <span className="text-xs font-black uppercase tracking-wider text-secondary">Total Amount (INR)</span>
+                      <span className="text-xs font-bold uppercase tracking-wider text-accent">Total Amount (INR)</span>
                       <p className="text-[10px] opacity-40 leading-tight">Includes all local taxes / GST</p>
                     </div>
                     <span className="font-heading text-3xl font-bold text-primary">₹{subtotal}</span>
@@ -436,8 +436,8 @@ export default function CartPage() {
 
               {/* Shipping Information & Checkout Button */}
               <form onSubmit={handlePaymentSubmit} className="bg-white rounded-3xl border border-primary/10 p-6 md:p-8 shadow-sm space-y-4">
-                <h3 className="font-heading text-lg font-black mb-2 flex items-center gap-2">
-                  <Truck size={18} className="text-secondary" />
+                <h3 className="font-heading text-lg font-normal mb-2 flex items-center gap-2">
+                  <Truck size={18} className="text-accent" />
                   <span>Shipping & Delivery Details</span>
                 </h3>
 
@@ -450,14 +450,14 @@ export default function CartPage() {
                           {addressMode === 'saved' && <div className="w-1.5 h-1.5 bg-white rounded-full"></div>}
                         </div>
                         <input type="radio" className="hidden" checked={addressMode === "saved"} onChange={() => setAddressMode("saved")} />
-                        <span className={`text-[11px] font-black uppercase tracking-wider transition-colors ${addressMode === 'saved' ? 'text-primary' : 'text-primary/60'}`}>Use Saved Address</span>
+                        <span className={`text-[11px] font-bold uppercase tracking-wider transition-colors ${addressMode === 'saved' ? 'text-primary' : 'text-primary/60'}`}>Use Saved Address</span>
                       </label>
                       <label className="flex items-center gap-2.5 cursor-pointer group">
                         <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center transition-colors ${addressMode === 'new' ? 'border-primary bg-primary' : 'border-primary/30 group-hover:border-primary/60'}`}>
                           {addressMode === 'new' && <div className="w-1.5 h-1.5 bg-white rounded-full"></div>}
                         </div>
                         <input type="radio" className="hidden" checked={addressMode === "new"} onChange={() => setAddressMode("new")} />
-                        <span className={`text-[11px] font-black uppercase tracking-wider transition-colors ${addressMode === 'new' ? 'text-primary' : 'text-primary/60'}`}>Add New Address</span>
+                        <span className={`text-[11px] font-bold uppercase tracking-wider transition-colors ${addressMode === 'new' ? 'text-primary' : 'text-primary/60'}`}>Add New Address</span>
                       </label>
                     </div>
                   )}
@@ -470,14 +470,14 @@ export default function CartPage() {
                         {user?.city}, {user?.state} {user?.zip}
                       </div>
                       <div className="mt-4 pt-4 border-t border-primary/10 flex items-center gap-2 text-xs font-bold uppercase tracking-wider">
-                        <Truck size={14} className="text-secondary" />
+                        <Truck size={14} className="text-accent" />
                         <span>Phone: {user?.phone}</span>
                       </div>
                     </div>
                   ) : (
                     <div className="space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
                       <div>
-                        <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Delivery Address</label>
+                        <label className="block text-[10px] font-bold uppercase tracking-widest text-primary/70 mb-2">Delivery Address</label>
                         <textarea
                           required={addressMode === "new"}
                           rows={2}
@@ -490,7 +490,7 @@ export default function CartPage() {
 
                       <div className="grid grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">City</label>
+                          <label className="block text-[10px] font-bold uppercase tracking-widest text-primary/70 mb-2">City</label>
                           <input
                             type="text"
                             required={addressMode === "new"}
@@ -501,7 +501,7 @@ export default function CartPage() {
                           />
                         </div>
                         <div>
-                          <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">State</label>
+                          <label className="block text-[10px] font-bold uppercase tracking-widest text-primary/70 mb-2">State</label>
                           <input
                             type="text"
                             required={addressMode === "new"}
@@ -515,7 +515,7 @@ export default function CartPage() {
 
                       <div className="grid grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">PIN / Zip Code</label>
+                          <label className="block text-[10px] font-bold uppercase tracking-widest text-primary/70 mb-2">PIN / Zip Code</label>
                           <input
                             type="text"
                             required={addressMode === "new"}
@@ -526,7 +526,7 @@ export default function CartPage() {
                           />
                         </div>
                         <div>
-                          <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Mobile Phone</label>
+                          <label className="block text-[10px] font-bold uppercase tracking-widest text-primary/70 mb-2">Mobile Phone</label>
                           <input
                             type="tel"
                             required={addressMode === "new"}
@@ -544,14 +544,14 @@ export default function CartPage() {
                 <div className="pt-4 border-t border-primary/10 space-y-4">
                   {/* Payment Method Selector */}
                   <div className="space-y-3">
-                    <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-1">Payment Method</label>
+                    <label className="block text-[10px] font-bold uppercase tracking-widest text-primary/70 mb-1">Payment Method</label>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                       <button
                         type="button"
                         onClick={() => setPaymentMethod("Razorpay")}
-                        className={`px-4 py-3 rounded-2xl border font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${paymentMethod === "Razorpay"
-                          ? "bg-primary border-primary text-white shadow-sm"
-                          : "bg-surface/30 border-primary/20 text-primary hover:bg-surface/60"
+                        className={`px-4 py-3 rounded-full border font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${paymentMethod === "Razorpay"
+                          ? "bg-accent border-accent text-white shadow-sm"
+                          : "bg-transparent border-primary/20 text-primary hover:border-primary/40"
                           }`}
                       >
                         <CreditCard size={14} />
@@ -560,9 +560,9 @@ export default function CartPage() {
                       <button
                         type="button"
                         onClick={() => setPaymentMethod("COD")}
-                        className={`px-4 py-3 rounded-2xl border font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${paymentMethod === "COD"
-                          ? "bg-primary border-primary text-white shadow-sm"
-                          : "bg-surface/30 border-primary/20 text-primary hover:bg-surface/60"
+                        className={`px-4 py-3 rounded-full border font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${paymentMethod === "COD"
+                          ? "bg-accent border-accent text-white shadow-sm"
+                          : "bg-transparent border-primary/20 text-primary hover:border-primary/40"
                           }`}
                       >
                         <Truck size={14} />
@@ -571,12 +571,12 @@ export default function CartPage() {
                       <button
                         type="button"
                         onClick={() => setPaymentMethod("Wallet")}
-                        className={`px-4 py-3 rounded-2xl border font-bold text-[10px] uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${paymentMethod === "Wallet"
-                          ? "bg-primary border-primary text-white shadow-sm"
-                          : "bg-surface/30 border-primary/20 text-primary hover:bg-surface/60"
+                        className={`px-4 py-3 rounded-full border font-bold text-[10px] uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${paymentMethod === "Wallet"
+                          ? "bg-accent border-accent text-white shadow-sm"
+                          : "bg-transparent border-primary/20 text-primary hover:border-primary/40"
                           }`}
                       >
-                        <Wallet size={14} className={paymentMethod === "Wallet" ? "text-white" : "text-secondary"} />
+                        <Wallet size={14} className={paymentMethod === "Wallet" ? "text-white" : "text-accent"} />
                         <span>Aqsha Wallet (₹{user?.walletBalance || 0})</span>
                       </button>
                     </div>
@@ -585,7 +585,7 @@ export default function CartPage() {
                   <button
                     type="submit"
                     disabled={checkingOut || (userRole === "Wholesaler" && !wholesaleCheck.eligible) || (paymentMethod === "Wallet" && (user?.walletBalance || 0) < subtotal)}
-                    className="w-full bg-primary hover:bg-black text-white py-4.5 px-6 rounded-2xl font-bold uppercase tracking-wider text-sm shadow hover:shadow-md active:scale-[0.99] transition-all flex items-center justify-center gap-2.5 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-accent hover:bg-accent/90 text-white py-4.5 px-6 rounded-full font-bold uppercase tracking-wider text-sm shadow hover:shadow-md active:scale-[0.99] transition-all flex items-center justify-center gap-2.5 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {checkingOut ? (
                       <Loader2 size={16} className="animate-spin" />
@@ -598,7 +598,7 @@ export default function CartPage() {
                   </button>
 
                   <div className="flex items-center justify-center gap-2 text-[10px] opacity-40 font-bold uppercase tracking-widest">
-                    <Lock size={12} className="text-secondary" />
+                    <Lock size={12} className="text-accent" />
                     <span>{paymentMethod === "COD" || paymentMethod === "Wallet" ? "Aqsha Secure Order Placement" : "Razorpay SSL 256-bit Encrypted"}</span>
                   </div>
                 </div>
@@ -616,7 +616,7 @@ export default function CartPage() {
             <div className="w-16 h-16 bg-red-50 text-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
               <Trash2 size={24} />
             </div>
-            <h3 className="font-heading text-xl font-bold text-primary mb-2">Remove Item?</h3>
+            <h3 className="font-heading text-xl font-normal text-primary mb-2">Remove Item?</h3>
             <p className="text-xs text-primary/80 mb-6 px-4">
               Are you sure you want to remove this item from your shopping bag?
             </p>
@@ -645,7 +645,6 @@ export default function CartPage() {
         </div>
       )}
 
-      <Footer />
     </div>
   );
 }
