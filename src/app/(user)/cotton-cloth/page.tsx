@@ -57,7 +57,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
     const heroBannerUrl = await getHeroBanner();
 
     return (
-        <div className="min-h-screen bg-cream text-primary font-heading selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
+        <div className="min-h-screen bg-cream text-primary selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
             <title><span className='text-accent'>Batik Printed Cotton Cloth</span> & <span className='text-accent'>Cotton Fabric Online</span></title>
             <meta name="description" content="Shop premium batik printed cotton cloth, printed cotton fabric, and women dress material online. Breathable cotton fabric for daily wear and women fashion." />
 
@@ -71,8 +71,8 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                 pillHighlight=""
                 title={
                     <>
-                        <span className='text-accent'>Batik Printed</span> Cotton Cloth & <br className="hidden md:block" />
-                        Premium Cotton <span className='text-accent'>Fabric Online</span>
+                        <span className='text-accent'>Batik Printed</span> Cotton Cloth <br className="hidden md:block" />
+                        <span className="font-serif italic text-primary/80">&</span> Premium Cotton <span className='text-accent'>Fabric Online</span>
                     </>
                 }
                 description="Explore breathable batik printed cotton cloth, stylish printed cotton fabric, and premium women dress material collections designed for cotton dresses, boutiques, resellers, and everyday women fashion across India."
@@ -93,15 +93,15 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
             <GoogleReviewBar />
 
             {/* ── SECTION: APPLICATIONS ── */}
-            <section className="scroll-animate py-16 md:py-24 px-4 md:px-6 bg-cream relative overflow-hidden">
-                <div className="max-w-7xl mx-auto flex flex-col gap-10 md:gap-16">
-                    <div className="flex flex-col gap-4 md:gap-6 text-center items-center mx-auto max-w-4xl">
-                        <span className="text-overline text-secondary mb-2 md:mb-0">Applications</span>
-                        <h2 className="text-h2 text-primary">Perfect Batik Printed Cotton Cloth <br className="hidden md:block" /> For Every Fashion Creation</h2>
-                        <p className="text-lg md:text-xl text-primary font-medium leading-relaxed">Our premium batik printed cotton cloth combines breathable cotton fabric with modern women fashion styling—perfect for batik print dress material, cotton dresses, women dress material, and boutique clothing collections.</p>
+            <section className="scroll-animate py-14 md:py-20 px-4 md:px-6 bg-tan relative overflow-hidden">
+                <div className="max-w-7xl mx-auto flex flex-col gap-10 md:gap-14">
+                    <div className="flex flex-col gap-4 md:gap-5 text-center items-center mx-auto max-w-4xl">
+                        <span className="text-overline text-accent tracking-[0.3em] font-bold uppercase mb-2 md:mb-0">Applications</span>
+                        <h2 className="text-h2 text-primary">Perfect Batik Printed Cotton Cloth<br className="hidden md:block" />For Every Fashion Creation</h2>
+                        <p className="text-body1 text-accent/90 leading-relaxed max-w-3xl">Our premium batik printed cotton cloth combines breathable cotton fabric with modern women fashion styling—perfect for batik print dress material, cotton dresses, women dress material, and boutique clothing collections.</p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
                         {[
                             {
                                 t: "DRESS MATERIALS",
@@ -120,7 +120,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                             }
                         ].map((item, i) => (
                             <div key={i} className="group relative flex flex-col gap-5 md:gap-6">
-                                <div className="relative w-full h-[300px] md:h-[450px] overflow-hidden bg-primary/5">
+                                <div className="relative w-full h-[280px] md:h-[400px] overflow-hidden bg-primary/5 rounded-none md:rounded-lg">
                                     <Image
                                         src={item.img}
                                         alt={item.t}
@@ -132,7 +132,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                                 </div>
                                 <div className="flex flex-col gap-2 md:gap-3 px-1 md:px-0 text-center items-center mx-auto max-w-sm">
                                     <h3 className="text-h4 tracking-widest text-primary uppercase">{item.t}</h3>
-                                    <p className="text-body2 text-primary/90">{item.d}</p>
+                                    <p className="text-body2 text-accent/80">{item.d}</p>
                                 </div>
                             </div>
                         ))}
@@ -141,12 +141,12 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
             </section>
 
             {/* ── PRODUCT GRID ── */}
-            <section id="collection" className="scroll-animate py-16 md:py-32 px-4 md:px-6 bg-white relative">
+            <section id="collection" className="scroll-animate py-16 md:py-32 px-4 md:px-6 bg-cream relative">
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-10 md:gap-20">
                     <div className="flex flex-col gap-4 md:gap-6 text-center items-center mx-auto max-w-4xl">
-                        <span className="text-overline text-secondary mb-2 md:mb-0">Fabric Library</span>
-                        <h2 className="text-h2 text-primary">Explore Signature Batik Cotton <br className="hidden md:block" /> Fabric Designs</h2>
-                        <p className="text-lg md:text-xl text-primary font-medium leading-relaxed">Discover premium printed cotton cloth, breathable dress fabric, and stylish batik print dress material collections designed for modern women clothing and everyday fashion demand.</p>
+                        <span className="text-overline text-accent tracking-[0.3em] font-bold uppercase mb-2 md:mb-0">Fabric Library</span>
+                        <h2 className="text-h2 text-primary">Explore Signature Batik Cotton<br className="hidden md:block" />Fabric Designs</h2>
+                        <p className="text-body1 text-accent/90 leading-relaxed max-w-3xl">Discover premium printed cotton cloth, breathable dress fabric, and stylish batik print dress material collections designed for modern women clothing and everyday fashion demand.</p>
                     </div>
 
                     <ProductFilterLayout
@@ -166,8 +166,8 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                     "Consistent Bulk Quality",
                     "Ready Stock Availability"
                 ]}
-                imageSrc="/advantage_hero_fashion.png"
-                mobileImageSrc="/advantage_hero_fashion.png"
+                imageSrc="/advantage_batik_cotton.png"
+                mobileImageSrc="/advantage_batik_cotton.png"
                 featureTag="FABRIC STANDARD"
                 featureTitle="Pure Cotton 60x60"
                 featureDesc="The gold standard for batik suits, ensuring longevity and maximum comfort in any weather."
@@ -175,7 +175,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
 
             <PremiumFeatureSection
                 tag="The AQSHA Fabric Advantage"
-                title={<>Why Our <span className='text-accent'>Batik Printed</span> <br /> Cotton Cloth <span className='text-accent'>Stands Out</span></>}
+                title={<>Why Our Batik Printed Cotton Cloth Stands Out</>}
                 features={[
                     {
                         t: "Pure Cotton Excellence",
@@ -248,13 +248,13 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
             />
 
             {/* ── SECTION: NEXT STEPS ── */}
-            <section className="scroll-animate py-16 md:py-24 px-4 md:px-6 bg-white overflow-hidden">
+            <section className="scroll-animate py-16 md:py-24 px-4 md:px-6 bg-tan overflow-hidden">
                 <div className="max-w-[1400px] mx-auto flex flex-col gap-10 md:gap-16">
                     {/* Section Header */}
                     <div className="flex flex-col gap-3 md:gap-4 text-center items-center max-w-2xl mx-auto w-full">
-                        <span className="text-overline text-secondary tracking-[0.3em] font-bold">NEXT STEP</span>
+                        <span className="text-overline text-accent tracking-[0.3em] font-bold uppercase">NEXT STEP</span>
                         <h2 className="text-h2 font-heading text-primary leading-tight">Continue Your Batik Fabric Shopping Journey</h2>
-                        <div className="w-16 h-[2px] bg-secondary/30 mt-2"></div>
+                        <div className="w-16 h-[2px] bg-primary/30 mt-2"></div>
                     </div>
 
                     {/* Editorial Gallery Grid */}
@@ -289,7 +289,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                                 />
                                 {/* Top Badge */}
                                 <div className="absolute top-5 left-5 z-20">
-                                    <span className="bg-white/90 backdrop-blur-sm text-primary text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] px-4 py-2 rounded-full shadow-sm">
+                                    <span className="bg-white/90 backdrop-blur-sm text-primary font-body text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] px-4 py-2 rounded-full shadow-sm">
                                         {item.tag}
                                     </span>
                                 </div>
@@ -303,7 +303,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                                         {item.t}
                                     </h4>
 
-                                    <div className="flex items-center gap-2 text-white/80 group-hover:text-accent font-bold text-[10px] md:text-xs uppercase tracking-widest transition-colors duration-500 mt-2">
+                                    <div className="flex items-center gap-2 text-white/80 group-hover:text-white font-body font-bold text-[10px] md:text-xs uppercase tracking-widest transition-colors duration-500 mt-2">
                                         <span>Explore</span>
                                         <svg
                                             width="16"
@@ -326,12 +326,12 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                 </div>
             </section>
             {/* ── SECTION: EDITORIAL CORNER ── */}
-            <section className="scroll-animate py-16 md:py-32 px-6 bg-cream">
+            <section className="scroll-animate pt-16 md:pt-32 pb-0 md:pb-0 px-6 bg-cream">
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
                     <div className="flex flex-col gap-3 md:gap-6 text-left md:text-center max-w-4xl mx-auto w-full">
-                        <span className="text-overline text-secondary">Fashion & Fabric Journal</span>
+                        <span className="text-overline text-accent tracking-[0.3em] font-bold uppercase">Fashion & Fabric Journal</span>
                         <h2 className="text-h2 text-primary">The Printed Cotton Fabric Style Guide</h2>
-                        <p className="text-lg md:text-xl text-primary font-medium leading-relaxed mt-2">Explore insights on printed cotton fabric, breathable dress fabric, cotton dresses, and modern women clothing trends shaping today’s fashion market.</p>
+                        <p className="text-body1 text-accent/90 leading-relaxed mt-2 max-w-3xl mx-auto">Explore insights on printed cotton fabric, breathable dress fabric, cotton dresses, and modern women clothing trends shaping today’s fashion market.</p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10">
@@ -363,10 +363,10 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                                     <Image src={post.img} alt={post.t} layout="fill" objectFit="cover" objectPosition="top" className="group-hover:scale-105 transition-transform duration-[1200ms]" />
                                 </div>
                                 <div className={`py-4 flex flex-col gap-2 md:gap-3 flex-1`}>
-                                    <span className="text-overline text-secondary">{post.c}</span>
+                                    <span className="text-overline">{post.c}</span>
                                     <h4 className="text-h4 text-primary">{post.t}</h4>
                                     <div className="flex justify-between items-center mt-auto pt-6 border-t border-primary/20">
-                                        <span className="text-overline text-primary/50">{post.date}</span>
+                                        <span className="text-overline">{post.date}</span>
                                         <div className="hidden md:flex items-center gap-2 text-primary font-bold text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-500">
                                             Read More
                                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>

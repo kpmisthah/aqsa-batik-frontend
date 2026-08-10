@@ -98,7 +98,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
     ];
 
     return (
-        <div className="min-h-screen bg-cream text-primary font-heading selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
+        <div className="min-h-screen bg-cream text-primary selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
             <style>{`
                 .bg-pattern { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM24 30V26h-2v4h-4v2h4v4h2v-4h4v-2h-4z' fill='%231A1A1A' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E"); }
             `}</style>
@@ -320,10 +320,10 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                                     <Image src={post.img} alt={post.title} layout="fill" objectFit="cover" objectPosition="top" className="group-hover:scale-110 transition-transform duration-1000" />
                                 </div>
                                 <div className={`flex flex-col gap-1 px-1 md:px-4 pb-1 md:pb-4 flex-1 justify-center ${i === 2 ? "pl-3 md:pl-4" : ""}`}>
-                                    <span className="text-[8px] md:text-xs font-black uppercase tracking-widest text-secondary opacity-60">{post.cat}</span>
+                                    <span className="text-overline">{post.cat}</span>
                                     <h4 className="font-heading text-[12px] md:text-2xl font-bold text-primary leading-tight mt-1 md:mt-2 group-hover:text-secondary transition-colors">{post.title}</h4>
                                     <div className="flex items-center justify-between mt-auto md:mt-6 pt-2 md:pt-0">
-                                        <span className="text-[8px] md:text-xs font-black uppercase tracking-widest text-primary/30">{post.date}</span>
+                                        <span className="text-overline">{post.date}</span>
                                         <div className="hidden md:flex items-center gap-2 text-secondary font-bold text-xs uppercase tracking-widest group-hover:translate-x-2 transition-transform">
                                             Read More
                                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>

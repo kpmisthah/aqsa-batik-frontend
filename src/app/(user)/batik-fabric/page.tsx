@@ -101,8 +101,8 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
     ];
 
     return (
-        <div className="min-h-screen bg-cream text-primary font-heading selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
-            <title><span className='text-accent'>Batik Fabric Online</span> | Cotton Batik Cloth India</title>
+        <div className="min-h-screen bg-cream text-primary selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
+            <title>Batik Fabric Online | Cotton Batik Cloth India</title>
             <meta name="description" content="Explore batik fabric in cotton with premium print quality. Ideal for dress materials and wholesale buyers across India." />
 
             <style>{`
@@ -110,13 +110,14 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
             `}</style>
 
             <Nav />
+            <ScrollObserver />
             <WavyHero
                 pillText="Pure Cotton Batik Fabric"
                 pillHighlight=""
                 title={
                     <>
                         Premium <span className='text-accent'>Batik Fabric Online</span> <br />
-                        <span className="whitespace-nowrap">Cotton Dress <span className='text-accent'>Material Collection</span></span>
+                        <span>Cotton Dress <span className='text-accent'>Material Collection</span></span>
                     </>
                 }
                 description="Explore high-demand batik fabric cotton, stylish batik print fabric, and premium batik dress material designed for modern fashion, boutiques, and wholesale buyers across India."
@@ -139,29 +140,27 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
             <section id="collection" className="scroll-animate py-16 md:py-32 px-6 bg-[#F9F7F1] relative overflow-hidden">
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-16 md:gap-20">
                     <div className="flex flex-col gap-4 text-center items-center mx-auto max-w-4xl">
-                        <span className="text-overline text-secondary">Optimized for Demand</span>
-                        <h2 className="text-h2 text-primary">Looking for Batik Fabric <br /> That Actually Sells?</h2>
-                        <div className="w-12 h-[2px] bg-secondary/30 mt-4"></div>
-                        <p className="text-lg md:text-xl text-primary font-medium leading-relaxed mt-4 max-w-3xl">
+                        <span className="text-overline">Optimized for Demand</span>
+                        <h2 className="text-h2 font-heading text-primary">Looking for Batik Fabric <br /> That Actually Sells?</h2>
+                        <div className="w-12 h-[2px] bg-secondary mt-4"></div>
+                        <p className="text-lg md:text-xl text-primary leading-relaxed mt-4 max-w-3xl font-normal">
                             Our collection of premium batik fabric, breathable batik fabric cotton, and high-demand batik print fabric is curated for real market performance—built for boutiques, resellers, and modern women clothing needs across India.
                         </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 max-w-6xl mx-auto w-full">
                         {perfectFor.map((item, i) => (
-                            <div key={i} className="bg-primary rounded-[24px] md:rounded-[36px] p-8 md:p-10 lg:p-12 shadow-[0_10px_40px_rgba(90,42,31,0.2)] border border-[#E8D9C0]/10 flex flex-col items-center text-center gap-8 group hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden h-full">
-                                {/* Subtle inner glow */}
-                                <div className="absolute top-0 right-0 w-64 h-64 bg-[#E8D9C0]/5 rounded-full blur-[80px] pointer-events-none"></div>
+                            <div key={i} className="bg-white rounded-[24px] p-8 md:p-10 lg:p-12 border border-border flex flex-col items-center text-center gap-6 group hover:-translate-y-2 transition-all duration-500 hover:shadow-xl hover:border-transparent h-full">
 
-                                <div className="text-[#E8D9C0] group-hover:scale-110 transition-transform duration-500 [&>svg]:!w-10 [&>svg]:!h-10 md:[&>svg]:!w-12 md:[&>svg]:!h-12 relative z-10">
+                                <div className="text-secondary group-hover:scale-110 transition-transform duration-500 [&>svg]:!w-10 [&>svg]:!h-10 md:[&>svg]:!w-12 md:[&>svg]:!h-12 relative z-10">
                                     {item.i}
                                 </div>
-                                <div className="flex flex-col flex-1 relative z-10 w-full justify-between">
-                                    <div className="flex flex-col gap-4">
-                                        <h3 className="text-h4 text-cream font-medium tracking-wide">{item.t}</h3>
-                                        <p className="text-body2 text-cream/95 leading-relaxed font-medium tracking-wide">{item.d}</p>
+                                <div className="flex flex-col flex-1 relative z-10 w-full justify-between gap-6">
+                                    <div className="flex flex-col gap-3">
+                                        <h3 className="text-h4 text-primary font-normal">{item.t}</h3>
+                                        <p className="text-body2 text-primary leading-relaxed font-normal">{item.d}</p>
                                     </div>
-                                    <div className="mt-8 flex items-center justify-center gap-2 text-[#E8D9C0] text-[10px] md:text-[11px] font-bold uppercase tracking-widest opacity-70 group-hover:opacity-100 transition-opacity">
+                                    <div className="flex items-center justify-center gap-2 text-accent text-[10px] md:text-[11px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
                                         <span>Learn More</span>
                                         <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
                                     </div>
@@ -172,9 +171,9 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
 
                     <div className="flex flex-col gap-8 md:gap-12 mt-6 md:mt-12">
                         <div className="flex flex-col gap-3 md:gap-4 text-center items-center mx-auto max-w-4xl">
-                            <span className="text-overline text-secondary">Best Selling Batik Fabric</span>
-                            <h2 className="text-h3 text-primary">Explore High Demand <br className="md:hidden" /> Batik Fabric Collections</h2>
-                            <p className="text-lg md:text-xl text-primary font-medium leading-relaxed mt-2 w-full text-center">Discover best-selling batik patterns, consistent quality, and ready-to-move collections trusted by boutiques, fabric shops, cloth shops, and resellers across India.</p>
+                            <span className="text-overline">Best Selling Batik Fabric</span>
+                            <h2 className="text-h3 font-heading text-primary">Explore High Demand <br className="md:hidden" /> Batik Fabric Collections</h2>
+                            <p className="text-lg md:text-xl text-primary font-normal leading-relaxed mt-2 w-full text-center">Discover best-selling batik patterns, consistent quality, and ready-to-move collections trusted by boutiques, fabric shops, cloth shops, and resellers across India.</p>
                         </div>
                         <ProductFilterLayout
                             products={products}
@@ -279,12 +278,12 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
 
 
             {/* ── SECTION: NEXT STEPS ── */}
-            <section className="scroll-animate py-16 md:py-32 px-6 bg-white overflow-hidden text-primary">
+            <section className="scroll-animate py-16 md:py-32 px-6 bg-[#F4F0EA] overflow-hidden text-primary">
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
                     <div className="flex flex-col gap-3 md:gap-6 text-left md:text-center max-w-4xl mx-auto w-full">
-                        <span className="text-overline text-secondary">Next Step</span>
-                        <h2 className="text-h2 font-bold text-primary">Continue Your Buying Journey</h2>
-                        <p className="text-lg md:text-xl text-primary font-medium leading-relaxed mt-2">
+                        <span className="text-overline">Next Step</span>
+                        <h2 className="text-h2 font-heading text-primary">Continue Your Buying Journey</h2>
+                        <p className="text-lg md:text-xl text-primary leading-relaxed mt-2">
                             Choose what fits your goal—explore designs, source fabric, or scale with wholesale supply.
                         </p>
                     </div>
@@ -323,7 +322,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                                 </div>
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none"></div>
                                 <div className="absolute inset-0 flex flex-col items-center justify-end p-6 md:p-10 text-center">
-                                    <h3 className="font-heading text-xl md:text-3xl font-bold text-white leading-tight mb-2 md:mb-4">{item.t}</h3>
+                                    <h3 className="font-heading text-2xl md:text-3xl font-normal text-white leading-tight mb-2 md:mb-4">{item.t}</h3>
 
                                     <div className="flex items-center gap-2 mt-2 bg-white/20 backdrop-blur-sm px-4 md:px-6 py-2 md:py-3 rounded-full text-white font-bold text-[10px] md:text-xs uppercase tracking-widest overflow-hidden">
                                         <span>Explore</span>
@@ -343,10 +342,10 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                 <div className="max-w-[1400px] mx-auto flex flex-col gap-10 md:gap-16">
                     {/* Section Header */}
                     <div className="flex flex-col gap-3 md:gap-4 text-center items-center max-w-5xl mx-auto w-full">
-                        <span className="text-overline text-secondary tracking-[0.3em] font-bold">FASHION & FABRIC JOURNAL</span>
+                        <span className="text-overline">FASHION & FABRIC JOURNAL</span>
                         <h2 className="text-h2 font-heading text-primary leading-tight">The Batik Fabric Journal</h2>
-                        <div className="w-16 h-[2px] bg-secondary/30 mt-2"></div>
-                        <p className="text-lg md:text-xl text-primary font-medium leading-relaxed mt-2">
+                        <div className="w-16 h-[2px] bg-secondary mt-2"></div>
+                        <p className="text-lg md:text-xl text-primary leading-relaxed mt-2">
                             Insights on batik fabric, latest batik fabric prints, styling ideas, and trends shaping modern women clothing and dress material demand.
                         </p>
                     </div>
@@ -372,20 +371,20 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
 
                                 {/* Text Content */}
                                 <div className="flex flex-col gap-2 md:gap-3 px-2">
-                                    <span className="text-[10px] md:text-xs text-primary/50 font-bold uppercase tracking-[0.2em]">
+                                    <span className="text-overline">
                                         {post.cat} &nbsp;&mdash;&nbsp; {post.date}
                                     </span>
 
-                                    <h4 className="text-2xl md:text-3xl font-heading font-bold text-primary decoration-primary/30 underline-offset-4 group-hover:underline transition-all duration-300">
+                                    <h4 className="text-2xl md:text-3xl font-heading font-normal text-primary decoration-primary/30 underline-offset-4 group-hover:underline transition-all duration-300">
                                         {post.title}
                                     </h4>
 
-                                    <p className="text-body2 text-primary/90 line-clamp-2">
+                                    <p className="text-body2 text-primary line-clamp-2">
                                         {post.d}
                                     </p>
 
                                     {/* Minimalist Read More */}
-                                    <div className="flex items-center gap-2 text-primary/90 font-bold text-[10px] uppercase tracking-widest mt-2 group-hover:text-primary transition-colors duration-300">
+                                    <div className="flex items-center gap-2 text-primary font-bold text-[10px] uppercase tracking-widest mt-2 group-hover:text-accent transition-colors duration-300">
                                         <span>Read Article</span>
                                         <svg
                                             width="16"
