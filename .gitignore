@@ -43,3 +43,11 @@ next-env.d.ts
 # clerk configuration (can include secrets)
 /.clerk/
 scratch/
+
+# temp/scratch files
+.next_log.txt
+diff.txt
+lint_results.txt
+old_home.tsx
+patch_home.py
+scratch.js
