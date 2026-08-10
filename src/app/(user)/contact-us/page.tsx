@@ -38,7 +38,7 @@ export default async function ContactPage() {
                 pillHighlight=""
                 title={
                     <>
-                        <span className='text-accent'>Let's Talk</span> About Your <br className="hidden md:block" /> Batik Fabric <span className='text-accent'>Requirements</span>
+                        <span className='text-accent'>Let's Talk</span> about Your <br /> Batik Fabric <span className='text-accent'>Requirements</span>
                     </>
                 }
                 description="Looking for premium batik fabric, batik cloth, women clothing, or the latest cotton dresses for women? Whether you're a retailer, wholesaler, boutique owner, or fashion brand, our team is here to help you source high-quality collections directly from a trusted manufacturer."
@@ -107,7 +107,7 @@ export default async function ContactPage() {
             </section>
 
             {/* ── FORM SECTION ── */}
-            <section id="form" className="scroll-animate py-20 md:py-28 px-6 bg-cream border-t border-primary/10">
+            <section id="form" className="scroll-animate pt-20 pb-0 md:py-28 px-6 bg-cream border-t border-primary/10">
                 <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
                     <div className="lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left w-full">
                         <span className="text-overline text-accent tracking-[0.3em] font-bold uppercase mb-4 md:mb-6 block">Get In Touch</span>
@@ -159,7 +159,7 @@ export default async function ContactPage() {
             </section>
 
             {/* ── TRUST SECTION ── */}
-            <section className="scroll-animate py-24 px-6 bg-cream">
+            <section className="scroll-animate pt-8 pb-24 md:py-24 px-6 bg-cream">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16 flex flex-col items-center w-full">
                         <span className="text-overline text-accent tracking-[0.3em] font-bold uppercase mb-4 md:mb-6">Why Choose Aqsha Batik</span>
@@ -200,7 +200,7 @@ export default async function ContactPage() {
             ]} />
 
             {/* ── FINAL CTA ── */}
-            <section className="scroll-animate py-24 px-6 bg-cream border-t border-primary/10">
+            <section className="scroll-animate pt-8 pb-24 md:py-24 px-6 bg-cream border-t border-primary/10">
                 <div className="max-w-5xl mx-auto bg-white rounded-3xl p-12 md:p-16 text-center border border-primary/10 shadow-sm flex flex-col items-center">
                     <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-normal text-primary mb-4 leading-tight">Looking For Premium Batik Fabric At Wholesale Prices?</h2>
                     <p className="text-primary/80 text-base md:text-lg mb-10 max-w-2xl font-medium">Get direct manufacturer pricing, expert guidance, and access to our latest batik fabric, women clothing, indian dresses, and wholesale collections.</p>
