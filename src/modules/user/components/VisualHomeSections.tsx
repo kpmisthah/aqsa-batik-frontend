@@ -302,8 +302,8 @@ export function LookbookSection() {
     ];
 
     return (
-        <section className="pt-10 md:pt-16 pb-20 px-6 bg-cream border-t border-primary/5">
-            <div className="max-w-[1400px] mx-auto flex flex-col gap-16">
+        <section className="pt-8 md:pt-16 pb-12 md:pb-20 px-6 bg-cream border-t border-primary/5">
+            <div className="max-w-[1400px] mx-auto flex flex-col gap-12 md:gap-16">
 
                 {/* Standard Brand Text Header */}
                 <div className="flex flex-col gap-3 items-center text-center">

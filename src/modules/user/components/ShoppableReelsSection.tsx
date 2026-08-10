@@ -86,7 +86,7 @@ export default function ShoppableReelsSection() {
   };
 
   return (
-    <section className="scroll-animate pt-20 pb-12 md:pt-28 md:pb-16 px-6 bg-cream border-t border-primary/10 overflow-hidden relative">
+    <section className="scroll-animate pt-10 pb-6 md:pt-28 md:pb-16 px-6 bg-cream border-t border-primary/10 overflow-hidden relative">
       <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col items-center text-center gap-5 mb-12 md:mb-16">
           <div className="flex flex-col items-center gap-3">

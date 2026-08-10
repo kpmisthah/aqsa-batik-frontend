@@ -353,7 +353,7 @@ export default function HomePage() {
 
       {/* ── WHAT BUYERS SAY ── */}
       <section className="scroll-animate pt-20 pb-16 md:pt-24 md:pb-24 px-6 bg-surface">
-        <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-16 lg:gap-20 items-center">
+        <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-6 md:gap-16 lg:gap-20 items-center">
 
           <div className="flex flex-col gap-3 md:gap-6 lg:w-[400px] shrink-0 min-w-0 text-center lg:text-left items-center lg:items-start w-full">
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/80">Real Buyers. Real Results.</span>
@@ -422,7 +422,7 @@ export default function HomePage() {
           </div>
           
           {/* Mobile-Only Subheading & Stats (shown after slider on mobile) */}
-          <div className="flex lg:hidden flex-col gap-6 mt-4 w-full px-2 text-center">
+          <div className="flex lg:hidden flex-col gap-6 w-full px-2 text-center">
             <p className="text-[13px] text-primary/80 font-medium leading-relaxed max-w-md mx-auto">
               Over 1,000+ retail partners and boutique owners trust our fabric every day. Swipe through raw, unedited feedback directly from our WhatsApp orders.
             </p>
@@ -444,7 +444,7 @@ export default function HomePage() {
       </section>
 
       {/* ── BUYER PSYCHOLOGY ── */}
-      <section className="pt-16 pb-10 md:pt-20 md:pb-12 px-6 bg-cream border-t border-border/40">
+      <section className="pt-16 pb-4 md:pt-20 md:pb-12 px-6 bg-cream border-t border-border/40">
         <div className="max-w-[1400px] mx-auto flex flex-col items-center text-center gap-12">
           <div className="flex flex-col gap-3 max-w-2xl items-center">
             <span className="text-overline">The Investment</span>
