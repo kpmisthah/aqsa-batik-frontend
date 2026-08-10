@@ -150,7 +150,7 @@ export default async function ContactPage() {
                         {/* ── CONCIERGE CARD CONTAINER ── */}
                         <div className="bg-white p-8 md:p-12 lg:p-14 shadow-sm rounded-[24px] md:rounded-[32px] border border-primary/10 relative overflow-hidden transition-transform duration-500">
                             <div className="relative z-10">
-                                <h3 className="font-heading text-2xl md:text-3xl font-normal text-primary mb-8">Request Wholesale Access</h3>
+                                <h3 className="font-heading text-2xl md:text-3xl font-normal text-primary mb-8 text-center">Request Wholesale Access</h3>
                                 <ContactForm />
                             </div>
                         </div>
@@ -200,7 +200,7 @@ export default async function ContactPage() {
             ]} />
 
             {/* ── FINAL CTA ── */}
-            <section className="scroll-animate pt-8 pb-24 md:py-24 px-6 bg-cream border-t border-primary/10">
+            <section className="scroll-animate pt-2 pb-24 md:py-24 px-6 bg-cream border-t-0 border-primary/10">
                 <div className="max-w-5xl mx-auto bg-white rounded-3xl p-12 md:p-16 text-center border border-primary/10 shadow-sm flex flex-col items-center">
                     <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-normal text-primary mb-4 leading-tight">Looking For Premium Batik Fabric At Wholesale Prices?</h2>
                     <p className="text-primary/80 text-base md:text-lg mb-10 max-w-2xl font-medium">Get direct manufacturer pricing, expert guidance, and access to our latest batik fabric, women clothing, indian dresses, and wholesale collections.</p>
