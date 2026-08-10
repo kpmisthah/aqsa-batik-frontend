@@ -26,7 +26,7 @@ export default function AboutPage() {
                 pillHighlight=""
                 title={
                     <>
-                        <span className="block md:whitespace-nowrap"><span className='text-accent'>Legacy</span> Craftsmanship</span>
+                        <span className="block md:whitespace-nowrap">Legacy Craftsmanship</span>
                         <span className="block md:whitespace-nowrap">Behind <span className='text-accent'>Every Design</span></span>
                     </>
                 }

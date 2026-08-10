@@ -64,7 +64,7 @@ export default async function BlogIndexPage() {
                 pillHighlight=""
                 title={
                     <>
-                        <span className='text-accent'>Women Clothing</span>, Batik Fabric <br className="hidden md:block" /> &amp; <span className='text-accent'>Fashion Trends</span> Blog
+                        Women Clothing, Batik Fabric <br className="hidden md:block" /> &amp; <span className='text-accent'>Fashion Trends</span> Blog
                     </>
                 }
                 description="Explore expert insights on women clothing, batik fabric, batik cloth, cotton dresses for women, and the latest fashion trends. Learn how to choose premium fabrics, discover stylish women clothing collections, and stay updated with wholesale buying guides directly from manufacturers."

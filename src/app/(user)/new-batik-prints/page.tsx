@@ -68,7 +68,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                 title={
                     <>
                         <span className='text-accent'>New Arrival</span> Batik Prints & <br className="hidden md:block" />
-                        Cotton Dress <span className='text-accent'>Material Collection</span>
+                        Cotton Dress Material Collection
                     </>
                 }
                 description="Explore new arrival batik prints, premium cotton dress material, floral cotton fabric, and designer printed fabric collections crafted for cotton kurtis, women clothing, boutiques, and trending ethnic fashion."

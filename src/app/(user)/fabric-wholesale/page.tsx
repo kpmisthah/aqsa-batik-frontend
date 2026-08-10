@@ -237,7 +237,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                 pillHighlight=""
                 title={
                     <>
-                        <span className='text-accent'>wholesale cotton</span> <br className="block md:hidden" />
+                        wholesale cotton <br className="block md:hidden" />
                         Dresses in India <br className="block md:hidden" />
                         for batik clothing & <br className="hidden md:block" /> <br className="block md:hidden" />
                         <span className='text-accent'>Bulk orders</span>

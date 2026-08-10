@@ -71,7 +71,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                 pillHighlight=""
                 title={
                     <>
-                        <span className='text-accent'>Batik Printed</span> Cotton Cloth <br className="hidden md:block" />
+                        Batik Printed Cotton Cloth <br className="hidden md:block" />
                         <span className="font-serif italic text-primary/80">&</span> Premium Cotton <span className='text-accent'>Fabric Online</span>
                     </>
                 }

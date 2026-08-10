@@ -108,18 +108,18 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-                        {/* Specs List (Sleek Row Layout) */}
-                        <div className="flex flex-col justify-center gap-4 md:gap-5">
+                        {/* Specs List (Sleek Grid Layout) */}
+                        <div className="grid grid-cols-2 md:grid-cols-2 lg:flex lg:flex-col xl:grid xl:grid-cols-2 justify-center gap-3 md:gap-5 w-full">
                             {details.map((detail, i) => (
-                                <div key={i} className="flex items-center gap-5 p-4 md:p-6 bg-white rounded-[24px] shadow-sm hover:shadow-xl border border-primary/5 hover:border-secondary/20 transition-all duration-300 group hover:-translate-y-1">
-                                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-cream flex items-center justify-center text-xl md:text-3xl text-primary group-hover:scale-110 transition-transform">
+                                <div key={i} className="flex flex-col sm:flex-row items-center sm:items-center gap-3 sm:gap-5 p-4 sm:p-5 md:p-6 bg-white rounded-[20px] md:rounded-[24px] shadow-sm hover:shadow-xl border border-primary/5 hover:border-secondary/20 transition-all duration-300 group hover:-translate-y-1 text-center sm:text-left w-full h-full">
+                                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-cream flex items-center justify-center text-xl md:text-3xl text-primary group-hover:scale-110 transition-transform shrink-0">
                                         {detail.icon}
                                     </div>
-                                    <div className="flex flex-col flex-1">
-                                        <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-secondary opacity-70 group-hover:opacity-100 transition-opacity">
+                                    <div className="flex flex-col flex-1 items-center sm:items-start w-full">
+                                        <span className="text-[9px] md:text-xs font-black uppercase tracking-[0.2em] text-secondary opacity-70 group-hover:opacity-100 transition-opacity">
                                             {detail.label}
                                         </span>
-                                        <span className="text-sm md:text-lg font-bold text-primary tracking-tight leading-snug mt-1 max-w-[90%]">
+                                        <span className="text-xs md:text-lg font-bold text-primary tracking-tight leading-snug mt-1 md:mt-1.5 w-full">
                                             {detail.value}
                                         </span>
                                     </div>

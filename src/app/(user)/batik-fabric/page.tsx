@@ -118,7 +118,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                     <>
                         Premium <span className='text-accent'>Batik Fabric</span><span className="hidden md:inline"> </span><br className="block md:hidden" />
                         online cotton Dress<span className="hidden md:inline"> </span><br className="block md:hidden" />
-                        Material <span className='text-accent'>collection</span>
+                        Material collection
                     </>
                 }
                 description="Explore high-demand batik fabric cotton, stylish batik print fabric, and premium batik dress material designed for modern fashion, boutiques, and wholesale buyers across India."

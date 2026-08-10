@@ -38,7 +38,7 @@ export default async function ContactPage() {
                 pillHighlight=""
                 title={
                     <>
-                        <span className='text-accent'>Let's Talk</span> about Your <br /> Batik Fabric <span className='text-accent'>Requirements</span>
+                        Let's Talk about Your <br /> Batik Fabric <span className='text-accent'>Requirements</span>
                     </>
                 }
                 description="Looking for premium batik fabric, batik cloth, women clothing, or the latest cotton dresses for women? Whether you're a retailer, wholesaler, boutique owner, or fashion brand, our team is here to help you source high-quality collections directly from a trusted manufacturer."
