@@ -144,7 +144,7 @@ export default async function BlogIndexPage() {
             </section>
 
             {/* ── LATEST ARTICLES ── */}
-            <section id="articles" className="scroll-animate pt-8 md:pt-20 pb-20 px-6 bg-cream">
+            <section id="articles" className="scroll-animate pt-8 pb-0 md:pt-20 md:pb-20 px-6 bg-cream">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <div className="flex items-center justify-center gap-4 mb-6">
@@ -206,7 +206,7 @@ export default async function BlogIndexPage() {
             </section>
 
             {/* ── TRUST SECTION ── */}
-            <section className="scroll-animate py-20 px-6 bg-cream">
+            <section className="scroll-animate pt-10 pb-0 md:py-20 px-6 bg-cream">
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
                     <div className="lg:w-2/3 flex flex-col items-center lg:items-start text-center lg:text-left">
                         <div className="flex items-center justify-center lg:justify-start gap-4 mb-6 w-full">
@@ -250,7 +250,7 @@ export default async function BlogIndexPage() {
             </section>
 
             {/* ── NEWSLETTER ── */}
-            <section className="scroll-animate py-20 px-6 bg-cream">
+            <section className="scroll-animate pt-8 pb-20 md:py-20 px-6 bg-cream">
                 <div className="max-w-5xl mx-auto">
                     <div className="bg-tan rounded-[32px] p-8 md:p-12 shadow-sm relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10">
                         {/* Decorative glow */}
