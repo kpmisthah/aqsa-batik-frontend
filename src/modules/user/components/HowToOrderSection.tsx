@@ -58,21 +58,21 @@ export default function HowToOrderSection({
     subtitle = DEFAULT_SUBTITLE,
 }: HowToOrderSectionProps) {
     return (
-        <section className="scroll-animate py-20 md:py-28 px-6 bg-surface text-center border-t border-border/40">
-            <div className="max-w-[1400px] mx-auto flex flex-col gap-12 md:gap-16 relative z-10 w-full">
+        <section className="scroll-animate pt-10 pb-8 md:pt-12 md:pb-12 px-6 bg-cream text-center border-t border-border/40">
+            <div className="max-w-[1400px] mx-auto flex flex-col gap-6 md:gap-8 relative z-10 w-full">
                 {/* ── Header ── */}
                 <div className="flex flex-col gap-3 text-center items-center">
                     <span className="text-overline">{tag}</span>
-                    <h2 className="text-h2">
-                        {title}
-                    </h2>
-                    <p className="text-body1 max-w-lg mt-1 leading-relaxed text-foreground font-medium">
-                        {subtitle}
-                    </p>
-                </div>
+                        <h2 className="text-h2 text-primary">
+                            {title}
+                        </h2>
+                        <p className="text-body1 text-primary max-w-lg mt-1 leading-relaxed font-normal">
+                            {subtitle}
+                        </p>
+                    </div>
 
                 {/* ── Minimalist Timeline Grid ── */}
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-12 md:gap-8 mx-auto w-full pt-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-8 mx-auto w-full pt-2">
                     {STEPS.map((step, i) => (
                         <div
                             key={i}
@@ -86,21 +86,21 @@ export default function HowToOrderSection({
 
                                 {/* Dotted Arrow (Hidden on Mobile & Last Step) */}
                                 {i !== STEPS.length - 1 && (
-                                    <div className="hidden md:flex flex-1 items-center opacity-20 px-2 lg:px-4">
-                                        <div className="flex-1 border-t-2 border-dashed border-primary"></div>
-                                        <svg className="w-5 h-5 text-primary shrink-0 -ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                                    <div className="hidden md:flex flex-1 items-center px-2 lg:px-4">
+                                        <div className="flex-1 border-t-2 border-dashed border-secondary"></div>
+                                        <svg className="w-5 h-5 text-secondary shrink-0 -ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                                     </div>
                                 )}
                             </div>
                             
-                            <div className="w-12 h-[2px] bg-accent/20 mb-5 md:hidden"></div>
+                            <div className="w-12 h-[2px] bg-secondary mb-5 md:hidden"></div>
 
                             {/* Text */}
                             <div className="flex flex-col gap-2 pr-4 lg:pr-8">
-                                <h4 className="text-lg text-primary font-heading font-medium">
+                                <h4 className="text-h4 text-primary font-normal">
                                     {step.t}
                                 </h4>
-                                <p className="text-[13px] leading-relaxed text-foreground font-medium">
+                                <p className="text-body2 text-primary font-normal">
                                     {step.d}
                                 </p>
                             </div>

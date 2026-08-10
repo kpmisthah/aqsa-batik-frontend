@@ -33,33 +33,39 @@ const AdvantageSection: React.FC<AdvantageSectionProps> = ({
                     {mobileImageSrc && (
                         <Image src={mobileImageSrc} alt="Feature Highlight Mobile" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[2s] block md:hidden object-top" />
                     )}
-                    <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-700 pointer-events-none"></div>
-                    <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10 flex flex-col gap-2">
-                         <span className="text-overline text-white/90 drop-shadow-md">{featureTag}</span>
-                         <h4 className="text-h3 text-white leading-tight drop-shadow-md">{featureTitle}</h4>
-                         <p className="text-body2 text-white/90 mt-2 max-w-sm drop-shadow-md">{featureDesc}</p>
-                    </div>
+                    
+                    {/* Gradient Overlay for Text Visibility */}
+                    <div className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
+                    
+                    {/* Overlay Content */}
+                    {(featureTitle || featureDesc) && (
+                        <div className="absolute bottom-0 left-0 w-full p-6 md:p-10 flex flex-col gap-1.5 md:gap-2">
+                            {featureTag && <span className="text-overline text-secondary drop-shadow-md">{featureTag}</span>}
+                            {featureTitle && <h3 className="text-h2 text-white drop-shadow-lg leading-tight">{featureTitle}</h3>}
+                            {featureDesc && <p className="text-body1 text-white/90 max-w-sm drop-shadow-md leading-relaxed">{featureDesc}</p>}
+                        </div>
+                    )}
                 </div>
                 
                 {/* Right: Section Title & Cards */}
                 <div className="flex flex-col gap-10 md:gap-14 lg:pl-10">
                     {/* Title Block */}
-                    <div className="flex flex-col gap-3 md:gap-6 text-center lg:text-left items-center lg:items-start">
-                        <span className="text-overline text-secondary">{tag}</span>
-                        <h2 className="text-h2 text-primary">{title}</h2>
+                    <div className="flex flex-col gap-3 md:gap-4 text-center lg:text-left items-center lg:items-start max-w-xl">
+                        <span className="text-overline text-accent tracking-[0.3em] font-bold uppercase">{tag}</span>
+                        <h2 className="text-h2 text-primary leading-tight">{title}</h2>
                     </div>
 
                     {/* User-Friendly Card Layout */}
-                    <div className="grid grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
+                    <div className="grid grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4 md:gap-6">
                         {items.map((item, i) => (
-                            <div key={i} className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-4 p-3 sm:p-5 md:p-6 bg-white/80 backdrop-blur-md rounded-[16px] sm:rounded-2xl border border-primary/5 hover:border-primary/20 hover:shadow-xl transition-all duration-300 group text-center sm:text-left">
-                                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 shrink-0 bg-primary/5 rounded-[12px] sm:rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                                     {i % 4 === 0 && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>}
-                                     {i % 4 === 1 && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /><polyline points="3.27 6.96 12 12.01 20.73 6.96" /><line x1="12" y1="22.08" x2="12" y2="12" /></svg>}
-                                     {i % 4 === 2 && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></svg>}
-                                     {i % 4 === 3 && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>}
+                            <div key={i} className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 p-4 md:p-5 bg-white/90 backdrop-blur-md rounded-[16px] border border-primary/10 hover:border-primary/20 hover:shadow-xl transition-all duration-300 group text-center sm:text-left">
+                                <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 bg-primary/5 rounded-[12px] flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                                     {i % 4 === 0 && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>}
+                                     {i % 4 === 1 && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /><polyline points="3.27 6.96 12 12.01 20.73 6.96" /><line x1="12" y1="22.08" x2="12" y2="12" /></svg>}
+                                     {i % 4 === 2 && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></svg>}
+                                     {i % 4 === 3 && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>}
                                 </div>
-                                <h3 className="text-sm sm:text-base md:text-lg text-primary font-bold leading-tight" dangerouslySetInnerHTML={{ __html: item }} />
+                                <h3 className="text-h4 text-primary w-full" dangerouslySetInnerHTML={{ __html: item }} />
                             </div>
                         ))}
                     </div>

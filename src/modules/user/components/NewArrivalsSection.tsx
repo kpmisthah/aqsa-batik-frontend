@@ -65,7 +65,7 @@ export default function NewArrivalsSection() {
     };
 
     return (
-        <section className="bg-surface pt-16 pb-12 md:pt-20 md:pb-16 px-6 md:px-12 relative overflow-hidden text-center border-t border-border/40">
+        <section className="bg-cream pt-16 pb-12 md:pt-20 md:pb-16 px-6 md:px-12 relative overflow-hidden text-center border-t border-border/40">
             <div className="max-w-[1400px] mx-auto w-full relative z-10 flex flex-col items-center">
 
                 {/* Header Subtitle Component */}
@@ -74,7 +74,7 @@ export default function NewArrivalsSection() {
                     <h2 className="text-h2 text-primary">
                         New Arrivals
                     </h2>
-                    <p className="text-body1 max-w-md mx-auto mt-1">
+                    <p className="text-body1 max-w-md mx-auto mt-1 text-primary/80">
                         Clean prints, sharp contrast, and traditional wax resilience. Unveil the newest batch of masterpieces.
                     </p>
                 </div>

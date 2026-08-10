@@ -40,19 +40,19 @@ export default function FAQ({ items }: FAQProps) {
     const faqs = items || defaultFaqs;
 
     return (
-        <section id="faq" className="pt-16 pb-20 md:pt-20 md:pb-24 px-6 bg-surface border-t border-primary/5">
+        <section id="faq" className="pt-8 pb-10 md:pt-10 md:pb-12 px-6 bg-cream border-t border-primary/5">
             <div className="max-w-4xl mx-auto flex flex-col items-center">
-                <div className="text-center mb-16 flex flex-col gap-4 items-center">
-                    <span className="text-xl leading-none text-accent">&diams; <span className="text-[11px] font-bold uppercase tracking-[0.25em] ml-2 text-foreground">Support</span></span>
+                <div className="text-center mb-8 flex flex-col gap-4 items-center">
+                    <span className="text-xl leading-none text-accent">&diams; <span className="text-[11px] font-bold uppercase tracking-[0.25em] ml-2 text-primary/80">Support</span></span>
                     <h2 className="font-heading text-h2 font-medium text-primary">Frequently Asked Questions</h2>
                 </div>
 
                 <div className="flex flex-col gap-4 w-full">
                     {faqs.map((f, i) => (
-                        <div key={i} className="bg-white rounded-[1.5rem] overflow-hidden shadow-sm border border-primary/5 transition-all">
+                        <div key={i} className="bg-tan/15 rounded-[1.5rem] overflow-hidden shadow-sm border border-tan/30 transition-all">
                             <button
                                 onClick={() => setOpen(open === i ? -1 : i)}
-                                className="w-full text-left p-6 md:p-8 flex justify-between items-center bg-white hover:bg-cream/30 transition-colors"
+                                className="w-full text-left p-6 md:p-8 flex justify-between items-center bg-transparent hover:bg-tan/25 transition-colors"
                             >
                                 <span className="font-heading font-medium text-lg md:text-xl text-primary">{f.q}</span>
                                 <span className={`text-accent shrink-0 transition-transform duration-300 ${open === i ? "rotate-180" : ""}`}>
@@ -60,7 +60,7 @@ export default function FAQ({ items }: FAQProps) {
                                 </span>
                             </button>
                             <div className={`overflow-hidden transition-all duration-300 ease-in-out ${open === i ? "max-h-[500px]" : "max-h-0"}`}>
-                                <div className="p-6 md:p-8 pt-0 text-foreground leading-relaxed font-medium">
+                                <div className="p-6 md:p-8 pt-0 text-primary/80 leading-relaxed font-medium">
                                     {f.a}
                                 </div>
                             </div>
@@ -68,8 +68,8 @@ export default function FAQ({ items }: FAQProps) {
                     ))}
                 </div>
 
-                <div className="mt-16 text-center flex flex-col items-center gap-6">
-                    <p className="text-foreground font-medium">Still have questions? We're just a message away.</p>
+                <div className="mt-8 text-center flex flex-col items-center gap-6">
+                    <p className="text-primary/80 font-medium">Still have questions? We're just a message away.</p>
                     <a href={WA} target="_blank" rel="noreferrer" className="bg-transparent border border-primary/20 hover:border-primary text-primary px-10 py-3.5 rounded-full font-bold uppercase tracking-widest text-[11px] transition-colors">
                         Ask on WhatsApp
                     </a>
