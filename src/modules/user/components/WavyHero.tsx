@@ -43,7 +43,7 @@ export default function WavyHero({
           </div>
         )}
 
-        <h1 className={`text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] font-heading font-normal text-primary leading-[1.1] ${subtitle ? 'mb-2' : 'mb-4 lg:mb-6'} tracking-tight text-center lg:text-left mx-auto lg:mx-0`}>
+        <h1 className={`text-[28px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-[3.5rem] font-heading font-normal text-primary leading-[1.1] ${subtitle ? 'mb-2' : 'mb-4 lg:mb-6'} tracking-tight text-center lg:text-left mx-auto lg:mx-0`}>
           {title}
         </h1>
         {subtitle && (
