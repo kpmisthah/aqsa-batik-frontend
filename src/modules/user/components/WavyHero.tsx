@@ -28,7 +28,7 @@ export default function WavyHero({
       <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-[calc(50%-80px)] bg-cream z-20 pointer-events-none"></div>
 
       {/* Left Side: Content */}
-      <div className="w-full lg:w-[50%] relative z-20 flex flex-col justify-center items-center lg:items-start px-6 sm:px-12 lg:px-16 xl:px-20 pt-8 lg:pt-20 pb-6 lg:pb-12 text-center lg:text-left">
+      <div className="w-full lg:w-[50%] relative z-20 flex flex-col justify-center items-center lg:items-start px-6 sm:px-12 lg:px-16 xl:px-20 pt-8 lg:pt-20 pb-0 lg:pb-12 text-center lg:text-left">
         {pillHighlight ? (
           <div className="flex items-center justify-center lg:justify-start gap-2 mb-4 lg:mb-6 text-accent">
             <div className="flex items-center gap-2 bg-white/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-primary/10">
@@ -69,7 +69,7 @@ export default function WavyHero({
         </div>
 
         {buttons && (
-          <div className="flex flex-col sm:flex-row gap-3 mb-10 sm:mb-14 items-center justify-center lg:justify-start w-full">
+          <div className="flex flex-col sm:flex-row gap-3 mb-2 lg:mb-14 items-center justify-center lg:justify-start w-full">
             {buttons}
           </div>
         )}

@@ -116,8 +116,9 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                 pillHighlight=""
                 title={
                     <>
-                        Premium <span className='text-accent'>Batik Fabric Online</span> <br />
-                        <span>Cotton Dress <span className='text-accent'>Material Collection</span></span>
+                        Premium <span className='text-accent'>Batik Fabric</span><span className="hidden md:inline"> </span><br className="block md:hidden" />
+                        online cotton Dress<span className="hidden md:inline"> </span><br className="block md:hidden" />
+                        Material <span className='text-accent'>collection</span>
                     </>
                 }
                 description="Explore high-demand batik fabric cotton, stylish batik print fabric, and premium batik dress material designed for modern fashion, boutiques, and wholesale buyers across India."
@@ -201,7 +202,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
 
             <PremiumFeatureSection
                 tag="Why Buyers Choose Our Fabric"
-                title={<>Why Our Batik Fabric Stands Out</>}
+                title={<>Why Batik fabric <br className="block md:hidden" /> stands out</>}
                 features={[
                     {
                         t: "Premium Batik Fabric Cotton",
@@ -280,7 +281,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
             {/* ── SECTION: NEXT STEPS ── */}
             <section className="scroll-animate py-16 md:py-32 px-6 bg-[#F4F0EA] overflow-hidden text-primary">
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
-                    <div className="flex flex-col gap-3 md:gap-6 text-left md:text-center max-w-4xl mx-auto w-full">
+                    <div className="flex flex-col gap-3 md:gap-6 text-center items-center max-w-4xl mx-auto w-full">
                         <span className="text-overline">Next Step</span>
                         <h2 className="text-h2 font-heading text-primary">Continue Your Buying Journey</h2>
                         <p className="text-lg md:text-xl text-primary leading-relaxed mt-2">
