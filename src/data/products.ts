@@ -162,7 +162,7 @@ export const products: Product[] = [
         name: "Charcoal Mystic Fabric",
         category: "Batik Fabric",
         subCategory: "CHANDERI SILK",
-        image: "/batik_fabric_hero.png",
+        image: "/batik_fabric_hero_new.png",
         description: "Dark charcoal fabric with mysterious batik motifs.",
         isWholesale: true,
     }
