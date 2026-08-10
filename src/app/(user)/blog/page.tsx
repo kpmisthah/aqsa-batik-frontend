@@ -83,7 +83,7 @@ export default async function BlogIndexPage() {
             />
 
             {/* ── FEATURED ARTICLE ── */}
-            <section className="scroll-animate py-20 px-6 bg-cream">
+            <section className="scroll-animate pt-12 md:pt-20 pb-0 md:pb-20 px-6 bg-cream">
                 <div className="max-w-7xl mx-auto">
                     <div className="bg-white rounded-2xl shadow-sm border border-primary/10 overflow-hidden flex flex-col lg:flex-row">
                         <div className="lg:w-[55%] relative h-[250px] md:h-[350px] lg:h-auto">
@@ -110,7 +110,7 @@ export default async function BlogIndexPage() {
             </section>
 
             {/* ── CATEGORY SECTION ── */}
-            <section className="scroll-animate py-16 px-6 bg-cream">
+            <section className="scroll-animate py-8 md:py-16 px-6 bg-cream">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12 flex items-center justify-center gap-4">
                         <span className="w-12 h-[1px] bg-primary/20"></span>
@@ -144,7 +144,7 @@ export default async function BlogIndexPage() {
             </section>
 
             {/* ── LATEST ARTICLES ── */}
-            <section id="articles" className="scroll-animate py-20 px-6 bg-cream">
+            <section id="articles" className="scroll-animate pt-8 md:pt-20 pb-20 px-6 bg-cream">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <div className="flex items-center justify-center gap-4 mb-6">
