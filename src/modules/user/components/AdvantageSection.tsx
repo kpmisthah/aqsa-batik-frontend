@@ -25,10 +25,16 @@ const AdvantageSection: React.FC<AdvantageSectionProps> = ({
 }) => {
     return (
         <section className="scroll-animate py-16 md:py-32 px-4 md:px-6 bg-tan relative overflow-hidden">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
+            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-center relative z-10 w-full">
                 
+                {/* Mobile-Only Title Block */}
+                <div className="flex lg:hidden flex-col gap-3 md:gap-4 text-center items-center max-w-xl mx-auto w-full order-1">
+                    <span className="text-overline text-accent tracking-[0.3em] font-bold uppercase">{tag}</span>
+                    <h2 className="text-h2 text-primary leading-tight text-center">{title}</h2>
+                </div>
+
                 {/* Left: Huge Editorial Image */}
-                <div className="relative h-[400px] md:h-[650px] overflow-hidden group border border-primary/20 rounded-2xl shadow-xl w-full">
+                <div className="relative h-[400px] md:h-[650px] overflow-hidden group border border-primary/20 rounded-2xl shadow-xl w-full lg:w-1/2 order-2 lg:order-1">
                     <Image src={imageSrc} alt="Feature Highlight Desktop" layout="fill" objectFit="cover" className={`group-hover:scale-105 transition-all duration-[2s] object-top ${mobileImageSrc ? 'hidden md:block' : ''}`} />
                     {mobileImageSrc && (
                         <Image src={mobileImageSrc} alt="Feature Highlight Mobile" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[2s] block md:hidden object-top" />
@@ -48,9 +54,9 @@ const AdvantageSection: React.FC<AdvantageSectionProps> = ({
                 </div>
                 
                 {/* Right: Section Title & Cards */}
-                <div className="flex flex-col gap-10 md:gap-14 lg:pl-10">
+                <div className="flex flex-col gap-10 md:gap-14 lg:pl-10 w-full lg:w-1/2 order-3 lg:order-2">
                     {/* Title Block */}
-                    <div className="flex flex-col gap-3 md:gap-4 text-center lg:text-left items-center lg:items-start max-w-xl">
+                    <div className="hidden lg:flex flex-col gap-3 md:gap-4 text-left items-start max-w-xl">
                         <span className="text-overline text-accent tracking-[0.3em] font-bold uppercase">{tag}</span>
                         <h2 className="text-h2 text-primary leading-tight">{title}</h2>
                     </div>

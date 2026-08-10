@@ -44,7 +44,7 @@ export default function HomePage() {
         <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-[calc(50%-80px)] bg-cream z-20 pointer-events-none"></div>
 
         {/* Left Side: Content */}
-        <div className="w-full lg:w-[50%] relative z-20 flex flex-col justify-center items-center lg:items-start px-6 sm:px-12 lg:px-16 xl:px-20 pt-28 lg:pt-20 pb-6 lg:pb-12 text-center lg:text-left">
+        <div className="w-full lg:w-[50%] relative z-20 flex flex-col justify-center items-center lg:items-start px-6 sm:px-12 lg:px-16 xl:px-20 pt-8 lg:pt-20 pb-6 lg:pb-12 text-center lg:text-left">
 
           <div className="flex items-center justify-center lg:justify-start gap-2 mb-6 text-accent">
             <span className="text-xl leading-none">&diams;</span>

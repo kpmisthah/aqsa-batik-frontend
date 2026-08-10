@@ -56,6 +56,7 @@ export default function WelcomePopup() {
                             src="/white_mustard_suit.png"
                             alt="Welcome to Aqsha Batik Suits"
                             fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
                             className="object-cover object-top md:object-center"
                         />
                     </div>

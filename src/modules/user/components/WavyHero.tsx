@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 interface WavyHeroProps {
-  pillText: string;
+  pillText: string | React.ReactNode;
   pillHighlight?: string; // Optional text to highlight in the pill (pulsing dot area)
   title: React.ReactNode;
   subtitle?: string;
@@ -28,20 +28,20 @@ export default function WavyHero({
       <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-[calc(50%-80px)] bg-cream z-20 pointer-events-none"></div>
 
       {/* Left Side: Content */}
-      <div className="w-full lg:w-[50%] relative z-20 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-20 pt-28 lg:pt-20 pb-6 lg:pb-12 text-left">
-        <div className="flex items-center justify-center lg:justify-start gap-2 mb-4 lg:mb-6 text-accent">
-          {pillHighlight ? (
+      <div className="w-full lg:w-[50%] relative z-20 flex flex-col justify-center items-center lg:items-start px-6 sm:px-12 lg:px-16 xl:px-20 pt-8 lg:pt-20 pb-6 lg:pb-12 text-center lg:text-left">
+        {pillHighlight ? (
+          <div className="flex items-center justify-center lg:justify-start gap-2 mb-4 lg:mb-6 text-accent">
             <div className="flex items-center gap-2 bg-white/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-primary/10">
               <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
               <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-primary">{pillHighlight} {pillText}</span>
             </div>
-          ) : (
-            <>
-              <span className="text-xl leading-none">&diams;</span>
-              <span className="text-overline">{pillText}</span>
-            </>
-          )}
-        </div>
+          </div>
+        ) : (
+          <div className="mb-4 lg:mb-6 text-accent text-center lg:text-left">
+            <span className="inline-block text-xl leading-[0] align-middle mr-1.5">&diams;</span>
+            <span className="text-overline align-middle">{pillText}</span>
+          </div>
+        )}
 
         <h1 className={`text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] font-heading font-normal text-primary leading-[1.1] ${subtitle ? 'mb-2' : 'mb-4 lg:mb-6'} tracking-tight text-center lg:text-left mx-auto lg:mx-0`}>
           {title}

@@ -255,7 +255,7 @@ export function SocialFeedSection() {
 export function DualCategoryBannerSection() {
     return (
         <section className="w-full h-auto flex flex-col md:flex-row bg-cream">
-            <Link href="/batik-fabric" className="relative h-[60vh] md:h-[85vh] flex-1 group overflow-hidden bg-cream flex justify-center border-b md:border-b-0 md:border-r border-primary/10">
+            <Link href="/batik-fabric" className="block w-full md:w-1/2 relative h-[60vh] md:h-[85vh] group overflow-hidden bg-cream flex justify-center border-b md:border-b-0 md:border-r border-primary/10">
                 <Image
                     src="/batik_fabric_tall.png"
                     alt="Premium Batik Fabric"
@@ -272,7 +272,7 @@ export function DualCategoryBannerSection() {
                 </div>
             </Link>
 
-            <Link href="/cotton-cloth" className="relative h-[60vh] md:h-[85vh] flex-1 group overflow-hidden bg-cream flex justify-center">
+            <Link href="/cotton-cloth" className="block w-full md:w-1/2 relative h-[60vh] md:h-[85vh] group overflow-hidden bg-cream flex justify-center">
                 <Image
                     src="/batik_cloth_tall.png"
                     alt="Premium Cotton Clothing"
