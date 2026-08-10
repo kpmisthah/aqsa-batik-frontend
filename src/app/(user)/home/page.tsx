@@ -38,20 +38,20 @@ export default function HomePage() {
       <Nav />
 
       {/* ── WAVY HER0 SECTION ── */}
-      <section className="relative w-full min-h-[90vh] bg-cream flex flex-col lg:flex-row overflow-hidden">
+      <section className="relative w-full lg:min-h-[90vh] bg-cream flex flex-col lg:flex-row overflow-hidden">
 
         {/* Solid Mask for the extended image */}
         <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-[calc(50%-80px)] bg-cream z-20 pointer-events-none"></div>
 
         {/* Left Side: Content */}
-        <div className="w-full lg:w-[50%] relative z-20 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-20 pt-32 lg:pt-20 pb-16 lg:pb-12 text-left">
+        <div className="w-full lg:w-[50%] relative z-20 flex flex-col justify-center items-center lg:items-start px-6 sm:px-12 lg:px-16 xl:px-20 pt-28 lg:pt-20 pb-6 lg:pb-12 text-center lg:text-left">
 
-          <div className="flex items-center gap-2 mb-6 text-accent">
+          <div className="flex items-center justify-center lg:justify-start gap-2 mb-6 text-accent">
             <span className="text-xl leading-none">&diams;</span>
             <span className="text-overline">Premium Batik Cotton Collection</span>
           </div>
 
-          <h1 className="text-h1 mb-2">
+          <h1 className="text-h1 mb-2 text-center lg:text-left">
             Premium Batik<br />Printed <span className="text-accent">Cotton</span> Fabric
           </h1>
           <p className="text-xl sm:text-2xl lg:text-3xl text-primary/80 font-serif italic mb-5 sm:mb-6 font-light">
@@ -61,6 +61,18 @@ export default function HomePage() {
           <p className="text-body1 text-accent/90 max-w-[500px] mb-6 leading-relaxed">
             Discover breathable batik printed cotton fabric designed for comfort, style, and timeless beauty. Perfect for boutiques, designers, and women who love effortless elegance.
           </p>
+
+          {/* MOBILE ONLY: Image between description and buttons */}
+          <div className="lg:hidden relative w-full aspect-[4/3] rounded-lg overflow-hidden mb-6 bg-surface">
+            <Image
+              src={heroBanner}
+              alt="Premium Batik Fashion"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-top"
+            />
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-3 mb-10 sm:mb-14">
             <a href="#collection" className="bg-accent hover:bg-accent/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm">
@@ -118,8 +130,8 @@ export default function HomePage() {
           <path d="M100,0 C170,200 170,300 100,500 C30,700 170,800 100,1000" fill="none" className="stroke-accent stroke-[4]" strokeLinecap="round" />
         </svg>
 
-        {/* Right Side: Image + Floating Elements */}
-        <div className="w-full lg:w-[60%] lg:absolute lg:top-0 lg:right-0 lg:bottom-0 relative h-[60vh] lg:h-full z-10 overflow-hidden bg-surface">
+        {/* Right Side: Image + Floating Elements (Desktop Only) */}
+        <div className="hidden lg:block w-full lg:w-[60%] lg:absolute lg:top-0 lg:right-0 lg:bottom-0 relative lg:h-full z-10 overflow-hidden bg-surface">
 
           <Image
             src={heroBanner}
@@ -215,27 +227,31 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── TARGET AUDIENCE ── */}
+      {/* ── TARGET AUDIENCE / PARTNERSHIP ── */}
       <section className="scroll-animate pt-16 pb-24 md:pt-20 md:pb-32 bg-cream">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col gap-16">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col gap-12 md:gap-16">
           <div className="flex flex-col gap-3 text-center items-center">
             <span className="text-overline">Engineered For Partners</span>
             <h2 className="text-h2">A Partnership in Style</h2>
           </div>
+          
+          <div className="-mx-6 md:-mx-12">
+             <LeadGenerationForm />
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 md:gap-x-10 gap-y-8 md:gap-y-12">
             {[
               { t: "Boutique Owners", d: "Premium women clothing collections that refresh your shelves and increase repeat walk-ins.", b: "Fast Moving Designs" },
               { t: "Resellers", d: "Better pricing, stable stock updates, and fast-moving batik fabric collections.", b: "Better Margins" },
               { t: "Wholesalers", d: "Bulk batik cloth manufacturing with consistent finishing and dependable quality control.", b: "Bulk Consistency" },
               { t: "Marketplaces", d: "Trending batik styling optimized for digital selling and modern demand.", b: "Trending Stock" }
             ].map((item, i) => (
-              <div key={i} className="flex flex-col group border-t border-primary/20 pt-6 hover:border-accent transition-colors duration-500">
-                <span className="text-overline text-primary/60 mb-6 font-mono">0{i + 1}</span>
-                <h4 className="text-h4 text-primary mb-3">{item.t}</h4>
-                <p className="text-[13px] leading-relaxed text-primary/80 font-medium mb-6 flex-grow">{item.d}</p>
-                <a href={WA} className="text-[10px] text-accent uppercase tracking-[0.15em] font-bold hover:text-primary flex items-center gap-3 transition-all">
-                  {item.b} <span className="text-base leading-none">&rarr;</span>
+              <div key={i} className="flex flex-col group border-t border-primary/20 pt-4 md:pt-6 hover:border-accent transition-colors duration-500">
+                <span className="text-[10px] md:text-overline text-primary/60 mb-3 md:mb-6 font-mono">0{i + 1}</span>
+                <h4 className="text-sm md:text-h4 text-primary mb-2 md:mb-3 leading-tight">{item.t}</h4>
+                <p className="text-[10px] md:text-[13px] leading-relaxed text-primary/80 font-medium mb-4 md:mb-6 flex-grow">{item.d}</p>
+                <a href={WA} className="text-[8px] md:text-[10px] text-accent uppercase tracking-[0.15em] font-bold hover:text-primary flex items-center gap-1 md:gap-3 transition-all">
+                  {item.b} <span className="text-sm md:text-base leading-none">&rarr;</span>
                 </a>
               </div>
             ))}
@@ -249,42 +265,51 @@ export default function HomePage() {
 
       <LifestyleBannerSection />
 
-      <section id="about" className="py-20 md:py-32 bg-[#F9F8F6] border-t border-primary/10">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <section id="about" className="py-16 md:py-32 bg-[#F9F8F6] border-t border-primary/10">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col gap-10">
 
-          {/* Visual side with stats (Moved to Left) */}
-          <div className="relative w-full aspect-[4/5] bg-cream overflow-hidden rounded-[2px] shadow-sm border border-primary/10 lg:order-1 order-2">
-            <Image
-              src="/_images_party-wear-suits-for-women-model-view.webp"
-              alt="Aqsha Roots"
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover object-top hover:scale-105 transition-transform duration-[6s]"
-              unoptimized
-            />
-
-            {/* Transparent Stats Overlay */}
-            <div className="absolute bottom-0 left-0 w-full bg-cream/95 backdrop-blur-md border-t border-primary/10 p-6 md:p-8 grid grid-cols-2 gap-6">
-              {[
-                { v: "15+", l: "Years Active" },
-                { v: "1000+", l: "Retail Partners" },
-                { v: "1500+", l: "Monthly Output" },
-                { v: "Pan-India", l: "Distribution" }
-              ].map((stat, i) => (
-                <div key={i} className="flex flex-col gap-1.5">
-                  <span className="text-3xl lg:text-4xl font-heading text-primary italic">{stat.v}</span>
-                  <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-accent mt-1">{stat.l}</span>
-                </div>
-              ))}
-            </div>
+          {/* Mobile-Only Heading (Appears before image on mobile) */}
+          <div className="flex lg:hidden flex-col gap-3 text-center items-center w-full">
+            <span className="text-[11px] uppercase tracking-[0.3em] font-bold text-accent">Our Story</span>
+            <h2 className="text-h2 text-primary leading-[1.1]">The Journey Behind Aqsha Suits</h2>
           </div>
 
-          {/* Timeline side (The Journey) (Moved to Right) */}
-          <div className="flex flex-col gap-12 relative lg:pl-10 lg:order-2 order-1">
-            <div className="flex flex-col gap-4">
-              <span className="text-[11px] uppercase tracking-[0.3em] font-bold text-accent">Our Story</span>
-              <h2 className="text-h2 text-primary leading-[1.1]">The Journey Behind Aqsha Suits</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24 items-center w-full">
+            {/* Visual side with stats */}
+            <div className="relative w-full aspect-[4/5] bg-cream overflow-hidden rounded-[2px] shadow-sm border border-primary/10 lg:order-1 order-1">
+              <Image
+                src="/_images_party-wear-suits-for-women-model-view.webp"
+                alt="Aqsha Roots"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover object-top hover:scale-105 transition-transform duration-[6s]"
+                unoptimized
+              />
+
+              {/* Transparent Stats Overlay */}
+              <div className="absolute bottom-0 left-0 w-full bg-cream/95 backdrop-blur-md border-t border-primary/10 p-4 md:p-8 grid grid-cols-2 gap-4 md:gap-6">
+                {[
+                  { v: "15+", l: "Years Active" },
+                  { v: "1000+", l: "Retail Partners" },
+                  { v: "1500+", l: "Monthly Output" },
+                  { v: "Pan-India", l: "Distribution" }
+                ].map((stat, i) => (
+                  <div key={i} className="flex flex-col gap-1 md:gap-1.5">
+                    <span className="text-2xl md:text-3xl lg:text-4xl font-heading text-primary italic">{stat.v}</span>
+                    <span className="text-[7.5px] md:text-[9px] font-bold uppercase tracking-[0.2em] text-accent mt-0.5 md:mt-1">{stat.l}</span>
+                  </div>
+                ))}
+              </div>
             </div>
+
+            {/* Timeline side (The Journey) */}
+            <div className="flex flex-col gap-8 md:gap-12 relative lg:pl-10 lg:order-2 order-2">
+              
+              {/* Desktop-Only Heading */}
+              <div className="hidden lg:flex flex-col gap-4">
+                <span className="text-[11px] uppercase tracking-[0.3em] font-bold text-accent">Our Story</span>
+                <h2 className="text-h2 text-primary leading-[1.1]">The Journey Behind Aqsha Suits</h2>
+              </div>
 
             {/* Vertical Timeline */}
             <div className="flex flex-col gap-10 relative before:absolute before:inset-0 before:left-[11px] before:w-[1px] before:h-[80%] before:bg-primary/20">
@@ -320,6 +345,7 @@ export default function HomePage() {
               </div>
 
             </div>
+            </div>
           </div>
 
         </div>
@@ -331,14 +357,15 @@ export default function HomePage() {
       <section className="scroll-animate pt-20 pb-16 md:pt-24 md:pb-24 px-6 bg-surface">
         <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-16 lg:gap-20 items-center">
 
-          <div className="flex flex-col gap-6 lg:w-[400px] shrink-0">
+          <div className="flex flex-col gap-3 md:gap-6 lg:w-[400px] shrink-0 min-w-0 text-center lg:text-left items-center lg:items-start w-full">
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/80">Real Buyers. Real Results.</span>
-            <h2 className="text-h2">Don't Just Take Our Word For It.</h2>
-            <p className="text-sm md:text-base text-primary/80 font-medium leading-relaxed max-w-md mt-2">
+            <h2 className="text-h2 text-center lg:text-left">Don't Just Take Our Word For It.</h2>
+            {/* Desktop Only Paragraph */}
+            <p className="hidden lg:block text-sm md:text-base text-primary/80 font-medium leading-relaxed max-w-md mt-2">
               Over 1,000+ retail partners and boutique owners trust our fabric every day. Swipe through raw, unedited feedback directly from our WhatsApp orders.
             </p>
 
-            <div className="flex items-center gap-10 mt-6 pt-8 border-t border-primary/10 w-max">
+            <div className="hidden lg:flex items-center gap-10 mt-6 pt-8 border-t border-primary/10 w-max">
               <div className="flex flex-col gap-1">
                 <span className="text-3xl font-heading text-primary block">4.9/5</span>
                 <span className="text-[9px] uppercase tracking-widest text-primary/80 font-bold">Average Rating</span>
@@ -393,6 +420,25 @@ export default function HomePage() {
               </button>
             </div>
           </div>
+          
+          {/* Mobile-Only Subheading & Stats (shown after slider on mobile) */}
+          <div className="flex lg:hidden flex-col gap-6 mt-4 w-full px-2 text-center">
+            <p className="text-[13px] text-primary/80 font-medium leading-relaxed max-w-md mx-auto">
+              Over 1,000+ retail partners and boutique owners trust our fabric every day. Swipe through raw, unedited feedback directly from our WhatsApp orders.
+            </p>
+            
+            <div className="flex items-center justify-between pt-6 border-t border-primary/10 w-full">
+              <div className="flex flex-col gap-0.5">
+                <span className="text-2xl font-heading text-primary block">4.9/5</span>
+                <span className="text-[8px] uppercase tracking-widest text-primary/80 font-bold">Average Rating</span>
+              </div>
+              <div className="w-px h-8 bg-primary/10"></div>
+              <div className="flex flex-col gap-0.5 text-right">
+                <span className="text-2xl font-heading text-primary block">10k+</span>
+                <span className="text-[8px] uppercase tracking-widest text-primary/80 font-bold">Orders Delivered</span>
+              </div>
+            </div>
+          </div>
 
         </div>
       </section>
@@ -408,19 +454,19 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 w-full text-left">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5 w-full text-left">
             {[
               { t: "Global Appeal", d: "Works across boutiques, marketplaces, and modern ethnic stores." },
               { t: "Everyday Comfort", d: "Breathable cotton fabric designed for regular, comfortable wear." },
               { t: "Stable Sales", d: "Classic batik prints continue performing across fashion cycles." },
               { t: "Versatility", d: "Ideal for kurtis, suits, and tailored bespoke clothing." }
             ].map((item, i) => (
-              <div key={i} className="flex flex-col bg-tan/15 p-6 rounded-2xl shadow-sm border border-tan/30 hover:-translate-y-1 hover:bg-tan/25 transition-all duration-500">
-                <div className="w-10 h-10 bg-cream text-accent rounded-full border border-tan/40 flex items-center justify-center font-heading text-base mb-5">
+              <div key={i} className="flex flex-col bg-tan/15 p-4 md:p-6 rounded-xl md:rounded-2xl shadow-sm border border-tan/30 hover:-translate-y-1 hover:bg-tan/25 transition-all duration-500">
+                <div className="w-8 h-8 md:w-10 md:h-10 bg-cream text-accent rounded-full border border-tan/40 flex items-center justify-center font-heading text-sm md:text-base mb-3 md:mb-5">
                   {i + 1}
                 </div>
-                <h3 className="text-base font-heading font-medium mb-2 text-primary">{item.t}</h3>
-                <p className="text-[13px] text-primary/80 font-medium leading-relaxed">{item.d}</p>
+                <h3 className="text-xs md:text-base font-heading font-medium mb-1 md:mb-2 text-primary">{item.t}</h3>
+                <p className="text-[9px] md:text-[13px] text-primary/80 font-medium leading-relaxed">{item.d}</p>
               </div>
             ))}
           </div>
@@ -451,7 +497,6 @@ export default function HomePage() {
       </section>
 
       <FAQ />
-      <LeadGenerationForm />
       <StickyEnquiryButton />
     </div>
   );

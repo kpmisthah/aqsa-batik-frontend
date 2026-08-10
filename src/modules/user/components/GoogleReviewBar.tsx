@@ -21,9 +21,7 @@ const reviews = [
 function StarIcon({ className = "" }: { className?: string }) {
     return (
         <svg
-            className={className}
-            width="18"
-            height="18"
+            className={className || "w-4 h-4"}
             viewBox="0 0 24 24"
             fill="#FBBC04"
         >
@@ -32,9 +30,9 @@ function StarIcon({ className = "" }: { className?: string }) {
     );
 }
 
-function GoogleGIcon() {
+function GoogleGIcon({ className = "" }: { className?: string }) {
     return (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <svg className={className || "w-6 h-6"} viewBox="0 0 24 24" fill="none">
             <path
                 d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"
                 fill="#4285F4"
@@ -65,67 +63,62 @@ export default function GoogleReviewBar() {
     const review = reviews[reviewIndex];
 
     return (
-        <section className="scroll-animate relative z-20 bg-surface border-y border-primary/5 shadow-sm">
-            <div className="max-w-[1400px] mx-auto px-6 md:px-20 py-6 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-                {/* LEFT — Business + Rating */}
-                <div className="flex items-center gap-5 shrink-0">
+        <section className="relative z-20 bg-surface border-y border-primary/5 shadow-sm">
+            <div className="max-w-[1400px] mx-auto px-3 lg:px-20 py-2.5 lg:py-5 flex flex-row items-center justify-between gap-2 lg:gap-12">
+                
+                {/* LEFT — Business + Rating (Scales down on mobile) */}
+                <div className="flex flex-row items-center gap-2 lg:gap-5 shrink-0 flex-1 lg:flex-none">
                     {/* Logo mark */}
-                    <div className="flex flex-col items-center leading-none select-none">
-                        <span className="font-heading text-lg font-medium tracking-tight text-primary">
+                    <div className="flex flex-col items-center leading-none select-none shrink-0 border-r border-primary/10 pr-2 lg:border-none lg:pr-0">
+                        <span className="font-heading text-[10px] lg:text-lg font-medium tracking-tight text-primary">
                             AQSHA
                         </span>
-                        <span className="text-[6px] font-bold tracking-[0.25em] uppercase text-primary/80">
+                        <span className="text-[4px] lg:text-[6px] font-bold tracking-[0.25em] uppercase text-primary/80">
                             Batik Cloth
                         </span>
                     </div>
 
-                    <div className="flex flex-col gap-1">
-                        <div className="flex items-center gap-2">
-                            <GoogleGIcon />
-                            <span className="font-medium text-primary text-base">
+                    <div className="flex flex-col gap-0 lg:gap-1 pl-1 lg:pl-0 shrink-0">
+                        <div className="flex items-center gap-1 lg:gap-2">
+                            <GoogleGIcon className="w-3 h-3 lg:w-5 lg:h-5" />
+                            <span className="font-medium text-primary text-[9px] lg:text-base whitespace-nowrap">
                                 Google Review
                             </span>
                         </div>
-                        <div className="flex items-center gap-0.5">
+                        <div className="flex items-center gap-0.5 mt-[1px]">
                             {[...Array(5)].map((_, i) => (
-                                <StarIcon key={i} />
+                                <StarIcon key={i} className="w-2.5 h-2.5 lg:w-4 lg:h-4 text-[#FBBC04]" />
                             ))}
                         </div>
-                        <span className="text-xs text-primary/80 font-medium">
-                            Rating 4.9 | 794 reviews
+                        <span className="text-[7px] lg:text-xs text-primary/80 font-medium whitespace-nowrap">
+                            4.9 | 794 reviews
                         </span>
-                        <span className="text-[10px] uppercase font-bold tracking-widest text-primary/80">
-                            Premium Batik Manufacturer
+                        <span className="hidden lg:block text-[10px] uppercase font-bold tracking-widest text-primary/80 mt-0.5 whitespace-nowrap">
+                            Premium Manufacturer
                         </span>
                     </div>
                 </div>
 
-                {/* DIVIDER */}
-                <div className="hidden lg:block w-px h-20 bg-primary/10" />
+                {/* DIVIDER (Desktop only) */}
+                <div className="hidden lg:block w-px h-20 bg-primary/10 shrink-0" />
 
-                {/* CENTER — Testimonial */}
-                <div className="flex-1 min-w-0 px-2 lg:px-6">
-                    <p className="font-medium font-heading text-lg text-primary mb-2">
+                {/* CENTER — Testimonial text (Super tiny on mobile to fit in one row) */}
+                <div className="flex-1 min-w-0 px-1 lg:px-6">
+                    <p className="font-medium font-heading text-[8px] md:text-sm lg:text-base text-primary mb-[1px] lg:mb-1 truncate">
                         {review.name}
                     </p>
-                    <p className="text-sm md:text-base text-primary/80 leading-relaxed font-medium line-clamp-3">
+                    <p className="text-[6.5px] leading-[1.2] md:text-[11px] lg:text-[13px] xl:text-base lg:leading-relaxed text-primary/80 font-medium line-clamp-2 md:line-clamp-3">
                         &ldquo;{review.text}&rdquo;
                     </p>
                 </div>
 
                 {/* RIGHT — Badge + CTA */}
-                <div className="flex items-center gap-5 shrink-0">
-                    {/* Rating badge */}
-                    <div className="bg-primary text-white rounded-xl px-4 py-3 flex flex-col items-center justify-center gap-1 min-w-[64px] shadow-sm">
-                        <div className="flex gap-0.5">
+                <div className="flex items-center gap-2 lg:gap-5 shrink-0 justify-end">
+                    {/* Rating badge (Hidden on mobile) */}
+                    <div className="hidden lg:flex bg-primary text-white rounded-xl px-4 py-3 flex-col items-center justify-center gap-1 min-w-[64px] shadow-sm">
+                        <div className="flex gap-0.5 origin-center">
                             {[...Array(5)].map((_, i) => (
-                                <svg
-                                    key={i}
-                                    width="10"
-                                    height="10"
-                                    viewBox="0 0 24 24"
-                                    fill="#c29b57"
-                                >
+                                <svg key={i} width="10" height="10" viewBox="0 0 24 24" fill="#c29b57">
                                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                 </svg>
                             ))}
@@ -137,9 +130,9 @@ export default function GoogleReviewBar() {
                         href={GOOGLE_REVIEW_URL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-transparent border border-primary/20 text-primary hover:border-primary text-[10px] uppercase tracking-widest font-bold px-6 py-3 rounded-full transition-colors whitespace-nowrap"
+                        className="bg-transparent border border-primary/20 text-primary hover:border-primary text-[7px] lg:text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 lg:px-6 lg:py-3 rounded-full transition-colors whitespace-nowrap"
                     >
-                        Go to Google Reviews
+                        Review Us
                     </a>
                 </div>
             </div>

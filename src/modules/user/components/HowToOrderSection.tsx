@@ -72,35 +72,35 @@ export default function HowToOrderSection({
                     </div>
 
                 {/* ── Minimalist Timeline Grid ── */}
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-8 mx-auto w-full pt-2">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8 mx-auto w-full pt-2">
                     {STEPS.map((step, i) => (
                         <div
                             key={i}
-                            className="flex flex-col items-center md:items-start text-center md:text-left group relative"
+                            className={`flex flex-col items-center md:items-start text-center md:text-left group relative ${i === 4 ? 'col-span-2 md:col-span-1' : ''}`}
                         >
                             {/* Number & Creative Connector Arrow */}
-                            <div className="flex items-center w-full mb-5">
-                                <span className="text-4xl lg:text-5xl text-accent font-heading leading-none font-normal shrink-0 group-hover:scale-110 group-hover:text-primary transition-all duration-300 pr-2">
+                            <div className="flex items-center justify-center md:justify-start w-full mb-3 md:mb-5">
+                                <span className="text-3xl md:text-4xl lg:text-5xl text-accent font-heading leading-none font-normal shrink-0 group-hover:scale-110 group-hover:text-primary transition-all duration-300 md:pr-2">
                                     {step.s}
                                 </span>
 
                                 {/* Dotted Arrow (Hidden on Mobile & Last Step) */}
                                 {i !== STEPS.length - 1 && (
                                     <div className="hidden md:flex flex-1 items-center px-2 lg:px-4">
-                                        <div className="flex-1 border-t-2 border-dashed border-secondary"></div>
-                                        <svg className="w-5 h-5 text-secondary shrink-0 -ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                                        <div className="flex-1 border-t-[1px] md:border-t-2 border-dashed border-secondary"></div>
+                                        <svg className="w-4 h-4 md:w-5 md:h-5 text-secondary shrink-0 -ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                                     </div>
                                 )}
                             </div>
                             
-                            <div className="w-12 h-[2px] bg-secondary mb-5 md:hidden"></div>
+                            <div className="w-8 h-[1px] md:h-[2px] bg-secondary mb-3 md:hidden"></div>
 
                             {/* Text */}
-                            <div className="flex flex-col gap-2 pr-4 lg:pr-8">
-                                <h4 className="text-h4 text-primary font-normal">
+                            <div className="flex flex-col gap-1 md:gap-2 px-1 md:pr-4 lg:pr-8">
+                                <h4 className="text-sm md:text-h4 text-primary font-normal">
                                     {step.t}
                                 </h4>
-                                <p className="text-body2 text-primary font-normal">
+                                <p className="text-[10px] md:text-body2 text-primary font-normal leading-tight md:leading-relaxed">
                                     {step.d}
                                 </p>
                             </div>

@@ -15,20 +15,20 @@ export function ShopByCategorySection() {
     ];
 
     return (
-        <section className="pt-10 pb-20 md:pt-12 md:pb-28 px-6 bg-cream border-t border-primary/5">
-            <div className="max-w-[1400px] mx-auto flex flex-col gap-12 md:gap-20">
-                <div className="text-center flex flex-col items-center gap-3">
+        <section className="pt-10 pb-16 md:pt-12 md:pb-28 px-4 sm:px-6 bg-cream border-t border-primary/5">
+            <div className="max-w-[1400px] mx-auto flex flex-col gap-8 md:gap-20">
+                <div className="text-center flex flex-col items-center gap-2 md:gap-3">
                     <span className="text-overline">Explore</span>
                     <h2 className="text-h2 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-[1px] after:bg-primary/20">Shop By Category</h2>
                 </div>
 
-                <div className="flex overflow-x-auto hide-scrollbar gap-8 md:gap-12 pb-8 pt-4 snap-x justify-start lg:justify-center">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 lg:gap-12 w-full pt-4">
                     {categories.map((cat, i) => (
-                        <Link key={i} href={cat.href} className="flex flex-col items-center gap-6 group snap-center shrink-0 w-[180px] md:w-[220px] lg:w-[260px]">
+                        <Link key={i} href={cat.href} className="flex flex-col items-center gap-4 md:gap-6 group w-full">
 
                             {/* The Arch / Pill container with aesthetic double framing */}
-                            <div className="relative w-full aspect-[2/3] md:aspect-[3/4] rounded-t-[150px] rounded-b-[150px] overflow-hidden border border-primary/10 p-2 group-hover:border-primary/40 group-hover:bg-white/40 transition-all duration-700 bg-transparent">
-                                <div className="relative w-full h-full rounded-t-[140px] rounded-b-[140px] overflow-hidden bg-tan shadow-inner">
+                            <div className="relative w-full aspect-[2/3] md:aspect-[3/4] rounded-t-full rounded-b-full overflow-hidden border border-primary/10 p-1.5 md:p-2 group-hover:border-primary/40 group-hover:bg-white/40 transition-all duration-700 bg-transparent">
+                                <div className="relative w-full h-full rounded-t-full rounded-b-full overflow-hidden bg-tan shadow-inner">
                                     <Image
                                         src={cat.img}
                                         alt={cat.title}
@@ -39,9 +39,9 @@ export function ShopByCategorySection() {
                             </div>
 
                             {/* Typography below */}
-                            <div className="flex flex-col items-center text-center gap-2 opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-500">
-                                <span className="text-overline">{cat.sub}</span>
-                                <h4 className="text-h4 group-hover:text-accent transition-colors">
+                            <div className="flex flex-col items-center text-center gap-1 md:gap-2 opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-500">
+                                <span className="text-[9px] md:text-overline uppercase tracking-widest font-bold text-primary/70">{cat.sub}</span>
+                                <h4 className="text-sm md:text-h4 font-heading font-medium text-primary group-hover:text-accent transition-colors">
                                     {cat.title}
                                 </h4>
                             </div>
@@ -89,8 +89,8 @@ export function FeaturedGridSection() {
                     <h2 className="text-4xl md:text-5xl font-heading text-primary relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-[1px] after:bg-primary/20">New Arrivals</h2>
                 </div>
 
-                {/* Highly Interactive Expandable Accordion Layout */}
-                <div className="flex flex-col md:flex-row w-full h-[75vh] md:h-[650px] gap-3 md:gap-4 group/accordion">
+                {/* Highly Interactive Expandable Accordion Layout (Grid on Mobile) */}
+                <div className="grid grid-cols-2 grid-rows-2 md:flex md:flex-row w-full h-[60vh] md:h-[650px] gap-2 md:gap-4 group/accordion">
                     {newArrivals.slice(0, 4).map((item, i) => {
                         const isHovered = hoveredIndex === i;
                         const isAnyHovered = hoveredIndex !== null;
@@ -101,7 +101,7 @@ export function FeaturedGridSection() {
                                 key={item._id || item.id || i}
                                 onMouseEnter={() => setHoveredIndex(i)}
                                 onMouseLeave={() => setHoveredIndex(null)}
-                                className={`relative group/item transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] h-[25%] md:h-full overflow-hidden bg-cream cursor-pointer rounded-[24px] md:rounded-[2rem] border border-transparent hover:border-primary/20 shadow-sm ${isHovered ? 'md:w-[55%]' : isAnyHovered ? 'md:w-[15%]' : 'md:w-[25%]'
+                                className={`relative group/item transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] h-full overflow-hidden bg-cream cursor-pointer rounded-xl md:rounded-[2rem] border border-transparent hover:border-primary/20 shadow-sm ${isHovered ? 'md:w-[55%]' : isAnyHovered ? 'md:w-[15%]' : 'md:w-[25%]'
                                     } w-full ${isHovered ? 'opacity-100' : isAnyHovered ? 'opacity-60' : 'opacity-100'
                                     }`}
                             >
@@ -116,10 +116,10 @@ export function FeaturedGridSection() {
                                 />
 
                                 {/* Gradient Overlay for Typography Clarity */}
-                                <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent transition-opacity duration-700 ${isHovered ? 'opacity-90' : 'opacity-70'
+                                <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 md:via-black/10 to-transparent transition-opacity duration-700 ${isHovered ? 'opacity-90' : 'opacity-100 md:opacity-70'
                                     }`}></div>
 
-                                <div className={`absolute top-6 left-6 transition-opacity duration-500 delay-200 ${isHovered ? 'opacity-100' : 'opacity-0'
+                                <div className={`absolute top-4 left-4 md:top-6 md:left-6 transition-opacity duration-500 delay-200 ${isHovered ? 'opacity-100' : 'opacity-0'
                                     }`}>
                                     <span className="bg-white/10 backdrop-blur-md px-4 py-2 border border-white/20 text-white text-[9px] font-bold uppercase tracking-[0.2em] rounded-full shadow-lg text-shadow-sm hidden md:inline-block">
                                         Just Added
@@ -127,16 +127,16 @@ export function FeaturedGridSection() {
                                 </div>
 
                                 {/* Typography Content Overlay */}
-                                <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 flex flex-col justify-end w-full">
-                                    <div className={`flex flex-col transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden ${isHovered ? 'md:translate-y-0' : 'md:translate-y-8'
+                                <div className="absolute inset-x-0 bottom-0 p-3 md:p-8 flex flex-col justify-end w-full">
+                                    <div className={`flex flex-col transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden transform-none ${isHovered ? 'md:translate-y-0' : 'md:translate-y-8'
                                         }`}>
 
-                                        <span className={`text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-accent/90 mb-2 transition-opacity duration-500 delay-100 whitespace-nowrap ${isHovered ? 'md:opacity-100' : 'md:opacity-0'
+                                        <span className={`text-[8px] md:text-xs uppercase tracking-[0.3em] font-bold text-accent/90 mb-1 md:mb-2 transition-opacity duration-500 delay-100 whitespace-nowrap opacity-100 ${isHovered ? 'md:opacity-100' : 'md:opacity-0'
                                             }`}>
                                             {item.category}
                                         </span>
 
-                                        <h3 className={`font-heading text-white text-2xl md:text-3xl lg:text-4xl leading-[1.1] text-shadow-sm mb-3 min-w-[200px] drop-shadow-md transition-opacity duration-500 ${!isHovered && isAnyHovered ? 'md:opacity-0' : 'opacity-100'
+                                        <h3 className={`font-heading text-white text-sm md:text-3xl lg:text-4xl leading-[1.1] text-shadow-sm mb-1 md:mb-3 min-w-[120px] md:min-w-[200px] drop-shadow-md transition-opacity duration-500 opacity-100 ${!isHovered && isAnyHovered ? 'md:opacity-0' : 'md:opacity-100'
                                             }`}>
                                             {item.name}
                                         </h3>
@@ -169,11 +169,21 @@ export function FeaturedGridSection() {
 
 export function LifestyleBannerSection() {
     return (
-        <section className="relative w-full bg-cream py-16 md:py-24 px-4 md:px-8 border-t border-primary/10 overflow-hidden">
-            <div className="max-w-[1500px] mx-auto flex flex-col lg:flex-row-reverse gap-12 lg:gap-20 items-center">
+        <section className="relative w-full bg-cream py-12 md:py-24 px-4 md:px-8 border-t border-primary/10 overflow-hidden">
+            <div className="max-w-[1500px] mx-auto flex flex-col lg:flex-row-reverse gap-6 md:gap-12 lg:gap-20 items-center w-full">
+
+                {/* Mobile-Only Heading (Displays above image on mobile) */}
+                <div className="w-full lg:hidden flex flex-col items-center text-center gap-3">
+                    <span className="text-[9px] md:text-[11px] uppercase tracking-[0.3em] font-bold text-accent">
+                        Artisanal Mastery
+                    </span>
+                    <h2 className="font-heading text-3xl md:text-5xl text-primary leading-[1.1] tracking-tight">
+                        Woven with tradition.<br /> Styled for the modern woman.
+                    </h2>
+                </div>
 
                 {/* Right/Top Side: Clean Visual (No overlays) */}
-                <div className="w-full lg:w-1/2 relative group h-[50vh] md:h-[60vh] lg:h-[70vh] min-h-[450px]">
+                <div className="w-full lg:w-1/2 relative group h-[40vh] md:h-[60vh] lg:h-[70vh] min-h-[300px] md:min-h-[450px]">
                     <div className="hidden lg:block absolute inset-0 bg-primary/5 -left-8 -bottom-8 rounded-[2px] transition-transform duration-[3s] group-hover:-translate-x-2 group-hover:translate-y-2"></div>
                     <div className="relative w-full h-full overflow-hidden rounded-[2px] shadow-sm z-10 border border-primary/10">
                         <Image
@@ -186,19 +196,24 @@ export function LifestyleBannerSection() {
                     </div>
                 </div>
 
-                {/* Left/Bottom Side: Elegant Text */}
-                <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left gap-6 lg:gap-8 px-4 lg:pl-10">
-                    <span className="text-[11px] uppercase tracking-[0.3em] font-bold text-accent">
-                        Artisanal Mastery
-                    </span>
-                    <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-primary leading-[1.1] tracking-tight">
-                        Woven with tradition.<br /> Styled for the modern woman.
-                    </h2>
-                    <p className="text-body1 text-primary/80 max-w-md mt-1">
+                {/* Left/Bottom Side: Elegant Text Base */}
+                <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left gap-4 md:gap-6 lg:gap-8 px-2 md:px-4 lg:pl-10">
+                    
+                    {/* Desktop-Only Heading (Hidden on mobile) */}
+                    <div className="hidden lg:flex flex-col gap-6 lg:gap-8 w-full">
+                        <span className="text-[11px] uppercase tracking-[0.3em] font-bold text-accent">
+                            Artisanal Mastery
+                        </span>
+                        <h2 className="font-heading text-5xl lg:text-6xl text-primary leading-[1.1] tracking-tight">
+                            Woven with tradition.<br /> Styled for the modern woman.
+                        </h2>
+                    </div>
+
+                    <p className="text-[13px] md:text-body1 text-primary/80 max-w-md mt-1 lg:mt-0 font-medium">
                         Discover premium fabrics and timeless outfits tailored perfectly for resellers, boutiques, and everyday elegance.
                     </p>
-                    <div className="mt-4">
-                        <Link href="/contact-us" className="group flex items-center justify-center gap-3 px-10 py-4 border border-primary/30 text-primary text-[11px] uppercase tracking-[0.15em] font-bold hover:border-accent hover:text-accent hover:bg-primary/[0.02] transition-colors duration-300">
+                    <div className="mt-2 md:mt-4">
+                        <Link href="/contact-us" className="group flex items-center justify-center gap-3 px-8 md:px-10 py-3 md:py-4 border border-primary/30 text-primary text-[10px] md:text-[11px] uppercase tracking-[0.15em] font-bold hover:border-accent hover:text-accent hover:bg-primary/[0.02] transition-colors duration-300">
                             <span>Connect With Us</span>
                             <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
                         </Link>

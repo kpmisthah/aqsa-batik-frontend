@@ -25,8 +25,8 @@ export default function PremiumTrustSection() {
                 <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
                     
                     {/* Left Visual */}
-                    <div className="w-full lg:w-1/2 relative group h-[400px] lg:h-[550px]">
-                        <div className="relative w-full h-full overflow-hidden rounded-2xl shadow-sm z-10 border border-primary/10">
+                    <div className="w-full lg:w-1/2 relative group h-[280px] md:h-[400px] lg:h-[550px]">
+                        <div className="relative w-full h-full overflow-hidden rounded-xl md:rounded-2xl shadow-sm z-10 border border-primary/10">
                             <Image
                                 src="/artisanal_batik_workshop.png"
                                 alt="Workshop"
@@ -36,27 +36,27 @@ export default function PremiumTrustSection() {
                             />
                             
                             {/* Overlaid elegant badge */}
-                            <div className="absolute top-6 left-6 md:top-8 md:left-8 bg-white/95 backdrop-blur-md px-6 py-4 rounded-xl border border-primary/5 flex flex-col shadow-xl">
-                                <span className="text-[9px] uppercase tracking-[0.3em] font-bold text-accent mb-1">Authentic Ujjain Roots</span>
-                                <h4 className="text-h4 text-primary m-0 uppercase tracking-wide">360° Workshop Tour</h4>
+                            <div className="absolute top-4 left-4 md:top-8 md:left-8 bg-white/95 backdrop-blur-md px-4 py-3 md:px-6 md:py-4 rounded-xl border border-primary/5 flex flex-col shadow-xl">
+                                <span className="text-[7.5px] md:text-[9px] uppercase tracking-[0.3em] font-bold text-accent mb-0.5 md:mb-1">Authentic Ujjain Roots</span>
+                                <h4 className="text-[12px] md:text-h4 text-primary m-0 uppercase tracking-wide font-heading">360° Workshop Tour</h4>
                             </div>
                         </div>
                     </div>
 
                     {/* Right Content */}
-                    <div className="w-full lg:w-1/2 flex flex-col pt-2 border-t border-primary/20">
+                    <div className="w-full lg:w-1/2 flex flex-col pt-0 md:pt-2 border-t md:border-primary/20 border-transparent md:border-t-solid">
                         {[
                             { num: "01", t: "15+ Years Heritage", d: "Mastering consistency and precision finishing since 2008." },
                             { num: "02", t: "Premium Color Fastness", d: "Advanced printing techniques ensure our batik suits never fade or bleed." },
                             { num: "03", t: "Ready Dispatch", d: "Fastest exact turnaround with trusted logistics partners." },
                             { num: "04", t: "Direct Margins", d: "We manufacture, allowing you to maximize all profit." }
                         ].map((item, i) => (
-                            <div key={i} className="group relative flex flex-col md:flex-row md:items-start justify-between py-5 md:py-6 border-b border-primary/20 hover:bg-primary/[0.02] transition-colors duration-500 cursor-default px-2 md:-mx-4 md:px-4">
-                                <div className="flex gap-4 md:gap-6 items-center w-full md:w-auto mb-2 md:mb-0">
-                                    <span className="text-2xl text-primary font-heading italic w-8 shrink-0">{item.num}</span>
-                                    <h4 className="text-h4 text-primary group-hover:text-accent transition-colors">{item.t}</h4>
+                            <div key={i} className="group relative flex flex-col md:flex-row md:items-start justify-between py-4 md:py-6 border-b border-primary/20 md:hover:bg-primary/[0.02] transition-colors duration-500 cursor-default px-1 md:-mx-4 md:px-4">
+                                <div className="flex gap-3 md:gap-6 items-center w-full md:w-auto mb-1 md:mb-0">
+                                    <span className="text-xl md:text-2xl text-primary font-heading italic w-6 md:w-8 shrink-0">{item.num}</span>
+                                    <h4 className="text-sm md:text-h4 text-primary md:group-hover:text-accent transition-colors">{item.t}</h4>
                                 </div>
-                                <p className="text-body2 text-accent/80 max-w-[280px] md:text-right mt-1">
+                                <p className="text-[11px] md:text-body2 text-accent/80 max-w-full md:max-w-[280px] md:text-right pl-9 md:pl-0">
                                     {item.d}
                                 </p>
                             </div>
