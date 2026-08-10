@@ -65,7 +65,7 @@ export default function GoogleReviewBar() {
     const review = reviews[reviewIndex];
 
     return (
-        <section className="scroll-animate relative z-20 bg-white border-y border-primary/5 shadow-sm">
+        <section className="scroll-animate relative z-20 bg-surface border-y border-primary/5 shadow-sm">
             <div className="max-w-[1400px] mx-auto px-6 md:px-20 py-6 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
                 {/* LEFT — Business + Rating */}
                 <div className="flex items-center gap-5 shrink-0">
@@ -74,7 +74,7 @@ export default function GoogleReviewBar() {
                         <span className="font-heading text-lg font-medium tracking-tight text-primary">
                             AQSHA
                         </span>
-                        <span className="text-[6px] font-bold tracking-[0.25em] uppercase text-foreground">
+                        <span className="text-[6px] font-bold tracking-[0.25em] uppercase text-primary/80">
                             Batik Cloth
                         </span>
                     </div>
@@ -91,10 +91,10 @@ export default function GoogleReviewBar() {
                                 <StarIcon key={i} />
                             ))}
                         </div>
-                        <span className="text-xs text-foreground font-medium">
+                        <span className="text-xs text-primary/80 font-medium">
                             Rating 4.9 | 794 reviews
                         </span>
-                        <span className="text-[10px] uppercase font-bold tracking-widest text-foreground">
+                        <span className="text-[10px] uppercase font-bold tracking-widest text-primary/80">
                             Premium Batik Manufacturer
                         </span>
                     </div>
@@ -108,7 +108,7 @@ export default function GoogleReviewBar() {
                     <p className="font-medium font-heading text-lg text-primary mb-2">
                         {review.name}
                     </p>
-                    <p className="text-sm md:text-base text-foreground leading-relaxed font-medium line-clamp-3">
+                    <p className="text-sm md:text-base text-primary/80 leading-relaxed font-medium line-clamp-3">
                         &ldquo;{review.text}&rdquo;
                     </p>
                 </div>

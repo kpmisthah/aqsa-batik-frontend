@@ -41,16 +41,16 @@ export default function LeadGenerationForm() {
     };
 
     return (
-        <section id="enquiry-form" className="py-16 lg:py-24 px-6 bg-cream relative overflow-hidden border-t border-primary/5">
+        <section id="enquiry-form" className="pt-10 pb-16 lg:pt-12 lg:pb-24 px-6 bg-cream relative overflow-hidden border-t border-primary/5">
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-center relative z-10">
                 {/* Left Side: Content & Benefits */}
                 <div className="flex-1 flex flex-col gap-8 md:gap-10 text-center md:text-left">
                     <div className="flex flex-col gap-4 items-center md:items-start">
-                        <span className="text-xl leading-none text-accent">&diams; <span className="text-[11px] font-bold uppercase tracking-[0.25em] ml-2 text-foreground">Partnership</span></span>
+                        <span className="text-xl leading-none text-accent">&diams; <span className="text-[11px] font-bold uppercase tracking-[0.25em] ml-2 text-primary/80">Partnership</span></span>
                         <h2 className="text-h2 font-medium text-primary">
                             Get Personalized Batik Fabric Pricing & Catalog
                         </h2>
-                        <p className="text-body1 text-foreground font-medium leading-relaxed max-w-xl text-center md:text-left mt-2">
+                        <p className="text-body1 text-primary/80 font-medium leading-relaxed max-w-xl text-center md:text-left mt-2">
                             Receive wholesale pricing, latest batik design collections, and ready-stock updates directly from AQSHA BATIK SUITS within hours.
                         </p>
                     </div>
@@ -77,7 +77,7 @@ export default function LeadGenerationForm() {
                     <div className="bg-white p-8 md:p-12 rounded-[2rem] shadow-xl border border-primary/5">
                         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                             <div className="flex flex-col gap-2">
-                                <label className="text-[10px] font-bold uppercase tracking-widest text-foreground ml-1">Full Name</label>
+                                <label className="text-[10px] font-bold uppercase tracking-widest text-primary/80 ml-1">Full Name</label>
                                 <input
                                     type="text"
                                     name="fullName"
@@ -90,7 +90,7 @@ export default function LeadGenerationForm() {
                             </div>
 
                             <div className="flex flex-col gap-2">
-                                <label className="text-[10px] font-bold uppercase tracking-widest text-foreground ml-1">Business Phone</label>
+                                <label className="text-[10px] font-bold uppercase tracking-widest text-primary/80 ml-1">Business Phone</label>
                                 <input
                                     type="tel"
                                     name="phone"
@@ -103,7 +103,7 @@ export default function LeadGenerationForm() {
                             </div>
 
                             <div className="flex flex-col gap-2">
-                                <label className="text-[10px] font-bold uppercase tracking-widest text-foreground ml-1">Business Name</label>
+                                <label className="text-[10px] font-bold uppercase tracking-widest text-primary/80 ml-1">Business Name</label>
                                 <input
                                     type="text"
                                     name="businessName"
@@ -116,7 +116,7 @@ export default function LeadGenerationForm() {
                             </div>
 
                             <div className="flex flex-col gap-2">
-                                <label className="text-[10px] font-bold uppercase tracking-widest text-foreground ml-1">Order Value</label>
+                                <label className="text-[10px] font-bold uppercase tracking-widest text-primary/80 ml-1">Order Value</label>
                                 <div className="relative">
                                     <select
                                         name="orderValue"

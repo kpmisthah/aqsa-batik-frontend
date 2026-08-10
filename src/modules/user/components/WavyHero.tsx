@@ -38,12 +38,12 @@ export default function WavyHero({
           ) : (
             <>
               <span className="text-xl leading-none">&diams;</span>
-              <span className="text-[11px] font-bold uppercase tracking-[0.25em]">{pillText}</span>
+              <span className="text-overline">{pillText}</span>
             </>
           )}
         </div>
 
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] font-heading font-normal text-primary leading-[1.1] mb-2 tracking-tight text-center lg:text-left mx-auto lg:mx-0">
+        <h1 className={`text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] font-heading font-normal text-primary leading-[1.1] ${subtitle ? 'mb-2' : 'mb-6'} tracking-tight text-center lg:text-left mx-auto lg:mx-0`}>
           {title}
         </h1>
         {subtitle && (
@@ -52,7 +52,7 @@ export default function WavyHero({
           </p>
         )}
 
-        <p className="text-sm border-none sm:text-base text-foreground max-w-[450px] mb-8 font-normal leading-relaxed text-center lg:text-left mx-auto lg:mx-0">
+        <p className="text-body1 text-accent/90 max-w-xl mb-8 text-center lg:text-left mx-auto lg:mx-0">
           {description}
         </p>
 
