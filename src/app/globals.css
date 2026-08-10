@@ -18,20 +18,20 @@
 }
 
 @theme inline {
-  --color-background: #FCFAF7; /* Soft Cream */
-  --color-foreground: #252525; /* Charcoal */
+  --color-background: #F5F1EC; /* Soft Cream / Off White */
+  --color-foreground: #382A24; /* Dark brownish-grey for readable text */
   
-  --color-primary: #1F5D50;    /* Deep Emerald - beautifully tints text and dark brand sections */
-  --color-secondary: #F8F4ED;  /* Warm Ivory */
-  --color-accent: #B78A3D;     /* Antique Gold - for buttons, call-outs, highlights */
+  --color-primary: #8B3A2B;    /* Deep rust brown - headings, icons, emphasis */
+  --color-secondary: #C2A27C;  /* Warm beige / sand gold - section backgrounds */
+  --color-accent: #5A2A1F;     /* Darker brown accent - CTA buttons, hover states */
   
   /* Map existing utility variables to the new palette to apply it everywhere seamlessly */
-  --color-cream: #FCFAF7;      /* Soft Cream */
-  --color-tan: #F8F4ED;        /* Warm Ivory */
+  --color-cream: #F5F1EC;      /* Soft cream / off-white */
+  --color-tan: #C2A27C;        /* Warm beige / sand gold */
   --color-surface: #ffffff;    /* Keep crisp white for cards */
-  --color-border: #DDD7CC;     /* Warm Gray */
-  --color-success: #3E7C59;    /* Forest Green */
-  --color-error: #B84545;      /* Brick Red */
+  --color-border: #D8CCBE;     
+  --color-success: #3E7C59;    
+  --color-error: #B84545;      
   
   --font-heading: var(--font-heading);
   --font-body: var(--font-body);
@@ -58,23 +58,23 @@
   }
 
   .text-h4 {
-    @apply font-sans text-base md:text-lg font-medium leading-snug tracking-normal text-foreground;
+    @apply font-body text-base md:text-lg font-medium leading-snug tracking-normal text-foreground;
   }
 
   .text-body1 {
-    @apply font-sans text-sm md:text-base font-normal leading-relaxed text-foreground;
+    @apply font-body text-sm md:text-base font-normal leading-relaxed text-foreground;
   }
 
   .text-body2 {
-    @apply font-sans text-xs md:text-sm font-normal leading-relaxed text-foreground;
+    @apply font-body text-xs md:text-sm font-normal leading-relaxed text-foreground;
   }
 
   .text-body3 {
-    @apply font-sans text-xs font-normal leading-snug text-foreground;
+    @apply font-body text-xs font-normal leading-snug text-foreground;
   }
 
   .text-overline {
-    @apply font-sans text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.2em] text-accent;
+    @apply font-body text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.2em] text-accent;
   }
 }
 
