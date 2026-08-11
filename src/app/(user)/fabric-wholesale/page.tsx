@@ -15,7 +15,7 @@ import ProductFilterLayout from "@/modules/user/components/ProductFilterLayout";
 import { useBanner } from "@/modules/user/hooks/useBanner";
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
 import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
-import WavyHero from "@/modules/user/components/WavyHero";
+import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
@@ -232,27 +232,26 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
 
             <Nav />
             <ScrollObserver />
-            <WavyHero
-                pillText="Direct Batik Manufacturer from Ujjain"
-                pillHighlight=""
+            <CategoryHeroBanner
+                tagline="DIRECT MANUFACTURER · BULK SUPPLY"
                 title={
                     <>
-                        wholesale cotton <br className="block md:hidden" />
-                        Dresses in India <br className="block md:hidden" />
-                        for batik clothing & <br className="hidden md:block" /> <br className="block md:hidden" />
-                        <span className='text-accent'>Bulk orders</span>
+                        Premium Wholesale <br className="hidden md:block" />
+                        <span className='text-accent'>Batik Fabric</span> & Women <br className="hidden md:block" />
+                        Dress Materials
                     </>
                 }
-                description="Stop guessing what will sell. Work with a direct manufacturer supplying high-demand batik fabric wholesale, premium batik print material, and consistent inventory for boutiques, resellers, and growing batik clothing brands across India."
-                imageSrc="/wholesale_wavy_hero.png" // Updated image
-                imageAlt="Wholesale Batik Cloth Manufacturing"
+                description="Source high-demand batik fabric, cotton dress material, and women clothing collections directly from the manufacturer. Reliable supply for boutiques, resellers, and fashion wholesalers across India."
+                imageSrc="/gallery_wholesale.png"
+                imageAlt="Wholesale Batik Supply"
+                bgColor="#CECECB"
                 buttons={
                     <>
-                        <a href={WA} target="_blank" rel="noreferrer" className="bg-accent hover:bg-accent/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm">
-                            Contact for Bulk Orders
+                        <a href="#wholesale-form" className="bg-accent hover:bg-accent/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm">
+                            Request Wholesale Pricing
                         </a>
-                        <a href="#collection" className="border border-primary/15 hover:border-accent text-primary px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors bg-transparent hover:text-accent">
-                            View Collections
+                        <a href={WA} target="_blank" rel="noreferrer" className="border border-primary/15 hover:border-accent text-primary px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors bg-transparent hover:text-accent">
+                            Chat On WhatsApp
                         </a>
                     </>
                 }

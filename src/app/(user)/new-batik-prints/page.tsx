@@ -8,7 +8,7 @@ import AdvantageSection from "@/modules/user/components/AdvantageSection";
 import ProductFilterLayout from "@/modules/user/components/ProductFilterLayout";
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
 import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
-import WavyHero from "@/modules/user/components/WavyHero";
+import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
@@ -62,22 +62,23 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
             `}</style>
 
             <Nav />
-            <ScrollObserver />            <WavyHero
-                pillText="Fresh Batik Styles. Modern Women Fashion."
-                pillHighlight=""
+            <CategoryHeroBanner
+                tagline="NEW ARRIVALS · FRESH COLLECTIONS"
                 title={
                     <>
-                        <span className='text-accent'>New Arrival</span> Batik Prints & <br className="hidden md:block" />
-                        Cotton Dress Material Collection
+                        New Arrivals in <br className="hidden md:block" />
+                        <span className='text-accent'>Batik Cloth</span> & Women <br className="hidden md:block" />
+                        Fashion Dresses
                     </>
                 }
-                description="Explore new arrival batik prints, premium cotton dress material, floral cotton fabric, and designer printed fabric collections crafted for cotton kurtis, women clothing, boutiques, and trending ethnic fashion."
-                imageSrc="/category_wavy_hero.png" // Updated image
-                imageAlt="New Arrival Batik Prints"
+                description="Discover the latest collection of high-demand batik printed cotton cloth, new dress designs for women, and trending cotton dress materials online."
+                imageSrc="/gallery_arrival.png"
+                imageAlt="New Batik Arrivals"
+                bgColor="#D4D1CC"
                 buttons={
                     <>
-                        <a href={WA} target="_blank" rel="noreferrer" className="bg-accent hover:bg-accent/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm">
-                            Shop New Arrivals
+                        <a href="#collection" className="bg-accent hover:bg-accent/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm">
+                            Shop New Styles
                         </a>
                         <a href="/fabric-wholesale" className="border border-primary/15 hover:border-accent text-primary px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors bg-transparent hover:text-accent">
                             Get Wholesale Pricing

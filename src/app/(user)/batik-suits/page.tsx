@@ -11,7 +11,7 @@ import HowToOrderSection from "@/modules/user/components/HowToOrderSection";
 import ProductFilterLayout from "@/modules/user/components/ProductFilterLayout";
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
 import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
-import WavyHero from "@/modules/user/components/WavyHero";
+import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
@@ -105,17 +105,19 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
 
             <Nav />
 
-            <ScrollObserver />            <WavyHero
-                pillText="Pure Cotton Dress Materials"
-                pillHighlight=""
+            <ScrollObserver />
+            <CategoryHeroBanner
+                tagline="PURE COTTON DRESS MATERIALS"
                 title={
                     <>
                         <span className='text-accent'>Batik Suits</span> Online – <br className="md:hidden" /> Cotton Dress Material Collection
                     </>
                 }
-                description="Explore High-Demand Batik Suit Designs"
-                imageSrc="/category_wavy_hero.png" // Updated image
+                description="Explore high-demand batik suit designs crafted for modern women fashion, boutiques, and wholesale buyers across India."
+                imageSrc="/clean_slider_1.png"
                 imageAlt="Batik Suits Collection"
+                bgColor="#E4D3BC"
+                textColor="text-primary"
                 buttons={
                     <>
                         <a href={WA} target="_blank" rel="noreferrer" className="bg-accent hover:bg-accent/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm">
