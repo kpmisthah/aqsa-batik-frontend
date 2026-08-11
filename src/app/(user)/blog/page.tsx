@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { categories, faqs } from '@/data/blogPosts';
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
 import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
-import WavyHero from "@/modules/user/components/WavyHero";
+import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
 
 
 export const metadata: Metadata = {
@@ -59,17 +59,17 @@ export default async function BlogIndexPage() {
         <div className="bg-cream min-h-screen font-body text-primary">
             <Nav />
             <ScrollObserver />
-            <WavyHero
-                pillText="Home > Blog"
-                pillHighlight=""
+            <CategoryHeroBanner
+                tagline="FASHION TRENDS · BUYING GUIDES"
                 title={
                     <>
                         Women Clothing, Batik Fabric <br className="hidden md:block" /> &amp; <span className='text-accent'>Fashion Trends</span> Blog
                     </>
                 }
                 description="Explore expert insights on women clothing, batik fabric, batik cloth, cotton dresses for women, and the latest fashion trends. Learn how to choose premium fabrics, discover stylish women clothing collections, and stay updated with wholesale buying guides directly from manufacturers."
-                imageSrc="/blog_wavy_hero.png" // Updated image
+                imageSrc="/batik_suit_blog_hero_v2.png"
                 imageAlt="Women Clothing &amp; Batik Fashion Trends Blog"
+                bgColor="#D8BA98"
                 buttons={
                     <>
                         <a href="#articles" className="bg-accent hover:bg-accent/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm">
