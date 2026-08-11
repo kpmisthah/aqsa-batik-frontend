@@ -2,6 +2,7 @@
 import React, { useState, useRef } from "react";
 import Image from "next/image";
 import Nav from "@/modules/user/components/Nav";
+import HomeHeroSlider from "@/modules/user/components/HomeHeroSlider";
 import FAQ from "@/modules/user/components/FAQ";
 import PremiumTrustSection from "@/modules/user/components/PremiumTrustSection";
 import LeadGenerationForm from "@/modules/user/components/LeadGenerationForm";
@@ -37,147 +38,8 @@ export default function HomePage() {
     <div className="min-h-screen bg-cream selection:bg-primary selection:text-white scroll-smooth flex flex-col font-sans">
       <Nav />
 
-      {/* ── WAVY HER0 SECTION ── */}
-      <section className="relative w-full lg:min-h-[90vh] bg-cream flex flex-col lg:flex-row overflow-hidden">
-
-        {/* Solid Mask for the extended image */}
-        <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-[calc(50%-80px)] bg-cream z-20 pointer-events-none"></div>
-
-        {/* Left Side: Content */}
-        <div className="w-full lg:w-[50%] relative z-20 flex flex-col justify-center items-center lg:items-start px-6 sm:px-12 lg:px-16 xl:px-20 pt-8 lg:pt-20 pb-6 lg:pb-12 text-center lg:text-left">
-
-          <div className="flex items-center justify-center lg:justify-start gap-2 mb-6 text-accent">
-            <span className="text-xl leading-none">&diams;</span>
-            <span className="text-overline">Premium Batik Cotton Collection</span>
-          </div>
-
-          <h1 className="text-h1 mb-2 text-center lg:text-left">
-            Premium Batik<br />Printed <span className="text-accent">Cotton</span> Fabric
-          </h1>
-          <p className="text-xl sm:text-2xl lg:text-3xl text-primary/80 font-serif italic mb-5 sm:mb-6 font-light">
-            Crafted for Everyday Elegance
-          </p>
-
-          <p className="text-body1 text-accent/90 max-w-[500px] mb-6 leading-relaxed">
-            Discover breathable batik printed cotton fabric designed for comfort, style, and timeless beauty. Perfect for boutiques, designers, and women who love effortless elegance.
-          </p>
-
-          {/* MOBILE ONLY: Image between description and buttons */}
-          <div className="lg:hidden relative w-full aspect-[4/3] rounded-lg overflow-hidden mb-6 bg-surface">
-            <Image
-              src={heroBanner}
-              alt="Premium Batik Fashion"
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover object-top"
-            />
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-3 mb-10 sm:mb-14">
-            <a href="#collection" className="bg-accent hover:bg-accent/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /><path d="M3 6h18" /><path d="M16 10a4 4 0 0 1-8 0" /></svg>
-              Shop Collection
-            </a>
-            <a href={WA} target="_blank" rel="noreferrer" className="border border-primary/15 hover:border-accent text-primary px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors bg-transparent hover:text-accent">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z" /></svg>
-              Get Wholesale Pricing
-            </a>
-          </div>
-
-          {/* Icon Features Grid */}
-          <div className="hidden lg:flex items-start justify-between max-w-[500px] mb-12 lg:mb-16 gap-4">
-            {[
-              { icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2a4 4 0 0 0-4 4 4 4 0 0 0-4 4 c0 3 2 4 4 4c0 4-2 6-2 6h8s-2-2-2-6c2 0 4-1 4-4a4 4 0 0 0-4-4 4 4 0 0 0-4-4z" /></svg>, l: '100%\nPremium Cotton' },
-              { icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" /><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" /></svg>, l: 'Soft &\nBreathable' },
-              { icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="3" width="18" height="12" rx="2" /><path d="M3 9h18" /><path d="M9 21v-6" /><path d="M15 21v-6" /></svg>, l: 'Pan India\nDelivery' },
-              { icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" /><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" /><path d="M2 7h20" /><path d="M22 7v3a2 2 0 0 1-2 2v0a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12v0a2 2 0 0 1-2-2V7" /></svg>, l: 'Wholesale\nAvailable' },
-            ].map((f, i) => (
-              <div key={i} className="flex flex-col items-center text-center gap-3">
-                <div className="w-12 h-12 rounded-full border border-primary/10 flex items-center justify-center text-accent bg-white">
-                  {f.icon}
-                </div>
-                <span className="text-[10px] font-bold text-primary/80 uppercase leading-tight whitespace-pre-line">{f.l}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Stats Row */}
-          <div className="flex items-end gap-8 md:gap-12 border-t border-primary/10 pt-5 max-w-sm">
-            <div className="flex flex-col gap-1">
-              <span className="text-2xl md:text-3xl text-accent font-heading font-normal">12+</span>
-              <span className="text-[9px] uppercase tracking-wider font-semibold text-primary/80">Years of Trust</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="text-2xl md:text-3xl text-accent font-heading font-normal">500+</span>
-              <span className="text-[9px] uppercase tracking-wider font-semibold text-primary/80">Exclusive Designs</span>
-            </div>
-            <div className="flex flex-col gap-1">
-              <span className="text-2xl md:text-3xl text-accent font-heading font-normal">10K+</span>
-              <span className="text-[9px] uppercase tracking-wider font-semibold text-primary/80">Happy Customers</span>
-            </div>
-          </div>
-        </div>
-
-        {/* The Wavy SVG Divider (Desktop Only) */}
-        <svg
-          className="hidden lg:block absolute left-[50%] top-0 h-[105%] w-[180px] -translate-x-[45%] z-20 pointer-events-none"
-          viewBox="0 0 200 1000" preserveAspectRatio="none"
-        >
-          {/* Base Wave matched to cream bg */}
-          <path d="M100,0 C170,200 170,300 100,500 C30,700 170,800 100,1000 L0,1000 L0,0 Z" className="fill-cream" />
-          {/* Stroke border */}
-          <path d="M100,0 C170,200 170,300 100,500 C30,700 170,800 100,1000" fill="none" className="stroke-accent stroke-[4]" strokeLinecap="round" />
-        </svg>
-
-        {/* Right Side: Image + Floating Elements (Desktop Only) */}
-        <div className="hidden lg:block w-full lg:w-[60%] lg:absolute lg:top-0 lg:right-0 lg:bottom-0 relative lg:h-full z-10 overflow-hidden bg-surface">
-
-          <Image
-            src={heroBanner}
-            alt="Premium Batik Fashion"
-            fill
-            priority
-            sizes="(max-width: 1024px) 100vw, 60vw"
-            className="object-cover object-top"
-          />
-
-          {/* Floating Cards Array (Matching specific design) */}
-          <div className="absolute right-[5%] xl:right-[8%] top-[25%] flex flex-col gap-4 xl:gap-6 z-30 pointer-events-none items-end">
-
-            <div className="bg-white/90 backdrop-blur-md rounded-xl p-3 shadow-xl flex items-center gap-3 border border-primary/5 w-[160px] animate-[float_4s_ease-in-out_infinite]">
-              <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 text-accent">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2a4 4 0 0 0-4 4 4 4 0 0 0-4 4 c0 3 2 4 4 4c0 4-2 6-2 6h8s-2-2-2-6c2 0 4-1 4-4a4 4 0 0 0-4-4 4 4 0 0 0-4-4z" /></svg>
-              </div>
-              <div className="text-left flex flex-col justify-center">
-                <p className="text-[10px] font-bold text-primary leading-tight">Premium</p>
-                <p className="text-[9px] text-primary/80">100% Cotton</p>
-              </div>
-            </div>
-
-            <div className="bg-white/90 backdrop-blur-md rounded-xl p-3 shadow-xl flex items-center gap-3 border border-primary/5 w-[160px] animate-[float_5s_ease-in-out_infinite_reverse] translate-x-[-15px]">
-              <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 text-accent">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-              </div>
-              <div className="text-left flex flex-col justify-center">
-                <p className="text-[10px] font-bold text-primary leading-tight">40+ Designs</p>
-                <p className="text-[9px] text-primary/80">Exclusive Prints</p>
-              </div>
-            </div>
-
-            <div className="bg-white/90 backdrop-blur-md rounded-xl p-3 shadow-xl flex items-center gap-3 border border-primary/5 w-[160px] animate-[float_6s_ease-in-out_infinite]">
-              <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 text-accent">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7" /><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4" /><path d="M2 7h20" /><path d="M22 7v3a2 2 0 0 1-2 2v0a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12v0a2 2 0 0 1-2-2V7" /></svg>
-              </div>
-              <div className="text-left flex flex-col justify-center">
-                <p className="text-[10px] font-bold text-primary leading-tight">Wholesale</p>
-                <p className="text-[9px] text-primary/80">Stock Available</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+      {/* ── HOME HERO SLIDER ── */}
+      <HomeHeroSlider />
 
       <GoogleReviewBar />
 
