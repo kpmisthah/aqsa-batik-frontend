@@ -165,14 +165,43 @@ export default function HomeHeroSlider() {
     return <div className="w-full h-[85vh] bg-[#F4F1EA] animate-pulse"></div>;
   }
   
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const minSwipeDistance = 50;
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      nextSlide();
+    } else if (isRightSwipe) {
+      prevSlide();
+    }
+  };
+
   if (slides.length === 0) return null;
 
   return (
     <section 
-      className="relative w-full h-[90vh] min-h-[580px] md:h-[85vh] md:min-h-[500px] md:max-h-[800px] overflow-hidden pt-16 md:pt-0 transition-colors duration-1000 ease-in-out" 
+      className="relative w-full h-[90vh] min-h-[580px] md:h-[85vh] md:min-h-[500px] md:max-h-[800px] overflow-hidden pt-16 md:pt-0 transition-colors duration-1000 ease-in-out touch-pan-y" 
       style={{ backgroundColor: slides[current]?.bgColor || "#F4F1EA" }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
     >
       {/* Slides */}
       {slides.map((slide, index) => (
@@ -268,23 +297,23 @@ export default function HomeHeroSlider() {
         </div>
       ))}
 
-      {/* Navigation Arrows */}
+      {/* Navigation Arrows (Desktop Only) */}
       <button 
         onClick={prevSlide}
-        className="absolute left-2 md:left-8 top-[40%] md:top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-white/30 hover:bg-white text-primary backdrop-blur-md transition-all duration-300 border border-primary/10 shadow-sm"
+        className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 z-30 w-14 h-14 items-center justify-center rounded-full bg-white/30 hover:bg-white text-primary backdrop-blur-md transition-all duration-300 border border-primary/10 shadow-sm"
         aria-label="Previous Slide"
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 md:w-6 md:h-6">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
           <polyline points="15 18 9 12 15 6"></polyline>
         </svg>
       </button>
 
       <button 
         onClick={nextSlide}
-        className="absolute right-2 md:right-8 top-[40%] md:top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-white/30 hover:bg-white text-primary backdrop-blur-md transition-all duration-300 border border-primary/10 shadow-sm"
+        className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 z-30 w-14 h-14 items-center justify-center rounded-full bg-white/30 hover:bg-white text-primary backdrop-blur-md transition-all duration-300 border border-primary/10 shadow-sm"
         aria-label="Next Slide"
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 md:w-6 md:h-6">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
           <polyline points="9 18 15 12 9 6"></polyline>
         </svg>
       </button>

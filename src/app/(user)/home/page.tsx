@@ -70,7 +70,7 @@ export default function HomePage() {
             ].map((item, i) => (
               <a key={i} href={item.l} className="group block cursor-pointer flex flex-col items-center text-center">
                 <div className="overflow-hidden aspect-[3/4] w-full relative mb-6">
-                  <Image src={item.img} alt={item.t} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-[1.5s] ease-out" />
+                  <Image src={item.img} alt={item.t} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover opacity-100 group-hover:scale-[1.03] transition-all duration-[1.5s] ease-out" />
                 </div>
                 <h3 className="text-h3 group-hover:text-accent transition-colors">{item.t}</h3>
                 <span className="text-overline font-body mt-2 opacity-80 decoration-accent group-hover:underline underline-offset-4 transition-all">
@@ -258,7 +258,7 @@ export default function HomePage() {
                     alt="Buyer Testimonial"
                     fill
                     sizes="(max-width: 1024px) 100vw, 33vw"
-                    className="object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out grayscale-[20%] group-hover:grayscale-0"
+                    className="object-cover opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
                   />
                 </div>
               ))}

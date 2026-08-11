@@ -77,9 +77,9 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                     </>
                 }
                 description="Explore breathable batik printed cotton cloth, stylish printed cotton fabric, and premium women dress material collections designed for cotton dresses, boutiques, resellers, and everyday women fashion across India."
-                imageSrc="/full_sleeve_churidar.png"
+                imageSrc="/cotton_cloth_hero_matched.png"
                 imageAlt="Premium Batik Cloth Collection"
-                bgColor="#EEE5D1"
+                bgColor="#D5C8B8"
                 textColor="text-primary"
                 buttons={
                     <>

@@ -33,13 +33,13 @@ export default function CategoryHeroBanner({
       className="relative w-full min-h-[70vh] md:min-h-[75vh] md:max-h-[800px] overflow-hidden pt-16 md:pt-0 transition-colors duration-700"
       style={{ backgroundColor: bgColor }}
     >
-      {/* ── Image with left-edge fade (desktop) ── */}
-      <div className="absolute inset-0 z-10 overflow-hidden">
+      {/* ── Image with left-edge fade ── */}
+      <div className="absolute inset-y-0 right-0 w-[55%] sm:w-[50%] md:w-auto md:top-0 md:bottom-0 md:h-full md:aspect-square z-10 overflow-hidden">
         <div
-          className="absolute top-0 bottom-0 right-0 h-full aspect-square"
+          className="relative w-full h-full"
           style={{
-            maskImage: "linear-gradient(to right, transparent 0%, black 20%, black 100%)",
-            WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 20%, black 100%)",
+            maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 100%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 100%)",
           }}
         >
           <Image
@@ -47,30 +47,14 @@ export default function CategoryHeroBanner({
             alt={imageAlt}
             fill
             priority
-            className="object-cover"
-          />
-        </div>
-
-        {/* Mobile overlays for text readability over the image */}
-        <div className="absolute inset-0 md:hidden z-10 pointer-events-none">
-          <div
-            className="absolute inset-0 w-[85%] z-10"
-            style={{
-              background: `linear-gradient(to right, ${bgColor} 0%, ${bgColor}CC 50%, ${bgColor}00 100%)`,
-            }}
-          />
-          <div
-            className="absolute inset-x-0 bottom-0 h-[60%] z-10"
-            style={{
-              background: `linear-gradient(to top, ${bgColor} 0%, ${bgColor}80 50%, ${bgColor}00 100%)`,
-            }}
+            className="object-cover object-top"
           />
         </div>
       </div>
 
       {/* ── Text Content ── */}
-      <div className={`relative z-20 h-full min-h-[70vh] md:min-h-[75vh] md:max-h-[800px] max-w-[1600px] mx-auto w-full flex flex-col justify-end md:justify-center items-start px-6 sm:px-12 md:px-12 lg:px-20 text-left pb-12 md:pb-0 ${textColor}`}>
-        <div className="max-w-[90%] md:max-w-4xl lg:max-w-5xl w-full flex flex-col items-start">
+      <div className={`relative z-20 h-full min-h-[70vh] md:min-h-[75vh] md:max-h-[800px] max-w-[1600px] mx-auto w-full flex flex-col justify-end md:justify-center items-start px-5 sm:px-12 md:px-12 lg:px-20 text-left pb-10 md:pb-0 ${textColor}`}>
+        <div className="max-w-[58%] sm:max-w-[55%] md:max-w-4xl lg:max-w-5xl w-full flex flex-col items-start">
           {/* Tagline */}
           <div className="flex items-center justify-start gap-2 mb-3 md:mb-6">
             <span className="text-xl leading-none hidden md:block">&diams;</span>

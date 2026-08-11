@@ -111,12 +111,12 @@ export function FeaturedGridSection() {
                                     alt={item.name}
                                     fill
                                     unoptimized={true}
-                                    className={`object-cover object-top transition-all duration-[1.2s] ease-out ${isHovered ? 'scale-[1.03] opacity-100 brightness-105' : 'opacity-80 md:opacity-75 brightness-[0.8]'
+                                    className={`object-cover object-top transition-all duration-[1.2s] ease-out opacity-100 brightness-100 ${isHovered ? 'scale-[1.03]' : 'md:opacity-90'
                                         }`}
                                 />
 
                                 {/* Gradient Overlay for Typography Clarity */}
-                                <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 md:via-black/10 to-transparent transition-opacity duration-700 ${isHovered ? 'opacity-90' : 'opacity-100 md:opacity-70'
+                                <div className={`absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent transition-opacity duration-700 ${isHovered ? 'opacity-90' : 'opacity-80 md:opacity-60'
                                     }`}></div>
 
                                 <div className={`absolute top-4 left-4 md:top-6 md:left-6 transition-opacity duration-500 delay-200 ${isHovered ? 'opacity-100' : 'opacity-0'
@@ -190,7 +190,7 @@ export function LifestyleBannerSection() {
                             src="/full_sleeve_churidar.png"
                             alt="Aqsha Lifestyle"
                             fill
-                            className="object-cover object-center group-hover:scale-105 transition-transform duration-[6s] ease-out brightness-[0.95]"
+                            className="object-cover object-top group-hover:scale-105 transition-transform duration-[6s] ease-out opacity-100 brightness-100"
                             unoptimized
                         />
                     </div>
@@ -260,7 +260,7 @@ export function DualCategoryBannerSection() {
                     src="/batik_fabric_tall.png"
                     alt="Premium Batik Fabric"
                     fill
-                    className="object-cover object-top opacity-90 group-hover:scale-[1.03] transition-all duration-[2s] ease-out"
+                    className="object-cover object-top opacity-100 group-hover:scale-[1.03] transition-all duration-[2s] ease-out"
                 />
                 {/* Minimal gradient for readability without being dark and heavy */}
                 <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-black/50 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
@@ -277,7 +277,7 @@ export function DualCategoryBannerSection() {
                     src="/batik_cloth_tall.png"
                     alt="Premium Cotton Clothing"
                     fill
-                    className="object-cover object-top opacity-90 group-hover:scale-[1.03] transition-all duration-[2s] ease-out"
+                    className="object-cover object-top opacity-100 group-hover:scale-[1.03] transition-all duration-[2s] ease-out"
                 />
                 {/* Minimal gradient for readability without being dark and heavy */}
                 <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-black/50 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
