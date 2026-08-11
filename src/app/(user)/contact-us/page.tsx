@@ -6,7 +6,7 @@ import ContactForm from './ContactForm';
 import FAQ from '@/modules/user/components/FAQ';
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
 import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
-import WavyHero from "@/modules/user/components/WavyHero";
+import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
 
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20discuss%20a%20business%20inquiry.";
 
@@ -33,23 +33,23 @@ export default async function ContactPage() {
         <div className="bg-[#FDFBF7] min-h-screen font-body text-[#3B1C14] selection:bg-primary selection:text-white">
             <Nav />
             <ScrollObserver />
-            <WavyHero
-                pillText="Contact Aqsha Batik"
-                pillHighlight=""
+            <CategoryHeroBanner
+                tagline="CONTACT AQSHA BATIK"
                 title={
                     <>
-                        Let's Talk about Your <br /> Batik Fabric <span className='text-accent'>Requirements</span>
+                        Let's Talk about Your <br className="hidden md:block" /> Batik Fabric <span className='text-accent'>Requirements</span>
                     </>
                 }
                 description="Looking for premium batik fabric, batik cloth, women clothing, or the latest cotton dresses for women? Whether you're a retailer, wholesaler, boutique owner, or fashion brand, our team is here to help you source high-quality collections directly from a trusted manufacturer."
-                imageSrc={heroBannerUrl}
+                imageSrc="/batik_suit_contact_hero.png"
                 imageAlt="Contact Aqsha Batik"
+                bgColor="#E6D9C8"
                 buttons={
                     <>
                         <a href="#form" className="bg-accent hover:bg-accent/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm text-center">
                             Get Wholesale Pricing
                         </a>
-                        <a href={WA} target="_blank" rel="noreferrer" className="border border-white/30 hover:border-accent hover:text-accent text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors bg-transparent text-center">
+                        <a href={WA} target="_blank" rel="noreferrer" className="border border-primary/20 hover:border-accent hover:text-accent text-primary px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors bg-transparent text-center">
                             Chat On WhatsApp
                         </a>
                     </>
