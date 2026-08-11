@@ -21,7 +21,7 @@ interface SlideData {
   badge?: string;
 }
 
-const slides: SlideData[] = [
+const DEFAULT_SLIDES: SlideData[] = [
   {
     id: 1,
     image: "/clean_slider_1.png",
@@ -49,10 +49,10 @@ const slides: SlideData[] = [
     bgColor: "#DDC9B0",
     imageAlt: "Wholesale Cotton",
     tagline: "MANUFACTURER DIRECT",
-            title: (
+    title: (
       <span>
         Wholesale Batik<br />
-        <span className="text-accent">Clothing</span> & Suits
+        <span className="text-accent">Clothing</span> &amp; Suits
       </span>
     ),
     subtitle: (
@@ -64,7 +64,7 @@ const slides: SlideData[] = [
     secondaryButtonLabel: "VIEW COLLECTION",
     secondaryButtonLink: "/batik-suits"
   },
-    {
+  {
     id: 3,
     title: (
       <span>
@@ -89,8 +89,8 @@ const slides: SlideData[] = [
 export default function HomeHeroSlider() {
   const [current, setCurrent] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const [slides, setSlides] = useState<SlideData[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [slides, setSlides] = useState<SlideData[]>(DEFAULT_SLIDES);
+  const [loading, setLoading] = useState(false);
 
   // Parse strings with linebreaks and highlight words
   const renderTitle = (title: string | React.ReactNode, highlightWord?: string) => {
@@ -129,16 +129,17 @@ export default function HomeHeroSlider() {
     const fetchSlides = async () => {
       try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/home-slider/active`);
-        const data = await res.json();
-        if (Array.isArray(data) && data.length > 0) {
-          // Only show slides that have a valid image uploaded
-          const validSlides = data.filter((s: SlideData) => s.image && s.image.trim() !== '');
-          setSlides(validSlides);
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data) && data.length > 0) {
+            const validSlides = data.filter((s: SlideData) => s.image && s.image.trim() !== '');
+            if (validSlides.length > 0) {
+              setSlides(validSlides);
+            }
+          }
         }
       } catch (err) {
-        console.error('Failed to load slides', err);
-      } finally {
-        setLoading(false);
+        console.error('Failed to load active slides, using default slides', err);
       }
     };
     fetchSlides();
