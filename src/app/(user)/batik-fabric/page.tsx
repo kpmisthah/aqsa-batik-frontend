@@ -12,7 +12,7 @@ import HowToOrderSection from "@/modules/user/components/HowToOrderSection";
 import ProductFilterLayout from "@/modules/user/components/ProductFilterLayout";
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
 import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
-import WavyHero from "@/modules/user/components/WavyHero";
+import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
@@ -111,19 +111,20 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
 
             <Nav />
             <ScrollObserver />
-            <WavyHero
-                pillText="Pure Cotton Batik Fabric"
-                pillHighlight=""
+            <CategoryHeroBanner
+                tagline="PURE COTTON BATIK FABRIC"
                 title={
                     <>
-                        Premium <span className='text-accent'>Batik Fabric</span><span className="hidden md:inline"> </span><br className="block md:hidden" />
-                        online cotton Dress<span className="hidden md:inline"> </span><br className="block md:hidden" />
-                        Material collection
+                        Premium <span className='text-accent'>Batik Fabric</span> <br className="hidden md:block" />
+                        Online Cotton Dress <br className="hidden md:block" />
+                        Material Collection
                     </>
                 }
                 description="Explore high-demand batik fabric cotton, stylish batik print fabric, and premium batik dress material designed for modern fashion, boutiques, and wholesale buyers across India."
-                imageSrc="/category_wavy_hero.png" // Updated image
+                imageSrc="/batik_fabric_hero_unique.png"
                 imageAlt="Batik Fabric Collection"
+                bgColor="#D0B598"
+                textColor="text-primary"
                 buttons={
                     <>
                         <a href={WA} target="_blank" rel="noreferrer" className="bg-accent hover:bg-accent/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm">
