@@ -8,7 +8,7 @@ import PremiumFeatureSection from "@/modules/user/components/PremiumFeatureSecti
 import { useBanner } from "@/modules/user/hooks/useBanner";
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
 import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
-import WavyHero from "@/modules/user/components/WavyHero";
+import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
 
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Aqsha%20Batik";
 
@@ -21,9 +21,9 @@ export default function AboutPage() {
 
 
             <Nav />
-            <ScrollObserver />            <WavyHero
-                pillText="Our Heritage"
-                pillHighlight=""
+            <ScrollObserver />            
+            <CategoryHeroBanner
+                tagline="OUR HERITAGE"
                 title={
                     <>
                         <span className="block md:whitespace-nowrap">Legacy Craftsmanship</span>
@@ -31,8 +31,9 @@ export default function AboutPage() {
                     </>
                 }
                 description="Rooted in Bherugarh, Ujjain, we carry forward the legacy of traditional wax batik—refined over 15+ years into premium batik cloth, batik dresses, and high-quality batik fabric. Our collections focus on durable cotton dress material and consistent women cotton wholesale fabric, built for real market demand and ready-to-sell use."
-                imageSrc="/about_wavy_hero.png" // Updated image
+                imageSrc="/batik_suit_hero.png"
                 imageAlt="Aqsha Batik Heritage"
+                bgColor="#F2EEE9"
                 buttons={
                     <a href={WA} target="_blank" rel="noreferrer" className="bg-accent hover:bg-accent/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z" /></svg>
