@@ -27,7 +27,7 @@ async function getProducts({ page = "1", search = "", sort = "", minPrice = "", 
         const queryParams = new URLSearchParams({
             limit: "12",
             page: page,
-            category: "Batik Fabric,Batik Cloth,Batik Cotton",
+            category: "Batik Cotton Dress for Women,Batik Prints Women Clothing,Batik Cotton",
             ...(search && { search }),
             ...(sort && { sort }),
             ...(minPrice && { minPrice }),
@@ -75,7 +75,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
             <Nav />
             <ScrollObserver />
             <CategoryHeroBanner
-                tagline="Trending Batik Clothes"
+                tagline="Trending Batik Prints Women Clothinges"
                 title={
                     <>
                         Batik Prints for Women’s <br className="hidden md:block" /> Clothing, Made for <br className="hidden md:block" /><span className="text-highlight">Everyday Life</span>
@@ -83,7 +83,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                 }
                 description="Discover distinctive batik prints, breathable cotton cloth comfort, and versatile women’s styles made for everyday living."
                 imageSrc="/cotton_cloth_hero_matched.png"
-                imageAlt="Premium Batik Cloth Collection"
+                imageAlt="Premium Batik Prints Women Clothing Collection"
                 bgClassName="bg-tan"
                 textColor="text-primary"
                 buttons={
@@ -124,7 +124,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                             },
                             {
                                 t: "CUSTOM DESIGNS",
-                                d: "Create personalized suits, blouse styles, plus-size looks, and seasonal outfits from versatile batik fabric.",
+                                d: "Create personalized suits, blouse styles, plus-size looks, and seasonal outfits from versatile Batik Cotton Dress for Women.",
                                 img: "/app_custom.png"
                             }
                         ].map((item, i) => (
@@ -152,7 +152,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
             <section id="collection" className="scroll-animate py-16 md:py-32 px-6 bg-cream relative overflow-hidden text-primary">
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-8 md:gap-12">
                     <div className="flex flex-col gap-3 md:gap-4 text-center items-center mx-auto max-w-4xl">
-                        <span className="text-overline">Batik Fabric Library</span>
+                        <span className="text-overline">Batik Cotton Dress for Women Library</span>
                         <h2 className="text-h3 font-heading text-primary">Explore Signature Batik Prints for <br className="md:hidden" /> <span className="text-highlight">Women Clothes</span></h2>
                         <p className="text-lg md:text-xl text-foreground font-normal leading-relaxed mt-2 w-full text-center">
                             Discover expressive batik prints, distinctive colours, and versatile styles designed for modern women’s wardrobes.
@@ -169,7 +169,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
 
             <AdvantageSection
                 tag="Made for Comfort"
-                title={<>Why Women Choose Batik Cloth for Everyday <span className="text-highlight">Comfort</span></>}
+                title={<>Why Women Choose Batik Prints Women Clothing for Everyday <span className="text-highlight">Comfort</span></>}
                 items={[
                     "<span class='block font-semibold mb-0.5 text-[15px]'>Breathable Construction</span><span class='block text-sm font-normal opacity-85 leading-snug'>Helps maintain airflow and comfort in warm weather.</span>",
                     "<span class='block font-semibold mb-0.5 text-[15px]'>Lightweight Feel</span><span class='block text-sm font-normal opacity-85 leading-snug'>Soft, easy to wear, and suitable for everyday styling.</span>",
@@ -250,7 +250,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                 ]}
                 imageSrc="/premium_fabric_hero.png"
                 mobileImageSrc="/premium_fabric_hero.png"
-                quote="Our premium batik cloth offers the perfect canvas for your fashion creations, blending traditional art with superior comfort."
+                quote="Our premium Batik Prints Women Clothing offers the perfect canvas for your fashion creations, blending traditional art with superior comfort."
             />
             <HowToOrderSection
                 tag="Wholesale, Made Simple"
@@ -288,7 +288,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                             },
                             {
                                 t: "Wholesale",
-                                d: "Browse wholesale batik clothing collections designed for boutiques, resellers, and growing women fashion businesses.",
+                                d: "Browse wholesale Batik Prints Women Clothinging collections designed for boutiques, resellers, and growing women fashion businesses.",
                                 l: "/wholesale-batik-women-dresses",
                                 img: "/gallery_wholesale.png",
                                 tag: "Inquiry"
@@ -332,7 +332,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                         <h2 className="text-h2 font-heading text-primary leading-tight">Trending Clothes for Women in <span className="text-highlight">Batik Style Guide</span></h2>
                         <div className="w-16 h-[2px] bg-secondary mt-2"></div>
                         <p className="text-lg md:text-xl text-foreground leading-relaxed mt-2">
-                            Explore practical womens clothing style ideas, seasonal inspiration, and fresh trends for women choosing comfortable batik clothing for everyday life.
+                            Explore practical womens clothing style ideas, seasonal inspiration, and fresh trends for women choosing comfortable Batik Prints Women Clothinging for everyday life.
                         </p>
                     </div>
 
@@ -400,12 +400,12 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                     a: "Batik made from breathable 60x60 cotton offers lightweight comfort for everyday dressing. Its distinctive batik design also adds character to casual suits, kurtis, and other womens clothing styles."
                 },
                 {
-                    q: "Can batik clothing work as gym clothes for women or yoga wear?",
+                    q: "Can Batik Prints Women Clothinging work as gym clothes for women or yoga wear?",
                     a: "Lightweight cotton batik can work for gentle workouts, stretching, yoga, and low-impact movement. Its breathable construction helps provide airflow and comfort, although it is not intended to replace performance-specific activewear."
                 },
                 {
-                    q: "Is batik cloth suitable for plus size womens clothing?",
-                    a: "Yes. Batik clothing can be created in comfortable, inclusive silhouettes for plus size womens clothing. Relaxed cuts, breathable cotton, and thoughtfully placed batik print designs can provide both ease and style."
+                    q: "Is Batik Prints Women Clothing suitable for plus size womens clothing?",
+                    a: "Yes. Batik Prints Women Clothinging can be created in comfortable, inclusive silhouettes for plus size womens clothing. Relaxed cuts, breathable cotton, and thoughtfully placed batik print designs can provide both ease and style."
                 },
                 {
                     q: "Which batik colours work best for formal clothes for women?",
