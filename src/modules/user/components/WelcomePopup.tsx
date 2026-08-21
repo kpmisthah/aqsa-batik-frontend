@@ -40,17 +40,17 @@ export default function WelcomePopup() {
 
     return (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 bg-black/70 backdrop-blur-sm animate-in fade-in duration-300">
-            <div className="bg-surface w-full max-w-[1000px] max-h-[90vh] overflow-y-auto overflow-x-hidden rounded-[24px] md:rounded-[32px] relative flex flex-col md:flex-row shadow-2xl animate-in zoom-in-95 duration-500">
+            <div className="bg-surface w-full max-w-[750px] max-h-[85vh] overflow-y-auto overflow-x-hidden rounded-[20px] md:rounded-[24px] relative flex flex-col md:flex-row shadow-2xl animate-in zoom-in-95 duration-500">
 
                 {/* Close Button */}
-                <button onClick={closePopup} className="absolute top-3 right-3 md:top-5 md:right-5 w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors z-50 bg-surface/90 backdrop-blur-sm shadow-sm">
+                <button onClick={closePopup} className="absolute top-2 right-2 md:top-3 md:right-3 w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors z-50 bg-surface/90 backdrop-blur-sm shadow-sm">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M18 6 6 18M6 6l12 12" />
                     </svg>
                 </button>
 
                 {/* Left Side - Image with Arch Effect */}
-                <div className="md:w-[45%] relative aspect-[4/5] md:aspect-auto md:min-h-[600px] bg-surface shrink-0">
+                <div className="md:w-[40%] relative aspect-[4/5] md:aspect-auto md:min-h-[420px] bg-surface shrink-0">
                     <div className="absolute inset-0 rounded-tr-[100px] md:rounded-tr-[140px] overflow-hidden">
                         <Image
                             src="/white_mustard_suit.png"
@@ -63,11 +63,11 @@ export default function WelcomePopup() {
                 </div>
 
                 {/* Right Side - Content */}
-                <div className="md:w-[55%] px-4 py-8 md:py-12 md:px-10 flex flex-col items-center text-center text-primary z-10 relative justify-center">
+                <div className="md:w-[60%] px-4 py-6 md:py-8 md:px-8 flex flex-col items-center text-center text-primary z-10 relative justify-center">
 
                     {/* Logo Section */}
-                    <div className="flex flex-col items-center gap-1 mb-6">
-                        <img src="/aqsha-logo.png" alt="Aqsha Logo" className="h-24 md:h-32 w-auto mb-2 object-contain" />
+                    <div className="flex flex-col items-center gap-1 mb-4">
+                        <img src="/aqsha-logo.png" alt="Aqsha Logo" className="h-16 md:h-20 w-auto mb-1 object-contain" />
                         <div className="flex items-center gap-3 text-[8px] uppercase tracking-[0.35em] opacity-80 mt-1">
                             <span className="w-5 h-[1px] bg-primary"></span>
                             BATIK SUITS
@@ -76,7 +76,7 @@ export default function WelcomePopup() {
                     </div>
 
                     {/* Subtitle */}
-                    <div className="flex items-center justify-center gap-3 mb-4">
+                    <div className="flex items-center justify-center gap-3 mb-3">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="opacity-60 transform -scale-x-100 text-secondary">
                             <path d="M12 22C12 22 4 16 4 10C4 6 7.5 3 12 3C16.5 3 20 6 20 10C20 16 12 22 12 22Z" />
                         </svg>
@@ -87,12 +87,12 @@ export default function WelcomePopup() {
                     </div>
 
                     {/* Title */}
-                    <h1 className="font-heading text-2xl md:text-3xl leading-[1.1] font-medium tracking-tight text-primary mb-5">
+                    <h1 className="font-heading text-xl md:text-2xl leading-[1.1] font-medium tracking-tight text-primary mb-3">
                         Premium Batik Suits<br />That Your Customers Love
                     </h1>
 
                     {/* Decorative Divider */}
-                    <div className="flex items-center justify-center gap-1.5 mb-5 opacity-30">
+                    <div className="flex items-center justify-center gap-1.5 mb-3 opacity-30">
                         <div className="w-8 h-px bg-primary"></div>
                         <div className="w-1 h-1 rotate-45 border border-primary"></div>
                         <div className="w-1.5 h-1.5 rotate-45 bg-primary"></div>
@@ -100,12 +100,12 @@ export default function WelcomePopup() {
                         <div className="w-8 h-px bg-primary"></div>
                     </div>
 
-                    <p className="text-sm font-medium opacity-80 leading-relaxed mb-8 max-w-sm mx-auto">
+                    <p className="text-xs font-medium opacity-80 leading-relaxed mb-5 max-w-sm mx-auto">
                         Wholesale cotton batik suits for boutique owners, resellers, wholesalers & marketplace sellers across India.
                     </p>
 
                     {/* Features Box */}
-                    <div className="w-full flex justify-between items-start gap-1 mb-8 text-primary">
+                    <div className="w-full flex justify-between items-start gap-1 mb-5 text-primary">
                         {/* 1 */}
                         <div className="flex flex-col items-center text-center flex-1">
                             <div className="w-10 h-10 rounded-full bg-tan flex items-center justify-center mb-2 shadow-sm">
@@ -152,7 +152,7 @@ export default function WelcomePopup() {
                     </div>
 
                     {/* Footer Note */}
-                    <div className="flex items-center justify-center gap-2 mt-6 opacity-80">
+                    <div className="flex items-center justify-center gap-2 mt-4 opacity-80">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" className="opacity-60 transform -scale-x-100 text-secondary">
                             <path d="M12 22C12 22 4 16 4 10C4 6 7.5 3 12 3C16.5 3 20 6 20 10C20 16 12 22 12 22Z" />
                         </svg>
