@@ -86,7 +86,7 @@ export default function HomePage() {
           </div>
 
           <div className="flex justify-center mt-10 md:mt-14">
-            <a href="/batik-suits" className="btn-secondary group">
+            <a href="/batik-ethnic-wear-for-women" className="btn-secondary group">
               <span>Explore Collections</span>
               <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
             </a>
@@ -111,7 +111,7 @@ export default function HomePage() {
             {[
               { t: "Boutique Owners", d: "Curated batik suits, blouse designs, and fresh women's clothing collections that help boutiques keep their shelves relevant and their customers coming back.", b: "Fast-Moving Designs" },
               { t: "Resellers", d: "Access attractive suit designs for women, cotton dress material, and ready-to-sell collections designed to support competitive pricing and healthier margins.", b: "Better Margins" },
-              { t: "Wholesalers", d: "Source batik fabric, printed cotton fabric for kurtis, and scalable women's dress material for consistent bulk fashion orders.", b: "Bulk Consistency" },
+              { t: "Wholesalers", d: "Source Batik Cotton Dress for Women, printed cotton fabric for kurtis, and scalable women's dress material for consistent bulk fashion orders.", b: "Bulk Consistency" },
               { t: "Marketplaces", d: "Bring searchable women's dresses, batik print styles, and everyday cotton fashion to online customers with collections aligned with modern buying demand.", b: "Trending Stock" }
             ].map((item, i) => (
               <div key={i} className="flex flex-col group border-t border-primary/20 pt-4 md:pt-6 hover:border-accent transition-colors duration-500">
