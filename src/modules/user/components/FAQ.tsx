@@ -16,12 +16,12 @@ export default function FAQ({ items }: FAQProps) {
     const [open, setOpen] = useState(0);
     const defaultFaqs = [
         { 
-            q: "Which batik fabric is best for daily suits for women?", 
+            q: "Which Batik Cotton Dress for Women is best for daily suits for women?", 
             a: "Cotton 60x60 is a popular choice for daily batik suits because it offers a lightweight, breathable feel suited to regular wear. It works well for batik print kurtis, everyday suits, and comfortable women's clothing." 
         },
         { 
-            q: "Can batik fabric be used for plus-size women's clothing?", 
-            a: "Yes. Batik fabric can be used to create comfortable plus-size women's clothing with flattering prints and practical silhouettes. Batik print suits, kurtis, and dresses can be designed in different cuts and sizes for comfortable everyday styling." 
+            q: "Can Batik Cotton Dress for Women be used for plus-size women's clothing?", 
+            a: "Yes. Batik Cotton Dress for Women can be used to create comfortable plus-size women's clothing with flattering prints and practical silhouettes. Batik print suits, kurtis, and dresses can be designed in different cuts and sizes for comfortable everyday styling." 
         },
         { 
             q: "Why are batik suits becoming popular for women?", 

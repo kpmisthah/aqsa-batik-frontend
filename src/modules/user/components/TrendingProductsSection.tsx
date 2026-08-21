@@ -136,7 +136,7 @@ export default function TrendingProductsSection() {
                 </div>
 
                 <div className="flex justify-center mt-4 md:mt-6">
-                    <Link href="/batik-suits" className="btn-secondary group">
+                    <Link href="/batik-ethnic-wear-for-women" className="btn-secondary group">
                         <span>Shop Best Sellers</span>
                         <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
                     </Link>

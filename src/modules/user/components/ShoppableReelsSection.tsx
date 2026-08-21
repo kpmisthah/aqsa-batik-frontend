@@ -190,7 +190,7 @@ export default function ShoppableReelsSection() {
         </div>
 
         <div className="mt-6 md:mt-10 flex justify-center w-full">
-          <Link href="/batik-suits" className="btn-secondary group">
+          <Link href="/batik-ethnic-wear-for-women" className="btn-secondary group">
             <span>Watch the Collection</span>
             <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
           </Link>
