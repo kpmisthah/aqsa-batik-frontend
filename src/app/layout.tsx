@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Sora, Manrope } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const sora = Sora({
   variable: "--font-heading",
   subsets: ["latin"],
 });
 
-const inter = Inter({
+const manrope = Manrope({
   variable: "--font-body",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "AQSHA BATIK SUITS | Women Clothing & Batik Fabric India",
-  description: "Shop premium batik fabric, cotton dress material, and stylish women clothing online from AQSHA BATIK SUITS. Trusted wholesale batik manufacturer in India.",
+  title: "Batik Prints Suits for Women | Ujjain Batik Manufacturer | AQSHA",
+  description: "Shop batik suits for women, batik print fabric for batik print suit & kurti, women dress material and wholesale women’s clothing from AQSHA Batik Suits, a No.1 Ujjain batik manufacturer.",
+  keywords: "batik suits for women",
 };
 
 export default function RootLayout({
@@ -26,7 +27,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${inter.variable} h-full antialiased font-body font-normal font-body`}
+      className={`${sora.variable} ${manrope.variable} h-full antialiased font-body font-normal font-body`}
     >
       <Script id="google-tag-manager" strategy="afterInteractive">
         {`

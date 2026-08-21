@@ -18,20 +18,22 @@
 }
 
 @theme inline {
-  --color-background: #F5F1EC; /* Soft Cream / Off White */
-  --color-foreground: #382A24; /* Dark brownish-grey for readable text */
+  --color-background: #F8F3EA; /* Cream */
+  --color-foreground: #4F433B; /* Primary Text */
   
-  --color-primary: #8B3A2B;    /* Deep rust brown - headings, icons, emphasis */
-  --color-secondary: #C2A27C;  /* Warm beige / sand gold - section backgrounds */
-  --color-accent: #5A2A1F;     /* Darker brown accent - CTA buttons, hover states */
+  --color-primary: #2E211B;    /* Deep Espresso - headings */
+  --color-brand: #8A4B32;      /* Rust Brown - labels, icons, buttons */
+  --color-accent: #8A4B32;     /* Mapped to Rust Brown for legacy buttons */
+  --color-highlight: #B8894A;  /* Golden Accent - highlights */
+  --color-secondary: #E7D6C0;  /* Beige / Sand - alternate bg */
   
-  /* Map existing utility variables to the new palette to apply it everywhere seamlessly */
-  --color-cream: #F5F1EC;      /* Soft cream / off-white */
-  --color-tan: #C2A27C;        /* Warm beige / sand gold */
-  --color-surface: #ffffff;    /* Keep crisp white for cards */
-  --color-border: #D8CCBE;     
+  --color-cream: #F8F3EA;      
+  --color-tan: #E7D6C0;        
+  --color-surface: #FFFDF9;    /* Soft White */
+  --color-border: #D8C8BB;     
   --color-success: #3E7C59;    
   --color-error: #B84545;      
+  --color-muted: #6F625A;      /* Secondary text */
   
   --font-heading: var(--font-heading);
   --font-body: var(--font-body);
@@ -46,15 +48,15 @@
 
 @layer components {
   .text-h1 {
-    @apply font-heading text-4xl sm:text-5xl md:text-6xl font-normal leading-[1.1] tracking-tight text-primary;
+    @apply font-heading text-4xl sm:text-5xl md:text-[56px]/[64px] font-semibold tracking-tight text-primary;
   }
 
   .text-h2 {
-    @apply font-heading text-2xl md:text-3xl lg:text-4xl font-normal leading-[1.15] tracking-tight text-primary;
+    @apply font-heading text-2xl md:text-3xl lg:text-4xl font-semibold leading-[1.15] tracking-tight text-primary;
   }
 
   .text-h3 {
-    @apply font-heading text-xl md:text-2xl font-normal leading-snug text-primary;
+    @apply font-heading text-xl md:text-2xl font-semibold leading-snug text-primary;
   }
 
   .text-h4 {
@@ -62,19 +64,32 @@
   }
 
   .text-body1 {
-    @apply font-body text-sm md:text-base font-normal leading-relaxed text-foreground;
+    @apply font-body text-[16px] font-normal leading-[1.6] text-foreground;
   }
 
   .text-body2 {
-    @apply font-body text-xs md:text-sm font-normal leading-relaxed text-foreground;
+    @apply font-body text-sm font-normal leading-[1.6] text-muted;
   }
 
   .text-body3 {
-    @apply font-body text-xs font-normal leading-snug text-foreground;
+    @apply font-body text-xs font-normal leading-snug text-muted;
   }
 
   .text-overline {
-    @apply font-body text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.2em] text-accent;
+    @apply font-heading text-[11px] md:text-xs font-medium uppercase tracking-[0.2em] text-brand;
+  }
+
+  .text-highlight {
+    @apply font-heading font-semibold text-highlight;
+  }
+
+  /* Button Styles */
+  .btn-primary {
+    @apply bg-brand hover:bg-brand/90 text-surface font-body font-semibold uppercase tracking-[0.15em] transition-all px-8 py-3.5 flex items-center justify-center gap-3 w-fit text-[11px] md:text-sm;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent hover:bg-highlight text-brand hover:text-surface border border-brand hover:border-highlight font-body font-semibold uppercase tracking-[0.15em] transition-all px-8 py-3.5 flex items-center justify-center gap-3 w-fit text-[11px] md:text-sm;
   }
 }
 
