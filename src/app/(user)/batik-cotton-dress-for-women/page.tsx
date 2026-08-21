@@ -21,7 +21,7 @@ async function getProducts({ page = "1", search = "", sort = "", minPrice = "", 
         const queryParams = new URLSearchParams({
             limit: "12",
             page: page,
-            category: "Batik Fabric,Batik Cloth,Batik Cotton",
+            category: "Batik Cotton Dress for Women,Batik Prints Women Clothing,Batik Cotton",
             ...(search && { search }),
             ...(sort && { sort }),
             ...(minPrice && { minPrice }),
@@ -87,7 +87,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                 }
                 description="Discover breathable Batik cotton dresses designed to make everyday dressing feel easier. From relaxed one-piece styles to expressive batik print dress designs, find comfortable silhouettes that bring softness, character, and effortless style to every day."
                 imageSrc="/batik_fabric_hero_unique.png"
-                imageAlt="Batik Fabric Collection"
+                imageAlt="Batik Cotton Dress for Women Collection"
                 bgColor="#D0B598"
                 textColor="text-primary"
                 buttons={
@@ -352,7 +352,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                                 </div>
                             </div>
                             <div className="p-4 md:p-6 flex flex-col gap-3 md:gap-6 flex-grow">
-                                <p className="text-sm text-primary/90 font-medium leading-relaxed">Browse wholesale Batik clothing collections designed for boutiques, resellers, retailers, and growing fashion businesses.</p>
+                                <p className="text-sm text-primary/90 font-medium leading-relaxed">Browse wholesale Batik Prints Women Clothinging collections designed for boutiques, resellers, retailers, and growing fashion businesses.</p>
                                 <div className="flex items-center gap-2 text-primary group-hover:text-accent font-body font-bold text-[10px] md:text-xs uppercase tracking-widest transition-colors duration-500 mt-auto pt-4">
                                     <span>Explore Collection</span>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-2 transition-transform"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
