@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 // Sample placeholder data - user can replace these with actual video urls
 const reelsData = [
@@ -88,15 +89,20 @@ export default function ShoppableReelsSection() {
   return (
     <section className="scroll-animate pt-10 pb-6 md:pt-28 md:pb-16 px-6 bg-cream border-t border-primary/10 overflow-hidden relative">
       <div className="max-w-[1400px] mx-auto">
-        <div className="flex flex-col items-center text-center gap-5 mb-12 md:mb-16">
+        <div className="flex flex-col items-center text-center gap-6 mb-12 md:mb-16">
           <div className="flex flex-col items-center gap-3">
-            <span className="text-overline text-accent">Aqsha In Motion</span>
+            <span className="text-overline text-accent">AQSHA Batik in Motion</span>
             <h2 className="text-h2 text-primary relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-[1px] after:bg-primary/20">
-              Experience The Fabric
+              See Batik Dresses, Kurtis & <span className="text-highlight italic">Women's Suits in Motion</span>
             </h2>
-            <p className="text-body1 text-primary/80 max-w-xl mt-2 font-medium">
-              Watch our latest drops and premium collections in motion. Authentic glimpses into the drape, flow, and quality of our artisan batik.
-            </p>
+            <div className="flex flex-col gap-2 max-w-3xl mt-2">
+              <p className="text-body1 text-primary/80 font-medium">
+                See the drape, flow, print, and finish behind our latest batik dresses, batik print kurtis, and suit sets for women.
+              </p>
+              <p className="text-body1 text-primary/80 font-medium">
+                Real fabric. Real movement. Real style.
+              </p>
+            </div>
           </div>
 
           <div className="hidden md:flex items-center gap-3 mt-2">
@@ -181,6 +187,13 @@ export default function ShoppableReelsSection() {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="mt-6 md:mt-10 flex justify-center w-full">
+          <Link href="/batik-suits" className="btn-secondary group">
+            <span>Watch the Collection</span>
+            <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+          </Link>
         </div>
 
       </div>

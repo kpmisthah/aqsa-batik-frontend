@@ -8,25 +8,29 @@ const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
 export function ShopByCategorySection() {
     const categories = [
-        { title: "Batik Fabric", img: "/cat_batik_fabric.webp", href: "/batik-fabric", sub: "Premium Material" },
-        { title: "Batik Cloth", img: "/cat_batik_cloth.webp", href: "/cotton-cloth", sub: "Ready to Stitch" },
-        { title: "Wholesale", img: "/cat_wholesale.webp", href: "/fabric-wholesale", sub: "Bulk Pricing" },
-        { title: "New Arrivals", img: "/cat_new_arrival.webp", href: "/new-batik-prints", sub: "Latest Drops" },
+        { title: "Batik Prints Women Clothing", img: "/Batik Prints Women Clothing Editorial-category1.png", href: "/batik-cotton-dress-for-women", sub: "Signature" },
+        { title: "Ethnic Wear for Women", img: "/Batik Prints Women Clothing Editorial-category2.png", href: "/batik-prints-womens-clothing", sub: "Everyday" },
+        { title: "Batik Cotton Dress for Women", img: "/Batik Prints Women Clothing Editorial-category3.png", href: "/batik-prints-womens-clothing", sub: "Comfort" },
+        { title: "New Arrival", img: "/Batik Prints Women Clothing Editorial-category4.png", href: "/new-batik-prints-suits", sub: "Latest Drops" },
+        { title: "Wholesale", img: "/Batik Prints Women Clothing Editorial-category5.png", href: "/wholesale-batik-women-dresses", sub: "Bulk Pricing" },
     ];
 
     return (
-        <section className="pt-10 pb-16 md:pt-12 md:pb-28 px-4 sm:px-6 bg-cream border-t border-primary/5">
-            <div className="max-w-[1400px] mx-auto flex flex-col gap-8 md:gap-20">
-                <div className="text-center flex flex-col items-center gap-2 md:gap-3">
-                    <span className="text-overline">Explore</span>
-                    <h2 className="text-h2 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-[1px] after:bg-primary/20">Shop By Category</h2>
+        <section className="pt-10 pb-16 md:pt-12 md:pb-24 px-4 sm:px-6 bg-cream border-t border-primary/5">
+            <div className="max-w-[1400px] mx-auto flex flex-col gap-8 md:gap-14">
+                <div className="text-center flex flex-col items-center gap-3 md:gap-4 max-w-4xl mx-auto">
+                    <span className="text-overline uppercase tracking-[0.2em] font-bold text-primary/80">Explore Batik Print Styles</span>
+                    <h2 className="text-h2 md:text-h1 text-primary font-normal leading-tight">
+                        Shop Women's Suits, Batik Prints & <span className="text-highlight italic">Everyday Styles</span>
+                    </h2>
+                    <p className="text-sm md:text-base text-primary/80 font-medium leading-relaxed mt-2">
+                        Find beautiful suits for women featuring distinctive batik designs, breathable cotton fabrics, printed fabric styles, and versatile women's clothing made for comfort and everyday elegance.
+                    </p>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 lg:gap-12 w-full pt-4">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 lg:gap-8 w-full pt-4">
                     {categories.map((cat, i) => (
                         <Link key={i} href={cat.href} className="flex flex-col items-center gap-4 md:gap-6 group w-full">
-
-                            {/* The Arch / Pill container with aesthetic double framing */}
                             <div className="relative w-full aspect-[2/3] md:aspect-[3/4] rounded-t-full rounded-b-full overflow-hidden border border-primary/10 p-1.5 md:p-2 group-hover:border-primary/40 group-hover:bg-white/40 transition-all duration-700 bg-transparent">
                                 <div className="relative w-full h-full rounded-t-full rounded-b-full overflow-hidden bg-tan shadow-inner">
                                     <Image
@@ -37,16 +41,21 @@ export function ShopByCategorySection() {
                                     />
                                 </div>
                             </div>
-
-                            {/* Typography below */}
                             <div className="flex flex-col items-center text-center gap-1 md:gap-2 opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-500">
-                                <span className="text-[9px] md:text-overline uppercase tracking-widest font-bold text-primary/70">{cat.sub}</span>
-                                <h4 className="text-sm md:text-h4 font-heading font-medium text-primary group-hover:text-accent transition-colors">
+                                <span className="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-primary/70">{cat.sub}</span>
+                                <h4 className="text-[13px] md:text-[15px] font-heading font-semibold text-primary group-hover:text-accent transition-colors leading-tight">
                                     {cat.title}
                                 </h4>
                             </div>
                         </Link>
                     ))}
+                </div>
+
+                <div className="flex justify-center mt-6 md:mt-10">
+                    <Link href="/batik-suits" className="btn-secondary group">
+                        <span>View All Collections</span>
+                        <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+                    </Link>
                 </div>
             </div>
         </section>
@@ -83,10 +92,15 @@ export function FeaturedGridSection() {
     return (
         <section className="pt-20 pb-24 px-4 bg-surface border-t border-primary/10 overflow-hidden">
             <div className="max-w-[1500px] mx-auto flex flex-col gap-10">
-                {/* Minimalist Section Header */}
-                <div className="text-center flex flex-col items-center gap-3 px-2 md:px-6">
-                    <span className="text-[11px] uppercase tracking-[0.3em] font-bold text-accent">Latest Drops</span>
-                    <h2 className="text-4xl md:text-5xl font-heading text-primary relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-[1px] after:bg-primary/20">New Arrivals</h2>
+                {/* Refined Section Header */}
+                <div className="text-center flex flex-col items-center gap-3 md:gap-4 max-w-4xl mx-auto px-2 md:px-6">
+                    <span className="text-overline uppercase tracking-[0.2em] font-bold text-primary/80">Fresh Batik Styles</span>
+                    <h2 className="text-h2 md:text-h1 text-primary font-normal leading-tight">
+                        New Arrival <span className="text-highlight italic">Women's Suits &</span> <br className="hidden md:block" /> Batik Dress <span className="text-highlight italic">Material</span>
+                    </h2>
+                    <p className="text-sm md:text-base text-primary/80 font-medium leading-relaxed mt-2">
+                        Discover fresh batik blouse designs, printed styles, designer women's dresses, and quality cotton fabric for kurtis—created for effortless everyday dressing. Explore new prints, seasonal styles, and ready-to-wear collections designed around modern Indian fashion.
+                    </p>
                 </div>
 
                 {/* Highly Interactive Expandable Accordion Layout (Grid on Mobile) */}
@@ -157,8 +171,8 @@ export function FeaturedGridSection() {
 
                 {/* Bottom Action Link */}
                 <div className="flex justify-center mt-8 md:mt-10">
-                    <Link href="/new-batik-prints" className="group flex items-center gap-3 px-8 py-3.5 border border-primary/30 text-primary text-[11px] uppercase tracking-widest font-bold hover:border-accent hover:text-accent transition-all duration-300">
-                        <span>View Complete Catalog</span>
+                    <Link href="/new-batik-prints-suits" className="btn-secondary group">
+                        <span>Shop New Arrivals</span>
                         <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
                     </Link>
                 </div>
@@ -175,10 +189,10 @@ export function LifestyleBannerSection() {
                 {/* Mobile-Only Heading (Displays above image on mobile) */}
                 <div className="w-full lg:hidden flex flex-col items-center text-center gap-3">
                     <span className="text-[9px] md:text-[11px] uppercase tracking-[0.3em] font-bold text-accent">
-                        Artisanal Mastery
+                        Styles Made to Belong
                     </span>
                     <h2 className="font-heading text-3xl md:text-5xl text-primary leading-[1.1] tracking-tight">
-                        Woven with tradition.<br /> Styled for the modern woman.
+                        Batik Dresses & Suit Sets for <span className="text-highlight italic">Every Woman</span>
                     </h2>
                 </div>
 
@@ -187,7 +201,7 @@ export function LifestyleBannerSection() {
                     <div className="hidden lg:block absolute inset-0 bg-primary/5 -left-8 -bottom-8 rounded-[2px] transition-transform duration-[3s] group-hover:-translate-x-2 group-hover:translate-y-2"></div>
                     <div className="relative w-full h-full overflow-hidden rounded-[2px] shadow-sm z-10 border border-primary/10">
                         <Image
-                            src="/full_sleeve_churidar.png"
+                            src="/Premium Batik Fashion Banner.png"
                             alt="Aqsha Lifestyle"
                             fill
                             className="object-cover object-top group-hover:scale-105 transition-transform duration-[6s] ease-out opacity-100 brightness-100"
@@ -198,23 +212,29 @@ export function LifestyleBannerSection() {
 
                 {/* Left/Bottom Side: Elegant Text Base */}
                 <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left gap-4 md:gap-6 lg:gap-8 px-2 md:px-4 lg:pl-10">
-                    
+
                     {/* Desktop-Only Heading (Hidden on mobile) */}
                     <div className="hidden lg:flex flex-col gap-6 lg:gap-8 w-full">
                         <span className="text-[11px] uppercase tracking-[0.3em] font-bold text-accent">
-                            Artisanal Mastery
+                            Styles Made to Belong
                         </span>
-                        <h2 className="font-heading text-5xl lg:text-6xl text-primary leading-[1.1] tracking-tight">
-                            Woven with tradition.<br /> Styled for the modern woman.
+                        <h2 className="font-heading text-4xl lg:text-6xl text-primary leading-[1.1] tracking-tight">
+                            Batik Dresses & Suit Sets for <span className="text-highlight italic">Every Woman</span>
                         </h2>
                     </div>
 
-                    <p className="text-[13px] md:text-body1 text-primary/80 max-w-md mt-1 lg:mt-0 font-medium">
-                        Discover premium fabrics and timeless outfits tailored perfectly for resellers, boutiques, and everyday elegance.
-                    </p>
+                    <div className="flex flex-col gap-3 md:gap-4 mt-1 lg:mt-0 max-w-lg">
+                        <p className="text-[13px] md:text-[15px] text-primary/80 font-medium leading-relaxed">
+                            Explore a thoughtful mix of batik dresses, batik print dresses, suit sets for women, and batik print kurtis, alongside versatile women's dress designs and casual dresses for women, including flattering plus-size batik styles.
+                        </p>
+                        <p className="text-[13px] md:text-[15px] text-primary/80 font-medium leading-relaxed">
+                            From everyday cotton comfort to occasion-ready silhouettes, find styles designed to feel as good as they look.
+                        </p>
+                    </div>
+
                     <div className="mt-2 md:mt-4">
-                        <Link href="/contact-us" className="group flex items-center justify-center gap-3 px-8 md:px-10 py-3 md:py-4 border border-primary/30 text-primary text-[10px] md:text-[11px] uppercase tracking-[0.15em] font-bold hover:border-accent hover:text-accent hover:bg-primary/[0.02] transition-colors duration-300">
-                            <span>Connect With Us</span>
+                        <Link href="/batik-suits" className="btn-secondary group">
+                            <span>Explore Women's Fashion</span>
                             <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
                         </Link>
                     </div>
@@ -252,53 +272,129 @@ export function SocialFeedSection() {
     );
 }
 
-export function DualCategoryBannerSection() {
+export function TrendingCollectionsBannerSection() {
     return (
-        <section className="w-full h-auto flex flex-col md:flex-row bg-cream">
-            <Link href="/batik-fabric" className="block w-full md:w-1/2 relative h-[60vh] md:h-[85vh] group overflow-hidden bg-cream flex justify-center border-b md:border-b-0 md:border-r border-primary/10">
-                <Image
-                    src="/batik_fabric_tall.png"
-                    alt="Premium Batik Fabric"
-                    fill
-                    className="object-cover object-top opacity-100 group-hover:scale-[1.03] transition-all duration-[2s] ease-out"
-                />
-                {/* Minimal gradient for readability without being dark and heavy */}
-                <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-black/50 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
-                <div className="absolute inset-0 flex flex-col items-center justify-end pb-12 text-center px-6 z-10 transition-transform duration-700 ease-out group-hover:-translate-y-2">
-                    <h2 className="text-h2 text-white mb-2">Batik Fabric</h2>
-                    <span className="text-overline text-white/90 border-b border-transparent group-hover:border-white/60 pb-1 transition-all duration-300">
-                        Explore Collection
-                    </span>
-                </div>
-            </Link>
+        <section className="w-full bg-cream pt-16 md:pt-24 border-t border-primary/5">
+            <div className="max-w-[1400px] mx-auto flex flex-col items-center text-center gap-3 md:gap-5 mb-10 md:mb-16 px-6">
+                <span className="text-overline">TRENDING COLLECTIONS</span>
+                <h2 className="font-heading text-2xl md:text-4xl font-normal text-primary leading-tight">
+                    Batik Styles <span className="text-highlight">Worth Wearing</span> <br className="hidden md:block" /> Trending Batik Suits & <span className="text-highlight">Women's Clothing</span>
+                </h2>
+                <p className="text-body1 mt-2 text-center w-full max-w-2xl mx-auto text-primary/80">
+                    Explore trending batik prints, fresh batik cloth designs, cotton dresses for women, and ready-to-wear collections created for everyday shoppers, boutiques, resellers, and fashion businesses.
+                </p>
+            </div>
 
-            <Link href="/cotton-cloth" className="block w-full md:w-1/2 relative h-[60vh] md:h-[85vh] group overflow-hidden bg-cream flex justify-center">
-                <Image
-                    src="/batik_cloth_tall.png"
-                    alt="Premium Cotton Clothing"
-                    fill
-                    className="object-cover object-top opacity-100 group-hover:scale-[1.03] transition-all duration-[2s] ease-out"
-                />
-                {/* Minimal gradient for readability without being dark and heavy */}
-                <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-black/50 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
-                <div className="absolute inset-0 flex flex-col items-center justify-end pb-12 text-center px-6 z-10 transition-transform duration-700 ease-out group-hover:-translate-y-2">
-                    <h2 className="text-h2 text-white mb-2">Batik Cloth</h2>
-                    <span className="text-overline text-white/90 border-b border-transparent group-hover:border-white/60 pb-1 transition-all duration-300">
-                        Shop Collection
-                    </span>
-                </div>
-            </Link>
+            <div className="w-full flex flex-wrap border-t border-primary/10">
+                {/* ROW 1: 2 Items */}
+                <Link href="/batik-prints-womens-clothing" className="block w-full md:w-1/2 relative h-[50vh] md:h-[70vh] group overflow-hidden bg-cream flex justify-center border-b md:border-r border-primary/10">
+                    <Image
+                        src="/new-batik-print-category-image.webp"
+                        alt="Batik Prints Women Clothing"
+                        fill
+                        className="object-cover object-top opacity-100 group-hover:scale-[1.05] transition-transform duration-[2s] ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 md:pb-16 text-center px-4 md:px-8 z-10 transition-transform duration-700 ease-out group-hover:-translate-y-3">
+                        <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 mb-2">Category</span>
+                        <h2 className="text-3xl md:text-4xl font-heading font-normal text-white mb-2 md:mb-4">Batik Prints Women Clothing</h2>
+                        <p className="text-white/90 text-[13px] md:text-sm font-medium max-w-sm drop-shadow-md mb-4 md:mb-6 leading-relaxed">Distinctive batik prints for everyday Indian style.</p>
+                        <span className="text-[10px] uppercase tracking-[0.2em] text-white/90 font-bold border-b border-transparent group-hover:border-white/80 pb-1 transition-all duration-300">
+                            Explore Collection
+                        </span>
+                    </div>
+                </Link>
+
+                <Link href="/batik-suits" className="block w-full md:w-1/2 relative h-[50vh] md:h-[70vh] group overflow-hidden bg-cream flex justify-center border-b border-primary/10">
+                    <Image
+                        src="/cotton-kurti-for-women-image.webp"
+                        alt="Ethnic Wear for Women"
+                        fill
+                        className="object-cover object-top opacity-100 group-hover:scale-[1.05] transition-transform duration-[2s] ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 md:pb-16 text-center px-4 md:px-8 z-10 transition-transform duration-700 ease-out group-hover:-translate-y-3">
+                        <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 mb-2">Category</span>
+                        <h2 className="text-3xl md:text-4xl font-heading font-normal text-white mb-2 md:mb-4">Ethnic Wear for Women</h2>
+                        <p className="text-white/90 text-[13px] md:text-sm font-medium max-w-sm drop-shadow-md mb-4 md:mb-6 leading-relaxed">Statement-making women suits with timeless batik design character.</p>
+                        <span className="text-[10px] uppercase tracking-[0.2em] text-white/90 font-bold border-b border-transparent group-hover:border-white/80 pb-1 transition-all duration-300">
+                            Explore Collection
+                        </span>
+                    </div>
+                </Link>
+
+                {/* ROW 2: 2 Items */}
+                <Link href="/batik-cotton-dress-for-women" className="block w-full md:w-1/2 relative h-[50vh] md:h-[70vh] group overflow-hidden bg-cream flex justify-center border-b md:border-r border-primary/10">
+                    <Image
+                        src="/gallery_office.png"
+                        alt="Cotton Dress for Women"
+                        fill
+                        className="object-cover object-top opacity-100 group-hover:scale-[1.05] transition-transform duration-[2s] ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 md:pb-16 text-center px-4 md:px-8 z-10 transition-transform duration-700 ease-out group-hover:-translate-y-3">
+                        <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 mb-2">Category</span>
+                        <h2 className="text-3xl md:text-4xl font-heading font-normal text-white mb-2 md:mb-4">Cotton Dress for Women</h2>
+                        <p className="text-white/90 text-[13px] md:text-sm font-medium max-w-sm drop-shadow-md mb-4 md:mb-6 leading-relaxed">Pure cotton dresses for women with elegant batik prints and breathable comfort.</p>
+                        <span className="text-[10px] uppercase tracking-[0.2em] text-white/90 font-bold border-b border-transparent group-hover:border-white/80 pb-1 transition-all duration-300">
+                            Explore Collection
+                        </span>
+                    </div>
+                </Link>
+
+                <Link href="/new-batik-prints-suits" className="block w-full md:w-1/2 relative h-[50vh] md:h-[70vh] group overflow-hidden bg-cream flex justify-center border-b border-primary/10">
+                    <Image
+                        src="/gallery_arrival.png"
+                        alt="New Arrival"
+                        fill
+                        className="object-cover object-top opacity-100 group-hover:scale-[1.05] transition-transform duration-[2s] ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 md:pb-16 text-center px-4 md:px-8 z-10 transition-transform duration-700 ease-out group-hover:-translate-y-3">
+                        <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 mb-2">Category</span>
+                        <h2 className="text-3xl md:text-4xl font-heading font-normal text-white mb-2 md:mb-4">New Arrival</h2>
+                        <p className="text-white/90 text-[13px] md:text-sm font-medium max-w-sm drop-shadow-md mb-4 md:mb-6 leading-relaxed">Fresh batik suits and new styles added to the collection.</p>
+                        <span className="text-[10px] uppercase tracking-[0.2em] text-white/90 font-bold border-b border-transparent group-hover:border-white/80 pb-1 transition-all duration-300">
+                            Explore Collection
+                        </span>
+                    </div>
+                </Link>
+
+                {/* ROW 3: 1 Full-Width Item */}
+                <Link href="/wholesale-batik-women-dresses" className="block w-full relative h-[60vh] md:h-[80vh] group overflow-hidden bg-cream flex justify-center border-b border-primary/10">
+                    <Image
+                        src="/batik-cloth-dresses-for-women-category-image.webp"
+                        alt="Wholesale"
+                        fill
+                        className="object-cover object-top opacity-100 group-hover:scale-[1.05] transition-transform duration-[2s] ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 md:pb-20 text-center px-6 md:px-12 z-10 transition-transform duration-700 ease-out group-hover:-translate-y-3">
+                        <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 mb-2">Category</span>
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-normal text-white mb-3 md:mb-5">Wholesale</h2>
+                        <p className="text-white/90 text-[13px] md:text-base font-medium max-w-lg drop-shadow-md mb-6 md:mb-8 leading-relaxed">Ready-stock fashion collections for growing businesses.</p>
+                        <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/90 font-bold border-b border-transparent group-hover:border-white/80 pb-1 transition-all duration-300">
+                            Explore Collection
+                        </span>
+                    </div>
+                </Link>
+            </div>
+            
+            <div className="w-full flex justify-center py-12 md:py-20 bg-cream">
+                <a href="/batik-prints-womens-clothing" className="inline-flex items-center justify-center bg-primary text-white font-body font-medium text-sm md:text-base px-10 md:px-12 py-4 md:py-5 rounded-full hover:bg-accent transition-colors duration-300 hover:shadow-lg">
+                    Explore All Collections
+                </a>
+            </div>
         </section>
     );
 }
 
 export function LookbookSection() {
-    // Array of genuine product photos and titles
     const looks = [
-        { title: "Emerald Party Wear Suit", img: "/lookbook_emerald.png" },
-        { title: "White Cotton Kurti", img: "/lookbook_white.png" },
-        { title: "Designer Cotton Dress", img: "/lookbook_designer.png" },
-        { title: "Premium Casual Kurti", img: "/lookbook_casual.png" }
+        { title: "Batik Party Wear Suit for Women", img: "/lookbook_emerald.png", link: "/batik-cotton-dress-for-women" },
+        { title: "White Cotton Kurti for Women", img: "/lookbook_white.png", link: "/batik-prints-womens-clothing" },
+        { title: "Designer Cotton Dress for Women", img: "/lookbook_designer.png", link: "/new-batik-prints-suits" },
+        { title: "Premium Casual Kurti for Women", img: "/lookbook_casual.png", link: "/wholesale-batik-women-dresses" }
     ];
 
     return (
@@ -307,10 +403,12 @@ export function LookbookSection() {
 
                 {/* Standard Brand Text Header */}
                 <div className="flex flex-col gap-3 items-center text-center">
-                    <span className="text-overline">Style Guide</span>
-                    <h2 className="text-h2">Curated Lookbook</h2>
-                    <p className="text-body1 max-w-lg mx-auto mt-2 text-primary/80">
-                        Explore our styling recommendations and shop the complete looks directly from our premium collection.
+                    <span className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-bold text-accent">Style Guide</span>
+                    <h2 className="text-h2 text-primary relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-[1px] after:bg-primary/20">
+                        Find Your Perfect <br className="md:hidden" /><span className="text-highlight italic">Everyday Look</span>
+                    </h2>
+                    <p className="text-sm md:text-base max-w-2xl mx-auto mt-2 text-primary/80 font-medium leading-relaxed">
+                        Explore inspiring women's dress designs, batik dress designs, casual dresses for women, and versatile suit sets for women—styled to help you discover your next effortless look.
                     </p>
                 </div>
 
@@ -318,46 +416,53 @@ export function LookbookSection() {
                 <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 md:gap-8 h-auto w-full">
 
                     {/* Large Featured Image (Left) */}
-                    <div className="col-span-1 md:col-span-2 row-span-1 md:row-span-2 flex flex-col gap-4 group cursor-pointer">
+                    <Link href={looks[0].link} className="col-span-1 md:col-span-2 row-span-1 md:row-span-2 flex flex-col gap-4 group cursor-pointer">
                         <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[2px] bg-surface shadow-sm border border-primary/10">
                             <Image src={looks[0].img} alt={looks[0].title} fill className="object-cover group-hover:scale-105 transition-transform duration-[6s] ease-out" unoptimized />
                         </div>
                         <div className="flex flex-col gap-1 items-start text-left">
-                            <h4 className="text-h4 text-primary">{looks[0].title}</h4>
+                            <h4 className="text-[13px] md:text-[15px] font-heading font-semibold text-primary group-hover:text-accent transition-colors leading-tight">{looks[0].title}</h4>
                         </div>
-                    </div>
+                    </Link>
 
                     {/* Top Right Grid Item 1 */}
-                    <div className="col-span-1 row-span-1 flex flex-col gap-4 group cursor-pointer">
+                    <Link href={looks[1].link} className="col-span-1 row-span-1 flex flex-col gap-4 group cursor-pointer">
                         <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[2px] bg-surface shadow-sm border border-primary/10">
                             <Image src={looks[1].img} alt={looks[1].title} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-[6s] ease-out" unoptimized />
                         </div>
                         <div className="flex flex-col gap-1 items-start text-left">
-                            <h4 className="text-h4 text-primary">{looks[1].title}</h4>
+                            <h4 className="text-[13px] md:text-[15px] font-heading font-semibold text-primary group-hover:text-accent transition-colors leading-tight">{looks[1].title}</h4>
                         </div>
-                    </div>
+                    </Link>
 
                     {/* Top Right Grid Item 2 */}
-                    <div className="col-span-1 row-span-1 flex flex-col gap-4 group cursor-pointer">
+                    <Link href={looks[2].link} className="col-span-1 row-span-1 flex flex-col gap-4 group cursor-pointer">
                         <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[2px] bg-surface shadow-sm border border-primary/10">
                             <Image src={looks[2].img} alt={looks[2].title} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-[6s] ease-out" unoptimized />
                         </div>
                         <div className="flex flex-col gap-1 items-start text-left">
-                            <h4 className="text-h4 text-primary">{looks[2].title}</h4>
+                            <h4 className="text-[13px] md:text-[15px] font-heading font-semibold text-primary group-hover:text-accent transition-colors leading-tight">{looks[2].title}</h4>
                         </div>
-                    </div>
+                    </Link>
 
                     {/* Bottom Right Wide Item */}
-                    <div className="col-span-1 md:col-span-2 row-span-1 flex flex-col gap-4 group cursor-pointer">
+                    <Link href={looks[3].link} className="col-span-1 md:col-span-2 row-span-1 flex flex-col gap-4 group cursor-pointer">
                         <div className="relative w-full aspect-[4/5] md:aspect-[21/9] overflow-hidden rounded-[2px] bg-surface shadow-sm border border-primary/10">
                             <Image src={looks[3].img} alt={looks[3].title} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-[6s] ease-out" unoptimized />
                         </div>
-
                         <div className="flex flex-col gap-1 items-start text-left">
-                            <h4 className="text-h4 text-primary">{looks[3].title}</h4>
+                            <h4 className="text-[13px] md:text-[15px] font-heading font-semibold text-primary group-hover:text-accent transition-colors leading-tight">{looks[3].title}</h4>
                         </div>
-                    </div>
+                    </Link>
 
+                </div>
+
+                {/* CTA Button */}
+                <div className="mt-4 md:mt-6 flex justify-center w-full">
+                    <Link href="/batik-suits" className="btn-secondary group">
+                        <span>Explore More Styles</span>
+                        <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+                    </Link>
                 </div>
             </div>
         </section>
@@ -369,9 +474,10 @@ export function PartnershipBannerSection() {
         <section className="relative w-full h-[60vh] md:h-[85vh] overflow-hidden bg-[#F9F8F6]">
             {/* Pure cinematic image covering the entire container, no text overlays */}
             <Image
-                src="/pink_batik_model.png"
+                src="/Luxury Batik Fashion Banner (169).png"
                 alt="Aqsha - Premium Ethnic Wear Campaign"
                 fill
+                sizes="100vw"
                 className="object-cover object-[center_0%]"
                 priority
                 unoptimized

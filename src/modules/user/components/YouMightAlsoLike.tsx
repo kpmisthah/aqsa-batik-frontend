@@ -37,7 +37,7 @@ export default function YouMightAlsoLike({ currentProductId }: { currentProductI
                 <div className="text-center mb-8 md:mb-10">
                     <span className="text-overline mb-2 inline-block">Curated For You</span>
                     <h2 className="font-heading text-2xl md:text-3xl font-normal text-primary">
-                        You Might Also Like
+                        You Might <span className="text-highlight">Also Like</span>
                     </h2>
                 </div>
 

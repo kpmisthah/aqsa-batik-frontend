@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useCartStore } from "@/hooks/useCartStore";
 import { useWishlistStore } from "@/hooks/useWishlistStore";
 import { useAuthSync } from "@/modules/user/hooks/useAuthSync";
-import { useSearchParams, usePathname } from "next/navigation";
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { getColorName, getCombinedColorName } from "@/utils/colorHelper";
 
 export default function ProductInteractive({ product }: { product: any }) {
@@ -23,7 +23,8 @@ export default function ProductInteractive({ product }: { product: any }) {
     const pathname = usePathname();
     const isWholesaleMode = product.isWholesale || searchParams.get('wholesale') === 'true' || pathname.startsWith('/wholesale-women-dresses');
 
-    const { addItem: addCartItem } = useCartStore();
+    const { addItem: addCartItem, clearCart } = useCartStore();
+    const router = useRouter();
     const { addId: addWishlistId, isInWishlist, removeId: removeWishlistId } = useWishlistStore();
     const { isSignedIn } = useAuthSync();
 
@@ -53,20 +54,32 @@ export default function ProductInteractive({ product }: { product: any }) {
         setLensState({ ...lensState, show: false });
     };
 
+    const getCartItemPayload = () => ({
+        productId: product._id || product.id,
+        name: product.name,
+        image: product.images?.[0] || product.image || "/product_white_mustard.png",
+        fullPrice: product.fullPrice,
+        discountPrice: product.discountPrice || product.fullPrice,
+        variantColour: getCombinedColorName(product.colours),
+        isWholesaleOnly: product.isWholesale || false,
+    });
+
     const handleAddToCart = () => {
         try {
-            addCartItem({
-                productId: product._id || product.id,
-                name: product.name,
-                image: product.images?.[0] || product.image || "/product_white_mustard.png",
-                fullPrice: product.fullPrice,
-                discountPrice: product.discountPrice || product.fullPrice,
-                variantColour: getCombinedColorName(product.colours),
-                isWholesaleOnly: product.isWholesale || false,
-            });
+            addCartItem(getCartItemPayload());
             showToast("Added to Cart successfully!");
         } catch (error: any) {
             showToast(error.message || "Could not add item to cart.");
+        }
+    };
+
+    const handleBuyNow = () => {
+        try {
+            clearCart();
+            addCartItem(getCartItemPayload());
+            router.push("/cart");
+        } catch (error: any) {
+            showToast(error.message || "Could not proceed to checkout.");
         }
     };
 
@@ -79,7 +92,7 @@ export default function ProductInteractive({ product }: { product: any }) {
         const id = product._id || product.id;
         const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
         const wasWished = isInWishlist(id);
-        
+
         // Optimistic UI Update
         if (wasWished) removeWishlistId(id);
         else addWishlistId(id);
@@ -168,9 +181,11 @@ export default function ProductInteractive({ product }: { product: any }) {
             <div className="lg:col-span-5 flex flex-col gap-6 lg:gap-8 lg:sticky lg:top-32 h-fit">
                 <div className="flex flex-col gap-4">
                     {product.isBestSeller && (
-                        <div className="flex items-center gap-3 bg-secondary/5 border border-secondary/10 px-4 py-2 rounded-full w-fit">
-                            <span className="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-                            <span className="text-xs font-black uppercase tracking-[0.2em] text-secondary">Best Seller</span>
+                        <div className="flex items-center gap-2 bg-surface border border-border px-3 py-1.5 rounded-sm w-fit shadow-sm">
+                            <svg className="w-3.5 h-3.5 text-highlight" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <span className="text-[10px] font-body font-bold uppercase tracking-[0.1em] text-primary">Best Seller</span>
                         </div>
                     )}
                     <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-normal text-primary leading-[1.1]">
@@ -192,7 +207,7 @@ export default function ProductInteractive({ product }: { product: any }) {
                 {product.colours && product.colours.length > 0 && (
                     <div className="flex flex-col gap-3 md:gap-4 pt-2 md:pt-4">
                         <h4 className="text-xs font-black uppercase tracking-widest text-primary">
-                            Fabric Colors: <span className="text-secondary">{getCombinedColorName(product.colours)}</span>
+                            Fabric Colors: <span className="text-accent">{getCombinedColorName(product.colours)}</span>
                         </h4>
                         <div className="flex items-center gap-4">
                             <div className="flex gap-3">
@@ -212,7 +227,7 @@ export default function ProductInteractive({ product }: { product: any }) {
 
                 <div className="space-y-4 md:space-y-6 py-6 md:py-8 border-y border-primary/10">
                     <div className="flex items-center justify-between">
-                        <span className="text-sm font-black uppercase tracking-widest text-secondary">Retail Price</span>
+                        <span className="text-sm font-black uppercase tracking-widest text-highlight">Retail Price</span>
                         <div className="flex flex-col items-end">
                             <span className="text-lg font-bold text-primary">₹{product.discountPrice?.toLocaleString()}</span>
                             {product.fullPrice > product.discountPrice && (
@@ -221,7 +236,7 @@ export default function ProductInteractive({ product }: { product: any }) {
                         </div>
                     </div>
                     <div className="flex items-center justify-between">
-                        <span className="text-sm font-black uppercase tracking-widest text-secondary">Wholesale/Bulk</span>
+                        <span className="text-sm font-black uppercase tracking-widest text-highlight">Wholesale/Bulk</span>
                         <span className="text-lg font-bold text-green-600">Contact for Rates</span>
                     </div>
                 </div>
@@ -232,7 +247,7 @@ export default function ProductInteractive({ product }: { product: any }) {
                             href={`https://wa.me/918815373767?text=${encodeURIComponent(`Hi, I'm interested in ordering the wholesale product ${product.name}.`)}`}
                             target="_blank"
                             rel="noreferrer"
-                            className="flex items-center justify-center gap-2 md:gap-4 bg-[#075E54] text-white px-6 py-4 md:px-8 md:py-5 rounded-full font-bold text-sm md:text-base shadow-[0_10px_20px_rgba(7,94,84,0.2)] md:shadow-[0_20px_40px_rgba(7,94,84,0.2)] hover:bg-[#128C7E] hover:scale-[1.02] active:scale-95 transition-all uppercase tracking-wider md:tracking-widest"
+                            className="btn-primary w-full !bg-[#075E54] hover:!bg-[#128C7E] shadow-lg py-4 md:py-5 text-sm md:text-base"
                         >
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.412 2.503 1.112 3.485l-.719 2.624 2.688-.705c.95.514 2.035.804 3.19.803 3.181 0 5.767-2.584 5.768-5.766 0-3.181-2.587-5.767-5.767-5.767zm3.39 8.2l-1.006 1.005c-.122.122-.318.159-.477.087-.514-.232-1.02-.555-1.504-1.039-.485-.484-.807-.989-1.039-1.504-.072-.159-.035-.355.087-.477l1.005-1.006c.115-.115.115-.301 0-.416l-1.139-1.139c-.115-.115-.301-.115-.416 0l-.798.797c-.506.507-.639 1.243-.374 1.874.457 1.087 1.214 2.064 2.223 3.073 1.009 1.009 1.986 1.766 3.073 2.223.631.265 1.367.132 1.874-.374l.797-.798c.115-.115.115-.301 0-.416l-1.139-1.139c-.115-.115-.301-.115-.416 0z" />
@@ -240,16 +255,24 @@ export default function ProductInteractive({ product }: { product: any }) {
                             Order via WhatsApp
                         </a>
                     ) : (
-                        <button
-                            onClick={handleAddToCart}
-                            className="flex items-center justify-center gap-2 md:gap-4 bg-accent text-white px-6 py-4 md:px-8 md:py-5 rounded-full font-bold text-sm md:text-base shadow-[0_10px_20px_rgba(200,90,40,0.2)] md:shadow-[0_20px_40px_rgba(200,90,40,0.2)] hover:bg-accent/90 hover:scale-[1.02] active:scale-95 transition-all uppercase tracking-wider md:tracking-widest"
-                        >
-                            Add to Cart
-                        </button>
+                        <div className="flex gap-3">
+                            <button
+                                onClick={handleAddToCart}
+                                className="btn-secondary flex-1 shadow-sm py-4 md:py-5 text-sm md:text-base"
+                            >
+                                Add to Cart
+                            </button>
+                            <button
+                                onClick={handleBuyNow}
+                                className="btn-primary flex-1 shadow-lg py-4 md:py-5 text-sm md:text-base"
+                            >
+                                Buy Now
+                            </button>
+                        </div>
                     )}
                     <button
                         onClick={handleAddToWishlist}
-                        className={`flex items-center justify-center gap-2 md:gap-4 border px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-base transition-all uppercase tracking-wider md:tracking-widest ${isWished ? 'bg-primary text-white border-primary' : 'bg-transparent text-primary border-primary/20 hover:border-primary hover:bg-primary/5'}`}
+                        className={`btn-secondary w-full py-4 md:py-5 text-sm md:text-base ${isWished ? '!bg-primary !text-white !border-primary hover:!bg-primary/90' : ''}`}
                     >
                         {isWished ? '❤️ Saved to Wishlist' : '🤍 Add to Wishlist'}
                     </button>

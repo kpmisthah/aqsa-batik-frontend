@@ -72,7 +72,7 @@ export default function NewArrivalsSection() {
                 <div className="w-full flex flex-col items-center mb-12 gap-3">
                     <span className="text-overline">Fresh Off The Loom</span>
                     <h2 className="text-h2 text-primary">
-                        New Arrivals
+                        New <span className="text-highlight">Arrivals</span>
                     </h2>
                     <p className="text-body1 max-w-md mx-auto mt-1 text-primary/80">
                         Clean prints, sharp contrast, and traditional wax resilience. Unveil the newest batch of masterpieces.
@@ -113,7 +113,7 @@ export default function NewArrivalsSection() {
                 </div>
 
                 <div className="mt-12 w-full flex justify-center">
-                    <Link href="/new-batik-prints" className="bg-transparent border border-primary/15 hover:border-accent text-primary px-8 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shrink-0 hover:text-accent">
+                    <Link href="/new-batik-prints-suits" className="btn-secondary">
                         View All Collections
                     </Link>
                 </div>

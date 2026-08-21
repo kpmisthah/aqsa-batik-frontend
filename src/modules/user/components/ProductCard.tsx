@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getProductPathByName } from "@/utils/slugMapper";
 import { useCartStore } from "@/hooks/useCartStore";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export interface UserProduct {
     _id?: string;
@@ -27,7 +28,8 @@ interface ProductCardProps {
 export default function ProductCard({ product, isWholesalePage = false }: ProductCardProps) {
     const [imageLoaded, setImageLoaded] = useState(false);
     const [isAdded, setIsAdded] = useState(false);
-    const { addItem } = useCartStore();
+    const { addItem, clearCart } = useCartStore();
+    const router = useRouter();
     
     const waMessage = `Hi, I'm interested in the ${product.name} (${product.subCategory || product.category}). Could you provide more details and wholesale pricing?`;
     const waLink = `https://wa.me/918815373767?text=${encodeURIComponent(waMessage)}`;
@@ -38,21 +40,34 @@ export default function ProductCard({ product, isWholesalePage = false }: Produc
         ? `${customPath}${isWholesalePage ? '?wholesale=true' : ''}`
         : `/products/${product._id || product.id}${isWholesalePage ? '?wholesale=true' : ''}`;
 
+    const getCartPayload = () => ({
+        productId: (product._id || product.id || "").toString(),
+        name: product.name,
+        image: imageSrc,
+        fullPrice: product.fullPrice || 0,
+        discountPrice: product.discountPrice || product.fullPrice || 0,
+        isWholesaleOnly: product.isWholesale || false,
+    });
+
     const handleAddToCart = (e: React.MouseEvent) => {
         e.preventDefault();
         try {
-            addItem({
-                productId: (product._id || product.id || "").toString(),
-                name: product.name,
-                image: imageSrc,
-                fullPrice: product.fullPrice || 0,
-                discountPrice: product.discountPrice || product.fullPrice || 0,
-                isWholesaleOnly: product.isWholesale || false,
-            });
+            addItem(getCartPayload());
             setIsAdded(true);
             setTimeout(() => setIsAdded(false), 2000);
         } catch (err: any) {
             alert(err.message || "Failed to add to cart");
+        }
+    };
+
+    const handleBuyNow = (e: React.MouseEvent) => {
+        e.preventDefault();
+        try {
+            clearCart();
+            addItem(getCartPayload());
+            router.push("/cart");
+        } catch (err: any) {
+            alert(err.message || "Failed to proceed to checkout");
         }
     };
 
@@ -138,13 +153,30 @@ export default function ProductCard({ product, isWholesalePage = false }: Produc
                 </div>
             </Link>
 
-            {/* Add to Cart Border Button */}
-            <button
-                onClick={isWholesalePage ? (e) => { e.preventDefault(); window.open(waLink, '_blank'); } : handleAddToCart}
-                className={`w-full mt-auto py-2.5 border border-primary text-[11px] font-bold uppercase tracking-wider transition-colors ${isAdded ? 'bg-secondary text-primary border-secondary' : 'text-primary hover:bg-primary hover:text-white'}`}
-            >
-                {isWholesalePage ? 'Inquire Wholesale' : (isAdded ? 'Added to Cart' : 'Add to Cart')}
-            </button>
+            {/* Action Buttons */}
+            {isWholesalePage ? (
+                <button
+                    onClick={(e) => { e.preventDefault(); window.open(waLink, '_blank'); }}
+                    className="w-full mt-auto py-2.5 border border-primary text-[11px] font-bold uppercase tracking-wider transition-colors text-primary hover:bg-primary hover:text-white"
+                >
+                    Inquire Wholesale
+                </button>
+            ) : (
+                <div className="flex flex-col gap-1.5 mt-auto w-full">
+                    <button
+                        onClick={handleAddToCart}
+                        className={`w-full py-2.5 border border-primary text-[11px] font-bold uppercase tracking-wider transition-colors ${isAdded ? 'bg-secondary text-primary border-secondary' : 'text-primary hover:bg-primary hover:text-white'}`}
+                    >
+                        {isAdded ? 'Added ✓' : 'Add to Cart'}
+                    </button>
+                    <button
+                        onClick={handleBuyNow}
+                        className="w-full py-2.5 bg-accent text-white text-[11px] font-bold uppercase tracking-wider transition-colors hover:bg-accent/90"
+                    >
+                        Buy Now
+                    </button>
+                </div>
+            )}
         </div>
     );
 }
