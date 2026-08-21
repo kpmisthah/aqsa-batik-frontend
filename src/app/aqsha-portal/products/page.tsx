@@ -155,8 +155,8 @@ export default function AdminProducts() {
             className="block w-full pl-4 pr-10 py-3 text-base text-primary font-bold border-primary/20 focus:outline-none focus:ring-accent focus:border-accent sm:text-sm rounded-xl border bg-white cursor-pointer"
           >
             <option>All Categories</option>
-            <option>Batik Cloth</option>
-            <option>Batik Fabric</option>
+            <option>Batik Prints Women Clothing</option>
+            <option>Batik Cotton Dress for Women</option>
             <option>Wholesale</option>
           </select>
         </div>
@@ -231,9 +231,9 @@ export default function AdminProducts() {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-2">Category</label>
-              <select name="category" defaultValue={editingProduct?.category || "Batik Cloth"} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium bg-white">
-                <option>Batik Cloth</option>
-                <option>Batik Fabric</option>
+              <select name="category" defaultValue={editingProduct?.category || "Batik Prints Women Clothing"} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium bg-white">
+                <option>Batik Prints Women Clothing</option>
+                <option>Batik Cotton Dress for Women</option>
                 <option>Wholesale</option>
               </select>
             </div>

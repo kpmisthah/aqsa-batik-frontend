@@ -146,8 +146,8 @@ export default function AdminInventory() {
             className="block w-full pl-4 pr-10 py-3 text-base text-primary font-bold border-primary/20 focus:outline-none focus:ring-accent focus:border-accent sm:text-sm rounded-xl border bg-white cursor-pointer"
           >
             <option>All Categories</option>
-            <option>Batik Cloth</option>
-            <option>Batik Fabric</option>
+            <option>Batik Prints Women Clothing</option>
+            <option>Batik Cotton Dress for Women</option>
             <option>Wholesale</option>
           </select>
         </div>
