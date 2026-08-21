@@ -309,7 +309,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                                     A
                                 </div>
                                 <p className="text-sm md:text-[15px] text-foreground leading-relaxed max-w-md">
-                                    <strong className="text-brand">AQSHA Batik Suits</strong> is a 15+ year manufacturer specialising in Batik clothing, cotton styles, and high-demand <strong className="text-brand">women dresses</strong> for wholesale buyers.
+                                    <strong className="text-brand">AQSHA Batik Suits</strong> is a 15+ year manufacturer specialising in Batik Prints Women Clothinging, cotton styles, and high-demand <strong className="text-brand">women dresses</strong> for wholesale buyers.
                                 </p>
                             </div>
                         </div>
@@ -612,7 +612,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                     {/* Kinfolk Editorial Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
                         {[
-                            { slug: "the-art-of-hand-blocked-batik", title: "The Art of Hand-Blocked Batik", date: "May 15, 2024", cat: "Craftsmanship", img: "/journal_craftsmanship.png", d: "Explore the traditional craftsmanship behind distinctive Batik fabric and dress designs." },
+                            { slug: "the-art-of-hand-blocked-batik", title: "The Art of Hand-Blocked Batik", date: "May 15, 2024", cat: "Craftsmanship", img: "/journal_craftsmanship.png", d: "Explore the traditional craftsmanship behind distinctive Batik Cotton Dress for Women and dress designs." },
                             { slug: "batik-fashion-trends-2024", title: "Batik Fashion Trends", date: "June 2, 2024", cat: "Fashion", img: "/journal_fashion.png", d: "Discover changing Batik fashion trends and styles shaping modern women's clothing collections." },
                             { slug: "wholesale-success-stories", title: "Wholesale Success Stories", date: "June 10, 2024", cat: "Business", img: "/journal_business.png", d: "See how boutiques and resellers can build stronger fashion collections with the right Batik supply." }
                         ].map((post, i) => (
@@ -782,7 +782,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                 },
                 {
                     q: "Do you provide bulk supply for retailers and resellers?",
-                    a: "Yes. AQSHA Batik Suits provides wholesale supply for boutiques, retailers, resellers, and fashion businesses looking to source women dresses and Batik clothing in bulk."
+                    a: "Yes. AQSHA Batik Suits provides wholesale supply for boutiques, retailers, resellers, and fashion businesses looking to source women dresses and Batik Prints Women Clothinging in bulk."
                 }
             ]} />
 
