@@ -7,8 +7,8 @@ import Footer from "@/modules/user/components/Footer";
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
 
 export const metadata: Metadata = {
-    title: 'All Articles | Women Clothing & Batik Fabric Blog',
-    description: 'Browse our complete collection of fashion insights, batik fabric guides, and women clothing trends.',
+    title: 'All Articles | Women Clothing & Batik Cotton Dress for Women Blog',
+    description: 'Browse our complete collection of fashion insights, Batik Cotton Dress for Women guides, and women clothing trends.',
 };
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";

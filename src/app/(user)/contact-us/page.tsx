@@ -11,8 +11,8 @@ import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20discuss%20a%20business%20inquiry.";
 
 export const metadata: Metadata = {
-    title: "Contact Aqsha Batik | Batik Fabric Manufacturer & Wholesale Supplier",
-    description: "Get in touch with Aqsha Batik for premium batik fabric, women clothing collections, wholesale pricing, catalogue requests, and bulk order support across India.",
+    title: "Contact Aqsha Batik | Batik Cotton Dress for Women Manufacturer & Wholesale Supplier",
+    description: "Get in touch with Aqsha Batik for premium Batik Cotton Dress for Women, women clothing collections, wholesale pricing, catalogue requests, and bulk order support across India.",
 };
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
@@ -37,10 +37,10 @@ export default async function ContactPage() {
                 tagline="CONTACT AQSHA BATIK"
                 title={
                     <>
-                        Let's Talk about Your <br className="hidden md:block" /> Batik Fabric <span className='text-highlight'>Requirements</span>
+                        Let's Talk about Your <br className="hidden md:block" /> Batik Cotton Dress for Women <span className='text-highlight'>Requirements</span>
                     </>
                 }
-                description="Looking for premium batik fabric, batik cloth, women clothing, or the latest cotton dresses for women? Whether you're a retailer, wholesaler, boutique owner, or fashion brand, our team is here to help you source high-quality collections directly from a trusted manufacturer."
+                description="Looking for premium Batik Cotton Dress for Women, Batik Prints Women Clothing, women clothing, or the latest cotton dresses for women? Whether you're a retailer, wholesaler, boutique owner, or fashion brand, our team is here to help you source high-quality collections directly from a trusted manufacturer."
                 imageSrc="/batik_suit_contact_hero.png"
                 imageAlt="Contact Aqsha Batik"
                 bgColor="#E6D9C8"
@@ -112,7 +112,7 @@ export default async function ContactPage() {
                     <div className="lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left w-full">
                         <span className="text-overline text-accent tracking-[0.3em] font-bold uppercase mb-4 md:mb-6 block">Get In Touch</span>
                         <h2 className="font-heading text-3xl md:text-4xl text-primary font-normal mb-8 leading-[1.1]">
-                            Get Personalized <span className="text-highlight">Batik Fabric Pricing</span> & Expert Guidance
+                            Get Personalized <span className="text-highlight">Batik Cotton Dress for Women Pricing</span> & Expert Guidance
                         </h2>
 
                         <div className="space-y-6 mb-12">
@@ -120,7 +120,7 @@ export default async function ContactPage() {
                                 The right supplier doesn't just provide fabric. They help you choose collections that sell.
                             </p>
                             <p className="text-body1 text-primary/80">
-                                At Aqsha Batik, we work closely with retailers, wholesalers, and fashion businesses looking for premium batik fabric, women clothing, and indian dresses that customers love.
+                                At Aqsha Batik, we work closely with retailers, wholesalers, and fashion businesses looking for premium Batik Cotton Dress for Women, women clothing, and indian dresses that customers love.
                             </p>
                             <p className="text-body1 font-medium text-primary">
                                 Submit your details and receive direct manufacturer pricing, catalogue access, and expert assistance.
@@ -192,18 +192,18 @@ export default async function ContactPage() {
 
             {/* ── FAQ SECTION ── */}
             <FAQ items={[
-                { q: "Can I order batik fabric in bulk quantities?", a: "Yes. We specialize in wholesale batik fabric supply for retailers, wholesalers, boutiques, and fashion businesses across India." },
+                { q: "Can I order Batik Cotton Dress for Women in bulk quantities?", a: "Yes. We specialize in wholesale Batik Cotton Dress for Women supply for retailers, wholesalers, boutiques, and fashion businesses across India." },
                 { q: "Do you provide wholesale pricing?", a: "Yes. Contact our team or submit the enquiry form to receive the latest wholesale pricing and catalogue." },
                 { q: "What is the minimum order quantity?", a: "The minimum order quantity may vary depending on the collection. Our team will guide you based on your requirements." },
                 { q: "Do you ship across India?", a: "Yes. We provide reliable dispatch and delivery services across India." },
-                { q: "How can I get the latest catalogue?", a: "Simply submit the enquiry form or contact us on WhatsApp to receive the latest batik fabric catalogue and pricing details." }
+                { q: "How can I get the latest catalogue?", a: "Simply submit the enquiry form or contact us on WhatsApp to receive the latest Batik Cotton Dress for Women catalogue and pricing details." }
             ]} />
 
             {/* ── FINAL CTA ── */}
             <section className="scroll-animate pt-2 pb-24 md:py-24 px-6 bg-cream border-t-0 border-primary/10">
                 <div className="max-w-5xl mx-auto bg-white rounded-3xl p-12 md:p-16 text-center border border-primary/10 shadow-sm flex flex-col items-center">
-                    <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-normal text-primary mb-4 leading-tight">Looking For Premium <span className="text-highlight">Batik Fabric</span> At Wholesale Prices?</h2>
-                    <p className="text-primary/80 text-base md:text-lg mb-10 max-w-2xl font-medium">Get direct manufacturer pricing, expert guidance, and access to our latest batik fabric, women clothing, indian dresses, and wholesale collections.</p>
+                    <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-normal text-primary mb-4 leading-tight">Looking For Premium <span className="text-highlight">Batik Cotton Dress for Women</span> At Wholesale Prices?</h2>
+                    <p className="text-primary/80 text-base md:text-lg mb-10 max-w-2xl font-medium">Get direct manufacturer pricing, expert guidance, and access to our latest Batik Cotton Dress for Women, women clothing, indian dresses, and wholesale collections.</p>
                     <div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full">
                         <a href={WA} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 bg-accent hover:bg-accent/90 text-white px-8 py-4 rounded-full font-bold text-[11px] uppercase tracking-widest transition-colors shadow-sm w-full md:w-auto">
                             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /></svg>

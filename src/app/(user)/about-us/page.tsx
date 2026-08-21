@@ -17,7 +17,7 @@ export default function AboutPage() {
     return (
         <div className="min-h-screen bg-cream text-primary selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
             <title>About AQSHA BATIK | 15+ Years of Batik Manufacturing Excellence</title>
-            <meta name="description" content="Learn about Aqsha Batik's 15-year heritage in manufacturing premium cotton Batik Cloth and fabrics. Committed to quality, consistency, and manufacturer-direct pricing." />
+            <meta name="description" content="Learn about Aqsha Batik's 15-year heritage in manufacturing premium cotton Batik Prints Women Clothing and fabrics. Committed to quality, consistency, and manufacturer-direct pricing." />
 
 
             <Nav />
@@ -30,7 +30,7 @@ export default function AboutPage() {
                         <span className="block md:whitespace-nowrap">Behind <span className='text-highlight'>Every Design</span></span>
                     </>
                 }
-                description="Rooted in Bherugarh, Ujjain, we carry forward the legacy of traditional wax batik—refined over 15+ years into premium batik cloth, batik dresses, and high-quality batik fabric. Our collections focus on durable cotton dress material and consistent women cotton wholesale fabric, built for real market demand and ready-to-sell use."
+                description="Rooted in Bherugarh, Ujjain, we carry forward the legacy of traditional wax batik—refined over 15+ years into premium Batik Prints Women Clothing, batik dresses, and high-quality Batik Cotton Dress for Women. Our collections focus on durable cotton dress material and consistent women cotton wholesale fabric, built for real market demand and ready-to-sell use."
                 imageSrc="/batik_suit_hero.png"
                 imageAlt="Aqsha Batik Heritage"
                 bgColor="#F2EEE9"
@@ -232,7 +232,7 @@ export default function AboutPage() {
                                                 </ul>
                                                 <p>But even after all these years, our focus remains the same:</p>
                                                 <ul className="list-none space-y-2 pl-4 border-l-2 border-primary/20 font-medium text-primary/90">
-                                                    <li className="flex items-start gap-2"><svg className="w-4 h-4 text-accent mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Creating wearable batik clothing for women that actually sells repeatedly.</li>
+                                                    <li className="flex items-start gap-2"><svg className="w-4 h-4 text-accent mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Creating wearable Batik Prints Women Clothinging for women that actually sells repeatedly.</li>
                                                 </ul>
                                                 <p className="font-bold text-[14px] md:text-base text-accent italic mt-2">
                                                     Because fashion changes. Comfort, quality, and trust do not.
@@ -276,7 +276,7 @@ export default function AboutPage() {
                 tag="Guided by Principles"
                 title={<>What We <span className="text-highlight">Stand For</span></>}
                 imageSrc="/cotton-summer-dresses-image.webp"
-                quote="Every piece of batik cloth, cotton dress material, and batik fabric we produce is guided by principles that ensure quality, consistency, and long-term trust for buyers."
+                quote="Every piece of Batik Prints Women Clothing, cotton dress material, and Batik Cotton Dress for Women we produce is guided by principles that ensure quality, consistency, and long-term trust for buyers."
                 features={[
                     {
                         t: "Authentic Craftsmanship",
@@ -378,11 +378,11 @@ export default function AboutPage() {
             <FAQ items={[
                 {
                     q: "Q1. Who is AQSHA BATIK SUITS?",
-                    a: "AQSHA BATIK SUITS is a women clothing and batik fabric manufacturer based in Ujjain with 15+ years of experience in producing suits for women, batik print dress material, cotton dress collections, and wholesale women fashion products for boutiques, resellers, and wholesalers across India."
+                    a: "AQSHA BATIK SUITS is a women clothing and Batik Cotton Dress for Women manufacturer based in Ujjain with 15+ years of experience in producing suits for women, batik print dress material, cotton dress collections, and wholesale women fashion products for boutiques, resellers, and wholesalers across India."
                 },
                 {
                     q: "Q2. Where is AQSHA BATIK SUITS manufacturing located?",
-                    a: "Our manufacturing is based in Bherugarh, Ujjain (Madhya Pradesh), a region widely known for traditional batik craftsmanship, printed textile artistry, and skilled batik fabric manufacturing."
+                    a: "Our manufacturing is based in Bherugarh, Ujjain (Madhya Pradesh), a region widely known for traditional batik craftsmanship, printed textile artistry, and skilled Batik Cotton Dress for Women manufacturing."
                 },
                 {
                     q: "Q3. What makes AQSHA BATIK SUITS different from other women clothing manufacturers?",

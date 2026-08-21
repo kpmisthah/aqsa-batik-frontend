@@ -8,8 +8,8 @@ const faqData = [
         category: "Wholesale & Business",
         items: [
             {
-                q: "Who is AQSHA Batik Cloth?",
-                a: "AQSHA Batik Cloth (Ujjain) is a batik manufacturer with 15+ years of experience, supplying consistent quality fabric and ready-to-sell collections to wholesalers, resellers, and boutiques across India."
+                q: "Who is AQSHA Batik Prints Women Clothing?",
+                a: "AQSHA Batik Prints Women Clothing (Ujjain) is a batik manufacturer with 15+ years of experience, supplying consistent quality fabric and ready-to-sell collections to wholesalers, resellers, and boutiques across India."
             },
             {
                 q: "Do you sell wholesale or retail?",

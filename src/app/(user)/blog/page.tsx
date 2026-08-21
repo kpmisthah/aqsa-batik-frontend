@@ -12,8 +12,8 @@ import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
 
 
 export const metadata: Metadata = {
-    title: 'Women Clothing & Batik Fabric Blog | Fashion Trends & Buying Guides',
-    description: 'Explore women clothing trends, batik fabric guides, cotton dresses for women, indian dresses, wholesale buying tips, and fashion insights from Aqsha Batik.',
+    title: 'Women Clothing & Batik Cotton Dress for Women Blog | Fashion Trends & Buying Guides',
+    description: 'Explore women clothing trends, Batik Cotton Dress for Women guides, cotton dresses for women, indian dresses, wholesale buying tips, and fashion insights from Aqsha Batik.',
 };
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
@@ -63,10 +63,10 @@ export default async function BlogIndexPage() {
                 tagline="FASHION TRENDS · BUYING GUIDES"
                 title={
                     <>
-                        Women Clothing, Batik Fabric <br className="hidden md:block" /> &amp; <span className='text-highlight'>Fashion Trends</span> Blog
+                        Women Clothing, Batik Cotton Dress for Women <br className="hidden md:block" /> &amp; <span className='text-highlight'>Fashion Trends</span> Blog
                     </>
                 }
-                description="Explore expert insights on women clothing, batik fabric, batik cloth, cotton dresses for women, and the latest fashion trends. Learn how to choose premium fabrics, discover stylish women clothing collections, and stay updated with wholesale buying guides directly from manufacturers."
+                description="Explore expert insights on women clothing, Batik Cotton Dress for Women, Batik Prints Women Clothing, cotton dresses for women, and the latest fashion trends. Learn how to choose premium fabrics, discover stylish women clothing collections, and stay updated with wholesale buying guides directly from manufacturers."
                 imageSrc="/batik_suit_blog_hero_v2.png"
                 imageAlt="Women Clothing &amp; Batik Fashion Trends Blog"
                 bgColor="#D8BA98"
@@ -92,14 +92,14 @@ export default async function BlogIndexPage() {
                         <div className="lg:w-[45%] p-10 lg:p-16 flex flex-col justify-center">
                             <span className="text-xs font-bold uppercase tracking-widest text-primary mb-4">Featured Article</span>
                             <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-normal leading-tight text-primary mb-6">
-                                How To Choose Premium <span className="text-highlight">Batik Fabric</span> For Women Clothing Collections
+                                How To Choose Premium <span className="text-highlight">Batik Cotton Dress for Women</span> For Women Clothing Collections
                             </h2>
                             <div className="flex items-center gap-4 text-sm opacity-60 mb-6 font-medium">
                                 <span className="flex items-center gap-1"><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 5 min read</span>
                                 <span className="flex items-center gap-1"><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg> June 11, 2026</span>
                             </div>
                             <p className="text-primary/80 leading-relaxed mb-8">
-                                Discover how retailers and wholesalers select high-quality batik fabric, cotton fabric for kurti, and printed cotton fabric for kurtis that attract customers and increase repeat sales.
+                                Discover how retailers and wholesalers select high-quality Batik Cotton Dress for Women, cotton fabric for kurti, and printed cotton fabric for kurtis that attract customers and increase repeat sales.
                             </p>
                             <Link href="/blog/best-dress-material-guide-cotton-cloth" className="text-primary font-bold text-sm uppercase tracking-wider flex items-center gap-2 hover:text-secondary transition-colors w-fit">
                                 Read Full Article <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
@@ -217,7 +217,7 @@ export default async function BlogIndexPage() {
                             <span className="w-12 h-[1px] bg-primary/20"></span>
                         </div>
                         <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-normal text-primary mb-4 sm:mb-6">Why Fashion Retailers Trust <span className="text-highlight">Aqsha Batik</span></h2>
-                        <p className="text-primary/90 text-sm sm:text-base md:text-lg mb-8 md:mb-10 max-w-2xl mx-auto lg:mx-0">For over 15 years, Aqsha Batik has supplied premium batik fabric, batik cloth, and women clothing collections to retailers, wholesalers, and growing fashion brands across India.</p>
+                        <p className="text-primary/90 text-sm sm:text-base md:text-lg mb-8 md:mb-10 max-w-2xl mx-auto lg:mx-0">For over 15 years, Aqsha Batik has supplied premium Batik Cotton Dress for Women, Batik Prints Women Clothing, and women clothing collections to retailers, wholesalers, and growing fashion brands across India.</p>
 
                         <div className="grid grid-cols-2 gap-3 md:gap-6 w-full">
                             {[
@@ -262,7 +262,7 @@ export default async function BlogIndexPage() {
                             </div>
                             <div className="flex flex-col gap-2">
                                 <h3 className="font-heading text-xl md:text-2xl font-normal text-primary leading-tight">Join The <span className="text-highlight">Insider Design</span> Newsletter</h3>
-                                <p className="text-sm md:text-base text-primary/90 leading-relaxed font-normal">Get exclusive updates on batik fabric collections, trending women's fashion, and wholesale buying opportunities.</p>
+                                <p className="text-sm md:text-base text-primary/90 leading-relaxed font-normal">Get exclusive updates on Batik Cotton Dress for Women collections, trending women's fashion, and wholesale buying opportunities.</p>
                             </div>
                         </div>
 
@@ -283,8 +283,8 @@ export default async function BlogIndexPage() {
             {/* ── FINAL CTA ── */}
             <section className="scroll-animate pt-2 pb-24 md:py-24 px-6 bg-cream border-t-0 border-primary/10">
                 <div className="max-w-5xl mx-auto bg-white rounded-3xl p-12 md:p-16 text-center border border-primary/10 shadow-sm flex flex-col items-center">
-                    <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-normal text-primary mb-4 leading-tight">Looking For Premium <span className="text-highlight">Batik Fabric</span> &amp; Women Clothing At Wholesale Prices?</h2>
-                    <p className="text-primary/80 text-base md:text-lg mb-10 max-w-2xl font-medium">Partner directly with a trusted manufacturer for premium batik fabric, batik cloth, women clothing, indian dresses, and wholesale fashion collections.</p>
+                    <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-normal text-primary mb-4 leading-tight">Looking For Premium <span className="text-highlight">Batik Cotton Dress for Women</span> &amp; Women Clothing At Wholesale Prices?</h2>
+                    <p className="text-primary/80 text-base md:text-lg mb-10 max-w-2xl font-medium">Partner directly with a trusted manufacturer for premium Batik Cotton Dress for Women, Batik Prints Women Clothing, women clothing, indian dresses, and wholesale fashion collections.</p>
                     <div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full">
                         <a href="https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20get%20your%20latest%20batik%20catalogue." target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 bg-accent hover:bg-accent/90 text-white px-8 py-4 rounded-full font-bold text-[11px] uppercase tracking-widest transition-colors shadow-sm w-full md:w-auto">
                             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.88-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.496.099-.198.05-.372-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" /></svg>
