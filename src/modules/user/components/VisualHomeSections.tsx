@@ -8,9 +8,9 @@ const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
 export function ShopByCategorySection() {
     const categories = [
-        { title: "Batik Prints Women Clothing", img: "/Batik Prints Women Clothing Editorial-category1.png", href: "/batik-cotton-dress-for-women", sub: "Signature" },
-        { title: "Ethnic Wear for Women", img: "/Batik Prints Women Clothing Editorial-category2.png", href: "/batik-prints-womens-clothing", sub: "Everyday" },
-        { title: "Batik Cotton Dress for Women", img: "/Batik Prints Women Clothing Editorial-category3.png", href: "/batik-prints-womens-clothing", sub: "Comfort" },
+        { title: "Batik Prints Women Clothing", img: "/Batik Prints Women Clothing Editorial-category1.png", href: "/batik-prints-womens-clothing", sub: "Signature" },
+        { title: "Ethnic Wear for Women", img: "/Batik Prints Women Clothing Editorial-category2.png", href: "/batik-ethnic-wear-for-women", sub: "Everyday" },
+        { title: "Batik Cotton Dress for Women", img: "/Batik Prints Women Clothing Editorial-category3.png", href: "/batik-cotton-dress-for-women", sub: "Comfort" },
         { title: "New Arrival", img: "/Batik Prints Women Clothing Editorial-category4.png", href: "/new-batik-prints-suits", sub: "Latest Drops" },
         { title: "Wholesale", img: "/Batik Prints Women Clothing Editorial-category5.png", href: "/wholesale-batik-women-dresses", sub: "Bulk Pricing" },
     ];
@@ -52,7 +52,7 @@ export function ShopByCategorySection() {
                 </div>
 
                 <div className="flex justify-center mt-6 md:mt-10">
-                    <Link href="/batik-suits" className="btn-secondary group">
+                    <Link href="/batik-ethnic-wear-for-women" className="btn-secondary group">
                         <span>View All Collections</span>
                         <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
                     </Link>
@@ -233,7 +233,7 @@ export function LifestyleBannerSection() {
                     </div>
 
                     <div className="mt-2 md:mt-4">
-                        <Link href="/batik-suits" className="btn-secondary group">
+                        <Link href="/batik-ethnic-wear-for-women" className="btn-secondary group">
                             <span>Explore Women's Fashion</span>
                             <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
                         </Link>
@@ -281,7 +281,7 @@ export function TrendingCollectionsBannerSection() {
                     Batik Styles <span className="text-highlight">Worth Wearing</span> <br className="hidden md:block" /> Trending Batik Suits & <span className="text-highlight">Women's Clothing</span>
                 </h2>
                 <p className="text-body1 mt-2 text-center w-full max-w-2xl mx-auto text-primary/80">
-                    Explore trending batik prints, fresh batik cloth designs, cotton dresses for women, and ready-to-wear collections created for everyday shoppers, boutiques, resellers, and fashion businesses.
+                    Explore trending batik prints, fresh Batik Prints Women Clothing designs, cotton dresses for women, and ready-to-wear collections created for everyday shoppers, boutiques, resellers, and fashion businesses.
                 </p>
             </div>
 
@@ -305,7 +305,7 @@ export function TrendingCollectionsBannerSection() {
                     </div>
                 </Link>
 
-                <Link href="/batik-suits" className="block w-full md:w-1/2 relative h-[50vh] md:h-[70vh] group overflow-hidden bg-cream flex justify-center border-b border-primary/10">
+                <Link href="/batik-ethnic-wear-for-women" className="block w-full md:w-1/2 relative h-[50vh] md:h-[70vh] group overflow-hidden bg-cream flex justify-center border-b border-primary/10">
                     <Image
                         src="/cotton-kurti-for-women-image.webp"
                         alt="Ethnic Wear for Women"
@@ -459,7 +459,7 @@ export function LookbookSection() {
 
                 {/* CTA Button */}
                 <div className="mt-4 md:mt-6 flex justify-center w-full">
-                    <Link href="/batik-suits" className="btn-secondary group">
+                    <Link href="/batik-ethnic-wear-for-women" className="btn-secondary group">
                         <span>Explore More Styles</span>
                         <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
                     </Link>

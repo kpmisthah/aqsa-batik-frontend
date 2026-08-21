@@ -6,15 +6,15 @@ const GOOGLE_REVIEW_URL = "https://g.page/r/YOUR_GOOGLE_REVIEW_LINK/review";
 const reviews = [
     {
         name: "Farhan Sheikh",
-        text: "Outstanding quality Batik Cloth! The cotton fabric is premium and the prints are absolutely beautiful. Ordered wholesale and every piece was perfect. Will definitely order again!",
+        text: "Outstanding quality Batik Prints Women Clothing! The cotton fabric is premium and the prints are absolutely beautiful. Ordered wholesale and every piece was perfect. Will definitely order again!",
     },
     {
         name: "Aisha Begum",
-        text: "Best Batik Cloth manufacturer in Ujjain. Their 60×60 cotton quality is unmatched. Very professional and timely delivery across India. Highly recommended for wholesale buyers.",
+        text: "Best Batik Prints Women Clothing manufacturer in Ujjain. Their 60×60 cotton quality is unmatched. Very professional and timely delivery across India. Highly recommended for wholesale buyers.",
     },
     {
         name: "Rizwan Ali",
-        text: "Great place to get premium Batik Cloth! They have an amazing collection with beautiful patterns. The pricing is very competitive for wholesale. Very happy with the quality and service.",
+        text: "Great place to get premium Batik Prints Women Clothing! They have an amazing collection with beautiful patterns. The pricing is very competitive for wholesale. Very happy with the quality and service.",
     },
 ];
 
@@ -74,7 +74,7 @@ export default function GoogleReviewBar() {
                             AQSHA
                         </span>
                         <span className="text-[4px] lg:text-[6px] font-bold tracking-[0.25em] uppercase text-primary/80">
-                            Batik Cloth
+                            Batik Prints Women Clothing
                         </span>
                     </div>
 

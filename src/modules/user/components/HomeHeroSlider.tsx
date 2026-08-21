@@ -26,7 +26,7 @@ const DEFAULT_SLIDES: SlideData[] = [
     id: 1,
     image: "/clean_slider_1.png",
     bgColor: "#E0CFBB",
-    imageAlt: "Premium Batik Fabric",
+    imageAlt: "Premium Batik Cotton Dress for Women",
     tagline: "PREMIUM BATIK COTTON COLLECTION",
     title: (
       <>
@@ -58,11 +58,11 @@ const DEFAULT_SLIDES: SlideData[] = [
     subtitle: (
       <span className="font-serif italic font-light text-primary/80">Zero Middleman Markup</span>
     ),
-    description: "Stop guessing what will sell. Work with a direct manufacturer supplying high-demand batik fabric wholesale and consistent inventory for growing fashion brands.",
+    description: "Stop guessing what will sell. Work with a direct manufacturer supplying high-demand Batik Cotton Dress for Women wholesale and consistent inventory for growing fashion brands.",
     primaryButtonLabel: "GET CATALOGUE",
     primaryButtonLink: "/fabric-wholesale",
     secondaryButtonLabel: "VIEW COLLECTION",
-    secondaryButtonLink: "/batik-suits"
+    secondaryButtonLink: "/batik-ethnic-wear-for-women"
   },
   {
     id: 3,
