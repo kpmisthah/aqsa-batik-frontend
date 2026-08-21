@@ -65,7 +65,7 @@ function PaymentSuccessContent() {
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:scale-110 transition-transform"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                         <span className="font-bold text-xs tracking-wider uppercase">View Orders</span>
                     </Link>
-                    <Link href="/cotton-cloth" className="flex-1 bg-white border-2 border-primary/20 hover:border-primary text-primary rounded-2xl py-4 px-6 flex items-center justify-center gap-3 transition-all active:scale-95 group shadow-sm min-h-[56px]">
+                    <Link href="/batik-prints-womens-clothing" className="flex-1 bg-white border-2 border-primary/20 hover:border-primary text-primary rounded-2xl py-4 px-6 flex items-center justify-center gap-3 transition-all active:scale-95 group shadow-sm min-h-[56px]">
                         <span className="font-bold text-xs tracking-wider uppercase">Continue Shopping</span>
                     </Link>
                 </div>

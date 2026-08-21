@@ -37,7 +37,7 @@ export default async function ContactPage() {
                 tagline="CONTACT AQSHA BATIK"
                 title={
                     <>
-                        Let's Talk about Your <br className="hidden md:block" /> Batik Fabric <span className='text-accent'>Requirements</span>
+                        Let's Talk about Your <br className="hidden md:block" /> Batik Fabric <span className='text-highlight'>Requirements</span>
                     </>
                 }
                 description="Looking for premium batik fabric, batik cloth, women clothing, or the latest cotton dresses for women? Whether you're a retailer, wholesaler, boutique owner, or fashion brand, our team is here to help you source high-quality collections directly from a trusted manufacturer."
@@ -61,7 +61,7 @@ export default async function ContactPage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16 flex flex-col items-center">
                         <span className="text-overline text-accent tracking-[0.3em] font-bold uppercase mb-4 md:mb-6">We're Here To Help</span>
-                        <h2 className="text-h2 text-primary mb-6 max-w-3xl leading-[1.1] text-center">Reach Out To Our Team</h2>
+                        <h2 className="text-h2 text-primary mb-6 max-w-3xl leading-[1.1] text-center">Reach Out To <span className="text-highlight">Our Team</span></h2>
                         <p className="text-body1 text-primary/90 max-w-2xl mx-auto text-center leading-relaxed">
                             Have questions about our collections, pricing, or bulk orders? Our experts are ready to assist you with product recommendations, catalogue requests, and wholesale enquiries.
                         </p>
@@ -70,7 +70,7 @@ export default async function ContactPage() {
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-8 gap-y-8 sm:gap-y-12">
                         {/* Visit Us */}
                         <div className="flex flex-col items-center text-center group">
-                            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-primary/10 bg-primary/5 flex items-center justify-center text-primary mb-4 sm:mb-6 group-hover:scale-110 group-hover:bg-primary/10 transition-all duration-300">
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-primary/10 bg-primary/5 flex items-center justify-center text-accent mb-4 sm:mb-6 group-hover:scale-110 group-hover:bg-primary/10 transition-all duration-300">
                                 <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             </div>
                             <h3 className="font-heading text-base sm:text-lg md:text-xl font-normal text-primary mb-1.5 sm:mb-3">Visit Us</h3>
@@ -78,7 +78,7 @@ export default async function ContactPage() {
                         </div>
                         {/* Call Us */}
                         <div className="flex flex-col items-center text-center group">
-                            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-primary/10 bg-primary/5 flex items-center justify-center text-primary mb-4 sm:mb-6 group-hover:scale-110 group-hover:bg-primary/10 transition-all duration-300">
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-primary/10 bg-primary/5 flex items-center justify-center text-accent mb-4 sm:mb-6 group-hover:scale-110 group-hover:bg-primary/10 transition-all duration-300">
                                 <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                             </div>
                             <h3 className="font-heading text-base sm:text-lg md:text-xl font-normal text-primary mb-1.5 sm:mb-3">Call Us</h3>
@@ -86,7 +86,7 @@ export default async function ContactPage() {
                         </div>
                         {/* Email Us */}
                         <div className="flex flex-col items-center text-center group">
-                            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-primary/10 bg-primary/5 flex items-center justify-center text-primary mb-4 sm:mb-6 group-hover:scale-110 group-hover:bg-primary/10 transition-all duration-300">
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-primary/10 bg-primary/5 flex items-center justify-center text-accent mb-4 sm:mb-6 group-hover:scale-110 group-hover:bg-primary/10 transition-all duration-300">
                                 <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                             </div>
                             <h3 className="font-heading text-base sm:text-lg md:text-xl font-normal text-primary mb-1.5 sm:mb-3">Email Us</h3>
@@ -112,7 +112,7 @@ export default async function ContactPage() {
                     <div className="lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left w-full">
                         <span className="text-overline text-accent tracking-[0.3em] font-bold uppercase mb-4 md:mb-6 block">Get In Touch</span>
                         <h2 className="font-heading text-3xl md:text-4xl text-primary font-normal mb-8 leading-[1.1]">
-                            Get Personalized Batik Fabric Pricing & Expert Guidance
+                            Get Personalized <span className="text-highlight">Batik Fabric Pricing</span> & Expert Guidance
                         </h2>
 
                         <div className="space-y-6 mb-12">
@@ -150,7 +150,7 @@ export default async function ContactPage() {
                         {/* ── CONCIERGE CARD CONTAINER ── */}
                         <div className="bg-white p-8 md:p-12 lg:p-14 shadow-sm rounded-[24px] md:rounded-[32px] border border-primary/10 relative overflow-hidden transition-transform duration-500">
                             <div className="relative z-10">
-                                <h3 className="font-heading text-2xl md:text-3xl font-normal text-primary mb-8 text-center">Request Wholesale Access</h3>
+                                <h3 className="font-heading text-2xl md:text-3xl font-normal text-primary mb-8 text-center">Request <span className="text-highlight">Wholesale Access</span></h3>
                                 <ContactForm />
                             </div>
                         </div>
@@ -163,7 +163,7 @@ export default async function ContactPage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16 flex flex-col items-center w-full">
                         <span className="text-overline text-accent tracking-[0.3em] font-bold uppercase mb-4 md:mb-6">Why Choose Aqsha Batik</span>
-                        <h2 className="font-heading text-2xl md:text-4xl font-normal text-primary mb-4 text-center">Trusted By Retailers & Fashion Businesses</h2>
+                        <h2 className="font-heading text-2xl md:text-4xl font-normal text-primary mb-4 text-center">Trusted By Retailers & <span className="text-highlight">Fashion Businesses</span></h2>
                         <p className="text-primary/80 max-w-2xl mx-auto text-sm md:text-base text-center font-medium">For over 15 years, Aqsha Batik has helped businesses source premium-quality batik collections with confidence.</p>
                     </div>
 
@@ -175,7 +175,7 @@ export default async function ContactPage() {
                             { title: "Premium Quality", desc: "Carefully crafted collections designed for retailers, wholesalers, and fashion brands.", icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" }
                         ].map((item, i) => (
                             <div key={i} className="bg-white rounded-[20px] md:rounded-[32px] p-6 sm:p-8 md:p-10 shadow-sm border border-primary/10 hover:border-primary/20 hover:shadow-[0_10px_40px_rgba(90,42,31,0.06)] flex flex-col items-center text-center gap-4 sm:gap-6 group hover:-translate-y-2 transition-all duration-500 relative overflow-hidden h-full">
-                                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary/5 rounded-[16px] flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 relative z-10 w-fit mx-auto">
+                                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary/5 rounded-[16px] flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-500 relative z-10 w-fit mx-auto">
                                     <svg className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d={item.icon}></path>
                                     </svg>
@@ -202,7 +202,7 @@ export default async function ContactPage() {
             {/* ── FINAL CTA ── */}
             <section className="scroll-animate pt-2 pb-24 md:py-24 px-6 bg-cream border-t-0 border-primary/10">
                 <div className="max-w-5xl mx-auto bg-white rounded-3xl p-12 md:p-16 text-center border border-primary/10 shadow-sm flex flex-col items-center">
-                    <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-normal text-primary mb-4 leading-tight">Looking For Premium Batik Fabric At Wholesale Prices?</h2>
+                    <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-normal text-primary mb-4 leading-tight">Looking For Premium <span className="text-highlight">Batik Fabric</span> At Wholesale Prices?</h2>
                     <p className="text-primary/80 text-base md:text-lg mb-10 max-w-2xl font-medium">Get direct manufacturer pricing, expert guidance, and access to our latest batik fabric, women clothing, indian dresses, and wholesale collections.</p>
                     <div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full">
                         <a href={WA} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 bg-accent hover:bg-accent/90 text-white px-8 py-4 rounded-full font-bold text-[11px] uppercase tracking-widest transition-colors shadow-sm w-full md:w-auto">

@@ -129,7 +129,7 @@ export default function WishlistPage() {
                         <div className="w-20 h-20 bg-white rounded-3xl flex items-center justify-center mx-auto mb-6 shadow border border-primary/5 text-3xl">❤️</div>
                         <h2 className="font-heading text-2xl font-normal mb-2">Your wishlist is empty</h2>
                         <p className="text-xs text-primary/60 max-w-xs mx-auto mb-8 font-normal">Explore our premium collections and add your favorite items to save them for later.</p>
-                        <Link href="/cotton-cloth" className="inline-block bg-accent hover:bg-accent/90 text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs shadow-md">
+                        <Link href="/batik-prints-womens-clothing" className="inline-block bg-accent hover:bg-accent/90 text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs shadow-md">
                             Explore Collections
                         </Link>
                     </div>

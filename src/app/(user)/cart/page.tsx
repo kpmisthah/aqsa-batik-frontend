@@ -272,7 +272,7 @@ export default function CartPage() {
               Explore our hand-printed premium Batik collections and add suits or fabrics to your cart.
             </p>
             <Link
-              href="/cotton-cloth"
+              href="/batik-prints-womens-clothing"
               className="inline-block bg-accent hover:bg-accent/90 text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-all shadow-md active:scale-95"
             >
               Explore Collections

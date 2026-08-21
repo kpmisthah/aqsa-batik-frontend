@@ -63,7 +63,7 @@ export default async function BlogIndexPage() {
                 tagline="FASHION TRENDS · BUYING GUIDES"
                 title={
                     <>
-                        Women Clothing, Batik Fabric <br className="hidden md:block" /> &amp; <span className='text-accent'>Fashion Trends</span> Blog
+                        Women Clothing, Batik Fabric <br className="hidden md:block" /> &amp; <span className='text-highlight'>Fashion Trends</span> Blog
                     </>
                 }
                 description="Explore expert insights on women clothing, batik fabric, batik cloth, cotton dresses for women, and the latest fashion trends. Learn how to choose premium fabrics, discover stylish women clothing collections, and stay updated with wholesale buying guides directly from manufacturers."
@@ -92,7 +92,7 @@ export default async function BlogIndexPage() {
                         <div className="lg:w-[45%] p-10 lg:p-16 flex flex-col justify-center">
                             <span className="text-xs font-bold uppercase tracking-widest text-primary mb-4">Featured Article</span>
                             <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-normal leading-tight text-primary mb-6">
-                                How To Choose Premium Batik Fabric For Women Clothing Collections
+                                How To Choose Premium <span className="text-highlight">Batik Fabric</span> For Women Clothing Collections
                             </h2>
                             <div className="flex items-center gap-4 text-sm opacity-60 mb-6 font-medium">
                                 <span className="flex items-center gap-1"><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 5 min read</span>
@@ -154,7 +154,7 @@ export default async function BlogIndexPage() {
                             </h3>
                             <span className="w-12 h-[1px] bg-primary/20"></span>
                         </div>
-                        <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-normal text-primary mb-6">Latest Women Clothing &amp; Batik Fashion Articles</h2>
+                        <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-normal text-primary mb-6">Latest Women Clothing &amp; <span className="text-highlight">Batik Fashion</span> Articles</h2>
                         <p className="text-primary/90 max-w-2xl mx-auto">Stay informed with expert articles covering women clothing India, batik suit designs, indian dresses for girls, and premium fabric buying guides.</p>
                     </div>
 
@@ -216,7 +216,7 @@ export default async function BlogIndexPage() {
                             </h3>
                             <span className="w-12 h-[1px] bg-primary/20"></span>
                         </div>
-                        <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-normal text-primary mb-4 sm:mb-6">Why Fashion Retailers Trust Aqsha Batik</h2>
+                        <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-normal text-primary mb-4 sm:mb-6">Why Fashion Retailers Trust <span className="text-highlight">Aqsha Batik</span></h2>
                         <p className="text-primary/90 text-sm sm:text-base md:text-lg mb-8 md:mb-10 max-w-2xl mx-auto lg:mx-0">For over 15 years, Aqsha Batik has supplied premium batik fabric, batik cloth, and women clothing collections to retailers, wholesalers, and growing fashion brands across India.</p>
 
                         <div className="grid grid-cols-2 gap-3 md:gap-6 w-full">
@@ -261,7 +261,7 @@ export default async function BlogIndexPage() {
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <h3 className="font-heading text-xl md:text-2xl font-normal text-primary leading-tight">Join The Insider Design Newsletter</h3>
+                                <h3 className="font-heading text-xl md:text-2xl font-normal text-primary leading-tight">Join The <span className="text-highlight">Insider Design</span> Newsletter</h3>
                                 <p className="text-sm md:text-base text-primary/90 leading-relaxed font-normal">Get exclusive updates on batik fabric collections, trending women's fashion, and wholesale buying opportunities.</p>
                             </div>
                         </div>
@@ -283,7 +283,7 @@ export default async function BlogIndexPage() {
             {/* ── FINAL CTA ── */}
             <section className="scroll-animate pt-2 pb-24 md:py-24 px-6 bg-cream border-t-0 border-primary/10">
                 <div className="max-w-5xl mx-auto bg-white rounded-3xl p-12 md:p-16 text-center border border-primary/10 shadow-sm flex flex-col items-center">
-                    <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-normal text-primary mb-4 leading-tight">Looking For Premium Batik Fabric &amp; Women Clothing At Wholesale Prices?</h2>
+                    <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl font-normal text-primary mb-4 leading-tight">Looking For Premium <span className="text-highlight">Batik Fabric</span> &amp; Women Clothing At Wholesale Prices?</h2>
                     <p className="text-primary/80 text-base md:text-lg mb-10 max-w-2xl font-medium">Partner directly with a trusted manufacturer for premium batik fabric, batik cloth, women clothing, indian dresses, and wholesale fashion collections.</p>
                     <div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full">
                         <a href="https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20get%20your%20latest%20batik%20catalogue." target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 bg-accent hover:bg-accent/90 text-white px-8 py-4 rounded-full font-bold text-[11px] uppercase tracking-widest transition-colors shadow-sm w-full md:w-auto">

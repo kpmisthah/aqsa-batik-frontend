@@ -257,7 +257,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10">
-                        <a href="/batik-fabric" className="group relative h-[200px] md:h-auto md:aspect-[16/9] rounded-[24px] md:rounded-[40px] overflow-hidden shadow-xl md:shadow-2xl transition-all hover:-translate-y-2 border border-primary/10">
+                        <a href="/batik-cotton-dress-for-women" className="group relative h-[200px] md:h-auto md:aspect-[16/9] rounded-[24px] md:rounded-[40px] overflow-hidden shadow-xl md:shadow-2xl transition-all hover:-translate-y-2 border border-primary/10">
                             <Image src="/cat_batik_fabric.webp" alt="Explore Batik Fabric" layout="fill" objectFit="cover" objectPosition="top" className="group-hover:scale-110 transition-all duration-[2s] brightness-75 group-hover:brightness-90" />
                             <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
                             <div className="absolute bottom-4 left-4 right-4 md:bottom-10 md:left-10 md:right-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 md:gap-0">
@@ -285,7 +285,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                             </div>
                         </a>
 
-                        <a href="/new-batik-prints" className="group relative h-[160px] md:h-auto md:aspect-[16/9] rounded-[24px] md:rounded-[40px] overflow-hidden shadow-xl md:shadow-2xl transition-all hover:-translate-y-2 border border-primary/10 col-span-2 md:col-span-1">
+                        <a href="/new-batik-prints-suits" className="group relative h-[160px] md:h-auto md:aspect-[16/9] rounded-[24px] md:rounded-[40px] overflow-hidden shadow-xl md:shadow-2xl transition-all hover:-translate-y-2 border border-primary/10 col-span-2 md:col-span-1">
                             <Image src="/cat_new_arrival.webp" alt="New Arrivals" layout="fill" objectFit="cover" objectPosition="top" className="group-hover:scale-110 transition-all duration-[2s] brightness-75 group-hover:brightness-90" />
                             <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
                             <div className="absolute bottom-4 left-4 right-4 md:bottom-10 md:left-10 md:right-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-2 md:gap-0">

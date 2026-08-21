@@ -116,7 +116,7 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
                                         {detail.icon}
                                     </div>
                                     <div className="flex flex-col flex-1 items-center sm:items-start w-full">
-                                        <span className="text-[9px] md:text-xs font-black uppercase tracking-[0.2em] text-secondary opacity-70 group-hover:opacity-100 transition-opacity">
+                                        <span className="text-[9px] md:text-xs font-black uppercase tracking-[0.2em] text-accent opacity-70 group-hover:opacity-100 transition-opacity">
                                             {detail.label}
                                         </span>
                                         <span className="text-xs md:text-lg font-bold text-primary tracking-tight leading-snug mt-1 md:mt-1.5 w-full">

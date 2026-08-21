@@ -27,7 +27,7 @@ export default function AboutPage() {
                 title={
                     <>
                         <span className="block md:whitespace-nowrap">Legacy Craftsmanship</span>
-                        <span className="block md:whitespace-nowrap">Behind <span className='text-accent'>Every Design</span></span>
+                        <span className="block md:whitespace-nowrap">Behind <span className='text-highlight'>Every Design</span></span>
                     </>
                 }
                 description="Rooted in Bherugarh, Ujjain, we carry forward the legacy of traditional wax batik—refined over 15+ years into premium batik cloth, batik dresses, and high-quality batik fabric. Our collections focus on durable cotton dress material and consistent women cotton wholesale fabric, built for real market demand and ready-to-sell use."
@@ -53,7 +53,7 @@ export default function AboutPage() {
                         {/* Header */}
                         <div className="flex flex-col gap-3 md:gap-4 text-center lg:text-left mb-6 lg:mb-8 flex-shrink-0">
                             <span className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] leading-relaxed">From Handmade Batik To Trusted <br className="lg:hidden" /> Women Fashion Supply</span>
-                            <h2 className="font-heading text-2xl md:text-4xl font-normal text-primary leading-tight">The Journey Behind AQSHA BATIK SUITS</h2>
+                            <h2 className="font-heading text-2xl md:text-4xl font-normal text-primary leading-tight">The Journey Behind <span className="text-highlight">AQSHA BATIK SUITS</span></h2>
                         </div>
 
                         {/* Mobile Image */}
@@ -274,7 +274,7 @@ export default function AboutPage() {
             <PremiumFeatureSection
                 wrapperClassName="py-0 mt-8 md:mt-0 md:py-24 px-4 md:px-6 bg-[#F4F0EA]"
                 tag="Guided by Principles"
-                title="What We Stand For"
+                title={<>What We <span className="text-highlight">Stand For</span></>}
                 imageSrc="/cotton-summer-dresses-image.webp"
                 quote="Every piece of batik cloth, cotton dress material, and batik fabric we produce is guided by principles that ensure quality, consistency, and long-term trust for buyers."
                 features={[
@@ -332,7 +332,7 @@ export default function AboutPage() {
                         <div className="order-1 lg:order-2 flex flex-col gap-6 md:gap-10">
                             <div className="flex flex-col gap-2 md:gap-6 text-center lg:text-left">
                                 <span className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] md:tracking-[0.4em]">The Process</span>
-                                <h2 className="font-heading text-2xl md:text-4xl font-normal text-primary">Our Whole Fabric Manufacturing Standards</h2>
+                                <h2 className="font-heading text-2xl md:text-4xl font-normal text-primary">Our Whole Fabric <span className="text-highlight">Manufacturing Standards</span></h2>
                             </div>
                             <div className="flex flex-col gap-5 md:gap-8">
                                 {[
@@ -358,7 +358,7 @@ export default function AboutPage() {
             <section className="scroll-animate py-12 md:py-16 bg-transparent text-center px-6 border-t border-primary/5">
                 <div className="max-w-4xl mx-auto flex flex-col gap-8 md:gap-10">
                     <div className="flex flex-col gap-3 md:gap-5">
-                        <h2 className="font-heading text-2xl md:text-4xl font-normal text-primary leading-tight">Work Directly with the Manufacturer</h2>
+                        <h2 className="font-heading text-2xl md:text-4xl font-normal text-primary leading-tight">Work Directly with <span className="text-highlight">the Manufacturer</span></h2>
                         <p className="text-lg md:text-xl text-primary/80 max-w-2xl mx-auto font-normal leading-relaxed">
                             Partner with a team focused on consistent quality, reliable supply, and long-term business relationships across Indian markets.
                         </p>
@@ -367,7 +367,7 @@ export default function AboutPage() {
                         <a href={WA} target="_blank" rel="noreferrer" className="bg-accent text-white px-6 py-3.5 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-bold text-[11px] md:text-sm hover:scale-105 transition-all shadow-xl uppercase tracking-widest border-2 border-accent">
                             Get Wholesale Catalogue
                         </a>
-                        <a href="/fabric-wholesale" className="bg-transparent text-accent border-2 border-accent px-6 py-3.5 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-bold text-[11px] md:text-sm hover:bg-accent hover:text-white transition-all shadow-md uppercase tracking-widest">
+                        <a href="/wholesale-batik-women-dresses" className="bg-transparent text-accent border-2 border-accent px-6 py-3.5 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-bold text-[11px] md:text-sm hover:bg-accent hover:text-white transition-all shadow-md uppercase tracking-widest">
                             View Wholesale Terms
                         </a>
                     </div>
