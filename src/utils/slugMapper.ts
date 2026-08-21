@@ -8,7 +8,7 @@ export const SLUG_MAPS: SlugProductMap[] = [
   // --- FIRST SET (cotton-cloth) ---
   {
     slug: "white-mustard-party-wear-cotton-suit-fabric",
-    prefix: "/cotton-cloth",
+    prefix: "/batik-prints-womens-clothing",
     names: [
       "White & Mustard Batik Cotton Suit",
       "White & Mustard Batik Cotton Suit Set",
@@ -18,7 +18,7 @@ export const SLUG_MAPS: SlugProductMap[] = [
   },
   {
     slug: "white-orange-printed-cotton-suit-material",
-    prefix: "/cotton-cloth",
+    prefix: "/batik-prints-womens-clothing",
     names: [
       "White & Orange Batik Cotton Fabric",
       "White & Orange Cotton Suit Fabric",
@@ -27,7 +27,7 @@ export const SLUG_MAPS: SlugProductMap[] = [
   },
   {
     slug: "white-beige-wedding-cotton-dress-material",
-    prefix: "/cotton-cloth",
+    prefix: "/batik-prints-womens-clothing",
     names: [
       "White & Beige Batik Dress Material",
       "White & Beige Designer Dress Material",
@@ -36,7 +36,7 @@ export const SLUG_MAPS: SlugProductMap[] = [
   },
   {
     slug: "white-sky-blue-cotton-suit-set",
-    prefix: "/cotton-cloth",
+    prefix: "/batik-prints-womens-clothing",
     names: [
       "White & Sky Blue Batik Cotton Suit",
       "White & Sky Blue Printed Cotton Suit",
@@ -45,7 +45,7 @@ export const SLUG_MAPS: SlugProductMap[] = [
   },
   {
     slug: "pink-white-floral-cotton-dress-material",
-    prefix: "/cotton-cloth",
+    prefix: "/batik-prints-womens-clothing",
     names: [
       "Pink & White Floral Batik Cotton Fabric",
       "Pink & White Floral Cotton Dress Fabric",
@@ -54,7 +54,7 @@ export const SLUG_MAPS: SlugProductMap[] = [
   },
   {
     slug: "white-green-designer-cotton-suit-fabric",
-    prefix: "/cotton-cloth",
+    prefix: "/batik-prints-womens-clothing",
     names: [
       "White & Green Printed Batik Cotton Fabric",
       "White & Green Printed Cotton Fabric",
@@ -63,7 +63,7 @@ export const SLUG_MAPS: SlugProductMap[] = [
   },
   {
     slug: "white-purple-frock-suit-cotton-material",
-    prefix: "/cotton-cloth",
+    prefix: "/batik-prints-womens-clothing",
     names: [
       "White & Purple Batik Cotton Cloth",
       "White & Purple Floral Cotton Fabric",
@@ -72,7 +72,7 @@ export const SLUG_MAPS: SlugProductMap[] = [
   },
   {
     slug: "white-brown-printed-cotton-dress-fabric",
-    prefix: "/cotton-cloth",
+    prefix: "/batik-prints-womens-clothing",
     names: [
       "White & Brown Batik Cotton Cloth",
       "White & Brown Printed Cotton Cloth",
@@ -81,7 +81,7 @@ export const SLUG_MAPS: SlugProductMap[] = [
   },
   {
     slug: "white-red-party-wear-cotton-suit-material",
-    prefix: "/cotton-cloth",
+    prefix: "/batik-prints-womens-clothing",
     names: [
       "White & Red Batik Cotton Fabric",
       "White & Red Party Wear Cotton Fabric",
@@ -90,7 +90,7 @@ export const SLUG_MAPS: SlugProductMap[] = [
   },
   {
     slug: "white-pink-printed-cotton-dress-material",
-    prefix: "/cotton-cloth",
+    prefix: "/batik-prints-womens-clothing",
     names: [
       "White & Pink Batik Cotton Fabric",
       "White & Pink Cotton Dress Material",
@@ -99,7 +99,7 @@ export const SLUG_MAPS: SlugProductMap[] = [
   },
   {
     slug: "white-grey-soft-cotton-dress-fabric",
-    prefix: "/cotton-cloth",
+    prefix: "/batik-prints-womens-clothing",
     names: [
       "White & Grey Batik Cotton Dress Material",
       "White & Grey Soft Cotton Fabric",
@@ -108,7 +108,7 @@ export const SLUG_MAPS: SlugProductMap[] = [
   },
   {
     slug: "white-baby-pink-party-wear-cotton-fabric",
-    prefix: "/cotton-cloth",
+    prefix: "/batik-prints-womens-clothing",
     names: [
       "White & Baby Pink Floral Cotton Fabric",
       "White & Baby Pink Floral Cotton Fabric"
@@ -118,84 +118,84 @@ export const SLUG_MAPS: SlugProductMap[] = [
   // --- SECOND SET (new-batik-prints) ---
   {
     slug: "new-arrival-batik-cotton-kurti-set",
-    prefix: "/new-batik-prints",
+    prefix: "/new-batik-prints-suits",
     names: [
       "White & Mustard Batik Cotton Suit"
     ]
   },
   {
     slug: "trending-batik-cotton-kurti-fabric",
-    prefix: "/new-batik-prints",
+    prefix: "/new-batik-prints-suits",
     names: [
       "White & Orange Batik Cotton Fabric"
     ]
   },
   {
     slug: "pure-cotton-batik-dress-material",
-    prefix: "/new-batik-prints",
+    prefix: "/new-batik-prints-suits",
     names: [
       "White & Beige Batik Dress Material"
     ]
   },
   {
     slug: "white-batik-cotton-kurti-fabric",
-    prefix: "/new-batik-prints",
+    prefix: "/new-batik-prints-suits",
     names: [
       "White & Sky Blue Batik Cotton Suit"
     ]
   },
   {
     slug: "designer-printed-cotton-kurti-fabric",
-    prefix: "/new-batik-prints",
+    prefix: "/new-batik-prints-suits",
     names: [
       "Pink & White Floral Batik Cotton Fabric"
     ]
   },
   {
     slug: "batik-cotton-kurti-design-fabric",
-    prefix: "/new-batik-prints",
+    prefix: "/new-batik-prints-suits",
     names: [
       "White & Green Printed Batik Cotton Fabric"
     ]
   },
   {
     slug: "pure-cotton-floral-kurti-fabric",
-    prefix: "/new-batik-prints",
+    prefix: "/new-batik-prints-suits",
     names: [
       "White & Purple Batik Cotton Cloth"
     ]
   },
   {
     slug: "white-batik-cotton-kurti-material",
-    prefix: "/new-batik-prints",
+    prefix: "/new-batik-prints-suits",
     names: [
       "White & Brown Batik Cotton Cloth"
     ]
   },
   {
     slug: "batik-print-cotton-dress-material",
-    prefix: "/new-batik-prints",
+    prefix: "/new-batik-prints-suits",
     names: [
       "White & Red Batik Cotton Fabric"
     ]
   },
   {
     slug: "long-cotton-kurti-batik-fabric",
-    prefix: "/new-batik-prints",
+    prefix: "/new-batik-prints-suits",
     names: [
       "White & Pink Batik Cotton Fabric"
     ]
   },
   {
     slug: "designer-printed-cotton-dress-material",
-    prefix: "/new-batik-prints",
+    prefix: "/new-batik-prints-suits",
     names: [
       "White & Grey Batik Cotton Dress Material"
     ]
   },
   {
     slug: "floral-print-cotton-dress-fabric",
-    prefix: "/new-batik-prints",
+    prefix: "/new-batik-prints-suits",
     names: [
       "White & Baby Pink Floral Cotton Fabric"
     ]
@@ -318,11 +318,11 @@ export function getProductPathByName(name: string, category?: string, overridePr
   if (!targetPrefix && category) {
     const cleanCategory = category.toLowerCase();
     if (cleanCategory.includes("fabric")) {
-      targetPrefix = "/cotton-cloth";
+      targetPrefix = "/batik-prints-womens-clothing";
     } else if (cleanCategory.includes("wholesale")) {
       targetPrefix = "/wholesale-women-dresses";
     } else if (cleanCategory.includes("cloth") || cleanCategory.includes("cotton")) {
-      targetPrefix = "/new-batik-prints";
+      targetPrefix = "/new-batik-prints-suits";
     }
   }
 
@@ -340,7 +340,7 @@ export function getProductPathByName(name: string, category?: string, overridePr
     }
   }
 
-  const prefix = match.prefix || "/cotton-cloth";
+  const prefix = match.prefix || "/batik-prints-womens-clothing";
   return `${prefix}/${match.slug}`;
 }
 

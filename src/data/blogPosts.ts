@@ -14,7 +14,7 @@ export const BLOG_POSTS: Record<string, any> = {
                 The fabric you choose directly impacts how comfortable you feel throughout the day. It affects breathability, durability, movement, and even how long the garment retains its original appearance. Whether you are purchasing clothing for personal use or selecting inventory for a boutique, understanding dress materials can help you make better buying decisions.
             </p>
             <p>
-                Among the many fabric options available today, <a href="/cotton-cloth" class="text-blue-600 hover:underline">cotton cloth</a> continues to be one of the most preferred choices. Its versatility, comfort, and timeless appeal have made it a favorite among women across different age groups and fashion preferences.
+                Among the many fabric options available today, <a href="/batik-prints-womens-clothing" class="text-blue-600 hover:underline">cotton cloth</a> continues to be one of the most preferred choices. Its versatility, comfort, and timeless appeal have made it a favorite among women across different age groups and fashion preferences.
             </p>
             
             <h2>Why Choosing the Right Dress Material Matters</h2>
@@ -58,7 +58,7 @@ export const BLOG_POSTS: Record<string, any> = {
             </p>
 
             <div>
-                <img src="/cotton-cloth.webp" alt="Cotton Cloth Fabric Example" />
+                <img src="/batik-prints-womens-clothing.webp" alt="Cotton Cloth Fabric Example" />
             </div>
 
             <h2>Comparing Different Types of Dress Material</h2>
@@ -121,7 +121,7 @@ export const BLOG_POSTS: Record<string, any> = {
                 The first factor to consider is texture. High-quality fabrics generally feel smooth and comfortable against the skin. Rough or uneven surfaces may indicate lower-quality production standards.
             </p>
             <p>
-                Print quality is another important indicator, especially when purchasing printed cotton dress material or <a href="/batik-fabric" class="text-blue-600 hover:underline">batik print dress material</a>. Premium prints usually have clear detailing, vibrant colors, and consistent patterns. Faded or irregular prints often signal inferior quality.
+                Print quality is another important indicator, especially when purchasing printed cotton dress material or <a href="/batik-cotton-dress-for-women" class="text-blue-600 hover:underline">batik print dress material</a>. Premium prints usually have clear detailing, vibrant colors, and consistent patterns. Faded or irregular prints often signal inferior quality.
             </p>
             <p>
                 Breathability should also be evaluated. Fabrics that allow airflow provide better comfort during long hours of wear. Additionally, buyers should pay attention to fabric weight, color fastness, and overall finishing to ensure long-term durability.
@@ -354,13 +354,13 @@ export const BLOG_POSTS: Record<string, any> = {
                 Modern fashion is increasingly moving toward comfort-driven designs. As a result, cotton has become one of the most sought-after fabrics in contemporary women's fashion.
             </p>
             <p>
-                Today, some of the most popular trends include floral cotton dresses, batik-inspired patterns, relaxed silhouettes, pastel shades, and handcrafted designs. Fashion-conscious shoppers frequently explore <a href="/new-batik-prints" class="text-blue-600 hover:underline">new arrival collections</a> to discover the latest cotton styles and trending designs.
+                Today, some of the most popular trends include floral cotton dresses, batik-inspired patterns, relaxed silhouettes, pastel shades, and handcrafted designs. Fashion-conscious shoppers frequently explore <a href="/new-batik-prints-suits" class="text-blue-600 hover:underline">new arrival collections</a> to discover the latest cotton styles and trending designs.
             </p>
             <p>
                 Consumers are also showing greater interest in sustainable and eco-friendly fabrics, which further contributes to the popularity of cotton.
             </p>
             <p>
-                Fashion brands and designers are responding to this demand by introducing collections that combine traditional craftsmanship with modern styling. Premium <a href="/batik-fabric" class="text-blue-600 hover:underline">batik fabric designs</a> have become especially popular among women who value both comfort and distinctive fashion.
+                Fashion brands and designers are responding to this demand by introducing collections that combine traditional craftsmanship with modern styling. Premium <a href="/batik-cotton-dress-for-women" class="text-blue-600 hover:underline">batik fabric designs</a> have become especially popular among women who value both comfort and distinctive fashion.
             </p>
             <p>
                 As the market evolves, trendy dresses for women made from cotton continue to attract strong demand across different age groups and style preferences.
@@ -445,7 +445,7 @@ export const BLOG_POSTS: Record<string, any> = {
                 Most people focus on colors, patterns, and designs when shopping for clothing. Yet the real secret behind a great outfit isn't the print or the style—it's the fabric itself.
             </p>
             <p>
-                The right <a href="/cotton-cloth" class="text-blue-600 hover:underline">cotton dress material</a> can make an outfit feel breathable, comfortable, and effortless to wear throughout the day. The wrong fabric can leave you feeling uncomfortable, regardless of how attractive the design may look.
+                The right <a href="/batik-prints-womens-clothing" class="text-blue-600 hover:underline">cotton dress material</a> can make an outfit feel breathable, comfortable, and effortless to wear throughout the day. The wrong fabric can leave you feeling uncomfortable, regardless of how attractive the design may look.
             </p>
             <p>
                 This is exactly why cotton continues to be one of the most trusted fabrics in the fashion industry. From daily wear and office outfits to ethnic collections and festive styles, cotton offers the perfect balance of comfort and elegance.
@@ -587,7 +587,7 @@ export const BLOG_POSTS: Record<string, any> = {
                 This trend has contributed to the growing popularity of batik print fabric and floral cotton fabric. Both options offer distinctive aesthetics while maintaining the comfort associated with cotton.
             </p>
             <p>
-                Batik designs are particularly valued for their artistic patterns and cultural significance. Traditional and contemporary <a href="/batik-fabric" class="text-blue-600 hover:underline">batik fabric collections</a> continue to attract customers looking for unique handcrafted-inspired fashion.
+                Batik designs are particularly valued for their artistic patterns and cultural significance. Traditional and contemporary <a href="/batik-cotton-dress-for-women" class="text-blue-600 hover:underline">batik fabric collections</a> continue to attract customers looking for unique handcrafted-inspired fashion.
             </p>
             <p>
                 They blend traditional craftsmanship with modern styling, making them suitable for a wide range of fashion preferences.
@@ -707,25 +707,25 @@ export const categories = [
         title: "Batik Fabric Guide",
         description: "Learn everything about batik fabric, batik cloth, batik design, and premium textile selection for fashion businesses.",
         icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10",
-        link: "/batik-fabric",
+        link: "/batik-cotton-dress-for-women",
     },
     {
         title: "Women Clothing Trends",
         description: "Explore the latest trends in women clothing online, stylish women clothing, indian dresses, and seasonal fashion collections.",
         icon: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z",
-        link: "/new-batik-prints",
+        link: "/new-batik-prints-suits",
     },
     {
         title: "Cotton Dress Collection",
         description: "Find guides on cotton dresses for women, cotton women clothing, long sleeve dress, and comfortable everyday wear.",
         icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
-        link: "/cotton-cloth",
+        link: "/batik-prints-womens-clothing",
     },
     {
         title: "Wholesale Business",
         description: "Wholesale buying tips, pricing strategies, and manufacturer sourcing guides for fashion retailers.",
         icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
-        link: "/fabric-wholesale",
+        link: "/wholesale-batik-women-dresses",
     }
 ];
 
