@@ -16,24 +16,24 @@ export default function FAQ({ items }: FAQProps) {
     const [open, setOpen] = useState(0);
     const defaultFaqs = [
         { 
-            q: "What makes batik fabric popular in women's clothing collections?", 
-            a: "Batik fabric is loved for its unique print patterns, breathable comfort, and versatile styling. It is widely used in women's clothing collections, indian dresses, kurtis, and everyday ethnic fashion because of its lightweight feel and timeless appeal." 
+            q: "Which batik fabric is best for daily suits for women?", 
+            a: "Cotton 60x60 is a popular choice for daily batik suits because it offers a lightweight, breathable feel suited to regular wear. It works well for batik print kurtis, everyday suits, and comfortable women's clothing." 
         },
         { 
-            q: "Is batik cloth suitable for cotton dresses for women?", 
-            a: "Yes. Batik cloth is commonly used for cotton dress for women's collections because it combines soft fabric comfort with stylish batik print designs that work perfectly for daily wear and festive ethnic fashion." 
+            q: "Can batik fabric be used for plus-size women's clothing?", 
+            a: "Yes. Batik fabric can be used to create comfortable plus-size women's clothing with flattering prints and practical silhouettes. Batik print suits, kurtis, and dresses can be designed in different cuts and sizes for comfortable everyday styling." 
         },
         { 
-            q: "Do you manufacture Indian dresses for girls using batik fabric?", 
-            a: "Yes. AQSHA BATIK SUITS manufactures batik fabric collections suitable for Indian dresses for girls, coordinated ethnic wear, casual cotton outfits, and modern women clothing trends." 
+            q: "Why are batik suits becoming popular for women?", 
+            a: "Batik suits combine distinctive prints, traditional craftsmanship, and wearable modern silhouettes. From batik print kurtis to complete batik suit sets, they offer a balance of cultural character, comfort, and contemporary fashion." 
         },
         { 
-            q: "Do you offer plus size clothing fabric options in batik prints?", 
-            a: "Absolutely. Our breathable batik fabric and cotton dress materials are ideal for plus size clothing collections, offering comfortable fitting, wearable styling, and lightweight fabric suitable for all-day wear." 
+            q: "Are batik print kurtis suitable for everyday wear?", 
+            a: "Yes. A well-made batik print kurti can be an excellent everyday option, particularly when crafted from breathable cotton fabric. Cotton-based batik kurtis provide comfortable styling for daily routines while adding distinctive prints to a woman's wardrobe." 
         },
         { 
-            q: "Why are batik print designs trending in Indian dresses?", 
-            a: "Batik print design styles continue to trend because they blend traditional artistry with modern women's fashion. Their elegant patterns, wearable comfort, and versatile styling make them highly popular in Indian dresses and daily wear women clothing." 
+            q: "Is Ujjain batik good for cotton kurtis for women?", 
+            a: "Ujjain has a strong heritage of batik craftsmanship, making its batik styles an appealing choice for cotton kurtis for women. The quality of a particular garment ultimately depends on its cotton fabric, print finishing, construction, and overall comfort." 
         }
     ];
 
@@ -44,7 +44,7 @@ export default function FAQ({ items }: FAQProps) {
             <div className="max-w-4xl mx-auto flex flex-col items-center">
                 <div className="text-center mb-8 flex flex-col gap-4 items-center">
                     <span className="text-xl leading-none text-accent">&diams; <span className="text-[11px] font-bold uppercase tracking-[0.25em] ml-2 text-primary/80">Support</span></span>
-                    <h2 className="font-heading text-h2 font-medium text-primary">Frequently Asked Questions</h2>
+                    <h2 className="font-heading text-h2 font-medium text-primary">Frequently Asked <span className="text-highlight italic">Questions</span></h2>
                 </div>
 
                 <div className="flex flex-col gap-4 w-full">
@@ -70,7 +70,7 @@ export default function FAQ({ items }: FAQProps) {
 
                 <div className="mt-8 text-center flex flex-col items-center gap-6">
                     <p className="text-primary/80 font-medium">Still have questions? We're just a message away.</p>
-                    <a href={WA} target="_blank" rel="noreferrer" className="bg-transparent border border-primary/20 hover:border-primary text-primary px-10 py-3.5 rounded-full font-bold uppercase tracking-widest text-[11px] transition-colors">
+                    <a href={WA} target="_blank" rel="noreferrer" className="btn-secondary px-10">
                         Ask on WhatsApp
                     </a>
                 </div>

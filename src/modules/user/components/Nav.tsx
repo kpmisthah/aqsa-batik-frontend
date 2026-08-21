@@ -64,10 +64,10 @@ export default function Nav() {
 
                     {/* Desktop Navigation */}
                     <div className="hidden lg:flex items-center gap-5 xl:gap-7 font-sans font-medium text-[#252525] text-[11px] xl:text-xs uppercase tracking-[0.15em] whitespace-nowrap">
-                        <Link href="/cotton-cloth" className="hover:text-accent transition-colors">batik cloth</Link>
-                        <Link href="/batik-fabric" className="hover:text-accent transition-colors">batik fabric</Link>
-                        <Link href="/fabric-wholesale" className="hover:text-accent transition-colors">wholesale</Link>
-                        <Link href="/new-batik-prints" className="text-accent hover:text-primary transition-colors relative">
+                        <Link href="/batik-prints-womens-clothing" className="hover:text-accent transition-colors">batik cloth</Link>
+                        <Link href="/batik-cotton-dress-for-women" className="hover:text-accent transition-colors">batik fabric</Link>
+                        <Link href="/wholesale-batik-women-dresses" className="hover:text-accent transition-colors">wholesale</Link>
+                        <Link href="/new-batik-prints-suits" className="text-accent hover:text-primary transition-colors relative">
                             new arrival
                             <span className="absolute -top-1 -right-2 w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
                         </Link>
@@ -206,10 +206,10 @@ export default function Nav() {
                         </div>
 
                         <div className="flex flex-col font-heading text-3xl font-bold text-primary space-y-2">
-                            <Link onClick={() => setMenu(false)} href="/cotton-cloth" className="hover:text-accent transition-colors py-3 border-b border-primary/5">batik cloth</Link>
-                            <Link onClick={() => setMenu(false)} href="/batik-fabric" className="hover:text-accent transition-colors py-3 border-b border-primary/5">batik fabric</Link>
-                            <Link onClick={() => setMenu(false)} href="/fabric-wholesale" className="hover:text-accent transition-colors py-3 border-b border-primary/5">wholesale</Link>
-                            <Link onClick={() => setMenu(false)} href="/new-batik-prints" className="text-accent hover:text-primary transition-colors py-3 border-b border-primary/5 flex items-center justify-between">
+                            <Link onClick={() => setMenu(false)} href="/batik-prints-womens-clothing" className="hover:text-accent transition-colors py-3 border-b border-primary/5">batik cloth</Link>
+                            <Link onClick={() => setMenu(false)} href="/batik-cotton-dress-for-women" className="hover:text-accent transition-colors py-3 border-b border-primary/5">batik fabric</Link>
+                            <Link onClick={() => setMenu(false)} href="/wholesale-batik-women-dresses" className="hover:text-accent transition-colors py-3 border-b border-primary/5">wholesale</Link>
+                            <Link onClick={() => setMenu(false)} href="/new-batik-prints-suits" className="text-accent hover:text-primary transition-colors py-3 border-b border-primary/5 flex items-center justify-between">
                                 new arrival
                                 <span className="text-xs px-2 py-1 bg-accent text-white rounded-full animate-pulse tracking-widest">NEW</span>
                             </Link>

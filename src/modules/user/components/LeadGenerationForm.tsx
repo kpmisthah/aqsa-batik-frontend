@@ -2,7 +2,28 @@
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
 
-export default function LeadGenerationForm() {
+interface LeadGenerationFormProps {
+    title?: React.ReactNode;
+    description?: React.ReactNode;
+    benefits?: string[];
+}
+
+export default function LeadGenerationForm({
+    title = (
+        <>
+            Get Personalized <span className="text-highlight italic">Batik Fabric</span> <br className="hidden md:block" /> Pricing & <span className="text-highlight italic">Catalog</span>
+        </>
+    ),
+    description = "Explore our latest batik designs, batik print fabric, batik dress material, and batik suit collections with personalized wholesale pricing, ready-stock updates, and collection catalogs from AQSHA Batik Suits.",
+    benefits = [
+        "Latest Batik Print Design Catalog",
+        "Wholesale Pricing & Bulk Order Support",
+        "Batik & Cotton Dress Material Options",
+        "Printed Cotton Fabric for Kurtis",
+        "Fast WhatsApp Assistance",
+        "Ready-Stock & New Collection Updates",
+    ]
+}: LeadGenerationFormProps) {
     const [formData, setFormData] = useState({
         fullName: "",
         phone: "",
@@ -48,21 +69,16 @@ export default function LeadGenerationForm() {
                     <div className="flex flex-col gap-4 items-center md:items-start">
                         <span className="text-xl leading-none text-accent">&diams; <span className="text-[11px] font-bold uppercase tracking-[0.25em] ml-2 text-primary/80">Partnership</span></span>
                         <h2 className="text-h2 font-medium text-primary">
-                            Get Personalized Batik Fabric Pricing & Catalog
+                            {title}
                         </h2>
                         <p className="text-body1 text-primary/80 font-medium leading-relaxed max-w-xl text-center md:text-left mt-2">
-                            Receive wholesale pricing, latest batik design collections, and ready-stock updates directly from AQSHA BATIK SUITS within hours.
+                            {description}
                         </p>
                     </div>
 
                     {/* Desktop Points (Hidden on mobile) */}
                     <ul className="hidden lg:flex flex-col gap-4 w-fit mx-auto md:mx-0 text-left">
-                        {[
-                            "Latest Batik Collection Catalog",
-                            "Wholesale Pricing Support",
-                            "Fast WhatsApp Assistance",
-                            "Bulk Order Guidance",
-                        ].map((benefit, i) => (
+                        {benefits.map((benefit, i) => (
                             <li key={i} className="flex items-center gap-4 text-base font-medium text-primary">
                                 <div className="w-8 h-8 rounded-full bg-white border border-primary/10 flex items-center justify-center text-accent shrink-0 shadow-sm">
                                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
@@ -141,7 +157,7 @@ export default function LeadGenerationForm() {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="w-full bg-accent hover:bg-[#a68246] text-white py-4 rounded-full font-bold text-[11px] uppercase tracking-widest transition-colors shadow-xl shadow-accent/20 flex items-center justify-center gap-3 mt-4 disabled:opacity-70"
+                                className="btn-primary w-full py-4 shadow-xl shadow-brand/20 mt-4 disabled:opacity-70"
                             >
                                 {isSubmitting ? (
                                     <>
@@ -150,7 +166,7 @@ export default function LeadGenerationForm() {
                                     </>
                                 ) : (
                                     <>
-                                        Get Wholesale Price List
+                                        Message on WhatsApp
                                     </>
                                 )}
                             </button>
@@ -161,12 +177,7 @@ export default function LeadGenerationForm() {
                 {/* Mobile Points (Shown after form on mobile) */}
                 <div className="flex lg:hidden w-full flex-col mt-4">
                     <ul className="flex flex-col gap-4 w-fit mx-auto text-left">
-                        {[
-                            "Latest Batik Collection Catalog",
-                            "Wholesale Pricing Support",
-                            "Fast WhatsApp Assistance",
-                            "Bulk Order Guidance",
-                        ].map((benefit, i) => (
+                        {benefits.map((benefit, i) => (
                             <li key={i} className="flex items-center gap-4 text-sm font-medium text-primary">
                                 <div className="w-8 h-8 rounded-full bg-white border border-primary/10 flex items-center justify-center text-accent shrink-0 shadow-sm">
                                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
