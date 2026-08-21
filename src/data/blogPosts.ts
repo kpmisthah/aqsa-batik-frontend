@@ -360,7 +360,7 @@ export const BLOG_POSTS: Record<string, any> = {
                 Consumers are also showing greater interest in sustainable and eco-friendly fabrics, which further contributes to the popularity of cotton.
             </p>
             <p>
-                Fashion brands and designers are responding to this demand by introducing collections that combine traditional craftsmanship with modern styling. Premium <a href="/batik-cotton-dress-for-women" class="text-blue-600 hover:underline">batik fabric designs</a> have become especially popular among women who value both comfort and distinctive fashion.
+                Fashion brands and designers are responding to this demand by introducing collections that combine traditional craftsmanship with modern styling. Premium <a href="/batik-cotton-dress-for-women" class="text-blue-600 hover:underline">Batik Cotton Dress for Women designs</a> have become especially popular among women who value both comfort and distinctive fashion.
             </p>
             <p>
                 As the market evolves, trendy dresses for women made from cotton continue to attract strong demand across different age groups and style preferences.
@@ -587,7 +587,7 @@ export const BLOG_POSTS: Record<string, any> = {
                 This trend has contributed to the growing popularity of batik print fabric and floral cotton fabric. Both options offer distinctive aesthetics while maintaining the comfort associated with cotton.
             </p>
             <p>
-                Batik designs are particularly valued for their artistic patterns and cultural significance. Traditional and contemporary <a href="/batik-cotton-dress-for-women" class="text-blue-600 hover:underline">batik fabric collections</a> continue to attract customers looking for unique handcrafted-inspired fashion.
+                Batik designs are particularly valued for their artistic patterns and cultural significance. Traditional and contemporary <a href="/batik-cotton-dress-for-women" class="text-blue-600 hover:underline">Batik Cotton Dress for Women collections</a> continue to attract customers looking for unique handcrafted-inspired fashion.
             </p>
             <p>
                 They blend traditional craftsmanship with modern styling, making them suitable for a wide range of fashion preferences.
@@ -704,8 +704,8 @@ export const blogPosts = [
 
 export const categories = [
     {
-        title: "Batik Fabric Guide",
-        description: "Learn everything about batik fabric, batik cloth, batik design, and premium textile selection for fashion businesses.",
+        title: "Batik Cotton Dress for Women Guide",
+        description: "Learn everything about Batik Cotton Dress for Women, Batik Prints Women Clothing, batik design, and premium textile selection for fashion businesses.",
         icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10",
         link: "/batik-cotton-dress-for-women",
     },
@@ -731,16 +731,16 @@ export const categories = [
 
 export const faqs = [
     {
-        q: "What is batik fabric and why is it popular?",
-        a: "Batik fabric is a premium textile known for its unique patterns and timeless appeal. It is widely used in women clothing, indian dresses, and ethnic fashion collections because of its elegant look and versatility."
+        q: "What is Batik Cotton Dress for Women and why is it popular?",
+        a: "Batik Cotton Dress for Women is a premium textile known for its unique patterns and timeless appeal. It is widely used in women clothing, indian dresses, and ethnic fashion collections because of its elegant look and versatility."
     },
     {
         q: "Do you offer cotton dresses for women and dress materials?",
         a: "Yes, we offer a wide range of cotton dresses for women, batik dress materials, and premium fabric collections suitable for boutiques, retailers, and fashion brands."
     },
     {
-        q: "Can I buy batik fabric in wholesale quantities?",
-        a: "Absolutely. Aqsha Batik supplies high-quality batik fabric and dress materials in bulk quantities for wholesalers, resellers, and growing fashion businesses across India."
+        q: "Can I buy Batik Cotton Dress for Women in wholesale quantities?",
+        a: "Absolutely. Aqsha Batik supplies high-quality Batik Cotton Dress for Women and dress materials in bulk quantities for wholesalers, resellers, and growing fashion businesses across India."
     },
     {
         q: "Do you provide the latest women clothing and batik designs?",
