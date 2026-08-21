@@ -11,6 +11,7 @@ const WA = "https://wa.me/918815373767";
 export default function Nav() {
     const [menu, setMenu] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [mobileCollectionsOpen, setMobileCollectionsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
     const { isSignedIn, user, loading, logout } = useAuthSync();
     const { getTotalItemsCount } = useCartStore();
@@ -64,9 +65,34 @@ export default function Nav() {
 
                     {/* Desktop Navigation */}
                     <div className="hidden lg:flex items-center gap-5 xl:gap-7 font-sans font-medium text-[#252525] text-[11px] xl:text-xs uppercase tracking-[0.15em] whitespace-nowrap">
-                        <Link href="/batik-prints-womens-clothing" className="hover:text-accent transition-colors">batik cloth</Link>
-                        <Link href="/batik-cotton-dress-for-women" className="hover:text-accent transition-colors">batik fabric</Link>
-                        <Link href="/wholesale-batik-women-dresses" className="hover:text-accent transition-colors">wholesale</Link>
+                        {/* Collections Dropdown */}
+                        <div className="relative group py-6 -my-6">
+                            <button className="flex items-center gap-1.5 hover:text-accent transition-colors uppercase tracking-[0.15em] font-medium outline-none">
+                                Collections <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
+                            </button>
+                            <div className="absolute left-0 top-full opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                                <div className="bg-white rounded-2xl shadow-xl border border-primary/5 p-3 w-[340px] flex flex-col gap-1 mt-1 before:absolute before:-top-4 before:left-0 before:w-full before:h-4">
+                                    <Link href="/batik-prints-womens-clothing" className="p-3 rounded-xl hover:bg-surface/80 transition-colors block group/item">
+                                        <div className="text-sm font-bold text-primary mb-1 group-hover/item:text-accent transition-colors tracking-wide">Batik Prints Women Clothing</div>
+                                        <div className="text-[11px] text-primary/60 font-normal normal-case tracking-normal leading-relaxed whitespace-normal">Distinctive batik prints for everyday Indian style.</div>
+                                    </Link>
+                                    <Link href="/batik-cotton-dress-for-women" className="p-3 rounded-xl hover:bg-surface/80 transition-colors block group/item">
+                                        <div className="text-sm font-bold text-primary mb-1 group-hover/item:text-accent transition-colors tracking-wide">Batik Cotton Dress for Women</div>
+                                        <div className="text-[11px] text-primary/60 font-normal normal-case tracking-normal leading-relaxed whitespace-normal">Pure cotton dresses for women with elegant batik prints.</div>
+                                    </Link>
+                                    <Link href="/batik-ethnic-wear-for-women" className="p-3 rounded-xl hover:bg-surface/80 transition-colors block group/item">
+                                        <div className="text-sm font-bold text-primary mb-1 group-hover/item:text-accent transition-colors tracking-wide">Ethnic Wear for Women</div>
+                                        <div className="text-[11px] text-primary/60 font-normal normal-case tracking-normal leading-relaxed whitespace-normal">Statement-making women suits with timeless batik design.</div>
+                                    </Link>
+                                    <div className="h-px w-full bg-primary/5 my-1"></div>
+                                    <Link href="/wholesale-batik-women-dresses" className="p-3 rounded-xl hover:bg-surface/80 transition-colors block group/item">
+                                        <div className="text-sm font-bold text-primary mb-1 group-hover/item:text-accent transition-colors tracking-wide">Wholesale Collections</div>
+                                        <div className="text-[11px] text-primary/60 font-normal normal-case tracking-normal leading-relaxed whitespace-normal">Ready-stock fashion collections for growing businesses.</div>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+
                         <Link href="/new-batik-prints-suits" className="text-accent hover:text-primary transition-colors relative">
                             new arrival
                             <span className="absolute -top-1 -right-2 w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
@@ -206,12 +232,21 @@ export default function Nav() {
                         </div>
 
                         <div className="flex flex-col font-heading text-3xl font-bold text-primary space-y-2">
-                            <Link onClick={() => setMenu(false)} href="/batik-prints-womens-clothing" className="hover:text-accent transition-colors py-3 border-b border-primary/5">batik cloth</Link>
-                            <Link onClick={() => setMenu(false)} href="/batik-cotton-dress-for-women" className="hover:text-accent transition-colors py-3 border-b border-primary/5">batik fabric</Link>
-                            <Link onClick={() => setMenu(false)} href="/wholesale-batik-women-dresses" className="hover:text-accent transition-colors py-3 border-b border-primary/5">wholesale</Link>
+                            <button onClick={() => setMobileCollectionsOpen(!mobileCollectionsOpen)} className="flex items-center justify-between py-3 border-b border-primary/5 text-left hover:text-accent transition-colors w-full">
+                                <span>Collections</span>
+                                <ChevronDown size={24} className={`transition-transform duration-300 ${mobileCollectionsOpen ? 'rotate-180 text-accent' : ''}`} />
+                            </button>
+                            
+                            <div className={`flex flex-col space-y-3 font-sans overflow-hidden transition-all duration-300 ease-in-out ${mobileCollectionsOpen ? 'max-h-[400px] py-3 opacity-100' : 'max-h-0 opacity-0'}`}>
+                                <Link onClick={() => setMenu(false)} href="/batik-prints-womens-clothing" className="hover:text-accent transition-colors text-lg pl-4 border-l-2 border-primary/10">Batik Prints Women Clothing</Link>
+                                <Link onClick={() => setMenu(false)} href="/batik-cotton-dress-for-women" className="hover:text-accent transition-colors text-lg pl-4 border-l-2 border-primary/10">Batik Cotton Dress for Women</Link>
+                                <Link onClick={() => setMenu(false)} href="/batik-ethnic-wear-for-women" className="hover:text-accent transition-colors text-lg pl-4 border-l-2 border-primary/10">Ethnic Wear for Women</Link>
+                                <Link onClick={() => setMenu(false)} href="/wholesale-batik-women-dresses" className="hover:text-accent transition-colors text-lg pl-4 border-l-2 border-primary/10">Wholesale Ready Stock</Link>
+                            </div>
+
                             <Link onClick={() => setMenu(false)} href="/new-batik-prints-suits" className="text-accent hover:text-primary transition-colors py-3 border-b border-primary/5 flex items-center justify-between">
                                 new arrival
-                                <span className="text-xs px-2 py-1 bg-accent text-white rounded-full animate-pulse tracking-widest">NEW</span>
+                                <span className="text-xs px-2 py-1 bg-accent text-white rounded-full animate-pulse tracking-widest font-sans">NEW</span>
                             </Link>
                             <Link onClick={() => setMenu(false)} href="/about-us" className="hover:text-accent transition-colors py-3 border-b border-primary/5">about</Link>
                             <Link onClick={() => setMenu(false)} href="/blog" className="hover:text-accent transition-colors py-3 border-b border-primary/5">blog</Link>
