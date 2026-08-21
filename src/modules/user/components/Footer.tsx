@@ -16,7 +16,7 @@ export default function Footer() {
                             <img src="/aqsha-logo.png" alt="Aqsha Logo" className="h-12 md:h-16 w-auto object-contain self-start" />
                         </div>
                         <p className="text-cream text-sm leading-relaxed max-w-sm">
-                            Direct Batik Fabric Manufacturer from Ujjain. Specializing in premium suits for women, batik print fabric, women's dress material, cotton 60 x 60 dress material, and batik suit designs for wholesale buyers, boutiques, resellers, and the modern Indian market.
+                            Direct Batik Cotton Dress for Women Manufacturer from Ujjain. Specializing in premium suits for women, batik print fabric, women's dress material, cotton 60 x 60 dress material, and batik suit designs for wholesale buyers, boutiques, resellers, and the modern Indian market.
                         </p>
                         <div className="flex flex-col gap-4 mt-2">
                             <div className="flex items-center gap-3 text-cream text-sm font-medium">
@@ -77,7 +77,7 @@ export default function Footer() {
                             <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-cream/50">Wholesale</span>
                             <div className="flex flex-col gap-4">
                                 {[
-                                    { name: "Batik Fabric Wholesale", link: "/wholesale-batik-women-dresses" },
+                                    { name: "Batik Cotton Dress for Women Wholesale", link: "/wholesale-batik-women-dresses" },
                                     { name: "Wholesale Women's Dress Material", link: "/wholesale-batik-women-dresses" },
                                     { name: "Wholesale Cotton Fabric", link: "/wholesale-batik-women-dresses" },
                                     { name: "Batik Suit Wholesale", link: "/wholesale-batik-women-dresses" },
