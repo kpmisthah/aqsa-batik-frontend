@@ -380,7 +380,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                                 </div>
                             </div>
                             <div className="p-4 md:p-6 flex flex-col gap-3 md:gap-6 flex-grow">
-                                <p className="text-sm text-primary/90 font-medium leading-relaxed">Browse wholesale Batik clothing collections created for boutiques, resellers, retailers, and growing fashion businesses.</p>
+                                <p className="text-sm text-primary/90 font-medium leading-relaxed">Browse wholesale Batik Prints Women Clothinging collections created for boutiques, resellers, retailers, and growing fashion businesses.</p>
                                 <div className="flex items-center gap-2 text-primary group-hover:text-accent font-body font-bold text-[10px] md:text-xs uppercase tracking-widest transition-colors duration-500 mt-auto pt-4">
                                     <span>Explore Collection</span>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-2 transition-transform"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
