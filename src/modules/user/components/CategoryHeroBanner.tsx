@@ -10,6 +10,7 @@ interface CategoryHeroBannerProps {
   imageSrc: string;
   imageAlt: string;
   bgColor?: string; // Edge blend color, defaults to cream
+  bgClassName?: string; // Optional tailwind class for background
   textColor?: string;
   buttons?: React.ReactNode;
   badge?: string;
@@ -23,6 +24,7 @@ export default function CategoryHeroBanner({
   imageSrc,
   imageAlt,
   bgColor = "#F5F1EC",
+  bgClassName,
   textColor = "text-primary",
   buttons,
   badge,
@@ -30,8 +32,8 @@ export default function CategoryHeroBanner({
   // Use text-white for very dark backgrounds, otherwise text-primary
   return (
     <section
-      className="relative w-full min-h-[70vh] md:min-h-[75vh] md:max-h-[800px] overflow-hidden pt-16 md:pt-0 transition-colors duration-700"
-      style={{ backgroundColor: bgColor }}
+      className={`relative w-full min-h-[70vh] md:min-h-[75vh] md:max-h-[800px] overflow-hidden pt-16 md:pt-0 transition-colors duration-700 ${bgClassName || ""}`}
+      style={bgClassName ? {} : { backgroundColor: bgColor }}
     >
       {/* ── Image with left-edge fade ── */}
       <div className="absolute inset-y-0 right-0 w-[55%] sm:w-[50%] md:w-auto md:top-0 md:bottom-0 md:h-full md:aspect-square z-10 overflow-hidden">
@@ -57,12 +59,12 @@ export default function CategoryHeroBanner({
         <div className="max-w-[58%] sm:max-w-[55%] md:max-w-4xl lg:max-w-5xl w-full flex flex-col items-start">
           {/* Tagline */}
           <div className="flex items-center justify-start gap-2 mb-3 md:mb-6">
-            <span className="text-xl leading-none hidden md:block">&diams;</span>
+            <span className="text-brand text-xl leading-none hidden md:block">&diams;</span>
             <span className="text-overline">{tagline}</span>
           </div>
 
           {/* Title */}
-          <h1 className="text-[32px] sm:text-[40px] md:text-5xl lg:text-[4rem] font-heading font-normal leading-[1.05] md:leading-[1.1] mb-2 md:mb-4 text-left tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-[56px]/[64px] font-heading font-semibold mb-2 md:mb-4 text-left tracking-tight">
             {title}
           </h1>
 
