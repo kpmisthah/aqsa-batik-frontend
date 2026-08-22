@@ -239,7 +239,7 @@ export const BLOG_POSTS: Record<string, any> = {
                 Another reason women love cotton is its versatility. From ethnic wear and casual dresses to contemporary fashion pieces, cotton adapts beautifully to different styles. Whether someone prefers minimal designs or vibrant prints, cotton provides the perfect canvas for creating fashionable outfits.
             </p>
             <p>
-                As consumers become more conscious about quality and comfort, the demand for cotton dresses for women continues to grow across both retail and online fashion markets.
+                As consumers become more conscious about quality and comfort, the demand for <a href="/batik-prints-womens-clothing" class="text-blue-600 hover:underline">cotton dresses for women</a> continues to grow across both retail and online fashion markets.
             </p>
 
             <h2>The Benefits of Choosing Cotton Dresses for Women</h2>
@@ -550,7 +550,7 @@ export const BLOG_POSTS: Record<string, any> = {
                 The first thing to evaluate is texture. Premium cotton should feel soft and smooth while maintaining a certain level of strength. Fabric that feels excessively rough or thin may not deliver long-term durability.
             </p>
             <p>
-                Print quality is another important factor. Whether you're purchasing floral designs or batik print fabric, the colors should appear vibrant and evenly distributed across the material.
+                Print quality is another important factor. Whether you're purchasing floral designs or <a href="/batik-cotton-dress-for-women" class="text-blue-600 hover:underline">batik print fabric</a>, the colors should appear vibrant and evenly distributed across the material.
             </p>
             <p>
                 Breathability also plays a crucial role. High-quality cotton allows air to pass through naturally, helping maintain comfort even in warmer climates.
@@ -638,7 +638,7 @@ export const BLOG_POSTS: Record<string, any> = {
                 The best outfit is not defined by its design alone. It is defined by how it feels when you wear it.
             </p>
             <p>
-                That is why cotton dress material continues to remain one of the most trusted fabric choices across generations. Its comfort, breathability, versatility, and durability make it suitable for nearly every lifestyle and occasion.
+                That is why <a href="/batik-prints-womens-clothing" class="text-blue-600 hover:underline">cotton dress material</a> continues to remain one of the most trusted fabric choices across generations. Its comfort, breathability, versatility, and durability make it suitable for nearly every lifestyle and occasion.
             </p>
             <p>
                 Whether you're shopping for personal use or sourcing inventory for your business, investing in quality cotton fabric is a decision that delivers long-term value.
