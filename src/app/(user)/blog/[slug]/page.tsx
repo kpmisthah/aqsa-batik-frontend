@@ -8,6 +8,8 @@ import FAQ from "@/modules/user/components/FAQ";
 import BlogContent from "./BlogContent";
 
 import { faqs as globalFaqs, BLOG_POSTS } from "@/data/blogPosts";
+import ConsistentCTA from "@/modules/user/components/ConsistentCTA";
+
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
@@ -120,7 +122,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     const displayFaqs = postSpecificFaqs && postSpecificFaqs.length > 0 ? postSpecificFaqs : globalFaqs;
                     return displayFaqs ? <FAQ items={displayFaqs} /> : null;
                 })()}
-            </main>
+              <ConsistentCTA />
+      </main>
         </div>
     );
 }
