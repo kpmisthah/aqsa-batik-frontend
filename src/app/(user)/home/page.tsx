@@ -148,7 +148,7 @@ export default function HomePage() {
             {/* Visual side with stats */}
             <div className="relative w-full aspect-[4/5] lg:aspect-auto lg:h-full min-h-[450px] bg-cream overflow-hidden rounded-[2px] shadow-sm border border-primary/10 lg:order-1 order-1">
               <Image
-                src="/Premium Batik Fashion Banner (1).png"
+                src="/round-category/beautiful dresses for women.webp"
                 alt="Aqsha Roots"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
