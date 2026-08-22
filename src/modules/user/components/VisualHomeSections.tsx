@@ -96,7 +96,7 @@ export function FeaturedGridSection() {
                 <div className="text-center flex flex-col items-center gap-3 md:gap-4 max-w-4xl mx-auto px-2 md:px-6">
                     <span className="text-overline uppercase tracking-[0.2em] font-bold text-primary/80">Fresh Batik Styles</span>
                     <h2 className="text-h2 md:text-h1 text-primary font-normal leading-tight">
-                        New Arrival <span className="text-highlight italic">Women's Suits &</span> <br className="hidden md:block" /> Batik Dress <span className="text-highlight italic">Material</span>
+                        <span className="text-highlight italic">New Arrival</span>{" "}Women's Suits & <br className="hidden md:block" /> Batik Dress Material
                     </h2>
                     <p className="text-sm md:text-base text-primary/80 font-medium leading-relaxed mt-2">
                         Discover fresh batik blouse designs, printed styles, designer women's dresses, and quality cotton fabric for kurtis—created for effortless everyday dressing. Explore new prints, seasonal styles, and ready-to-wear collections designed around modern Indian fashion.
@@ -278,7 +278,7 @@ export function TrendingCollectionsBannerSection() {
             <div className="max-w-[1400px] mx-auto flex flex-col items-center text-center gap-3 md:gap-5 mb-10 md:mb-16 px-6">
                 <span className="text-overline">TRENDING COLLECTIONS</span>
                 <h2 className="font-heading text-2xl md:text-4xl font-normal text-primary leading-tight">
-                    Batik Styles <span className="text-highlight">Worth Wearing</span> <br className="hidden md:block" /> Trending Batik Suits & <span className="text-highlight">Women's Clothing</span>
+                    Batik Styles Worth Wearing <br className="hidden md:block" /> Trending Batik Suits & <span className="text-highlight">Women's Clothing</span>
                 </h2>
                 <p className="text-body1 mt-2 text-center w-full max-w-2xl mx-auto text-primary/80">
                     Explore trending batik prints, fresh Batik Prints Women Clothing designs, cotton dresses for women, and ready-to-wear collections created for everyday shoppers, boutiques, resellers, and fashion businesses.
