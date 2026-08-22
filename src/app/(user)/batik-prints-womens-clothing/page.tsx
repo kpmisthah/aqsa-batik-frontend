@@ -75,7 +75,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
             <Nav />
             <ScrollObserver />
             <CategoryHeroBanner
-                tagline="Trending Batik Prints Women Clothinges"
+                tagline="Trending Batik Clothes"
                 title={
                     <>
                         Batik Prints for Women’s <br className="hidden md:block" /> Clothing, Made for <br className="hidden md:block" /><span className="text-highlight">Everyday Life</span>
@@ -88,10 +88,10 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                 textColor="text-primary"
                 buttons={
                     <>
-                        <a href="#collection" className="btn-primary rounded-full shadow-sm">
+                        <a href="#collection" className="bg-highlight hover:bg-highlight/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center transition-colors shadow-sm text-center">
                             Shop Batik Suits
                         </a>
-                        <a href={WA} target="_blank" rel="noreferrer" className="btn-secondary rounded-full">
+                        <a href={WA} target="_blank" rel="noreferrer" className="border border-highlight/40 hover:border-highlight text-highlight hover:bg-highlight/10 px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center transition-colors bg-white/20 backdrop-blur-sm text-center">
                             Become a Wholesale Partner
                         </a>
                     </>
@@ -270,27 +270,34 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
                         {[
                             {
                                 t: "Ethnic Wear for Women",
                                 d: "Explore distinctive batik prints, breathable cotton styles, and timeless silhouettes made for everyday and occasion wear.",
-                                l: "/batik-cotton-dress-for-women",
-                                img: "/gallery_explore.png",
+                                l: "/batik-ethnic-wear-for-women",
+                                img: "/round-category/Ethnic Wear for Women.webp",
                                 tag: "Category"
                             },
                             {
                                 t: "Batik Cotton Dress for Women",
                                 d: "Soft, breathable batik cotton made for effortless everyday style, comfort, and graceful dressing.",
-                                l: "/batik-prints-womens-clothing",
-                                img: "/gallery_arrival.png",
+                                l: "/batik-cotton-dress-for-women",
+                                img: "/round-category/Batik Cotton Dress for Women Catagory image.webp",
                                 tag: "Collection"
                             },
                             {
+                                t: "New Arrival",
+                                d: "Discover our latest batik prints, fresh colours, and contemporary women’s clothing styles.",
+                                l: "/new-batik-prints-suits",
+                                img: "/round-category/New Arrival catagory image.webp",
+                                tag: "Latest"
+                            },
+                            {
                                 t: "Wholesale",
-                                d: "Browse wholesale Batik Prints Women Clothinging collections designed for boutiques, resellers, and growing women fashion businesses.",
+                                d: "Browse wholesale batik clothing collections designed for boutiques, resellers, and growing women fashion businesses.",
                                 l: "/wholesale-batik-women-dresses",
-                                img: "/gallery_wholesale.png",
+                                img: "/round-category/Wholesale catagory image.webp",
                                 tag: "Inquiry"
                             }
                         ].map((item, i) => (
@@ -299,18 +306,19 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                                     src={item.img}
                                     alt={item.t}
                                     fill
-                                    sizes="(max-width: 768px) 50vw, 33vw"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                                     className="object-cover object-center group-hover:scale-105 transition-transform duration-[1500ms] ease-out brightness-100 group-hover:brightness-95"
+                                    unoptimized
                                 />
                                 <div className="absolute top-4 left-4 md:top-6 md:left-6">
                                     <span className="bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-primary shadow-sm">{item.tag}</span>
                                 </div>
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none"></div>
                                 <div className="absolute inset-0 flex flex-col items-center justify-end p-6 md:p-8 text-center">
-                                    <h3 className="font-heading text-2xl md:text-3xl font-medium text-white leading-tight mb-2">{item.t}</h3>
-                                    <p className="text-white/90 text-sm md:text-base leading-relaxed mb-4 md:mb-6">{item.d}</p>
+                                    <h3 className="font-heading text-2xl font-medium text-white leading-tight mb-2">{item.t}</h3>
+                                    <p className="text-white/90 text-sm leading-relaxed mb-4 md:mb-6">{item.d}</p>
 
-                                    <div className="flex items-center gap-2 mt-2 bg-white/20 backdrop-blur-sm px-4 md:px-6 py-2 md:py-3 rounded-full text-white font-bold text-[10px] md:text-xs uppercase tracking-widest overflow-hidden">
+                                    <div className="flex items-center gap-2 mt-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-white font-bold text-[10px] uppercase tracking-widest overflow-hidden">
                                         <span>Explore Collection</span>
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transform -translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500">
                                             <path d="M5 12h14m-7-7 7 7-7 7" />
