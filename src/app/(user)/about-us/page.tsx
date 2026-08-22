@@ -9,6 +9,8 @@ import { useBanner } from "@/modules/user/hooks/useBanner";
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
 import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
 import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
+import ConsistentCTA from "@/modules/user/components/ConsistentCTA";
+
 
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Aqsha%20Batik";
 
@@ -452,6 +454,10 @@ export default function AboutPage() {
                     )
                 }
             ]} />
+
+            {/* ── CONSISTENT CTA ── */}
+            <ConsistentCTA />
+
         </div>
     );
 }
