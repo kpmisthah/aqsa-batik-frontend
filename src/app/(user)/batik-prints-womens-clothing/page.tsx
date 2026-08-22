@@ -279,14 +279,14 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                                 t: "Ethnic Wear for Women",
                                 d: "Explore distinctive batik prints, breathable cotton styles, and timeless silhouettes made for everyday and occasion wear.",
                                 l: "/batik-ethnic-wear-for-women",
-                                img: "/round-category/Ethnic Wear for Women.webp",
+                                img: "/Batik-print-women-clothing/Ethnic Wear for Women.webp",
                                 tag: "Category"
                             },
                             {
                                 t: "Batik Cotton Dress for Women",
                                 d: "Soft, breathable batik cotton made for effortless everyday style, comfort, and graceful dressing.",
                                 l: "/batik-cotton-dress-for-women",
-                                img: "/round-category/Batik Cotton Dress for Women Catagory image.webp",
+                                img: "/Batik-print-women-clothing/Batik cotton dress for women.webp",
                                 tag: "Collection"
                             },
                             {
@@ -300,7 +300,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                                 t: "Wholesale",
                                 d: "Browse wholesale batik clothing collections designed for boutiques, resellers, and growing women fashion businesses.",
                                 l: "/wholesale-batik-women-dresses",
-                                img: "/round-category/Wholesale catagory image.webp",
+                                img: "/Batik-print-women-clothing/wholesale women clothing.webp",
                                 tag: "Inquiry"
                             }
                         ].map((item, i) => (
