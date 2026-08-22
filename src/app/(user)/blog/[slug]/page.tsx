@@ -7,7 +7,7 @@ import Link from "next/link";
 import FAQ from "@/modules/user/components/FAQ";
 import BlogContent from "./BlogContent";
 
-import { faqs } from "@/data/blogPosts";
+import { faqs as globalFaqs, BLOG_POSTS } from "@/data/blogPosts";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
@@ -95,9 +95,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
             <main className="pt-40">
                 <article className="max-w-4xl mx-auto px-6">
-                    <div className="mb-12 flex flex-col gap-6 items-center text-center max-w-3xl mx-auto">
+                    <div className="mb-12 flex flex-col gap-6 items-center text-center w-full mx-auto">
                         <span className="text-overline">{post.category}</span>
-                        <h1 className="text-h2 md:text-5xl text-primary font-normal leading-tight">{post.title}</h1>
+                        <h1 className="text-h2 leading-tight">{post.title}</h1>
                         <p className="text-accent font-bold uppercase tracking-widest text-[10px] md:text-xs flex items-center gap-4 flex-wrap justify-center mt-2">
                             <span>{post.date}</span>
                             <span className="w-1 h-1 rounded-full bg-accent"></span>
@@ -115,7 +115,11 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     <BlogContent content={post.content} />
                 </article>
 
-                {faqs && <FAQ items={faqs} />}
+                {(() => {
+                    const postSpecificFaqs = BLOG_POSTS[slug]?.faqs;
+                    const displayFaqs = postSpecificFaqs && postSpecificFaqs.length > 0 ? postSpecificFaqs : globalFaqs;
+                    return displayFaqs ? <FAQ items={displayFaqs} /> : null;
+                })()}
             </main>
         </div>
     );
