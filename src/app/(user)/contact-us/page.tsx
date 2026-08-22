@@ -7,6 +7,8 @@ import FAQ from '@/modules/user/components/FAQ';
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
 import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
 import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
+import ConsistentCTA from "@/modules/user/components/ConsistentCTA";
+
 
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20discuss%20a%20business%20inquiry.";
 
@@ -112,7 +114,7 @@ export default async function ContactPage() {
                     <div className="lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left w-full">
                         <span className="text-overline text-accent tracking-[0.3em] font-bold uppercase mb-4 md:mb-6 block">Get In Touch</span>
                         <h2 className="font-heading text-3xl md:text-4xl text-primary font-normal mb-8 leading-[1.1]">
-                            Get Personalized <span className="text-highlight">Batik Cotton Dress for Women Pricing</span> & Expert Guidance
+                            Get Personalized <span className="text-highlight">Batik Cotton Dress</span> <br className="hidden md:block" /> for Women Pricing & Expert Guidance
                         </h2>
 
                         <div className="space-y-6 mb-12">
@@ -198,6 +200,10 @@ export default async function ContactPage() {
                 { q: "Do you ship across India?", a: "Yes. We provide reliable dispatch and delivery services across India." },
                 { q: "How can I get the latest catalogue?", a: "Simply submit the enquiry form or contact us on WhatsApp to receive the latest Batik Cotton Dress for Women catalogue and pricing details." }
             ]} />
+
+            {/* ── CONSISTENT CTA ── */}
+            <ConsistentCTA />
+
 
             {/* ── FINAL CTA ── */}
             <section className="scroll-animate pt-2 pb-24 md:py-24 px-6 bg-cream border-t-0 border-primary/10">
