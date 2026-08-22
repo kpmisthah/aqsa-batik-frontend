@@ -128,7 +128,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto w-full">
                         {collectionHighlights.map((item, i) => (
                             <div key={i} className="flex flex-col gap-5 md:gap-6 group">
-                                <div className="relative w-full aspect-[4/5] md:aspect-[3/4] overflow-hidden rounded-[24px] border border-border shadow-sm group-hover:shadow-xl transition-shadow duration-500">
+                                <div className="relative w-full aspect-[3/4] overflow-hidden rounded-[24px] border border-border shadow-sm group-hover:shadow-xl transition-shadow duration-500">
                                     <Image
                                         src={item.img}
                                         alt={item.t}
