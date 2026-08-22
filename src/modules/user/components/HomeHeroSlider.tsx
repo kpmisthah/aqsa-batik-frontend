@@ -24,65 +24,102 @@ interface SlideData {
 const DEFAULT_SLIDES: SlideData[] = [
   {
     id: 1,
-    image: "/clean_slider_1.png",
+    image: "/Hero Banner/cotton-cloth.webp",
     bgColor: "#E0CFBB",
-    imageAlt: "Premium Batik Cotton Dress for Women",
-    tagline: "PREMIUM BATIK COTTON COLLECTION",
+    imageAlt: "Batik Print Suits for Women",
+    tagline: "TRUSTED UJJAIN BATIK MANUFACTURER",
     title: (
       <>
-        Premium Batik Printed<br />
-        <span className="text-accent">Cotton</span> Fabric
+        Batik Print Suits<br />
+        <span className="text-highlight">for Women</span>
       </>
     ),
     subtitle: (
-      <span className="font-serif italic font-light text-primary/80">Crafted for Everyday Elegance</span>
+      <span className="font-serif italic font-light text-primary/80">Wear Your Heritage. Own Your Style.</span>
     ),
-    description: "Discover breathable batik printed cotton fabric designed for comfort, style, and timeless beauty. Perfect for boutiques, designers, and women who love effortless elegance.",
-    primaryButtonLabel: "SHOP COLLECTION",
+    description: "Discover stylish women's clothing featuring distinctive batik designs, breathable cotton fabrics, and thoughtfully crafted suits made for everyday confidence and effortless Indian style.",
+    primaryButtonLabel: "SHOP BATIK SUITS",
     primaryButtonLink: "/cotton-cloth",
-    secondaryButtonLabel: "GET WHOLESALE PRICING",
-    secondaryButtonLink: "https://wa.me/918815373767?text=Hi%2C%20I%20want%20the%20wholesale%20catalogue"
+    secondaryButtonLabel: "BECOME A WHOLESALE PARTNER",
+    secondaryButtonLink: "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20become%20a%20wholesale%20partner"
   },
   {
     id: 2,
-    image: "/clean_slider_2_pants.png",
+    image: "/Hero Banner/cotton dress material.webp",
     bgColor: "#DDC9B0",
-    imageAlt: "Wholesale Cotton",
-    tagline: "MANUFACTURER DIRECT",
+    imageAlt: "Handprinted Batik Women's Clothing",
+    tagline: "HANDPRINTED BATIK WOMEN'S CLOTHING",
     title: (
       <span>
-        Wholesale Batik<br />
-        <span className="text-accent">Clothing</span> &amp; Suits
+        Handprinted Batik Cotton<br />
+        <span className="text-highlight">Suits for Women</span>
       </span>
     ),
     subtitle: (
-      <span className="font-serif italic font-light text-primary/80">Zero Middleman Markup</span>
+      <span className="font-serif italic font-light text-primary/80">Everyday Comfort & Character</span>
     ),
-    description: "Stop guessing what will sell. Work with a direct manufacturer supplying high-demand Batik Cotton Dress for Women wholesale and consistent inventory for growing fashion brands.",
-    primaryButtonLabel: "GET CATALOGUE",
-    primaryButtonLink: "/fabric-wholesale",
-    secondaryButtonLabel: "VIEW COLLECTION",
-    secondaryButtonLink: "/batik-ethnic-wear-for-women"
+    description: "Order handprinted batik cotton suits for women, from elegant party wear suits and flowy frock suits to timeless Anarkali styles and versatile suit sets. Designed for women who value comfort, character, and effortless style.",
+    primaryButtonLabel: "EXPLORE BATIK COLLECTION",
+    primaryButtonLink: "/batik-ethnic-wear-for-women"
   },
   {
     id: 3,
     title: (
       <span>
-        Authentic Jaipuri<br />
-        <span className="font-serif italic font-light">Handblock </span>
-        <span className="text-accent">Suits</span>
+        New Arrival Batik<br />
+        <span className="text-highlight">Ladies Suits</span>
       </span>
     ),
-    subtitle: "Experience True Heritage",
-    description: "Explore our latest collection of intricately designed, premium cotton suits perfect for any occasion. Rich colors and patterns that celebrate tradition.",
-    tagline: "FESTIVE COLLECTION",
-    image: "/clean_slider_3.png",
-    imageAlt: "Authentic Jaipuri Handblock Suits",
+    subtitle: (
+      <span className="font-serif italic font-light text-primary/80">Light Touch. Big Impression.</span>
+    ),
+    description: "Step into the season with fresh batik prints, elegant ladies suit designs, breathable summer suits, and easy-to-wear styles made for everyday Indian dressing.",
+    tagline: "NEW BATIK DESIGN COLLECTIONS",
+    image: "/Hero Banner/cotton dress for women.webp",
+    imageAlt: "New Arrival Batik Ladies Suits",
     primaryButtonLabel: "SHOP NEW ARRIVALS",
-    primaryButtonLink: "/new-arrivals",
-    secondaryButtonLabel: "VIEW CATALOG",
-    secondaryButtonLink: "/catalog",
+    primaryButtonLink: "/new-batik-prints-suits",
     bgColor: "#D5B793"
+  },
+  {
+    id: 4,
+    title: (
+      <span>
+        Summer Suits<br />
+        <span className="text-highlight">for Women</span>
+      </span>
+    ),
+    subtitle: (
+      <span className="font-serif italic font-light text-primary/80">Batik Print. Up to 50% Off.</span>
+    ),
+    description: "Discover handcrafted batik print cotton suits and beautiful dresses for women, designed to keep you cool, comfortable, confident, and effortlessly elegant throughout the season.",
+    tagline: "SUMMER SALE OFFER",
+    image: "/Hero Banner/ethnic wear for women.webp",
+    imageAlt: "Summer Suits for Women",
+    primaryButtonLabel: "SHOP SUMMER SALE",
+    primaryButtonLink: "/batik-cotton-dress-for-women",
+    bgColor: "#CDBA9F"
+  },
+  {
+    id: 5,
+    title: (
+      <span>
+        Wholesale Women's Dresses<br />
+        <span className="text-highlight">&amp; Batik Suits</span>
+      </span>
+    ),
+    subtitle: (
+      <span className="font-serif italic font-light text-primary/80">Premium Quality for Growing Businesses</span>
+    ),
+    description: "Explore ready-to-sell women's fashion collections featuring batik suits, cotton dresses, elegant suit sets, and designer-inspired styles for boutiques, resellers, online sellers, and growing fashion businesses across India.",
+    tagline: "WHOLESALE BATIK FABRIC READY STOCK",
+    image: "/Hero Banner/women dresses .webp",
+    imageAlt: "Wholesale Women's Dresses",
+    primaryButtonLabel: "SHOP WHOLESALE",
+    primaryButtonLink: "/wholesale-batik-women-dresses",
+    secondaryButtonLabel: "BECOME A WHOLESALE PARTNER",
+    secondaryButtonLink: "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20become%20a%20wholesale%20partner",
+    bgColor: "#D8C3A5"
   }
 ];
 
@@ -108,7 +145,7 @@ export default function HomeHeroSlider() {
             return (
               <React.Fragment key={i}>
                 {segments[0]}
-                <span className="text-accent">{highlightWord}</span>
+                <span className="text-highlight">{highlightWord}</span>
                 {segments[1]}
                 {i < parts.length - 1 && <br />}
               </React.Fragment>
@@ -128,6 +165,8 @@ export default function HomeHeroSlider() {
   useEffect(() => {
     const fetchSlides = async () => {
       try {
+        // Temporarily disabled to force the usage of DEFAULT_SLIDES
+        /*
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/home-slider/active`);
         if (res.ok) {
           const data = await res.json();
@@ -138,6 +177,7 @@ export default function HomeHeroSlider() {
             }
           }
         }
+        */
       } catch (err) {
         console.error('Failed to load active slides, using default slides', err);
       }
@@ -211,48 +251,41 @@ export default function HomeHeroSlider() {
             index === current ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
           }`}
         >
-          {/* Flawless Image Layout */}
+          {/* Full Banner Image Layout with Gradient */}
           <div className="absolute inset-0 z-10 overflow-hidden">
-            {/* The Image Square, anchored to the right, fading on the left! */}
-            <div 
-              className="absolute top-0 bottom-0 right-0 h-full aspect-square"
-              style={{
-                maskImage: "linear-gradient(to right, transparent 0%, black 20%, black 100%)",
-                WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 20%, black 100%)"
-              }}
-            >
+            <div className="absolute inset-0 w-full h-full bg-[#F4F1EA]">
               <Image
                 src={slide.image}
-                alt={slide.imageAlt}
+                alt={slide.imageAlt || "Hero Banner"}
                 fill
                 priority={index === 0}
-                className="object-cover transform transition-transform duration-[10s] ease-linear"
+                className="object-cover object-center transform transition-transform duration-[10s] ease-linear"
                 style={{
                   transform: index === current ? "scale(1.02)" : "scale(1)"
                 }}
               />
             </div>
             
-            {/* Mobile overlays for text readability over the image */}
-            <div className="absolute inset-0 md:hidden z-10 pointer-events-none">
-              <div 
-                className="absolute inset-0 w-[85%] z-10"
-                style={{ background: `linear-gradient(to right, ${slide.bgColor} 0%, ${slide.bgColor}CC 50%, ${slide.bgColor}00 100%)` }}
-              ></div>
-              <div 
-                className="absolute inset-x-0 bottom-0 h-[60%] z-10"
-                style={{ background: `linear-gradient(to top, ${slide.bgColor} 0%, ${slide.bgColor}80 50%, ${slide.bgColor}00 100%)` }}
-              ></div>
-            </div>
+            {/* Elegant gradient overlay for text readability (left side) */}
+            <div 
+              className="absolute inset-0 z-10 pointer-events-none w-full md:w-[65%]"
+              style={{ background: `linear-gradient(to right, ${slide.bgColor || '#F4F1EA'}E6 0%, ${slide.bgColor || '#F4F1EA'}99 50%, transparent 100%)` }}
+            ></div>
+            
+            {/* Mobile gradient from bottom */}
+            <div 
+              className="absolute inset-x-0 bottom-0 h-[70%] z-10 pointer-events-none md:hidden"
+              style={{ background: `linear-gradient(to top, ${slide.bgColor || '#F4F1EA'}F2 0%, ${slide.bgColor || '#F4F1EA'}B3 50%, transparent 100%)` }}
+            ></div>
           </div>
 
           {/* Text Content */}
-          <div className="relative z-20 h-full max-w-[1600px] mx-auto w-full flex flex-col justify-end md:justify-center items-start px-6 sm:px-12 md:px-12 lg:px-20 text-left pb-12 md:pb-0">
-            <div className="max-w-[90%] md:max-w-4xl lg:max-w-5xl w-full flex flex-col items-start text-primary">
+          <div className="relative z-20 h-full max-w-[1600px] mx-auto w-full flex flex-col justify-end md:justify-center items-start px-6 sm:px-12 md:px-12 lg:px-20 text-left pb-16 md:pb-0 pointer-events-none">
+            <div className="max-w-[95%] md:max-w-3xl lg:max-w-4xl w-full flex flex-col items-start text-primary pointer-events-auto">
               
-              <div className="flex items-center justify-start gap-2 mb-3 md:mb-6 text-primary">
-                <span className="text-xl leading-none hidden md:block">&diams;</span>
-                <span className="text-overline">
+              <div className="flex items-center justify-start gap-2 mb-3 md:mb-5 text-primary">
+                <span className="text-xl leading-none hidden md:block text-brand">&diams;</span>
+                <span className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-bold text-brand">
                   {slide.tagline}
                 </span>
               </div>
@@ -269,16 +302,10 @@ export default function HomeHeroSlider() {
                 {slide.description}
               </p>
               
-              {slide.badge && (
-                <div className="bg-primary text-white py-2 px-5 md:py-2.5 md:px-6 rounded-full mb-6 md:mb-8 font-bold text-[10px] md:text-sm shadow-md inline-block leading-tight border border-primary/20">
-                  {slide.badge}
-                </div>
-              )}
-              
               <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-start w-full sm:w-auto">
                 <Link 
                   href={slide.primaryButtonLink}
-                  className="bg-primary hover:bg-primary/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm w-full sm:w-auto text-center"
+                  className="bg-highlight hover:bg-highlight/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm w-full sm:w-auto text-center"
                 >
                   {slide.primaryButtonLabel}
                 </Link>
@@ -286,7 +313,7 @@ export default function HomeHeroSlider() {
                 {slide.secondaryButtonLabel && (
                   <Link 
                     href={slide.secondaryButtonLink!}
-                    className="border border-primary/30 hover:border-primary text-primary px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors bg-white/20 backdrop-blur-sm hover:bg-white/40 w-full sm:w-auto text-center"
+                    className="border border-highlight/40 hover:border-highlight text-highlight hover:bg-highlight/10 px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors bg-white/20 backdrop-blur-sm w-full sm:w-auto text-center"
                   >
                     {slide.secondaryButtonLabel}
                   </Link>
