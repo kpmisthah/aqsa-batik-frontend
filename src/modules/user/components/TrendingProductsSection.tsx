@@ -70,7 +70,7 @@ export default function TrendingProductsSection() {
                 <div className="flex flex-col items-center justify-center text-center mb-10 md:mb-12 gap-3 md:gap-4 max-w-4xl lg:max-w-5xl mx-auto">
                     <span className="text-overline uppercase tracking-[0.2em] font-bold text-primary/80">Best Batik Suit Designs</span>
                     <h2 className="text-h2 md:text-h1 text-primary font-normal leading-tight">
-                        Best-Selling Batik Suits <span className="text-highlight italic">in Cotton Styles</span>
+                        Best-Selling Batik Suits in <span className="text-highlight italic">Cotton Styles</span>
                     </h2>
                     <p className="text-sm md:text-base text-primary/80 font-medium leading-relaxed mt-2 max-w-4xl">
                         Discover best-selling batik suit designs, stylish suit designs for women, cotton dress material, and printed dresses made for everyday wear, festive moments, and effortless Indian styling.
