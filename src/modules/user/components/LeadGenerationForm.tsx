@@ -11,7 +11,7 @@ interface LeadGenerationFormProps {
 export default function LeadGenerationForm({
     title = (
         <>
-            Get Personalized <span className="text-highlight italic">Batik Cotton Dress for Women</span> <br className="hidden md:block" /> Pricing & <span className="text-highlight italic">Catalog</span>
+            Get Personalized <span className="text-highlight italic">Batik Cotton Dress</span> <br className="hidden md:block" /> for Women Pricing & Catalog
         </>
     ),
     description = "Explore our latest batik designs, batik print fabric, batik dress material, and batik suit collections with personalized wholesale pricing, ready-stock updates, and collection catalogs from AQSHA Batik Suits.",
