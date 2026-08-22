@@ -9,6 +9,8 @@ import { categories, faqs } from '@/data/blogPosts';
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
 import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
 import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
+import ConsistentCTA from "@/modules/user/components/ConsistentCTA";
+
 
 
 export const metadata: Metadata = {
@@ -279,6 +281,10 @@ export default async function BlogIndexPage() {
             </section>
 
             <FAQ items={faqs} />
+
+            {/* ── CONSISTENT CTA ── */}
+            <ConsistentCTA />
+
 
             {/* ── FINAL CTA ── */}
             <section className="scroll-animate pt-2 pb-24 md:py-24 px-6 bg-cream border-t-0 border-primary/10">
