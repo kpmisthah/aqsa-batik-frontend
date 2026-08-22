@@ -1,5 +1,7 @@
 "use client";
 import Nav from "@/modules/user/components/Nav";
+import ConsistentCTA from "@/modules/user/components/ConsistentCTA";
+
 
 export default function TermsAndConditions() {
   return (
@@ -70,6 +72,7 @@ export default function TermsAndConditions() {
 
           </div>
         </div>
+        <ConsistentCTA />
       </main>
 
     </div>
