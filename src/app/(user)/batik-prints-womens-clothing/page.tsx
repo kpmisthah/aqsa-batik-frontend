@@ -115,27 +115,28 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                             {
                                 t: "DRESS MATERIALS",
                                 d: "Create comfortable batik print kurtis, suits, and everyday cotton dresses with breathable fabric.",
-                                img: "/app_dress_materials.png"
+                                img: "/Batik-print-women-clothing/batik-fabric-manufacturing.webp"
                             },
                             {
                                 t: "BOUTIQUE COLLECTIONS",
                                 d: "Build distinctive womens clothing collections with versatile batik prints and easy-to-style cotton designs.",
-                                img: "/app_boutique.png"
+                                img: "/Batik-print-women-clothing/trending clothes for women.webp"
                             },
                             {
                                 t: "CUSTOM DESIGNS",
                                 d: "Create personalized suits, blouse styles, plus-size looks, and seasonal outfits from versatile Batik Cotton Dress for Women.",
-                                img: "/app_custom.png"
+                                img: "/Batik-print-women-clothing/cotton cloth.webp"
                             }
                         ].map((item, i) => (
                             <div key={i} className="flex flex-col gap-5 md:gap-6 group">
-                                <div className="relative w-full aspect-[4/5] md:aspect-[3/4] overflow-hidden rounded-[24px] border border-primary/10 shadow-sm group-hover:shadow-xl transition-shadow duration-500">
+                                <div className="relative w-full aspect-square overflow-hidden rounded-[24px] border border-primary/10 shadow-sm group-hover:shadow-xl transition-shadow duration-500">
                                     <Image 
                                         src={item.img} 
                                         alt={item.t} 
                                         fill 
                                         sizes="(max-width: 768px) 100vw, 33vw"
-                                        className="object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-out" 
+                                        className="object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-out"
+                                        unoptimized
                                     />
                                 </div>
                                 <div className="flex flex-col gap-3 text-center items-center px-2">
@@ -176,8 +177,9 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                     "<span class='block font-semibold mb-0.5 text-[15px]'>Durable Quality</span><span class='block text-sm font-normal opacity-85 leading-snug'>Built to retain its comfort and character through regular wear.</span>",
                     "<span class='block font-semibold mb-0.5 text-[15px]'>Soft & Skin-Friendly</span><span class='block text-sm font-normal opacity-85 leading-snug'>Smooth against the skin, offering comfortable wear all day.</span>"
                 ]}
-                imageSrc="/advantage_batik_cotton.png"
-                mobileImageSrc="/advantage_batik_cotton.png"
+                imageSrc="/Batik-print-women-clothing/printed cotton fabric.webp"
+                mobileImageSrc="/Batik-print-women-clothing/printed cotton fabric.webp"
+                imageContainerClassName="aspect-square"
                 featureTag="FABRIC STANDARD"
                 featureTitle="Pure Cotton 60x60"
                 featureDesc="Made from pure 60x60 cotton, our fabric is lightweight, breathable, soft to the touch, and durable enough for comfortable everyday batik womens clothing."
@@ -248,8 +250,9 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                         )
                     }
                 ]}
-                imageSrc="/premium_fabric_hero.png"
-                mobileImageSrc="/premium_fabric_hero.png"
+                imageSrc="/Batik-print-women-clothing/dress material.webp"
+                mobileImageSrc="/Batik-print-women-clothing/dress material.webp"
+                imageContainerClassName="aspect-square w-full"
                 quote="Our premium Batik Prints Women Clothing offers the perfect canvas for your fashion creations, blending traditional art with superior comfort."
             />
             <HowToOrderSection
