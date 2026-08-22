@@ -24,10 +24,10 @@ export default function PremiumTrustSection() {
                 <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
                     
                     {/* Left Visual */}
-                    <div className="w-full lg:w-1/2 relative group h-[450px] md:h-[550px] lg:h-[650px]">
+                    <div className="w-full lg:w-1/2 relative group aspect-[4/3]">
                         <div className="relative w-full h-full overflow-hidden rounded-xl md:rounded-2xl shadow-sm z-10 border border-primary/10 bg-tan">
                             <Image
-                                src="/Luxury Batik Fashion Banner (169) (1).png"
+                                src="/round-category/indian dresses for girls.webp"
                                 alt="Workshop"
                                 fill
                                 unoptimized
