@@ -1,5 +1,7 @@
 "use client";
 import Nav from "@/modules/user/components/Nav";
+import ConsistentCTA from "@/modules/user/components/ConsistentCTA";
+
 
 export default function CancellationPolicy() {
   return (
@@ -49,6 +51,7 @@ export default function CancellationPolicy() {
 
           </div>
         </div>
+        <ConsistentCTA />
       </main>
 
     </div>
