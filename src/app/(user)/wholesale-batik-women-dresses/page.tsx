@@ -379,7 +379,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-10 md:gap-12">
                     <div className="flex flex-col gap-3 text-center items-center mx-auto max-w-4xl">
                         <span className="text-overline">BUILT FOR REAL MARKET USE</span>
-                        <h2 className="text-h2">Wholesale Women Dresses for <br className="hidden md:block" /> <span className="text-highlight">Growing Fashion Businesses</span></h2>
+                        <h2 className="text-h2">Wholesale Women Dresses <br className="hidden md:block" /> for Growing <span className="text-highlight">Fashion Businesses</span></h2>
                         <p className="text-lg md:text-xl text-foreground leading-relaxed mt-1 max-w-3xl">
                             From boutique collections to bulk supply, our wholesale range combines distinctive Batik design, comfortable cotton, and versatile silhouettes made for everyday and occasion wear.
                         </p>
@@ -408,7 +408,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                     <div className="flex flex-col gap-8 md:gap-12 mt-6 md:mt-12">
                         <div className="flex flex-col gap-3 md:gap-4 text-center items-center mx-auto max-w-4xl">
                             <span className="text-overline">HIGH-DEMAND DRESS COLLECTION</span>
-                            <h2 className="text-h3">Explore Wholesale Women Dresses <span className="text-highlight">Customers Want to Wear</span></h2>
+                            <h2 className="text-h2">Explore Wholesale Women Dresses <br className="hidden md:block" /> Customers <span className="text-highlight">Want to Wear</span></h2>
                             <p className="text-lg md:text-xl text-foreground leading-relaxed mt-1 w-full text-center">Discover Batik dresses, cotton dresses for women, casual styles, floral prints, and versatile silhouettes selected for retail appeal.</p>
                         </div>
                         <ProductFilterLayout
@@ -424,7 +424,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
 
             <PremiumFeatureSection
                 tag="Why Buyers Choose Our Supply"
-                title={<>Why Our Wholesale Women Dresses <span className="text-highlight">Stand Out</span></>}
+                title={<>Why Our Wholesale Women <br className="hidden md:block" /> Dresses <span className="text-highlight">Stand Out</span></>}
                 features={[
                     {
                         t: "Distinctive Batik Design",
@@ -493,7 +493,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
 
             <HowToOrderSection
                 tag="WHOLESALE PROCESS"
-                title="How to Order Wholesale Women Dresses"
+                title={<>How to Order Wholesale <span className="text-highlight">Women Dresses</span></>}
                 subtitle="Five simple steps to move from product discovery to bulk supply."
                 whatsappLink={WA}
                 ctaText="Become a Wholesale Partner"
@@ -532,7 +532,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
                     <div className="flex flex-col gap-3 md:gap-4 text-center items-center max-w-4xl mx-auto w-full">
                         <span className="text-overline">NEXT STEP</span>
-                        <h2 className="text-h2">Continue Your <span className="text-highlight">Batik Dresses</span> <br className="hidden md:block" /> Wholesale <span className="text-highlight">Sourcing Journey</span></h2>
+                        <h2 className="text-h2">Continue Your Batik Dresses <br className="hidden md:block" /> Wholesale <span className="text-highlight">Sourcing Journey</span></h2>
                         <p className="text-lg md:text-xl text-foreground leading-relaxed mt-1 max-w-3xl">
                             Explore complementary collections to build a stronger women's fashion assortment.
                         </p>
@@ -604,7 +604,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                     {/* Section Header */}
                     <div className="flex flex-col gap-3 md:gap-4 text-center items-center max-w-5xl mx-auto w-full">
                         <span className="text-overline">FASHION & FABRIC JOURNAL</span>
-                        <h2 className="text-h2 font-heading text-primary leading-tight">The Wholesale <span className="text-highlight">Women Dresses Journal</span></h2>
+                        <h2 className="text-h2 font-heading text-primary leading-tight">The Wholesale <span className="text-highlight">Women Dresses</span> Journal</h2>
                         <div className="w-16 h-[2px] bg-secondary mt-2"></div>
                         <p className="text-lg md:text-xl text-foreground leading-relaxed mt-2">
                             Explore insights on Batik dress designs, cotton dresses, printed fabrics, women's fashion trends, and practical sourcing ideas to help retailers choose better stock and build stronger collections.
@@ -742,7 +742,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                     <div className="flex flex-col gap-8 md:gap-12">
                         <div className="flex flex-col gap-3 md:gap-6 text-center lg:text-left">
                             <span className="text-overline">The Market Reality</span>
-                            <h2 className="font-heading text-2xl md:text-4xl font-medium text-primary leading-tight">Customers Do Not Buy More Choices. <br className="hidden lg:block"/> <span className="text-highlight">They Buy Better Choices.</span></h2>
+                            <h2 className="text-h2">Customers Do Not Buy More Choices. <br className="hidden lg:block"/> They Buy <span className="text-highlight">Better Choices.</span></h2>
                         </div>
                         <div className="flex flex-col gap-5 md:gap-8">
                             {[

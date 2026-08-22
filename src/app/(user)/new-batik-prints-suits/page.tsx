@@ -81,7 +81,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                 bgColor="#D4D1CC"
                 buttons={
                     <>
-                        <a href="#collection" className="bg-accent hover:bg-accent/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm">
+                        <a href="#collection" className="bg-highlight hover:bg-highlight/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm">
                             Shop New Arrivals
                         </a>
                         <a href="/wholesale-batik-women-dresses" className="border border-primary/15 hover:border-accent text-primary px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors bg-transparent hover:text-accent">
@@ -155,7 +155,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-12 md:gap-16">
                     <div className="flex flex-col gap-3 md:gap-4 text-center items-center mx-auto max-w-4xl">
                         <span className="text-overline">THE NEW COLLECTION</span>
-                        <h2 className="text-h3 text-primary font-normal">Explore the Latest <span className="text-highlight">Batik Prints, Dresses & Kurtis</span></h2>
+                        <h2 className="text-h2">Explore the Latest Batik Prints, <br className="hidden md:block" /> <span className="text-highlight">Dresses & Kurtis</span></h2>
                         <p className="text-lg md:text-xl text-primary/80 font-normal leading-relaxed mt-2 w-full text-center">
                             Discover newly added Batik styles designed around comfort, colour, and individuality.
                         </p>
@@ -196,7 +196,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                 tag="FROM PRINT TO OUTFIT"
                 title={
                     <>
-                        More Ways to Wear the <br className="hidden md:block" /> <span className="text-highlight">Latest Batik Suits Collection</span>
+                        More Ways to Wear the <br className="hidden md:block" /> Latest <span className="text-highlight">Batik Suits Collection</span>
                         <span className="block text-base md:text-lg text-primary/80 font-normal leading-relaxed mt-4 max-w-2xl mx-auto font-body">
                             New Batik prints become more valuable when they work across your wardrobe.
                         </span>
