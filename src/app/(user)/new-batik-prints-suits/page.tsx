@@ -10,6 +10,8 @@ import ScrollObserver from "@/modules/user/components/ScrollObserver";
 import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
 import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
 import HorizontalProcessSection from "@/modules/user/components/HorizontalProcessSection";
+import ConsistentCTA from "@/modules/user/components/ConsistentCTA";
+
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
@@ -442,6 +444,10 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                     a: "Yes. Boutiques, retailers, resellers, and fashion businesses can explore new Batik collections and contact the team for available designs, quantities, pricing, and wholesale ordering."
                 }
             ]} />
+
+            {/* ── CONSISTENT CTA ── */}
+            <ConsistentCTA />
+
         </div>
     );
 }
