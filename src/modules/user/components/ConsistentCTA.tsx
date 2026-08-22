@@ -14,7 +14,7 @@ export default function ConsistentCTA() {
                     </span>
 
                     <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-normal text-primary leading-[1.1] mb-6">
-                        Batik Suits Customers <br className="hidden md:block" /> Love to Wear Again
+                        Batik Suits Customers <br className="hidden md:block" /> Love to{" "}<span className="text-highlight">Wear Again</span>
                     </h2>
 
                     <p className="text-body1 text-primary/80 mb-10 leading-relaxed font-medium max-w-xl">
