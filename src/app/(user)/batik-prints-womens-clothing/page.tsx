@@ -14,6 +14,8 @@ import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
 import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
 
 import { Metadata } from 'next';
+import ConsistentCTA from "@/modules/user/components/ConsistentCTA";
+
 
 export const metadata: Metadata = {
     title: "Batik Prints Women’s Clothing | Cotton Styles & Batik Suits",
@@ -104,7 +106,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-10 md:gap-12">
                     <div className="flex flex-col gap-4 text-center items-center mx-auto max-w-4xl">
                         <span className="text-overline">Applications</span>
-                        <h2 className="text-h2 font-heading text-primary">Batik Prints for Every <span className="text-highlight">Women’s Clothing Style</span></h2>
+                        <h2 className="text-h2 font-heading text-primary">Batik Prints for Every{" "}<span className="text-highlight">Women’s Clothing Style</span></h2>
                         <p className="text-lg md:text-xl text-foreground leading-relaxed max-w-3xl font-normal">
                             Breathable batik-print fabric made for versatile cotton dresses for women, kurtis, suits, and custom fashion creations.
                         </p>
@@ -154,7 +156,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-8 md:gap-12">
                     <div className="flex flex-col gap-3 md:gap-4 text-center items-center mx-auto max-w-4xl">
                         <span className="text-overline">Batik Cotton Dress for Women Library</span>
-                        <h2 className="text-h3 font-heading text-primary">Explore Signature Batik Prints for <br className="md:hidden" /> <span className="text-highlight">Women Clothes</span></h2>
+                        <h2 className="text-h3 font-heading text-primary">Explore Signature Batik Prints for{" "}<br className="md:hidden" />{" "}<span className="text-highlight">Women Clothes</span></h2>
                         <p className="text-lg md:text-xl text-foreground font-normal leading-relaxed mt-2 w-full text-center">
                             Discover expressive batik prints, distinctive colours, and versatile styles designed for modern women’s wardrobes.
                         </p>
@@ -170,7 +172,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
 
             <AdvantageSection
                 tag="Made for Comfort"
-                title={<>Why Women Choose Batik Prints Women Clothing for Everyday <span className="text-highlight">Comfort</span></>}
+                title={<>Why Women Choose Batik Prints for <span className="text-highlight">Everyday Comfort</span></>}
                 items={[
                     "<span class='block font-semibold mb-0.5 text-[15px]'>Breathable Construction</span><span class='block text-sm font-normal opacity-85 leading-snug'>Helps maintain airflow and comfort in warm weather.</span>",
                     "<span class='block font-semibold mb-0.5 text-[15px]'>Lightweight Feel</span><span class='block text-sm font-normal opacity-85 leading-snug'>Soft, easy to wear, and suitable for everyday styling.</span>",
@@ -187,7 +189,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
 
             <PremiumFeatureSection
                 tag="THE AQSHA ADVANTAGE"
-                title={<>Premium Quality <span className="text-highlight">That Works</span> <br /> for Women’s <span className="text-highlight">Clothing Business</span></>}
+                title={<>Premium Quality That Works{" "}<br />{" "}for Women’s <span className="text-highlight">Clothing Business</span></>}
                 features={[
                     {
                         t: "Consistent Quality",
@@ -257,7 +259,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
             />
             <HowToOrderSection
                 tag="Wholesale, Made Simple"
-                title={<>How to Order Batik <span className="text-highlight">Cloth Online</span></>}
+                title={<>How to Order Batik{" "}<span className="text-highlight">Cloth Online</span></>}
                 subtitle="From choosing your batik suits online to receiving ready-to-sell collections for women’s clothing, our simple process keeps every wholesale order smooth, clear, and reliable."
                 whatsappLink={WA}
             />
@@ -267,7 +269,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
                     <div className="flex flex-col gap-3 md:gap-6 text-center items-center max-w-4xl mx-auto w-full">
                         <span className="text-overline">NEXT STEP</span>
-                        <h2 className="text-h2 font-heading text-primary">Explore Batik Prints for <span className="text-highlight">Women’s Clothing</span></h2>
+                        <h2 className="text-h2 font-heading text-primary">Explore Batik Prints for{" "}<span className="text-highlight">Women’s Clothing</span></h2>
                         <p className="text-lg md:text-xl text-foreground leading-relaxed mt-2">
                             Explore batik prints across ethnic women wear, new arrivals, and wholesale collections created for modern women’s wardrobes.
                         </p>
@@ -340,7 +342,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                     {/* Section Header */}
                     <div className="flex flex-col gap-3 md:gap-4 text-center items-center max-w-5xl mx-auto w-full">
                         <span className="text-overline">FASHION & FABRIC JOURNAL</span>
-                        <h2 className="text-h2 font-heading text-primary leading-tight">Trending Clothes for Women in <span className="text-highlight">Batik Style Guide</span></h2>
+                        <h2 className="text-h2 font-heading text-primary leading-tight">Trending Clothes for Women in{" "}<span className="text-highlight">Batik Style Guide</span></h2>
                         <div className="w-16 h-[2px] bg-secondary mt-2"></div>
                         <p className="text-lg md:text-xl text-foreground leading-relaxed mt-2">
                             Explore practical womens clothing style ideas, seasonal inspiration, and fresh trends for women choosing comfortable Batik Prints Women Clothinging for everyday life.
@@ -427,6 +429,10 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                     a: "Yes. Lightweight 60x60 cotton makes batik suits a comfortable choice for summer clothes for women. Breathable fabric and easy silhouettes can help you stay comfortable while enjoying expressive batik prints during warmer days."
                 }
             ]} />
+
+            {/* ── CONSISTENT CTA ── */}
+            <ConsistentCTA />
+
         </div>
     );
 }
