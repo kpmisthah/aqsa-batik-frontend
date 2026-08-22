@@ -106,7 +106,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-10 md:gap-12">
                     <div className="flex flex-col gap-4 text-center items-center mx-auto max-w-4xl">
                         <span className="text-overline">Applications</span>
-                        <h2 className="text-h2 font-heading text-primary">Batik Prints for Every{" "}<span className="text-highlight">Women’s Clothing Style</span></h2>
+                        <h2 className="text-h2 font-heading text-primary">Batik Prints for Every{" "}<span className="text-highlight">Women’s Clothing</span> Style</h2>
                         <p className="text-lg md:text-xl text-foreground leading-relaxed max-w-3xl font-normal">
                             Breathable batik-print fabric made for versatile cotton dresses for women, kurtis, suits, and custom fashion creations.
                         </p>
@@ -156,7 +156,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-8 md:gap-12">
                     <div className="flex flex-col gap-3 md:gap-4 text-center items-center mx-auto max-w-4xl">
                         <span className="text-overline">Batik Cotton Dress for Women Library</span>
-                        <h2 className="text-h3 font-heading text-primary">Explore Signature Batik Prints for{" "}<br className="md:hidden" />{" "}<span className="text-highlight">Women Clothes</span></h2>
+                        <h2 className="text-h2 font-heading text-primary">Explore Signature Batik Prints for{" "}<br className="md:hidden" />{" "}<span className="text-highlight">Women Clothes</span></h2>
                         <p className="text-lg md:text-xl text-foreground font-normal leading-relaxed mt-2 w-full text-center">
                             Discover expressive batik prints, distinctive colours, and versatile styles designed for modern women’s wardrobes.
                         </p>
