@@ -110,7 +110,9 @@ export default function Footer() {
                         {[
                             { name: "Privacy Policy", link: "/privacy-policy" },
                             { name: "Terms & Conditions", link: "/terms-and-conditions" },
-                            { name: "Shipping & Delivery Policy", link: "/shipping-delivery-policy" }
+                            { name: "Shipping & Delivery Policy", link: "/shipping-delivery-policy" },
+                            { name: "Refund & Return Policy", link: "/refund-return-policy" },
+                            { name: "Cancellation Policy", link: "/cancellation-policy" }
                         ].map((legal, i) => (
                             <a key={i} href={legal.link} className="text-[10px] uppercase font-semibold tracking-[0.1em] text-cream hover:text-white transition-colors">
                                 {legal.name}
