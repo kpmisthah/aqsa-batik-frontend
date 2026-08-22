@@ -13,6 +13,8 @@ import ProductFilterLayout from "@/modules/user/components/ProductFilterLayout";
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
 import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
 import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
+import ConsistentCTA from "@/modules/user/components/ConsistentCTA";
+
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
@@ -108,7 +110,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-10 md:gap-12">
                     <div className="flex flex-col gap-4 text-center items-center mx-auto max-w-4xl">
                         <span className="text-overline">EVERYDAY APPLICATIONS</span>
-                        <h2 className="text-h2 font-heading text-primary">Cotton Dresses for Women <span className="text-highlight">That Fit Real Life</span></h2>
+                        <h2 className="text-h2 font-heading text-primary">Cotton Dresses for Women That Fit <span className="text-highlight">Real Life</span></h2>
                         <p className="text-lg md:text-xl text-foreground leading-relaxed max-w-3xl font-normal">
                             A good dress should feel as beautiful as it looks. Our Batik cotton collection combines breathable fabrics, expressive prints, and versatile silhouettes for effortless comfort and style all day.
                         </p>
@@ -157,7 +159,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-8 md:gap-12">
                     <div className="flex flex-col gap-3 md:gap-4 text-center items-center mx-auto max-w-4xl">
                         <span className="text-overline">BATIK DRESS COLLECTION</span>
-                        <h2 className="text-h2 font-heading text-primary">Explore Batik <span className="text-highlight">Cotton Dresses</span> <br className="hidden md:block" /> Designed to Be <span className="text-highlight">Worn Again and Again</span></h2>
+                        <h2 className="text-h2 font-heading text-primary">Explore Batik <span className="text-highlight">Cotton Dresses</span> <br className="hidden md:block" /> Designed to Be Worn Again and Again</h2>
                         <p className="text-lg md:text-xl text-primary font-normal leading-relaxed mt-2 max-w-2xl text-center">Discover a curated range of Batik dresses created around comfort, versatility, and distinctive print character.</p>
                     </div>
                     <ProductFilterLayout
@@ -187,7 +189,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
             <PremiumFeatureSection
                 wrapperClassName="pt-8 pb-12 md:pt-24 md:pb-16 px-4 md:px-6 bg-cream"
                 tag="THE BATIK ADVANTAGE"
-                title={<>More Than a <span className="text-highlight">Women's Dress.</span> <br /> A Style Customers <span className="text-highlight">Want to Wear.</span></>}
+                title={<>More Than a <span className="text-highlight">Women's Dress.</span> <br /> A Style Customers Want to Wear.</>}
                 description="For a fashion business, product appeal begins with what customers see. But repeat demand often begins with what they feel. Our Batik cotton collection combines visual individuality with everyday wearability, helping retailers and boutiques offer products that feel both distinctive and practical."
                 features={[
                     {
@@ -263,7 +265,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
             <HorizontalProcessSection
                 wrapperClassName="pt-8 pb-16 md:pt-12 md:pb-24 border-t-0"
                 tag="WHOLESALE, MADE SIMPLE"
-                title={<>Bring Batik Cotton <span className="text-highlight">Dresses Into</span> <br /> Your Collection Without <span className="text-highlight">the Guesswork</span></>}
+                title={<>Bring Batik Cotton Dresses Into <br /> Your Collection Without <span className="text-highlight">the Guesswork</span></>}
                 subtitle="Whether you are building a boutique range, expanding a retail collection, or sourcing new women's fashion products, our simple ordering process helps you move from selection to supply with clarity."
                 steps={[
                     { s: "01", t: "Browse Batik Designs", d: "Explore our latest women's clothing collections, including Batik suits, fresh Batik prints, cotton styles, and ready-to-order designs." },
@@ -283,7 +285,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20 relative z-10">
                     <div className="flex flex-col gap-3 md:gap-6 text-center items-center max-w-4xl mx-auto w-full">
                         <span className="text-overline">NEXT STEP</span>
-                        <h2 className="font-heading text-2xl md:text-4xl font-normal text-primary leading-tight">Explore More <span className="text-highlight">Batik Dress</span> <br className="hidden md:block" /> Collections for <span className="text-highlight">Women</span></h2>
+                        <h2 className="font-heading text-2xl md:text-4xl font-normal text-primary leading-tight">Explore More <span className="text-highlight">Batik Dress</span> <br className="hidden md:block" /> Collections for Women</h2>
                         <p className="text-body1 mt-3 text-center w-full max-w-xl mx-auto">Discover more Batik styles for modern wardrobes, retail collections, and growing fashion businesses.</p>
                     </div>
 
@@ -369,7 +371,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                     {/* Section Header */}
                     <div className="flex flex-col gap-3 md:gap-4 text-center items-center max-w-5xl mx-auto w-full">
                         <span className="text-overline">FASHION & FABRIC JOURNAL</span>
-                        <h2 className="text-h2 font-heading text-primary leading-tight">Trending Dress for Women in <br className="block md:hidden" /> <span className="text-highlight">Batik Handprinted Style</span></h2>
+                        <h2 className="text-h2 font-heading text-primary leading-tight">Trending Dresses for Women in Batik{" "}<br className="block md:hidden" />{" "}<span className="text-highlight">Handprinted Style</span></h2>
                         <div className="w-16 h-[2px] bg-secondary mt-2"></div>
                         <p className="text-lg md:text-xl text-primary leading-relaxed mt-2">
                             The best dress is one you can live in. Choose breathable fabric, comfortable fits, colours you love, and Batik prints that add personality. Lightweight cotton makes everyday dressing effortless, especially in warmer climates.
@@ -468,6 +470,10 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                     a: "Yes. Retailers, boutiques, and resellers can explore available Batik collections and connect with the team for product availability, quantities, pricing, and wholesale ordering guidance."
                 }
             ]} />
+
+            {/* ── CONSISTENT CTA ── */}
+            <ConsistentCTA />
+
         </div>
     );
 }
