@@ -67,14 +67,14 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8 lg:gap-10">
             {[
-              { t: "Batik Prints Women Clothing", b: "Signature", img: "/Batik Prints Women Clothing Editorial-category1.png", l: "/batik-cotton-dress-for-women" },
-              { t: "Ethnic Wear for Women", b: "Everyday", img: "/Batik Prints Women Clothing Editorial-category2.png", l: "/batik-prints-womens-clothing" },
-              { t: "Batik Cotton Dress for Women", b: "Comfort", img: "/Batik Prints Women Clothing Editorial-category3.png", l: "/batik-prints-womens-clothing" },
-              { t: "New Arrival", b: "Latest Drops", img: "/Batik Prints Women Clothing Editorial-category4.png", l: "/new-batik-prints-suits" },
-              { t: "Wholesale", b: "Bulk Pricing", img: "/Batik Prints Women Clothing Editorial-category5.png", l: "/wholesale-batik-women-dresses" }
+              { t: "Batik Prints Women Clothing", b: "Signature", img: "/round-category/Batik Cotton Dress for Women Catagory image.webp", l: "/batik-prints-womens-clothing" },
+              { t: "Ethnic Wear for Women", b: "Everyday", img: "/round-category/Ethnic Wear for Women.webp", l: "/batik-ethnic-wear-for-women" },
+              { t: "Batik Cotton Dress for Women", b: "Comfort", img: "/round-category/Batik Prints Women Clothing catagory image.webp", l: "/batik-cotton-dress-for-women" },
+              { t: "New Arrival", b: "Latest Drops", img: "/round-category/New Arrival catagory image.webp", l: "/new-batik-prints-suits" },
+              { t: "Wholesale", b: "Bulk Pricing", img: "/round-category/Wholesale catagory image.webp", l: "/wholesale-batik-women-dresses" }
             ].map((item, i) => (
               <a key={i} href={item.l} className="group block cursor-pointer flex flex-col items-center text-center w-full">
-                <div className="overflow-hidden aspect-[3/4] w-full relative mb-4 md:mb-6 rounded-sm shadow-sm border border-primary/10">
+                <div className="overflow-hidden aspect-[4/5] w-full relative mb-4 md:mb-6 rounded-sm shadow-sm border border-primary/10">
                   <Image src={item.img} alt={item.t} fill sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw" className="object-cover opacity-100 group-hover:scale-[1.05] transition-all duration-[1.5s] ease-out" />
                 </div>
                 <h3 className="text-[13px] md:text-lg font-heading font-semibold text-primary group-hover:text-accent transition-colors leading-tight px-1">{item.t}</h3>
