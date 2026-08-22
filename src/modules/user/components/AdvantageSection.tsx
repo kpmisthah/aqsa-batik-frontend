@@ -12,6 +12,7 @@ interface AdvantageSectionProps {
     featureTitle?: string;
     featureDesc?: string;
     description?: React.ReactNode;
+    imageContainerClassName?: string;
 }
 
 const AdvantageSection: React.FC<AdvantageSectionProps> = ({
@@ -23,11 +24,12 @@ const AdvantageSection: React.FC<AdvantageSectionProps> = ({
     featureTag,
     featureTitle,
     featureDesc,
-    description
+    description,
+    imageContainerClassName = "h-[400px] lg:h-auto"
 }) => {
     return (
         <section className="scroll-animate py-16 md:py-32 px-4 md:px-6 bg-tan relative overflow-hidden">
-            <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-center lg:items-stretch relative z-10 w-full">
+            <div className={`max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-center ${imageContainerClassName.includes('aspect') ? 'lg:items-center' : 'lg:items-stretch'} relative z-10 w-full`}>
 
                 {/* Mobile-Only Title Block */}
                 <div className="flex lg:hidden flex-col gap-3 md:gap-4 text-center items-center max-w-xl mx-auto w-full order-1">
@@ -37,7 +39,7 @@ const AdvantageSection: React.FC<AdvantageSectionProps> = ({
                 </div>
 
                 {/* Left: Huge Editorial Image */}
-                <div className="relative h-[400px] lg:h-auto overflow-hidden group border border-primary/20 rounded-2xl shadow-xl w-full lg:w-1/2 order-2 lg:order-1">
+                <div className={`relative overflow-hidden group border border-primary/20 rounded-2xl shadow-xl w-full lg:w-1/2 order-2 lg:order-1 ${imageContainerClassName}`}>
                     <Image src={imageSrc} alt="Feature Highlight Desktop" layout="fill" objectFit="cover" className={`group-hover:scale-105 transition-all duration-[2s] object-top ${mobileImageSrc ? 'hidden md:block' : ''}`} />
                     {mobileImageSrc && (
                         <Image src={mobileImageSrc} alt="Feature Highlight Mobile" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[2s] block md:hidden object-top" />

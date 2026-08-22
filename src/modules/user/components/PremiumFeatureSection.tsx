@@ -21,6 +21,7 @@ interface PremiumFeatureSectionProps {
     quoteTitle?: string;
     quoteDesc?: string;
     wrapperClassName?: string;
+    imageContainerClassName?: string;
 }
 
 const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
@@ -34,7 +35,8 @@ const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
     quoteTag,
     quoteTitle,
     quoteDesc,
-    wrapperClassName = "py-8 md:py-24 px-4 md:px-6 bg-cream"
+    wrapperClassName = "py-8 md:py-24 px-4 md:px-6 bg-cream",
+    imageContainerClassName = "h-[450px] md:h-[600px] w-full"
 }) => {
     return (
         <section className={`scroll-animate overflow-hidden ${wrapperClassName}`}>
@@ -67,7 +69,7 @@ const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
                     </div>
 
                     {/* Right: Vertical Editorial Image */}
-                    <div className="order-1 lg:order-2 relative h-[450px] md:h-[600px] w-full rounded-tr-[40px] rounded-bl-[40px] overflow-hidden group">
+                    <div className={`order-1 lg:order-2 relative rounded-tr-[40px] rounded-bl-[40px] overflow-hidden group ${imageContainerClassName}`}>
                         <Image 
                             src={imageSrc} 
                             alt="Premium Feature Banner Desktop" 
