@@ -95,20 +95,20 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                 tagline="TRADITION, REIMAGINED"
                 title={
                     <>
-                        <span className='text-accent'>Ethnic Wear</span> for Women That Feels <br className="hidden md:block" /> Traditional Yet Effortlessly Modern
+                        Ethnic Wear for Women <br className="hidden md:block" /> That Feels Traditional <br className="hidden md:block" />{" "}<span className='text-highlight'>Yet Effortlessly Modern</span>
                     </>
                 }
                 description="Discover Batik ethnic wear for women designed to bring traditional character into everyday wardrobes. Explore breathable cotton dresses, expressive Batik kurtis, comfortable suit sets, and occasion-ready styles created for women who want culture, comfort, and individuality in every look."
                 imageSrc="/batik_suits_hero_category.png"
                 imageAlt="Ethnic Wear for Women Collection"
-                bgColor="#E4D3BC"
+                bgClassName="bg-tan"
                 textColor="text-primary"
                 buttons={
                     <>
-                        <a href="#collection" className="bg-accent hover:bg-accent/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm">
+                        <a href="#collection" className="bg-highlight hover:bg-highlight/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm">
                             Shop Ethnic Wear
                         </a>
-                        <a href={WA} target="_blank" rel="noreferrer" className="border border-primary/15 hover:border-accent text-primary px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors bg-transparent hover:text-accent">
+                        <a href={WA} target="_blank" rel="noreferrer" className="border border-primary/15 hover:border-highlight text-primary px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors bg-transparent hover:text-highlight">
                             Become a Wholesale Partner
                         </a>
                     </>
@@ -117,11 +117,11 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
             <GoogleReviewBar />
 
             {/* ── SECTION: EVERYDAY ETHNIC STYLE + PRODUCT GRID ── */}
-            <section id="collection" className="py-20 md:py-32 px-6 bg-cream relative">
+            <section id="collection" className="pt-10 md:pt-16 pb-20 md:pb-32 px-6 bg-cream relative">
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-20">
                     <div className="flex flex-col gap-6 text-center mx-auto max-w-3xl">
                         <span className="text-overline">Everyday Ethnic Style</span>
-                        <h2 className="text-h2">Indian Ethnic Wear for Women <span className="text-highlight">Designed for Real Life</span></h2>
+                        <h2 className="text-h2">Indian Ethnic Wear for Women <br className="hidden md:block" /> Designed for{" "}<span className="text-highlight">Real Life</span></h2>
                         <p className="text-body1">Our Batik suits collection brings together comfortable silhouettes, handcrafted-inspired prints, and versatile styles that can move naturally from everyday routines to festive gatherings.</p>
                     </div>
 
@@ -147,7 +147,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
 
                     <div className="text-center mt-10">
                         <span className="text-overline">Batik Ethnic Collection</span>
-                        <h2 className="text-h3 font-normal mt-4 max-w-3xl mx-auto">Explore Ethnic Wear for Women Made to Be Worn <span className="text-highlight">Beyond One Occasion</span></h2>
+                        <h2 className="text-h2 mt-4 max-w-3xl mx-auto">Explore Ethnic Wear for Women <br className="hidden md:block" /> Made to Be Worn{" "}<span className="text-highlight">Beyond One Occasion</span></h2>
                     </div>
 
                     <ProductFilterLayout
@@ -176,7 +176,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
 
             <PremiumFeatureSection
                 tag="FROM DAILY TO DRESSED-UP"
-                title={<>One Ethnic Wardrobe. <span className="text-highlight">More Ways to Wear It.</span></>}
+                title={<>One Ethnic Wardrobe. More Ways to <span className="text-highlight">Wear It.</span></>}
                 description="Ethnic wear does not have to mean one fixed style. The right collection gives you options."
                 features={[
                     {
@@ -249,7 +249,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
 
             <HowToOrderSection
                 tag="WHOLESALE OPPORTUNITY"
-                title={<>Bring Distinctive Indian <span className='text-accent'>Ethnic Wear</span> for Women Into Your Collection</>}
+                title={<>Bring Distinctive Indian <span className='text-highlight'>Ethnic Wear</span> <br className="hidden md:block" /> for Women Into Your Collection</>}
                 subtitle="For boutiques, resellers, and retailers, Batik ethnic collections offer distinctive designs customers can wear and love again. Build a more memorable women’s fashion assortment with traditional character and everyday appeal."
                 steps={[
                     {
@@ -288,12 +288,12 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
             />
 
             {/* ── SECTION: CONTINUE EXPLORING ── */}
-            <section className="py-16 md:py-32 px-6 bg-cream relative overflow-hidden">
+            <section className="pt-8 md:pt-12 pb-8 md:pb-12 px-6 bg-cream relative overflow-hidden">
                 <div className="absolute inset-0 bg-pattern opacity-[0.02]"></div>
                 <div className="max-w-[1400px] mx-auto flex flex-col gap-12 md:gap-20 relative z-10">
                     <div className="flex flex-col gap-3 md:gap-6 text-center items-center max-w-3xl mx-auto">
                         <span className="text-overline">Next Step</span>
-                        <h2 className="text-h2">Explore More Ethnic Wear Collections for Women</h2>
+                        <h2 className="text-h2">Explore More <span className="text-highlight">Ethnic Wear</span> <br className="hidden md:block" /> Collections for Women</h2>
                         <p className="text-body1">Explore Batik styles across everyday clothing, ethnic wardrobes, new arrivals, and wholesale collections.</p>
                     </div>
 
@@ -321,11 +321,11 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
             </section>
 
             {/* ── SECTION: BATIK JOURNAL (BLOG) ── */}
-            <section className="py-16 md:py-32 px-6 bg-cream">
+            <section className="pt-8 md:pt-12 pb-16 md:pb-24 px-6 bg-cream">
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
                     <div className="flex flex-col gap-3 md:gap-6 text-center items-center max-w-3xl mx-auto">
                         <span className="text-overline">Fashion & Fabric Journal</span>
-                        <h2 className="text-h2">The Ethnic Wear Style Guide for Women</h2>
+                        <h2 className="text-h2">The Ethnic Wear <span className="text-highlight">Style Guide</span> for Women</h2>
                         <p className="text-body1 mt-2">Explore insights on Indian ethnic wear, Batik dresses, printed kurtis, cotton suit sets, and modern ethnic styles shaping today’s women’s fashion.</p>
                     </div>
 
