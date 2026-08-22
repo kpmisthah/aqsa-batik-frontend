@@ -13,6 +13,8 @@ import ScrollObserver from "@/modules/user/components/ScrollObserver";
 import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
 import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
 import { Metadata } from 'next';
+import ConsistentCTA from "@/modules/user/components/ConsistentCTA";
+
 
 export const metadata: Metadata = {
     title: "Ethnic Wear for Women | Batik Dresses, Kurtis & Suits",
@@ -361,6 +363,10 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                 { q: "Where can I buy ethnic wear for women online?", a: "You can explore Batik ethnic wear collections for women's suits online from No. 1 Ujjain Batik manufacturer, Aqsha Batik Suits, and discover dresses, kurtis, suit sets, and other ethnic styles suited to your preferred design and occasion." },
                 { q: "Can I buy Batik ethnic wear wholesale?", a: "Yes. Boutiques, retailers, resellers, and fashion businesses can explore available Batik collections and contact the team for product availability, quantities, pricing, and wholesale ordering." }
             ]} />
+
+            {/* ── CONSISTENT CTA ── */}
+            <ConsistentCTA />
+
         </div>
     );
 }
