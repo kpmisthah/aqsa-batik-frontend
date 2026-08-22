@@ -8,7 +8,6 @@ interface SlideData {
   _id?: string;
   image: string;
   imageAlt: string;
-  bgColor: string;
   tagline: string;
   title: string;
   highlightWord: string;
@@ -75,7 +74,6 @@ export default function HomeSliderAdmin() {
       const newSlide: Omit<SlideData, '_id'> = {
         image: '',
         imageAlt: 'New Promo Banner',
-        bgColor: '#F4F1EA',
         tagline: 'NEW COLLECTION',
         title: 'New Slider Heading',
         highlightWord: '',
@@ -229,10 +227,6 @@ export default function HomeSliderAdmin() {
                   {slide.badge && (
                     <span className="text-[10px] bg-accent/10 text-accent px-2 py-0.5 rounded-full font-semibold">{slide.badge}</span>
                   )}
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-3.5 h-3.5 rounded-full border border-gray-300" style={{ backgroundColor: slide.bgColor }}></div>
-                    <span className="text-[10px] text-gray-400 uppercase font-mono">{slide.bgColor}</span>
-                  </div>
                 </div>
               </div>
 
@@ -372,14 +366,6 @@ export default function HomeSliderAdmin() {
                     <input type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
                   </label>
                 </div>
-
-                {/* Color Blend Picker */}
-                <label className="text-xs font-bold text-primary/70 mb-2 uppercase">Edge Blend Color</label>
-                <div className="flex gap-2">
-                  <input type="color" value={editingSlide.bgColor} onChange={e => handleModalFieldChange('bgColor', e.target.value)} className="w-10 h-10 md:w-12 md:h-10 rounded cursor-pointer" />
-                  <input type="text" value={editingSlide.bgColor} onChange={e => handleModalFieldChange('bgColor', e.target.value)} className="flex-1 px-3 py-2 border border-gray-300 rounded text-sm text-gray-900 bg-white uppercase" />
-                </div>
-                <p className="text-[10px] text-gray-500 mt-1 leading-tight">Must match the EXACT background color on the left edge of the photo.</p>
               </div>
 
               {/* Form Col */}

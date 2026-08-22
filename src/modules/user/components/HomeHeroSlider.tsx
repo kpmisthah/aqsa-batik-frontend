@@ -9,7 +9,6 @@ interface SlideData {
   id: number;
   image: string;
   imageAlt: string;
-  bgColor?: string;
   tagline: string;
   title: React.ReactNode;
   subtitle: React.ReactNode;
@@ -25,7 +24,6 @@ const DEFAULT_SLIDES: SlideData[] = [
   {
     id: 1,
     image: "/Hero Banner/cotton-cloth.webp",
-    bgColor: "#E0CFBB",
     imageAlt: "Batik Print Suits for Women",
     tagline: "TRUSTED UJJAIN BATIK MANUFACTURER",
     title: (
@@ -46,7 +44,6 @@ const DEFAULT_SLIDES: SlideData[] = [
   {
     id: 2,
     image: "/Hero Banner/cotton dress material.webp",
-    bgColor: "#DDC9B0",
     imageAlt: "Handprinted Batik Women's Clothing",
     tagline: "HANDPRINTED BATIK WOMEN'S CLOTHING",
     title: (
@@ -78,8 +75,7 @@ const DEFAULT_SLIDES: SlideData[] = [
     image: "/Hero Banner/cotton dress for women.webp",
     imageAlt: "New Arrival Batik Ladies Suits",
     primaryButtonLabel: "SHOP NEW ARRIVALS",
-    primaryButtonLink: "/new-batik-prints-suits",
-    bgColor: "#D5B793"
+    primaryButtonLink: "/new-batik-prints-suits"
   },
   {
     id: 4,
@@ -97,8 +93,7 @@ const DEFAULT_SLIDES: SlideData[] = [
     image: "/Hero Banner/ethnic wear for women.webp",
     imageAlt: "Summer Suits for Women",
     primaryButtonLabel: "SHOP SUMMER SALE",
-    primaryButtonLink: "/batik-cotton-dress-for-women",
-    bgColor: "#CDBA9F"
+    primaryButtonLink: "/batik-cotton-dress-for-women"
   },
   {
     id: 5,
@@ -118,8 +113,7 @@ const DEFAULT_SLIDES: SlideData[] = [
     primaryButtonLabel: "SHOP WHOLESALE",
     primaryButtonLink: "/wholesale-batik-women-dresses",
     secondaryButtonLabel: "BECOME A WHOLESALE PARTNER",
-    secondaryButtonLink: "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20become%20a%20wholesale%20partner",
-    bgColor: "#D8C3A5"
+    secondaryButtonLink: "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20become%20a%20wholesale%20partner"
   }
 ];
 
