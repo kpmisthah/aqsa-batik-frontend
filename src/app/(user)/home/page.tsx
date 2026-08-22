@@ -58,7 +58,7 @@ export default function HomePage() {
           <div className="flex flex-col items-center text-center gap-3 md:gap-4 mb-12 md:mb-16 max-w-4xl mx-auto">
             <span className="text-overline uppercase tracking-[0.2em] font-bold text-primary/80">Curated for Excellence</span>
             <h2 className="text-h2 md:text-h1 text-primary font-normal leading-tight">
-              Best-Selling Batik Suit <span className="text-highlight italic">Collections</span> <br className="hidden md:block" /> for Every <span className="text-highlight italic">Woman</span>
+              Best-Selling <span className="text-highlight italic">Batik Suit Collections</span> <br className="hidden md:block" /> for Every Woman
             </h2>
             <p className="text-sm md:text-base text-primary/80 font-medium leading-relaxed mt-2">
               Discover beautiful batik print designs, quality cotton fabric for kurtis, printed cotton fabrics for kurtis, and elegant suit designs complemented by versatile Shalwar Kameez and Dupatta/Chunni styles. From everyday comfort to occasion-ready dressing, each collection is selected for distinctive prints, wearable silhouettes, and dependable fabric quality.
@@ -100,7 +100,7 @@ export default function HomePage() {
           <div className="flex flex-col gap-3 md:gap-4 text-center items-center max-w-4xl mx-auto">
             <span className="text-overline uppercase tracking-[0.2em] font-bold text-primary/80">Built for Every Buyer</span>
             <h2 className="text-h2 md:text-h1 text-primary font-normal leading-tight">
-              Women's Fashion <span className="text-highlight italic">Collections</span> <br className="hidden md:block" /> Made for <span className="text-highlight italic">Growing Businesses</span>
+              Women's Fashion Collections <br className="hidden md:block" /> Made for <span className="text-highlight italic">Growing Businesses</span>
             </h2>
             <p className="text-sm md:text-base text-primary/80 font-medium leading-relaxed mt-2">
               Choose ready-to-sell women's fashion collections, from batik suits and batik blouse designs to women dress material, Shalwar Kameez, and Dupatta/Chunni styles—made for businesses that need dependable fashion stock.
@@ -140,7 +140,7 @@ export default function HomePage() {
           <div className="flex lg:hidden flex-col gap-3 text-center items-center w-full">
             <span className="text-[11px] uppercase tracking-[0.3em] font-bold text-brand">Our Story</span>
             <h2 className="text-h2 leading-[1.1]">
-              From 15 Handmade Batik Suits to a <br /> <span className="text-highlight">Trusted Ujjain Batik Manufacturer</span>
+              From 15 Handmade Batik Suits to a Trusted <br /> <span className="text-highlight">Ujjain Batik Manufacturer</span>
             </h2>
           </div>
 
@@ -178,7 +178,7 @@ export default function HomePage() {
               {/* Desktop-Only Heading */}
               <div className="hidden lg:flex flex-col gap-4">
                 <span className="text-[11px] uppercase tracking-[0.3em] font-bold text-brand">Our Story</span>
-                <h2 className="text-h2 leading-[1.1]">From 15 Handmade Batik Suits to a <span className="text-highlight">Trusted Ujjain Batik Manufacturer</span></h2>
+                <h2 className="text-h2 leading-[1.1]">From 15 Handmade Batik Suits to a Trusted <span className="text-highlight">Ujjain Batik Manufacturer</span></h2>
               </div>
 
               {/* Vertical Timeline */}
@@ -230,7 +230,7 @@ export default function HomePage() {
           <div className="flex flex-col gap-3 md:gap-6 lg:w-[400px] shrink-0 min-w-0 text-center items-center w-full">
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/80">The Legacy of Quality</span>
             <h2 className="text-h2 text-center">
-              Trusted by <span className="text-highlight italic">1,000+</span> Retail Partners <br className="hidden lg:block"/> for Quality <span className="text-highlight italic">Batik Fashion</span>
+              Trusted by <span className="text-highlight italic">1,000+ Retail Partners </span> <br className="hidden lg:block"/> for Quality Batik Fashion
             </h2>
             {/* Desktop Only Paragraph */}
             <p className="hidden lg:block text-sm md:text-base text-primary/80 font-medium leading-relaxed max-w-md mt-2">
@@ -330,7 +330,7 @@ export default function HomePage() {
           <div className="flex flex-col gap-3 max-w-5xl items-center">
             <span className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-bold text-accent">The Best Investment in Everyday Fashion</span>
             <h2 className="text-h2">
-              Why Smart Sellers <span className="text-highlight italic">Choose</span> <br /> AQSHA Batik <span className="text-highlight italic">Suits</span>
+              Why Smart Sellers Choose <br /> <span className="text-highlight italic">AQSHA Batik Suits</span>
             </h2>
             <p className="text-sm md:text-base mt-2 leading-relaxed text-primary/80 font-medium">
               You are investing in women's clothing collections built around repeat demand, breathable comfort, distinctive batik prints, and wearable styles customers genuinely want to buy again.
