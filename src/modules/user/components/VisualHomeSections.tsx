@@ -8,11 +8,11 @@ const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
 export function ShopByCategorySection() {
     const categories = [
-        { title: "Batik Prints Women Clothing", img: "/Batik Prints Women Clothing Editorial-category1.png", href: "/batik-prints-womens-clothing", sub: "Signature" },
-        { title: "Ethnic Wear for Women", img: "/Batik Prints Women Clothing Editorial-category2.png", href: "/batik-ethnic-wear-for-women", sub: "Everyday" },
-        { title: "Batik Cotton Dress for Women", img: "/Batik Prints Women Clothing Editorial-category3.png", href: "/batik-cotton-dress-for-women", sub: "Comfort" },
-        { title: "New Arrival", img: "/Batik Prints Women Clothing Editorial-category4.png", href: "/new-batik-prints-suits", sub: "Latest Drops" },
-        { title: "Wholesale", img: "/Batik Prints Women Clothing Editorial-category5.png", href: "/wholesale-batik-women-dresses", sub: "Bulk Pricing" },
+        { title: "Batik Prints Women Clothing", alt: "cotton cloth", img: "/round-category/Batik Cotton Dress for Women Catagory image.webp", href: "/batik-prints-womens-clothing", sub: "Signature" },
+        { title: "Ethnic Wear for Women", alt: "ethnic wear for women", img: "/round-category/Ethnic Wear for Women.webp", href: "/batik-ethnic-wear-for-women", sub: "Everyday" },
+        { title: "Batik Cotton Dress for Women", alt: "cotton dress for women", img: "/round-category/Batik Prints Women Clothing catagory image.webp", href: "/batik-cotton-dress-for-women", sub: "Comfort" },
+        { title: "New Arrival", alt: "cotton kurtis for women", img: "/round-category/New Arrival catagory image.webp", href: "/new-batik-prints-suits", sub: "Latest Drops" },
+        { title: "Wholesale", alt: "dresses for women", img: "/round-category/Wholesale catagory image.webp", href: "/wholesale-batik-women-dresses", sub: "Bulk Pricing" },
     ];
 
     return (
@@ -31,11 +31,11 @@ export function ShopByCategorySection() {
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 lg:gap-8 w-full pt-4">
                     {categories.map((cat, i) => (
                         <Link key={i} href={cat.href} className="flex flex-col items-center gap-4 md:gap-6 group w-full">
-                            <div className="relative w-full aspect-[2/3] md:aspect-[3/4] rounded-t-full rounded-b-full overflow-hidden border border-primary/10 p-1.5 md:p-2 group-hover:border-primary/40 group-hover:bg-white/40 transition-all duration-700 bg-transparent">
+                            <div className="relative w-full aspect-[4/5] rounded-t-full rounded-b-full overflow-hidden border border-primary/10 p-1.5 md:p-2 group-hover:border-primary/40 group-hover:bg-white/40 transition-all duration-700 bg-transparent">
                                 <div className="relative w-full h-full rounded-t-full rounded-b-full overflow-hidden bg-tan shadow-inner">
                                     <Image
                                         src={cat.img}
-                                        alt={cat.title}
+                                        alt={cat.alt}
                                         fill
                                         className="object-cover object-top group-hover:scale-[1.05] transition-transform duration-[1.5s] ease-[cubic-bezier(0.25,1,0.5,1)]"
                                     />
@@ -197,11 +197,11 @@ export function LifestyleBannerSection() {
                 </div>
 
                 {/* Right/Top Side: Clean Visual (No overlays) */}
-                <div className="w-full lg:w-1/2 relative group h-[40vh] md:h-[60vh] lg:h-[70vh] min-h-[300px] md:min-h-[450px]">
+                <div className="w-full lg:w-1/2 relative group aspect-square">
                     <div className="hidden lg:block absolute inset-0 bg-primary/5 -left-8 -bottom-8 rounded-[2px] transition-transform duration-[3s] group-hover:-translate-x-2 group-hover:translate-y-2"></div>
                     <div className="relative w-full h-full overflow-hidden rounded-[2px] shadow-sm z-10 border border-primary/10">
                         <Image
-                            src="/Premium Batik Fashion Banner.png"
+                            src="/round-category/best dresses for women.webp"
                             alt="Aqsha Lifestyle"
                             fill
                             className="object-cover object-top group-hover:scale-105 transition-transform duration-[6s] ease-out opacity-100 brightness-100"
@@ -287,17 +287,17 @@ export function TrendingCollectionsBannerSection() {
 
             <div className="w-full flex flex-wrap border-t border-primary/10">
                 {/* ROW 1: 2 Items */}
-                <Link href="/batik-prints-womens-clothing" className="block w-full md:w-1/2 relative h-[50vh] md:h-[70vh] group overflow-hidden bg-cream flex justify-center border-b md:border-r border-primary/10">
+                <Link href="/batik-prints-womens-clothing" className="block w-full md:w-1/2 relative aspect-square group overflow-hidden bg-cream flex justify-center border-b md:border-r border-primary/10">
                     <Image
-                        src="/new-batik-print-category-image.webp"
-                        alt="Batik Prints Women Clothing"
+                        src="/category-Homepage/cotton-cloth (1).webp"
+                        alt="Cotton Cloth"
                         fill
                         className="object-cover object-top opacity-100 group-hover:scale-[1.05] transition-transform duration-[2s] ease-out"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
                     <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 md:pb-16 text-center px-4 md:px-8 z-10 transition-transform duration-700 ease-out group-hover:-translate-y-3">
                         <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 mb-2">Category</span>
-                        <h2 className="text-3xl md:text-4xl font-heading font-normal text-white mb-2 md:mb-4">Batik Prints Women Clothing</h2>
+                        <h2 className="text-3xl md:text-4xl font-heading font-normal text-white mb-2 md:mb-4">Cotton Cloth</h2>
                         <p className="text-white/90 text-[13px] md:text-sm font-medium max-w-sm drop-shadow-md mb-4 md:mb-6 leading-relaxed">Distinctive batik prints for everyday Indian style.</p>
                         <span className="text-[10px] uppercase tracking-[0.2em] text-white/90 font-bold border-b border-transparent group-hover:border-white/80 pb-1 transition-all duration-300">
                             Explore Collection
@@ -305,28 +305,9 @@ export function TrendingCollectionsBannerSection() {
                     </div>
                 </Link>
 
-                <Link href="/batik-ethnic-wear-for-women" className="block w-full md:w-1/2 relative h-[50vh] md:h-[70vh] group overflow-hidden bg-cream flex justify-center border-b border-primary/10">
+                <Link href="/batik-cotton-dress-for-women" className="block w-full md:w-1/2 relative aspect-square group overflow-hidden bg-cream flex justify-center border-b border-primary/10">
                     <Image
-                        src="/cotton-kurti-for-women-image.webp"
-                        alt="Ethnic Wear for Women"
-                        fill
-                        className="object-cover object-top opacity-100 group-hover:scale-[1.05] transition-transform duration-[2s] ease-out"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
-                    <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 md:pb-16 text-center px-4 md:px-8 z-10 transition-transform duration-700 ease-out group-hover:-translate-y-3">
-                        <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 mb-2">Category</span>
-                        <h2 className="text-3xl md:text-4xl font-heading font-normal text-white mb-2 md:mb-4">Ethnic Wear for Women</h2>
-                        <p className="text-white/90 text-[13px] md:text-sm font-medium max-w-sm drop-shadow-md mb-4 md:mb-6 leading-relaxed">Statement-making women suits with timeless batik design character.</p>
-                        <span className="text-[10px] uppercase tracking-[0.2em] text-white/90 font-bold border-b border-transparent group-hover:border-white/80 pb-1 transition-all duration-300">
-                            Explore Collection
-                        </span>
-                    </div>
-                </Link>
-
-                {/* ROW 2: 2 Items */}
-                <Link href="/batik-cotton-dress-for-women" className="block w-full md:w-1/2 relative h-[50vh] md:h-[70vh] group overflow-hidden bg-cream flex justify-center border-b md:border-r border-primary/10">
-                    <Image
-                        src="/gallery_office.png"
+                        src="/category-Homepage/cotton-dress-for-women.webp"
                         alt="Cotton Dress for Women"
                         fill
                         className="object-cover object-top opacity-100 group-hover:scale-[1.05] transition-transform duration-[2s] ease-out"
@@ -335,6 +316,25 @@ export function TrendingCollectionsBannerSection() {
                     <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 md:pb-16 text-center px-4 md:px-8 z-10 transition-transform duration-700 ease-out group-hover:-translate-y-3">
                         <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 mb-2">Category</span>
                         <h2 className="text-3xl md:text-4xl font-heading font-normal text-white mb-2 md:mb-4">Cotton Dress for Women</h2>
+                        <p className="text-white/90 text-[13px] md:text-sm font-medium max-w-sm drop-shadow-md mb-4 md:mb-6 leading-relaxed">Statement-making women suits with timeless batik design character.</p>
+                        <span className="text-[10px] uppercase tracking-[0.2em] text-white/90 font-bold border-b border-transparent group-hover:border-white/80 pb-1 transition-all duration-300">
+                            Explore Collection
+                        </span>
+                    </div>
+                </Link>
+
+                {/* ROW 2: 2 Items */}
+                <Link href="/batik-ethnic-wear-for-women" className="block w-full md:w-1/2 relative aspect-square group overflow-hidden bg-cream flex justify-center border-b md:border-r border-primary/10">
+                    <Image
+                        src="/category-Homepage/ethnic-wear-for-women.webp"
+                        alt="Ethnic Wear for Women"
+                        fill
+                        className="object-cover object-top opacity-100 group-hover:scale-[1.05] transition-transform duration-[2s] ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 md:pb-16 text-center px-4 md:px-8 z-10 transition-transform duration-700 ease-out group-hover:-translate-y-3">
+                        <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 mb-2">Category</span>
+                        <h2 className="text-3xl md:text-4xl font-heading font-normal text-white mb-2 md:mb-4">Ethnic Wear for Women</h2>
                         <p className="text-white/90 text-[13px] md:text-sm font-medium max-w-sm drop-shadow-md mb-4 md:mb-6 leading-relaxed">Pure cotton dresses for women with elegant batik prints and breathable comfort.</p>
                         <span className="text-[10px] uppercase tracking-[0.2em] text-white/90 font-bold border-b border-transparent group-hover:border-white/80 pb-1 transition-all duration-300">
                             Explore Collection
@@ -342,17 +342,17 @@ export function TrendingCollectionsBannerSection() {
                     </div>
                 </Link>
 
-                <Link href="/new-batik-prints-suits" className="block w-full md:w-1/2 relative h-[50vh] md:h-[70vh] group overflow-hidden bg-cream flex justify-center border-b border-primary/10">
+                <Link href="/new-batik-prints-suits" className="block w-full md:w-1/2 relative aspect-square group overflow-hidden bg-cream flex justify-center border-b border-primary/10">
                     <Image
-                        src="/gallery_arrival.png"
-                        alt="New Arrival"
+                        src="/category-Homepage/cotton-kurtis-for-women.webp"
+                        alt="Cotton Kurtis for Women"
                         fill
                         className="object-cover object-top opacity-100 group-hover:scale-[1.05] transition-transform duration-[2s] ease-out"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
                     <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 md:pb-16 text-center px-4 md:px-8 z-10 transition-transform duration-700 ease-out group-hover:-translate-y-3">
                         <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 mb-2">Category</span>
-                        <h2 className="text-3xl md:text-4xl font-heading font-normal text-white mb-2 md:mb-4">New Arrival</h2>
+                        <h2 className="text-3xl md:text-4xl font-heading font-normal text-white mb-2 md:mb-4">Cotton Kurtis for Women</h2>
                         <p className="text-white/90 text-[13px] md:text-sm font-medium max-w-sm drop-shadow-md mb-4 md:mb-6 leading-relaxed">Fresh batik suits and new styles added to the collection.</p>
                         <span className="text-[10px] uppercase tracking-[0.2em] text-white/90 font-bold border-b border-transparent group-hover:border-white/80 pb-1 transition-all duration-300">
                             Explore Collection
@@ -363,15 +363,15 @@ export function TrendingCollectionsBannerSection() {
                 {/* ROW 3: 1 Full-Width Item */}
                 <Link href="/wholesale-batik-women-dresses" className="block w-full relative h-[60vh] md:h-[80vh] group overflow-hidden bg-cream flex justify-center border-b border-primary/10">
                     <Image
-                        src="/batik-cloth-dresses-for-women-category-image.webp"
-                        alt="Wholesale"
+                        src="/category-Homepage/dresses-for-women.webp"
+                        alt="Dresses for Women"
                         fill
                         className="object-cover object-top opacity-100 group-hover:scale-[1.05] transition-transform duration-[2s] ease-out"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
                     <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 md:pb-20 text-center px-6 md:px-12 z-10 transition-transform duration-700 ease-out group-hover:-translate-y-3">
                         <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 mb-2">Category</span>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-normal text-white mb-3 md:mb-5">Wholesale</h2>
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-normal text-white mb-3 md:mb-5">Dresses for Women</h2>
                         <p className="text-white/90 text-[13px] md:text-base font-medium max-w-lg drop-shadow-md mb-6 md:mb-8 leading-relaxed">Ready-stock fashion collections for growing businesses.</p>
                         <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/90 font-bold border-b border-transparent group-hover:border-white/80 pb-1 transition-all duration-300">
                             Explore Collection
@@ -471,10 +471,10 @@ export function LookbookSection() {
 
 export function PartnershipBannerSection() {
     return (
-        <section className="relative w-full h-[60vh] md:h-[85vh] overflow-hidden bg-[#F9F8F6]">
+        <section className="relative w-full aspect-video overflow-hidden bg-[#F9F8F6]">
             {/* Pure cinematic image covering the entire container, no text overlays */}
             <Image
-                src="/Luxury Batik Fashion Banner (169).png"
+                src="/round-category/plus size clothing.webp"
                 alt="Aqsha - Premium Ethnic Wear Campaign"
                 fill
                 sizes="100vw"
