@@ -78,7 +78,7 @@ export default function HowToOrderSection({
                                 </>
                             ) : title}
                         </h2>
-                        <p className="text-body1 text-primary max-w-4xl mt-1 leading-relaxed font-normal">
+                        <p className="text-body1 text-primary max-w-3xl mt-1 leading-relaxed font-normal">
                             {subtitle}
                         </p>
                     </div>
