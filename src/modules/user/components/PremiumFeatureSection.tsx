@@ -52,7 +52,7 @@ const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
                 <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] xl:grid-cols-[1.3fr_0.9fr] gap-12 lg:gap-16 items-center">
 
                     {/* Left: Flat Editorial Feature List */}
-                    <div className="order-2 lg:order-1 flex flex-col gap-8 sm:gap-10 pr-0 lg:pr-12">
+                    <div className="order-2 lg:order-1 grid grid-cols-2 sm:grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-10 sm:gap-y-12 pr-0 lg:pr-8">
                         {features.map((feature, i) => (
                             <div key={i} className="flex flex-col sm:flex-row gap-3 sm:gap-5 items-center sm:items-start text-center sm:text-left group">
                                 <div className="shrink-0 mt-0.5 transition-transform duration-300 group-hover:scale-110 group-hover:text-primary">
