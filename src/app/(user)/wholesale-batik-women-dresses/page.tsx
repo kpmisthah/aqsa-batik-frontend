@@ -195,17 +195,17 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
         {
             t: "Batik Dress Supply",
             d: "Source Batik dresses, Batik print dresses, and distinctive Batik dress designs created for retail collections and everyday customer demand.",
-            img: "/app_dress_materials.png"
+            img: "/wholesale/dresses for women.webp"
         },
         {
             t: "Boutique & Clothing Brands",
             d: "Build a more memorable collection with trendy dresses for women, floral styles, cotton dresses, and unique Batik prints.",
-            img: "/app_boutique.png"
+            img: "/wholesale/dresses for women (1).webp"
         },
         {
             t: "Custom & Bulk Orders",
             d: "Flexible wholesale supply for retailers, resellers, boutiques, and fashion businesses looking for bulk women dresses and cotton dress material.",
-            img: "/app_custom.png"
+            img: "/wholesale/dresses for women (2).webp"
         }
     ];
 
@@ -388,7 +388,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 max-w-6xl mx-auto w-full">
                         {wholesaleCapabilities.map((item, i) => (
                             <div key={i} className="flex flex-col gap-5 md:gap-6 group">
-                                <div className="relative w-full aspect-[4/5] md:aspect-[3/4] overflow-hidden rounded-[24px] border border-primary/10 shadow-sm group-hover:shadow-xl transition-shadow duration-500">
+                                <div className="relative w-full aspect-square overflow-hidden rounded-[24px] border border-primary/10 shadow-sm group-hover:shadow-xl transition-shadow duration-500">
                                     <Image 
                                         src={item.img} 
                                         alt={item.t} 
@@ -487,7 +487,8 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                         )
                     }
                 ]}
-                imageSrc="/dress-for-women-image.webp"
+                imageSrc="/wholesale/women dresses.webp"
+                imageContainerClassName="aspect-[4/5] w-full h-auto"
                 quote="Distinctive designs. Reliable supply. Built for businesses that sell."
             />
 
@@ -722,11 +723,8 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
             {/* ── SECTION: BUSINESS ADVANTAGE ── */}
             <section className="scroll-animate pt-8 pb-16 md:pt-16 md:pb-32 px-6 bg-transparent overflow-hidden text-primary">
                 <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center">
-                    <div className="relative h-[400px] md:h-[700px] rounded-[40px] md:rounded-[100px] overflow-hidden shadow-2xl group border-[10px] md:border-[20px] border-cream">
-                        {/* 
-                        <Image src="/dresses-for-women-image.webp" alt="Manufacturer Advantage" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[3s]" />
-                        */}
-                        <Image src="/wholesale-inventory-premium.png" alt="High rotation premium wholesale batik inventory" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[3s]" />
+                    <div className="relative aspect-square w-full rounded-[40px] md:rounded-[100px] overflow-hidden shadow-2xl group border-[10px] md:border-[20px] border-cream">
+                        <Image src="/wholesale/party wear dress for women.webp" alt="High rotation premium wholesale batik inventory" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[3s]" />
                         <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
                         <div className="absolute bottom-6 left-6 right-6 md:bottom-16 md:left-16 md:right-16 flex flex-col gap-3 md:gap-6">
                             <h4 className="text-white text-[22px] md:text-4xl font-heading font-medium leading-tight">"Stock your store with styles customers want to buy—not products that sit on the rack."</h4>
