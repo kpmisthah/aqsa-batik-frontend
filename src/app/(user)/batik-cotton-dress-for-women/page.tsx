@@ -121,21 +121,21 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                             {
                                 t: "EVERYDAY WOMEN DRESSES",
                                 d: "Choose easy-to-wear cotton styles for daily routines, casual outings, shopping, travel, and relaxed gatherings.",
-                                img: "/app_dress_materials.png"
+                                img: "/batik-cotton-dress-women/cotton dress for women.webp"
                             },
                             {
                                 t: "SUMMER WOMEN DRESSING",
                                 d: "Lightweight cotton helps create a cooler, more breathable feel when temperatures rise. Pair expressive Batik prints with relaxed silhouettes for effortless seasonal dressing.",
-                                img: "/app_custom.png"
+                                img: "/batik-cotton-dress-women/cotton dresses for women.webp"
                             },
                             {
                                 t: "BOUTIQUE COLLECTIONS",
                                 d: "Build distinctive collections with wearable Batik designs that give customers comfort, colour, and an individual sense of style.",
-                                img: "/app_boutique.png"
+                                img: "/batik-cotton-dress-women/cotton dresses for women (1).webp"
                             }
                         ].map((item, i) => (
                             <div key={i} className="flex flex-col gap-5 md:gap-6 group">
-                                <div className="relative w-full aspect-[4/5] md:aspect-[3/4] overflow-hidden rounded-[24px] border border-primary/10 shadow-sm group-hover:shadow-xl transition-shadow duration-500">
+                                <div className="relative w-full aspect-square overflow-hidden rounded-[24px] border border-primary/10 shadow-sm group-hover:shadow-xl transition-shadow duration-500">
                                     <Image
                                         src={item.img}
                                         alt={item.t}
@@ -180,7 +180,8 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                     { title: "Soft Against the Skin", desc: "Cotton offers a naturally soft feel that makes everyday dressing more comfortable." },
                     { title: "Easy Everyday Styling", desc: "A versatile Batik dress can be paired with simple footwear, accessories, or layers to create different looks without overcomplicating your wardrobe." }
                 ]}
-                imageSrc="/best-dresses-for-women-quality.webp"
+                imageSrc="/batik-cotton-dress-women/cotton dres women.webp"
+                imageContainerClassName="aspect-square"
                 featureTag="FABRIC STANDARD"
                 featureTitle="Pure Cotton Dress Comfort You Can Feel"
                 featureDesc="Our Batik cotton fabric is selected for the everyday experience."
@@ -253,8 +254,8 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                         )
                     }
                 ]}
-                imageSrc="/batik-fabric-image.webp"
-                mobileImageSrc="/cotton-dress-material-image.webp"
+                imageSrc="/batik-cotton-dress-women/cotton dresses women.webp"
+                mobileImageSrc="/batik-cotton-dress-women/cotton dresses women.webp"
                 quoteTag="STYLE YOUR WAY"
                 quoteTitle="From Cotton Dress Material to Ready-to-Wear Batik Style"
                 quoteDesc="Comfortable fabric. Distinctive design. More reasons to wear it."
