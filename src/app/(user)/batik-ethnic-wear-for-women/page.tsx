@@ -68,17 +68,17 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
         {
             t: "Everyday Ethnic Wear",
             d: "Choose comfortable Batik dresses, kurtis, and suit styles for shopping, travel, casual outings, workdays, and relaxed social occasions.",
-            img: "/cotton-kurti-for-women-image.webp"
+            img: "/ethnic/ethnic wear for women.webp"
         },
         {
             t: "Occasion Dressing",
             d: "Create a more expressive look with distinctive Batik designs, elegant silhouettes, and accessories that complement your personal style.",
-            img: "/gallery_arrival.png"
+            img: "/ethnic/ethnic wear for women (1).webp"
         },
         {
             t: "Boutique & Retail",
             d: "Explore distinctive ethnic styles that can help boutiques and resellers build collections with stronger visual identity and everyday wearability.",
-            img: "/cat_wholesale.webp"
+            img: "/ethnic/ethnic wear for women (2).webp"
         }
     ];
 
@@ -128,7 +128,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto w-full">
                         {collectionHighlights.map((item, i) => (
                             <div key={i} className="flex flex-col gap-5 md:gap-6 group">
-                                <div className="relative w-full aspect-[3/4] overflow-hidden rounded-[24px] border border-border shadow-sm group-hover:shadow-xl transition-shadow duration-500">
+                                <div className="relative w-full aspect-square overflow-hidden rounded-[24px] border border-border shadow-sm group-hover:shadow-xl transition-shadow duration-500">
                                     <Image
                                         src={item.img}
                                         alt={item.t}
@@ -168,7 +168,8 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                     "Versatile Styling Options",
                     "Premium Cotton Feel"
                 ]}
-                imageSrc="/cotton-dress-material-image.webp"
+                imageSrc="/ethnic/indian ethnic wear for women.webp"
+                imageContainerClassName="aspect-square"
                 featureTag="FABRIC MEETS HERITAGE"
                 featureTitle="Traditional Character. Everyday Comfort."
                 featureDesc="The right ethnic outfit should feel traditional, comfortable, and easy to wear again. Explore Batik dresses, kurtis, cotton styles, and suit sets made for effortless everyday style."
@@ -240,7 +241,8 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                         )
                     }
                 ]}
-                imageSrc="/clean_slider_1.png"
+                imageSrc="/ethnic/ethnic wear for women (3).webp"
+                imageContainerClassName="aspect-[1240/1748] w-full h-auto"
                 quoteTag="STYLE WITH PURPOSE"
                 quoteTitle="From Traditional Ethnic Wear to Contemporary Women's Fashion"
                 quoteDesc="Modern ethnic dressing is about choosing pieces that work with your lifestyle."
