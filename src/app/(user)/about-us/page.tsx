@@ -59,8 +59,8 @@ export default function AboutPage() {
                         </div>
 
                         {/* Mobile Image */}
-                        <div className="block lg:hidden relative w-full h-[300px] sm:h-[400px] rounded-[24px] overflow-hidden shadow-2xl border-[8px] border-cream mb-8">
-                            <Image src="/cotton-dress-material-image.webp" alt="Aqsha Batik Legacy Journey" layout="fill" objectFit="cover" objectPosition="top" className="brightness-90" />
+                        <div className="block lg:hidden relative w-full aspect-square rounded-[24px] overflow-hidden shadow-2xl border-[8px] border-cream mb-8">
+                            <Image src="/About-us/ujjain batik.webp" alt="Aqsha Batik Legacy Journey" layout="fill" objectFit="cover" objectPosition="top" className="brightness-90" />
                             <div className="absolute inset-0 bg-gradient-to-t from-accent/70 via-transparent to-transparent"></div>
                             <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-4 rounded-xl border border-primary/5 shadow-xl">
                                 <div className="flex flex-col gap-1">
@@ -260,8 +260,8 @@ export default function AboutPage() {
                     </div>
 
                     {/* Right Column (Desktop Image) */}
-                    <div className="hidden lg:block lg:sticky lg:top-32 relative w-full lg:w-1/2 h-[600px] rounded-[50px] overflow-hidden shadow-2xl border-[15px] border-cream group">
-                        <Image src="/cotton-dress-material-image.webp" alt="Aqsha Batik Legacy Journey" layout="fill" objectFit="cover" objectPosition="top" className="group-hover:scale-110 transition-all duration-[3s] brightness-90" />
+                    <div className="hidden lg:block lg:sticky lg:top-32 relative w-full lg:w-1/2 aspect-square rounded-[50px] overflow-hidden shadow-2xl border-[15px] border-cream group">
+                        <Image src="/About-us/ujjain batik.webp" alt="Aqsha Batik Legacy Journey" layout="fill" objectFit="cover" objectPosition="top" className="group-hover:scale-110 transition-all duration-[3s] brightness-90" />
                         <div className="absolute inset-0 bg-gradient-to-t from-accent/70 via-transparent to-transparent"></div>
                         <div className="absolute bottom-10 left-10 right-10 bg-white/90 backdrop-blur-md p-10 rounded-[40px] border border-primary/5 shadow-xl">
                             <div className="flex flex-col gap-2">
@@ -277,13 +277,14 @@ export default function AboutPage() {
                 wrapperClassName="py-0 mt-8 md:mt-0 md:py-24 px-4 md:px-6 bg-[#F4F0EA]"
                 tag="Guided by Principles"
                 title={<>What We <span className="text-highlight">Stand For</span></>}
-                imageSrc="/cotton-summer-dresses-image.webp"
+                imageSrc="/About-us/ujjain batik (3).webp"
+                imageContainerClassName="aspect-[4/5] w-full h-auto"
                 quote="Every piece of Batik Prints Women Clothing, cotton dress material, and Batik Cotton Dress for Women we produce is guided by principles that ensure quality, consistency, and long-term trust for buyers."
                 features={[
                     {
                         t: "Authentic Craftsmanship",
                         d: "We follow traditional wax-resist techniques to create genuine batik designs, ensuring every piece reflects real craftsmanship—not mass imitation.",
-                        c: "text-primary",
+                        c: "text-highlight",
                         i: (
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -293,7 +294,7 @@ export default function AboutPage() {
                     {
                         t: "Material Integrity",
                         d: "Our collections use high-quality cotton fabric and durable dress material, built for comfort, repeat use, and consistent wholesale demand.",
-                        c: "text-primary",
+                        c: "text-highlight",
                         i: (
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
@@ -303,7 +304,7 @@ export default function AboutPage() {
                     {
                         t: "Direct Transparency",
                         d: "As a direct manufacturer, we offer clear pricing, reliable supply, and honest communication for long-term business partnerships.",
-                        c: "text-primary",
+                        c: "text-highlight",
                         i: (
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
@@ -313,7 +314,7 @@ export default function AboutPage() {
                     {
                         t: "Bulk Reliability",
                         d: "We maintain ready stock and fast dispatch timelines to ensure your boutique or wholesale business never faces inventory gaps across India.",
-                        c: "text-primary",
+                        c: "text-highlight",
                         i: (
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <rect width="18" height="18" x="3" y="3" rx="2" /><path d="M3 9h18" /><path d="M9 21V9" />
@@ -327,9 +328,9 @@ export default function AboutPage() {
             <section className="scroll-animate pt-8 md:pt-16 pb-12 md:pb-16 px-6 bg-[#F4F0EA] overflow-hidden">
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-24">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-24 items-center">
-                        <div className="order-2 lg:order-1 relative h-[300px] md:h-[600px] rounded-[30px] md:rounded-[60px] overflow-hidden shadow-2xl border-[8px] md:border-[15px] border-cream group">
+                        <div className="order-2 lg:order-1 relative aspect-square w-full h-auto rounded-[30px] md:rounded-[60px] overflow-hidden shadow-2xl border-[8px] md:border-[15px] border-cream group">
                             {/* <Image src="/batik-fabric-manufacturing.webp" alt="Fabric Quality" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[3s]" /> */}
-                            <Image src="/batik-fabric-manufacturing-new.png" alt="Fabric Quality" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[3s]" />
+                            <Image src="/About-us/ujjain batik (2).webp" alt="Fabric Quality" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[3s]" />
                         </div>
                         <div className="order-1 lg:order-2 flex flex-col gap-6 md:gap-10">
                             <div className="flex flex-col gap-2 md:gap-6 text-center lg:text-left">
