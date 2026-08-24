@@ -325,7 +325,7 @@ export default function HomePage() {
       </section>
 
       {/* ── BUYER PSYCHOLOGY ── */}
-      <section className="pt-16 pb-8 md:pt-20 md:pb-16 px-6 bg-cream border-t border-border/40">
+      <section className="pt-16 pb-4 md:pt-20 md:pb-10 px-6 bg-cream border-t border-border/40">
         <div className="max-w-[1400px] mx-auto flex flex-col items-center text-center gap-10 md:gap-12">
           <div className="flex flex-col gap-3 max-w-5xl items-center">
             <span className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-bold text-accent">The Best Investment in Everyday Fashion</span>

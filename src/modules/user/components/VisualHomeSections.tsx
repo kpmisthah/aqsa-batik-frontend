@@ -363,7 +363,7 @@ export function TrendingCollectionsBannerSection() {
                 {/* ROW 3: 1 Full-Width Item */}
                 <Link href="/wholesale-batik-women-dresses" className="block w-full relative h-[60vh] md:h-[80vh] group overflow-hidden bg-cream flex justify-center border-b border-primary/10">
                     <Image
-                        src="/category-Homepage/dresses-for-women.webp"
+                        src="/category-Homepage/women-clothing.webp"
                         alt="Dresses for Women"
                         fill
                         className="object-cover object-top opacity-100 group-hover:scale-[1.05] transition-transform duration-[2s] ease-out"

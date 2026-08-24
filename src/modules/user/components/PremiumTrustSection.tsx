@@ -6,7 +6,7 @@ export default function PremiumTrustSection() {
     return (
         <section className="bg-cream pt-20 pb-16 md:pt-24 md:pb-20 px-4 md:px-8 border-t border-border/40 overflow-hidden">
             <div className="max-w-[1500px] mx-auto flex flex-col gap-12 md:gap-16">
-                
+
                 {/* Top Heading Area */}
                 <div className="flex flex-col items-center text-center gap-3 md:gap-4 w-full max-w-4xl mx-auto">
                     <span className="text-overline uppercase tracking-[0.2em] font-bold text-primary/80">
@@ -22,7 +22,7 @@ export default function PremiumTrustSection() {
 
                 {/* Bottom Visual & List Content */}
                 <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
-                    
+
                     {/* Left Visual */}
                     <div className="w-full lg:w-1/2 relative group aspect-[4/3]">
                         <div className="relative w-full h-full overflow-hidden rounded-xl md:rounded-2xl shadow-sm z-10 border border-primary/10 bg-tan">
@@ -33,7 +33,7 @@ export default function PremiumTrustSection() {
                                 unoptimized
                                 className="object-cover object-center grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[4s]"
                             />
-                            
+
                             {/* Overlaid elegant badge */}
                             <div className="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-8 lg:right-auto lg:max-w-md bg-white/95 backdrop-blur-md px-4 py-4 md:px-6 md:py-6 rounded-xl border border-primary/5 flex flex-col shadow-xl gap-3 md:gap-4">
                                 <div className="flex flex-col gap-1 md:gap-2">
