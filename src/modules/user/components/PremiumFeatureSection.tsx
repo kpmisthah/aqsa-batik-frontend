@@ -41,7 +41,7 @@ const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
     return (
         <section className={`scroll-animate overflow-hidden ${wrapperClassName}`}>
             <div className="max-w-7xl mx-auto flex flex-col gap-8 md:gap-20">
-                
+
                 {/* Full-width Centered Title */}
                 <div className="flex flex-col gap-3 md:gap-4 text-center items-center px-4 max-w-4xl mx-auto">
                     <span className="text-overline text-accent tracking-[0.3em] font-bold uppercase">{tag}</span>
@@ -50,9 +50,9 @@ const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] xl:grid-cols-[1.3fr_0.9fr] gap-12 lg:gap-16 items-center">
-                    
+
                     {/* Left: Flat Editorial Feature List */}
-                    <div className="order-2 lg:order-1 grid grid-cols-2 sm:grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-10 sm:gap-y-12 pr-0 lg:pr-8">
+                    <div className="order-2 lg:order-1 flex flex-col gap-8 sm:gap-10 pr-0 lg:pr-12">
                         {features.map((feature, i) => (
                             <div key={i} className="flex flex-col sm:flex-row gap-3 sm:gap-5 items-center sm:items-start text-center sm:text-left group">
                                 <div className="shrink-0 mt-0.5 transition-transform duration-300 group-hover:scale-110 group-hover:text-primary">
@@ -70,20 +70,20 @@ const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
 
                     {/* Right: Vertical Editorial Image */}
                     <div className={`order-1 lg:order-2 relative rounded-tr-[40px] rounded-bl-[40px] overflow-hidden group ${imageContainerClassName}`}>
-                        <Image 
-                            src={imageSrc} 
-                            alt="Premium Feature Banner Desktop" 
-                            layout="fill" 
-                            objectFit="cover" 
-                            className={`group-hover:scale-105 transition-transform duration-[2000ms] object-center ${mobileImageSrc ? 'hidden md:block' : ''}`} 
+                        <Image
+                            src={imageSrc}
+                            alt="Premium Feature Banner Desktop"
+                            layout="fill"
+                            objectFit="cover"
+                            className={`group-hover:scale-105 transition-transform duration-[2000ms] object-center ${mobileImageSrc ? 'hidden md:block' : ''}`}
                         />
                         {mobileImageSrc && (
-                            <Image 
-                                src={mobileImageSrc} 
-                                alt="Premium Feature Banner Mobile" 
-                                layout="fill" 
-                                objectFit="cover" 
-                                className="group-hover:scale-105 transition-transform duration-[2000ms] object-[center_top] block md:hidden" 
+                            <Image
+                                src={mobileImageSrc}
+                                alt="Premium Feature Banner Mobile"
+                                layout="fill"
+                                objectFit="cover"
+                                className="group-hover:scale-105 transition-transform duration-[2000ms] object-[center_top] block md:hidden"
                             />
                         )}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
