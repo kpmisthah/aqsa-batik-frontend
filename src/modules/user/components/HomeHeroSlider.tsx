@@ -285,7 +285,7 @@ export default function HomeHeroSlider() {
                 </span>
               </div>
 
-              <h1 className="text-[36px] sm:text-[44px] md:text-5xl lg:text-[4.5rem] font-heading font-normal leading-[1.05] md:leading-[1.1] mb-2 md:mb-4 text-left text-primary tracking-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[4.5rem] font-heading font-normal leading-[1.05] md:leading-[1.1] mb-2 md:mb-4 text-left text-primary tracking-tight">
                 {renderTitle(slide.title, slide.highlightWord)}
               </h1>
               
