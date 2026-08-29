@@ -64,7 +64,7 @@ export default function CategoryHeroBanner({
           </div>
 
           {/* Title */}
-          <h1 className="text-4xl sm:text-5xl md:text-[56px]/[64px] font-heading font-semibold mb-2 md:mb-4 text-left tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-[56px]/[64px] font-heading font-semibold mb-2 md:mb-4 text-left tracking-tight">
             {title}
           </h1>
 
