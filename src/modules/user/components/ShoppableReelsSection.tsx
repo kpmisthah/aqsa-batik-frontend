@@ -91,7 +91,7 @@ export default function ShoppableReelsSection() {
       <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col items-center text-center gap-6 mb-12 md:mb-16">
           <div className="flex flex-col items-center gap-3">
-            <span className="text-overline text-accent">AQSHA Batik in Motion</span>
+            <span className="text-overline text-[#8A4B32]">AQSHA Batik in Motion</span>
             <h2 className="text-h2 text-primary relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-[1px] after:bg-primary/20">
               See Batik Dresses, Kurtis & Women's Suits <span className="text-highlight italic">in Motion</span>
             </h2>
