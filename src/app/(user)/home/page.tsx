@@ -56,7 +56,7 @@ export default function HomePage() {
       <section id="collection" className="pt-16 pb-20 md:pt-20 md:pb-32 bg-tan">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="flex flex-col items-center text-center gap-3 md:gap-4 mb-12 md:mb-16 max-w-4xl mx-auto">
-            <span className="text-overline uppercase tracking-[0.2em] font-bold text-primary/80">Curated for Excellence</span>
+            <span className="text-overline uppercase tracking-[0.2em] font-bold text-[#8A4B32]">Curated for Excellence</span>
             <h2 className="text-h2 md:text-h1 text-primary font-normal leading-tight">
               Best-Selling <span className="text-highlight italic">Batik Suit Collections</span> <br className="hidden md:block" /> for Every Woman
             </h2>
@@ -228,9 +228,9 @@ export default function HomePage() {
         <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-6 md:gap-16 lg:gap-20 items-center">
 
           <div className="flex flex-col gap-3 md:gap-6 lg:w-[400px] shrink-0 min-w-0 text-center items-center w-full">
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/80">The Legacy of Quality</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#8A4B32]">Real Buyers. Real Results.</span>
             <h2 className="text-h2 text-center">
-              Trusted by <span className="text-highlight italic">1,000+ Retail Partners </span> <br className="hidden lg:block"/> for Quality Batik Fashion
+              Trusted by <span className="text-highlight italic">1,000+</span> Retail Partners
             </h2>
             {/* Desktop Only Paragraph */}
             <p className="hidden lg:block text-sm md:text-base text-primary/80 font-medium leading-relaxed max-w-md mt-2">
@@ -328,9 +328,9 @@ export default function HomePage() {
       <section className="pt-16 pb-4 md:pt-20 md:pb-10 px-6 bg-cream border-t border-border/40">
         <div className="max-w-[1400px] mx-auto flex flex-col items-center text-center gap-10 md:gap-12">
           <div className="flex flex-col gap-3 max-w-5xl items-center">
-            <span className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-bold text-accent">The Best Investment in Everyday Fashion</span>
+            <span className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-bold text-[#8A4B32]">The Best Investment in Everyday Fashion</span>
             <h2 className="text-h2">
-              Why Smart Sellers Choose <br /> <span className="text-highlight italic">AQSHA Batik Suits</span>
+              Why Smart Sellers Choose <span className="text-highlight italic">AQSHA Batik Suits</span>
             </h2>
             <p className="text-sm md:text-base mt-2 leading-relaxed text-primary/80 font-medium">
               You are investing in women's clothing collections built around repeat demand, breathable comfort, distinctive batik prints, and wearable styles customers genuinely want to buy again.
