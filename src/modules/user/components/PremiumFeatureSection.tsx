@@ -11,6 +11,7 @@ export interface Feature {
 
 interface PremiumFeatureSectionProps {
     tag?: string;
+    tagColor?: string;
     title: string | React.ReactNode;
     description?: string | React.ReactNode;
     features: Feature[];
@@ -26,6 +27,7 @@ interface PremiumFeatureSectionProps {
 
 const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
     tag = "Why Buyers Choose Us",
+    tagColor,
     title,
     description,
     features,
@@ -38,13 +40,14 @@ const PremiumFeatureSection: React.FC<PremiumFeatureSectionProps> = ({
     wrapperClassName = "py-8 md:py-24 px-4 md:px-6 bg-cream",
     imageContainerClassName = "h-[450px] md:h-[600px] w-full"
 }) => {
+    const tagStyle = tagColor ? { color: tagColor } : undefined;
     return (
         <section className={`scroll-animate overflow-hidden ${wrapperClassName}`}>
             <div className="max-w-7xl mx-auto flex flex-col gap-8 md:gap-20">
 
                 {/* Full-width Centered Title */}
                 <div className="flex flex-col gap-3 md:gap-4 text-center items-center px-4 max-w-4xl mx-auto">
-                    <span className="text-overline text-accent tracking-[0.3em] font-bold uppercase">{tag}</span>
+                    <span className="text-overline tracking-[0.3em] font-bold uppercase" style={tagStyle ?? { color: 'var(--color-accent)' }}>{tag}</span>
                     <h2 className="text-h2 text-primary font-heading leading-tight">{title}</h2>
                     {description && <p className="text-lg md:text-xl text-primary font-normal leading-relaxed mt-2 w-full text-center">{description}</p>}
                 </div>
