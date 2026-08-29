@@ -94,7 +94,7 @@ export function FeaturedGridSection() {
             <div className="max-w-[1500px] mx-auto flex flex-col gap-10">
                 {/* Refined Section Header */}
                 <div className="text-center flex flex-col items-center gap-3 md:gap-4 max-w-4xl mx-auto px-2 md:px-6">
-                    <span className="text-overline uppercase tracking-[0.2em] font-bold text-primary/80">Fresh Batik Styles</span>
+                    <span className="text-overline uppercase tracking-[0.2em] font-bold text-[#8A4B32]">Fresh Batik Styles</span>
                     <h2 className="text-h2 md:text-h1 text-primary font-normal leading-tight">
                         <span className="text-highlight italic">New Arrival</span>{" "}Women's Suits & <br className="hidden md:block" /> Batik Dress Material
                     </h2>
@@ -188,7 +188,7 @@ export function LifestyleBannerSection() {
 
                 {/* Mobile-Only Heading (Displays above image on mobile) */}
                 <div className="w-full lg:hidden flex flex-col items-center text-center gap-3">
-                    <span className="text-[9px] md:text-[11px] uppercase tracking-[0.3em] font-bold text-accent">
+                    <span className="text-[9px] md:text-[11px] uppercase tracking-[0.3em] font-bold text-[#8A4B32]">
                         Styles Made to Belong
                     </span>
                     <h2 className="font-heading text-3xl md:text-5xl text-primary leading-[1.1] tracking-tight">
@@ -215,7 +215,7 @@ export function LifestyleBannerSection() {
 
                     {/* Desktop-Only Heading (Hidden on mobile) */}
                     <div className="hidden lg:flex flex-col gap-6 lg:gap-8 w-full">
-                        <span className="text-[11px] uppercase tracking-[0.3em] font-bold text-accent">
+                        <span className="text-[11px] uppercase tracking-[0.3em] font-bold text-[#8A4B32]">
                             Styles Made to Belong
                         </span>
                         <h2 className="font-heading text-4xl lg:text-6xl text-primary leading-[1.1] tracking-tight">
@@ -276,9 +276,9 @@ export function TrendingCollectionsBannerSection() {
     return (
         <section className="w-full bg-cream pt-16 md:pt-24 border-t border-primary/5">
             <div className="max-w-[1400px] mx-auto flex flex-col items-center text-center gap-3 md:gap-5 mb-10 md:mb-16 px-6">
-                <span className="text-overline">TRENDING COLLECTIONS</span>
+                <span className="text-overline">Batik Styles Worth Wearing</span>
                 <h2 className="font-heading text-2xl md:text-4xl font-normal text-primary leading-tight">
-                    Batik Styles Worth Wearing <br className="hidden md:block" /> Trending Batik Suits & <span className="text-highlight">Women's Clothing</span>
+                    Trending Batik Suits & <span className="text-highlight">Women's Clothing</span>
                 </h2>
                 <p className="text-body1 mt-2 text-center w-full max-w-2xl mx-auto text-primary/80">
                     Explore trending batik prints, fresh Batik Prints Women Clothing designs, cotton dresses for women, and ready-to-wear collections created for everyday shoppers, boutiques, resellers, and fashion businesses.
@@ -297,7 +297,7 @@ export function TrendingCollectionsBannerSection() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
                     <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 md:pb-16 text-center px-4 md:px-8 z-10 transition-transform duration-700 ease-out group-hover:-translate-y-3">
                         <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 mb-2">Category</span>
-                        <h2 className="text-3xl md:text-4xl font-heading font-normal text-white mb-2 md:mb-4">Cotton Cloth</h2>
+                        <h2 className="text-3xl md:text-4xl font-heading font-normal text-white mb-2 md:mb-4">Batik Prints Women Clothing</h2>
                         <p className="text-white/90 text-[13px] md:text-sm font-medium max-w-sm drop-shadow-md mb-4 md:mb-6 leading-relaxed">Distinctive batik prints for everyday Indian style.</p>
                         <span className="text-[10px] uppercase tracking-[0.2em] text-white/90 font-bold border-b border-transparent group-hover:border-white/80 pb-1 transition-all duration-300">
                             Explore Collection
@@ -316,7 +316,7 @@ export function TrendingCollectionsBannerSection() {
                     <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 md:pb-16 text-center px-4 md:px-8 z-10 transition-transform duration-700 ease-out group-hover:-translate-y-3">
                         <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 mb-2">Category</span>
                         <h2 className="text-3xl md:text-4xl font-heading font-normal text-white mb-2 md:mb-4">Cotton Dress for Women</h2>
-                        <p className="text-white/90 text-[13px] md:text-sm font-medium max-w-sm drop-shadow-md mb-4 md:mb-6 leading-relaxed">Statement-making women suits with timeless batik design character.</p>
+                        <p className="text-white/90 text-[13px] md:text-sm font-medium max-w-sm drop-shadow-md mb-4 md:mb-6 leading-relaxed">Pure cotton dresses for women with elegant batik prints and breathable comfort.</p>
                         <span className="text-[10px] uppercase tracking-[0.2em] text-white/90 font-bold border-b border-transparent group-hover:border-white/80 pb-1 transition-all duration-300">
                             Explore Collection
                         </span>
@@ -335,7 +335,7 @@ export function TrendingCollectionsBannerSection() {
                     <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 md:pb-16 text-center px-4 md:px-8 z-10 transition-transform duration-700 ease-out group-hover:-translate-y-3">
                         <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 mb-2">Category</span>
                         <h2 className="text-3xl md:text-4xl font-heading font-normal text-white mb-2 md:mb-4">Ethnic Wear for Women</h2>
-                        <p className="text-white/90 text-[13px] md:text-sm font-medium max-w-sm drop-shadow-md mb-4 md:mb-6 leading-relaxed">Pure cotton dresses for women with elegant batik prints and breathable comfort.</p>
+                        <p className="text-white/90 text-[13px] md:text-sm font-medium max-w-sm drop-shadow-md mb-4 md:mb-6 leading-relaxed">Statement-making women suits with timeless batik design character.</p>
                         <span className="text-[10px] uppercase tracking-[0.2em] text-white/90 font-bold border-b border-transparent group-hover:border-white/80 pb-1 transition-all duration-300">
                             Explore Collection
                         </span>
@@ -352,7 +352,7 @@ export function TrendingCollectionsBannerSection() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
                     <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 md:pb-16 text-center px-4 md:px-8 z-10 transition-transform duration-700 ease-out group-hover:-translate-y-3">
                         <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 mb-2">Category</span>
-                        <h2 className="text-3xl md:text-4xl font-heading font-normal text-white mb-2 md:mb-4">Cotton Kurtis for Women</h2>
+                        <h2 className="text-3xl md:text-4xl font-heading font-normal text-white mb-2 md:mb-4">New Arrival</h2>
                         <p className="text-white/90 text-[13px] md:text-sm font-medium max-w-sm drop-shadow-md mb-4 md:mb-6 leading-relaxed">Fresh batik suits and new styles added to the collection.</p>
                         <span className="text-[10px] uppercase tracking-[0.2em] text-white/90 font-bold border-b border-transparent group-hover:border-white/80 pb-1 transition-all duration-300">
                             Explore Collection
@@ -371,7 +371,7 @@ export function TrendingCollectionsBannerSection() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
                     <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 md:pb-20 text-center px-6 md:px-12 z-10 transition-transform duration-700 ease-out group-hover:-translate-y-3">
                         <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 mb-2">Category</span>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-normal text-white mb-3 md:mb-5">Dresses for Women</h2>
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-normal text-white mb-3 md:mb-5">Wholesale</h2>
                         <p className="text-white/90 text-[13px] md:text-base font-medium max-w-lg drop-shadow-md mb-6 md:mb-8 leading-relaxed">Ready-stock fashion collections for growing businesses.</p>
                         <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/90 font-bold border-b border-transparent group-hover:border-white/80 pb-1 transition-all duration-300">
                             Explore Collection
@@ -403,7 +403,7 @@ export function LookbookSection() {
 
                 {/* Standard Brand Text Header */}
                 <div className="flex flex-col gap-3 items-center text-center">
-                    <span className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-bold text-accent">Style Guide</span>
+                    <span className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-bold text-[#8A4B32]">Style Guide</span>
                     <h2 className="text-h2 text-primary relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-[1px] after:bg-primary/20">
                         Find Your Perfect <br className="md:hidden" /><span className="text-highlight italic">Everyday Look</span>
                     </h2>
