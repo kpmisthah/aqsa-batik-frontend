@@ -9,8 +9,8 @@ export default function ConsistentCTA() {
 
                 {/* Left Side: Content */}
                 <div className="lg:w-[55%] p-8 sm:p-10 md:p-16 flex flex-col justify-center bg-[#FDFBF7]">
-                    <span className="text-overline text-accent tracking-[0.3em] font-bold uppercase mb-4 flex items-center gap-2">
-                        <span className="text-accent text-lg">♦</span> MADE TO WEAR. MADE TO SELL.
+                    <span className="text-overline tracking-[0.3em] font-bold uppercase mb-4 flex items-center gap-2" style={{ color: '#8A4B32' }}>
+                        <span className="text-lg" style={{ color: '#8A4B32' }}>♦</span> MADE TO WEAR. MADE TO SELL.
                     </span>
 
                     <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-normal text-primary leading-[1.1] mb-6">
@@ -22,7 +22,7 @@ export default function ConsistentCTA() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4">
-                        <Link href="/batik-prints-womens-clothing" className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full font-bold text-[11px] uppercase tracking-widest transition-colors shadow-sm text-center">
+                        <Link href="/batik-prints-womens-clothing" className="bg-highlight hover:bg-highlight/90 text-white px-8 py-4 rounded-full font-bold text-[11px] uppercase tracking-widest transition-colors shadow-sm text-center">
                             Shop Batik Suits
                         </Link>
                         <Link href="/contact-us" className="border border-primary/20 text-primary px-8 py-4 rounded-full font-bold text-[11px] uppercase tracking-widest hover:border-accent hover:text-accent transition-colors text-center bg-transparent">
