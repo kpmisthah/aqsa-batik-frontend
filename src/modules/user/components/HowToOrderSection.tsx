@@ -4,6 +4,7 @@ interface HowToOrderSectionProps {
     title: React.ReactNode;
     whatsappLink: string;
     tag?: string;
+    tagColor?: string;
     subtitle?: string;
     steps?: { s: string; t: string; d: string; i?: React.ReactNode }[];
     ctaText?: string;
@@ -57,16 +58,18 @@ export default function HowToOrderSection({
     title,
     whatsappLink,
     tag = "Wholesale Process",
+    tagColor,
     subtitle = DEFAULT_SUBTITLE,
     steps = STEPS,
     ctaText = "Start Your Order on WhatsApp"
 }: HowToOrderSectionProps) {
+    const tagStyle = tagColor ? { color: tagColor } : undefined;
     return (
         <section className="scroll-animate pt-10 pb-8 md:pt-12 md:pb-12 px-6 bg-cream text-center border-t border-border/40">
             <div className="max-w-[1400px] mx-auto flex flex-col gap-6 md:gap-8 relative z-10 w-full">
                 {/* ── Header ── */}
                 <div className="flex flex-col gap-3 text-center items-center">
-                    <span className="text-overline">{tag}</span>
+                    <span className="text-overline font-bold" style={tagStyle ?? { color: '#8A4B32' }}>{tag}</span>
                         <h2 className="font-heading text-h2 font-medium text-primary">
                             {typeof title === 'string' && title.match(/(women clothing online|online)/i) ? (
                                 <>
