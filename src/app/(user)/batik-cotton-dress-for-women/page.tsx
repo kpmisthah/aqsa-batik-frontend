@@ -78,31 +78,71 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
 
             <Nav />
             <ScrollObserver />
-            <CategoryHeroBanner
-                tagline="EFFORTLESS COTTON STYLE"
-                title={
-                    <>
-                        Cotton Dress for Women <br className="hidden md:block" />
-                        Made for Comfort, Colour & <br className="hidden md:block" />
-                        <span className="text-highlight">Everyday Confidence</span>
-                    </>
-                }
-                description="Discover breathable Batik cotton dresses designed to make everyday dressing feel easier. From relaxed one-piece styles to expressive batik print dress designs, find comfortable silhouettes that bring softness, character, and effortless style to every day."
-                imageSrc="/batik_fabric_hero_unique.png"
-                imageAlt="Batik Cotton Dress for Women Collection"
-                bgColor="#D0B598"
-                textColor="text-primary"
-                buttons={
-                    <>
-                        <a href="#collection" className="bg-highlight hover:bg-highlight/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm">
-                            Shop Cotton Dresses
-                        </a>
-                        <a href={WA} target="_blank" rel="noreferrer" className="border border-primary/15 hover:border-highlight text-primary px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors bg-transparent hover:text-highlight">
-                            Become a Wholesale Partner
-                        </a>
-                    </>
-                }
-            />
+            {/* ── FULL WIDTH RESPONSIVE HERO ── */}
+            <section className="relative w-full lg:h-[90vh] lg:min-h-[600px] lg:max-h-[900px] bg-cream lg:bg-transparent overflow-hidden flex flex-col lg:block">
+
+                {/* Desktop Background Image */}
+                <div className="hidden lg:block absolute inset-0 w-full h-full z-0">
+                    <Image
+                        src="/category/Batik Cotton Dress for Women (1).webp"
+                        alt="Batik Cotton Dress for Women Collection"
+                        fill
+                        priority
+                        className="object-cover object-center"
+                        unoptimized
+                    />
+                </div>
+
+                {/* Mobile Image */}
+                <div className="relative w-full h-[60vh] min-h-[450px] lg:hidden z-0">
+                    <Image
+                        src="/category/cotton dress for women.webp"
+                        alt="Batik Cotton Dress for Women Collection"
+                        fill
+                        priority
+                        className="object-cover object-top"
+                        unoptimized
+                    />
+                </div>
+
+                {/* Text Content */}
+                <div className="relative z-20 max-w-[1600px] mx-auto w-full flex flex-col px-6 lg:px-12 pt-0 pb-16 lg:pb-0 text-primary lg:h-full lg:absolute lg:inset-0 lg:justify-center">
+                    <div className="w-full lg:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[650px] flex flex-col items-center text-center lg:items-start lg:text-left gap-4 lg:gap-6 mt-0 relative z-30">
+                        {/* Hook */}
+                        <div className="flex items-center justify-center lg:justify-start gap-2">
+                            <span className="text-[#8A4B32] text-xl leading-none">&diams;</span>
+                            <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">EFFORTLESS COTTON STYLE</span>
+                        </div>
+                        
+                        <h1 className="text-3xl leading-[1.15] sm:text-4xl lg:text-[36px] xl:text-[48px] 2xl:text-[60px] lg:leading-[1.1] font-heading font-normal tracking-tight text-primary">
+                            Cotton Dress for <br className="hidden lg:block" />
+                            Women&nbsp;&nbsp;Made for <br className="hidden lg:block" />
+                            Comfort,colour & <br className="hidden lg:block" />
+                            <span className="text-highlight italic whitespace-nowrap">Everyday Confidence</span>
+                        </h1>
+
+                        <p className="text-[14px] lg:text-lg text-primary/80 leading-relaxed max-w-2xl font-medium">
+                            Discover breathable Batik cotton dresses designed to make everyday dressing feel easier. From relaxed one-piece styles to expressive batik print dress designs, find comfortable silhouettes that bring softness, character, and effortless style to every day.
+                        </p>
+
+                        <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 items-center lg:items-start w-full sm:w-auto mt-2">
+                            <a href="#collection" className="bg-highlight hover:bg-highlight/90 text-white px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-xs flex items-center justify-center transition-all shadow-sm text-center w-full sm:w-auto">
+                                Shop Cotton Dresses
+                            </a>
+                            <a href={WA} target="_blank" rel="noreferrer" className="border border-primary/20 hover:border-primary/40 text-primary hover:bg-primary/5 px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-xs flex items-center justify-center transition-all backdrop-blur-sm text-center w-full sm:w-auto">
+                                Become a Wholesale Partner
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Scroll Indicator */}
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 hidden lg:block">
+                    <div className="w-5 h-8 rounded-full border-2 border-primary/30 flex justify-center pt-1.5">
+                        <div className="w-1 h-2 rounded-full bg-primary/40 animate-bounce" />
+                    </div>
+                </div>
+            </section>
             <GoogleReviewBar />
 
             {/* ── SECTION: APPLICATIONS ── */}
@@ -173,6 +213,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
 
             <AdvantageSection
                 tag="MADE FOR COMFORT"
+                tagColor="#8A4B32"
                 title={<>Why Women Choose Cotton Dress Styles for <span className="text-highlight">Everyday Wear?</span></>}
                 items={[
                     { title: "Breathable Feel", desc: "Cotton allows airflow around the body, making it a practical choice for warm-weather dressing and everyday comfort." },
@@ -190,6 +231,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
             <PremiumFeatureSection
                 wrapperClassName="pt-8 pb-12 md:pt-24 md:pb-16 px-4 md:px-6 bg-cream"
                 tag="THE BATIK ADVANTAGE"
+                tagColor="#8A4B32"
                 title={<>More Than a <span className="text-highlight">Women's Dress.</span> <br /> A Style Customers Want to Wear.</>}
                 description="For a fashion business, product appeal begins with what customers see. But repeat demand often begins with what they feel. Our Batik cotton collection combines visual individuality with everyday wearability, helping retailers and boutiques offer products that feel both distinctive and practical."
                 features={[
@@ -266,6 +308,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
             <HorizontalProcessSection
                 wrapperClassName="pt-8 pb-16 md:pt-12 md:pb-24 border-t-0"
                 tag="WHOLESALE, MADE SIMPLE"
+                tagColor="#8A4B32"
                 title={<>Bring Batik Cotton Dresses Into <br /> Your Collection Without <span className="text-highlight">the Guesswork</span></>}
                 subtitle="Whether you are building a boutique range, expanding a retail collection, or sourcing new women's fashion products, our simple ordering process helps you move from selection to supply with clarity."
                 steps={[
