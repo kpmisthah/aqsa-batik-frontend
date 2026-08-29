@@ -9,11 +9,11 @@ export default function PremiumTrustSection() {
 
                 {/* Top Heading Area */}
                 <div className="flex flex-col items-center text-center gap-3 md:gap-4 w-full max-w-4xl mx-auto">
-                    <span className="text-overline uppercase tracking-[0.2em] font-bold text-primary/80">
+                    <span className="text-overline uppercase tracking-[0.2em] font-bold text-[#8A4B32]">
                         The Legacy of Quality
                     </span>
                     <h2 className="text-h2 md:text-h1 text-primary font-normal leading-tight">
-                        Trusted by <span className="text-highlight italic">1,000+ Retail Partners</span> for Quality Batik Fashion
+                        Trusted by <span className="text-highlight italic">1,000+ Retail Partners</span> <br className="hidden md:block" /> for Quality Batik Fashion
                     </h2>
                     <p className="text-sm md:text-base text-primary/80 font-medium leading-relaxed max-w-3xl mt-2">
                         For 15+ years, AQSHA Batik Suits has helped boutiques, wholesalers, and resellers source dependable women's dress material, cotton fabrics, Shalwar Kameez, Dupatta/Chunni, and ready-to-sell fashion collections across India.
