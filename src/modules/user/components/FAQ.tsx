@@ -43,7 +43,7 @@ export default function FAQ({ items }: FAQProps) {
         <section id="faq" className="pt-8 pb-10 md:pt-10 md:pb-12 px-6 bg-cream border-t border-primary/5">
             <div className="max-w-4xl mx-auto flex flex-col items-center">
                 <div className="text-center mb-8 flex flex-col gap-4 items-center">
-                    <span className="text-xl leading-none text-accent">&diams; <span className="text-[11px] font-bold uppercase tracking-[0.25em] ml-2 text-primary/80">Support</span></span>
+                    <span className="text-xl leading-none text-[#8A4B32]">&diams; <span className="text-[11px] font-bold uppercase tracking-[0.25em] ml-2 text-[#8A4B32]">Support</span></span>
                     <h2 className="font-heading text-h2 font-medium text-primary">Frequently Asked <span className="text-highlight italic">Questions</span></h2>
                 </div>
 
