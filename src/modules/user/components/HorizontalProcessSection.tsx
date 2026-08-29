@@ -8,6 +8,7 @@ interface Step {
 
 interface HorizontalProcessSectionProps {
     tag: string;
+    tagColor?: string;
     title: React.ReactNode;
     subtitle: React.ReactNode;
     steps: Step[];
@@ -18,6 +19,7 @@ interface HorizontalProcessSectionProps {
 
 export default function HorizontalProcessSection({ 
     tag, 
+    tagColor,
     title, 
     subtitle, 
     steps, 
@@ -25,12 +27,13 @@ export default function HorizontalProcessSection({
     whatsappLink = "https://wa.me/918815373767",
     wrapperClassName = "py-16 md:py-24"
 }: HorizontalProcessSectionProps) {
+    const tagStyle = tagColor ? { color: tagColor } : undefined;
     return (
         <section className={`scroll-animate px-6 bg-cream text-center border-y border-primary/5 overflow-hidden ${wrapperClassName}`}>
             <div className="max-w-[1400px] mx-auto flex flex-col gap-12 md:gap-20 relative z-10 w-full">
                 {/* ── Header ── */}
                 <div className="flex flex-col gap-3 md:gap-4 text-center items-center">
-                    <span className="text-overline">{tag}</span>
+                    <span className="text-overline tracking-[0.3em] font-bold uppercase" style={tagStyle ?? { color: 'var(--color-accent)' }}>{tag}</span>
                     <h2 className="font-heading text-h2 font-medium text-primary">
                         {title}
                     </h2>
