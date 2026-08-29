@@ -220,30 +220,70 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
 
             <Nav />
             <ScrollObserver />
-            <CategoryHeroBanner
-                tagline="♦ DIRECT MANUFACTURER · BULK SUPPLY"
-                title={
-                    <>
-                        Premium Wholesale <br className="hidden md:block" />
-                        Women Dresses in <br className="hidden md:block" />
-                        <span className="text-highlight">Batik & Cotton</span>
-                    </>
-                }
-                description="Source high-demand women dresses, Batik prints, cotton styles, and ready-to-sell collections directly from the manufacturer. Built for boutiques, resellers, retailers, and fashion businesses looking for distinctive designs, reliable supply, and better wholesale value."
-                imageSrc="/gallery_wholesale.png"
-                imageAlt="Wholesale Batik Supply"
-                bgColor="#CECECB"
-                buttons={
-                    <>
-                        <a href="#wholesale-form" className="bg-accent hover:bg-accent/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm">
-                            Become a Wholesale Partner
-                        </a>
-                        <a href={WA} target="_blank" rel="noreferrer" className="border border-primary/15 hover:border-accent text-primary px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors bg-transparent hover:text-accent">
-                            Chat on WhatsApp
-                        </a>
-                    </>
-                }
-            />
+            {/* ── FULL WIDTH RESPONSIVE HERO ── */}
+            <section className="relative w-full md:h-[90vh] md:min-h-[600px] md:max-h-[900px] bg-cream md:bg-transparent overflow-hidden flex flex-col md:block">
+                
+                {/* Desktop Background Image */}
+                <div className="hidden md:block absolute inset-0 w-full h-full z-0">
+                    <Image
+                        src="/category/dresses for women.webp"
+                        alt="Wholesale Batik Supply"
+                        fill
+                        priority
+                        className="object-cover object-center"
+                        unoptimized
+                    />
+                </div>
+
+                {/* Mobile Image */}
+                <div className="relative w-full h-[60vh] min-h-[450px] md:hidden z-0">
+                    <Image
+                        src="/category/dresses for women (1).webp"
+                        alt="Wholesale Batik Supply"
+                        fill
+                        priority
+                        className="object-cover object-top"
+                        unoptimized
+                    />
+                </div>
+
+                {/* Text Content */}
+                <div className="relative z-20 max-w-[1600px] mx-auto w-full flex flex-col px-6 md:px-12 pt-0 pb-16 md:pb-0 text-primary md:h-full md:absolute md:inset-0 md:justify-center">
+                    <div className="max-w-3xl flex flex-col items-center text-center md:items-start md:text-left gap-4 md:gap-6 mt-0 relative z-30">
+                        {/* Hook */}
+                        <div className="flex items-center justify-center md:justify-start gap-2">
+                            <span className="text-[#8A4B32] text-xl leading-none">&diams;</span>
+                            <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">DIRECT MANUFACTURER · BULK SUPPLY</span>
+                        </div>
+                        
+                        <h1 className="text-3xl leading-[1.15] sm:text-4xl md:text-[60px] md:leading-[1.1] font-heading font-normal tracking-tight text-primary">
+                            Premium Wholesale <br className="hidden md:block" />
+                            Women Dresses in <br className="hidden md:block" />
+                            <span className="text-highlight italic">Batik & Cotton</span>
+                        </h1>
+                        
+                        <p className="text-[14px] md:text-lg text-primary/80 leading-relaxed max-w-2xl font-medium">
+                            Source high-demand women dresses, Batik prints, cotton styles, and ready-to-sell collections directly from the manufacturer. Built for boutiques, resellers, retailers, and fashion businesses looking for distinctive designs, reliable supply, and better wholesale value.
+                        </p>
+                        
+                        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-center md:items-start w-full sm:w-auto mt-2">
+                            <a href="#wholesale-form" className="bg-highlight hover:bg-highlight/90 text-white px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] md:text-xs flex items-center justify-center transition-all shadow-sm text-center w-full sm:w-auto">
+                                Become a Wholesale Partner
+                            </a>
+                            <a href={WA} target="_blank" rel="noreferrer" className="border border-primary/20 hover:border-primary/40 text-primary hover:bg-primary/5 px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] md:text-xs flex items-center justify-center transition-all backdrop-blur-sm text-center w-full sm:w-auto">
+                                Chat on WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Scroll Indicator */}
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 hidden md:block">
+                    <div className="w-5 h-8 rounded-full border-2 border-primary/30 flex justify-center pt-1.5">
+                        <div className="w-1 h-2 rounded-full bg-primary/40 animate-bounce" />
+                    </div>
+                </div>
+            </section>
             <GoogleReviewBar />
 
             {/* ── SECTION: TO STREAMLINE YOUR SOURCING ── */}
@@ -791,7 +831,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
 
 
             <LeadGenerationForm 
-                title={<>Get Personalized <span className="text-highlight italic">Women Dresses</span> <br className="hidden md:block" /> Pricing & Catalog</>}
+                title={<>Get Personalized <span className="text-highlight italic">Batik Fabric</span> <br className="hidden md:block" /> Pricing & Catalog</>}
                 description="Explore our latest wholesale women dresses, cotton styles, and floral Batik designs with personalized bulk pricing, ready-stock updates, and collection catalogs."
                 benefits={[
                     "Latest Women Dresses Design Catalog",
