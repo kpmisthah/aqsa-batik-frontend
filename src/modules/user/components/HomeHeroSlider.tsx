@@ -18,6 +18,7 @@ interface SlideData {
   secondaryButtonLabel?: string;
   secondaryButtonLink?: string;
   badge?: string;
+  bgColor?: string;
 }
 
 const DEFAULT_SLIDES: SlideData[] = [
