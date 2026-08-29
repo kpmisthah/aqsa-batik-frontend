@@ -68,7 +68,7 @@ export default function TrendingProductsSection() {
 
                 {/* Refined Header */}
                 <div className="flex flex-col items-center justify-center text-center mb-10 md:mb-12 gap-3 md:gap-4 max-w-4xl lg:max-w-5xl mx-auto">
-                    <span className="text-overline uppercase tracking-[0.2em] font-bold text-primary/80">Best Batik Suit Designs</span>
+                    <span className="text-overline uppercase tracking-[0.2em] font-bold text-[#8A4B32]">Best Batik Suit Designs</span>
                     <h2 className="text-h2 md:text-h1 text-primary font-normal leading-tight">
                         Best-Selling Batik Suits in <span className="text-highlight italic">Cotton Styles</span>
                     </h2>
