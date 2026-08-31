@@ -6,7 +6,7 @@ interface AdvantageSectionProps {
     tag?: string;
     tagColor?: string;
     title: string | React.ReactNode;
-    items: (string | { title: string; desc: string })[];
+    items: (string | { title: string; desc: string; icon?: string })[];
     imageSrc: string;
     mobileImageSrc?: string;
     featureTag?: string;
@@ -76,15 +76,22 @@ const AdvantageSection: React.FC<AdvantageSectionProps> = ({
                             const isComplex = typeof item === 'object' && item !== null && 'title' in item;
                             const titleText = isComplex ? (item as any).title : item;
                             const descText = isComplex ? (item as any).desc : null;
+                            const iconSrc = isComplex ? (item as any).icon : null;
 
                             return (
                                 <div key={i} className="flex flex-col gap-3 p-5 md:p-6 bg-white/90 backdrop-blur-md rounded-[16px] border border-primary/10 hover:border-primary/20 hover:shadow-xl transition-all duration-300 group">
                                     <div className="flex items-center gap-3">
-                                        <div className="w-9 h-9 shrink-0 bg-brand/10 rounded-[10px] flex items-center justify-center text-brand group-hover:bg-brand group-hover:text-white transition-all duration-300">
-                                            {i % 4 === 0 && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-4.5 h-4.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>}
-                                            {i % 4 === 1 && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-4.5 h-4.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /><polyline points="3.27 6.96 12 12.01 20.73 6.96" /><line x1="12" y1="22.08" x2="12" y2="12" /></svg>}
-                                            {i % 4 === 2 && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-4.5 h-4.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></svg>}
-                                            {i % 4 === 3 && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-4.5 h-4.5"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>}
+                                        <div className="w-10 h-10 shrink-0 bg-brand/10 rounded-[10px] flex items-center justify-center text-brand group-hover:bg-brand group-hover:text-white transition-all duration-300 relative overflow-hidden">
+                                            {iconSrc ? (
+                                                <Image src={iconSrc} alt={titleText as string} fill className="object-contain scale-110 transition-all duration-300 group-hover:brightness-0 group-hover:invert p-1" />
+                                            ) : (
+                                                <>
+                                                    {i % 4 === 0 && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>}
+                                                    {i % 4 === 1 && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /><polyline points="3.27 6.96 12 12.01 20.73 6.96" /><line x1="12" y1="22.08" x2="12" y2="12" /></svg>}
+                                                    {i % 4 === 2 && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></svg>}
+                                                    {i % 4 === 3 && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>}
+                                                </>
+                                            )}
                                         </div>
                                         {isComplex ? (
                                             <h3 className="text-[15px] md:text-[16px] text-primary font-semibold leading-tight">{titleText}</h3>

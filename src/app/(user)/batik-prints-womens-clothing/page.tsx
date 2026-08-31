@@ -217,10 +217,26 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                 tag="Made for Comfort"
                 title={<>Why Women Choose Batik Cloth for <span className="text-highlight">Everyday Comfort</span></>}
                 items={[
-                    "<span class='block font-semibold mb-0.5 text-[15px]'>Breathable Construction</span><span class='block text-sm font-normal opacity-85 leading-snug'>Helps maintain airflow and comfort in warm weather.</span>",
-                    "<span class='block font-semibold mb-0.5 text-[15px]'>Lightweight Feel</span><span class='block text-sm font-normal opacity-85 leading-snug'>Soft, easy to wear, and suitable for everyday styling.</span>",
-                    "<span class='block font-semibold mb-0.5 text-[15px]'>Durable Quality</span><span class='block text-sm font-normal opacity-85 leading-snug'>Built to retain its comfort and character through regular wear.</span>",
-                    "<span class='block font-semibold mb-0.5 text-[15px]'>Soft & Skin-Friendly</span><span class='block text-sm font-normal opacity-85 leading-snug'>Smooth against the skin, offering comfortable wear all day.</span>"
+                    {
+                        title: "Breathable Construction",
+                        desc: "Helps maintain airflow and comfort in warm weather.",
+                        icon: "/ICONS/breathable-icon.png"
+                    },
+                    {
+                        title: "Lightweight Feel",
+                        desc: "Soft, easy to wear, and suitable for everyday styling.",
+                        icon: "/ICONS/lightweight-icon.png"
+                    },
+                    {
+                        title: "Durable Quality",
+                        desc: "Built to retain its comfort and character through regular wear.",
+                        icon: "/ICONS/durable-icon.png"
+                    },
+                    {
+                        title: "Soft & Skin-Friendly",
+                        desc: "Smooth against the skin, offering comfortable wear all day.",
+                        icon: "/ICONS/soft-icon.png"
+                    }
                 ]}
                 imageSrc="/Batik-print-women-clothing/printed cotton fabric.webp"
                 mobileImageSrc="/Batik-print-women-clothing/printed cotton fabric.webp"

@@ -216,10 +216,10 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                 tagColor="#8A4B32"
                 title={<>Why Women Choose Cotton Dress Styles for <span className="text-highlight">Everyday Wear?</span></>}
                 items={[
-                    { title: "Breathable Feel", desc: "Cotton allows airflow around the body, making it a practical choice for warm-weather dressing and everyday comfort." },
-                    { title: "Lightweight Movement", desc: "A lightweight cotton dress moves naturally with you, helping you stay comfortable from morning routines to evening plans." },
-                    { title: "Soft Against the Skin", desc: "Cotton offers a naturally soft feel that makes everyday dressing more comfortable." },
-                    { title: "Easy Everyday Styling", desc: "A versatile Batik dress can be paired with simple footwear, accessories, or layers to create different looks without overcomplicating your wardrobe." }
+                    { title: "Breathable Feel", desc: "Cotton allows airflow around the body, making it a practical choice for warm-weather dressing and everyday comfort.", icon: "/ICONS/breathable-feel-icon.png" },
+                    { title: "Lightweight Movement", desc: "A lightweight cotton dress moves naturally with you, helping you stay comfortable from morning routines to evening plans.", icon: "/ICONS/lightweight-movement-icon.png" },
+                    { title: "Soft Against the Skin", desc: "Cotton offers a naturally soft feel that makes everyday dressing more comfortable.", icon: "/ICONS/soft-skin-icon.png" },
+                    { title: "Easy Everyday Styling", desc: "A versatile Batik dress can be paired with simple footwear, accessories, or layers to create different looks without overcomplicating your wardrobe.", icon: "/ICONS/easy-styling-icon.png" }
                 ]}
                 imageSrc="/batik-cotton-dress-women/cotton dres women.webp"
                 imageContainerClassName="aspect-square"
@@ -240,9 +240,9 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                         d: "Traditional print character gives each style a visual identity beyond ordinary everyday clothing.",
                         c: "text-highlight",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
-                            </svg>
+                            <div className="relative w-10 h-10 md:w-12 md:h-12">
+                                <Image src="/ICONS/distinctive-prints-icon.png" alt="Distinctive Batik Prints" fill className="object-contain scale-110" />
+                            </div>
                         )
                     },
                     {
@@ -250,9 +250,9 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                         d: "Comfort-focused shapes make the collection easier for customers to incorporate into their daily wardrobes.",
                         c: "text-highlight",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" />
-                            </svg>
+                            <div className="relative w-10 h-10 md:w-12 md:h-12">
+                                <Image src="/ICONS/wearable-silhouettes-icon.png" alt="Wearable Silhouettes" fill className="object-contain scale-110" />
+                            </div>
                         )
                     },
                     {
@@ -260,9 +260,9 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                         d: "Build collections around dresses, Batik kurtis, cotton styles, and complementary ethnic wear.",
                         c: "text-highlight",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" />
-                            </svg>
+                            <div className="relative w-10 h-10 md:w-12 md:h-12">
+                                <Image src="/ICONS/versatile-product-icon.png" alt="Versatile Product Range" fill className="object-contain scale-110" />
+                            </div>
                         )
                     },
                     {
@@ -270,9 +270,9 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                         d: "Comfort, colour, and distinctive prints give boutique products that can appeal to customers looking for something different from mass-produced fashion.",
                         c: "text-highlight",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" /><path d="M3 6h18" /><path d="M16 10a4 4 0 0 1-8 0" />
-                            </svg>
+                            <div className="relative w-10 h-10 md:w-12 md:h-12">
+                                <Image src="/ICONS/retail-friendly-icon.png" alt="Retail-Friendly Appeal" fill className="object-contain scale-110" />
+                            </div>
                         )
                     },
                     {
@@ -280,9 +280,9 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                         d: "Reliable cotton standards help create a more dependable product experience across your collection.",
                         c: "text-highlight",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <circle cx="12" cy="8" r="6" /><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
-                            </svg>
+                            <div className="relative w-10 h-10 md:w-12 md:h-12">
+                                <Image src="/ICONS/consistent-fabric-icon.png" alt="Consistent Fabric Quality" fill className="object-contain scale-110" />
+                            </div>
                         )
                     },
                     {
@@ -290,9 +290,9 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                         d: "Combine individual dress styles with Batik print designs and complementary pieces to create a stronger, more distinctive women’s fashion assortment.",
                         c: "text-highlight",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <rect width="7" height="7" x="14" y="3" rx="1" /><path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3" />
-                            </svg>
+                            <div className="relative w-10 h-10 md:w-12 md:h-12">
+                                <Image src="/ICONS/collection-building-icon.png" alt="Collection-Building Potential" fill className="object-contain scale-110" />
+                            </div>
                         )
                     }
                 ]}

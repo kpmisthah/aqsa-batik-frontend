@@ -347,7 +347,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[
                             { name: "Batik Prints Women Clothing", desc: "Explore expressive Batik prints, comfortable cotton styles, and versatile women's clothing created for everyday and occasion wear.", link: "/batik-prints-womens-clothing", img: "/cat_batik_fabric.webp" },
-                            { name: "Batik Cotton Dress for Women", desc: "Discover soft, breathable Batik cotton dresses designed for effortless everyday comfort and graceful styling.", link: "/batik-cotton-dress-for-women", img: "/gallery_office.png" },
+                            { name: "Batik Cotton Dress for Women", desc: "Discover soft, breathable Batik cotton dresses designed for effortless everyday comfort and graceful styling.", link: "/batik-cotton-dress-for-women", img: "/cat_batik_cloth.webp" },
                             { name: "New Arrival", desc: "Discover the latest Batik prints, fresh colours, and contemporary women's clothing styles added to the collection.", link: "/new-batik-prints-suits", img: "/gallery_arrival.png" },
                             { name: "Wholesale", desc: "Browse wholesale Batik clothing collections created for boutiques, resellers, retailers, and growing fashion businesses.", link: "/wholesale-batik-women-dresses", img: "/cat_wholesale.webp" }
                         ].map((cat, i) => (
