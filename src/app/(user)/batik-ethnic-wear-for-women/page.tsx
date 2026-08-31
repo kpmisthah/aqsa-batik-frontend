@@ -207,10 +207,10 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                 title={<>Why Choose Batik <span className="text-highlight">Ethnic Wear</span> for Women?</>}
                 description="The best ethnic wear balances how you look with how you feel. Batik makes that balance easier by combining expressive design with practical silhouettes and comfortable fabrics."
                 items={[
-                    { title: "Distinctive Batik Design", desc: "A thoughtfully designed Batik print can instantly give an outfit more personality without relying on excessive styling." },
-                    { title: "Comfortable Cotton", desc: "Cotton ethnic wear offers a breathable, practical option for women who want comfort throughout the day." },
-                    { title: "Versatile Silhouettes", desc: "From Batik kurtis to dresses and suit sets, versatile silhouettes make it easier to build multiple looks from one collection." },
-                    { title: "Made for Different Occasions", desc: "The right Batik style can work for everyday wear, summer dressing, casual gatherings, festive occasions, and selected formal settings." }
+                    { title: "Distinctive Batik Design", desc: "A thoughtfully designed Batik print can instantly give an outfit more personality without relying on excessive styling.", icon: "/ICONS/distinctive-batik-design-icon.png" },
+                    { title: "Comfortable Cotton", desc: "Cotton ethnic wear offers a breathable, practical option for women who want comfort throughout the day.", icon: "/ICONS/comfortable-cotton-icon.png" },
+                    { title: "Versatile Silhouettes", desc: "From Batik kurtis to dresses and suit sets, versatile silhouettes make it easier to build multiple looks from one collection.", icon: "/ICONS/versatile-silhouettes-icon.png" },
+                    { title: "Made for Different Occasions", desc: "The right Batik style can work for everyday wear, summer dressing, casual gatherings, festive occasions, and selected formal settings.", icon: "/ICONS/different-occasions-icon.png" }
                 ]}
                 imageSrc="/ethnic/indian ethnic wear for women.webp"
                 featureTag="FABRIC MEETS HERITAGE"
@@ -229,9 +229,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                         d: "Choose lightweight Batik kurtis, relaxed dresses, and comfortable cotton styles for routines that demand ease.",
                         c: "text-[#8A4B32]",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                            </svg>
+                            <Image src="/ICONS/everyday-wear-icon.png" alt="For Everyday Wear" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     },
                     {
@@ -239,9 +237,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                         d: "Pair a structured Batik kurti or coordinated suit set with simple accessories for a polished ethnic look.",
                         c: "text-[#8A4B32]",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <rect width="20" height="14" x="2" y="7" rx="2" ry="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                            </svg>
+                            <Image src="/ICONS/work-meetings-icon.png" alt="For Work & Casual Meetings" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     },
                     {
@@ -249,9 +245,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                         d: "Select richer Batik prints, expressive colours, and elegant silhouettes when you want your ethnic look to feel more celebratory.",
                         c: "text-[#8A4B32]",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
-                            </svg>
+                            <Image src="/ICONS/festive-occasions-icon.png" alt="For Festive Occasions" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     },
                     {
@@ -259,9 +253,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                         d: "Wedding ethnic wear for women can become more memorable when traditional-inspired prints are paired with refined silhouettes and thoughtful accessories.",
                         c: "text-[#8A4B32]",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                            </svg>
+                            <Image src="/ICONS/weddings-gatherings-icon.png" alt="For Weddings & Gatherings" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     },
                     {
@@ -269,9 +261,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                         d: "Choose breathable cotton ethnic styles when comfort matters as much as appearance.",
                         c: "text-[#8A4B32]",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" />
-                            </svg>
+                            <Image src="/ICONS/summer-days-icon.png" alt="For Summer Days" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     },
                     {
@@ -279,9 +269,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                         d: "Batik Kurti + Straight Pants + Flats. A practical combination for everyday errands, workdays, and casual meetings.",
                         c: "text-[#8A4B32]",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" />
-                            </svg>
+                            <Image src="/ICONS/simple-styling-icon.png" alt="Simple Styling Formula" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     }
                 ]}
