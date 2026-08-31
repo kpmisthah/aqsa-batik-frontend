@@ -95,7 +95,7 @@ const AdvantageSection: React.FC<AdvantageSectionProps> = ({
                                     {isComplex ? (
                                         <p className="text-[13px] md:text-sm text-muted font-normal leading-relaxed">{descText}</p>
                                     ) : (
-                                        <div className="text-[13px] md:text-sm text-muted font-normal leading-relaxed" dangerouslySetInnerHTML={{ __html: (titleText as string).replace(/<span[^>]*>[^<]*<\/span>/, '').replace(/<span[^>]*>(.*?)<\/span>/s, '$1') }} />
+                                        <div className="text-[13px] md:text-sm text-muted font-normal leading-relaxed" dangerouslySetInnerHTML={{ __html: (titleText as string).replace(/<span[^>]*>[^<]*<\/span>/, '').replace(/<span[^>]*>([\\s\\S]*?)<\\/span>/, '$1') }} />
                                     )}
                                 </div>
                             )
