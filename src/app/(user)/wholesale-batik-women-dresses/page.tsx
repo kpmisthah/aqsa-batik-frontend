@@ -476,9 +476,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                         d: "Our Batik designs bring traditional print character into modern dresses for women, helping your collection feel different from ordinary mass-market styles.",
                         c: "text-brand",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
-                            </svg>
+                            <Image src="/ICONS/distinctive-design-wholesale-icon.png" alt="Distinctive Batik Design" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     },
                     {
@@ -486,9 +484,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                         d: "Consistent Batik printing helps maintain colour, pattern clarity, and product quality across wholesale orders.",
                         c: "text-brand",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/>
-                            </svg>
+                            <Image src="/ICONS/consistent-print-quality-icon.png" alt="Consistent Print Quality" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     },
                     {
@@ -496,9 +492,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                         d: "Cotton dresses for women offer breathable comfort and everyday wearability—ideal for customers who value both style and ease.",
                         c: "text-brand",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z"/><path d="M16 8 2 22"/><path d="M17.5 15H9"/>
-                            </svg>
+                            <Image src="/ICONS/comfortable-cotton-wholesale-icon.png" alt="Comfortable Cotton" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     },
                     {
@@ -506,9 +500,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                         d: "From casual dresses for women to floral dresses, one-piece styles, and occasion-ready designs, our collection supports different customer preferences.",
                         c: "text-brand",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.62 1.96v14.16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V5.42a2 2 0 0 0-1.62-1.96Z"/>
-                            </svg>
+                            <Image src="/ICONS/versatile-dress-styles-icon.png" alt="Versatile Dress Styles" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     },
                     {
@@ -516,9 +508,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                         d: "Direct manufacturer sourcing helps businesses access competitive wholesale pricing and protect retail margins.",
                         c: "text-brand",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><path d="M7 7h.01"/>
-                            </svg>
+                            <Image src="/ICONS/wholesale-pricing-icon.png" alt="Wholesale Pricing" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     },
                     {
@@ -526,9 +516,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                         d: "Our women clothing collections are selected with practical retail use in mind—from boutique displays to online fashion stores.",
                         c: "text-brand",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
-                            </svg>
+                            <Image src="/ICONS/ready-for-retail-icon.png" alt="Ready for Retail" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     }
                 ]}
