@@ -151,33 +151,26 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                                 t: "Fresh Batik Prints",
                                 d: "Discover new patterns, expressive motifs, and contemporary colour combinations that give traditional Batik a fresh direction.",
                                 i: (
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.62 1.96v14.16a2 2 0 002 2h16a2 2 0 002-2V5.42a2 2 0 00-1.62-1.96z" />
-                                        <path d="M12 2v19" />
-                                    </svg>
+                                    <Image src="/ICONS/fresh-batik-prints-icon.png" alt="Fresh Batik Prints" width={48} height={48} className="w-full h-full p-2 sm:p-2.5 object-contain" unoptimized />
                                 )
                             },
                             {
                                 t: "Everyday Cotton Styles",
                                 d: "Choose comfortable cotton dresses, kurtis, and suit styles designed for easy everyday wear.",
                                 i: (
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /><circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /><circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /><circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.6-.7 1.6-1.6 0-.4-.2-.8-.5-1.1-.3-.3-.4-.7-.4-1.1 0-.9.7-1.6 1.6-1.6H16c3.3 0 6-2.7 6-6 0-4.4-4.5-8-10-8z" />
-                                    </svg>
+                                    <Image src="/ICONS/everyday-cotton-styles-icon.png" alt="Everyday Cotton Styles" width={48} height={48} className="w-full h-full p-2 sm:p-2.5 object-contain" unoptimized />
                                 )
                             },
                             {
                                 t: "Modern Ethnic Dressing",
                                 d: "Bring traditional print characters into contemporary wardrobes with versatile silhouettes that are easy to style.",
                                 i: (
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M12 2v20" /><path d="M9 7v10" /><path d="M15 7v10" /><path d="M6 5h12v14H6z" />
-                                    </svg>
+                                    <Image src="/ICONS/modern-ethnic-dressing-icon.png" alt="Modern Ethnic Dressing" width={48} height={48} className="w-full h-full p-2 sm:p-2.5 object-contain" unoptimized />
                                 )
                             }
                         ].map((item, i) => (
                             <div key={i} className={`flex flex-col items-center gap-3 sm:gap-4 p-4 sm:p-8 bg-white rounded-[24px] shadow-sm border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group text-center h-full ${i === 2 ? 'col-span-2 md:col-span-1' : ''}`}>
-                                <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-[14px] bg-[#F5F1EC] border border-border text-accent group-hover:bg-accent group-hover:text-white transition-all duration-300 shrink-0 [&>svg]:w-5 [&>svg]:h-5">
+                                <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-[16px] bg-[#F5F1EC] border border-border transition-all duration-300 shrink-0 group-hover:shadow-md">
                                     {item.i}
                                 </div>
                                 <div className="flex flex-col gap-2 mt-1">
@@ -222,10 +215,10 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                     </>
                 }
                 items={[
-                    { title: "Distinctive Batik Design", desc: "Fresh patterns help your wardrobe feel individual without making everyday styling complicated." },
-                    { title: "Comfortable Cotton", desc: "Batik cotton fabric offers a practical foundation for comfortable dresses, kurtis, and ethnic styles." },
-                    { title: "Versatile Styling", desc: "A Batik print kurti can work with trousers or palazzos, while a Batik dress can become an easy standalone outfit." },
-                    { title: "Fresh Colour Choices", desc: "New colour combinations make it easier to discover something that feels different from what you already own." }
+                    { title: "Distinctive Batik Design", desc: "Fresh patterns help your wardrobe feel individual without making everyday styling complicated.", icon: "/ICONS/distinctive-batik-design-new-icon.png" },
+                    { title: "Comfortable Cotton", desc: "Batik cotton fabric offers a practical foundation for comfortable dresses, kurtis, and ethnic styles.", icon: "/ICONS/comfortable-cotton-new-icon.png" },
+                    { title: "Versatile Styling", desc: "A Batik print kurti can work with trousers or palazzos, while a Batik dress can become an easy standalone outfit.", icon: "/ICONS/versatile-styling-icon.png" },
+                    { title: "Fresh Colour Choices", desc: "New colour combinations make it easier to discover something that feels different from what you already own.", icon: "/ICONS/fresh-colour-choices-icon.png" }
                 ]}
                 imageSrc="/premium-cotton-kurtis-for-women-image.webp"
                 featureTag="FRESH PRINT."
@@ -250,9 +243,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                         d: "Choose a Batik print kurti with straight pants and flats for a simple, polished look.",
                         c: "text-brand",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
-                            </svg>
+                            <Image src="/ICONS/everyday-wear-new-icon.png" alt="For Everyday Wear" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     },
                     {
@@ -260,9 +251,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                         d: "Pair a lightweight Batik dress with sandals and minimal jewellery for effortless warm-weather dressing.",
                         c: "text-brand",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" />
-                            </svg>
+                            <Image src="/ICONS/summer-days-new-icon.png" alt="For Summer Days" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     },
                     {
@@ -270,9 +259,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                         d: "Choose printed dresses for women who want colour and personality without complicated styling.",
                         c: "text-brand",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <path d="M18 8h1a4 4 0 0 1 0 8h-1" /><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" /><line x1="6" y1="1" x2="6" y2="4" /><line x1="10" y1="1" x2="10" y2="4" /><line x1="14" y1="1" x2="14" y2="4" />
-                            </svg>
+                            <Image src="/ICONS/casual-outings-icon.png" alt="For Casual Outings" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     },
                     {
@@ -280,9 +267,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                         d: "Pair a distinctive Batik suit with elegant accessories when you want a more refined traditional look.",
                         c: "text-brand",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                            </svg>
+                            <Image src="/ICONS/ethnic-occasions-icon.png" alt="For Ethnic Occasions" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     },
                     {
@@ -290,9 +275,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                         d: "The collection focuses on styles that can move naturally from daily routines to casual gatherings and seasonal dressing.",
                         c: "text-brand",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" />
-                            </svg>
+                            <Image src="/ICONS/everyday-wearability-icon.png" alt="Everyday Wearability" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     },
                     {
@@ -300,9 +283,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                         d: "Discover breathable Batik styles, cotton dresses, and printed women’s clothing designed for everyday comfort, effortless styling, and seasonal wear.",
                         c: "text-brand",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" /><line x1="16" y1="8" x2="2" y2="22" /><line x1="17.5" y1="15" x2="9" y2="6.5" />
-                            </svg>
+                            <Image src="/ICONS/versatile-clothing-icon.png" alt="Versatile Women’s Clothing" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     }
                 ]}
