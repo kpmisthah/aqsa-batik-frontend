@@ -281,7 +281,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                         c: "text-highlight",
                         i: (
                             <div className="relative w-10 h-10 md:w-12 md:h-12">
-                                <Image src="/ICONS/consistent-fabric-icon.png" alt="Consistent Fabric Quality" fill className="object-contain scale-110" />
+                                <Image src="/ICONS/consistent-fabric-quality-icon.png" alt="Consistent Fabric Quality" fill className="object-contain scale-110" />
                             </div>
                         )
                     },
