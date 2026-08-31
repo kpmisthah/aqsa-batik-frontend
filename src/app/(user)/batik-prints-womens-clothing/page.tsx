@@ -249,16 +249,14 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
             <PremiumFeatureSection
                 tagColor="#8A4B32"
                 tag="THE AQSHA ADVANTAGE"
-                title={<>Premium Quality That Works{" "}<br />{" "}for Women’s <span className="text-highlight">Clothing Business</span></>}
+                title={<>Premium Quality That Works{" "}<br />{" "}for Women's <span className="text-highlight">Clothing Business</span></>}
                 features={[
                     {
                         t: "Consistent Quality",
                         d: "Reliable standards across fabric, prints, and finishing help you maintain a dependable collection.",
                         c: "text-brand",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
-                            </svg>
+                            <Image src="/ICONS/consistent-quality-icon.png" alt="Consistent Quality" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     },
                     {
@@ -266,9 +264,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                         d: "Access selected batik styles with ready availability for faster retail and wholesale ordering.",
                         c: "text-brand",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" /><path d="m3.3 7 8.7 5 8.7-5" /><path d="M12 22V12" />
-                            </svg>
+                            <Image src="/ICONS/ready-stock-icon.png" alt="Ready Stock" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     },
                     {
@@ -276,9 +272,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                         d: "Designed for boutiques, resellers, and fashion businesses seeking consistent bulk supply and dependable quality.",
                         c: "text-brand",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <path d="M12 2v20" /><path d="M9 7v10" /><path d="M15 7v10" /><path d="M6 5h12v14H6z" />
-                            </svg>
+                            <Image src="/ICONS/wholesale-reliability-icon.png" alt="Wholesale Reliability" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     },
                     {
@@ -286,9 +280,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                         d: "Distinctive designs and wearable styles give retailers products suited to varied customer preferences.",
                         c: "text-brand",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
-                            </svg>
+                            <Image src="/ICONS/resale-potential-icon.png" alt="Strong Resale Potential" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     },
                     {
@@ -296,19 +288,15 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                         d: "Choose from expressive batik designs, versatile silhouettes, and styles suited to different wardrobes and occasions.",
                         c: "text-brand",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /><circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /><circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /><circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.6-.7 1.6-1.6 0-.4-.2-.8-.5-1.1-.3-.3-.4-.7-.4-1.1 0-.9.7-1.6 1.6-1.6H16c3.3 0 6-2.7 6-6 0-4.4-4.5-8-10-8z" />
-                            </svg>
+                            <Image src="/ICONS/design-variety-icon.png" alt="Design Variety" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     },
                     {
                         t: "Boutique Ready",
-                        d: "Build distinctive collections with carefully selected batik suits, kurtis, dresses, and women’s clothing.",
+                        d: "Build distinctive collections with carefully selected batik suits, kurtis, dresses, and women's clothing.",
                         c: "text-brand",
                         i: (
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                            </svg>
+                            <Image src="/ICONS/boutique-ready-icon.png" alt="Boutique Ready" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
                         )
                     }
                 ]}
