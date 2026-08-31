@@ -361,20 +361,19 @@ export function TrendingCollectionsBannerSection() {
                 </Link>
 
                 {/* ROW 3: 1 Full-Width Item */}
-                <Link href="/wholesale-batik-women-dresses" className="block w-full relative group overflow-hidden bg-cream flex justify-center border-b border-primary/10">
+                <Link href="/wholesale-batik-women-dresses" className="block w-full relative aspect-[1999/833] group overflow-hidden bg-cream flex justify-center border-b border-primary/10">
                     <Image
                         src="/category-Homepage/womenclothing.webp"
                         alt="Dresses for Women"
-                        width={1999}
-                        height={833}
-                        className="w-full h-auto object-cover object-top opacity-100 group-hover:scale-[1.05] transition-transform duration-[2s] ease-out"
+                        fill
+                        className="object-cover object-top opacity-100 group-hover:scale-[1.05] transition-transform duration-[2s] ease-out"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
-                    <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 md:pb-20 text-center px-6 md:px-12 z-10 transition-transform duration-700 ease-out group-hover:-translate-y-3">
-                        <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 mb-2">Category</span>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-normal text-white mb-3 md:mb-5">Wholesale</h2>
-                        <p className="text-white/90 text-[13px] md:text-base font-medium max-w-lg drop-shadow-md mb-6 md:mb-8 leading-relaxed">Ready-stock fashion collections for growing businesses.</p>
-                        <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/90 font-bold border-b border-transparent group-hover:border-white/80 pb-1 transition-all duration-300">
+                    <div className="absolute inset-0 flex flex-col items-center justify-end pb-3 md:pb-20 text-center px-4 md:px-12 z-10 transition-transform duration-700 ease-out group-hover:-translate-y-3">
+                        <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-[0.2em] text-white/80 mb-1 md:mb-2 hidden sm:block">Category</span>
+                        <h2 className="text-xl sm:text-2xl md:text-5xl lg:text-6xl font-heading font-normal text-white mb-1 md:mb-5">Wholesale</h2>
+                        <p className="text-white/90 text-[10px] sm:text-[11px] md:text-base font-medium max-w-lg drop-shadow-md mb-2 md:mb-8 leading-snug md:leading-relaxed">Ready-stock fashion collections for growing businesses.</p>
+                        <span className="text-[8px] sm:text-[9px] md:text-xs uppercase tracking-[0.2em] text-white/90 font-bold border-b border-transparent group-hover:border-white/80 pb-0.5 md:pb-1 transition-all duration-300">
                             Explore Collection
                         </span>
                     </div>
