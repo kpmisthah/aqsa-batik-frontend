@@ -67,10 +67,10 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
             <Nav />
             <ScrollObserver />
             {/* ── FULL WIDTH RESPONSIVE HERO ── */}
-            <section className="relative w-full md:h-[90vh] md:min-h-[600px] md:max-h-[900px] bg-cream md:bg-transparent overflow-hidden flex flex-col md:block">
+            <section className="relative w-full lg:h-[90vh] lg:min-h-[600px] lg:max-h-[900px] bg-cream lg:bg-transparent overflow-hidden flex flex-col lg:block">
                 
                 {/* Desktop Background Image */}
-                <div className="hidden md:block absolute inset-0 w-full h-full z-0">
+                <div className="hidden lg:block absolute inset-0 w-full h-full z-0">
                     <Image
                         src="/category/batik print.webp"
                         alt="New Batik Arrivals"
@@ -82,7 +82,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                 </div>
 
                 {/* Mobile Image */}
-                <div className="relative w-full h-[60vh] min-h-[450px] md:hidden z-0">
+                <div className="relative w-full h-[60vh] min-h-[450px] lg:hidden z-0">
                     <Image
                         src="/category/batik print (1).webp"
                         alt="New Batik Arrivals"
@@ -94,29 +94,29 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                 </div>
 
                 {/* Text Content */}
-                <div className="relative z-20 max-w-[1600px] mx-auto w-full flex flex-col px-6 md:px-12 pt-0 pb-16 md:pb-0 text-primary md:h-full md:absolute md:inset-0 md:justify-center">
-                    <div className="max-w-3xl flex flex-col items-center text-center md:items-start md:text-left gap-4 md:gap-6 mt-0 relative z-30">
+                <div className="relative z-20 max-w-[1600px] mx-auto w-full flex flex-col px-6 lg:px-12 pt-0 pb-16 lg:pb-0 text-primary lg:h-full lg:absolute lg:inset-0 lg:justify-center">
+                    <div className="w-full lg:max-w-[400px] xl:max-w-[650px] 2xl:max-w-[700px] flex flex-col items-center text-center lg:items-start lg:text-left gap-4 lg:gap-6 mt-0 relative z-30">
                         {/* Hook */}
-                        <div className="flex items-center justify-center md:justify-start gap-2">
+                        <div className="flex items-center justify-center lg:justify-start gap-2">
                             <span className="text-[#8A4B32] text-xl leading-none">&diams;</span>
                             <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">FRESH BATIK. FRESH EXPRESSION.</span>
                         </div>
                         
-                        <h1 className="text-3xl leading-[1.15] sm:text-4xl md:text-[60px] md:leading-[1.1] font-heading font-normal tracking-tight text-primary">
-                            Discover <span className='text-highlight italic'>New Batik Prints</span> <br className="hidden md:block" />
-                            for Women Who Want <br className="hidden md:block" />
+                        <h1 className="text-3xl leading-[1.15] sm:text-4xl lg:text-[30px] xl:text-[44px] 2xl:text-[48px] lg:leading-[1.1] font-heading font-normal tracking-tight text-primary">
+                            Discover <span className='text-highlight italic whitespace-nowrap'>New Batik Prints</span> <br className="hidden lg:block" />
+                            for Women Who Want <br className="hidden lg:block" />
                             Something Different
                         </h1>
                         
-                        <p className="text-[14px] md:text-lg text-primary/80 leading-relaxed max-w-2xl font-medium">
+                        <p className="text-[14px] lg:text-[15px] xl:text-lg text-primary/80 leading-relaxed max-w-[380px] xl:max-w-[520px] 2xl:max-w-xl font-medium">
                             Explore the latest Batik prints, fresh colours, expressive patterns, and comfortable cotton styles designed to bring something new to your wardrobe. From Batik print kurtis and dresses to versatile suit styles, discover designs made for everyday confidence and effortless ethnic dressing.
                         </p>
                         
-                        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-center md:items-start w-full sm:w-auto mt-2">
-                            <a href="#collection" className="bg-highlight hover:bg-highlight/90 text-white px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] md:text-xs flex items-center justify-center transition-all shadow-sm text-center w-full sm:w-auto">
+                        <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 items-center lg:items-start w-full sm:w-auto mt-2">
+                            <a href="#collection" className="bg-highlight hover:bg-highlight/90 text-white px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-xs flex items-center justify-center transition-all shadow-sm text-center w-full sm:w-auto">
                                 Shop New Arrivals
                             </a>
-                            <a href="/wholesale-batik-women-dresses" className="border border-primary/20 hover:border-primary/40 text-primary hover:bg-primary/5 px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] md:text-xs flex items-center justify-center transition-all backdrop-blur-sm text-center w-full sm:w-auto">
+                            <a href="/wholesale-batik-women-dresses" className="border border-primary/20 hover:border-primary/40 text-primary hover:bg-primary/5 px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-xs flex items-center justify-center transition-all backdrop-blur-sm text-center w-full sm:w-auto">
                                 Explore Wholesale
                             </a>
                         </div>
@@ -124,7 +124,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                 </div>
 
                 {/* Scroll Indicator */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 hidden md:block">
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 hidden lg:block">
                     <div className="w-5 h-8 rounded-full border-2 border-primary/30 flex justify-center pt-1.5">
                         <div className="w-1 h-2 rounded-full bg-primary/40 animate-bounce" />
                     </div>
@@ -212,6 +212,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
 
             <AdvantageSection
                 tag="WHY NEW BATIK"
+                tagColor="#8A4B32"
                 title={
                     <>
                         Why Women Choose Our <br className="hidden md:block" /> <span className="text-highlight">Latest Batik Prints?</span>
@@ -234,6 +235,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
 
             <PremiumFeatureSection
                 tag="FROM PRINT TO OUTFIT"
+                tagColor="#8A4B32"
                 title={
                     <>
                         More Ways to Wear the <br className="hidden md:block" /> Latest <span className="text-highlight">Batik Suits Collection</span>
@@ -312,6 +314,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
 
             <HorizontalProcessSection
                 tag="FOR WOMEN & BUSINESSES"
+                tagColor="#8A4B32"
                 title={
                     <>
                         New Batik Prints That Create <span className="text-highlight">Fresh Opportunities</span>
@@ -352,7 +355,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                 <div className="absolute inset-0 bg-pattern opacity-[0.02]"></div>
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20 relative z-10">
                     <div className="flex flex-col gap-3 md:gap-6 text-center items-center max-w-4xl mx-auto w-full">
-                        <span className="text-overline">NEXT STEP</span>
+                        <span className="text-overline" style={{ color: '#8A4B32' }}>NEXT STEP</span>
                         <h2 className="font-heading text-2xl md:text-4xl font-normal text-primary leading-tight">Explore More <span className="text-highlight">Batik Print Collections</span> for Women</h2>
                         <p className="text-lg md:text-xl text-primary/80 font-normal leading-relaxed mt-2 text-left md:text-center w-full">Discover Batik styles across ethnic wardrobes, comfortable cotton clothing, and wholesale collections.</p>
                     </div>
@@ -437,7 +440,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
             <section className="scroll-animate py-12 md:py-16 px-6 bg-transparent border-t border-primary/10">
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-20">
                     <div className="flex flex-col gap-3 md:gap-6 text-center items-center max-w-4xl mx-auto w-full">
-                        <span className="text-overline">FASHION & FABRIC JOURNAL</span>
+                        <span className="text-overline" style={{ color: '#8A4B32' }}>FASHION & FABRIC JOURNAL</span>
                         <h2 className="font-heading text-xl sm:text-2xl md:text-4xl font-normal text-primary leading-tight">The <span className="text-highlight">New Batik Prints</span> <br className="block md:hidden" /> Style Guide</h2>
                         <p className="text-lg md:text-xl text-primary/80 font-normal leading-relaxed mt-2 text-center w-full">Explore the latest Batik prints, Batik print designs, cotton fabrics, Batik dresses, and modern ethnic styles shaping today’s women’s fashion.</p>
                     </div>
