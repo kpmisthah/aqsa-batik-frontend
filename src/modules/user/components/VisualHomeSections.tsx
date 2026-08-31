@@ -361,12 +361,13 @@ export function TrendingCollectionsBannerSection() {
                 </Link>
 
                 {/* ROW 3: 1 Full-Width Item */}
-                <Link href="/wholesale-batik-women-dresses" className="block w-full relative h-[60vh] md:h-[80vh] group overflow-hidden bg-cream flex justify-center border-b border-primary/10">
+                <Link href="/wholesale-batik-women-dresses" className="block w-full relative group overflow-hidden bg-cream flex justify-center border-b border-primary/10">
                     <Image
-                        src="/category-Homepage/women-clothing.webp"
+                        src="/category-Homepage/womenclothing.webp"
                         alt="Dresses for Women"
-                        fill
-                        className="object-cover object-top opacity-100 group-hover:scale-[1.05] transition-transform duration-[2s] ease-out"
+                        width={1999}
+                        height={833}
+                        className="w-full h-auto object-cover object-top opacity-100 group-hover:scale-[1.05] transition-transform duration-[2s] ease-out"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-700"></div>
                     <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 md:pb-20 text-center px-6 md:px-12 z-10 transition-transform duration-700 ease-out group-hover:-translate-y-3">
