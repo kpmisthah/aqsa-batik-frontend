@@ -8,6 +8,7 @@ interface SlideData {
   highlightWord?: string;
   id: number;
   image: string;
+  mobileImage?: string;
   imageAlt: string;
   tagline: string;
   title: React.ReactNode;
@@ -25,6 +26,7 @@ const DEFAULT_SLIDES: SlideData[] = [
   {
     id: 1,
     image: "/Hero Banner/cotton-cloth.webp",
+    mobileImage: "/Hero Banner/mobile-version/cotton cloth.webp",
     imageAlt: "Batik Print Suits for Women",
     tagline: "TRUSTED UJJAIN BATIK MANUFACTURER",
     title: (
@@ -45,6 +47,7 @@ const DEFAULT_SLIDES: SlideData[] = [
   {
     id: 2,
     image: "/Hero Banner/cotton dress material.webp",
+    mobileImage: "/Hero Banner/mobile-version/cotton dress material.webp",
     imageAlt: "Handprinted Batik Women's Clothing",
     tagline: "HANDPRINTED BATIK WOMEN'S CLOTHING",
     title: (
@@ -74,6 +77,7 @@ const DEFAULT_SLIDES: SlideData[] = [
     description: "Step into the season with fresh batik prints, elegant ladies suit designs, breathable summer suits, and easy-to-wear styles made for everyday Indian dressing.",
     tagline: "NEW BATIK DESIGN COLLECTIONS",
     image: "/Hero Banner/cotton dress for women.webp",
+    mobileImage: "/Hero Banner/mobile-version/cotton dress for women.webp",
     imageAlt: "New Arrival Batik Ladies Suits",
     primaryButtonLabel: "SHOP NEW ARRIVALS",
     primaryButtonLink: "/new-batik-prints-suits"
@@ -92,6 +96,7 @@ const DEFAULT_SLIDES: SlideData[] = [
     description: "Discover handcrafted batik print cotton suits and beautiful dresses for women, designed to keep you cool, comfortable, confident, and effortlessly elegant throughout the season.",
     tagline: "SUMMER SALE OFFER",
     image: "/Hero Banner/ethnic wear for women.webp",
+    mobileImage: "/Hero Banner/mobile-version/Ethnic Wear for Women.webp",
     imageAlt: "Summer Suits for Women",
     primaryButtonLabel: "SHOP SUMMER SALE",
     primaryButtonLink: "/batik-cotton-dress-for-women"
@@ -110,6 +115,7 @@ const DEFAULT_SLIDES: SlideData[] = [
     description: "Explore ready-to-sell women's fashion collections featuring batik suits, cotton dresses, elegant suit sets, and designer-inspired styles for boutiques, resellers, online sellers, and growing fashion businesses across India.",
     tagline: "WHOLESALE BATIK FABRIC READY STOCK",
     image: "/Hero Banner/women dresses .webp",
+    mobileImage: "/Hero Banner/mobile-version/women dresses.webp",
     imageAlt: "Wholesale Women's Dresses",
     primaryButtonLabel: "SHOP WHOLESALE",
     primaryButtonLink: "/wholesale-batik-women-dresses",
@@ -230,7 +236,7 @@ export default function HomeHeroSlider() {
 
   return (
     <section 
-      className="relative w-full h-[90vh] min-h-[580px] md:h-[85vh] md:min-h-[500px] md:max-h-[800px] overflow-hidden pt-16 md:pt-0 transition-colors duration-1000 ease-in-out touch-pan-y" 
+      className="relative w-full lg:h-[85vh] lg:min-h-[600px] lg:max-h-[900px] overflow-hidden transition-colors duration-1000 ease-in-out touch-pan-y" 
       style={{ backgroundColor: slides[current]?.bgColor || "#F4F1EA" }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -242,12 +248,14 @@ export default function HomeHeroSlider() {
       {slides.map((slide, index) => (
         <div
           key={slide._id || index}
-          className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
-            index === current ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+          className={`w-full transition-opacity duration-1000 ease-in-out flex flex-col lg:block ${
+            index === current 
+              ? "relative opacity-100 z-10 lg:absolute lg:inset-0" 
+              : "absolute inset-0 opacity-0 z-0 pointer-events-none h-full lg:h-auto"
           }`}
         >
-          {/* Full Banner Image Layout with Gradient */}
-          <div className="absolute inset-0 z-10 overflow-hidden">
+          {/* Desktop Background Image Layout */}
+          <div className="hidden lg:block absolute inset-0 z-10 overflow-hidden">
             <div className="absolute inset-0 w-full h-full bg-[#F4F1EA]">
               <Image
                 src={slide.image}
@@ -263,44 +271,52 @@ export default function HomeHeroSlider() {
             
             {/* Elegant gradient overlay for text readability (left side) */}
             <div 
-              className="absolute inset-0 z-10 pointer-events-none w-full md:w-[65%]"
+              className="absolute inset-0 z-10 pointer-events-none w-full lg:w-[65%]"
               style={{ background: `linear-gradient(to right, ${slide.bgColor || '#F4F1EA'}E6 0%, ${slide.bgColor || '#F4F1EA'}99 50%, transparent 100%)` }}
-            ></div>
-            
-            {/* Mobile gradient from bottom */}
-            <div 
-              className="absolute inset-x-0 bottom-0 h-[70%] z-10 pointer-events-none md:hidden"
-              style={{ background: `linear-gradient(to top, ${slide.bgColor || '#F4F1EA'}F2 0%, ${slide.bgColor || '#F4F1EA'}B3 50%, transparent 100%)` }}
             ></div>
           </div>
 
+          {/* Mobile Background Image Layout */}
+          <div className="relative w-full h-[60vh] min-h-[450px] lg:hidden z-0">
+            <Image
+                src={slide.mobileImage || slide.image}
+                alt={slide.imageAlt || "Hero Banner"}
+                fill
+                priority={index === 0}
+                className="object-cover object-top transform transition-transform duration-[10s] ease-linear"
+                style={{
+                  transform: index === current ? "scale(1.02)" : "scale(1)"
+                }}
+            />
+          </div>
+
           {/* Text Content */}
-          <div className="relative z-20 h-full max-w-[1600px] mx-auto w-full flex flex-col justify-end md:justify-center items-start px-6 sm:px-12 md:px-12 lg:px-20 text-left pb-16 md:pb-0 pointer-events-none">
-            <div className="max-w-[95%] md:max-w-3xl lg:max-w-4xl w-full flex flex-col items-start text-primary pointer-events-auto">
+          <div className="relative z-20 max-w-[1600px] mx-auto w-full flex flex-col px-6 lg:px-12 pt-8 pb-16 lg:pb-0 text-primary lg:h-full lg:absolute lg:inset-0 lg:justify-center">
+            <div className="w-full lg:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[750px] flex flex-col items-center text-center lg:items-start lg:text-left gap-4 lg:gap-6 mt-0 relative z-30 pointer-events-auto">
               
-              <div className="flex items-center justify-start gap-2 mb-3 md:mb-5 text-primary">
-                <span className="text-xl leading-none hidden md:block text-brand">&diams;</span>
-                <span className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-bold text-brand">
+              <div className="flex items-center justify-center lg:justify-start gap-2">
+                <span className="text-[#8A4B32] text-xl leading-none hidden lg:block">&diams;</span>
+                <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">
                   {slide.tagline}
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[4.5rem] font-heading font-normal leading-[1.05] md:leading-[1.1] mb-2 md:mb-4 text-left text-primary tracking-tight">
+              <h1 className="text-3xl leading-[1.15] sm:text-4xl lg:text-[36px] xl:text-[48px] 2xl:text-[60px] lg:leading-[1.1] font-heading font-normal tracking-tight text-primary">
                 {renderTitle(slide.title, slide.highlightWord)}
               </h1>
               
-              <p className="text-xl sm:text-2xl lg:text-3xl text-primary/80 font-serif italic mb-4 sm:mb-6 font-light">
+              <p className="text-xl sm:text-2xl lg:text-3xl text-primary/80 font-serif italic font-light">
                 {slide.subtitle}
               </p>
 
-              <p className="text-base sm:text-body1 text-primary max-w-[400px] md:max-w-[500px] mb-6 md:mb-8 leading-relaxed text-left">
+              <p className="text-[14px] lg:text-lg text-primary/80 leading-relaxed max-w-2xl font-medium">
                 {slide.description}
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-start w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 items-center lg:items-start w-full sm:w-auto mt-2">
                 <Link 
                   href={slide.primaryButtonLink}
-                  className="bg-highlight hover:bg-highlight/90 text-white px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors shadow-sm w-full sm:w-auto text-center"
+                  className="bg-highlight hover:bg-highlight/90 text-white px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-xs flex items-center justify-center transition-all shadow-sm text-center w-full sm:w-auto"
                 >
                   {slide.primaryButtonLabel}
                 </Link>
@@ -308,7 +324,7 @@ export default function HomeHeroSlider() {
                 {slide.secondaryButtonLabel && (
                   <Link 
                     href={slide.secondaryButtonLink!}
-                    className="border border-highlight/40 hover:border-highlight text-highlight hover:bg-highlight/10 px-7 py-3 rounded-full font-semibold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-colors bg-white/20 backdrop-blur-sm w-full sm:w-auto text-center"
+                    className="border border-primary/20 hover:border-primary/40 text-primary hover:bg-primary/5 px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-xs flex items-center justify-center transition-all backdrop-blur-sm text-center w-full sm:w-auto"
                   >
                     {slide.secondaryButtonLabel}
                   </Link>
@@ -322,7 +338,7 @@ export default function HomeHeroSlider() {
       {/* Navigation Arrows (Desktop Only) */}
       <button 
         onClick={prevSlide}
-        className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 z-30 w-14 h-14 items-center justify-center rounded-full bg-white/30 hover:bg-white text-primary backdrop-blur-md transition-all duration-300 border border-primary/10 shadow-sm"
+        className="hidden lg:flex absolute left-8 top-1/2 -translate-y-1/2 z-30 w-14 h-14 items-center justify-center rounded-full bg-white/30 hover:bg-white text-primary backdrop-blur-md transition-all duration-300 border border-primary/10 shadow-sm"
         aria-label="Previous Slide"
       >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
@@ -332,7 +348,7 @@ export default function HomeHeroSlider() {
 
       <button 
         onClick={nextSlide}
-        className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 z-30 w-14 h-14 items-center justify-center rounded-full bg-white/30 hover:bg-white text-primary backdrop-blur-md transition-all duration-300 border border-primary/10 shadow-sm"
+        className="hidden lg:flex absolute right-8 top-1/2 -translate-y-1/2 z-30 w-14 h-14 items-center justify-center rounded-full bg-white/30 hover:bg-white text-primary backdrop-blur-md transition-all duration-300 border border-primary/10 shadow-sm"
         aria-label="Next Slide"
       >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
@@ -341,19 +357,18 @@ export default function HomeHeroSlider() {
       </button>
 
       {/* Pagination Dots */}
-      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 md:gap-3">
+      <div className="absolute bottom-4 lg:bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 lg:gap-3">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrent(index)}
-            className={`h-1.5 md:h-2.5 rounded-full transition-all duration-300 ${
-              index === current ? "bg-primary w-6 md:w-10" : "bg-primary/30 w-1.5 md:w-2.5 hover:bg-primary/50"
+            className={`h-1.5 lg:h-2.5 rounded-full transition-all duration-300 ${
+              index === current ? "bg-primary w-6 lg:w-10" : "bg-primary/30 w-1.5 lg:w-2.5 hover:bg-primary/50"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
-    
     </section>
   );
 }
