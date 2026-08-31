@@ -227,7 +227,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                     {
                         t: "For Everyday Wear",
                         d: "Choose lightweight Batik kurtis, relaxed dresses, and comfortable cotton styles for routines that demand ease.",
-                        c: "text-highlight",
+                        c: "text-[#8A4B32]",
                         i: (
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
                                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -237,7 +237,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                     {
                         t: "For Work & Casual Meetings",
                         d: "Pair a structured Batik kurti or coordinated suit set with simple accessories for a polished ethnic look.",
-                        c: "text-highlight",
+                        c: "text-[#8A4B32]",
                         i: (
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
                                 <rect width="20" height="14" x="2" y="7" rx="2" ry="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
@@ -247,7 +247,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                     {
                         t: "For Festive Occasions",
                         d: "Select richer Batik prints, expressive colours, and elegant silhouettes when you want your ethnic look to feel more celebratory.",
-                        c: "text-highlight",
+                        c: "text-[#8A4B32]",
                         i: (
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
                                 <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
@@ -257,7 +257,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                     {
                         t: "For Weddings & Gatherings",
                         d: "Wedding ethnic wear for women can become more memorable when traditional-inspired prints are paired with refined silhouettes and thoughtful accessories.",
-                        c: "text-highlight",
+                        c: "text-[#8A4B32]",
                         i: (
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
                                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
@@ -267,7 +267,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                     {
                         t: "For Summer Days",
                         d: "Choose breathable cotton ethnic styles when comfort matters as much as appearance.",
-                        c: "text-highlight",
+                        c: "text-[#8A4B32]",
                         i: (
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
                                 <circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" />
@@ -277,7 +277,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                     {
                         t: "Simple Styling Formula",
                         d: "Batik Kurti + Straight Pants + Flats. A practical combination for everyday errands, workdays, and casual meetings.",
-                        c: "text-highlight",
+                        c: "text-[#8A4B32]",
                         i: (
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
                                 <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" />
