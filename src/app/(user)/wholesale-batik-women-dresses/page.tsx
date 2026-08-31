@@ -221,10 +221,10 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
             <Nav />
             <ScrollObserver />
             {/* ── FULL WIDTH RESPONSIVE HERO ── */}
-            <section className="relative w-full md:h-[90vh] md:min-h-[600px] md:max-h-[900px] bg-cream md:bg-transparent overflow-hidden flex flex-col md:block">
+            <section className="relative w-full lg:h-[90vh] lg:min-h-[600px] lg:max-h-[900px] bg-cream lg:bg-transparent overflow-hidden flex flex-col lg:block">
                 
                 {/* Desktop Background Image */}
-                <div className="hidden md:block absolute inset-0 w-full h-full z-0">
+                <div className="hidden lg:block absolute inset-0 w-full h-full z-0">
                     <Image
                         src="/category/dresses for women.webp"
                         alt="Wholesale Batik Supply"
@@ -236,7 +236,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                 </div>
 
                 {/* Mobile Image */}
-                <div className="relative w-full h-[60vh] min-h-[450px] md:hidden z-0">
+                <div className="relative w-full h-[60vh] min-h-[450px] lg:hidden z-0">
                     <Image
                         src="/category/dresses for women (1).webp"
                         alt="Wholesale Batik Supply"
@@ -248,29 +248,29 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                 </div>
 
                 {/* Text Content */}
-                <div className="relative z-20 max-w-[1600px] mx-auto w-full flex flex-col px-6 md:px-12 pt-0 pb-16 md:pb-0 text-primary md:h-full md:absolute md:inset-0 md:justify-center">
-                    <div className="max-w-3xl flex flex-col items-center text-center md:items-start md:text-left gap-4 md:gap-6 mt-0 relative z-30">
+                <div className="relative z-20 max-w-[1600px] mx-auto w-full flex flex-col px-6 lg:px-12 pt-0 pb-16 lg:pb-0 text-primary lg:h-full lg:absolute lg:inset-0 lg:justify-center">
+                    <div className="w-full lg:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[750px] flex flex-col items-center text-center lg:items-start lg:text-left gap-4 lg:gap-6 mt-0 relative z-30">
                         {/* Hook */}
-                        <div className="flex items-center justify-center md:justify-start gap-2">
+                        <div className="flex items-center justify-center lg:justify-start gap-2">
                             <span className="text-[#8A4B32] text-xl leading-none">&diams;</span>
                             <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">DIRECT MANUFACTURER · BULK SUPPLY</span>
                         </div>
                         
-                        <h1 className="text-3xl leading-[1.15] sm:text-4xl md:text-[60px] md:leading-[1.1] font-heading font-normal tracking-tight text-primary">
-                            Premium Wholesale <br className="hidden md:block" />
-                            Women Dresses in <br className="hidden md:block" />
+                        <h1 className="text-3xl leading-[1.15] sm:text-4xl lg:text-[36px] xl:text-[48px] 2xl:text-[60px] lg:leading-[1.1] font-heading font-normal tracking-tight text-primary">
+                            Premium Wholesale <br className="hidden lg:block" />
+                            Women Dresses in <br className="hidden lg:block" />
                             <span className="text-highlight italic">Batik & Cotton</span>
                         </h1>
                         
-                        <p className="text-[14px] md:text-lg text-primary/80 leading-relaxed max-w-2xl font-medium">
-                            Source high-demand women dresses, Batik prints, cotton styles, and ready-to-sell collections directly from the manufacturer. Built for boutiques, resellers, retailers, and fashion businesses looking for distinctive designs, reliable supply, and better wholesale value.
+                        <p className="text-[14px] lg:text-lg text-primary/80 leading-relaxed max-w-2xl font-medium">
+                            Source high-demand women dresses, Batik prints, cotton styles, and ready to sell collections directly from the manufacturer. Built for boutiques, resellers, retailers, and fashion businesses looking for distinctive designs, reliable supply, and better wholesale value.
                         </p>
                         
-                        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-center md:items-start w-full sm:w-auto mt-2">
-                            <a href="#wholesale-form" className="bg-highlight hover:bg-highlight/90 text-white px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] md:text-xs flex items-center justify-center transition-all shadow-sm text-center w-full sm:w-auto">
+                        <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 items-center lg:items-start w-full sm:w-auto mt-2">
+                            <a href="#wholesale-form" className="bg-highlight hover:bg-highlight/90 text-white px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-xs flex items-center justify-center transition-all shadow-sm text-center w-full sm:w-auto">
                                 Become a Wholesale Partner
                             </a>
-                            <a href={WA} target="_blank" rel="noreferrer" className="border border-primary/20 hover:border-primary/40 text-primary hover:bg-primary/5 px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] md:text-xs flex items-center justify-center transition-all backdrop-blur-sm text-center w-full sm:w-auto">
+                            <a href={WA} target="_blank" rel="noreferrer" className="border border-primary/20 hover:border-primary/40 text-primary hover:bg-primary/5 px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-xs flex items-center justify-center transition-all backdrop-blur-sm text-center w-full sm:w-auto">
                                 Chat on WhatsApp
                             </a>
                         </div>
@@ -278,7 +278,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                 </div>
 
                 {/* Scroll Indicator */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 hidden md:block">
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 hidden lg:block">
                     <div className="w-5 h-8 rounded-full border-2 border-primary/30 flex justify-center pt-1.5">
                         <div className="w-1 h-2 rounded-full bg-primary/40 animate-bounce" />
                     </div>
@@ -358,27 +358,31 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                     </div>
 
                     {/* Right Side: Image with curved overlay */}
-                    <div className="w-full lg:w-[45%] relative min-h-[400px] lg:min-h-0 bg-cream">
-                        {/* The curved separator logic (ellipse cutting out of the background, acting as a mask) */}
-                        <div className="absolute inset-0 bg-cream z-10 hidden lg:block translate-x-[1px]" style={{ clipPath: 'ellipse(18% 60% at 0% 50%)' }}></div>
-                        
-                        <div className="absolute inset-0 w-full h-full lg:pl-6">
-                            <Image 
-                                src="/wholesale-inventory-premium.png"
-                                alt="Wholesale collection"
-                                fill
-                                className="object-cover object-center lg:rounded-l-[60px]"
-                            />
-                        </div>
-                        
-                        {/* The circular badge on the image */}
-                        <div className="absolute left-1/2 lg:left-[5%] bottom-8 z-20 bg-cream backdrop-blur-md rounded-full w-36 h-36 md:w-44 md:h-44 flex flex-col items-center justify-center text-center p-4 shadow-xl border-4 border-white -translate-x-1/2 lg:-translate-x-1/2 group hover:scale-105 transition-transform duration-500">
-                            <div className="mb-2 text-brand">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19 6h-3c0-2.21-1.79-4-4-4S8 3.79 8 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-2c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2zm7 16H5V8h3v2c0 .55.45 1 1 1s1-.45 1-1V8h4v2c0 .55.45 1 1 1s1-.45 1-1V8h3v12z"/></svg>
+                    <div className="w-full lg:w-[45%] relative min-h-[400px] lg:min-h-0 bg-cream z-0">
+                        {/* Inner container bleeds to right window edge */}
+                        <div className="absolute top-0 bottom-0 left-0 w-full lg:w-[calc(100%+max(0px,50vw-800px))]">
+                            {/* The curved separator logic (overlapping left slightly to prevent sub-pixel seams) */}
+                            <div className="absolute inset-y-0 -left-[2px] right-0 bg-cream z-10 hidden lg:block" style={{ clipPath: 'ellipse(22% 60% at 0% 50%)' }}></div>
+                            
+                            <div className="absolute inset-0 w-full h-full">
+                                <Image 
+                                    src="/wholesale_rack_batik.png"
+                                    alt="Wholesale collection"
+                                    fill
+                                    className="object-cover object-left"
+                                    unoptimized
+                                />
                             </div>
-                            <p className="text-[10px] md:text-[11px] font-semibold text-brand leading-snug">
-                                Better Stock.<br/>Better Margins.<br/>Happier Customers.
-                            </p>
+                            
+                            {/* The circular badge on the image */}
+                            <div className="absolute left-1/2 lg:left-[8%] bottom-8 z-20 bg-cream backdrop-blur-md rounded-full w-36 h-36 md:w-44 md:h-44 flex flex-col items-center justify-center text-center p-4 shadow-xl border-4 border-cream -translate-x-1/2 lg:-translate-x-1/2 group hover:scale-105 transition-transform duration-500">
+                                <div className="mb-2 text-brand">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19 6h-3c0-2.21-1.79-4-4-4S8 3.79 8 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-2c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2zm7 16H5V8h3v2c0 .55.45 1 1 1s1-.45 1-1V8h4v2c0 .55.45 1 1 1s1-.45 1-1V8h3v12z"/></svg>
+                                </div>
+                                <p className="text-[10px] md:text-[11px] font-semibold text-brand leading-snug">
+                                    Better Stock.<br/>Better Margins.<br/>Happier Customers.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -464,6 +468,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
 
             <PremiumFeatureSection
                 tag="Why Buyers Choose Our Supply"
+                tagColor="#8A4B32"
                 title={<>Why Our Wholesale Women <br className="hidden md:block" /> Dresses <span className="text-highlight">Stand Out</span></>}
                 features={[
                     {
