@@ -31,7 +31,7 @@ const DEFAULT_SLIDES: SlideData[] = [
     tagline: "TRUSTED UJJAIN BATIK MANUFACTURER",
     title: (
       <>
-        Batik Print Suits<br />
+        Batik Print Suits{' '}<br className="hidden lg:block" />
         <span className="text-highlight">for Women</span>
       </>
     ),
@@ -52,7 +52,7 @@ const DEFAULT_SLIDES: SlideData[] = [
     tagline: "HANDPRINTED BATIK WOMEN'S CLOTHING",
     title: (
       <span>
-        Handprinted Batik Cotton<br />
+        Handprinted Batik Cotton{' '}<br className="hidden lg:block" />
         <span className="text-highlight">Suits for Women</span>
       </span>
     ),
@@ -67,7 +67,7 @@ const DEFAULT_SLIDES: SlideData[] = [
     id: 3,
     title: (
       <span>
-        New Arrival Batik<br />
+        New Arrival Batik{' '}<br className="hidden lg:block" />
         <span className="text-highlight">Ladies Suits</span>
       </span>
     ),
@@ -86,7 +86,7 @@ const DEFAULT_SLIDES: SlideData[] = [
     id: 4,
     title: (
       <span>
-        Summer Suits<br />
+        Summer Suits{' '}<br className="hidden lg:block" />
         <span className="text-highlight">for Women</span>
       </span>
     ),
@@ -105,7 +105,7 @@ const DEFAULT_SLIDES: SlideData[] = [
     id: 5,
     title: (
       <span>
-        Wholesale Women's Dresses<br />
+        Wholesale Women's Dresses{' '}<br className="hidden lg:block" />
         <span className="text-highlight">&amp; Batik Suits</span>
       </span>
     ),
@@ -148,14 +148,14 @@ export default function HomeHeroSlider() {
                 {segments[0]}
                 <span className="text-highlight">{highlightWord}</span>
                 {segments[1]}
-                {i < parts.length - 1 && <br />}
+                {i < parts.length - 1 && <>{' '}<br className="hidden lg:block" /></>}
               </React.Fragment>
             );
           }
           return (
             <React.Fragment key={i}>
               {part}
-              {i < parts.length - 1 && <br />}
+              {i < parts.length - 1 && <>{' '}<br className="hidden lg:block" /></>}
             </React.Fragment>
           );
         })}
@@ -291,7 +291,7 @@ export default function HomeHeroSlider() {
           </div>
 
           {/* Text Content */}
-          <div className="relative z-20 max-w-[1600px] mx-auto w-full flex flex-col px-6 lg:px-12 pt-8 pb-16 lg:pb-0 text-primary lg:h-full lg:absolute lg:inset-0 lg:justify-center">
+          <div className="relative z-20 max-w-[1600px] mx-auto w-full flex flex-col px-6 lg:px-12 pt-0 pb-16 lg:pb-0 text-primary lg:h-full lg:absolute lg:inset-0 lg:justify-center">
             <div className="w-full lg:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[750px] flex flex-col items-center text-center lg:items-start lg:text-left gap-4 lg:gap-6 mt-0 relative z-30 pointer-events-auto">
               
               <div className="flex items-center justify-center lg:justify-start gap-2">
