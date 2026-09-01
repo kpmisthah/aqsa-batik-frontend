@@ -62,22 +62,22 @@ export default async function BlogIndexPage() {
             <Nav />
             <ScrollObserver />
             {/* ── FULL WIDTH RESPONSIVE HERO ── */}
-            <section className="relative w-full md:h-[90vh] md:min-h-[600px] md:max-h-[900px] bg-cream md:bg-transparent overflow-hidden flex flex-col md:block">
+            <section className="relative w-full lg:h-[90vh] lg:min-h-[600px] lg:max-h-[900px] bg-cream lg:bg-transparent overflow-hidden flex flex-col lg:block">
                 
                 {/* Desktop Background Image */}
-                <div className="hidden md:block absolute inset-0 w-full h-full z-0">
+                <div className="hidden lg:block absolute inset-0 w-full h-full z-0">
                     <Image
                         src="/category/women clothing.webp"
                         alt="Women Clothing &amp; Batik Fashion Trends Blog"
                         fill
                         priority
-                        className="object-cover object-center"
+                        className="object-cover object-right"
                         unoptimized
                     />
                 </div>
 
-                {/* Mobile Image */}
-                <div className="relative w-full h-[60vh] min-h-[450px] md:hidden z-0">
+                {/* Mobile / Tablet Image */}
+                <div className="relative w-full h-[60vh] min-h-[450px] lg:hidden z-0">
                     <Image
                         src="/category/Blog.webp"
                         alt="Women Clothing &amp; Batik Fashion Trends Blog"
@@ -89,27 +89,27 @@ export default async function BlogIndexPage() {
                 </div>
 
                 {/* Text Content */}
-                <div className="relative z-20 max-w-[1600px] mx-auto w-full flex flex-col px-6 md:px-12 pt-0 pb-16 md:pb-0 text-primary md:h-full md:absolute md:inset-0 md:justify-center">
-                    <div className="max-w-3xl flex flex-col items-center text-center md:items-start md:text-left gap-4 md:gap-6 mt-0 relative z-30">
+                <div className="relative z-20 max-w-[1600px] mx-auto w-full flex flex-col px-6 lg:px-12 pt-0 pb-16 lg:pb-0 text-primary lg:h-full lg:absolute lg:inset-0 lg:justify-center">
+                    <div className="w-full lg:max-w-[400px] xl:max-w-[480px] 2xl:max-w-[650px] flex flex-col items-center text-center lg:items-start lg:text-left gap-4 lg:gap-6 mt-0 relative z-30">
                         {/* Hook */}
-                        <div className="flex items-center justify-center md:justify-start gap-2">
+                        <div className="flex items-center justify-center lg:justify-start gap-2">
                             <span className="text-[#8A4B32] text-xl leading-none">&diams;</span>
-                            <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">FASHION TRENDS · BUYING GUIDES</span>
+                            <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold text-[10px] sm:text-[11px]">FASHION TRENDS · BUYING GUIDES</span>
                         </div>
                         
-                        <h1 className="text-3xl leading-[1.15] sm:text-4xl md:text-[60px] md:leading-[1.1] font-heading font-normal tracking-tight text-primary">
-                            Women Clothing, Batik Cotton Dress for Women <br className="hidden md:block" /> &amp; <span className='text-highlight italic'>Fashion Trends</span> Blog
+                        <h1 className="text-3xl leading-[1.15] sm:text-4xl lg:text-[32px] xl:text-[40px] 2xl:text-[52px] lg:leading-[1.15] font-heading font-normal tracking-tight text-primary">
+                            Women Clothing, Batik Cotton Dress for Women <br className="hidden lg:block" /> &amp; <span className='text-highlight italic'>Fashion Trends</span> Blog
                         </h1>
                         
-                        <p className="text-[14px] md:text-lg text-primary/80 leading-relaxed max-w-2xl font-medium">
+                        <p className="text-[14px] lg:text-[14px] xl:text-[16px] 2xl:text-lg text-primary/80 leading-relaxed max-w-2xl lg:max-w-[380px] xl:max-w-[460px] 2xl:max-w-xl font-medium">
                             Explore expert insights on women clothing, Batik Cotton Dress for Women, Batik Prints Women Clothing, cotton dresses for women, and the latest fashion trends. Learn how to choose premium fabrics, discover stylish women clothing collections, and stay updated with wholesale buying guides directly from manufacturers.
                         </p>
                         
-                        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-center md:items-start w-full sm:w-auto mt-2">
-                            <a href="#articles" className="bg-highlight hover:bg-highlight/90 text-white px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] md:text-xs flex items-center justify-center transition-all shadow-sm text-center w-full sm:w-auto">
+                        <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 items-center lg:items-start w-full sm:w-auto mt-2">
+                            <a href="#articles" className="bg-highlight hover:bg-highlight/90 text-white px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-xs flex items-center justify-center transition-all shadow-sm text-center w-full sm:w-auto">
                                 Explore Articles
                             </a>
-                            <a href="/wholesale" className="border border-primary/20 hover:border-primary/40 text-primary hover:bg-primary/5 px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] md:text-xs flex items-center justify-center transition-all backdrop-blur-sm text-center w-full sm:w-auto">
+                            <a href="/wholesale" className="border border-highlight hover:border-highlight/60 text-highlight hover:bg-highlight/5 px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-xs flex items-center justify-center transition-all backdrop-blur-sm text-center w-full sm:w-auto">
                                 Get Wholesale Catalogue
                             </a>
                         </div>
@@ -117,7 +117,7 @@ export default async function BlogIndexPage() {
                 </div>
 
                 {/* Scroll Indicator */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 hidden md:block">
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 hidden lg:block">
                     <div className="w-5 h-8 rounded-full border-2 border-primary/30 flex justify-center pt-1.5">
                         <div className="w-1 h-2 rounded-full bg-primary/40 animate-bounce" />
                     </div>
@@ -164,10 +164,15 @@ export default async function BlogIndexPage() {
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-8 max-w-7xl mx-auto w-full">
                         {categories.map((cat, i) => (
                             <div key={i} className="bg-white rounded-[24px] p-8 md:p-10 lg:p-12 border border-border flex flex-col items-center text-center gap-6 group hover:-translate-y-2 transition-all duration-500 hover:shadow-xl hover:border-transparent h-full">
-                                <div className="text-secondary group-hover:scale-110 transition-transform duration-500 relative z-10 w-fit h-fit mx-auto">
-                                    <svg className="w-10 h-10 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d={cat.icon}></path>
-                                    </svg>
+                                <div className="group-hover:scale-110 transition-transform duration-500 relative z-10 w-fit h-fit mx-auto">
+                                    <Image
+                                        src={cat.image}
+                                        alt={cat.title}
+                                        width={56}
+                                        height={56}
+                                        className="w-12 h-12 md:w-14 md:h-14 object-contain"
+                                        unoptimized
+                                    />
                                 </div>
                                 <div className="flex flex-col flex-1 relative z-10 w-full justify-between">
                                     <div className="flex flex-col gap-1.5 sm:gap-3 md:gap-4">
@@ -237,7 +242,7 @@ export default async function BlogIndexPage() {
                         <div className="mt-12 flex justify-center">
                             <Link 
                                 href="/blog/all"
-                                className="bg-accent text-primary px-10 py-4 rounded-xl font-bold uppercase tracking-widest hover:-translate-y-1 hover:shadow-xl transition-all shadow-sm active:scale-95 text-xs md:text-sm"
+                                className="bg-accent text-white px-10 py-4 rounded-xl font-bold uppercase tracking-widest hover:-translate-y-1 hover:shadow-xl transition-all shadow-sm active:scale-95 text-xs md:text-sm"
                             >
                                 Read More Articles
                             </Link>
@@ -263,14 +268,14 @@ export default async function BlogIndexPage() {
 
                         <div className="grid grid-cols-2 gap-3 md:gap-6 w-full">
                             {[
-                                { title: "Direct Manufacturer", desc: "No middleman, better quality & pricing", icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" },
-                                { title: "15+ Years Experience", desc: "Trusted by 1000+ retailers across India", icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" },
-                                { title: "1000+ Happy Buyers", desc: "Long-term relationships built on trust", icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" },
-                                { title: "Premium Quality Control", desc: "Strict quality checks at every stage", icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" },
+                                { title: "Direct Manufacturer", desc: "No middleman, better quality & pricing", image: "/ICONS/trust-manufacturer.png" },
+                                { title: "15+ Years Experience", desc: "Trusted by 1000+ retailers across India", image: "/ICONS/trust-experience.png" },
+                                { title: "1000+ Happy Buyers", desc: "Long-term relationships built on trust", image: "/ICONS/trust-buyers.png" },
+                                { title: "Premium Quality Control", desc: "Strict quality checks at every stage", image: "/ICONS/trust-quality.png" },
                             ].map((item, i) => (
-                                <div key={i} className="flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-2 sm:gap-4 bg-white p-3 sm:p-5 rounded-2xl border border-primary/5 shadow-sm hover:shadow-md transition-shadow">
-                                    <div className="w-8 h-8 sm:w-12 sm:h-12 flex-shrink-0 flex items-center justify-center bg-cream text-accent rounded-full border border-primary/5">
-                                        <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d={item.icon}></path></svg>
+                                <div key={i} className="group flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-3 sm:gap-4 bg-white p-4 sm:p-5 rounded-2xl border border-primary/5 shadow-sm hover:shadow-md hover:border-primary/10 transition-all duration-300">
+                                    <div className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 flex items-center justify-center">
+                                        <Image src={item.image} alt={item.title} width={80} height={80} className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" unoptimized />
                                     </div>
                                     <div className="flex flex-col gap-1 sm:gap-0">
                                         <h4 className="font-bold text-primary text-[11px] sm:text-sm md:text-base mb-0 sm:mb-1 leading-tight">{item.title}</h4>
@@ -283,7 +288,7 @@ export default async function BlogIndexPage() {
                     <div className="lg:w-1/3">
                         <div className="bg-white p-6 md:p-10 rounded-xl shadow-lg text-center border border-primary/5">
                             <h4 className="font-heading text-2xl font-normal text-primary mb-6">Looking for bulk order or custom requirements?</h4>
-                            <a href="https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20wholesale%20pricing" target="_blank" rel="noreferrer" className="block w-full bg-primary text-white px-6 py-4 rounded-md font-bold text-xs uppercase tracking-wider hover:bg-primary transition-colors text-center">
+                            <a href="https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20wholesale%20pricing" target="_blank" rel="noreferrer" className="block w-full bg-accent text-white px-6 py-4 rounded-md font-bold text-xs uppercase tracking-wider hover:bg-accent/90 transition-colors text-center shadow-sm">
                                 Request Wholesale Pricing
                             </a>
                         </div>
@@ -311,7 +316,7 @@ export default async function BlogIndexPage() {
                         <div className="w-full md:w-1/2 relative z-10">
                             <form action="https://wa.me/918815373767" target="_blank" className="flex flex-col sm:flex-row w-full gap-2 p-1.5 bg-white/60 backdrop-blur-md rounded-2xl sm:rounded-full border border-white/60 shadow-sm">
                                 <input type="email" name="email" placeholder="Enter your email address" className="flex-grow px-6 py-4 sm:py-0 rounded-2xl sm:rounded-full outline-none text-primary placeholder:text-primary/50 bg-transparent font-medium" required />
-                                <button type="submit" className="bg-primary text-white px-8 py-4 sm:py-3.5 rounded-xl sm:rounded-full font-bold text-sm uppercase tracking-wider hover:bg-black transition-colors whitespace-nowrap shadow-md">
+                                <button type="submit" className="bg-accent text-white px-8 py-4 sm:py-3.5 rounded-xl sm:rounded-full font-bold text-sm uppercase tracking-wider hover:bg-accent/90 transition-colors whitespace-nowrap shadow-md">
                                     Subscribe Now
                                 </button>
                             </form>
@@ -336,7 +341,7 @@ export default async function BlogIndexPage() {
                             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.88-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.496.099-.198.05-.372-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z" /></svg>
                             Get Catalogue On WhatsApp
                         </a>
-                        <a href="https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20wholesale%20pricing" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-3 border border-primary/20 text-primary px-8 py-4 rounded-full font-bold text-[11px] uppercase tracking-widest hover:border-accent hover:text-accent transition-colors w-full md:w-auto bg-transparent">
+                        <a href="https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20wholesale%20pricing" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-3 border border-accent hover:border-accent/60 text-accent hover:bg-accent/5 px-8 py-4 rounded-full font-bold text-[11px] uppercase tracking-widest transition-colors w-full md:w-auto bg-transparent">
                             Request Wholesale Pricing
                         </a>
                     </div>
