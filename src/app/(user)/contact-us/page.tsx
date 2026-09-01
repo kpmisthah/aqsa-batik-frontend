@@ -45,9 +45,11 @@ export default async function ContactPage() {
                         alt="Contact Aqsha Batik"
                         fill
                         priority
-                        className="object-cover object-center"
+                        className="object-cover object-[90%_center] xl:object-[75%_center] min-[1900px]:object-center"
                         unoptimized
                     />
+                    {/* Protective gradient overlay for text legibility on 1024x768 / 1366x768 screens */}
+                    <div className="absolute inset-y-0 left-0 w-[70%] lg:w-[60%] xl:w-[40%] bg-gradient-to-r from-cream via-cream/95 to-transparent z-10 pointer-events-none" />
                 </div>
 
                 {/* Mobile Image */}
@@ -64,26 +66,26 @@ export default async function ContactPage() {
 
                 {/* Text Content */}
                 <div className="relative z-20 max-w-[1600px] mx-auto w-full flex flex-col px-6 md:px-12 pt-0 pb-16 md:pb-0 text-primary md:h-full md:absolute md:inset-0 md:justify-center">
-                    <div className="max-w-3xl flex flex-col items-center text-center md:items-start md:text-left gap-4 md:gap-6 mt-0 relative z-30">
+                    <div className="w-full md:max-w-[340px] lg:max-w-[360px] xl:max-w-[420px] 2xl:max-w-[550px] min-[1900px]:max-w-[650px] flex flex-col items-center text-center md:items-start md:text-left gap-4 md:gap-5 mt-0 relative z-30">
                         {/* Hook */}
                         <div className="flex items-center justify-center md:justify-start gap-2">
                             <span className="text-[#8A4B32] text-xl leading-none">&diams;</span>
-                            <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">CONTACT AQSHA BATIK</span>
+                            <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold text-[10px] sm:text-[11px]">CONTACT AQSHA BATIK</span>
                         </div>
                         
-                        <h1 className="text-3xl leading-[1.15] sm:text-4xl md:text-[60px] md:leading-[1.1] font-heading font-normal tracking-tight text-primary">
+                        <h1 className="text-3xl leading-[1.15] sm:text-4xl md:text-[32px] lg:text-[32px] xl:text-[36px] 2xl:text-[50px] min-[1900px]:text-[64px] md:leading-[1.15] lg:leading-[1.1] font-heading font-normal tracking-tight text-primary">
                             Let's Talk about Your <br className="hidden md:block" /> Batik Cotton Dress for Women <span className='text-highlight italic'>Requirements</span>
                         </h1>
                         
-                        <p className="text-[14px] md:text-lg text-primary/80 leading-relaxed max-w-2xl font-medium">
+                        <p className="text-[14px] md:text-[13px] lg:text-[13px] xl:text-[14px] 2xl:text-[16px] min-[1900px]:text-lg text-primary/80 leading-relaxed font-medium">
                             Looking for premium Batik Cotton Dress for Women, Batik Prints Women Clothing, women clothing, or the latest cotton dresses for women? Whether you're a retailer, wholesaler, boutique owner, or fashion brand, our team is here to help you source high-quality collections directly from a trusted manufacturer.
                         </p>
                         
-                        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-center md:items-start w-full sm:w-auto mt-2">
-                            <a href="#form" className="bg-highlight hover:bg-highlight/90 text-white px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] md:text-xs flex items-center justify-center transition-all shadow-sm text-center w-full sm:w-auto">
+                        <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 items-center md:items-start w-full sm:w-auto mt-2">
+                            <a href="#form" className="bg-highlight hover:bg-highlight/90 text-white px-5 md:px-6 2xl:px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-[10px] xl:text-[11px] 2xl:text-xs flex items-center justify-center transition-all shadow-sm text-center w-full sm:w-auto">
                                 Get Wholesale Pricing
                             </a>
-                            <a href={WA} target="_blank" rel="noreferrer" className="border border-primary/20 hover:border-primary/40 text-primary hover:bg-primary/5 px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] md:text-xs flex items-center justify-center transition-all backdrop-blur-sm text-center w-full sm:w-auto">
+                            <a href={WA} target="_blank" rel="noreferrer" className="border border-primary/20 hover:border-primary/40 text-primary hover:bg-primary/5 px-5 md:px-6 2xl:px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-[10px] xl:text-[11px] 2xl:text-xs flex items-center justify-center transition-all backdrop-blur-sm text-center w-full sm:w-auto">
                                 Chat On WhatsApp
                             </a>
                         </div>
@@ -112,7 +114,7 @@ export default async function ContactPage() {
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-8 gap-y-8 sm:gap-y-12">
                         {/* Visit Us */}
                         <div className="flex flex-col items-center text-center group">
-                            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-primary/10 bg-primary/5 flex items-center justify-center text-accent mb-4 sm:mb-6 group-hover:scale-110 group-hover:bg-primary/10 transition-all duration-300">
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-primary/10 bg-primary/5 flex items-center justify-center text-[#8A4B32] mb-4 sm:mb-6 group-hover:scale-110 group-hover:bg-primary/10 transition-all duration-300">
                                 <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             </div>
                             <h3 className="font-heading text-base sm:text-lg md:text-xl font-normal text-primary mb-1.5 sm:mb-3">Visit Us</h3>
@@ -120,7 +122,7 @@ export default async function ContactPage() {
                         </div>
                         {/* Call Us */}
                         <div className="flex flex-col items-center text-center group">
-                            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-primary/10 bg-primary/5 flex items-center justify-center text-accent mb-4 sm:mb-6 group-hover:scale-110 group-hover:bg-primary/10 transition-all duration-300">
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-primary/10 bg-primary/5 flex items-center justify-center text-[#8A4B32] mb-4 sm:mb-6 group-hover:scale-110 group-hover:bg-primary/10 transition-all duration-300">
                                 <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                             </div>
                             <h3 className="font-heading text-base sm:text-lg md:text-xl font-normal text-primary mb-1.5 sm:mb-3">Call Us</h3>
@@ -128,7 +130,7 @@ export default async function ContactPage() {
                         </div>
                         {/* Email Us */}
                         <div className="flex flex-col items-center text-center group">
-                            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-primary/10 bg-primary/5 flex items-center justify-center text-accent mb-4 sm:mb-6 group-hover:scale-110 group-hover:bg-primary/10 transition-all duration-300">
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-primary/10 bg-primary/5 flex items-center justify-center text-[#8A4B32] mb-4 sm:mb-6 group-hover:scale-110 group-hover:bg-primary/10 transition-all duration-300">
                                 <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                             </div>
                             <h3 className="font-heading text-base sm:text-lg md:text-xl font-normal text-primary mb-1.5 sm:mb-3">Email Us</h3>
@@ -137,7 +139,7 @@ export default async function ContactPage() {
                         {/* WhatsApp Support */}
                         <div className="flex flex-col items-center text-center group">
                             <a href={WA} target="_blank" rel="noreferrer" className="flex flex-col items-center">
-                                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#25D366]/30 bg-[#25D366]/10 flex items-center justify-center text-[#25D366] mb-4 sm:mb-6 group-hover:scale-110 group-hover:bg-[#25D366]/20 transition-all duration-300">
+                                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#8A4B32]/30 bg-[#8A4B32]/10 flex items-center justify-center text-[#8A4B32] mb-4 sm:mb-6 group-hover:scale-110 group-hover:bg-[#8A4B32]/20 transition-all duration-300">
                                     <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" /></svg>
                                 </div>
                                 <h3 className="font-heading text-base sm:text-lg md:text-xl font-normal text-primary mb-1.5 sm:mb-3 hover:text-primary/90 transition-colors">WhatsApp Support</h3>
@@ -154,7 +156,9 @@ export default async function ContactPage() {
                     <div className="lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left w-full">
                         <span className="text-overline text-accent tracking-[0.3em] font-bold uppercase mb-4 md:mb-6 block">Get In Touch</span>
                         <h2 className="font-heading text-3xl md:text-4xl text-primary font-normal mb-8 leading-[1.1]">
-                            Get Personalized <span className="text-highlight">Batik Cotton Dress</span> <br className="hidden md:block" /> for Women Pricing & Expert Guidance
+                            Get Personalized <span className="text-highlight">Batik</span> <br className="hidden md:block" />
+                            <span className="text-highlight">Cotton Dress</span> for Women <br className="hidden md:block" />
+                            Pricing & Expert Guidance
                         </h2>
 
                         <div className="space-y-6 mb-12">
@@ -211,16 +215,14 @@ export default async function ContactPage() {
 
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-8 max-w-7xl mx-auto w-full">
                         {[
-                            { title: "Direct Manufacturer", desc: "Buy directly from the manufacturer for better pricing, consistent quality, and reliable support.", icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" },
-                            { title: "Ready Stock Available", desc: "Access a wide range of ready-to-dispatch batik collections and dress materials.", icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" },
-                            { title: "Fast Dispatch", desc: "Quick processing and delivery to help your business maintain inventory without delays.", icon: "M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" },
-                            { title: "Premium Quality", desc: "Carefully crafted collections designed for retailers, wholesalers, and fashion brands.", icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" }
+                            { title: "Direct Manufacturer", desc: "Buy directly from the manufacturer for better pricing, consistent quality, and reliable support.", imgSrc: "/ICONS/contact-trust-manufacturer.png" },
+                            { title: "Ready Stock Available", desc: "Access a wide range of ready-to-dispatch batik collections and dress materials.", imgSrc: "/ICONS/contact-trust-stock.png" },
+                            { title: "Fast Dispatch", desc: "Quick processing and delivery to help your business maintain inventory without delays.", imgSrc: "/ICONS/contact-trust-dispatch.png" },
+                            { title: "Premium Quality", desc: "Carefully crafted collections designed for retailers, wholesalers, and fashion brands.", imgSrc: "/ICONS/contact-trust-quality.png" }
                         ].map((item, i) => (
                             <div key={i} className="bg-white rounded-[20px] md:rounded-[32px] p-6 sm:p-8 md:p-10 shadow-sm border border-primary/10 hover:border-primary/20 hover:shadow-[0_10px_40px_rgba(90,42,31,0.06)] flex flex-col items-center text-center gap-4 sm:gap-6 group hover:-translate-y-2 transition-all duration-500 relative overflow-hidden h-full">
-                                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary/5 rounded-[16px] flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-500 relative z-10 w-fit mx-auto">
-                                    <svg className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d={item.icon}></path>
-                                    </svg>
+                                <div className="w-16 h-16 sm:w-20 sm:h-20 transition-transform duration-500 group-hover:scale-110 relative z-10 mx-auto shrink-0">
+                                    <Image src={item.imgSrc} alt={item.title} fill className="object-contain" unoptimized />
                                 </div>
                                 <div className="flex flex-col flex-1 relative z-10 w-full justify-start items-center gap-2 sm:gap-3">
                                     <h4 className="font-heading text-base sm:text-lg md:text-xl text-primary font-normal tracking-wide">{item.title}</h4>
