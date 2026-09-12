@@ -64,24 +64,19 @@ export default function GoogleReviewBar() {
 
     return (
         <section className="relative z-20 bg-surface border-y border-primary/5 shadow-sm">
-            <div className="max-w-[1400px] mx-auto px-3 lg:px-20 py-2.5 lg:py-5 flex flex-row items-center justify-between gap-2 lg:gap-12">
-                
+            <div className="max-w-[1400px] mx-auto px-3 lg:px-20 py-2.5 lg:py-5 flex flex-row items-center justify-between gap-3 lg:gap-12">
+
                 {/* LEFT — Business + Rating (Scales down on mobile) */}
-                <div className="flex flex-row items-center gap-2 lg:gap-5 shrink-0 flex-1 lg:flex-none">
+                <div className="flex flex-row items-center gap-1.5 lg:gap-5 shrink-0 flex-1 lg:flex-none min-w-0">
                     {/* Logo mark */}
-                    <div className="flex flex-col items-center leading-none select-none shrink-0 border-r border-primary/10 pr-2 lg:border-none lg:pr-0">
-                        <span className="font-heading text-[10px] lg:text-lg font-medium tracking-tight text-primary">
-                            AQSHA
-                        </span>
-                        <span className="text-[4px] lg:text-[6px] font-bold tracking-[0.25em] uppercase text-primary/80">
-                            Batik Prints Women Clothing
-                        </span>
+                    <div className="flex flex-col items-center leading-none select-none shrink-0 border-r border-primary/10 pr-1.5 lg:border-none lg:pr-0">
+                        <img src="/aqsha-logo.png" alt="Aqsha Batik" className="h-7 lg:h-16 w-auto object-contain" />
                     </div>
 
-                    <div className="flex flex-col gap-0 lg:gap-1 pl-1 lg:pl-0 shrink-0">
+                    <div className="flex flex-col gap-0 lg:gap-1 shrink-0 min-w-0">
                         <div className="flex items-center gap-1 lg:gap-2">
-                            <GoogleGIcon className="w-3 h-3 lg:w-5 lg:h-5" />
-                            <span className="font-medium text-primary text-[9px] lg:text-base whitespace-nowrap">
+                            <GoogleGIcon className="w-3 h-3 lg:w-5 lg:h-5 shrink-0" />
+                            <span className="font-medium text-primary text-[9px] lg:text-base whitespace-nowrap truncate">
                                 Google Review
                             </span>
                         </div>
@@ -103,7 +98,7 @@ export default function GoogleReviewBar() {
                 <div className="hidden lg:block w-px h-20 bg-primary/10 shrink-0" />
 
                 {/* CENTER — Testimonial text (Super tiny on mobile to fit in one row) */}
-                <div className="flex-1 min-w-0 px-1 lg:px-6">
+                <div className="flex-1 min-w-0 pl-2 pr-1 lg:px-6">
                     <p className="font-medium font-heading text-[8px] md:text-sm lg:text-base text-primary mb-[1px] lg:mb-1 truncate">
                         {review.name}
                     </p>
