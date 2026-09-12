@@ -98,7 +98,7 @@ export default function HomePage() {
       <section className="scroll-animate pt-16 pb-24 md:pt-20 md:pb-32 bg-cream">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col gap-12 md:gap-16">
           <div className="flex flex-col gap-3 md:gap-4 text-center items-center max-w-4xl mx-auto">
-            <span className="text-overline uppercase tracking-[0.2em] font-bold text-primary/80">Built for Every Buyer</span>
+            <span className="text-overline uppercase tracking-[0.2em] font-bold text-[#8A4B32]">Built for Every Buyer</span>
             <h2 className="text-h2 md:text-h1 text-primary font-normal leading-tight">
               Women's Fashion Collections <br className="hidden md:block" /> Made for <span className="text-highlight italic">Growing Businesses</span>
             </h2>
@@ -138,7 +138,7 @@ export default function HomePage() {
 
           {/* Mobile-Only Heading (Appears before image on mobile) */}
           <div className="flex lg:hidden flex-col gap-3 text-center items-center w-full">
-            <span className="text-[11px] uppercase tracking-[0.3em] font-bold text-brand">Our Story</span>
+            <span className="text-[11px] uppercase tracking-[0.3em] font-bold text-[#8A4B32]">Our Story</span>
             <h2 className="text-h2 leading-[1.1]">
               From 15 Handmade Batik Suits to a Trusted <br /> <span className="text-highlight">Ujjain Batik Manufacturer</span>
             </h2>
@@ -177,7 +177,7 @@ export default function HomePage() {
 
               {/* Desktop-Only Heading */}
               <div className="hidden lg:flex flex-col gap-4">
-                <span className="text-[11px] uppercase tracking-[0.3em] font-bold text-brand">Our Story</span>
+                <span className="text-[11px] uppercase tracking-[0.3em] font-bold text-[#8A4B32]">Our Story</span>
                 <h2 className="text-h2 leading-[1.1]">From 15 Handmade Batik Suits to a Trusted <span className="text-highlight">Ujjain Batik Manufacturer</span></h2>
               </div>
 
