@@ -24,12 +24,56 @@ export interface VerifyPaymentPayload {
   orderId: string;
 }
 
+export interface ShippingRatePayload {
+  items: { productId: string; quantity: number }[];
+  shippingAddress: {
+    address: string;
+    city: string;
+    state: string;
+    zip: string;
+    phone: string;
+  };
+}
+
+export interface ShippingRateResult {
+  shippingCost: number;
+  carrier: string;
+  service: string;
+  estimatedDeliveryDays?: number;
+}
+
+export interface OrderTrackingResult {
+  status: string;
+  message?: string;
+  carrier?: string;
+  trackingNumber?: string;
+  trackingUrl?: string;
+  processedStatus?: string;
+  events?: any[];
+}
+
 export const checkoutOrder = async (payload: CheckoutPayload): Promise<Response> => {
   return await fetch(`${API_BASE}/orders/checkout`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     credentials: "include",
     body: JSON.stringify(payload),
+  });
+};
+
+export const getShippingRate = async (payload: ShippingRatePayload): Promise<Response> => {
+  return await fetch(`${API_BASE}/orders/shipping-rate`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+    body: JSON.stringify(payload),
+  });
+};
+
+export const getOrderTracking = async (orderId: string): Promise<Response> => {
+  return await fetch(`${API_BASE}/orders/${orderId}/tracking`, {
+    method: "GET",
+    credentials: "include",
   });
 };
 
