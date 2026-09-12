@@ -19,7 +19,7 @@ export function ShopByCategorySection() {
         <section className="pt-10 pb-16 md:pt-12 md:pb-24 px-4 sm:px-6 bg-cream border-t border-primary/5">
             <div className="max-w-[1400px] mx-auto flex flex-col gap-8 md:gap-14">
                 <div className="text-center flex flex-col items-center gap-3 md:gap-4 max-w-4xl mx-auto">
-                    <span className="text-overline uppercase tracking-[0.2em] font-bold text-primary/80">Explore Batik Print Styles</span>
+                    <span className="text-overline uppercase tracking-[0.2em] font-bold text-[#8A4B32]">Explore Batik Print Styles</span>
                     <h2 className="text-h2 md:text-h1 text-primary font-normal leading-tight">
                         Shop Women's Suits, Batik Prints & <span className="text-highlight italic">Everyday Styles</span>
                     </h2>
@@ -276,7 +276,7 @@ export function TrendingCollectionsBannerSection() {
     return (
         <section className="w-full bg-cream pt-16 md:pt-24 border-t border-primary/5">
             <div className="max-w-[1400px] mx-auto flex flex-col items-center text-center gap-3 md:gap-5 mb-10 md:mb-16 px-6">
-                <span className="text-overline">Batik Styles Worth Wearing</span>
+                <span className="text-overline uppercase tracking-[0.2em] font-bold text-[#8A4B32]">Batik Styles Worth Wearing</span>
                 <h2 className="font-heading text-2xl md:text-4xl font-normal text-primary leading-tight">
                     Trending Batik Suits & <span className="text-highlight">Women's Clothing</span>
                 </h2>
@@ -381,7 +381,7 @@ export function TrendingCollectionsBannerSection() {
             </div>
             
             <div className="w-full flex justify-center py-12 md:py-20 bg-cream">
-                <a href="/batik-prints-womens-clothing" className="inline-flex items-center justify-center bg-primary text-white font-body font-medium text-sm md:text-base px-10 md:px-12 py-4 md:py-5 rounded-full hover:bg-accent transition-colors duration-300 hover:shadow-lg">
+                <a href="/batik-prints-womens-clothing" className="inline-flex items-center justify-center bg-[#8A4B32] text-white font-body font-medium text-sm md:text-base px-10 md:px-12 py-4 md:py-5 rounded-full hover:bg-[#8A4B32]/90 transition-colors duration-300 hover:shadow-lg">
                     Explore All Collections
                 </a>
             </div>
