@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useAuthSync } from "@/modules/user/hooks/useAuthSync";
 import { useAuthStore } from "@/hooks/useAuthStore";
 import Nav from "@/modules/user/components/Nav";
-import { User, Mail, Shield, Clock, Award, ArrowLeft, LogOut, Camera, Loader2, Check, CreditCard, ShoppingBag, Wallet } from "lucide-react";
+import { User, Mail, Shield, Clock, Award, ArrowLeft, LogOut, Camera, Loader2, Check, CreditCard, ShoppingBag, Wallet, Truck } from "lucide-react";
 import Link from "next/link";
 import { getColorName } from "@/utils/colorHelper";
 
@@ -752,6 +752,19 @@ function ProfileContent() {
                                   }`}>
                                     Status: {order.status}
                                   </span>
+
+                                  {/* Tracking info (once KloudShip has created the shipment) */}
+                                  {order.shipping?.trackingNumber && (
+                                    <a
+                                      href={order.shipping.trackingUrl || "#"}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      className="px-2.5 py-1 text-[10px] font-black uppercase tracking-wider rounded-md bg-sky-50 text-sky-700 border border-sky-200 hover:bg-sky-100 transition-colors flex items-center gap-1.5"
+                                    >
+                                      <Truck size={12} />
+                                      Track: {order.shipping.carrier} #{order.shipping.trackingNumber}
+                                    </a>
+                                  )}
 
                                   {/* Cancellation reason info badge if cancelled */}
                                   {order.status === 'Cancelled' && order.cancelReason && (
