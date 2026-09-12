@@ -10,7 +10,7 @@ import { Trash2, Plus, Minus, ShoppingBag, CreditCard, Truck, Info, Lock, Loader
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { getColorName } from "@/utils/colorHelper";
-import { checkoutOrder, verifyOrderPayment } from "@/services/orderService";
+import { checkoutOrder, verifyOrderPayment, getShippingRate, ShippingRateResult } from "@/services/orderService";
 
 export default function CartPage() {
   const { isSignedIn, user, loading: authLoading } = useAuthSync();
@@ -71,6 +71,61 @@ export default function CartPage() {
     }
     return item.discountPrice || item.fullPrice;
   };
+
+  // 2. Live Shipping Rate (KloudShip) — recalculated whenever the effective
+  // address or cart contents change; the checkout total shown here is
+  // informational, the server recomputes it authoritatively at checkout.
+  const effectiveAddress = addressMode === "saved" && user?.address ? user.address : address;
+  const effectiveCity = addressMode === "saved" && user?.city ? user.city : city;
+  const effectiveState = addressMode === "saved" && user?.state ? user.state : state;
+  const effectiveZip = addressMode === "saved" && user?.zip ? user.zip : zip;
+  const effectivePhone = addressMode === "saved" && user?.phone ? user.phone : phone;
+
+  const [shippingRate, setShippingRate] = useState<ShippingRateResult | null>(null);
+  const [shippingLoading, setShippingLoading] = useState(false);
+  const [shippingError, setShippingError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const hasAddress = !!(effectiveAddress?.trim() && effectiveCity?.trim() && effectiveState?.trim() && effectiveZip?.trim() && effectivePhone?.trim());
+    if (!isSignedIn || !hasAddress || items.length === 0) {
+      setShippingRate(null);
+      setShippingError(null);
+      return;
+    }
+
+    let cancelled = false;
+    setShippingLoading(true);
+    setShippingError(null);
+
+    const timer = setTimeout(async () => {
+      try {
+        const res = await getShippingRate({
+          items: items.map((i) => ({ productId: i.productId, quantity: i.quantity })),
+          shippingAddress: { address: effectiveAddress, city: effectiveCity, state: effectiveState, zip: effectiveZip, phone: effectivePhone },
+        });
+        const data = await res.json();
+        if (cancelled) return;
+        if (!res.ok) {
+          setShippingRate(null);
+          setShippingError(data.message || "Unable to calculate shipping for this address.");
+        } else {
+          setShippingRate(data);
+        }
+      } catch {
+        if (!cancelled) setShippingError("Unable to calculate shipping right now.");
+      } finally {
+        if (!cancelled) setShippingLoading(false);
+      }
+    }, 600);
+
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSignedIn, effectiveAddress, effectiveCity, effectiveState, effectiveZip, effectivePhone, items.length]);
+
+  const grandTotal = subtotal + (shippingRate?.shippingCost || 0);
 
   // Helper to dynamically load the Razorpay checkout script
   const loadRazorpayScript = () => {
@@ -421,15 +476,27 @@ export default function CartPage() {
                     <span className="font-bold">₹{subtotal}</span>
                   </div>
                   <div className="flex justify-between text-sm font-medium">
-                    <span className="opacity-60">Shipping (Indian Post / Priority Express)</span>
-                    <span className="text-accent font-bold uppercase tracking-wider text-[11px]">Free delivery</span>
+                    <span className="opacity-60">
+                      Shipping {shippingRate?.carrier ? `(${shippingRate.carrier} ${shippingRate.service || ""})` : ""}
+                    </span>
+                    {shippingLoading ? (
+                      <span className="flex items-center gap-1.5 text-primary/50 font-bold uppercase tracking-wider text-[11px]">
+                        <Loader2 size={12} className="animate-spin" /> Calculating...
+                      </span>
+                    ) : shippingRate ? (
+                      <span className="font-bold">₹{shippingRate.shippingCost}</span>
+                    ) : shippingError ? (
+                      <span className="text-red-600 font-bold uppercase tracking-wider text-[11px]">{shippingError}</span>
+                    ) : (
+                      <span className="text-primary/50 font-bold uppercase tracking-wider text-[11px]">Enter address below</span>
+                    )}
                   </div>
                   <div className="border-t border-primary/10 pt-4 flex justify-between items-center">
                     <div>
                       <span className="text-xs font-bold uppercase tracking-wider text-accent">Total Amount (INR)</span>
-                      <p className="text-[10px] opacity-40 leading-tight">Includes all local taxes / GST</p>
+                      <p className="text-[10px] opacity-40 leading-tight">Includes all local taxes / GST{shippingRate ? " and shipping" : ""}</p>
                     </div>
-                    <span className="font-heading text-3xl font-bold text-primary">₹{subtotal}</span>
+                    <span className="font-heading text-3xl font-bold text-primary">₹{grandTotal}</span>
                   </div>
                 </div>
               </div>
@@ -584,17 +651,21 @@ export default function CartPage() {
 
                   <button
                     type="submit"
-                    disabled={checkingOut || (userRole === "Wholesaler" && !wholesaleCheck.eligible) || (paymentMethod === "Wallet" && (user?.walletBalance || 0) < subtotal)}
+                    disabled={checkingOut || shippingLoading || (userRole === "Wholesaler" && !wholesaleCheck.eligible) || (paymentMethod === "Wallet" && (user?.walletBalance || 0) < grandTotal)}
                     className="w-full bg-accent hover:bg-accent/90 text-white py-4.5 px-6 rounded-full font-bold uppercase tracking-wider text-sm shadow hover:shadow-md active:scale-[0.99] transition-all flex items-center justify-center gap-2.5 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {checkingOut ? (
+                    {checkingOut || shippingLoading ? (
                       <Loader2 size={16} className="animate-spin" />
                     ) : paymentMethod === "COD" || paymentMethod === "Wallet" ? (
                       <CheckCircle2 size={16} />
                     ) : (
                       <CreditCard size={16} />
                     )}
-                    <span>{paymentMethod === "COD" ? "Place Order (Cash on Delivery)" : paymentMethod === "Wallet" ? "Pay with Wallet Balance" : "Secure Razorpay Payment"}</span>
+                    <span>
+                      {shippingLoading
+                        ? "Calculating shipping..."
+                        : paymentMethod === "COD" ? "Place Order (Cash on Delivery)" : paymentMethod === "Wallet" ? "Pay with Wallet Balance" : "Secure Razorpay Payment"}
+                    </span>
                   </button>
 
                   <div className="flex items-center justify-center gap-2 text-[10px] opacity-40 font-bold uppercase tracking-widest">
