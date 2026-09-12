@@ -31,7 +31,7 @@ export default function StickyEnquiryButton() {
         >
             <button
                 onClick={scrollToForm}
-                className="bg-primary text-white px-5 py-3 md:px-8 md:py-5 rounded-full font-black text-xs md:text-lg shadow-[0_20px_50px_rgba(90,42,31,0.4)] flex items-center gap-2 md:gap-3 hover:bg-black hover:scale-105 active:scale-95 transition-all uppercase tracking-widest border border-white/20"
+                className="bg-[#8A4B32] text-white px-5 py-3 md:px-8 md:py-5 rounded-full font-black text-xs md:text-lg shadow-[0_20px_50px_rgba(138,75,50,0.4)] flex items-center gap-2 md:gap-3 hover:bg-[#8A4B32]/90 hover:scale-105 active:scale-95 transition-all uppercase tracking-widest border border-white/20"
             >
                 <span className="w-2 h-2 md:w-3 md:h-3 bg-accent rounded-full animate-pulse"></span>
                 Get Quote Now
