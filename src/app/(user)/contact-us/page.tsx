@@ -35,67 +35,68 @@ export default async function ContactPage() {
         <div className="bg-[#FDFBF7] min-h-screen font-body text-[#3B1C14] selection:bg-primary selection:text-white">
             <Nav />
             <ScrollObserver />
-            {/* ── FULL WIDTH RESPONSIVE HERO ── */}
-            <section className="relative w-full md:h-[90vh] md:min-h-[600px] md:max-h-[900px] bg-cream md:bg-transparent overflow-hidden flex flex-col md:block">
-                
-                {/* Desktop Background Image */}
-                <div className="hidden md:block absolute inset-0 w-full h-full z-0">
-                    <Image
-                        src="/category/indian dresses.webp"
-                        alt="Contact Aqsha Batik"
-                        fill
-                        priority
-                        className="object-cover object-[90%_center] xl:object-[75%_center] min-[1900px]:object-center"
-                        unoptimized
-                    />
-                    {/* Protective gradient overlay for text legibility on 1024x768 / 1366x768 screens */}
-                    <div className="absolute inset-y-0 left-0 w-[70%] lg:w-[60%] xl:w-[40%] bg-gradient-to-r from-cream via-cream/95 to-transparent z-10 pointer-events-none" />
-                </div>
+            {/* ── HERO: CONTACT ── */}
+            <section className="relative w-full bg-cream overflow-hidden py-12 md:py-16 px-6 md:px-12">
+                <div className="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-y-8 gap-x-10 lg:gap-x-16 items-center">
 
-                {/* Mobile Image */}
-                <div className="relative w-full h-[60vh] min-h-[450px] md:hidden z-0">
-                    <Image
-                        src="/category/indian dresses (1).webp"
-                        alt="Contact Aqsha Batik"
-                        fill
-                        priority
-                        className="object-cover object-top"
-                        unoptimized
-                    />
-                </div>
+                    {/* Text Content: Heading */}
+                    <div className="order-1 md:order-none md:col-start-1 md:row-start-1 flex flex-col items-center text-center md:items-start md:text-left gap-4 md:gap-5">
+                        <img src="/aqsha-logo.png" alt="Aqsha Batik Suits" className="h-16 md:h-20 w-auto object-contain" />
 
-                {/* Text Content */}
-                <div className="relative z-20 max-w-[1600px] mx-auto w-full flex flex-col px-6 md:px-12 pt-0 pb-16 md:pb-0 text-primary md:h-full md:absolute md:inset-0 md:justify-center">
-                    <div className="w-full md:max-w-[340px] lg:max-w-[360px] xl:max-w-[420px] 2xl:max-w-[550px] min-[1900px]:max-w-[650px] flex flex-col items-center text-center md:items-start md:text-left gap-4 md:gap-5 mt-0 relative z-30">
                         {/* Hook */}
                         <div className="flex items-center justify-center md:justify-start gap-2">
                             <span className="text-[#8A4B32] text-xl leading-none">&diams;</span>
                             <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold text-[10px] sm:text-[11px]">CONTACT AQSHA BATIK</span>
                         </div>
-                        
-                        <h1 className="text-3xl leading-[1.15] sm:text-4xl md:text-[32px] lg:text-[32px] xl:text-[36px] 2xl:text-[50px] min-[1900px]:text-[64px] md:leading-[1.15] lg:leading-[1.1] font-heading font-normal tracking-tight text-primary">
-                            Let's Talk about Your <br className="hidden md:block" /> Batik Cotton Dress for Women <span className='text-highlight italic'>Requirements</span>
+
+                        <h1 className="text-3xl leading-[1.15] sm:text-4xl md:text-[40px] lg:text-[44px] md:leading-[1.15] font-heading font-normal tracking-tight text-primary max-w-lg">
+                            Let's Talk About Your Batik Cotton Dress for <span className="whitespace-nowrap">Women <span className='text-highlight italic'>Requirements</span></span>
                         </h1>
-                        
-                        <p className="text-[14px] md:text-[13px] lg:text-[13px] xl:text-[14px] 2xl:text-[16px] min-[1900px]:text-lg text-primary/80 leading-relaxed font-medium">
+
+                        <p className="text-[14px] md:text-base text-primary/80 leading-relaxed max-w-lg font-medium">
                             Looking for premium Batik Cotton Dress for Women, Batik Prints Women Clothing, women clothing, or the latest cotton dresses for women? Whether you're a retailer, wholesaler, boutique owner, or fashion brand, our team is here to help you source high-quality collections directly from a trusted manufacturer.
                         </p>
-                        
-                        <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 items-center md:items-start w-full sm:w-auto mt-2">
-                            <a href="#form" className="bg-highlight hover:bg-highlight/90 text-white px-5 md:px-6 2xl:px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-[10px] xl:text-[11px] 2xl:text-xs flex items-center justify-center transition-all shadow-sm text-center w-full sm:w-auto">
+                    </div>
+
+                    {/* Framed Image */}
+                    <div className="order-2 md:order-none md:col-start-2 md:row-start-1 md:row-span-2 relative w-full aspect-[4/5] md:aspect-[3/4] rounded-t-[160px] md:rounded-t-none md:rounded-tl-[220px] overflow-hidden shadow-2xl">
+                        <Image
+                            src="/category/contact.png"
+                            alt="Contact Aqsha Batik"
+                            fill
+                            priority
+                            className="object-cover object-center"
+                            unoptimized
+                        />
+                    </div>
+
+                    {/* CTAs + Trust Badges */}
+                    <div className="order-3 md:order-none md:col-start-1 md:row-start-2 flex flex-col items-center md:items-start gap-4 md:gap-5">
+                        <div className="flex flex-col gap-3 w-full sm:w-auto items-center md:items-start">
+                            <a href="#form" className="bg-accent hover:bg-accent/90 text-white pl-6 pr-5 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-all shadow-sm w-full sm:w-auto">
+                                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /></svg>
                                 Get Wholesale Pricing
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                             </a>
-                            <a href={WA} target="_blank" rel="noreferrer" className="border border-primary/20 hover:border-primary/40 text-primary hover:bg-primary/5 px-5 md:px-6 2xl:px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-[10px] xl:text-[11px] 2xl:text-xs flex items-center justify-center transition-all backdrop-blur-sm text-center w-full sm:w-auto">
+                            <a href={WA} target="_blank" rel="noreferrer" className="border-2 border-accent text-accent hover:bg-accent hover:text-white px-6 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-all w-full sm:w-auto">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>
                                 Chat On WhatsApp
                             </a>
                         </div>
-                    </div>
-                </div>
 
-                {/* Scroll Indicator */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 hidden md:block">
-                    <div className="w-5 h-8 rounded-full border-2 border-primary/30 flex justify-center pt-1.5">
-                        <div className="w-1 h-2 rounded-full bg-primary/40 animate-bounce" />
+                        {/* Trust Badges */}
+                        <div className="flex flex-wrap gap-x-6 gap-y-3 justify-center md:justify-start">
+                            {[
+                                { label: "Premium Quality", icon: <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" /> },
+                                { label: "Bulk Orders Welcome", icon: <><path d="M3 7h11v8H3z" /><path d="M14 10h4l3 3v2h-7z" /><circle cx="7" cy="17" r="1.5" /><circle cx="17.5" cy="17" r="1.5" /></> },
+                                { label: "Trusted Manufacturer", icon: <path d="M8 12l3 3 5-6M4 7l4-3 4 3 4-3 4 3v10l-4 3-4-3-4 3-4-3V7z" /> },
+                            ].map((item) => (
+                                <div key={item.label} className="flex items-center gap-2">
+                                    <svg className="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{item.icon}</svg>
+                                    <span className="text-[11px] md:text-xs font-semibold text-primary">{item.label}</span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
