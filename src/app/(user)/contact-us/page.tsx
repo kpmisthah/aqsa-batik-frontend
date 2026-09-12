@@ -39,8 +39,8 @@ export default async function ContactPage() {
             <section className="relative w-full bg-cream overflow-hidden py-12 md:py-16 px-6 md:px-12">
                 <div className="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-y-8 gap-x-10 lg:gap-x-16 items-center">
 
-                    {/* Text Content: Heading */}
-                    <div className="order-1 md:order-none md:col-start-1 md:row-start-1 flex flex-col items-center text-center md:items-start md:text-left gap-4 md:gap-5">
+                    {/* Text Content */}
+                    <div className="flex flex-col items-center text-center md:items-start md:text-left gap-4 md:gap-5">
                         <img src="/aqsha-logo.png" alt="Aqsha Batik Suits" className="h-16 md:h-20 w-auto object-contain" />
 
                         {/* Hook */}
@@ -56,23 +56,21 @@ export default async function ContactPage() {
                         <p className="text-[14px] md:text-base text-primary/80 leading-relaxed max-w-lg font-medium">
                             Looking for premium Batik Cotton Dress for Women, Batik Prints Women Clothing, women clothing, or the latest cotton dresses for women? Whether you're a retailer, wholesaler, boutique owner, or fashion brand, our team is here to help you source high-quality collections directly from a trusted manufacturer.
                         </p>
-                    </div>
 
-                    {/* Framed Image */}
-                    <div className="order-2 md:order-none md:col-start-2 md:row-start-1 md:row-span-2 relative w-full aspect-[4/5] md:aspect-[3/4] rounded-t-[160px] md:rounded-t-none md:rounded-tl-[220px] overflow-hidden shadow-2xl">
-                        <Image
-                            src="/category/contact.png"
-                            alt="Contact Aqsha Batik"
-                            fill
-                            priority
-                            className="object-cover object-center"
-                            unoptimized
-                        />
-                    </div>
+                        {/* Mobile-only image (sits between paragraph and CTAs) */}
+                        <div className="block md:hidden relative w-full aspect-[4/5] rounded-t-[160px] overflow-hidden shadow-2xl">
+                            <Image
+                                src="/category/contactt.png"
+                                alt="Contact Aqsha Batik"
+                                fill
+                                priority
+                                className="object-cover object-center"
+                                unoptimized
+                            />
+                        </div>
 
-                    {/* CTAs + Trust Badges */}
-                    <div className="order-3 md:order-none md:col-start-1 md:row-start-2 flex flex-col items-center md:items-start gap-4 md:gap-5">
-                        <div className="flex flex-col gap-3 w-full sm:w-auto items-center md:items-start">
+                        {/* CTAs */}
+                        <div className="flex flex-col md:flex-row gap-3 w-full sm:w-auto items-center md:items-start">
                             <a href="#form" className="bg-accent hover:bg-accent/90 text-white pl-6 pr-5 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] flex items-center justify-center gap-2 transition-all shadow-sm w-full sm:w-auto">
                                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /></svg>
                                 Get Wholesale Pricing
@@ -97,6 +95,18 @@ export default async function ContactPage() {
                                 </div>
                             ))}
                         </div>
+                    </div>
+
+                    {/* Desktop-only Framed Image */}
+                    <div className="hidden md:block relative w-full aspect-[3/4] rounded-tl-[220px] overflow-hidden shadow-2xl">
+                        <Image
+                            src="/category/contactt.png"
+                            alt="Contact Aqsha Batik"
+                            fill
+                            priority
+                            className="object-cover object-center"
+                            unoptimized
+                        />
                     </div>
                 </div>
             </section>
