@@ -24,64 +24,65 @@ export default function AboutPage() {
 
             <Nav />
             <ScrollObserver />            
-            {/* ── FULL WIDTH RESPONSIVE HERO ── */}
-            <section className="relative w-full md:h-[90vh] md:min-h-[600px] md:max-h-[900px] bg-cream md:bg-transparent overflow-hidden flex flex-col md:block">
-                
-                {/* Desktop Background Image */}
-                <div className="hidden md:block absolute inset-0 w-full h-full z-0">
-                    <Image
-                        src="/category/ujjain batik.webp"
-                        alt="Aqsha Batik Heritage"
-                        fill
-                        priority
-                        className="object-cover object-center"
-                        unoptimized
-                    />
-                </div>
+            {/* ── HERO: HERITAGE ── */}
+            <section className="relative w-full bg-cream overflow-hidden py-12 md:py-20 px-6 md:px-12">
+                <div className="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-                {/* Mobile Image */}
-                <div className="relative w-full h-[60vh] min-h-[450px] md:hidden z-0">
-                    <Image
-                        src="/category/ujjain batik (1).webp"
-                        alt="Aqsha Batik Heritage"
-                        fill
-                        priority
-                        className="object-cover object-top"
-                        unoptimized
-                    />
-                </div>
-
-                {/* Text Content */}
-                <div className="relative z-20 max-w-[1600px] mx-auto w-full flex flex-col px-6 md:px-12 pt-0 pb-16 md:pb-0 text-primary md:h-full md:absolute md:inset-0 md:justify-center">
-                    <div className="max-w-3xl flex flex-col items-center text-center md:items-start md:text-left gap-4 md:gap-6 mt-0 relative z-30">
+                    {/* Text Content */}
+                    <div className="flex flex-col items-center text-center md:items-start md:text-left gap-4 md:gap-5">
                         {/* Hook */}
-                        <div className="flex items-center justify-center md:justify-start gap-2">
-                            <span className="text-[#8A4B32] text-xl leading-none">&diams;</span>
+                        <div className="flex flex-col items-center md:items-start gap-2">
                             <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">OUR HERITAGE</span>
+                            <span className="w-10 h-0.5 bg-[#8A4B32]" />
                         </div>
-                        
-                        <h1 className="text-3xl leading-[1.15] sm:text-4xl md:text-[60px] md:leading-[1.1] font-heading font-normal tracking-tight text-primary">
-                            <span className="block md:whitespace-nowrap">Legacy Craftsmanship</span>
-                            <span className="block md:whitespace-nowrap">Behind <span className='text-highlight italic'>Every Design</span></span>
+
+                        <h1 className="text-3xl leading-[1.15] sm:text-4xl md:text-[56px] md:leading-[1.1] font-heading font-normal tracking-tight text-primary">
+                            <span className="block">Legacy Craftsmanship</span>
+                            <span className="block">Behind <span className='text-highlight italic'>Every Design</span></span>
                         </h1>
-                        
-                        <p className="text-[14px] md:text-lg text-primary/80 leading-relaxed max-w-2xl font-medium">
-                            Rooted in Bherugarh, Ujjain, we carry forward the legacy of traditional wax batik—refined over 15+ years into premium Batik Prints Women Clothing, batik dresses, and high-quality Batik Cotton Dress for Women. Our collections focus on durable cotton dress material and consistent women cotton wholesale fabric, built for real market demand and ready-to-sell use.
+
+                        <p className="text-[14px] md:text-lg text-primary/80 leading-relaxed max-w-lg font-medium">
+                            Rooted in Bherugarh, Ujjain, we carry forward the legacy of traditional wax batik—refined over 15+ years into premium Batik Prints Women Clothing, batik dresses, and high-quality Batik Cotton Dress for Women.
                         </p>
-                        
+
+                        {/* Highlighted Callout */}
+                        <div className="flex items-start gap-3 bg-[#F4F0EA] border-l-4 border-accent rounded-r-lg px-4 py-3 md:px-6 md:py-4 max-w-lg text-left">
+                            <span className="text-accent text-lg leading-none mt-0.5 flex-shrink-0">&diams;</span>
+                            <p className="text-[13px] md:text-base text-primary/90 leading-relaxed font-medium">
+                                Our collections focus on durable cotton dress material and consistent wholesale fabric, built for real market demand and ready-to-sell use.
+                            </p>
+                        </div>
+
+                        {/* Checklist */}
+                        <div className="grid grid-cols-2 gap-x-6 gap-y-3 max-w-lg">
+                            {["Traditional Batik Prints", "Premium Cotton Quality", "15+ Years Expertise", "Wholesale Ready"].map((point) => (
+                                <div key={point} className="flex items-center gap-2">
+                                    <span className="flex-shrink-0 w-5 h-5 rounded-md bg-accent/15 text-accent flex items-center justify-center">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+                                    </span>
+                                    <span className="text-[13px] md:text-sm text-primary font-medium">{point}</span>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* CTAs */}
                         <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-center md:items-start w-full sm:w-auto mt-2">
-                            <a href={WA} target="_blank" rel="noreferrer" className="bg-highlight hover:bg-highlight/90 text-white px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] md:text-xs flex items-center justify-center gap-2 transition-all shadow-sm text-center w-full sm:w-auto">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z" /></svg>
+                            <a href={WA} target="_blank" rel="noreferrer" className="bg-accent text-white px-6 py-3.5 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-bold text-[11px] md:text-sm hover:scale-105 transition-all shadow-xl uppercase tracking-widest border-2 border-accent text-center w-full sm:w-auto">
                                 Get In Touch
                             </a>
                         </div>
                     </div>
-                </div>
 
-                {/* Scroll Indicator */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 hidden md:block">
-                    <div className="w-5 h-8 rounded-full border-2 border-primary/30 flex justify-center pt-1.5">
-                        <div className="w-1 h-2 rounded-full bg-primary/40 animate-bounce" />
+                    {/* Framed Image */}
+                    <div className="relative w-full aspect-[4/5] md:aspect-[3/4] rounded-[24px] overflow-hidden shadow-2xl border-[8px] border-white">
+                        <Image
+                            src="/About-us/about-us.png"
+                            alt="Aqsha Batik Heritage"
+                            fill
+                            priority
+                            className="object-cover object-center"
+                            unoptimized
+                        />
                     </div>
                 </div>
             </section>
