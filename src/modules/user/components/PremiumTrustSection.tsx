@@ -33,18 +33,6 @@ export default function PremiumTrustSection() {
                                 unoptimized
                                 className="object-cover object-center grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[4s]"
                             />
-
-                            {/* Overlaid elegant badge */}
-                            <div className="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-8 lg:right-auto lg:max-w-md bg-white/95 backdrop-blur-md px-4 py-4 md:px-6 md:py-6 rounded-xl border border-primary/5 flex flex-col shadow-xl gap-3 md:gap-4">
-                                <div className="flex flex-col gap-1 md:gap-2">
-                                    <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-bold text-accent">Authentic Ujjain Batik Roots</span>
-                                    <p className="text-[11px] md:text-[13px] text-primary/80 leading-relaxed font-medium">Our collections are rooted in the batik heritage of Bherugarh, Ujjain, where traditional printing meets contemporary Indian fashion.</p>
-                                </div>
-                                <div className="border-t border-primary/10 pt-3 md:pt-4 flex flex-col gap-1 md:gap-2">
-                                    <h4 className="text-[12px] md:text-[14px] text-primary m-0 uppercase tracking-[0.2em] font-bold font-heading">360° Workshop Tour</h4>
-                                    <p className="text-[11px] md:text-[13px] text-primary/80 leading-relaxed font-medium">See how our collections move from fabric selection and printing to careful finishing and ready dispatch.</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
 

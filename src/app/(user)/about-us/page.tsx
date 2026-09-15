@@ -306,10 +306,10 @@ export default function AboutPage() {
                     <div className="hidden lg:block lg:sticky lg:top-32 relative w-full lg:w-1/2 aspect-square rounded-[50px] overflow-hidden shadow-2xl border-[15px] border-cream group">
                         <Image src="/About-us/ujjain batik.webp" alt="Aqsha Batik Legacy Journey" layout="fill" objectFit="cover" objectPosition="top" className="group-hover:scale-110 transition-all duration-[3s] brightness-90" />
                         <div className="absolute inset-0 bg-gradient-to-t from-accent/70 via-transparent to-transparent"></div>
-                        <div className="absolute bottom-10 left-10 right-10 bg-white/90 backdrop-blur-md p-10 rounded-[40px] border border-primary/5 shadow-xl">
-                            <div className="flex flex-col gap-2">
-                                <span className="font-heading text-5xl font-normal text-primary">2010</span>
-                                <span className="text-xs font-bold uppercase tracking-widest text-primary">The Foundation Year</span>
+                        <div className="absolute bottom-6 left-6 max-w-[190px] bg-white/90 backdrop-blur-md p-5 rounded-2xl border border-primary/5 shadow-xl">
+                            <div className="flex flex-col gap-1">
+                                <span className="font-heading text-3xl font-bold text-highlight">2010</span>
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-primary">The Foundation Year</span>
                             </div>
                         </div>
                     </div>
