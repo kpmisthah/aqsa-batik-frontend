@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { Edit, Ban, CheckCircle2 } from "lucide-react";
 import type { AdminProduct } from "../hooks/useProducts";
 
@@ -32,7 +33,7 @@ export function ProductTable({ products, onToggleBlock, onEdit }: ProductTablePr
                     <div className="flex items-center">
                       <div className="h-14 w-14 flex-shrink-0 relative rounded-xl overflow-hidden bg-tan border border-primary/10">
                         {product.images && product.images.length > 0 ? (
-                          <img className="h-14 w-14 object-cover object-top" src={product.images[0]} alt={product.name} />
+                          <Image className="object-cover object-top" src={product.images[0]} alt={product.name} fill unoptimized />
                         ) : (
                           <div className="h-14 w-14 flex items-center justify-center text-primary/30 text-xs font-bold">No img</div>
                         )}
@@ -125,7 +126,7 @@ export function ProductTable({ products, onToggleBlock, onEdit }: ProductTablePr
             <div className="flex items-start gap-4">
               <div className="h-16 w-16 flex-shrink-0 relative rounded-xl overflow-hidden bg-tan border border-primary/10">
                 {product.images && product.images.length > 0 ? (
-                  <img className="h-16 w-16 object-cover object-top" src={product.images[0]} alt={product.name} />
+                  <Image className="object-cover object-top" src={product.images[0]} alt={product.name} fill unoptimized />
                 ) : (
                   <div className="h-16 w-16 flex items-center justify-center text-primary/30 text-xs font-bold">No img</div>
                 )}
