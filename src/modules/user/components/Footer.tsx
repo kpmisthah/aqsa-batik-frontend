@@ -13,7 +13,7 @@ export default function Footer() {
                     {/* Brand Section */}
                     <div className="lg:w-1/3 flex flex-col gap-8">
                         <div className="bg-white p-3 rounded-2xl w-fit">
-                            <img src="/aqsha-logo.png" alt="Aqsha Logo" className="h-12 md:h-16 w-auto object-contain self-start" />
+                            <Image src="/aqsha-logo.png" alt="Aqsha Logo" width={1080} height={924} className="h-12 md:h-16 w-auto object-contain self-start" />
                         </div>
                         <p className="text-cream text-sm leading-relaxed max-w-sm">
                             Direct Batik Cotton Dress for Women Manufacturer from Ujjain. Specializing in premium suits for women, batik print fabric, women's dress material, cotton 60 x 60 dress material, and batik suit designs for wholesale buyers, boutiques, resellers, and the modern Indian market.
