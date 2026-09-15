@@ -9,6 +9,7 @@ interface SlideData {
   id: number;
   image: string;
   mobileImage?: string;
+  mobileImagePosition?: string;
   imageAlt: string;
   tagline: string;
   title: React.ReactNode;
@@ -25,8 +26,9 @@ interface SlideData {
 const DEFAULT_SLIDES: SlideData[] = [
   {
     id: 1,
-    image: "/Hero Banner/cotton-cloth.webp",
-    mobileImage: "/Hero Banner/mobile-version/cotton cloth.webp",
+    image: "/Hero Banner/image (2).png",
+    mobileImage: "/Hero Banner/mobile-version/image (3).png",
+    mobileImagePosition: "object-[center_15%]",
     imageAlt: "Batik Print Suits for Women",
     tagline: "TRUSTED UJJAIN BATIK MANUFACTURER",
     title: (
@@ -283,7 +285,7 @@ export default function HomeHeroSlider() {
                 alt={slide.imageAlt || "Hero Banner"}
                 fill
                 priority={index === 0}
-                className="object-cover object-top transform transition-transform duration-[10s] ease-linear"
+                className={`object-cover transform transition-transform duration-[10s] ease-linear ${slide.mobileImagePosition || "object-top"}`}
                 style={{
                   transform: index === current ? "scale(1.02)" : "scale(1)"
                 }}
