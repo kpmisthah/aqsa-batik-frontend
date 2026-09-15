@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 import { Search, X } from "lucide-react";
 import { useProducts } from "@/modules/admin/products/hooks/useProducts";
 import AdminHeader from "@/modules/admin/components/AdminHeader";
@@ -257,7 +258,7 @@ export default function AdminProducts() {
               {/* Show All Images (Order matters) */}
               {imageItems.map((item, i) => (
                 <div key={item.id} className="relative group">
-                  <img src={item.type === 'existing' ? item.url : item.previewUrl} alt={`Preview ${i + 1}`} className="w-20 h-20 rounded-xl object-cover object-top border border-primary/20 shadow-sm" />
+                  <Image src={item.type === 'existing' ? item.url : item.previewUrl} alt={`Preview ${i + 1}`} width={80} height={80} unoptimized className="w-20 h-20 rounded-xl object-cover object-top border border-primary/20 shadow-sm" />
                   <div className="absolute inset-0 bg-black/40 rounded-xl opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-opacity gap-1">
                     <span className="text-white text-[9px] font-bold text-center px-1">
                        {item.type === 'existing' ? "Currently Saved" : "New Image"}
