@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/modules/user/components/Nav";
 import { useWishlistStore } from "@/hooks/useWishlistStore";
@@ -147,8 +148,8 @@ export default function WishlistPage() {
                                             <Trash2 size={18} />
                                         </button>
                                         <Link href={`/products/${prod._id || prod.id}`}>
-                                            <div className="w-full aspect-square rounded-2xl overflow-hidden bg-surface border border-primary/5">
-                                                <img src={prod.images?.[0] || prod.image || "/product_white_mustard.png"} alt={prod.name} className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700" />
+                                            <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-surface border border-primary/5">
+                                                <Image src={prod.images?.[0] || prod.image || "/product_white_mustard.png"} alt={prod.name} fill unoptimized className="object-cover object-top group-hover:scale-110 transition-transform duration-700" />
                                             </div>
                                         </Link>
                                         <div className="flex flex-col gap-2">
