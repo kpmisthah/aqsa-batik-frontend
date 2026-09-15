@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { Search, Save, AlertTriangle, Check, X } from "lucide-react";
 import { useProducts } from "@/modules/admin/products/hooks/useProducts";
 import Link from "next/link";
@@ -188,7 +189,7 @@ export default function AdminInventory() {
                         <div className="flex items-center">
                           <div className="h-12 w-12 flex-shrink-0 relative rounded-lg overflow-hidden bg-tan border border-primary/10">
                             {product.images && product.images.length > 0 ? (
-                              <img className="h-12 w-12 object-cover object-top" src={product.images[0]} alt={product.name} />
+                              <Image className="object-cover object-top" src={product.images[0]} alt={product.name} fill unoptimized />
                             ) : (
                               <div className="h-12 w-12 flex items-center justify-center text-primary/30 text-[10px] font-bold">No img</div>
                             )}
