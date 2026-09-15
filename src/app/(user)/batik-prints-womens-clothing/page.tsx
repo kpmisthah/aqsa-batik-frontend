@@ -82,7 +82,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                 {/* Desktop Background Image */}
                 <div className="hidden md:block absolute inset-0 w-full h-full z-0">
                     <Image
-                        src="/category/cotton cloth.webp"
+                        src="/Hero Banner/image(2222).png"
                         alt="Batik Prints Women Clothing"
                         fill
                         priority
@@ -94,11 +94,11 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                 {/* Mobile Image */}
                 <div className="relative w-full h-[60vh] min-h-[450px] md:hidden z-0">
                     <Image
-                        src="/category/cotton cloth (1).webp"
+                        src="/Hero Banner/mobile-version/image(3333).png"
                         alt="Batik Prints Women Clothing"
                         fill
                         priority
-                        className="object-cover object-top"
+                        className="object-cover object-[center_80%]"
                         unoptimized
                     />
                 </div>
