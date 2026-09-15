@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from "react";
+import Image from "next/image";
 import { Search, X, Edit, Trash2 } from "lucide-react";
 import { useBlogs } from "@/modules/admin/blogs/hooks/useBlogs";
 import AdminModal from "@/modules/admin/components/AdminModal";
@@ -160,7 +161,7 @@ export default function AdminBlogs() {
                       <div className="flex items-center gap-4">
                         <div className="h-14 w-20 flex-shrink-0 relative rounded-lg overflow-hidden bg-tan border border-primary/10">
                           {blog.featuredImg ? (
-                            <img className="h-14 w-20 object-cover" src={blog.featuredImg} alt={blog.title} />
+                            <Image className="object-cover" src={blog.featuredImg} alt={blog.title} fill unoptimized />
                           ) : (
                             <div className="h-14 w-20 flex items-center justify-center text-primary/30 text-[10px] font-bold">No img</div>
                           )}
@@ -252,7 +253,7 @@ export default function AdminBlogs() {
                   />
                   {imageItem && (
                     <div className="relative group mt-4 w-full aspect-video rounded-xl overflow-hidden border border-primary/20 shadow-sm bg-tan">
-                      <img src={imageItem.type === 'existing' ? imageItem.url : imageItem.previewUrl} alt="Preview" className="w-full h-full object-cover" />
+                      <Image src={imageItem.type === 'existing' ? imageItem.url : imageItem.previewUrl} alt="Preview" fill unoptimized className="object-cover" />
                       <button
                         type="button"
                         onClick={removeImage}
