@@ -97,7 +97,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                 {/* Desktop Background Image */}
                 <div className="hidden lg:block absolute inset-0 w-full h-full z-0">
                     <Image
-                        src="/category/ethnic wear for women.webp"
+                        src="/Hero Banner/img2.png"
                         alt="Ethnic Wear for Women Collection"
                         fill
                         priority
@@ -109,11 +109,11 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                 {/* Mobile Image */}
                 <div className="relative w-full h-[60vh] min-h-[450px] lg:hidden z-0">
                     <Image
-                        src="/category/ethnic wear for women (1).webp"
+                        src="/Hero Banner/mobile-version/img3.png"
                         alt="Ethnic Wear for Women Collection"
                         fill
                         priority
-                        className="object-cover object-top"
+                        className="object-cover object-[center_79%]"
                         unoptimized
                     />
                 </div>
