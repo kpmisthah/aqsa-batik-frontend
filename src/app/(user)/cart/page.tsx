@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { useCartStore, CartItem } from "@/hooks/useCartStore";
 import { useAuthSync } from "@/modules/user/hooks/useAuthSync";
 import Nav from "@/modules/user/components/Nav";
@@ -345,11 +346,13 @@ export default function CartPage() {
                   className="bg-white rounded-3xl border border-primary/10 p-4 md:p-5 flex gap-4 md:gap-5 shadow-sm hover:shadow transition-all relative overflow-hidden"
                 >
                   {/* Item Image */}
-                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden bg-surface border border-primary/5 flex-shrink-0">
-                    <img
+                  <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-2xl overflow-hidden bg-surface border border-primary/5 flex-shrink-0">
+                    <Image
                       src={item.image || "placeholder.jpg"}
                       alt={item.name}
-                      className="w-full h-full object-cover object-top"
+                      fill
+                      unoptimized
+                      className="object-cover object-top"
                     />
                   </div>
 
