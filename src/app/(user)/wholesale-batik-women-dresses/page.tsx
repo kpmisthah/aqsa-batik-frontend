@@ -226,11 +226,11 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                 {/* Desktop Background Image */}
                 <div className="hidden lg:block absolute inset-0 w-full h-full z-0">
                     <Image
-                        src="/category/dresses for women.webp"
+                        src="/Hero Banner/ige.png"
                         alt="Wholesale Batik Supply"
                         fill
                         priority
-                        className="object-cover object-center"
+                        className="object-cover object-top"
                         unoptimized
                     />
                 </div>
@@ -238,11 +238,11 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                 {/* Mobile Image */}
                 <div className="relative w-full h-[60vh] min-h-[450px] lg:hidden z-0">
                     <Image
-                        src="/category/dresses for women (1).webp"
+                        src="/Hero Banner/mobile-version/ige(3).png"
                         alt="Wholesale Batik Supply"
                         fill
                         priority
-                        className="object-cover object-top"
+                        className="object-cover object-[center_72%]"
                         unoptimized
                     />
                 </div>
