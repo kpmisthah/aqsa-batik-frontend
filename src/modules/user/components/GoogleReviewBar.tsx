@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const GOOGLE_REVIEW_URL = "https://g.page/r/YOUR_GOOGLE_REVIEW_LINK/review";
 
@@ -70,7 +71,7 @@ export default function GoogleReviewBar() {
                 <div className="flex flex-row items-center gap-1.5 lg:gap-5 shrink-0 flex-1 lg:flex-none min-w-0">
                     {/* Logo mark */}
                     <div className="flex flex-col items-center leading-none select-none shrink-0 border-r border-primary/10 pr-1.5 lg:border-none lg:pr-0">
-                        <img src="/aqsha-logo.png" alt="Aqsha Batik" className="h-7 lg:h-16 w-auto object-contain" />
+                        <Image src="/aqsha-logo.png" alt="Aqsha Batik" width={1080} height={924} className="h-7 lg:h-16 w-auto object-contain" />
                     </div>
 
                     <div className="flex flex-col gap-0 lg:gap-1 shrink-0 min-w-0">
