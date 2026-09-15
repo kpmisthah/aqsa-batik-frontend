@@ -79,8 +79,9 @@ const DEFAULT_SLIDES: SlideData[] = [
     ),
     description: "Step into the season with fresh batik prints, elegant ladies suit designs, breathable summer suits, and easy-to-wear styles made for everyday Indian dressing.",
     tagline: "NEW BATIK DESIGN COLLECTIONS",
-    image: "/Hero Banner/cotton dress for women.webp",
-    mobileImage: "/Hero Banner/mobile-version/cotton dress for women.webp",
+    image: "/Hero Banner/imagee(2).png",
+    mobileImage: "/Hero Banner/mobile-version/imagee(3).png",
+    mobileImagePosition: "object-[center_68%]",
     imageAlt: "New Arrival Batik Ladies Suits",
     primaryButtonLabel: "SHOP NEW ARRIVALS",
     primaryButtonLink: "/new-batik-prints-suits"
