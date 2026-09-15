@@ -99,8 +99,9 @@ const DEFAULT_SLIDES: SlideData[] = [
     ),
     description: "Discover handcrafted batik print cotton suits and beautiful dresses for women, designed to keep you cool, comfortable, confident, and effortlessly elegant throughout the season.",
     tagline: "SUMMER SALE OFFER",
-    image: "/Hero Banner/ethnic wear for women.webp",
-    mobileImage: "/Hero Banner/mobile-version/Ethnic Wear for Women.webp",
+    image: "/Hero Banner/image (22).png",
+    mobileImage: "/Hero Banner/mobile-version/image (33).png",
+    mobileImagePosition: "object-[center_58%]",
     imageAlt: "Summer Suits for Women",
     primaryButtonLabel: "SHOP SUMMER SALE",
     primaryButtonLink: "/batik-cotton-dress-for-women"
