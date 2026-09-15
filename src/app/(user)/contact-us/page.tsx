@@ -41,7 +41,7 @@ export default async function ContactPage() {
 
                     {/* Text Content */}
                     <div className="flex flex-col items-center text-center md:items-start md:text-left gap-4 md:gap-5">
-                        <img src="/aqsha-logo.png" alt="Aqsha Batik Suits" className="h-16 md:h-20 w-auto object-contain" />
+                        <Image src="/aqsha-logo.png" alt="Aqsha Batik Suits" width={1080} height={924} className="h-16 md:h-20 w-auto object-contain" />
 
                         {/* Hook */}
                         <div className="flex items-center justify-center md:justify-start gap-2">
