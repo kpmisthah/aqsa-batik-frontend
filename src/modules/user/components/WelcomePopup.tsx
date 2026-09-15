@@ -67,7 +67,7 @@ export default function WelcomePopup() {
 
                     {/* Logo Section */}
                     <div className="flex flex-col items-center gap-1 mb-4">
-                        <img src="/aqsha-logo.png" alt="Aqsha Logo" className="h-16 md:h-20 w-auto mb-1 object-contain" />
+                        <Image src="/aqsha-logo.png" alt="Aqsha Logo" width={1080} height={924} className="h-16 md:h-20 w-auto mb-1 object-contain" />
                         <div className="flex items-center gap-3 text-[8px] uppercase tracking-[0.35em] opacity-80 mt-1">
                             <span className="w-5 h-[1px] bg-primary"></span>
                             BATIK SUITS
