@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef, Suspense } from "react";
+import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useAuthSync } from "@/modules/user/hooks/useAuthSync";
 import { useAuthStore } from "@/hooks/useAuthStore";
@@ -410,7 +411,7 @@ function ProfileContent() {
             <div className="relative">
               <div className="w-28 h-28 rounded-3xl bg-primary text-white flex items-center justify-center font-heading text-5xl font-black shadow-lg relative border-4 border-white overflow-hidden">
                 {avatar ? (
-                  <img src={avatar} alt={user.name} className="w-full h-full object-cover" />
+                  <Image src={avatar} alt={user.name} fill sizes="112px" unoptimized className="object-cover" />
                 ) : (
                   <span>{user.name.charAt(0).toUpperCase()}</span>
                 )}
