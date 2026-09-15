@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useAuthSync } from "@/modules/user/hooks/useAuthSync";
 import { User, LogOut, ChevronDown, Sparkles, ShoppingBag, Heart } from "lucide-react";
 import { useCartStore } from "@/hooks/useCartStore";
@@ -59,7 +60,7 @@ export default function Nav() {
                     {/* Logo Section */}
                     <div className="flex flex-col justify-center">
                         <Link href="/home" className="hover:opacity-80 transition-opacity flex items-center">
-                            <img src="/aqsha-logo.png" alt="Aqsha Logo" className="h-16 lg:h-20 w-auto object-contain" />
+                            <Image src="/aqsha-logo.png" alt="Aqsha Logo" width={1080} height={924} className="h-16 lg:h-20 w-auto object-contain" />
                         </Link>
                     </div>
 
@@ -116,10 +117,13 @@ export default function Nav() {
                                 >
                                     <div className="relative w-8 h-8 rounded-full overflow-hidden border border-primary/10">
                                         {user.avatar ? (
-                                            <img
+                                            <Image
                                                 src={user.avatar}
                                                 alt={user.name}
-                                                className="w-full h-full object-cover"
+                                                fill
+                                                sizes="32px"
+                                                unoptimized
+                                                className="object-cover"
                                             />
                                         ) : (
                                             <div className="w-full h-full bg-primary text-white flex items-center justify-center text-xs font-black uppercase">
@@ -221,7 +225,7 @@ export default function Nav() {
                 >
                     <div className="flex flex-col gap-6">
                         <div className="flex justify-between items-center mb-4">
-                            <img src="/aqsha-logo.png" alt="Aqsha Logo" className="h-20 mt-2 w-auto object-contain" />
+                            <Image src="/aqsha-logo.png" alt="Aqsha Logo" width={1080} height={924} className="h-20 mt-2 w-auto object-contain" />
                             <button
                                 onClick={() => setMenu(false)}
                                 className="p-2 text-primary hover:text-accent transition-colors active:scale-95 focus:outline-none"
