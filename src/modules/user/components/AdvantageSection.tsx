@@ -83,7 +83,7 @@ const AdvantageSection: React.FC<AdvantageSectionProps> = ({
                                     <div className="flex items-center gap-3">
                                         <div className="w-10 h-10 shrink-0 bg-brand/10 rounded-[10px] flex items-center justify-center text-brand group-hover:bg-brand group-hover:text-white transition-all duration-300 relative overflow-hidden">
                                             {iconSrc ? (
-                                                <Image src={iconSrc} alt={titleText as string} fill className="object-contain scale-110 transition-all duration-300 group-hover:brightness-0 group-hover:invert p-1" />
+                                                <Image src={iconSrc} alt={titleText as string} fill sizes="40px" className="object-contain scale-110 transition-all duration-300 group-hover:brightness-0 group-hover:invert p-1" />
                                             ) : (
                                                 <>
                                                     {i % 4 === 0 && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>}
