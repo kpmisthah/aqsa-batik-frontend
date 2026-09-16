@@ -5,7 +5,6 @@ import FAQ from "@/modules/user/components/FAQ";
 import PremiumTrustSection from "@/modules/user/components/PremiumTrustSection";
 import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
 import PremiumFeatureSection from "@/modules/user/components/PremiumFeatureSection";
-import { useBanner } from "@/modules/user/hooks/useBanner";
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
 import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
 import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
@@ -15,7 +14,6 @@ import ConsistentCTA from "@/modules/user/components/ConsistentCTA";
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Aqsha%20Batik";
 
 export default function AboutPage() {
-    const heroBannerUrl = useBanner("about", "/about_hero.png");
     return (
         <div className="min-h-screen bg-cream text-primary selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
             <title>About AQSHA BATIK | 15+ Years of Batik Manufacturing Excellence</title>
@@ -81,7 +79,6 @@ export default function AboutPage() {
                             fill
                             priority
                             className="object-cover object-center"
-                            unoptimized
                         />
                     </div>
                 </div>
@@ -329,7 +326,7 @@ export default function AboutPage() {
                         d: "We follow traditional wax-resist techniques to create genuine batik designs, ensuring every piece reflects real craftsmanship—not mass imitation.",
                         c: "text-highlight",
                         i: (
-                            <Image src="/ICONS/authentic-craftsmanship-icon.png" alt="Authentic Craftsmanship" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/authentic-craftsmanship-icon.png" alt="Authentic Craftsmanship" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -337,7 +334,7 @@ export default function AboutPage() {
                         d: "Our collections use high-quality cotton fabric and durable dress material, built for comfort, repeat use, and consistent wholesale demand.",
                         c: "text-highlight",
                         i: (
-                            <Image src="/ICONS/material-integrity-icon.png" alt="Material Integrity" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/material-integrity-icon.png" alt="Material Integrity" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -345,7 +342,7 @@ export default function AboutPage() {
                         d: "As a direct manufacturer, we offer clear pricing, reliable supply, and honest communication for long-term business partnerships.",
                         c: "text-highlight",
                         i: (
-                            <Image src="/ICONS/direct-transparency-icon.png" alt="Direct Transparency" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/direct-transparency-icon.png" alt="Direct Transparency" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -353,7 +350,7 @@ export default function AboutPage() {
                         d: "We maintain ready stock and fast dispatch timelines to ensure your boutique or wholesale business never faces inventory gaps across India.",
                         c: "text-highlight",
                         i: (
-                            <Image src="/ICONS/bulk-reliability-icon.png" alt="Bulk Reliability" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/bulk-reliability-icon.png" alt="Bulk Reliability" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     }
                 ]}
