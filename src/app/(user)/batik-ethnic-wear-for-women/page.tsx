@@ -35,7 +35,7 @@ async function getProducts({ page = "1", search = "", sort = "", minPrice = "", 
             ...(maxPrice && { maxPrice }),
         });
 
-        const res = await fetch(`${API_BASE}/products?${queryParams.toString()}`, { cache: 'no-store' });
+        const res = await fetch(`${API_BASE}/products?${queryParams.toString()}`, { next: { revalidate: 60 } });
         const json = await res.json();
         return {
             products: json.data || [],
@@ -47,22 +47,11 @@ async function getProducts({ page = "1", search = "", sort = "", minPrice = "", 
     }
 }
 
-async function getHeroBanner() {
-    try {
-        const res = await fetch(`${API_BASE}/banners/batik-suits`, { cache: 'no-store' });
-        const json = await res.json();
-        return json.imageUrl || "/batik_suits_hero_category.png";
-    } catch (e) {
-        return "/batik_suits_hero_category.png";
-    }
-}
-
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20Ethnic%20Wear";
 
 export default async function BatikSuitsPage({ searchParams }: { searchParams: Promise<any> }) {
     const resolvedParams = await searchParams;
     const { products, totalPages, currentPage } = await getProducts(resolvedParams || {});
-    const heroBannerUrl = await getHeroBanner();
 
     const collectionHighlights = [
         {
@@ -97,12 +86,11 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                 {/* Desktop Background Image */}
                 <div className="hidden lg:block absolute inset-0 w-full h-full z-0">
                     <Image
-                        src="/Hero Banner/img2.png"
+                        src="/Hero Banner/i.png"
                         alt="Ethnic Wear for Women Collection"
                         fill
                         priority
                         className="object-cover object-center"
-                        unoptimized
                     />
                 </div>
 
@@ -114,7 +102,6 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                         fill
                         priority
                         className="object-cover object-[center_79%]"
-                        unoptimized
                     />
                 </div>
 
@@ -229,7 +216,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                         d: "Choose lightweight Batik kurtis, relaxed dresses, and comfortable cotton styles for routines that demand ease.",
                         c: "text-[#8A4B32]",
                         i: (
-                            <Image src="/ICONS/everyday-wear-icon.png" alt="For Everyday Wear" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/everyday-wear-icon.png" alt="For Everyday Wear" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -237,7 +224,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                         d: "Pair a structured Batik kurti or coordinated suit set with simple accessories for a polished ethnic look.",
                         c: "text-[#8A4B32]",
                         i: (
-                            <Image src="/ICONS/work-meetings-icon.png" alt="For Work & Casual Meetings" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/work-meetings-icon.png" alt="For Work & Casual Meetings" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -245,7 +232,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                         d: "Select richer Batik prints, expressive colours, and elegant silhouettes when you want your ethnic look to feel more celebratory.",
                         c: "text-[#8A4B32]",
                         i: (
-                            <Image src="/ICONS/festive-occasions-icon.png" alt="For Festive Occasions" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/festive-occasions-icon.png" alt="For Festive Occasions" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -253,7 +240,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                         d: "Wedding ethnic wear for women can become more memorable when traditional-inspired prints are paired with refined silhouettes and thoughtful accessories.",
                         c: "text-[#8A4B32]",
                         i: (
-                            <Image src="/ICONS/weddings-gatherings-icon.png" alt="For Weddings & Gatherings" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/weddings-gatherings-icon.png" alt="For Weddings & Gatherings" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -261,7 +248,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                         d: "Choose breathable cotton ethnic styles when comfort matters as much as appearance.",
                         c: "text-[#8A4B32]",
                         i: (
-                            <Image src="/ICONS/summer-days-icon.png" alt="For Summer Days" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/summer-days-icon.png" alt="For Summer Days" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -269,7 +256,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                         d: "Batik Kurti + Straight Pants + Flats. A practical combination for everyday errands, workdays, and casual meetings.",
                         c: "text-[#8A4B32]",
                         i: (
-                            <Image src="/ICONS/simple-styling-icon.png" alt="Simple Styling Formula" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/simple-styling-icon.png" alt="Simple Styling Formula" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     }
                 ]}
