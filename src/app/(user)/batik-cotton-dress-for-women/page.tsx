@@ -30,7 +30,7 @@ async function getProducts({ page = "1", search = "", sort = "", minPrice = "", 
             ...(maxPrice && { maxPrice }),
         });
 
-        const res = await fetch(`${API_BASE}/products?${queryParams.toString()}`, { cache: 'no-store' });
+        const res = await fetch(`${API_BASE}/products?${queryParams.toString()}`, { next: { revalidate: 60 } });
         const json = await res.json();
         return {
             products: json.data || [],
@@ -42,22 +42,11 @@ async function getProducts({ page = "1", search = "", sort = "", minPrice = "", 
     }
 }
 
-async function getHeroBanner() {
-    try {
-        const res = await fetch(`${API_BASE}/banners/batik-fabric`, { cache: 'no-store' });
-        const json = await res.json();
-        return json.imageUrl || "/batik_fabric_hero_premium.png";
-    } catch (e) {
-        return "/batik_fabric_hero_premium.png";
-    }
-}
-
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20Batik%20Fabric";
 
 export default async function BatikFabricPage({ searchParams }: { searchParams: Promise<any> }) {
     const resolvedParams = await searchParams;
     const { products, totalPages, currentPage } = await getProducts(resolvedParams || {});
-    const heroBannerUrl = await getHeroBanner();
 
 
     const features = [
@@ -89,7 +78,6 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                         fill
                         priority
                         className="object-cover object-center"
-                        unoptimized
                     />
                 </div>
 
@@ -101,7 +89,6 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                         fill
                         priority
                         className="object-cover object-[center_92%]"
-                        unoptimized
                     />
                 </div>
 
@@ -241,7 +228,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                         c: "text-highlight",
                         i: (
                             <div className="relative w-10 h-10 md:w-12 md:h-12">
-                                <Image src="/ICONS/distinctive-prints-icon.png" alt="Distinctive Batik Prints" fill className="object-contain scale-110" />
+                                <Image src="/ICONS/distinctive-prints-icon.png" alt="Distinctive Batik Prints" fill sizes="48px" className="object-contain scale-110" />
                             </div>
                         )
                     },
@@ -251,7 +238,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                         c: "text-highlight",
                         i: (
                             <div className="relative w-10 h-10 md:w-12 md:h-12">
-                                <Image src="/ICONS/wearable-silhouettes-icon.png" alt="Wearable Silhouettes" fill className="object-contain scale-110" />
+                                <Image src="/ICONS/wearable-silhouettes-icon.png" alt="Wearable Silhouettes" fill sizes="48px" className="object-contain scale-110" />
                             </div>
                         )
                     },
@@ -261,7 +248,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                         c: "text-highlight",
                         i: (
                             <div className="relative w-10 h-10 md:w-12 md:h-12">
-                                <Image src="/ICONS/versatile-product-icon.png" alt="Versatile Product Range" fill className="object-contain scale-110" />
+                                <Image src="/ICONS/versatile-product-icon.png" alt="Versatile Product Range" fill sizes="48px" className="object-contain scale-110" />
                             </div>
                         )
                     },
@@ -271,7 +258,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                         c: "text-highlight",
                         i: (
                             <div className="relative w-10 h-10 md:w-12 md:h-12">
-                                <Image src="/ICONS/retail-friendly-icon.png" alt="Retail-Friendly Appeal" fill className="object-contain scale-110" />
+                                <Image src="/ICONS/retail-friendly-icon.png" alt="Retail-Friendly Appeal" fill sizes="48px" className="object-contain scale-110" />
                             </div>
                         )
                     },
@@ -281,7 +268,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                         c: "text-highlight",
                         i: (
                             <div className="relative w-10 h-10 md:w-12 md:h-12">
-                                <Image src="/ICONS/consistent-fabric-quality-icon.png" alt="Consistent Fabric Quality" fill className="object-contain scale-110" />
+                                <Image src="/ICONS/consistent-fabric-quality-icon.png" alt="Consistent Fabric Quality" fill sizes="48px" className="object-contain scale-110" />
                             </div>
                         )
                     },
@@ -291,7 +278,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                         c: "text-highlight",
                         i: (
                             <div className="relative w-10 h-10 md:w-12 md:h-12">
-                                <Image src="/ICONS/collection-building-icon.png" alt="Collection-Building Potential" fill className="object-contain scale-110" />
+                                <Image src="/ICONS/collection-building-icon.png" alt="Collection-Building Potential" fill sizes="48px" className="object-contain scale-110" />
                             </div>
                         )
                     }
