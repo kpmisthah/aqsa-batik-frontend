@@ -288,7 +288,7 @@ export function TrendingCollectionsBannerSection() {
                 {/* ROW 1: 2 Items */}
                 <Link href="/batik-prints-womens-clothing" className="block w-full md:w-1/2 relative aspect-square group overflow-hidden bg-cream flex justify-center border-b md:border-r border-primary/10">
                     <Image
-                        src="/category-Homepage/cotton-cloth (1).webp"
+                        src="/a.png"
                         alt="Cotton Cloth"
                         fill
                         className="object-cover object-top opacity-100 group-hover:scale-[1.05] transition-transform duration-[2s] ease-out"
