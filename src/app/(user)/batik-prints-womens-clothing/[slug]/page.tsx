@@ -15,7 +15,7 @@ async function getProductBySlug(slug: string) {
         const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:5000/api";
         const url = `${apiUrl.replace('localhost', '127.0.0.1')}/products?limit=100`;
         
-        const res = await fetch(url, { cache: 'no-store' });
+        const res = await fetch(url, { next: { revalidate: 60 } });
         if (!res.ok) {
             console.error(`Failed to fetch products for slug ${slug}: ${res.status} ${res.statusText}`);
             return null;
