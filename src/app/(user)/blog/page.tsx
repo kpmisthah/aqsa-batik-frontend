@@ -85,6 +85,7 @@ export default async function BlogIndexPage() {
                             alt="Women Clothing &amp; Batik Fashion Trends Blog"
                             fill
                             priority
+                            sizes="(min-width: 1024px) 45vw, 100vw"
                             className="hidden md:block object-cover object-center"
                         />
                         <Image
@@ -92,6 +93,7 @@ export default async function BlogIndexPage() {
                             alt="Women Clothing &amp; Batik Fashion Trends Blog"
                             fill
                             priority
+                            sizes="100vw"
                             className="md:hidden object-cover object-top"
                         />
                     </div>
