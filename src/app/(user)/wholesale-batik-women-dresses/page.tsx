@@ -12,7 +12,6 @@ import PremiumFeatureSection from "@/modules/user/components/PremiumFeatureSecti
 import AdvantageSection from "@/modules/user/components/AdvantageSection";
 import HowToOrderSection from "@/modules/user/components/HowToOrderSection";
 import ProductFilterLayout from "@/modules/user/components/ProductFilterLayout";
-import { useBanner } from "@/modules/user/hooks/useBanner";
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
 import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
 import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
@@ -33,7 +32,7 @@ async function getProducts({ page = "1", search = "", sort = "", minPrice = "", 
             ...(maxPrice && { maxPrice }),
         });
 
-        const res = await fetch(`${API_BASE}/products?${queryParams.toString()}`, { cache: 'no-store' });
+        const res = await fetch(`${API_BASE}/products?${queryParams.toString()}`, { next: { revalidate: 60 } });
         const json = await res.json();
         return {
             products: json.data || [],
@@ -45,22 +44,11 @@ async function getProducts({ page = "1", search = "", sort = "", minPrice = "", 
     }
 }
 
-async function getHeroBanner() {
-    try {
-        const res = await fetch(`${API_BASE}/banners/wholesale`, { cache: 'no-store' });
-        const json = await res.json();
-        return json.imageUrl || "/cta_suits.png";
-    } catch (e) {
-        return "/cta_suits.png";
-    }
-}
-
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20Wholesale%20Manufacturer%20Pricing";
 
 export default async function WholesalePage({ searchParams }: { searchParams: Promise<any> }) {
     const resolvedParams = await searchParams;
     const { products, totalPages, currentPage } = await getProducts(resolvedParams || {});
-    const heroBannerUrl = await getHeroBanner();
 
     const partnershipBenefits = [
         {
@@ -221,17 +209,23 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
             <Nav />
             <ScrollObserver />
             {/* ── FULL WIDTH RESPONSIVE HERO ── */}
-            <section className="relative w-full lg:h-[90vh] lg:min-h-[600px] lg:max-h-[900px] bg-cream lg:bg-transparent overflow-hidden flex flex-col lg:block">
-                
+            <section className="relative w-full max-w-[1920px] mx-auto lg:h-[90vh] lg:min-h-[600px] lg:max-h-[900px] bg-cream lg:bg-transparent overflow-hidden flex flex-col lg:block">
+
                 {/* Desktop Background Image */}
                 <div className="hidden lg:block absolute inset-0 w-full h-full z-0">
                     <Image
-                        src="/Hero Banner/ige.png"
+                        src="/Hero Banner/imp.png"
                         alt="Wholesale Batik Supply"
                         fill
                         priority
                         className="object-cover object-top"
-                        unoptimized
+                    />
+                    {/* Gradient overlay so the text column always stays readable and clear of the photo, regardless of viewport width.
+                        The models in this photo start at ~40% of the image width, so this stays fully opaque until 36% and only
+                        fades out after that, in the last 12% of its own box. */}
+                    <div
+                        className="absolute inset-0 w-full lg:w-[48%] pointer-events-none"
+                        style={{ background: 'linear-gradient(to right, #F4E9D8 0%, #F4E9D8 75%, transparent 100%)' }}
                     />
                 </div>
 
@@ -243,29 +237,28 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                         fill
                         priority
                         className="object-cover object-[center_72%]"
-                        unoptimized
                     />
                 </div>
 
                 {/* Text Content */}
                 <div className="relative z-20 max-w-[1600px] mx-auto w-full flex flex-col px-6 lg:px-12 pt-0 pb-16 lg:pb-0 text-primary lg:h-full lg:absolute lg:inset-0 lg:justify-center">
-                    <div className="w-full lg:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[750px] flex flex-col items-center text-center lg:items-start lg:text-left gap-4 lg:gap-6 mt-0 relative z-30">
+                    <div className="w-full lg:max-w-[37%] flex flex-col items-center text-center lg:items-start lg:text-left gap-4 lg:gap-6 mt-0 relative z-30">
                         {/* Hook */}
                         <div className="flex items-center justify-center lg:justify-start gap-2">
                             <span className="text-[#8A4B32] text-xl leading-none">&diams;</span>
                             <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">DIRECT MANUFACTURER · BULK SUPPLY</span>
                         </div>
                         
-                        <h1 className="text-3xl leading-[1.15] sm:text-4xl lg:text-[36px] xl:text-[48px] 2xl:text-[60px] lg:leading-[1.1] font-heading font-normal tracking-tight text-primary">
+                        <h1 className="text-3xl leading-[1.15] sm:text-4xl lg:text-[36px] xl:text-[48px] 2xl:text-[60px] lg:leading-[1.1] font-heading font-normal tracking-tight text-primary lg:whitespace-nowrap">
                             Premium Wholesale <br className="hidden lg:block" />
                             Women Dresses in <br className="hidden lg:block" />
                             <span className="text-highlight italic">Batik & Cotton</span>
                         </h1>
-                        
-                        <p className="text-[14px] lg:text-lg text-primary/80 leading-relaxed max-w-2xl font-medium">
+
+                        <p className="text-[14px] lg:text-lg text-primary/80 leading-relaxed max-w-2xl lg:max-w-full font-medium">
                             Source high-demand women dresses, Batik prints, cotton styles, and ready to sell collections directly from the manufacturer. Built for boutiques, resellers, retailers, and fashion businesses looking for distinctive designs, reliable supply, and better wholesale value.
                         </p>
-                        
+
                         <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 items-center lg:items-start w-full sm:w-auto mt-2">
                             <a href="#wholesale-form" className="bg-highlight hover:bg-highlight/90 text-white px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-xs flex items-center justify-center transition-all shadow-sm text-center w-full sm:w-auto">
                                 Become a Wholesale Partner
@@ -370,7 +363,6 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                                     alt="Wholesale collection"
                                     fill
                                     className="object-cover object-left"
-                                    unoptimized
                                 />
                             </div>
                             
@@ -476,7 +468,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                         d: "Our Batik designs bring traditional print character into modern dresses for women, helping your collection feel different from ordinary mass-market styles.",
                         c: "text-brand",
                         i: (
-                            <Image src="/ICONS/distinctive-design-wholesale-icon.png" alt="Distinctive Batik Design" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/distinctive-design-wholesale-icon.png" alt="Distinctive Batik Design" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -484,7 +476,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                         d: "Consistent Batik printing helps maintain colour, pattern clarity, and product quality across wholesale orders.",
                         c: "text-brand",
                         i: (
-                            <Image src="/ICONS/consistent-print-quality-icon.png" alt="Consistent Print Quality" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/consistent-print-quality-icon.png" alt="Consistent Print Quality" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -492,7 +484,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                         d: "Cotton dresses for women offer breathable comfort and everyday wearability—ideal for customers who value both style and ease.",
                         c: "text-brand",
                         i: (
-                            <Image src="/ICONS/comfortable-cotton-wholesale-icon.png" alt="Comfortable Cotton" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/comfortable-cotton-wholesale-icon.png" alt="Comfortable Cotton" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -500,7 +492,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                         d: "From casual dresses for women to floral dresses, one-piece styles, and occasion-ready designs, our collection supports different customer preferences.",
                         c: "text-brand",
                         i: (
-                            <Image src="/ICONS/versatile-dress-styles-icon.png" alt="Versatile Dress Styles" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/versatile-dress-styles-icon.png" alt="Versatile Dress Styles" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -508,7 +500,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                         d: "Direct manufacturer sourcing helps businesses access competitive wholesale pricing and protect retail margins.",
                         c: "text-brand",
                         i: (
-                            <Image src="/ICONS/wholesale-pricing-icon.png" alt="Wholesale Pricing" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/wholesale-pricing-icon.png" alt="Wholesale Pricing" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -516,7 +508,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                         d: "Our women clothing collections are selected with practical retail use in mind—from boutique displays to online fashion stores.",
                         c: "text-brand",
                         i: (
-                            <Image src="/ICONS/ready-for-retail-icon.png" alt="Ready for Retail" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/ready-for-retail-icon.png" alt="Ready for Retail" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     }
                 ]}
