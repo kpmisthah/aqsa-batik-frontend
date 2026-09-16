@@ -14,7 +14,7 @@ async function getProduct(id: string) {
         // Force 127.0.0.1 if using localhost to avoid IPv6 connection refused in Node 18+
         const url = `${apiUrl.replace('localhost', '127.0.0.1')}/products/${id}`;
 
-        const res = await fetch(url, { cache: 'no-store' });
+        const res = await fetch(url, { next: { revalidate: 60 } });
         if (!res.ok) {
             console.error(`Failed to fetch product ${id}: ${res.status} ${res.statusText}`);
             return null;
