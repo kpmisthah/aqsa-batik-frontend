@@ -325,7 +325,7 @@ export function TrendingCollectionsBannerSection() {
                 {/* ROW 2: 2 Items */}
                 <Link href="/batik-ethnic-wear-for-women" className="block w-full md:w-1/2 relative aspect-square group overflow-hidden bg-cream flex justify-center border-b md:border-r border-primary/10">
                     <Image
-                        src="/category-Homepage/ethnic-wear-for-women.webp"
+                        src="/c.png"
                         alt="Ethnic Wear for Women"
                         fill
                         className="object-cover object-top opacity-100 group-hover:scale-[1.05] transition-transform duration-[2s] ease-out"
