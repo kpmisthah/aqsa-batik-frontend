@@ -26,7 +26,7 @@ async function getProducts({ page = "1", search = "", sort = "newest", minPrice 
             ...(maxPrice && { maxPrice }),
         });
 
-        const res = await fetch(`${API_BASE}/products?${queryParams.toString()}`, { cache: 'no-store' });
+        const res = await fetch(`${API_BASE}/products?${queryParams.toString()}`, { next: { revalidate: 60 } });
         const json = await res.json();
         return {
             products: json.data || [],
@@ -38,22 +38,11 @@ async function getProducts({ page = "1", search = "", sort = "newest", minPrice 
     }
 }
 
-async function getHeroBanner() {
-    try {
-        const res = await fetch(`${API_BASE}/banners/new-arrivals`, { cache: 'no-store' });
-        const json = await res.json();
-        return json.imageUrl || "/hero_bg.png";
-    } catch (e) {
-        return "/hero_bg.png";
-    }
-}
-
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20New%20Arrival%20Batik%20Clothing";
 
 export default async function NewArrivalPage({ searchParams }: { searchParams: Promise<any> }) {
     const resolvedParams = await searchParams;
     const { products, totalPages, currentPage } = await getProducts(resolvedParams || {});
-    const heroBannerUrl = await getHeroBanner();
 
     return (
         <div className="min-h-screen bg-cream text-primary selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
@@ -67,48 +56,51 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
             <Nav />
             <ScrollObserver />
             {/* ── FULL WIDTH RESPONSIVE HERO ── */}
-            <section className="relative w-full lg:h-[90vh] lg:min-h-[600px] lg:max-h-[900px] bg-cream lg:bg-transparent overflow-hidden flex flex-col lg:block">
-                
+            <section className="relative w-full max-w-[1920px] mx-auto lg:h-[90vh] lg:min-h-[600px] lg:max-h-[900px] bg-cream lg:bg-transparent overflow-hidden flex flex-col lg:block">
+
                 {/* Desktop Background Image */}
                 <div className="hidden lg:block absolute inset-0 w-full h-full z-0">
                     <Image
-                        src="/category/batik print.webp"
+                        src="/Hero Banner/newarrival-11.png"
                         alt="New Batik Arrivals"
                         fill
                         priority
                         className="object-cover object-center"
-                        unoptimized
+                    />
+                    {/* Gradient overlay so the text column stays clear of the photo (potted plant starts at ~43% of image width) */}
+                    <div
+                        className="absolute inset-0 w-full lg:w-[48%] pointer-events-none"
+                        style={{ background: 'linear-gradient(to right, #F4E9D8 0%, #F4E9D8 75%, transparent 100%)' }}
                     />
                 </div>
 
                 {/* Mobile Image */}
                 <div className="relative w-full h-[60vh] min-h-[450px] lg:hidden z-0">
                     <Image
-                        src="/category/batik print (1).webp"
+                        src="/Hero Banner/mobile-version/newarrival-2.png"
                         alt="New Batik Arrivals"
                         fill
                         priority
-                        className="object-cover object-top"
-                        unoptimized
+                        className="object-cover object-[center_75%]"
                     />
                 </div>
 
                 {/* Text Content */}
                 <div className="relative z-20 max-w-[1600px] mx-auto w-full flex flex-col px-6 lg:px-12 pt-0 pb-16 lg:pb-0 text-primary lg:h-full lg:absolute lg:inset-0 lg:justify-center">
-                    <div className="w-full lg:max-w-[400px] xl:max-w-[650px] 2xl:max-w-[700px] flex flex-col items-center text-center lg:items-start lg:text-left gap-4 lg:gap-6 mt-0 relative z-30">
+                    <div className="w-full lg:max-w-[36%] flex flex-col items-center text-center lg:items-start lg:text-left gap-4 lg:gap-6 mt-0 relative z-30">
                         {/* Hook */}
                         <div className="flex items-center justify-center lg:justify-start gap-2">
                             <span className="text-[#8A4B32] text-xl leading-none">&diams;</span>
                             <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">FRESH BATIK. FRESH EXPRESSION.</span>
                         </div>
-                        
-                        <h1 className="text-3xl leading-[1.15] sm:text-4xl lg:text-[30px] xl:text-[44px] 2xl:text-[48px] lg:leading-[1.1] font-heading font-normal tracking-tight text-primary">
+
+                        <h1 className="text-3xl leading-[1.15] sm:text-4xl lg:text-[30px] xl:text-[44px] 2xl:text-[48px] lg:leading-[1.1] font-heading font-normal tracking-tight text-primary lg:whitespace-nowrap">
                             Discover <span className='text-highlight italic whitespace-nowrap'>New Batik Prints</span> <br className="hidden lg:block" />
                             for Women Who Want <br className="hidden lg:block" />
                             Something Different
                         </h1>
-                        
-                        <p className="text-[14px] lg:text-[15px] xl:text-lg text-primary/80 leading-relaxed max-w-[380px] xl:max-w-[520px] 2xl:max-w-xl font-medium">
+
+                        <p className="text-[14px] lg:text-[15px] xl:text-lg text-primary/80 leading-relaxed max-w-[380px] lg:max-w-full font-medium">
                             Explore the latest Batik prints, fresh colours, expressive patterns, and comfortable cotton styles designed to bring something new to your wardrobe. From Batik print kurtis and dresses to versatile suit styles, discover designs made for everyday confidence and effortless ethnic dressing.
                         </p>
                         
@@ -151,21 +143,21 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                                 t: "Fresh Batik Prints",
                                 d: "Discover new patterns, expressive motifs, and contemporary colour combinations that give traditional Batik a fresh direction.",
                                 i: (
-                                    <Image src="/ICONS/fresh-batik-prints-icon.png" alt="Fresh Batik Prints" width={48} height={48} className="w-full h-full p-2 sm:p-2.5 object-contain" unoptimized />
+                                    <Image src="/ICONS/fresh-batik-prints-icon.png" alt="Fresh Batik Prints" width={48} height={48} className="w-full h-full p-2 sm:p-2.5 object-contain" />
                                 )
                             },
                             {
                                 t: "Everyday Cotton Styles",
                                 d: "Choose comfortable cotton dresses, kurtis, and suit styles designed for easy everyday wear.",
                                 i: (
-                                    <Image src="/ICONS/everyday-cotton-styles-icon.png" alt="Everyday Cotton Styles" width={48} height={48} className="w-full h-full p-2 sm:p-2.5 object-contain" unoptimized />
+                                    <Image src="/ICONS/everyday-cotton-styles-icon.png" alt="Everyday Cotton Styles" width={48} height={48} className="w-full h-full p-2 sm:p-2.5 object-contain" />
                                 )
                             },
                             {
                                 t: "Modern Ethnic Dressing",
                                 d: "Bring traditional print characters into contemporary wardrobes with versatile silhouettes that are easy to style.",
                                 i: (
-                                    <Image src="/ICONS/modern-ethnic-dressing-icon.png" alt="Modern Ethnic Dressing" width={48} height={48} className="w-full h-full p-2 sm:p-2.5 object-contain" unoptimized />
+                                    <Image src="/ICONS/modern-ethnic-dressing-icon.png" alt="Modern Ethnic Dressing" width={48} height={48} className="w-full h-full p-2 sm:p-2.5 object-contain" />
                                 )
                             }
                         ].map((item, i) => (
@@ -243,7 +235,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                         d: "Choose a Batik print kurti with straight pants and flats for a simple, polished look.",
                         c: "text-brand",
                         i: (
-                            <Image src="/ICONS/everyday-wear-new-icon.png" alt="For Everyday Wear" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/everyday-wear-new-icon.png" alt="For Everyday Wear" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -251,7 +243,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                         d: "Pair a lightweight Batik dress with sandals and minimal jewellery for effortless warm-weather dressing.",
                         c: "text-brand",
                         i: (
-                            <Image src="/ICONS/summer-days-new-icon.png" alt="For Summer Days" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/summer-days-new-icon.png" alt="For Summer Days" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -259,7 +251,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                         d: "Choose printed dresses for women who want colour and personality without complicated styling.",
                         c: "text-brand",
                         i: (
-                            <Image src="/ICONS/casual-outings-icon.png" alt="For Casual Outings" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/casual-outings-icon.png" alt="For Casual Outings" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -267,7 +259,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                         d: "Pair a distinctive Batik suit with elegant accessories when you want a more refined traditional look.",
                         c: "text-brand",
                         i: (
-                            <Image src="/ICONS/ethnic-occasions-icon.png" alt="For Ethnic Occasions" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/ethnic-occasions-icon.png" alt="For Ethnic Occasions" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -275,7 +267,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                         d: "The collection focuses on styles that can move naturally from daily routines to casual gatherings and seasonal dressing.",
                         c: "text-brand",
                         i: (
-                            <Image src="/ICONS/everyday-wearability-icon.png" alt="Everyday Wearability" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/everyday-wearability-icon.png" alt="Everyday Wearability" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -283,7 +275,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                         d: "Discover breathable Batik styles, cotton dresses, and printed women’s clothing designed for everyday comfort, effortless styling, and seasonal wear.",
                         c: "text-brand",
                         i: (
-                            <Image src="/ICONS/versatile-clothing-icon.png" alt="Versatile Women’s Clothing" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/versatile-clothing-icon.png" alt="Versatile Women’s Clothing" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     }
                 ]}
