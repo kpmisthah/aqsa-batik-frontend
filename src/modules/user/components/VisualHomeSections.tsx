@@ -306,7 +306,7 @@ export function TrendingCollectionsBannerSection() {
 
                 <Link href="/batik-cotton-dress-for-women" className="block w-full md:w-1/2 relative aspect-square group overflow-hidden bg-cream flex justify-center border-b border-primary/10">
                     <Image
-                        src="/category-Homepage/cotton-dress-for-women.webp"
+                        src="/b.png"
                         alt="Cotton Dress for Women"
                         fill
                         className="object-cover object-top opacity-100 group-hover:scale-[1.05] transition-transform duration-[2s] ease-out"
