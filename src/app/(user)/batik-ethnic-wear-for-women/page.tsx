@@ -106,7 +106,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                 </div>
 
                 {/* Text Content */}
-                <div className="relative z-20 max-w-[1600px] mx-auto w-full flex flex-col px-6 lg:px-12 pt-0 pb-16 lg:pb-0 text-primary lg:h-full lg:absolute lg:inset-0 lg:justify-center">
+                <div className="relative z-20 max-w-[1600px] mx-auto w-full flex flex-col px-6 lg:px-12 pt-8 lg:pt-0 pb-16 lg:pb-0 text-primary lg:h-full lg:absolute lg:inset-0 lg:justify-center">
                     <div className="w-full lg:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[750px] flex flex-col items-center text-center lg:items-start lg:text-left gap-4 lg:gap-6 mt-0 relative z-30">
                         {/* Hook */}
                         <div className="flex items-center justify-center lg:justify-start gap-2">

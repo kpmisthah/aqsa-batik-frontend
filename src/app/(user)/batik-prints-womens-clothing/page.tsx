@@ -91,7 +91,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                 </div>
 
                 {/* Text Content */}
-                <div className="relative z-20 max-w-[1600px] mx-auto w-full flex flex-col px-6 md:px-12 pt-0 pb-16 md:pb-0 text-primary md:h-full md:absolute md:inset-0 md:justify-center">
+                <div className="relative z-20 max-w-[1600px] mx-auto w-full flex flex-col px-6 md:px-12 pt-8 md:pt-0 pb-16 md:pb-0 text-primary md:h-full md:absolute md:inset-0 md:justify-center">
                     <div className="max-w-3xl flex flex-col items-center text-center md:items-start md:text-left gap-4 md:gap-6 mt-0 relative z-30">
                         {/* Hook */}
                         <div className="flex items-center justify-center md:justify-start gap-2">
