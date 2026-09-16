@@ -30,7 +30,6 @@ export default function PremiumTrustSection() {
                                 src="/round-category/indian dresses for girls.webp"
                                 alt="Workshop"
                                 fill
-                                unoptimized
                                 className="object-cover object-center grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[4s]"
                             />
                         </div>
