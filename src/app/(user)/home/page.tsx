@@ -13,7 +13,6 @@ import StickyEnquiryButton from "@/modules/user/components/StickyEnquiryButton";
 import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
 import HowToOrderSection from "@/modules/user/components/HowToOrderSection";
 import { ShopByCategorySection, FeaturedGridSection, LifestyleBannerSection, TrendingCollectionsBannerSection, LookbookSection, PartnershipBannerSection } from "@/modules/user/components/VisualHomeSections";
-import { useBanner } from "@/modules/user/hooks/useBanner";
 import { useScrollAnimation } from "@/modules/user/hooks/useScrollAnimation";
 import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
 import ShoppableReelsSection from "@/modules/user/components/ShoppableReelsSection";
@@ -153,7 +152,6 @@ export default function HomePage() {
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover object-top hover:scale-105 transition-transform duration-[6s]"
-                unoptimized
               />
 
               {/* Transparent Stats Overlay */}
