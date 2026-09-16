@@ -205,7 +205,6 @@ export function LifestyleBannerSection() {
                             alt="Aqsha Lifestyle"
                             fill
                             className="object-cover object-top group-hover:scale-105 transition-transform duration-[6s] ease-out opacity-100 brightness-100"
-                            unoptimized
                         />
                     </div>
                 </div>
@@ -418,7 +417,7 @@ export function LookbookSection() {
                     {/* Large Featured Image (Left) */}
                     <Link href={looks[0].link} className="col-span-1 md:col-span-2 row-span-1 md:row-span-2 flex flex-col gap-4 group cursor-pointer">
                         <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[2px] bg-surface shadow-sm border border-primary/10">
-                            <Image src={looks[0].img} alt={looks[0].title} fill className="object-cover group-hover:scale-105 transition-transform duration-[6s] ease-out" unoptimized />
+                            <Image src={looks[0].img} alt={looks[0].title} fill className="object-cover group-hover:scale-105 transition-transform duration-[6s] ease-out" />
                         </div>
                         <div className="flex flex-col gap-1 items-start text-left">
                             <h4 className="text-[13px] md:text-[15px] font-heading font-semibold text-primary group-hover:text-accent transition-colors leading-tight">{looks[0].title}</h4>
@@ -428,7 +427,7 @@ export function LookbookSection() {
                     {/* Top Right Grid Item 1 */}
                     <Link href={looks[1].link} className="col-span-1 row-span-1 flex flex-col gap-4 group cursor-pointer">
                         <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[2px] bg-surface shadow-sm border border-primary/10">
-                            <Image src={looks[1].img} alt={looks[1].title} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-[6s] ease-out" unoptimized />
+                            <Image src={looks[1].img} alt={looks[1].title} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-[6s] ease-out" />
                         </div>
                         <div className="flex flex-col gap-1 items-start text-left">
                             <h4 className="text-[13px] md:text-[15px] font-heading font-semibold text-primary group-hover:text-accent transition-colors leading-tight">{looks[1].title}</h4>
@@ -438,7 +437,7 @@ export function LookbookSection() {
                     {/* Top Right Grid Item 2 */}
                     <Link href={looks[2].link} className="col-span-1 row-span-1 flex flex-col gap-4 group cursor-pointer">
                         <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[2px] bg-surface shadow-sm border border-primary/10">
-                            <Image src={looks[2].img} alt={looks[2].title} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-[6s] ease-out" unoptimized />
+                            <Image src={looks[2].img} alt={looks[2].title} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-[6s] ease-out" />
                         </div>
                         <div className="flex flex-col gap-1 items-start text-left">
                             <h4 className="text-[13px] md:text-[15px] font-heading font-semibold text-primary group-hover:text-accent transition-colors leading-tight">{looks[2].title}</h4>
@@ -448,7 +447,7 @@ export function LookbookSection() {
                     {/* Bottom Right Wide Item */}
                     <Link href={looks[3].link} className="col-span-1 md:col-span-2 row-span-1 flex flex-col gap-4 group cursor-pointer">
                         <div className="relative w-full aspect-[4/5] md:aspect-[21/9] overflow-hidden rounded-[2px] bg-surface shadow-sm border border-primary/10">
-                            <Image src={looks[3].img} alt={looks[3].title} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-[6s] ease-out" unoptimized />
+                            <Image src={looks[3].img} alt={looks[3].title} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-[6s] ease-out" />
                         </div>
                         <div className="flex flex-col gap-1 items-start text-left">
                             <h4 className="text-[13px] md:text-[15px] font-heading font-semibold text-primary group-hover:text-accent transition-colors leading-tight">{looks[3].title}</h4>
@@ -480,7 +479,6 @@ export function PartnershipBannerSection() {
                 sizes="100vw"
                 className="object-cover object-[center_0%]"
                 priority
-                unoptimized
             />
         </section>
     );
