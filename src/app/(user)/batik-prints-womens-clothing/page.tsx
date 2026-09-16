@@ -36,7 +36,7 @@ async function getProducts({ page = "1", search = "", sort = "", minPrice = "", 
             ...(maxPrice && { maxPrice }),
         });
 
-        const res = await fetch(`${API_BASE}/products?${queryParams.toString()}`, { cache: 'no-store' });
+        const res = await fetch(`${API_BASE}/products?${queryParams.toString()}`, { next: { revalidate: 60 } });
         const json = await res.json();
         return {
             products: json.data || [],
@@ -48,22 +48,11 @@ async function getProducts({ page = "1", search = "", sort = "", minPrice = "", 
     }
 }
 
-async function getHeroBanner() {
-    try {
-        const res = await fetch(`${API_BASE}/banners/batik-cloth`, { cache: 'no-store' });
-        const json = await res.json();
-        return json.imageUrl || "/batik_fabric_hero_premium.png";
-    } catch (e) {
-        return "/batik_fabric_hero_premium.png";
-    }
-}
-
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20Batik%20Cloth";
 
 export default async function CottonClothPage({ searchParams }: { searchParams: Promise<any> }) {
     const resolvedParams = await searchParams;
     const { products, totalPages, currentPage } = await getProducts(resolvedParams || {});
-    const heroBannerUrl = await getHeroBanner();
 
     return (
         <div className="min-h-screen bg-cream text-primary selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
@@ -87,7 +76,6 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                         fill
                         priority
                         className="object-cover object-center"
-                        unoptimized
                     />
                 </div>
 
@@ -99,7 +87,6 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                         fill
                         priority
                         className="object-cover object-[center_80%]"
-                        unoptimized
                     />
                 </div>
 
@@ -177,7 +164,6 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                                         fill 
                                         sizes="(max-width: 768px) 100vw, 33vw"
                                         className="object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-out"
-                                        unoptimized
                                     />
                                 </div>
                                 <div className="flex flex-col gap-3 text-center items-center px-2">
@@ -256,7 +242,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                         d: "Reliable standards across fabric, prints, and finishing help you maintain a dependable collection.",
                         c: "text-brand",
                         i: (
-                            <Image src="/ICONS/consistent-quality-icon.png" alt="Consistent Quality" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/consistent-quality-icon.png" alt="Consistent Quality" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -264,7 +250,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                         d: "Access selected batik styles with ready availability for faster retail and wholesale ordering.",
                         c: "text-brand",
                         i: (
-                            <Image src="/ICONS/ready-stock-icon.png" alt="Ready Stock" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/ready-stock-icon.png" alt="Ready Stock" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -272,7 +258,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                         d: "Designed for boutiques, resellers, and fashion businesses seeking consistent bulk supply and dependable quality.",
                         c: "text-brand",
                         i: (
-                            <Image src="/ICONS/wholesale-reliability-icon.png" alt="Wholesale Reliability" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/wholesale-reliability-icon.png" alt="Wholesale Reliability" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -280,7 +266,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                         d: "Distinctive designs and wearable styles give retailers products suited to varied customer preferences.",
                         c: "text-brand",
                         i: (
-                            <Image src="/ICONS/resale-potential-icon.png" alt="Strong Resale Potential" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/resale-potential-icon.png" alt="Strong Resale Potential" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -288,7 +274,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                         d: "Choose from expressive batik designs, versatile silhouettes, and styles suited to different wardrobes and occasions.",
                         c: "text-brand",
                         i: (
-                            <Image src="/ICONS/design-variety-icon.png" alt="Design Variety" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/design-variety-icon.png" alt="Design Variety" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     },
                     {
@@ -296,7 +282,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                         d: "Build distinctive collections with carefully selected batik suits, kurtis, dresses, and women's clothing.",
                         c: "text-brand",
                         i: (
-                            <Image src="/ICONS/boutique-ready-icon.png" alt="Boutique Ready" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" unoptimized />
+                            <Image src="/ICONS/boutique-ready-icon.png" alt="Boutique Ready" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
                         )
                     }
                 ]}
@@ -361,7 +347,6 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                                     fill
                                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                                     className="object-cover object-center group-hover:scale-105 transition-transform duration-[1500ms] ease-out brightness-100 group-hover:brightness-95"
-                                    unoptimized
                                 />
                                 <div className="absolute top-4 left-4 md:top-6 md:left-6">
                                     <span className="bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-primary shadow-sm">{item.tag}</span>
