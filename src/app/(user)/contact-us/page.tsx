@@ -17,20 +17,7 @@ export const metadata: Metadata = {
     description: "Get in touch with Aqsha Batik for premium Batik Cotton Dress for Women, women clothing collections, wholesale pricing, catalogue requests, and bulk order support across India.",
 };
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
-
-async function getHeroBanner() {
-    try {
-        const res = await fetch(`${API_BASE}/banners/contact`, { cache: 'no-store' });
-        const json = await res.json();
-        return json.imageUrl || "/best-dresses-for-women-hero-banner-image.webp";
-    } catch (e) {
-        return "/best-dresses-for-women-hero-banner-image.webp";
-    }
-}
-
-export default async function ContactPage() {
-    const heroBannerUrl = await getHeroBanner();
+export default function ContactPage() {
     return (
         <div className="bg-[#FDFBF7] min-h-screen font-body text-[#3B1C14] selection:bg-primary selection:text-white">
             <Nav />
@@ -65,7 +52,6 @@ export default async function ContactPage() {
                                 fill
                                 priority
                                 className="object-cover object-center"
-                                unoptimized
                             />
                         </div>
 
@@ -105,7 +91,6 @@ export default async function ContactPage() {
                             fill
                             priority
                             className="object-cover object-center"
-                            unoptimized
                         />
                     </div>
                 </div>
@@ -233,7 +218,7 @@ export default async function ContactPage() {
                         ].map((item, i) => (
                             <div key={i} className="bg-white rounded-[20px] md:rounded-[32px] p-6 sm:p-8 md:p-10 shadow-sm border border-primary/10 hover:border-primary/20 hover:shadow-[0_10px_40px_rgba(90,42,31,0.06)] flex flex-col items-center text-center gap-4 sm:gap-6 group hover:-translate-y-2 transition-all duration-500 relative overflow-hidden h-full">
                                 <div className="w-16 h-16 sm:w-20 sm:h-20 transition-transform duration-500 group-hover:scale-110 relative z-10 mx-auto shrink-0">
-                                    <Image src={item.imgSrc} alt={item.title} fill className="object-contain" unoptimized />
+                                    <Image src={item.imgSrc} alt={item.title} fill sizes="80px" className="object-contain" />
                                 </div>
                                 <div className="flex flex-col flex-1 relative z-10 w-full justify-start items-center gap-2 sm:gap-3">
                                     <h4 className="font-heading text-base sm:text-lg md:text-xl text-primary font-normal tracking-wide">{item.title}</h4>
