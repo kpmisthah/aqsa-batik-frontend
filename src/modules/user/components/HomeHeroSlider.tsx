@@ -110,8 +110,8 @@ const DEFAULT_SLIDES: SlideData[] = [
     id: 5,
     title: (
       <span>
-        Wholesale Women's Dresses{' '}<br className="hidden lg:block" />
-        <span className="text-highlight">&amp; Batik Suits</span>
+        Wholesale Women's{' '}<br className="hidden lg:block" />
+        Dresses <span className="text-highlight">&amp; Batik Suits</span>
       </span>
     ),
     subtitle: (
