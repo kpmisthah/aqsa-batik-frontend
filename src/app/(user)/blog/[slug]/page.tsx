@@ -15,7 +15,7 @@ const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
 async function getBlogBySlug(slug: string) {
     try {
-        const res = await fetch(`${API_BASE}/blogs/slug/${slug}`, { cache: 'no-store' });
+        const res = await fetch(`${API_BASE}/blogs/slug/${slug}`, { next: { revalidate: 300 } });
         if (!res.ok) return null;
         return await res.json();
     } catch (e) {
