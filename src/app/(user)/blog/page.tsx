@@ -20,19 +20,9 @@ export const metadata: Metadata = {
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
-async function getHeroBanner() {
-    try {
-        const res = await fetch(`${API_BASE}/banners/blog`, { cache: 'no-store' });
-        const json = await res.json();
-        return json.imageUrl || "/cotton dress for women hero banner image .webp";
-    } catch (e) {
-        return "/cotton dress for women hero banner image .webp";
-    }
-}
-
 async function getBlogs() {
     try {
-        const res = await fetch(`${API_BASE}/blogs`, { cache: 'no-store' });
+        const res = await fetch(`${API_BASE}/blogs`, { next: { revalidate: 60 } });
         const json = await res.json();
         return json.data || [];
     } catch (e) {
@@ -41,7 +31,6 @@ async function getBlogs() {
 }
 
 export default async function BlogIndexPage() {
-    const heroBannerUrl = await getHeroBanner();
     const apiBlogs = await getBlogs();
 
     // Map database blog format to frontend structure
@@ -61,50 +50,24 @@ export default async function BlogIndexPage() {
         <div className="bg-cream min-h-screen font-body text-primary">
             <Nav />
             <ScrollObserver />
-            {/* ── FULL WIDTH RESPONSIVE HERO ── */}
-            <section className="relative w-full lg:h-[90vh] lg:min-h-[600px] lg:max-h-[900px] bg-cream lg:bg-transparent overflow-hidden flex flex-col lg:block">
-                
-                {/* Desktop Background Image */}
-                <div className="hidden lg:block absolute inset-0 w-full h-full z-0">
-                    <Image
-                        src="/category/women clothing.webp"
-                        alt="Women Clothing &amp; Batik Fashion Trends Blog"
-                        fill
-                        priority
-                        className="object-cover object-right"
-                        unoptimized
-                    />
-                </div>
-
-                {/* Mobile / Tablet Image */}
-                <div className="relative w-full h-[60vh] min-h-[450px] lg:hidden z-0">
-                    <Image
-                        src="/category/Blog.webp"
-                        alt="Women Clothing &amp; Batik Fashion Trends Blog"
-                        fill
-                        priority
-                        className="object-cover object-top"
-                        unoptimized
-                    />
-                </div>
-
-                {/* Text Content */}
-                <div className="relative z-20 max-w-[1600px] mx-auto w-full flex flex-col px-6 lg:px-12 pt-0 pb-16 lg:pb-0 text-primary lg:h-full lg:absolute lg:inset-0 lg:justify-center">
+            {/* ── HERO: FASHION TRENDS & BUYING GUIDES ── */}
+            <section className="relative w-full bg-cream overflow-hidden py-12 md:py-20 px-6 lg:px-12">
+                <div className="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
                     <div className="w-full lg:max-w-[400px] xl:max-w-[480px] 2xl:max-w-[650px] flex flex-col items-center text-center lg:items-start lg:text-left gap-4 lg:gap-6 mt-0 relative z-30">
                         {/* Hook */}
                         <div className="flex items-center justify-center lg:justify-start gap-2">
                             <span className="text-[#8A4B32] text-xl leading-none">&diams;</span>
                             <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold text-[10px] sm:text-[11px]">FASHION TRENDS · BUYING GUIDES</span>
                         </div>
-                        
+
                         <h1 className="text-3xl leading-[1.15] sm:text-4xl lg:text-[32px] xl:text-[40px] 2xl:text-[52px] lg:leading-[1.15] font-heading font-normal tracking-tight text-primary">
                             Women Clothing, Batik Cotton Dress for Women <br className="hidden lg:block" /> &amp; <span className='text-highlight italic'>Fashion Trends</span> Blog
                         </h1>
-                        
+
                         <p className="text-[14px] lg:text-[14px] xl:text-[16px] 2xl:text-lg text-primary/80 leading-relaxed max-w-2xl lg:max-w-[380px] xl:max-w-[460px] 2xl:max-w-xl font-medium">
                             Explore expert insights on women clothing, Batik Cotton Dress for Women, Batik Prints Women Clothing, cotton dresses for women, and the latest fashion trends. Learn how to choose premium fabrics, discover stylish women clothing collections, and stay updated with wholesale buying guides directly from manufacturers.
                         </p>
-                        
+
                         <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 items-center lg:items-start w-full sm:w-auto mt-2">
                             <a href="#articles" className="bg-highlight hover:bg-highlight/90 text-white px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-xs flex items-center justify-center transition-all shadow-sm text-center w-full sm:w-auto">
                                 Explore Articles
@@ -114,12 +77,23 @@ export default async function BlogIndexPage() {
                             </a>
                         </div>
                     </div>
-                </div>
 
-                {/* Scroll Indicator */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 hidden lg:block">
-                    <div className="w-5 h-8 rounded-full border-2 border-primary/30 flex justify-center pt-1.5">
-                        <div className="w-1 h-2 rounded-full bg-primary/40 animate-bounce" />
+                    {/* Framed Image */}
+                    <div className="relative w-full aspect-[4/5] md:aspect-[3/2] rounded-[24px] overflow-hidden shadow-2xl border-[8px] border-white">
+                        <Image
+                            src="/Hero Banner/blogg.png"
+                            alt="Women Clothing &amp; Batik Fashion Trends Blog"
+                            fill
+                            priority
+                            className="hidden md:block object-cover object-center"
+                        />
+                        <Image
+                            src="/Hero Banner/mobile-version/blog(3).png"
+                            alt="Women Clothing &amp; Batik Fashion Trends Blog"
+                            fill
+                            priority
+                            className="md:hidden object-cover object-top"
+                        />
                     </div>
                 </div>
             </section>
@@ -171,7 +145,6 @@ export default async function BlogIndexPage() {
                                         width={56}
                                         height={56}
                                         className="w-12 h-12 md:w-14 md:h-14 object-contain"
-                                        unoptimized
                                     />
                                 </div>
                                 <div className="flex flex-col flex-1 relative z-10 w-full justify-between">
@@ -275,7 +248,7 @@ export default async function BlogIndexPage() {
                             ].map((item, i) => (
                                 <div key={i} className="group flex flex-col sm:flex-row items-center sm:items-center text-center sm:text-left gap-3 sm:gap-4 bg-white p-4 sm:p-5 rounded-2xl border border-primary/5 shadow-sm hover:shadow-md hover:border-primary/10 transition-all duration-300">
                                     <div className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 flex items-center justify-center">
-                                        <Image src={item.image} alt={item.title} width={80} height={80} className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" unoptimized />
+                                        <Image src={item.image} alt={item.title} width={80} height={80} className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" />
                                     </div>
                                     <div className="flex flex-col gap-1 sm:gap-0">
                                         <h4 className="font-bold text-primary text-[11px] sm:text-sm md:text-base mb-0 sm:mb-1 leading-tight">{item.title}</h4>
