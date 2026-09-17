@@ -3,13 +3,20 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const WA_LINK = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20get%20your%20latest%20batik%20catalogue.";
+const HIDDEN_ON = ['/login', '/signup'];
 
 export default function WelcomePopup() {
+    const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
 
+    const isHidden = HIDDEN_ON.includes(pathname);
+
     useEffect(() => {
+        if (isHidden) return;
+
         // TEMPORARY: Ignored localStorage check so you can test the popup.
         // It will show up every time you refresh.
         const timer = setTimeout(() => {
@@ -29,14 +36,14 @@ export default function WelcomePopup() {
         }, 3000);
         
         return () => clearTimeout(timer);
-    }, []);
+    }, [isHidden]);
 
     const closePopup = () => {
         setIsOpen(false);
         // localStorage.setItem("hasSeenWelcomePopup", "true");
     };
 
-    if (!isOpen) return null;
+    if (isHidden || !isOpen) return null;
 
     return (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 bg-black/70 backdrop-blur-sm animate-in fade-in duration-300">
