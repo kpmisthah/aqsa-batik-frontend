@@ -139,7 +139,7 @@ export default function ProductInteractive({ product }: { product: any }) {
                         alt={product.seoTitle || product.name}
                         fill
                         priority
-                        unoptimized={true}
+                        sizes="(min-width: 1024px) 58vw, 100vw"
                         onLoad={() => setMainImageLoaded(true)}
                         className={`object-cover object-top transition-all duration-700 ${mainImageLoaded ? 'opacity-100' : 'opacity-0'}`}
                     />
