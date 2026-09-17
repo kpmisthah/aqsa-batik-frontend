@@ -223,7 +223,7 @@ export default function SignupPage() {
 
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-black uppercase tracking-widest mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-brand text-xs font-black uppercase tracking-widest mb-3">
             <Sparkles size={12} className="animate-pulse" />
             <span>AQSHA REGISTER</span>
           </div>
@@ -259,12 +259,12 @@ export default function SignupPage() {
               <p className="text-sm text-primary/90 font-medium">
                 We've sent a 6-digit verification code to
               </p>
-              <p className="text-sm font-bold text-secondary mt-1">{email}</p>
+              <p className="text-sm font-bold text-primary mt-1">{email}</p>
             </div>
 
             <form onSubmit={handleVerifyOtp} className="space-y-6">
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-3 text-center">
+                <label className="block text-[10px] font-black uppercase tracking-widest text-primary/60 mb-3 text-center">
                   One-Time Password (OTP)
                 </label>
                 <div className="flex justify-center gap-2 sm:gap-3">
@@ -305,7 +305,7 @@ export default function SignupPage() {
                 type="button"
                 onClick={() => handleEmailSignUp()}
                 disabled={loading}
-                className="text-xs font-bold text-secondary hover:underline uppercase tracking-wider text-[10px] font-black"
+                className="text-xs font-bold text-accent hover:underline uppercase tracking-wider text-[10px] font-black"
               >
                 Resend Code
               </button>
@@ -326,7 +326,7 @@ export default function SignupPage() {
           <>
             <form onSubmit={handleEmailSignUp} className="space-y-4" noValidate>
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Full Name</label>
+                <label className="block text-[10px] font-black uppercase tracking-widest text-primary/60 mb-2">Full Name</label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary/40">
                     <User size={16} />
@@ -351,7 +351,7 @@ export default function SignupPage() {
               </div>
 
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Email Address</label>
+                <label className="block text-[10px] font-black uppercase tracking-widest text-primary/60 mb-2">Email Address</label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary/40">
                     <Mail size={16} />
@@ -372,14 +372,14 @@ export default function SignupPage() {
                   <p className="mt-1.5 flex items-center gap-1.5 text-xs font-bold text-red-600">
                     <AlertCircle size={12} /> {emailError}
                     {emailError.toLowerCase().includes("exist") && (
-                      <Link href="/login" className="ml-1 underline text-secondary">Sign in instead</Link>
+                      <Link href="/login" className="ml-1 underline text-accent">Sign in instead</Link>
                     )}
                   </p>
                 )}
               </div>
 
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Password</label>
+                <label className="block text-[10px] font-black uppercase tracking-widest text-primary/60 mb-2">Password</label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary/40">
                     <Lock size={16} />
@@ -445,7 +445,7 @@ export default function SignupPage() {
 
                     {/* Checklist */}
                     <div className="p-3.5 bg-primary/5 border border-primary/10 rounded-2xl space-y-1.5">
-                      <p className="text-[10px] font-black uppercase tracking-widest text-secondary mb-1">Safety Requirements</p>
+                      <p className="text-[10px] font-black uppercase tracking-widest text-primary/60 mb-1">Safety Requirements</p>
                       {passwordCriteria.map((c, i) => (
                         <div key={i} className="flex items-center gap-2 text-xs">
                           <span className={`w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-black ${
@@ -467,7 +467,7 @@ export default function SignupPage() {
 
               {/* Confirm Password Field */}
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-2">Confirm Password</label>
+                <label className="block text-[10px] font-black uppercase tracking-widest text-primary/60 mb-2">Confirm Password</label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-primary/40">
                     <Lock size={16} />
@@ -529,7 +529,7 @@ export default function SignupPage() {
             <div className="text-center mt-6">
               <p className="text-xs font-bold text-primary/80">
                 Already have an account?{" "}
-                <Link href="/login" className="text-secondary hover:underline uppercase tracking-wider text-[10px] font-black ml-1">
+                <Link href="/login" className="text-accent hover:underline uppercase tracking-wider text-[10px] font-black ml-1">
                   Sign In
                 </Link>
               </p>
