@@ -31,6 +31,20 @@ export function useProducts() {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
+  const [categories, setCategories] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const res = await fetch(`${API_BASE}/products/categories`);
+        const data = await res.json();
+        setCategories(data.categories || []);
+      } catch (error) {
+        console.error("Failed to fetch categories:", error);
+      }
+    };
+    fetchCategories();
+  }, []);
 
   const fetchProducts = useCallback(async (
     page: number = 1,
@@ -237,9 +251,12 @@ export function useProducts() {
       const rows = parsed.data;
       const payload: any[] = [];
 
-      const resolveImage = (filename: string) => {
+      const resolveImage = (filename: string, name: string, rowIndex: number) => {
         const match = uploadedFiles.find((f: any) => f.filename === filename.trim());
-        return match ? match.url : filename.trim();
+        if (!match) {
+          throw new Error(`Row ${rowIndex}: image "${filename.trim()}" for product "${name}" was not found in the uploaded ZIP. Check the filename matches exactly, or that the file is actually included in the ZIP.`);
+        }
+        return match.url;
       };
 
       let rowIndex = 1;
@@ -263,7 +280,7 @@ export function useProducts() {
         const images = galleryColumns
           .map((col) => row[col]?.trim())
           .filter(Boolean)
-          .map(resolveImage);
+          .map((filename: string) => resolveImage(filename, name, rowIndex));
 
         payload.push({
           name,
@@ -362,5 +379,6 @@ export function useProducts() {
     setSearchTerm,
     selectedCategory,
     setSelectedCategory,
+    categories,
   };
 }
