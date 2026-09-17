@@ -55,8 +55,8 @@ const DEFAULT_SLIDES: SlideData[] = [
     tagline: "HANDPRINTED BATIK WOMEN'S CLOTHING",
     title: (
       <span>
-        Handprinted Batik Cotton{' '}<br className="hidden lg:block" />
-        <span className="text-highlight">Suits for Women</span>
+        Handprinted Batik{' '}<br className="hidden lg:block" />
+        Cotton <span className="text-highlight">Suits for Women</span>
       </span>
     ),
     subtitle: (
