@@ -477,7 +477,7 @@ export default function LoginPage({ isAdmin = false }: { isAdmin?: boolean }) {
               <div className="text-center mt-6">
                 <p className="text-xs font-bold text-primary/80">
                   New to Aqsha?{" "}
-                  <Link href="/signup" className="text-secondary hover:underline uppercase tracking-wider text-[10px] font-black ml-1">
+                  <Link href="/signup" className="text-accent hover:underline uppercase tracking-wider text-[10px] font-black ml-1">
                     Create an Account
                   </Link>
                 </p>
