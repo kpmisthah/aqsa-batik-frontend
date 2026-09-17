@@ -28,7 +28,7 @@ async function getProducts({ page = "1", search = "", sort = "", minPrice = "", 
         const queryParams = new URLSearchParams({
             limit: "12",
             page: page,
-            category: "Batik Suits,Batik Suit",
+            category: "Ethnic Wear for Women",
             ...(search && { search }),
             ...(sort && { sort }),
             ...(minPrice && { minPrice }),
