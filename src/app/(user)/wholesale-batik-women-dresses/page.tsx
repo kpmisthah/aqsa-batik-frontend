@@ -25,7 +25,6 @@ async function getProducts({ page = "1", search = "", sort = "", minPrice = "", 
         const queryParams = new URLSearchParams({
             limit: "12",
             page: page,
-            category: "Wholesale",
             ...(search && { search }),
             ...(sort && { sort }),
             ...(minPrice && { minPrice }),
