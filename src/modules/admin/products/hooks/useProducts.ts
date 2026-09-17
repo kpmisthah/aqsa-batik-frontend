@@ -227,49 +227,72 @@ export function useProducts() {
       // 2. Parse CSV
       const Papa = (await import('papaparse')).default;
       const csvText = await csvFile.text();
-      
+
       const parsed = Papa.parse(csvText, {
         header: true,
-        skipEmptyLines: true
+        skipEmptyLines: true,
+        transformHeader: (h: string) => h.trim(),
       });
-      
+
       const rows = parsed.data;
       const payload: any[] = [];
-      
+
+      const resolveImage = (filename: string) => {
+        const match = uploadedFiles.find((f: any) => f.filename === filename.trim());
+        return match ? match.url : filename.trim();
+      };
+
       let rowIndex = 1;
       for (const row of rows as any[]) {
+        const name = row['Product SEO Title']?.trim();
+        const category = row['Categories']?.trim();
+        const fullPrice = row['First Price'];
+
         // Validation checks
-        if (!row.name || row.name.trim() === '') {
-           throw new Error(`Row ${rowIndex}: "name" is missing.`);
+        if (!name) {
+           throw new Error(`Row ${rowIndex}: "Product SEO Title" is missing.`);
         }
-        if (!row.category || row.category.trim() === '') {
-           throw new Error(`Row ${rowIndex}: "category" is missing for product "${row.name}".`);
+        if (!category) {
+           throw new Error(`Row ${rowIndex}: "Categories" is missing for product "${name}".`);
         }
-        if (!row.fullPrice || isNaN(Number(row.fullPrice))) {
-           throw new Error(`Row ${rowIndex}: "fullPrice" must be a valid number for product "${row.name}".`);
+        if (!fullPrice || isNaN(Number(fullPrice))) {
+           throw new Error(`Row ${rowIndex}: "First Price" must be a valid number for product "${name}".`);
         }
 
-        const rowImages = row.images ? row.images.split('|').map((i: string) => i.trim()).filter(Boolean) : [];
-        const mappedImages = rowImages.map((imgName: string) => {
-          const match = uploadedFiles.find((f: any) => f.filename === imgName);
-          return match ? match.url : imgName;
-        });
+        const galleryColumns = ['Model Image', 'Gallery Images 1- Kameez', 'Gallery Images 2- Shalwar', 'Gallery Images 3- Duppatta'];
+        const images = galleryColumns
+          .map((col) => row[col]?.trim())
+          .filter(Boolean)
+          .map(resolveImage);
 
         payload.push({
-          name: row.name.trim(),
-          category: row.category.trim(),
-          subCategory: row.subCategory?.trim() || '',
-          images: mappedImages,
-          colours: row.colours ? row.colours.split('|').map((c: string) => c.trim()).filter(Boolean) : [],
-          fabricDetails: row.fabricDetails || '',
-          quantity: Number(row.quantity) || 0,
-          fullPrice: Number(row.fullPrice) || 0,
-          discountPrice: Number(row.discountPrice) || Number(row.fullPrice) || 0,
-          isBestSeller: row.isBestSeller?.toLowerCase() === 'true',
-          isWholesale: row.isWholesale?.toLowerCase() === 'true',
-          seoTitle: row.seoTitle || '',
-          metaDescription: row.metaDescription || '',
-          description: row.description || '',
+          name,
+          category,
+          subCategory: row['Product Type']?.trim() || '',
+          images,
+          colours: row['Colour'] ? row['Colour'].split('|').map((c: string) => c.trim()).filter(Boolean) : [],
+          fabricDetails: [row['Fabric'], row['Fabric Quality']].filter(Boolean).join(', '),
+          quantity: Number(row['Quantity']) || 0,
+          fullPrice: Number(fullPrice) || 0,
+          discountPrice: Number(row['Discounted Price']) || Number(fullPrice) || 0,
+          isWholesale: row['Wholesale Available']?.trim().toLowerCase() === 'yes',
+          seoTitle: name,
+          metaDescription: row['Meta Discription'] || '',
+          description: row['Product Description'] || '',
+          sku: row['SKU Code']?.trim() || '',
+          slug: row['Product Slug']?.trim() || '',
+          pattern: row['Pattern'] || '',
+          fabric: row['Fabric'] || '',
+          careInstructions: row['Product Care Instructions'] || '',
+          fabricQuality: row['Fabric Quality'] || '',
+          kameezLength: row['Kameez Length'] || '',
+          shalwarLength: row['Shalwar Length'] || '',
+          dupattaLength: row['Dupatta Length'] || '',
+          discountPercentage: row['Discount Percentage'] || '',
+          stockStatus: row['Stock Status'] || '',
+          altText: row['Alt Text'] || '',
+          tags: row['Tags'] ? row['Tags'].split(',').map((t: string) => t.trim()).filter(Boolean) : [],
+          minWholesaleQuantity: Number(row['Minimum Wholesale Quantity']) || 0,
         });
         rowIndex++;
       }

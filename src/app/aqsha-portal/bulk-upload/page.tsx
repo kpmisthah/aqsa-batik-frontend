@@ -32,14 +32,20 @@ export default function AdminBulkUpload() {
 
   const handleDownloadTemplate = () => {
     const headers = [
-      "name", "category", "subCategory", "images", "colours", 
-      "fabricDetails", "quantity", "fullPrice", "discountPrice", 
-      "isBestSeller", "isWholesale", "seoTitle", "metaDescription", "description"
+      "SKU Code", "Product SEO Title", "Product Description", "Meta Discription", "Product Slug",
+      "Product Type", "Colour", "Pattern", "Fabric", "Product Care Instructions", "Fabric Quality",
+      "Kameez Length", "Shalwar Length", "Dupatta Length", "First Price", "Discount Percentage",
+      "Discounted Price", "Quantity", "Stock Status", "Model Image", "Gallery Images 1- Kameez",
+      "Gallery Images 2- Shalwar", "Gallery Images 3- Duppatta", "Alt Text", "Tags",
+      "Wholesale Available", "Minimum Wholesale Quantity", "Categories"
     ].join(",");
     const example = [
-      "Premium Batik Suit", "Batik Suits", "", "1.jpg|2.jpg", "Red|Blue",
-      "Soft cotton", "50", "1999", "1299",
-      "true", "false", "", "", "A beautiful suit"
+      "ABS-0001", "White & Mustard Batik Print Women Clothing", "A beautiful three-piece unstitched suit", "Shop batik print women clothing", "/white-mustard-batik-print-women-clothing/",
+      "Batik Unstiched Suits", "White & Mustard", "Hand Block Print", "Pure Cotton", "Hand wash separately in cold water", "60 x 60",
+      "2.50 meter", "2.50 meter", "2.25 meter", "1100", "10%",
+      "990", "50", "In Stock", "ABS-0001-model.webp", "ABS-0001-top.webp",
+      "ABS-0001-bottom.webp", "ABS-0001-dupatta.webp", "batik print women clothing", "batik print women clothing, cotton clothing for women",
+      "Yes", "10", "batik print women clothing"
     ].join(",");
     const csvContent = "data:text/csv;charset=utf-8," + headers + "\n" + example;
     const encodedUri = encodeURI(csvContent);
@@ -161,8 +167,9 @@ export default function AdminBulkUpload() {
                 <h4 className="text-sm font-black text-primary uppercase tracking-widest mb-3">Upload Rules & Instructions</h4>
                 <ul className="text-sm text-primary/80 space-y-3 list-disc list-inside bg-white p-4 rounded-xl border border-primary/5 shadow-sm">
                   <li><strong className="font-bold">Synchronicity:</strong> Ensure both your CSV layout and ZIP assets are uploaded before firing the payload.</li>
-                  <li><strong className="font-bold">Image Mapping:</strong> The system automatically extracts Cloudinary URLs. In your CSV's "images" column, simply type the raw filename matching your ZIP (e.g., <code className="bg-cream px-1.5 py-0.5 rounded text-secondary font-bold">front.jpg</code>).</li>
-                  <li><strong className="font-bold">Multiple Identifiers:</strong> Bridge multiple images using the vertical pipe <code className="bg-cream px-1.5 py-0.5 rounded font-bold">|</code> (e.g., <code className="bg-cream px-1.5 py-0.5 rounded text-secondary font-bold">1.jpg|2.jpg</code>).</li>
+                  <li><strong className="font-bold">Image Mapping:</strong> The system automatically extracts Cloudinary URLs. In "Model Image", "Gallery Images 1- Kameez", "Gallery Images 2- Shalwar", and "Gallery Images 3- Duppatta", type the raw filename matching your ZIP (e.g., <code className="bg-cream px-1.5 py-0.5 rounded text-secondary font-bold">ABS-0001-model.webp</code>). Each column maps to one image, in that order.</li>
+                  <li><strong className="font-bold">Tags:</strong> Separate multiple tags with a comma (e.g., <code className="bg-cream px-1.5 py-0.5 rounded text-secondary font-bold">batik print, cotton clothing</code>).</li>
+                  <li><strong className="font-bold">Wholesale Available:</strong> Use <code className="bg-cream px-1.5 py-0.5 rounded font-bold">Yes</code> or <code className="bg-cream px-1.5 py-0.5 rounded font-bold">No</code>.</li>
                   <li><strong className="font-bold">Zip Format:</strong> Archives must strictly contain raw visual assets. Nesting is ignored.</li>
                 </ul>
                 <div className="mt-5 flex justify-end">
