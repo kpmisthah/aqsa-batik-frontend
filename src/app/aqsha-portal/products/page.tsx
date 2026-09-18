@@ -295,6 +295,64 @@ export default function AdminProducts() {
             <p className="text-xs text-primary/40 mt-1">Enter colour names, separated by commas.</p>
           </div>
 
+          {/* Identifiers */}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">SKU Code</label>
+              <input type="text" name="sku" defaultValue={editingProduct?.sku || ""} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="E.g. ABS-0001" />
+            </div>
+            <div>
+              <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Product Slug</label>
+              <input type="text" name="slug" defaultValue={editingProduct?.slug || ""} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="E.g. /white-mustard-batik-suit/" />
+            </div>
+          </div>
+
+          {/* Fabric & Pattern */}
+          <div className="space-y-4 border-t border-primary/10 pt-4">
+            <h3 className="text-sm font-black uppercase tracking-widest text-primary">Fabric & Pattern</h3>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Pattern</label>
+                <input type="text" name="pattern" defaultValue={editingProduct?.pattern || ""} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="E.g. Hand Block Print" />
+              </div>
+              <div>
+                <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Fabric</label>
+                <input type="text" name="fabric" defaultValue={editingProduct?.fabric || ""} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="E.g. Pure Cotton" />
+              </div>
+              <div>
+                <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Fabric Quality</label>
+                <input type="text" name="fabricQuality" defaultValue={editingProduct?.fabricQuality || ""} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="E.g. 60 x 60" />
+              </div>
+              <div>
+                <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Stock Status</label>
+                <select name="stockStatus" defaultValue={editingProduct?.stockStatus || "In Stock"} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium bg-white">
+                  <option>In Stock</option>
+                  <option>Out of Stock</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Product Care Instructions</label>
+              <textarea name="careInstructions" defaultValue={editingProduct?.careInstructions || ""} rows={2} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium resize-none" placeholder="E.g. Hand wash separately in cold water" />
+            </div>
+          </div>
+
+          {/* Measurements */}
+          <div className="grid grid-cols-3 gap-4">
+            <div>
+              <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Kameez Length</label>
+              <input type="text" name="kameezLength" defaultValue={editingProduct?.kameezLength || ""} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="2.50 meter" />
+            </div>
+            <div>
+              <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Shalwar Length</label>
+              <input type="text" name="shalwarLength" defaultValue={editingProduct?.shalwarLength || ""} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="2.50 meter" />
+            </div>
+            <div>
+              <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Dupatta Length</label>
+              <input type="text" name="dupattaLength" defaultValue={editingProduct?.dupattaLength || ""} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="2.25 meter" />
+            </div>
+          </div>
+
           {/* Descriptions & SEO */}
           <div className="space-y-4 border-t border-b border-primary/10 py-4 my-2">
             <h3 className="text-sm font-black uppercase tracking-widest text-primary">Descriptions & SEO</h3>
@@ -314,13 +372,28 @@ export default function AdminProducts() {
               <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Meta Description (For Google)</label>
               <textarea name="metaDescription" defaultValue={editingProduct?.metaDescription || ""} rows={2} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium resize-none" placeholder="Shop our premium mustard yellow batik suit for women..." />
             </div>
+
+            <div>
+              <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Image Alt Text</label>
+              <input type="text" name="altText" defaultValue={editingProduct?.altText || ""} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="E.g. batik print women clothing" />
+            </div>
+
+            <div>
+              <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Tags</label>
+              <input type="text" name="tags" defaultValue={editingProduct?.tags?.join(", ") || ""} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="E.g. batik print, cotton clothing" />
+              <p className="text-xs text-primary/40 mt-1">Enter tags, separated by commas.</p>
+            </div>
           </div>
 
           {/* Quantity & Pricing */}
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Stock Qty</label>
               <input type="number" name="quantity" defaultValue={editingProduct?.quantity ?? 0} min="0" className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="0" required />
+            </div>
+            <div>
+              <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Discount Percentage</label>
+              <input type="text" name="discountPercentage" defaultValue={editingProduct?.discountPercentage || ""} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="E.g. 10%" />
             </div>
             <div>
               <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Full Price (₹)</label>
@@ -344,6 +417,13 @@ export default function AdminProducts() {
               <input type="checkbox" name="isWholesale" value="true" defaultChecked={editingProduct?.isWholesale} className="w-5 h-5 rounded text-primary focus:ring-accent" />
               <span className="text-sm font-bold text-primary">Wholesale</span>
             </label>
+          </div>
+
+          {/* Wholesale Minimum Quantity */}
+          <div>
+            <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Minimum Wholesale Quantity</label>
+            <input type="number" name="minWholesaleQuantity" defaultValue={editingProduct?.minWholesaleQuantity ?? 0} min="0" className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="E.g. 10" />
+            <p className="text-xs text-primary/40 mt-1">Only applies if Wholesale is checked above.</p>
           </div>
         </form>
       </AdminModal>
