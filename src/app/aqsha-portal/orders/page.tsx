@@ -274,7 +274,7 @@ export default function AdminOrders() {
 
         <div className="flex flex-wrap gap-3 w-full md:w-auto">
           <div className="flex-1 md:flex-none">
-            <label className="block text-[9px] font-black uppercase tracking-wider text-secondary mb-1">Order Status</label>
+            <label className="block text-[9px] font-black uppercase tracking-wider text-primary/60 mb-1">Order Status</label>
             <select
               value={statusFilter}
               onChange={(e) => {
@@ -293,7 +293,7 @@ export default function AdminOrders() {
           </div>
 
           <div className="flex-1 md:flex-none">
-            <label className="block text-[9px] font-black uppercase tracking-wider text-secondary mb-1">Payment Status</label>
+            <label className="block text-[9px] font-black uppercase tracking-wider text-primary/60 mb-1">Payment Status</label>
             <select
               value={paymentFilter}
               onChange={(e) => {
@@ -329,13 +329,13 @@ export default function AdminOrders() {
               <table className="min-w-full divide-y divide-primary/10">
                 <thead className="bg-cream">
                   <tr>
-                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Order ID</th>
-                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Date</th>
-                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Customer</th>
-                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Payment</th>
-                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Status</th>
-                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Total</th>
-                    <th scope="col" className="px-6 py-4 text-right text-xs font-black text-secondary uppercase tracking-widest">Actions</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-primary/60 uppercase tracking-widest">Order ID</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-primary/60 uppercase tracking-widest">Date</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-primary/60 uppercase tracking-widest">Customer</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-primary/60 uppercase tracking-widest">Payment</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-primary/60 uppercase tracking-widest">Status</th>
+                    <th scope="col" className="px-6 py-4 text-left text-xs font-black text-primary/60 uppercase tracking-widest">Total</th>
+                    <th scope="col" className="px-6 py-4 text-right text-xs font-black text-primary/60 uppercase tracking-widest">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-primary/5">
@@ -408,7 +408,7 @@ export default function AdminOrders() {
                                 ? "bg-indigo-50 text-indigo-700 border-indigo-200"
                                 : order.status === "Returned"
                                 ? "bg-purple-50 text-purple-700 border-purple-200"
-                                : "bg-secondary/10 text-secondary border-secondary/20"
+                                : "bg-secondary/10 text-primary border-secondary/40"
                             }`}
                           >
                             <option value="Pending">Pending</option>
@@ -423,7 +423,7 @@ export default function AdminOrders() {
                         {/* Total Price */}
                         <td className="px-6 py-5 whitespace-nowrap text-sm font-black text-primary">
                           ₹{order.totalAmount.toLocaleString()}
-                          <span className="block text-[8px] font-black tracking-widest text-secondary uppercase mt-0.5">{order.paymentMethod}</span>
+                          <span className="block text-[8px] font-black tracking-widest text-primary/60 uppercase mt-0.5">{order.paymentMethod}</span>
                         </td>
 
                         {/* Actions */}
@@ -469,11 +469,11 @@ export default function AdminOrders() {
                   {/* Top Row: Order ID & Date */}
                   <div className="flex justify-between items-start gap-2">
                     <div>
-                      <span className="text-[10px] font-black tracking-widest text-secondary uppercase">Order ID</span>
+                      <span className="text-[10px] font-black tracking-widest text-primary/60 uppercase">Order ID</span>
                       <span className="block text-sm font-bold text-primary">#{orderId.substring(18).toUpperCase()}</span>
                     </div>
                     <div className="text-right">
-                      <span className="block text-[10px] font-black tracking-widest text-secondary uppercase">Date</span>
+                      <span className="block text-[10px] font-black tracking-widest text-primary/60 uppercase">Date</span>
                       <span className="block text-xs text-primary/90 font-medium">{formatDate(order.createdAt)}</span>
                     </div>
                   </div>
@@ -481,15 +481,15 @@ export default function AdminOrders() {
                   {/* Mid Grid Details: Customer info & Total Amount */}
                   <div className="grid grid-cols-2 gap-4 border-t border-primary/5 pt-3">
                     <div className="min-w-0">
-                      <span className="block text-[10px] font-black tracking-widest text-secondary uppercase">Customer</span>
+                      <span className="block text-[10px] font-black tracking-widest text-primary/60 uppercase">Customer</span>
                       <span className="block text-sm font-bold text-primary truncate">{customerName}</span>
                       {customerEmail && <span className="block text-[10px] text-primary/50 truncate">{customerEmail}</span>}
                     </div>
                     <div>
-                      <span className="block text-[10px] font-black tracking-widest text-secondary uppercase">Total</span>
+                      <span className="block text-[10px] font-black tracking-widest text-primary/60 uppercase">Total</span>
                       <div className="text-sm font-black text-primary">
                         ₹{order.totalAmount.toLocaleString()}
-                        <span className="block text-[8px] font-black tracking-widest text-secondary uppercase mt-0.5">{order.paymentMethod}</span>
+                        <span className="block text-[8px] font-black tracking-widest text-primary/60 uppercase mt-0.5">{order.paymentMethod}</span>
                       </div>
                     </div>
                   </div>
@@ -497,7 +497,7 @@ export default function AdminOrders() {
                   {/* Status Dropdowns */}
                   <div className="grid grid-cols-2 gap-4 border-t border-primary/5 pt-3">
                     <div>
-                      <span className="block text-[10px] font-black tracking-widest text-secondary uppercase mb-1">Payment</span>
+                      <span className="block text-[10px] font-black tracking-widest text-primary/60 uppercase mb-1">Payment</span>
                       <select
                         value={order.paymentStatus}
                         onChange={(e) => handleUpdateStatus(orderId, { paymentStatus: e.target.value as any })}
@@ -516,7 +516,7 @@ export default function AdminOrders() {
                       </select>
                     </div>
                     <div>
-                      <span className="block text-[10px] font-black tracking-widest text-secondary uppercase mb-1">Status</span>
+                      <span className="block text-[10px] font-black tracking-widest text-primary/60 uppercase mb-1">Status</span>
                       <select
                         value={order.status}
                         onChange={(e) => handleUpdateStatus(orderId, { status: e.target.value as any })}
@@ -532,7 +532,7 @@ export default function AdminOrders() {
                             ? "bg-indigo-50 text-indigo-700 border-indigo-200"
                             : order.status === "Returned"
                             ? "bg-purple-50 text-purple-700 border-purple-200"
-                            : "bg-secondary/10 text-secondary border-secondary/20"
+                            : "bg-secondary/10 text-primary border-secondary/40"
                         }`}
                       >
                         <option value="Pending">Pending</option>
@@ -602,7 +602,7 @@ export default function AdminOrders() {
             {/* Modal Header */}
             <div className="flex justify-between items-start border-b border-primary/10 pb-4 mb-6">
               <div>
-                <span className="text-[9px] font-black tracking-widest text-secondary uppercase">ORDER INVOICE</span>
+                <span className="text-[9px] font-black tracking-widest text-primary/60 uppercase">ORDER INVOICE</span>
                 <h3 className="font-heading text-2xl font-black text-primary mt-1">
                   #{ (selectedOrder._id || selectedOrder.id || "").substring(18).toUpperCase() }
                 </h3>
@@ -610,7 +610,7 @@ export default function AdminOrders() {
               </div>
               <button
                 onClick={() => setSelectedOrder(null)}
-                className="text-xs font-black uppercase tracking-wider text-secondary hover:text-primary transition-colors"
+                className="text-xs font-black uppercase tracking-wider text-primary/60 hover:text-primary transition-colors"
               >
                 Close Window
               </button>
@@ -619,9 +619,9 @@ export default function AdminOrders() {
             {/* Customer & Address Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
               <div className="space-y-2.5">
-                <h4 className="text-[10px] font-black uppercase tracking-widest text-secondary">Customer Profile</h4>
+                <h4 className="text-[10px] font-black uppercase tracking-widest text-primary/60">Customer Profile</h4>
                 <div className="flex items-center gap-2 text-xs font-bold text-primary">
-                  <User size={14} className="text-secondary" />
+                  <User size={14} className="text-primary/60" />
                   <span>
                     { typeof selectedOrder.user === "object" 
                       ? selectedOrder.user.name 
@@ -637,15 +637,15 @@ export default function AdminOrders() {
               </div>
 
               <div className="space-y-2.5">
-                <h4 className="text-[10px] font-black uppercase tracking-widest text-secondary">Shipping Logistics</h4>
+                <h4 className="text-[10px] font-black uppercase tracking-widest text-primary/60">Shipping Logistics</h4>
                 <div className="flex items-center gap-2 text-xs font-bold text-primary">
-                  <MapPin size={14} className="text-secondary" />
+                  <MapPin size={14} className="text-primary/60" />
                   <span>
                     {selectedOrder.shippingAddress.address}, {selectedOrder.shippingAddress.city}, {selectedOrder.shippingAddress.state} - {selectedOrder.shippingAddress.zip}
                   </span>
                 </div>
                 <div className="flex items-center gap-2 text-xs font-bold text-primary pl-6 mt-1">
-                  <Phone size={12} className="text-secondary" />
+                  <Phone size={12} className="text-primary/60" />
                   <span>{selectedOrder.shippingAddress.phone}</span>
                 </div>
               </div>
@@ -710,7 +710,7 @@ export default function AdminOrders() {
 
             {/* Order Items Table */}
             <div className="border border-primary/10 rounded-2xl overflow-hidden bg-white/40 p-4 mb-6">
-              <h4 className="text-[10px] font-black uppercase tracking-widest text-secondary mb-3">Itemized Purchases</h4>
+              <h4 className="text-[10px] font-black uppercase tracking-widest text-primary/60 mb-3">Itemized Purchases</h4>
               <div className="divide-y divide-primary/5 text-xs">
                 {selectedOrder.items.map((item, idx) => (
                   <div key={idx} className="py-3 first:pt-0 last:pb-0 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
@@ -751,14 +751,14 @@ export default function AdminOrders() {
             {/* Order Summary & Status Updates */}
             <div className="bg-surface rounded-2xl border border-primary/5 p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mt-auto">
               <div className="space-y-1">
-                <span className="text-[9px] font-black tracking-widest text-secondary uppercase">Order Total</span>
+                <span className="text-[9px] font-black tracking-widest text-primary/60 uppercase">Order Total</span>
                 <div className="text-2xl font-black text-primary">₹{selectedOrder.totalAmount.toLocaleString()}</div>
                 <div className="text-[10px] font-black tracking-wider text-primary/80 uppercase">Method: {selectedOrder.paymentMethod}</div>
               </div>
 
               <div className="flex flex-wrap gap-2">
                 <div>
-                  <label className="block text-[9px] font-black uppercase tracking-widest text-secondary mb-1">Set Payment</label>
+                  <label className="block text-[9px] font-black uppercase tracking-widest text-primary/60 mb-1">Set Payment</label>
                   <select
                     value={selectedOrder.paymentStatus}
                     onChange={(e) => handleUpdateStatus(selectedOrder._id || selectedOrder.id || "", { paymentStatus: e.target.value as any })}
@@ -771,7 +771,7 @@ export default function AdminOrders() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-[9px] font-black uppercase tracking-widest text-secondary mb-1">Set Order Status</label>
+                  <label className="block text-[9px] font-black uppercase tracking-widest text-primary/60 mb-1">Set Order Status</label>
                   <select
                     value={selectedOrder.status}
                     onChange={(e) => handleUpdateStatus(selectedOrder._id || selectedOrder.id || "", { status: e.target.value as any })}
