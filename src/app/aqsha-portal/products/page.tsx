@@ -225,14 +225,14 @@ export default function AdminProducts() {
         <form ref={formRef} className="space-y-5 max-h-[60vh] overflow-y-auto pr-2">
           {/* Product Name */}
           <div>
-            <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-2">Product Name</label>
+            <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Product Name</label>
             <input type="text" name="name" defaultValue={editingProduct?.name || ""} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="E.g. White Mustard Batik Suit" required />
           </div>
 
           {/* Category & Sub Category */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-2">Category</label>
+              <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Category</label>
               <select name="category" defaultValue={editingProduct?.category || "Batik Prints Women Clothing"} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium bg-white">
                 <option>Batik Prints Women Clothing</option>
                 <option>Batik Cotton Dress for Women</option>
@@ -240,14 +240,14 @@ export default function AdminProducts() {
               </select>
             </div>
             <div>
-              <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-2">Sub Category</label>
+              <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Sub Category</label>
               <input type="text" name="subCategory" defaultValue={editingProduct?.subCategory || ""} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="E.g. Cotton Silk" />
             </div>
           </div>
 
           {/* Images */}
           <div>
-            <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-2">Product Images</label>
+            <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Product Images</label>
             <input
               type="file"
               accept="image/*"
@@ -290,7 +290,7 @@ export default function AdminProducts() {
 
           {/* Colours */}
           <div>
-            <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-2">Colours / Variations</label>
+            <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Colours / Variations</label>
             <input type="text" name="colours" defaultValue={editingProduct?.colours?.join(", ") || ""} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="E.g. Red, Blue, Mustard Yellow" />
             <p className="text-xs text-primary/40 mt-1">Enter colour names, separated by commas.</p>
           </div>
@@ -300,18 +300,18 @@ export default function AdminProducts() {
             <h3 className="text-sm font-black uppercase tracking-widest text-primary">Descriptions & SEO</h3>
 
             <div>
-              <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-2">Short Fabric Details (Internal/Specs)</label>
+              <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Short Fabric Details (Internal/Specs)</label>
               <textarea name="fabricDetails" defaultValue={editingProduct?.fabricDetails || ""} rows={2} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium resize-none" placeholder="E.g. Premium cotton silk, 100% breathable..." />
             </div>
 
             <div>
-              <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-2">SEO Optimized Product Description (For Customers)</label>
+              <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">SEO Optimized Product Description (For Customers)</label>
               <textarea name="description" defaultValue={editingProduct?.description || ""} rows={4} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium resize-none" placeholder="Paste the long, marketing description here..." />
             </div>
 
 
             <div>
-              <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-2">Meta Description (For Google)</label>
+              <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Meta Description (For Google)</label>
               <textarea name="metaDescription" defaultValue={editingProduct?.metaDescription || ""} rows={2} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium resize-none" placeholder="Shop our premium mustard yellow batik suit for women..." />
             </div>
           </div>
@@ -319,15 +319,15 @@ export default function AdminProducts() {
           {/* Quantity & Pricing */}
           <div className="grid grid-cols-3 gap-4">
             <div>
-              <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-2">Stock Qty</label>
+              <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Stock Qty</label>
               <input type="number" name="quantity" defaultValue={editingProduct?.quantity ?? 0} min="0" className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="0" required />
             </div>
             <div>
-              <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-2">Full Price (₹)</label>
+              <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Full Price (₹)</label>
               <input type="number" name="fullPrice" defaultValue={editingProduct?.fullPrice ?? ""} min="0" step="0.01" className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="999" required />
             </div>
             <div>
-              <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-2">Discount (₹)</label>
+              <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Discount (₹)</label>
               <input type="number" name="discountPrice" defaultValue={editingProduct?.discountPrice ?? ""} min="0" step="0.01" className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="799" required />
             </div>
           </div>
