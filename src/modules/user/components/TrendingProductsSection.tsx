@@ -101,10 +101,10 @@ export default function TrendingProductsSection() {
                                 <Link
                                     href={productHref}
                                     key={product._id || product.id}
-                                    className="group flex flex-col cursor-pointer shrink-0 w-[280px] md:w-[350px]"
+                                    className="group flex flex-col cursor-pointer shrink-0 w-[300px] md:w-[380px]"
                                 >
                                     {/* Editorial Full-Bleed Image Frame */}
-                                    <div className="relative w-full aspect-[3/4] md:aspect-[4/5] bg-cream mb-5 overflow-hidden">
+                                    <div className="relative w-full aspect-[3/4] bg-cream mb-5 overflow-hidden">
                                         <Image
                                             src={imageSrc}
                                             alt={product.name}
@@ -116,18 +116,16 @@ export default function TrendingProductsSection() {
                                     </div>
 
                                     {/* Editorial Typography Block matching the requested SSENSE-style */}
-                                    <div className="flex items-start gap-4 pt-2">
-                                        <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-primary/ mt-1 min-w-[50px]">
+                                    <div className="flex flex-col gap-1.5 pt-2 w-full">
+                                        <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-primary/60">
                                             TREND
                                         </span>
-                                        <div className="flex flex-col gap-1">
-                                            <h3 className="text-sm md:text-base text-primary/80 font-medium uppercase tracking-wider leading-snug group-hover:text-primary transition-colors duration-500">
-                                                {product.name}
-                                            </h3>
-                                            <span className="text-[11px] md:text-xs text-primary/ font-serif italic">
-                                                {product.category} <span className="mx-2 opacity-40">|</span> In Stock
-                                            </span>
-                                        </div>
+                                        <h3 className="text-sm md:text-base text-primary/80 font-medium uppercase tracking-wider leading-snug group-hover:text-primary transition-colors duration-500">
+                                            {product.name}
+                                        </h3>
+                                        <span className="text-[11px] md:text-xs text-primary/60 font-serif italic">
+                                            {product.category} <span className="mx-2 opacity-40">|</span> In Stock
+                                        </span>
                                     </div>
                                 </Link>
                             );
