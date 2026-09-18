@@ -18,12 +18,12 @@ export function ProductTable({ products, onToggleBlock, onEdit }: ProductTablePr
           <table className="min-w-full divide-y divide-primary/10">
             <thead className="bg-cream">
               <tr>
-                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Product</th>
-                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Category</th>
-                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Pricing</th>
-                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Stock</th>
-                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Status</th>
-                <th scope="col" className="px-6 py-4 text-right text-xs font-black text-secondary uppercase tracking-widest">Actions</th>
+                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-primary/60 uppercase tracking-widest">Product</th>
+                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-primary/60 uppercase tracking-widest">Category</th>
+                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-primary/60 uppercase tracking-widest">Pricing</th>
+                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-primary/60 uppercase tracking-widest">Stock</th>
+                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-primary/60 uppercase tracking-widest">Status</th>
+                <th scope="col" className="px-6 py-4 text-right text-xs font-black text-primary/60 uppercase tracking-widest">Actions</th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-primary/5">
@@ -40,7 +40,7 @@ export function ProductTable({ products, onToggleBlock, onEdit }: ProductTablePr
                       </div>
                       <div className="ml-5">
                         <div className="text-sm font-bold text-primary">{product.name} {product.isBlocked && "(Blocked)"}</div>
-                        <div className="text-xs font-black uppercase tracking-widest text-secondary mt-1">{product.subCategory}</div>
+                        <div className="text-xs font-black uppercase tracking-widest text-primary/60 mt-1">{product.subCategory}</div>
                         {product.colours && product.colours.length > 0 && (
                           <div className="flex gap-1 mt-1.5">
                             {product.colours.slice(0, 5).map((colour, i) => (
@@ -133,7 +133,7 @@ export function ProductTable({ products, onToggleBlock, onEdit }: ProductTablePr
               </div>
               <div className="min-w-0 flex-1">
                 <div className="text-sm font-bold text-primary truncate">{product.name} {product.isBlocked && "(Blocked)"}</div>
-                <div className="text-[10px] font-black uppercase tracking-widest text-secondary mt-0.5">{product.subCategory}</div>
+                <div className="text-[10px] font-black uppercase tracking-widest text-primary/60 mt-0.5">{product.subCategory}</div>
                 
                 {product.colours && product.colours.length > 0 && (
                   <div className="flex gap-1 mt-1.5">
@@ -151,13 +151,13 @@ export function ProductTable({ products, onToggleBlock, onEdit }: ProductTablePr
             {/* Mid Grid Details: Category, Price, Stock & Badges */}
             <div className="grid grid-cols-2 gap-4 border-t border-primary/5 pt-3">
               <div>
-                <span className="block text-[10px] font-black tracking-widest text-secondary uppercase">Category</span>
+                <span className="block text-[10px] font-black tracking-widest text-primary/60 uppercase">Category</span>
                 <span className="px-2 py-0.5 inline-flex text-[10px] font-black uppercase tracking-wider rounded bg-tan/50 text-primary border border-primary/10 mt-0.5">
                   {product.category}
                 </span>
               </div>
               <div>
-                <span className="block text-[10px] font-black tracking-widest text-secondary uppercase">Pricing</span>
+                <span className="block text-[10px] font-black tracking-widest text-primary/60 uppercase">Pricing</span>
                 <div className="flex items-center gap-1.5 mt-0.5">
                   <span className="text-sm font-bold text-primary">₹{product.discountPrice?.toLocaleString()}</span>
                   {product.fullPrice > product.discountPrice && (
@@ -166,13 +166,13 @@ export function ProductTable({ products, onToggleBlock, onEdit }: ProductTablePr
                 </div>
               </div>
               <div>
-                <span className="block text-[10px] font-black tracking-widest text-secondary uppercase">Stock</span>
+                <span className="block text-[10px] font-black tracking-widest text-primary/60 uppercase">Stock</span>
                 <span className={`text-xs font-bold ${product.quantity > 10 ? 'text-green-700' : product.quantity > 0 ? 'text-amber-600' : 'text-red-600'}`}>
                   {product.quantity} pcs
                 </span>
               </div>
               <div>
-                <span className="block text-[10px] font-black tracking-widest text-secondary uppercase">Status / Badges</span>
+                <span className="block text-[10px] font-black tracking-widest text-primary/60 uppercase">Status / Badges</span>
                 <div className="flex flex-wrap gap-1 mt-1">
                   <span className={`px-1.5 py-0.5 inline-flex text-[8px] font-black uppercase tracking-widest rounded-sm ${product.isBlocked ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`}>
                     {product.isBlocked ? 'Blocked' : 'Active'}
