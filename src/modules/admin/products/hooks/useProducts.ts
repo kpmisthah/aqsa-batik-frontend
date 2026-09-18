@@ -17,6 +17,20 @@ export interface AdminProduct {
   seoTitle?: string;
   metaDescription?: string;
   description?: string;
+  sku?: string;
+  slug?: string;
+  pattern?: string;
+  fabric?: string;
+  careInstructions?: string;
+  fabricQuality?: string;
+  kameezLength?: string;
+  shalwarLength?: string;
+  dupattaLength?: string;
+  discountPercentage?: string;
+  stockStatus?: string;
+  altText?: string;
+  tags?: string[];
+  minWholesaleQuantity?: number;
 }
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL
@@ -112,6 +126,9 @@ export function useProducts() {
       const coloursRaw = (formData.get("colours") as string) || "";
       const colours = coloursRaw.split(",").map((c) => c.trim()).filter(Boolean);
 
+      const tagsRaw = (formData.get("tags") as string) || "";
+      const tags = tagsRaw.split(",").map((t) => t.trim()).filter(Boolean);
+
       const body = {
         name: formData.get("name") as string,
         category: formData.get("category") as string,
@@ -127,6 +144,20 @@ export function useProducts() {
         seoTitle: formData.get("seoTitle") as string,
         metaDescription: formData.get("metaDescription") as string,
         description: formData.get("description") as string,
+        sku: formData.get("sku") as string,
+        slug: formData.get("slug") as string,
+        pattern: formData.get("pattern") as string,
+        fabric: formData.get("fabric") as string,
+        careInstructions: formData.get("careInstructions") as string,
+        fabricQuality: formData.get("fabricQuality") as string,
+        kameezLength: formData.get("kameezLength") as string,
+        shalwarLength: formData.get("shalwarLength") as string,
+        dupattaLength: formData.get("dupattaLength") as string,
+        discountPercentage: formData.get("discountPercentage") as string,
+        stockStatus: formData.get("stockStatus") as string,
+        altText: formData.get("altText") as string,
+        tags,
+        minWholesaleQuantity: Number(formData.get("minWholesaleQuantity")) || 0,
       };
 
       const res = await fetch(`${API_BASE}/products`, {
@@ -176,6 +207,9 @@ export function useProducts() {
       const coloursRaw = (formData.get("colours") as string) || "";
       const colours = coloursRaw.split(",").map((c) => c.trim()).filter(Boolean);
 
+      const tagsRaw = (formData.get("tags") as string) || "";
+      const tags = tagsRaw.split(",").map((t) => t.trim()).filter(Boolean);
+
       const body: Record<string, any> = {
         name: formData.get("name") as string,
         category: formData.get("category") as string,
@@ -191,6 +225,20 @@ export function useProducts() {
         metaDescription: formData.get("metaDescription") as string,
         description: formData.get("description") as string,
         images: finalImages,
+        sku: formData.get("sku") as string,
+        slug: formData.get("slug") as string,
+        pattern: formData.get("pattern") as string,
+        fabric: formData.get("fabric") as string,
+        careInstructions: formData.get("careInstructions") as string,
+        fabricQuality: formData.get("fabricQuality") as string,
+        kameezLength: formData.get("kameezLength") as string,
+        shalwarLength: formData.get("shalwarLength") as string,
+        dupattaLength: formData.get("dupattaLength") as string,
+        discountPercentage: formData.get("discountPercentage") as string,
+        stockStatus: formData.get("stockStatus") as string,
+        altText: formData.get("altText") as string,
+        tags,
+        minWholesaleQuantity: Number(formData.get("minWholesaleQuantity")) || 0,
       };
 
       const res = await fetch(`${API_BASE}/products/${id}`, {
