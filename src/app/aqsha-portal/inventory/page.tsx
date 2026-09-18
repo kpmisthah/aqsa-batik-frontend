@@ -170,10 +170,10 @@ export default function AdminInventory() {
             <table className="min-w-full divide-y divide-primary/10">
               <thead className="bg-cream">
                 <tr>
-                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest w-2/5">Product Name</th>
-                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest w-1/5">Category</th>
-                  <th scope="col" className="px-6 py-4 text-center text-xs font-black text-secondary uppercase tracking-widest w-1/5">Stock Status</th>
-                  <th scope="col" className="px-6 py-4 text-right text-xs font-black text-secondary uppercase tracking-widest w-1/5">Quantity</th>
+                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-primary/60 uppercase tracking-widest w-2/5">Product Name</th>
+                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-primary/60 uppercase tracking-widest w-1/5">Category</th>
+                  <th scope="col" className="px-6 py-4 text-center text-xs font-black text-primary/60 uppercase tracking-widest w-1/5">Stock Status</th>
+                  <th scope="col" className="px-6 py-4 text-right text-xs font-black text-primary/60 uppercase tracking-widest w-1/5">Quantity</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-primary/5">
@@ -196,7 +196,7 @@ export default function AdminInventory() {
                           </div>
                           <div className="ml-4 truncate max-w-[200px] sm:max-w-xs block">
                             <div className="text-sm font-bold text-primary truncate" title={product.name}>{product.name} {product.isBlocked && "(Blocked)"}</div>
-                            <div className="text-[10px] font-black uppercase tracking-widest text-secondary mt-0.5">{product.subCategory || 'No Sub'}</div>
+                            <div className="text-[10px] font-black uppercase tracking-widest text-primary/60 mt-0.5">{product.subCategory || 'No Sub'}</div>
                           </div>
                         </div>
                       </td>
