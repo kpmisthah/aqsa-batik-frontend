@@ -179,7 +179,7 @@ export default function AdminDashboard() {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] font-heading">
         <Loader2 className="animate-spin text-primary mb-5" size={40} />
-        <p className="text-sm font-black text-secondary tracking-widest uppercase">Loading Analytics...</p>
+        <p className="text-sm font-black text-primary/60 tracking-widest uppercase">Loading Analytics...</p>
       </div>
     );
   }
@@ -210,7 +210,7 @@ export default function AdminDashboard() {
                 <div className="p-3 bg-tan border border-primary/10 rounded-xl shadow-inner inline-flex">
                   <stat.icon className="w-5 h-5 text-primary" aria-hidden="true" />
                 </div>
-                <p className="text-[11px] font-black uppercase tracking-widest text-secondary">{stat.name}</p>
+                <p className="text-[11px] font-black uppercase tracking-widest text-primary/60">{stat.name}</p>
               </div>
               
               <div className="mt-auto">
@@ -309,7 +309,7 @@ export default function AdminDashboard() {
             )}
           </div>
 
-          <div className="flex justify-between text-[10px] font-black uppercase text-secondary tracking-widest mt-2 relative z-10 w-full" style={{ paddingLeft: `${(paddingX/width)*100}%`, paddingRight: `${(paddingX/width)*100}%` }}>
+          <div className="flex justify-between text-[10px] font-black uppercase text-primary/60 tracking-widest mt-2 relative z-10 w-full" style={{ paddingLeft: `${(paddingX/width)*100}%`, paddingRight: `${(paddingX/width)*100}%` }}>
             {salesChart.labels.map((lbl, idx) => (
               <span key={idx}>{lbl}</span>
             ))}
@@ -399,7 +399,7 @@ export default function AdminDashboard() {
           </div>
           <Link 
             href="/aqsha-portal/orders" 
-            className="group flex items-center gap-2 text-xs font-black uppercase tracking-widest text-secondary hover:text-primary transition-colors bg-white px-5 py-2.5 rounded-xl border border-primary/10 shadow-sm self-start sm:self-auto"
+            className="group flex items-center gap-2 text-xs font-black uppercase tracking-widest text-primary/60 hover:text-primary transition-colors bg-white px-5 py-2.5 rounded-xl border border-primary/10 shadow-sm self-start sm:self-auto"
           >
             Manage Orders 
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -418,12 +418,12 @@ export default function AdminDashboard() {
                 <table className="min-w-full divide-y divide-primary/10">
                   <thead className="bg-cream">
                     <tr>
-                      <th scope="col" className="px-6 py-4 text-left text-[10px] font-black text-secondary uppercase tracking-widest border-r border-primary/5">Order ID</th>
-                      <th scope="col" className="px-6 py-4 text-left text-[10px] font-black text-secondary uppercase tracking-widest border-r border-primary/5">Customer</th>
-                      <th scope="col" className="px-6 py-4 text-left text-[10px] font-black text-secondary uppercase tracking-widest border-r border-primary/5">Date</th>
-                      <th scope="col" className="px-6 py-4 text-left text-[10px] font-black text-secondary uppercase tracking-widest border-r border-primary/5">Payment</th>
-                      <th scope="col" className="px-6 py-4 text-left text-[10px] font-black text-secondary uppercase tracking-widest border-r border-primary/5">Status</th>
-                      <th scope="col" className="px-6 py-4 text-right text-[10px] font-black text-secondary uppercase tracking-widest">Total</th>
+                      <th scope="col" className="px-6 py-4 text-left text-[10px] font-black text-primary/60 uppercase tracking-widest border-r border-primary/5">Order ID</th>
+                      <th scope="col" className="px-6 py-4 text-left text-[10px] font-black text-primary/60 uppercase tracking-widest border-r border-primary/5">Customer</th>
+                      <th scope="col" className="px-6 py-4 text-left text-[10px] font-black text-primary/60 uppercase tracking-widest border-r border-primary/5">Date</th>
+                      <th scope="col" className="px-6 py-4 text-left text-[10px] font-black text-primary/60 uppercase tracking-widest border-r border-primary/5">Payment</th>
+                      <th scope="col" className="px-6 py-4 text-left text-[10px] font-black text-primary/60 uppercase tracking-widest border-r border-primary/5">Status</th>
+                      <th scope="col" className="px-6 py-4 text-right text-[10px] font-black text-primary/60 uppercase tracking-widest">Total</th>
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-primary/5">
@@ -499,11 +499,11 @@ export default function AdminDashboard() {
                   <div key={orderId} className="p-6 border-b border-primary/5 hover:bg-cream/30 transition-colors">
                     <div className="flex justify-between items-start mb-4">
                       <div>
-                        <span className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-1">Order ID</span>
+                        <span className="block text-[10px] font-black uppercase tracking-widest text-primary/60 mb-1">Order ID</span>
                         <span className="block text-sm font-black text-primary">#{orderId.substring(18).toUpperCase()}</span>
                       </div>
                       <div className="text-right">
-                        <span className="block text-[10px] font-black uppercase tracking-widest text-secondary mb-1">Total</span>
+                        <span className="block text-[10px] font-black uppercase tracking-widest text-primary/60 mb-1">Total</span>
                         <span className="block text-lg font-black text-primary">₹{order.totalAmount.toLocaleString()}</span>
                       </div>
                     </div>
