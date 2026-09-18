@@ -99,7 +99,7 @@ export default function AdminUsers() {
         >
           <div className="space-y-4">
             <p className="text-primary/80 font-medium text-base leading-relaxed">
-              Are you sure you want to {userToConfirmBlock.isBlocked ? "unblock" : "block"} the user <strong className="text-primary font-black">{userToConfirmBlock.name}</strong> (<span className="text-secondary font-bold">{userToConfirmBlock.email}</span>)?
+              Are you sure you want to {userToConfirmBlock.isBlocked ? "unblock" : "block"} the user <strong className="text-primary font-black">{userToConfirmBlock.name}</strong> (<span className="text-primary/60 font-bold">{userToConfirmBlock.email}</span>)?
             </p>
             {!userToConfirmBlock.isBlocked && (
               <div className="p-4 bg-red-50 border border-red-100 rounded-2xl">
@@ -121,15 +121,15 @@ export default function AdminUsers() {
       >
         <form ref={formRef} className="space-y-4">
           <div>
-            <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-2">Full Name</label>
+            <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Full Name</label>
             <input type="text" name="name" defaultValue={editingUser?.name || ""} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="Enter name" required />
           </div>
           <div>
-            <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-2">Email Address</label>
+            <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Email Address</label>
             <input type="email" name="email" defaultValue={editingUser?.email || ""} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="user@example.com" required />
           </div>
           <div>
-            <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-2">Role</label>
+            <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Role</label>
             <select name="role" defaultValue={editingUser?.role || "Customer"} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium bg-white">
               <option>Customer</option>
               <option>Wholesaler</option>
