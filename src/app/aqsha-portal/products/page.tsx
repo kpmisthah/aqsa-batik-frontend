@@ -236,7 +236,7 @@ export default function AdminProducts() {
               <select name="category" defaultValue={editingProduct?.category || "Batik Prints Women Clothing"} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium bg-white">
                 <option>Batik Prints Women Clothing</option>
                 <option>Batik Cotton Dress for Women</option>
-                <option>Wholesale</option>
+                <option>Ethnic Wear for Women</option>
               </select>
             </div>
             <div>
