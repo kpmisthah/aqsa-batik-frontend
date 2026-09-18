@@ -240,7 +240,7 @@ export default function AdminProducts() {
               </select>
             </div>
             <div>
-              <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Sub Category</label>
+              <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Product Type</label>
               <input type="text" name="subCategory" defaultValue={editingProduct?.subCategory || ""} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="E.g. Cotton Silk" />
             </div>
           </div>

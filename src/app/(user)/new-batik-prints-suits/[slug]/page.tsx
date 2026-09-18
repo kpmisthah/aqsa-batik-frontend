@@ -71,7 +71,7 @@ export default async function CottonClothSlugPage({ params }: { params: Promise<
     const details = [
         { label: "Fabric", value: product.fabricDetails || "Pure Cotton 60x60" },
         { label: "Category", value: product.category },
-        { label: "Sub Category", value: product.subCategory || "Batik" },
+        { label: "Product Type", value: product.subCategory || "Batik" },
         { label: "Colours Available", value: product.colours?.join(", ") || "Standard" }
     ];
 
@@ -106,7 +106,7 @@ export default async function CottonClothSlugPage({ params }: { params: Promise<
                                 {details.map((detail, i) => (
                                     <div key={i} className="flex items-center justify-between py-8 border-b border-primary/10 last:border-0 group">
                                         <div className="flex flex-col gap-1">
-                                            <span className="text-xs font-black uppercase tracking-[0.3em] text-secondary opacity-60 group-hover:opacity-100 transition-opacity">{detail.label}</span>
+                                            <span className="text-xs font-black uppercase tracking-[0.3em] text-brand">{detail.label}</span>
                                             <span className="text-2xl font-bold text-primary tracking-tight">{detail.value}</span>
                                         </div>
                                     </div>
@@ -118,9 +118,9 @@ export default async function CottonClothSlugPage({ params }: { params: Promise<
                         <div className="flex flex-col gap-6">
                             <div className="relative aspect-video rounded-[50px] overflow-hidden shadow-2xl border-4 border-white group">
                                 <Image src={mainImage} alt="Detail View" layout="fill" objectFit="cover" className="brightness-90 group-hover:scale-105 transition-transform duration-[2s]" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
                                 <div className="absolute bottom-10 left-10 text-white">
-                                    <h4 className="text-4xl font-bold font-heading italic">Ideal for Summer Collections</h4>
+                                    <h4 className="text-4xl font-bold font-heading italic drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">Ideal for {product.category}</h4>
                                 </div>
                             </div>
                         </div>

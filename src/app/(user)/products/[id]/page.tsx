@@ -56,7 +56,7 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
     const details = [
         { label: "Fabric", value: product.fabricDetails || "Pure Cotton 60x60", icon: "🧵" },
         { label: "Category", value: product.category, icon: "🏷️" },
-        { label: "Sub Category", value: product.subCategory || "Batik", icon: "✨" },
+        { label: "Product Type", value: product.subCategory || "Batik", icon: "✨" },
         { label: "Colors Available", value: product.colours?.map((c: string) => getColorName(c)).join(", ") || "Standard", icon: "🎨" }
     ];
 
@@ -116,7 +116,7 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
                                         {detail.icon}
                                     </div>
                                     <div className="flex flex-col flex-1 items-center sm:items-start w-full">
-                                        <span className="text-[9px] md:text-xs font-black uppercase tracking-[0.2em] text-accent opacity-70 group-hover:opacity-100 transition-opacity">
+                                        <span className="text-[9px] md:text-xs font-black uppercase tracking-[0.2em] text-brand">
                                             {detail.label}
                                         </span>
                                         <span className="text-xs md:text-lg font-bold text-primary tracking-tight leading-snug mt-1 md:mt-1.5 w-full">
@@ -131,13 +131,13 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
                         <div className="h-full min-h-[400px] md:min-h-[500px]">
                             <div className="relative h-full w-full rounded-[32px] md:rounded-[40px] overflow-hidden shadow-2xl border-[6px] md:border-[12px] border-white group">
                                 <Image src={mainImage} alt="Detail View" layout="fill" objectFit="cover" objectPosition="center top" className="brightness-95 group-hover:scale-105 transition-transform duration-[2s]" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
                                 <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 text-white max-w-[80%]">
                                     <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-[10px] font-black uppercase tracking-widest text-white mb-3">
                                         Collection Feature
                                     </span>
-                                    <h4 className="text-3xl md:text-5xl font-black font-heading leading-tight tracking-tight">
-                                        Ideal for<br />Summer Collections
+                                    <h4 className="text-3xl md:text-5xl font-black font-heading leading-tight tracking-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+                                        Ideal for<br />{product.category}
                                     </h4>
                                 </div>
                             </div>
