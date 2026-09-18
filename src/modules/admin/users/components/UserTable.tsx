@@ -34,11 +34,11 @@ export function UserTable({ users, onToggleBlock, onEdit }: UserTableProps) {
           <table className="min-w-full divide-y divide-primary/10">
             <thead className="bg-cream">
               <tr>
-                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">User</th>
-                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Role</th>
-                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Status</th>
-                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Last Login</th>
-                <th scope="col" className="px-6 py-4 text-right text-xs font-black text-secondary uppercase tracking-widest">Actions</th>
+                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-primary/60 uppercase tracking-widest">User</th>
+                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-primary/60 uppercase tracking-widest">Role</th>
+                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-primary/60 uppercase tracking-widest">Status</th>
+                <th scope="col" className="px-6 py-4 text-left text-xs font-black text-primary/60 uppercase tracking-widest">Last Login</th>
+                <th scope="col" className="px-6 py-4 text-right text-xs font-black text-primary/60 uppercase tracking-widest">Actions</th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-primary/5">
@@ -60,7 +60,7 @@ export function UserTable({ users, onToggleBlock, onEdit }: UserTableProps) {
                     </div>
                   </td>
                   <td className="px-6 py-5 whitespace-nowrap">
-                    <div className="text-sm font-black text-secondary uppercase tracking-widest">{user.role}</div>
+                    <div className="text-sm font-black text-primary/60 uppercase tracking-widest">{user.role}</div>
                   </td>
                   <td className="px-6 py-5 whitespace-nowrap">
                     <span className={`px-3 py-1 inline-flex text-[10px] font-black uppercase tracking-widest rounded-full ${
@@ -136,11 +136,11 @@ export function UserTable({ users, onToggleBlock, onEdit }: UserTableProps) {
             {/* Mid row: Role and Status */}
             <div className="grid grid-cols-2 gap-4 border-t border-primary/5 pt-3">
               <div>
-                <span className="block text-[10px] font-black tracking-widest text-secondary uppercase">Role</span>
+                <span className="block text-[10px] font-black tracking-widest text-primary/60 uppercase">Role</span>
                 <span className="text-xs font-bold text-primary uppercase">{user.role}</span>
               </div>
               <div>
-                <span className="block text-[10px] font-black tracking-widest text-secondary uppercase">Status</span>
+                <span className="block text-[10px] font-black tracking-widest text-primary/60 uppercase">Status</span>
                 <div>
                   <span className={`px-2 py-0.5 inline-flex text-[9px] font-black uppercase tracking-widest rounded-full ${
                     user.status === "Active" ? "bg-green-100 text-green-800 border border-green-200" :
@@ -156,7 +156,7 @@ export function UserTable({ users, onToggleBlock, onEdit }: UserTableProps) {
             {/* Bottom Row: Last login and Block action */}
             <div className="border-t border-primary/5 pt-3 flex items-center justify-between gap-2">
               <div className="min-w-0">
-                <span className="block text-[10px] font-black tracking-widest text-secondary uppercase">Last Login</span>
+                <span className="block text-[10px] font-black tracking-widest text-primary/60 uppercase">Last Login</span>
                 <span className="text-xs text-primary/80 font-medium truncate block">
                   {formatLastLogin(user.lastLogin)}
                 </span>
