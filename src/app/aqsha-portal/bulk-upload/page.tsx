@@ -167,11 +167,46 @@ export default function AdminBulkUpload() {
                 <h4 className="text-sm font-black text-primary uppercase tracking-widest mb-3">Upload Rules & Instructions</h4>
                 <ul className="text-sm text-primary/80 space-y-3 list-disc list-inside bg-white p-4 rounded-xl border border-primary/5 shadow-sm">
                   <li><strong className="font-bold">Synchronicity:</strong> Ensure both your CSV layout and ZIP assets are uploaded before firing the payload.</li>
-                  <li><strong className="font-bold">Image Mapping:</strong> The system automatically extracts Cloudinary URLs. In "Model Image", "Gallery Images 1- Kameez", "Gallery Images 2- Shalwar", and "Gallery Images 3- Duppatta", type the raw filename matching your ZIP (e.g., <code className="bg-cream px-1.5 py-0.5 rounded text-primary/60 font-bold">ABS-0001-model.webp</code>). Each column maps to one image, in that order.</li>
+                  <li><strong className="font-bold">Required Columns:</strong> Every row must have <code className="bg-cream px-1.5 py-0.5 rounded font-bold">Product SEO Title</code>, <code className="bg-cream px-1.5 py-0.5 rounded font-bold">Categories</code>, and <code className="bg-cream px-1.5 py-0.5 rounded font-bold">First Price</code> filled in, or the whole upload will fail.</li>
+                  <li><strong className="font-bold">Image Mapping:</strong> In "Model Image", "Gallery Images 1- Kameez", "Gallery Images 2- Shalwar", and "Gallery Images 3- Duppatta", type the raw filename matching your ZIP exactly (e.g., <code className="bg-cream px-1.5 py-0.5 rounded text-primary/60 font-bold">ABS-0001-model.webp</code>). Each column maps to one image, in that order.</li>
+                  <li><strong className="font-bold">Colour:</strong> Separate multiple colours with a pipe <code className="bg-cream px-1.5 py-0.5 rounded font-bold">|</code> (e.g., <code className="bg-cream px-1.5 py-0.5 rounded text-primary/60 font-bold">White|Mustard Yellow</code>).</li>
                   <li><strong className="font-bold">Tags:</strong> Separate multiple tags with a comma (e.g., <code className="bg-cream px-1.5 py-0.5 rounded text-primary/60 font-bold">batik print, cotton clothing</code>).</li>
-                  <li><strong className="font-bold">Wholesale Available:</strong> Use <code className="bg-cream px-1.5 py-0.5 rounded font-bold">Yes</code> or <code className="bg-cream px-1.5 py-0.5 rounded font-bold">No</code>.</li>
+                  <li><strong className="font-bold">Wholesale Available:</strong> Use <code className="bg-cream px-1.5 py-0.5 rounded font-bold">Yes</code> or <code className="bg-cream px-1.5 py-0.5 rounded font-bold">No</code>. If "Yes", also fill in "Minimum Wholesale Quantity".</li>
                   <li><strong className="font-bold">Zip Format:</strong> Archives must strictly contain raw visual assets. Nesting is ignored.</li>
                 </ul>
+
+                <h4 className="text-sm font-black text-primary uppercase tracking-widest mb-3 mt-6">All 28 CSV Columns</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-2 bg-white p-4 rounded-xl border border-primary/5 shadow-sm text-sm text-primary/80">
+                  <div><span className="font-bold text-primary">SKU Code</span> — unique code, e.g. ABS-0001</div>
+                  <div><span className="font-bold text-primary">Product SEO Title</span> — required, used as product name</div>
+                  <div><span className="font-bold text-primary">Product Description</span> — full product description</div>
+                  <div><span className="font-bold text-primary">Meta Discription</span> — SEO meta description</div>
+                  <div><span className="font-bold text-primary">Product Slug</span> — URL path, e.g. /product-name/</div>
+                  <div><span className="font-bold text-primary">Product Type</span> — sub-category</div>
+                  <div><span className="font-bold text-primary">Colour</span> — pipe-separated, e.g. White|Mustard</div>
+                  <div><span className="font-bold text-primary">Pattern</span> — e.g. Hand Block Print</div>
+                  <div><span className="font-bold text-primary">Fabric</span> — e.g. Pure Cotton</div>
+                  <div><span className="font-bold text-primary">Product Care Instructions</span> — washing/care text</div>
+                  <div><span className="font-bold text-primary">Fabric Quality</span> — e.g. 60 x 60</div>
+                  <div><span className="font-bold text-primary">Kameez Length</span> — e.g. 2.50 meter</div>
+                  <div><span className="font-bold text-primary">Shalwar Length</span> — e.g. 2.50 meter</div>
+                  <div><span className="font-bold text-primary">Dupatta Length</span> — e.g. 2.25 meter</div>
+                  <div><span className="font-bold text-primary">First Price</span> — required, full price (₹)</div>
+                  <div><span className="font-bold text-primary">Discount Percentage</span> — e.g. 10%</div>
+                  <div><span className="font-bold text-primary">Discounted Price</span> — final selling price (₹)</div>
+                  <div><span className="font-bold text-primary">Quantity</span> — stock count</div>
+                  <div><span className="font-bold text-primary">Stock Status</span> — In Stock / Out of Stock</div>
+                  <div><span className="font-bold text-primary">Model Image</span> — filename in ZIP</div>
+                  <div><span className="font-bold text-primary">Gallery Images 1- Kameez</span> — filename in ZIP</div>
+                  <div><span className="font-bold text-primary">Gallery Images 2- Shalwar</span> — filename in ZIP</div>
+                  <div><span className="font-bold text-primary">Gallery Images 3- Duppatta</span> — filename in ZIP</div>
+                  <div><span className="font-bold text-primary">Alt Text</span> — image alt text for SEO</div>
+                  <div><span className="font-bold text-primary">Tags</span> — comma-separated</div>
+                  <div><span className="font-bold text-primary">Wholesale Available</span> — Yes / No</div>
+                  <div><span className="font-bold text-primary">Minimum Wholesale Quantity</span> — number, if wholesale</div>
+                  <div><span className="font-bold text-primary">Categories</span> — required, main category</div>
+                </div>
+
                 <div className="mt-5 flex justify-end">
                    <button type="button" onClick={handleDownloadTemplate} className="px-5 py-2 bg-cream/50 rounded-lg text-sm font-bold text-primary/60 border border-primary/5 hover:bg-cream transition-colors shadow-sm">Download Blank CSV Template</button>
                 </div>
