@@ -188,16 +188,16 @@ export default function ProductInteractive({ product }: { product: any }) {
                             <span className="text-[10px] font-body font-bold uppercase tracking-[0.1em] text-primary">Best Seller</span>
                         </div>
                     )}
-                    <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-normal text-primary leading-[1.1]">
+                    <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-normal text-primary leading-[1.1] text-center md:text-left">
                         {product.name}
                     </h1>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center justify-center md:justify-start gap-4">
                         <div className="flex text-accent text-lg">{"★★★★★"}</div>
                         <span className="text-xs font-black uppercase tracking-widest text-primary/40">(4.9 • 1,200+ Reviews)</span>
                     </div>
 
                     <div className="flex flex-col gap-6 mt-4">
-                        <p className="text-base md:text-lg text-primary/80 leading-relaxed whitespace-pre-wrap">
+                        <p className="text-base md:text-lg text-primary/80 leading-relaxed whitespace-pre-wrap text-center md:text-left">
                             {product.description || "A premium, handcrafted addition to your collection. Designed with comfort and style in mind, this piece offers the perfect blend of ethnic charm and modern sophistication."}
                         </p>
                     </div>
@@ -205,11 +205,11 @@ export default function ProductInteractive({ product }: { product: any }) {
 
                 {/* Colours */}
                 {product.colours && product.colours.length > 0 && (
-                    <div className="flex flex-col gap-3 md:gap-4 pt-2 md:pt-4">
-                        <h4 className="text-xs font-black uppercase tracking-widest text-primary">
+                    <div className="flex flex-col items-center md:items-start gap-3 md:gap-4 pt-2 md:pt-4">
+                        <h4 className="text-xs font-black uppercase tracking-widest text-primary text-center md:text-left">
                             Fabric Colors: <span className="text-accent">{getCombinedColorName(product.colours)}</span>
                         </h4>
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center justify-center md:justify-start gap-4">
                             <div className="flex gap-3">
                                 {product.colours.map((color: string, i: number) => (
                                     <div
@@ -270,12 +270,22 @@ export default function ProductInteractive({ product }: { product: any }) {
                             </button>
                         </div>
                     )}
-                    <button
-                        onClick={handleAddToWishlist}
-                        className={`btn-secondary w-full py-4 md:py-5 text-sm md:text-base ${isWished ? '!bg-primary !text-white !border-primary hover:!bg-primary/90' : ''}`}
-                    >
-                        {isWished ? '❤️ Saved to Wishlist' : '🤍 Add to Wishlist'}
-                    </button>
+                    <div className="flex gap-3">
+                        {isWholesaleMode && (
+                            <button
+                                onClick={handleAddToCart}
+                                className="btn-secondary flex-1 shadow-sm py-4 md:py-5 text-sm md:text-base"
+                            >
+                                Add to Cart
+                            </button>
+                        )}
+                        <button
+                            onClick={handleAddToWishlist}
+                            className={`btn-secondary flex-1 py-4 md:py-5 text-sm md:text-base ${isWished ? '!bg-primary !text-white !border-primary hover:!bg-primary/90' : ''}`}
+                        >
+                            {isWished ? '❤️ Saved to Wishlist' : '🤍 Add to Wishlist'}
+                        </button>
+                    </div>
                 </div>
             </div>
 

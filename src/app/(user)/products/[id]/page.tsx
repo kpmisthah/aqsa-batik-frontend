@@ -93,7 +93,7 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
             <Nav />
 
             {/* ── MODERN PRODUCT HERO (Interactive) ── */}
-            <section className="pt-28 md:pt-36 pb-2 px-6 md:px-10 max-w-[1500px] mx-auto">
+            <section className="pt-6 md:pt-36 pb-2 px-6 md:px-10 max-w-[1500px] mx-auto">
                 <Suspense fallback={<div className="animate-pulse w-full h-[600px] bg-primary/5 rounded-[40px]"></div>}>
                     <ProductInteractive product={product} />
                 </Suspense>
