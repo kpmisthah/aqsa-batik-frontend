@@ -107,7 +107,7 @@ export default function AdminLayout({
           <div className="p-4 border-t border-primary/10 relative z-10">
             <button
               onClick={() => logout()}
-              className="flex items-center w-full px-4 py-3 text-sm font-bold text-secondary rounded-xl hover:bg-secondary hover:text-white transition-colors"
+              className="flex items-center w-full px-4 py-3 text-sm font-bold text-primary/60 rounded-xl hover:bg-secondary hover:text-white transition-colors"
             >
               <LogOut className="w-5 h-5 mr-3 opacity-80" />
               Sign Out
