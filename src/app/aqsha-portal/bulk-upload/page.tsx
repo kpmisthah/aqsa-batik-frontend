@@ -104,7 +104,7 @@ export default function AdminBulkUpload() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* CSV File Input */}
                 <div className="space-y-3">
-                  <label className="flex items-center gap-2 text-sm font-black uppercase tracking-widest text-secondary">
+                  <label className="flex items-center gap-2 text-sm font-black uppercase tracking-widest text-primary/60">
                     <FileType size={16} /> Data File (.csv)
                   </label>
                   <div className={`relative flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-2xl transition-colors cursor-pointer ${csvFile ? 'border-accent bg-accent/5' : 'border-primary/20 hover:border-primary/40 bg-cream/30 hover:bg-cream/60'}`}>
@@ -134,7 +134,7 @@ export default function AdminBulkUpload() {
 
                 {/* ZIP File Input */}
                 <div className="space-y-3">
-                  <label className="flex items-center gap-2 text-sm font-black uppercase tracking-widest text-secondary">
+                  <label className="flex items-center gap-2 text-sm font-black uppercase tracking-widest text-primary/60">
                     <FileType size={16} /> Images File (.zip)
                   </label>
                   <div className={`relative flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-2xl transition-colors cursor-pointer ${zipFile ? 'border-accent bg-accent/5' : 'border-primary/20 hover:border-primary/40 bg-cream/30 hover:bg-cream/60'}`}>
@@ -167,13 +167,13 @@ export default function AdminBulkUpload() {
                 <h4 className="text-sm font-black text-primary uppercase tracking-widest mb-3">Upload Rules & Instructions</h4>
                 <ul className="text-sm text-primary/80 space-y-3 list-disc list-inside bg-white p-4 rounded-xl border border-primary/5 shadow-sm">
                   <li><strong className="font-bold">Synchronicity:</strong> Ensure both your CSV layout and ZIP assets are uploaded before firing the payload.</li>
-                  <li><strong className="font-bold">Image Mapping:</strong> The system automatically extracts Cloudinary URLs. In "Model Image", "Gallery Images 1- Kameez", "Gallery Images 2- Shalwar", and "Gallery Images 3- Duppatta", type the raw filename matching your ZIP (e.g., <code className="bg-cream px-1.5 py-0.5 rounded text-secondary font-bold">ABS-0001-model.webp</code>). Each column maps to one image, in that order.</li>
-                  <li><strong className="font-bold">Tags:</strong> Separate multiple tags with a comma (e.g., <code className="bg-cream px-1.5 py-0.5 rounded text-secondary font-bold">batik print, cotton clothing</code>).</li>
+                  <li><strong className="font-bold">Image Mapping:</strong> The system automatically extracts Cloudinary URLs. In "Model Image", "Gallery Images 1- Kameez", "Gallery Images 2- Shalwar", and "Gallery Images 3- Duppatta", type the raw filename matching your ZIP (e.g., <code className="bg-cream px-1.5 py-0.5 rounded text-primary/60 font-bold">ABS-0001-model.webp</code>). Each column maps to one image, in that order.</li>
+                  <li><strong className="font-bold">Tags:</strong> Separate multiple tags with a comma (e.g., <code className="bg-cream px-1.5 py-0.5 rounded text-primary/60 font-bold">batik print, cotton clothing</code>).</li>
                   <li><strong className="font-bold">Wholesale Available:</strong> Use <code className="bg-cream px-1.5 py-0.5 rounded font-bold">Yes</code> or <code className="bg-cream px-1.5 py-0.5 rounded font-bold">No</code>.</li>
                   <li><strong className="font-bold">Zip Format:</strong> Archives must strictly contain raw visual assets. Nesting is ignored.</li>
                 </ul>
                 <div className="mt-5 flex justify-end">
-                   <button type="button" onClick={handleDownloadTemplate} className="px-5 py-2 bg-cream/50 rounded-lg text-sm font-bold text-secondary border border-primary/5 hover:bg-cream transition-colors shadow-sm">Download Blank CSV Template</button>
+                   <button type="button" onClick={handleDownloadTemplate} className="px-5 py-2 bg-cream/50 rounded-lg text-sm font-bold text-primary/60 border border-primary/5 hover:bg-cream transition-colors shadow-sm">Download Blank CSV Template</button>
                 </div>
               </div>
 
