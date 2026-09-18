@@ -148,10 +148,10 @@ export default function AdminBlogs() {
             <table className="min-w-full divide-y divide-primary/10">
               <thead className="bg-cream">
                 <tr>
-                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Article</th>
-                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Author & Category</th>
-                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-secondary uppercase tracking-widest">Status</th>
-                  <th scope="col" className="px-6 py-4 text-right text-xs font-black text-secondary uppercase tracking-widest">Actions</th>
+                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-primary/60 uppercase tracking-widest">Article</th>
+                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-primary/60 uppercase tracking-widest">Author & Category</th>
+                  <th scope="col" className="px-6 py-4 text-left text-xs font-black text-primary/60 uppercase tracking-widest">Status</th>
+                  <th scope="col" className="px-6 py-4 text-right text-xs font-black text-primary/60 uppercase tracking-widest">Actions</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-primary/5">
@@ -227,24 +227,24 @@ export default function AdminBlogs() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
              <div className="md:col-span-2 space-y-5">
                 <div>
-                  <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-2">Article Title</label>
+                  <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Article Title</label>
                   <input type="text" name="title" defaultValue={editingBlog?.title || ""} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="E.g. The Ultimate Guide to Batik..." required />
                 </div>
                 
                 <div>
-                  <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-2">Excerpt / Short Description</label>
+                  <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Excerpt / Short Description</label>
                   <textarea name="excerpt" defaultValue={editingBlog?.excerpt || ""} rows={2} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium resize-none" placeholder="A brief summary..." />
                 </div>
                 
                 <div>
-                  <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-2">Content (HTML allowed)</label>
+                  <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Content (HTML allowed)</label>
                   <RichTextEditor value={blogContent} onChange={setBlogContent} placeholder="Write your article here..." />
                 </div>
              </div>
              
              <div className="space-y-5">
                 <div>
-                  <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-2">Featured Image</label>
+                  <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Featured Image</label>
                   <input
                     type="file"
                     accept="image/*"
@@ -266,12 +266,12 @@ export default function AdminBlogs() {
                 </div>
                   
                 <div>
-                  <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-2">Category</label>
+                  <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Category</label>
                   <input type="text" name="category" defaultValue={editingBlog?.category || ""} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="E.g. Fashion Trends" />
                 </div>
                 
                 <div>
-                  <label className="block text-xs font-black uppercase tracking-widest text-secondary mb-2">Author</label>
+                  <label className="block text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Author</label>
                   <input type="text" name="author" defaultValue={editingBlog?.author || ""} className="w-full border border-primary/20 rounded-xl p-3 text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium" placeholder="E.g. Admin" />
                 </div>
 
