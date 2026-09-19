@@ -1,8 +1,28 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useHomeContent } from "@/modules/user/hooks/useHomeContent";
+import { renderWithHighlight } from "@/utils/textHighlight";
+
+const DEFAULT_PREMIUM_TRUST = {
+    overline: "The Legacy of Quality",
+    heading: "Trusted by 1,000+ Retail Partners\nfor Quality Batik Fashion",
+    highlightWord: "1,000+ Retail Partners",
+    paragraph: "For 15+ years, AQSHA Batik Suits has helped boutiques, wholesalers, and resellers source dependable women's dress material, cotton fabrics, Shalwar Kameez, Dupatta/Chunni, and ready-to-sell fashion collections across India.",
+    image: "/round-category/indian dresses for girls.webp",
+    videoUrl: "",
+    ctaLabel: "Discover Our Story",
+    ctaLink: "/about-us",
+    features: [
+        { num: "01", t: "15+ Years of Heritage", d: "Mastering consistent quality, detailed finishing, and dependable production since 2008." },
+        { num: "02", t: "Premium Color Fastness", d: "Carefully finished cotton fabrics designed to retain their print, color, and appeal through everyday wear." },
+        { num: "03", t: "Ready Dispatch", d: "Efficient production and trusted logistics help keep your fashion stock moving without unnecessary delays." },
+        { num: "04", t: "Direct Manufacturer Margins", d: "Source directly from an Ujjain batik manufacturer and access competitive pricing across batik suits, cotton kurtis, dress material, and wholesale fashion collections." }
+    ],
+};
 
 export default function PremiumTrustSection() {
+    const { overline, heading, highlightWord, paragraph, image, videoUrl, ctaLabel, ctaLink, features } = useHomeContent("premium_trust", DEFAULT_PREMIUM_TRUST);
     return (
         <section className="bg-cream pt-20 pb-16 md:pt-24 md:pb-20 px-4 md:px-8 border-t border-border/40 overflow-hidden">
             <div className="max-w-[1500px] mx-auto flex flex-col gap-12 md:gap-16">
@@ -10,13 +30,13 @@ export default function PremiumTrustSection() {
                 {/* Top Heading Area */}
                 <div className="flex flex-col items-center text-center gap-3 md:gap-4 w-full max-w-4xl mx-auto">
                     <span className="text-overline uppercase tracking-[0.2em] font-bold text-[#8A4B32]">
-                        The Legacy of Quality
+                        {overline}
                     </span>
                     <h2 className="text-h2 md:text-h1 text-primary font-normal leading-tight">
-                        Trusted by <span className="text-highlight italic">1,000+ Retail Partners</span> <br className="hidden md:block" /> for Quality Batik Fashion
+                        {renderWithHighlight(heading, highlightWord)}
                     </h2>
                     <p className="text-sm md:text-base text-primary/80 font-medium leading-relaxed max-w-3xl mt-2">
-                        For 15+ years, AQSHA Batik Suits has helped boutiques, wholesalers, and resellers source dependable women's dress material, cotton fabrics, Shalwar Kameez, Dupatta/Chunni, and ready-to-sell fashion collections across India.
+                        {paragraph}
                     </p>
                 </div>
 
@@ -26,23 +46,29 @@ export default function PremiumTrustSection() {
                     {/* Left Visual */}
                     <div className="w-full lg:w-1/2 relative group aspect-[4/3]">
                         <div className="relative w-full h-full overflow-hidden rounded-xl md:rounded-2xl shadow-sm z-10 border border-primary/10 bg-tan">
-                            <Image
-                                src="/round-category/indian dresses for girls.webp"
-                                alt="Workshop"
-                                fill
-                                className="object-cover object-center grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[4s]"
-                            />
+                            {videoUrl ? (
+                                <video
+                                    src={videoUrl}
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-[4s]"
+                                />
+                            ) : (
+                                <Image
+                                    src={image}
+                                    alt="Workshop"
+                                    fill
+                                    className="object-cover object-center grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[4s]"
+                                />
+                            )}
                         </div>
                     </div>
 
                     {/* Right Content */}
                     <div className="w-full lg:w-1/2 flex flex-col pt-0 md:pt-2 border-t md:border-primary/20 border-transparent md:border-t-solid">
-                        {[
-                            { num: "01", t: "15+ Years of Heritage", d: "Mastering consistent quality, detailed finishing, and dependable production since 2008." },
-                            { num: "02", t: "Premium Color Fastness", d: "Carefully finished cotton fabrics designed to retain their print, color, and appeal through everyday wear." },
-                            { num: "03", t: "Ready Dispatch", d: "Efficient production and trusted logistics help keep your fashion stock moving without unnecessary delays." },
-                            { num: "04", t: <>Direct Manufacturer <br className="hidden md:block" /> Margins</>, d: "Source directly from an Ujjain batik manufacturer and access competitive pricing across batik suits, cotton kurtis, dress material, and wholesale fashion collections." }
-                        ].map((item, i) => (
+                        {features.map((item: any, i: number) => (
                             <div key={i} className="group relative flex flex-col md:flex-row md:items-start justify-between py-5 md:py-8 border-b border-primary/20 md:hover:bg-primary/[0.02] transition-colors duration-500 cursor-default px-1 md:-mx-4 md:px-4">
                                 <div className="flex gap-3 md:gap-6 items-start w-full md:w-[45%] mb-2 md:mb-0">
                                     <span className="text-xl md:text-2xl text-highlight italic w-6 md:w-8 shrink-0 font-serif leading-none mt-1">{item.num}</span>
@@ -56,8 +82,8 @@ export default function PremiumTrustSection() {
 
                         {/* Seamless CTA integration */}
                         <div className="mt-8 flex justify-center w-full">
-                            <Link href="/about-us" className="btn-secondary group">
-                                <span>Discover Our Story</span>
+                            <Link href={ctaLink} className="btn-secondary group">
+                                <span>{ctaLabel}</span>
                                 <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
                             </Link>
                         </div>
