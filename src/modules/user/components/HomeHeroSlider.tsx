@@ -172,8 +172,6 @@ export default function HomeHeroSlider() {
   useEffect(() => {
     const fetchSlides = async () => {
       try {
-        // Temporarily disabled to force the usage of DEFAULT_SLIDES
-        /*
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/home-slider/active`);
         if (res.ok) {
           const data = await res.json();
@@ -184,7 +182,6 @@ export default function HomeHeroSlider() {
             }
           }
         }
-        */
       } catch (err) {
         console.error('Failed to load active slides, using default slides', err);
       }
