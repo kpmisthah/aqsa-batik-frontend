@@ -4,6 +4,8 @@ export interface SectionConfig {
   key: string;
   label: string;
   description: string;
+  /** Which page this section belongs to, for grouping in the admin UI. */
+  page: string;
   fields: FieldConfig[];
   lists?: ListFieldConfig[];
   /** The content currently live on the site (the component's hardcoded fallback),
@@ -14,6 +16,7 @@ export interface SectionConfig {
 export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
   {
     key: "google_review_bar",
+    page: "Home",
     label: "Google Review Bar",
     description: "The scrolling review strip below the hero slider.",
     fields: [
@@ -40,6 +43,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
   },
   {
     key: "curated_collection_text",
+    page: "Home",
     label: "Curated Collection Heading",
     description: "Heading/copy above the category grid in the tan \"Curated Collection\" section.",
     fields: [
@@ -61,6 +65,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
   },
   {
     key: "shop_by_category",
+    page: "Home",
     label: "Shop By Category",
     description: "The 5-category tile grid (used in two places on the home page).",
     fields: [],
@@ -89,6 +94,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
   },
   {
     key: "featured_grid_text",
+    page: "Home",
     label: "Featured Grid Heading",
     description: "Heading/copy above the 4 featured products (products themselves stay live).",
     fields: [
@@ -112,6 +118,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
   },
   {
     key: "lifestyle_banner",
+    page: "Home",
     label: "Lifestyle Banner",
     description: "Single image banner with heading and two paragraphs.",
     fields: [
@@ -135,6 +142,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
   },
   {
     key: "trending_collections_banner",
+    page: "Home",
     label: "Trending Collections Banner",
     description: "The 5-tile promotional banner grid.",
     fields: [
@@ -178,6 +186,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
   },
   {
     key: "trending_products_text",
+    page: "Home",
     label: "Trending Products Heading",
     description: "Heading/copy above the trending products carousel (products stay live).",
     fields: [
@@ -201,6 +210,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
   },
   {
     key: "premium_trust",
+    page: "Home",
     label: "Premium Trust Section",
     description: "\"Trusted by 1,000+ Retail Partners\" section.",
     fields: [
@@ -243,6 +253,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
   },
   {
     key: "lookbook",
+    page: "Home",
     label: "Lookbook",
     description: "The 4-image lookbook grid.",
     fields: [
@@ -281,6 +292,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
   },
   {
     key: "partnership_banner",
+    page: "Home",
     label: "Partnership Banner",
     description: "Single full-width image banner, no text.",
     fields: [
@@ -292,6 +304,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
   },
   {
     key: "shoppable_reels",
+    page: "Home",
     label: "Shoppable Reels",
     description: "The video reel gallery.",
     fields: [
@@ -333,6 +346,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
   },
   {
     key: "faq",
+    page: "Home",
     label: "FAQ",
     description: "Home page FAQ accordion.",
     fields: [],
@@ -358,6 +372,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
   },
   {
     key: "lead_generation_form",
+    page: "Home",
     label: "Lead Generation Form",
     description: "\"Get Personalized Pricing & Catalog\" form section.",
     fields: [
@@ -390,6 +405,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
   },
   {
     key: "sticky_enquiry_button",
+    page: "Home",
     label: "Sticky Enquiry Button",
     description: "The floating quote button.",
     fields: [
@@ -401,6 +417,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
   },
   {
     key: "how_to_order",
+    page: "Home",
     label: "How To Order",
     description: "The \"How to Order\" step-by-step section (steps themselves stay fixed — only this heading/CTA is editable here).",
     fields: [
@@ -418,6 +435,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
   },
   {
     key: "target_audience",
+    page: "Home",
     label: "Target Audience",
     description: "\"Built for Boutique Owners / Resellers / Wholesalers / Marketplaces\" section.",
     fields: [
@@ -452,6 +470,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
   },
   {
     key: "our_story",
+    page: "Home",
     label: "Our Story",
     description: "The company history / stats / timeline section.",
     fields: [
@@ -498,6 +517,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
   },
   {
     key: "buyer_testimonial_gallery",
+    page: "Home",
     label: "Buyer Testimonial Gallery",
     description: "\"What Buyers Say\" WhatsApp screenshot gallery.",
     fields: [
@@ -536,6 +556,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
   },
   {
     key: "buyer_psychology",
+    page: "Home",
     label: "Buyer Psychology",
     description: "\"Broad Market Appeal / Everyday Comfort / ...\" feature grid.",
     fields: [
@@ -569,6 +590,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
   },
   {
     key: "cta_banner_marquee",
+    page: "Home",
     label: "CTA Marquee Banner",
     description: "The scrolling dark banner text near the bottom of the page.",
     fields: [
@@ -576,6 +598,329 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
     ],
     defaultData: {
       text: "Fast-Moving Suits for Women • New Batik Designs Weekly • Wholesale Orders Available",
+    },
+  },
+
+  // ── ABOUT US ──
+  {
+    key: "about_hero",
+    page: "About Us",
+    label: "About Us Hero",
+    description: "The heritage intro section at the top of the About Us page.",
+    fields: [
+      { key: "overline", label: "Overline", type: "text" },
+      { key: "heading", label: "Heading", type: "textarea" },
+      { key: "highlightWord", label: "Highlight Word (optional, colored)", type: "text" },
+      { key: "paragraph", label: "Paragraph", type: "textarea" },
+      { key: "calloutText", label: "Highlighted Callout Text", type: "textarea" },
+      { key: "ctaLabel", label: "CTA Label", type: "text" },
+      { key: "image", label: "Image", type: "image" },
+    ],
+    lists: [
+      {
+        key: "checklist",
+        label: "Checklist Points",
+        itemFields: [
+          { key: "text", label: "Point", type: "text" },
+        ],
+      },
+    ],
+    defaultData: {
+      overline: "OUR HERITAGE",
+      heading: "Legacy Craftsmanship\nBehind Every Design",
+      highlightWord: "Every Design",
+      paragraph: "Rooted in Bherugarh, Ujjain, we carry forward the legacy of traditional wax batik—refined over 15+ years into premium Batik Prints Women Clothing, batik dresses, and high-quality Batik Cotton Dress for Women.",
+      calloutText: "Our collections focus on durable cotton dress material and consistent wholesale fabric, built for real market demand and ready-to-sell use.",
+      ctaLabel: "Get In Touch",
+      image: "/About-us/about-us.png",
+      checklist: [
+        { text: "Traditional Batik Prints" },
+        { text: "Premium Cotton Quality" },
+        { text: "15+ Years Expertise" },
+        { text: "Wholesale Ready" },
+      ],
+    },
+  },
+  {
+    key: "about_premium_features",
+    page: "About Us",
+    label: "About Us — What We Stand For",
+    description: "The 4-feature \"principles\" section (icons stay fixed).",
+    fields: [
+      { key: "tag", label: "Tag", type: "text" },
+      { key: "heading", label: "Heading", type: "text" },
+      { key: "highlightWord", label: "Highlight Word (optional, colored)", type: "text" },
+      { key: "quote", label: "Quote", type: "textarea" },
+      { key: "image", label: "Image", type: "image" },
+    ],
+    lists: [
+      {
+        key: "features",
+        label: "Features (exactly 4 — each keeps its fixed icon by position)",
+        itemFields: [
+          { key: "t", label: "Title", type: "text" },
+          { key: "d", label: "Description", type: "textarea" },
+        ],
+      },
+    ],
+    defaultData: {
+      tag: "Guided by Principles",
+      heading: "What We Stand For",
+      highlightWord: "Stand For",
+      quote: "Every piece of Batik Prints Women Clothing, cotton dress material, and Batik Cotton Dress for Women we produce is guided by principles that ensure quality, consistency, and long-term trust for buyers.",
+      image: "/About-us/ujjain batik (3).webp",
+      features: [
+        { t: "Authentic Craftsmanship", d: "We follow traditional wax-resist techniques to create genuine batik designs, ensuring every piece reflects real craftsmanship—not mass imitation." },
+        { t: "Material Integrity", d: "Our collections use high-quality cotton fabric and durable dress material, built for comfort, repeat use, and consistent wholesale demand." },
+        { t: "Direct Transparency", d: "As a direct manufacturer, we offer clear pricing, reliable supply, and honest communication for long-term business partnerships." },
+        { t: "Bulk Reliability", d: "We maintain ready stock and fast dispatch timelines to ensure your boutique or wholesale business never faces inventory gaps across India." },
+      ],
+    },
+  },
+  {
+    key: "about_manufacturing",
+    page: "About Us",
+    label: "About Us — Manufacturing Standards",
+    description: "The \"Our Whole Fabric Manufacturing Standards\" process section.",
+    fields: [
+      { key: "tag", label: "Tag", type: "text" },
+      { key: "heading", label: "Heading", type: "text" },
+      { key: "highlightWord", label: "Highlight Word (optional, colored)", type: "text" },
+      { key: "image", label: "Image", type: "image" },
+    ],
+    lists: [
+      {
+        key: "steps",
+        label: "Steps",
+        itemFields: [
+          { key: "t", label: "Title", type: "text" },
+          { key: "d", label: "Description", type: "textarea" },
+        ],
+      },
+    ],
+    defaultData: {
+      tag: "The Process",
+      heading: "Our Whole Fabric Manufacturing Standards",
+      highlightWord: "Manufacturing Standards",
+      image: "/round-category/indian dresses for girls.webp",
+      steps: [
+        { t: "Premium Cotton Selection", d: "We use high-quality cotton fabric (60x60) known for comfort, durability, and suitability for daily wear and stitched garments." },
+        { t: "Traditional Wax-Dyeing", d: "Our process follows original wax techniques to create detailed batik print designs with strong pattern suits clarity and lasting color." },
+        { t: "Quality Control & Finishing", d: "Each batch is checked for consistency, color accuracy, and clean cutting—ensuring it is ready for bulk supply and retail use." },
+      ],
+    },
+  },
+  {
+    key: "about_final_cta",
+    page: "About Us",
+    label: "About Us — Final CTA",
+    description: "The closing \"Work Directly with the Manufacturer\" banner.",
+    fields: [
+      { key: "heading", label: "Heading", type: "text" },
+      { key: "highlightWord", label: "Highlight Word (optional, colored)", type: "text" },
+      { key: "paragraph", label: "Paragraph", type: "textarea" },
+    ],
+    defaultData: {
+      heading: "Work Directly with the Manufacturer",
+      highlightWord: "the Manufacturer",
+      paragraph: "Partner with a team focused on consistent quality, reliable supply, and long-term business relationships across Indian markets.",
+    },
+  },
+
+  // ── CONTACT US ──
+  {
+    key: "contact_hero",
+    page: "Contact Us",
+    label: "Contact Us Hero",
+    description: "The intro section at the top of the Contact Us page.",
+    fields: [
+      { key: "heading", label: "Heading", type: "text" },
+      { key: "highlightWord", label: "Highlight Word (optional, colored)", type: "text" },
+      { key: "paragraph", label: "Paragraph", type: "textarea" },
+      { key: "image", label: "Image", type: "image" },
+    ],
+    lists: [
+      {
+        key: "trustBadges",
+        label: "Trust Badges (exactly 3 — each keeps its fixed icon by position)",
+        itemFields: [
+          { key: "label", label: "Label", type: "text" },
+        ],
+      },
+    ],
+    defaultData: {
+      heading: "Let's Talk About Your Batik Cotton Dress for Women Requirements",
+      highlightWord: "Requirements",
+      paragraph: "Looking for premium Batik Cotton Dress for Women, Batik Prints Women Clothing, women clothing, or the latest cotton dresses for women? Whether you're a retailer, wholesaler, boutique owner, or fashion brand, our team is here to help you source high-quality collections directly from a trusted manufacturer.",
+      image: "/category/contactt.png",
+      trustBadges: [
+        { label: "Premium Quality" },
+        { label: "Bulk Orders Welcome" },
+        { label: "Trusted Manufacturer" },
+      ],
+    },
+  },
+  {
+    key: "contact_info",
+    page: "Contact Us",
+    label: "Contact Us — Info Cards",
+    description: "Address, phone, and email shown in the info strip.",
+    fields: [
+      { key: "addressLine1", label: "Address Line 1", type: "text" },
+      { key: "addressLine2", label: "Address Line 2", type: "text" },
+      { key: "phone", label: "Phone", type: "text" },
+      { key: "email", label: "Email", type: "text" },
+    ],
+    defaultData: {
+      addressLine1: "Bherugarh, Ujjain,",
+      addressLine2: "Madhya Pradesh 456010",
+      phone: "+91 88153 73767",
+      email: "Aqdaschhipa368@gmail.com",
+    },
+  },
+  {
+    key: "contact_form_section",
+    page: "Contact Us",
+    label: "Contact Us — Form Section",
+    description: "Heading, copy, and benefits list beside the enquiry form.",
+    fields: [
+      { key: "overline", label: "Overline", type: "text" },
+      { key: "heading", label: "Heading", type: "textarea" },
+      { key: "highlightWord", label: "Highlight Word(s) (optional, colored — separate two with a | )", type: "text" },
+      { key: "paragraph1", label: "Paragraph 1", type: "textarea" },
+      { key: "paragraph2", label: "Paragraph 2", type: "textarea" },
+      { key: "paragraph3", label: "Paragraph 3 (emphasized)", type: "textarea" },
+      { key: "formCardHeading", label: "Form Card Heading", type: "text" },
+      { key: "formCardHighlightWord", label: "Form Card Highlight Word", type: "text" },
+    ],
+    lists: [
+      {
+        key: "benefits",
+        label: "Benefit Bullets",
+        itemFields: [
+          { key: "text", label: "Benefit", type: "text" },
+        ],
+      },
+    ],
+    defaultData: {
+      overline: "Get In Touch",
+      heading: "Get Personalized Batik\nCotton Dress for Women\nPricing & Expert Guidance",
+      highlightWord: "Batik|Cotton Dress",
+      paragraph1: "The right supplier doesn't just provide fabric. They help you choose collections that sell.",
+      paragraph2: "At Aqsha Batik, we work closely with retailers, wholesalers, and fashion businesses looking for premium Batik Cotton Dress for Women, women clothing, and indian dresses that customers love.",
+      paragraph3: "Submit your details and receive direct manufacturer pricing, catalogue access, and expert assistance.",
+      formCardHeading: "Request Wholesale Access",
+      formCardHighlightWord: "Wholesale Access",
+      benefits: [
+        { text: "Latest Batik Collection Catalog" },
+        { text: "Wholesale Pricing Support" },
+        { text: "Fast WhatsApp Assistance" },
+        { text: "Bulk Order Guidance" },
+        { text: "Ready Stock Updates" },
+        { text: "Premium Quality Assurance" },
+      ],
+    },
+  },
+  {
+    key: "contact_trust",
+    page: "Contact Us",
+    label: "Contact Us — Trust Section",
+    description: "The \"Trusted By Retailers\" 4-card grid (icons stay fixed).",
+    fields: [
+      { key: "overline", label: "Overline", type: "text" },
+      { key: "heading", label: "Heading", type: "text" },
+      { key: "highlightWord", label: "Highlight Word (optional, colored)", type: "text" },
+      { key: "paragraph", label: "Paragraph", type: "textarea" },
+    ],
+    lists: [
+      {
+        key: "cards",
+        label: "Cards (exactly 4 — each keeps its fixed icon by position)",
+        itemFields: [
+          { key: "title", label: "Title", type: "text" },
+          { key: "desc", label: "Description", type: "textarea" },
+        ],
+      },
+    ],
+    defaultData: {
+      overline: "Why Choose Aqsha Batik",
+      heading: "Trusted By Retailers & Fashion Businesses",
+      highlightWord: "Fashion Businesses",
+      paragraph: "For over 15 years, Aqsha Batik has helped businesses source premium-quality batik collections with confidence.",
+      cards: [
+        { title: "Direct Manufacturer", desc: "Buy directly from the manufacturer for better pricing, consistent quality, and reliable support." },
+        { title: "Ready Stock Available", desc: "Access a wide range of ready-to-dispatch batik collections and dress materials." },
+        { title: "Fast Dispatch", desc: "Quick processing and delivery to help your business maintain inventory without delays." },
+        { title: "Premium Quality", desc: "Carefully crafted collections designed for retailers, wholesalers, and fashion brands." },
+      ],
+    },
+  },
+  {
+    key: "contact_faq",
+    page: "Contact Us",
+    label: "Contact Us — FAQ",
+    description: "Contact page FAQ accordion.",
+    fields: [],
+    lists: [
+      {
+        key: "items",
+        label: "Questions",
+        itemFields: [
+          { key: "q", label: "Question", type: "text" },
+          { key: "a", label: "Answer", type: "textarea" },
+        ],
+      },
+    ],
+    defaultData: {
+      items: [
+        { q: "Can I order Batik Cotton Dress for Women in bulk quantities?", a: "Yes. We specialize in wholesale Batik Cotton Dress for Women supply for retailers, wholesalers, boutiques, and fashion businesses across India." },
+        { q: "Do you provide wholesale pricing?", a: "Yes. Contact our team or submit the enquiry form to receive the latest wholesale pricing and catalogue." },
+        { q: "What is the minimum order quantity?", a: "The minimum order quantity may vary depending on the collection. Our team will guide you based on your requirements." },
+        { q: "Do you ship across India?", a: "Yes. We provide reliable dispatch and delivery services across India." },
+        { q: "How can I get the latest catalogue?", a: "Simply submit the enquiry form or contact us on WhatsApp to receive the latest Batik Cotton Dress for Women catalogue and pricing details." },
+      ],
+    },
+  },
+  {
+    key: "contact_final_cta",
+    page: "Contact Us",
+    label: "Contact Us — Final CTA",
+    description: "The closing banner just before the footer.",
+    fields: [
+      { key: "heading", label: "Heading", type: "textarea" },
+      { key: "highlightWord", label: "Highlight Word (optional, colored)", type: "text" },
+      { key: "paragraph", label: "Paragraph", type: "textarea" },
+    ],
+    defaultData: {
+      heading: "Looking For Premium Batik Cotton Dress for Women At Wholesale Prices?",
+      highlightWord: "Batik Cotton Dress for Women",
+      paragraph: "Get direct manufacturer pricing, expert guidance, and access to our latest Batik Cotton Dress for Women, women clothing, indian dresses, and wholesale collections.",
+    },
+  },
+
+  // ── SITEWIDE ──
+  {
+    key: "sitewide_cta_banner",
+    page: "Sitewide",
+    label: "Sitewide CTA Banner",
+    description: "The \"Batik Suits Customers Love to Wear Again\" banner shown near the bottom of most pages (About Us, Contact Us, category pages, policy pages, blog).",
+    fields: [
+      { key: "tagText", label: "Tag Text", type: "text" },
+      { key: "heading", label: "Heading", type: "textarea" },
+      { key: "highlightWord", label: "Highlight Word (optional, colored)", type: "text" },
+      { key: "paragraph", label: "Paragraph", type: "textarea" },
+      { key: "image", label: "Image", type: "image" },
+      { key: "ctaLabel1", label: "Primary CTA Label", type: "text" },
+      { key: "ctaLabel2", label: "Secondary CTA Label", type: "text" },
+    ],
+    defaultData: {
+      tagText: "MADE TO WEAR. MADE TO SELL.",
+      heading: "Batik Suits Customers\nLove to Wear Again",
+      highlightWord: "Wear Again",
+      paragraph: "Discover comfortable, distinctive Batik suits made for everyday style, while giving boutiques and retailers a collection customers want to come back for.",
+      image: "/luxury_ethnic_seated.png",
+      ctaLabel1: "Shop Batik Suits",
+      ctaLabel2: "Become a Wholesale Partner",
     },
   },
 ];
