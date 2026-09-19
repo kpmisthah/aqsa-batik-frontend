@@ -4,10 +4,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { getProductPathByName } from "@/utils/slugMapper";
 import { UserProduct } from "./ProductCard";
+import { useHomeContent } from "@/modules/user/hooks/useHomeContent";
+import { renderWithHighlight } from "@/utils/textHighlight";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
+const DEFAULT_TRENDING_PRODUCTS_TEXT = {
+    overline: "Best Batik Suit Designs",
+    heading: "Best-Selling Batik Suits in Cotton Styles",
+    highlightWord: "Cotton Styles",
+    paragraph: "Discover best-selling batik suit designs, stylish suit designs for women, cotton dress material, and printed dresses made for everyday wear, festive moments, and effortless Indian styling.",
+    badgeLabel: "TREND",
+    ctaLabel: "Shop Best Sellers",
+    ctaLink: "/batik-ethnic-wear-for-women",
+};
+
 export default function TrendingProductsSection() {
+    const { overline, heading, highlightWord, paragraph, badgeLabel, ctaLabel, ctaLink } = useHomeContent("trending_products_text", DEFAULT_TRENDING_PRODUCTS_TEXT);
     const [products, setProducts] = useState<UserProduct[]>([]);
     const [loading, setLoading] = useState(true);
     const scrollRef = useRef<HTMLDivElement>(null);
@@ -68,12 +81,12 @@ export default function TrendingProductsSection() {
 
                 {/* Refined Header */}
                 <div className="flex flex-col items-center justify-center text-center mb-10 md:mb-12 gap-3 md:gap-4 max-w-4xl lg:max-w-5xl mx-auto">
-                    <span className="text-overline uppercase tracking-[0.2em] font-bold text-[#8A4B32]">Best Batik Suit Designs</span>
+                    <span className="text-overline uppercase tracking-[0.2em] font-bold text-[#8A4B32]">{overline}</span>
                     <h2 className="text-h2 md:text-h1 text-primary font-normal leading-tight">
-                        Best-Selling Batik Suits in <span className="text-highlight italic">Cotton Styles</span>
+                        {renderWithHighlight(heading, highlightWord)}
                     </h2>
                     <p className="text-sm md:text-base text-primary/80 font-medium leading-relaxed mt-2 max-w-4xl">
-                        Discover best-selling batik suit designs, stylish suit designs for women, cotton dress material, and printed dresses made for everyday wear, festive moments, and effortless Indian styling.
+                        {paragraph}
                     </p>
                 </div>
 
@@ -118,7 +131,7 @@ export default function TrendingProductsSection() {
                                     {/* Editorial Typography Block matching the requested SSENSE-style */}
                                     <div className="flex flex-col gap-1.5 pt-2 w-full">
                                         <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-primary/60">
-                                            TREND
+                                            {badgeLabel}
                                         </span>
                                         <h3 className="text-sm md:text-base text-primary/80 font-medium uppercase tracking-wider leading-snug group-hover:text-primary transition-colors duration-500">
                                             {product.name}
@@ -134,8 +147,8 @@ export default function TrendingProductsSection() {
                 </div>
 
                 <div className="flex justify-center mt-4 md:mt-6">
-                    <Link href="/batik-ethnic-wear-for-women" className="btn-secondary group">
-                        <span>Shop Best Sellers</span>
+                    <Link href={ctaLink} className="btn-secondary group">
+                        <span>{ctaLabel}</span>
                         <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
                     </Link>
                 </div>
