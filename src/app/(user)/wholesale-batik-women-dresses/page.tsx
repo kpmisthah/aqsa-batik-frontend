@@ -2,20 +2,138 @@ import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/modules/user/components/Nav";
 import FAQ from "@/modules/user/components/FAQ";
-import PremiumTrustSection from "@/modules/user/components/PremiumTrustSection";
 import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
 import LeadGenerationForm from "@/modules/user/components/LeadGenerationForm";
 import StickyEnquiryButton from "@/modules/user/components/StickyEnquiryButton";
 
-import ProductGrid from "@/modules/user/components/ProductGrid";
 import PremiumFeatureSection from "@/modules/user/components/PremiumFeatureSection";
-import AdvantageSection from "@/modules/user/components/AdvantageSection";
 import HowToOrderSection from "@/modules/user/components/HowToOrderSection";
 import ProductFilterLayout from "@/modules/user/components/ProductFilterLayout";
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
-import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
-import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
 import ConsistentCTA from "@/modules/user/components/ConsistentCTA";
+import { getPageContent } from "@/utils/getPageContent";
+import { renderWithHighlight } from "@/utils/textHighlight";
+
+const DEFAULT_WHOLESALE_HERO = {
+    overline: "DIRECT MANUFACTURER · BULK SUPPLY",
+    heading: "Premium Wholesale\nWomen Dresses in\nBatik & Cotton",
+    highlightWord: "Batik & Cotton",
+    paragraph: "Source high-demand women dresses, Batik prints, cotton styles, and ready to sell collections directly from the manufacturer. Built for boutiques, resellers, retailers, and fashion businesses looking for distinctive designs, reliable supply, and better wholesale value.",
+    imageDesktop: "/Hero Banner/imp.png",
+    imageMobile: "/Hero Banner/mobile-version/ige(3).png",
+    ctaLabel1: "Become a Wholesale Partner",
+    ctaLabel2: "Chat on WhatsApp",
+};
+
+const DEFAULT_WHOLESALE_SOURCING = {
+    tag: "# STREAMLINE YOUR SOURCING",
+    heading: "Stop Stocking\nDresses That Do Not Move",
+    paragraph: "You don't need more products. You need a wholesale collection built around what customers want to wear.",
+    quoteBubbleText: "We help you build that collection.",
+    bioText: "AQSHA Batik Suits is a 15+ year manufacturer specialising in Batik Prints Women Clothinging, cotton styles, and high-demand women dresses for wholesale buyers.",
+};
+
+const DEFAULT_WHOLESALE_CAPABILITIES = {
+    overline: "BUILT FOR REAL MARKET USE",
+    heading: "Wholesale Women Dresses for Growing Fashion Businesses",
+    highlightWord: "Fashion Businesses",
+    paragraph: "From boutique collections to bulk supply, our wholesale range combines distinctive Batik design, comfortable cotton, and versatile silhouettes made for everyday and occasion wear.",
+    overline2: "HIGH-DEMAND DRESS COLLECTION",
+    heading2: "Explore Wholesale Women Dresses Customers Want to Wear",
+    highlightWord2: "Want to Wear",
+    paragraph2: "Discover Batik dresses, cotton dresses for women, casual styles, floral prints, and versatile silhouettes selected for retail appeal.",
+    items: [
+        { t: "Batik Dress Supply", d: "Source Batik dresses, Batik print dresses, and distinctive Batik dress designs created for retail collections and everyday customer demand.", img: "/wholesale/dresses for women.webp" },
+        { t: "Boutique & Clothing Brands", d: "Build a more memorable collection with trendy dresses for women, floral styles, cotton dresses, and unique Batik prints.", img: "/wholesale/dresses for women (1).webp" },
+        { t: "Custom & Bulk Orders", d: "Flexible wholesale supply for retailers, resellers, boutiques, and fashion businesses looking for bulk women dresses and cotton dress material.", img: "/wholesale/dresses for women (2).webp" },
+    ],
+};
+
+const DEFAULT_WHOLESALE_PREMIUM_FEATURES = {
+    tag: "Why Buyers Choose Our Supply",
+    heading: "Why Our Wholesale Women\nDresses Stand Out",
+    highlightWord: "Stand Out",
+    image: "/wholesale/women dresses.webp",
+    quote: "Distinctive designs. Reliable supply. Built for businesses that sell.",
+    features: [
+        { t: "Distinctive Batik Design", d: "Our Batik designs bring traditional print character into modern dresses for women, helping your collection feel different from ordinary mass-market styles." },
+        { t: "Consistent Print Quality", d: "Consistent Batik printing helps maintain colour, pattern clarity, and product quality across wholesale orders." },
+        { t: "Comfortable Cotton", d: "Cotton dresses for women offer breathable comfort and everyday wearability—ideal for customers who value both style and ease." },
+        { t: "Versatile Dress Styles", d: "From casual dresses for women to floral dresses, one-piece styles, and occasion-ready designs, our collection supports different customer preferences." },
+        { t: "Wholesale Pricing", d: "Direct manufacturer sourcing helps businesses access competitive wholesale pricing and protect retail margins." },
+        { t: "Ready for Retail", d: "Our women clothing collections are selected with practical retail use in mind—from boutique displays to online fashion stores." },
+    ],
+};
+
+const PREMIUM_FEATURE_ICONS = [
+    "/ICONS/distinctive-design-wholesale-icon.png",
+    "/ICONS/consistent-print-quality-icon.png",
+    "/ICONS/comfortable-cotton-wholesale-icon.png",
+    "/ICONS/versatile-dress-styles-icon.png",
+    "/ICONS/wholesale-pricing-icon.png",
+    "/ICONS/ready-for-retail-icon.png",
+];
+
+const DEFAULT_WHOLESALE_HOW_TO_ORDER = {
+    tag: "WHOLESALE PROCESS",
+    heading: "How to Order Wholesale Women Dresses",
+    highlightWord: "Women Dresses",
+    subtitle: "Five simple steps to move from product discovery to bulk supply.",
+    ctaText: "Become a Wholesale Partner",
+};
+
+const DEFAULT_WHOLESALE_MOQ = {
+    overline: "Commercial Terms",
+    heading: "Minimum Wholesale Women Dresses Order",
+    highlightWord: "Women Dresses Order",
+    minBillingLabel: "Minimum Billing",
+    minBillingValue: "₹25,000",
+    paragraph: "Bulk pricing is available for larger volumes, with flexible repeat-order structures for regular buyers.",
+    ctaLabel: "Request Wholesale Quote",
+    overline2: "Who This Is For",
+    heading2: "Built for Serious Women Fashion Retailers",
+    highlightWord2: "Fashion Retailers",
+    audiences: [
+        { t: "Boutique Owners", d: "Distinctive women dresses for collections that stand apart." },
+        { t: "Instagram Resellers", d: "Fresh Batik styles with strong visual appeal for online selling." },
+        { t: "Meesho / Amazon Sellers", d: "Reliable supply for growing online fashion businesses." },
+        { t: "Wholesale Traders", d: "Bulk women dresses and Batik collections for regional distribution." },
+    ],
+};
+
+const DEFAULT_WHOLESALE_BUSINESS_ADVANTAGE = {
+    quoteText: "\"Stock your store with styles customers want to buy—not products that sit on the rack.\"",
+    overline: "The Market Reality",
+    heading: "Customers Do Not Buy More Choices.\nThey Buy Better Choices.",
+    highlightWord: "Better Choices.",
+    items: [
+        { t: "Distinctive Batik Prints", d: "Unique designs give customers a reason to notice your collection." },
+        { t: "Cotton Comfort", d: "Breathable cotton supports everyday wear and repeat customer demand." },
+        { t: "Manufacturer Pricing", d: "Direct sourcing helps businesses maintain competitive retail pricing and healthier margins." },
+    ],
+};
+
+const DEFAULT_WHOLESALE_FAQ = [
+    { q: "Where can I buy wholesale women dresses in India?", a: "You can source wholesale women dresses directly from AQSHA Batik Suits, a Ujjain-based Batik manufacturer offering Batik dresses, cotton styles, printed designs, and ethnic clothing collections." },
+    { q: "What types of women dresses are available wholesale?", a: "Wholesale options can include Batik dresses, Batik print dresses, cotton dresses for women, casual dresses, floral dresses, one-piece styles, and occasion-ready designs." },
+    { q: "Are Batik dresses suitable for boutiques?", a: "Yes. Batik dresses combine distinctive prints, comfortable fabrics, and versatile styling, making them suitable for boutiques looking to create a more memorable women's fashion collection." },
+    { q: "Can I order plus size Batik dresses wholesale?", a: "Businesses can enquire about available plus size Batik dress designs, sizes, quantities, pricing, and wholesale availability." },
+    { q: "Do you provide bulk supply for retailers and resellers?", a: "Yes. AQSHA Batik Suits provides wholesale supply for boutiques, retailers, resellers, and fashion businesses looking to source women dresses and Batik Prints Women Clothinging in bulk." },
+];
+
+const DEFAULT_WHOLESALE_LEAD_FORM = {
+    title: "Get Personalized Batik Fabric\nPricing & Catalog",
+    highlightWord: "Batik Fabric",
+    description: "Explore our latest wholesale women dresses, cotton styles, and floral Batik designs with personalized bulk pricing, ready-stock updates, and collection catalogs.",
+    benefits: [
+        { text: "Latest Women Dresses Design Catalog" },
+        { text: "Wholesale Pricing & Bulk Order Support" },
+        { text: "Plus Size & Custom Ordering Options" },
+        { text: "Batik & Cotton Dress Collections" },
+        { text: "Fast WhatsApp Assistance" },
+        { text: "Ready-Stock & New Collection Updates" },
+    ],
+};
 
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
@@ -45,156 +163,41 @@ async function getProducts({ page = "1", search = "", sort = "", minPrice = "", 
 
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20about%20Wholesale%20Manufacturer%20Pricing";
 
+const TARGET_AUDIENCE_ICONS = [
+    <svg key="0" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect width="16" height="20" x="4" y="2" rx="2" ry="2" />
+        <path d="M9 22v-4h6v4" /><path d="M8 6h.01" /><path d="M16 6h.01" /><path d="M8 10h.01" /><path d="M16 10h.01" /><path d="M8 14h.01" /><path d="M16 14h.01" />
+    </svg>,
+    <svg key="1" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
+        <circle cx="12" cy="13" r="3" />
+    </svg>,
+    <svg key="2" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="8" cy="21" r="1" /><circle cx="19" cy="21" r="1" />
+        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.56-7.43H5.12" />
+    </svg>,
+    <svg key="3" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M10 17h4V5H2v12h3" /><path d="M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5" /><path d="M14 17h1" /><circle cx="7.5" cy="17.5" r="2.5" /><circle cx="17.5" cy="17.5" r="2.5" />
+    </svg>,
+];
+
 export default async function WholesalePage({ searchParams }: { searchParams: Promise<any> }) {
     const resolvedParams = await searchParams;
-    const { products, totalPages, currentPage } = await getProducts(resolvedParams || {});
+    const [{ products, totalPages, currentPage }, hero, sourcing, capabilities, premiumFeatures, howToOrder, moq, businessAdvantage, faqData, leadForm] = await Promise.all([
+        getProducts(resolvedParams || {}),
+        getPageContent("wholesale_hero", DEFAULT_WHOLESALE_HERO),
+        getPageContent("wholesale_sourcing", DEFAULT_WHOLESALE_SOURCING),
+        getPageContent("wholesale_capabilities", DEFAULT_WHOLESALE_CAPABILITIES),
+        getPageContent("wholesale_premium_features", DEFAULT_WHOLESALE_PREMIUM_FEATURES),
+        getPageContent("wholesale_how_to_order", DEFAULT_WHOLESALE_HOW_TO_ORDER),
+        getPageContent("wholesale_moq", DEFAULT_WHOLESALE_MOQ),
+        getPageContent("wholesale_business_advantage", DEFAULT_WHOLESALE_BUSINESS_ADVANTAGE),
+        getPageContent("wholesale_faq", { items: DEFAULT_WHOLESALE_FAQ }),
+        getPageContent("wholesale_lead_form", DEFAULT_WHOLESALE_LEAD_FORM),
+    ]);
 
-    const partnershipBenefits = [
-        {
-            t: "Consistent Quality",
-            d: "15+ years of manufacturing expertise ensures zero batch variation.",
-            i: (
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M6 3h12l4 5-10 13L2 8z" />
-                    <path d="M11 3 8 8l3 13 3-13z" />
-                    <path d="M2 8h20" />
-                </svg>
-            )
-        },
-        {
-            t: "Market-Aligned Designs",
-            d: "We manufacture what sells — focusing on high-rotation light colors.",
-            i: (
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M3 3v18h18" />
-                    <path d="m19 9-5 5-4-4-3 3" />
-                </svg>
-            )
-        },
-        {
-            t: "Ready Stock Availability",
-            d: "No long waiting periods. We maintain ready inventory for bulk orders.",
-            i: (
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
-                    <path d="m3.3 7 8.7 5 8.7-5" />
-                    <path d="M12 22V12" />
-                </svg>
-            )
-        },
-        {
-            t: "Direct Manufacturer Pricing",
-            d: "Eliminate the middleman and maximize your retail margins.",
-            i: (
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M2 20V9l5 2V9l5 2V9l10 3v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2Z" />
-                    <path d="M7 21v-4" />
-                    <path d="M12 21v-4" />
-                    <path d="M17 21v-4" />
-                    <path d="M2 14h20" />
-                </svg>
-            )
-        }
-    ];
-
-    const targetAudience = [
-        {
-            t: "Boutique Owners", d: "Distinctive women dresses for collections that stand apart.",
-            i: (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect width="16" height="20" x="4" y="2" rx="2" ry="2" />
-                    <path d="M9 22v-4h6v4" /><path d="M8 6h.01" /><path d="M16 6h.01" /><path d="M8 10h.01" /><path d="M16 10h.01" /><path d="M8 14h.01" /><path d="M16 14h.01" />
-                </svg>
-            )
-        },
-        {
-            t: "Instagram Resellers", d: "Fresh Batik styles with strong visual appeal for online selling.",
-            i: (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
-                    <circle cx="12" cy="13" r="3" />
-                </svg>
-            )
-        },
-        {
-            t: "Meesho / Amazon Sellers", d: "Reliable supply for growing online fashion businesses.",
-            i: (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="8" cy="21" r="1" /><circle cx="19" cy="21" r="1" />
-                    <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.56-7.43H5.12" />
-                </svg>
-            )
-        },
-        {
-            t: "Wholesale Traders", d: "Bulk women dresses and Batik collections for regional distribution.",
-            i: (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M10 17h4V5H2v12h3" /><path d="M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5" /><path d="M14 17h1" /><circle cx="7.5" cy="17.5" r="2.5" /><circle cx="17.5" cy="17.5" r="2.5" />
-                </svg>
-            )
-        }
-    ];
-
-    const startingProcess = [
-        {
-            s: "01", t: "Contact on WhatsApp", d: "Connect with our wholesale team instantly.",
-            i: (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-10.6 8.38 8.38 0 0 1 3.8.9L21 3l-1.5 5.5Z" />
-                </svg>
-            )
-        },
-        {
-            s: "02", t: "Get Latest Catalog", d: "Explore over 100+ high-demand designs.",
-            i: (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />
-                </svg>
-            )
-        },
-        {
-            s: "03", t: "Select Designs", d: "Curate your collection for your specific market.",
-            i: (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><path d="m9 11 3 3L22 4" />
-                </svg>
-            )
-        },
-        {
-            s: "04", t: "Confirm Bulk Order", d: "Get your proforma and manufacturer pricing.",
-            i: (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect width="16" height="20" x="4" y="2" rx="2" /><path d="M12 11h4" /><path d="M12 15h4" /><path d="M8 11h.01" /><path d="M8 15h.01" />
-                </svg>
-            )
-        },
-        {
-            s: "05", t: "Dispatch Across India", d: "Fast delivery via trusted courier partners.",
-            i: (
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M10 17h4V5H2v12h3" /><path d="M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5" /><path d="M14 17h1" /><circle cx="7.5" cy="17.5" r="2.5" /><circle cx="17.5" cy="17.5" r="2.5" />
-                </svg>
-            )
-        }
-    ];
-
-    const wholesaleCapabilities = [
-        {
-            t: "Batik Dress Supply",
-            d: "Source Batik dresses, Batik print dresses, and distinctive Batik dress designs created for retail collections and everyday customer demand.",
-            img: "/wholesale/dresses for women.webp"
-        },
-        {
-            t: "Boutique & Clothing Brands",
-            d: "Build a more memorable collection with trendy dresses for women, floral styles, cotton dresses, and unique Batik prints.",
-            img: "/wholesale/dresses for women (1).webp"
-        },
-        {
-            t: "Custom & Bulk Orders",
-            d: "Flexible wholesale supply for retailers, resellers, boutiques, and fashion businesses looking for bulk women dresses and cotton dress material.",
-            img: "/wholesale/dresses for women (2).webp"
-        }
-    ];
+    const targetAudience = moq.audiences.map((a: any, i: number) => ({ ...a, i: TARGET_AUDIENCE_ICONS[i] || TARGET_AUDIENCE_ICONS[0] }));
+    const wholesaleCapabilities = capabilities.items;
 
     return (
         <div className="min-h-screen bg-cream text-primary selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
@@ -213,7 +216,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                 {/* Desktop Background Image */}
                 <div className="hidden lg:block absolute inset-0 w-full h-full z-0">
                     <Image
-                        src="/Hero Banner/imp.png"
+                        src={hero.imageDesktop}
                         alt="Wholesale Batik Supply"
                         fill
                         priority
@@ -231,7 +234,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                 {/* Mobile Image */}
                 <div className="relative w-full h-[60vh] min-h-[450px] lg:hidden z-0">
                     <Image
-                        src="/Hero Banner/mobile-version/ige(3).png"
+                        src={hero.imageMobile}
                         alt="Wholesale Batik Supply"
                         fill
                         priority
@@ -245,25 +248,23 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                         {/* Hook */}
                         <div className="flex items-center justify-center lg:justify-start gap-2">
                             <span className="text-[#8A4B32] text-xl leading-none">&diams;</span>
-                            <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">DIRECT MANUFACTURER · BULK SUPPLY</span>
+                            <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">{hero.overline}</span>
                         </div>
-                        
+
                         <h1 className="text-3xl leading-[1.15] sm:text-4xl lg:text-[36px] xl:text-[48px] 2xl:text-[60px] lg:leading-[1.1] font-heading font-normal tracking-tight text-primary lg:whitespace-nowrap">
-                            Premium Wholesale <br className="hidden lg:block" />
-                            Women Dresses in <br className="hidden lg:block" />
-                            <span className="text-highlight italic">Batik & Cotton</span>
+                            {renderWithHighlight(hero.heading, hero.highlightWord)}
                         </h1>
 
                         <p className="text-[14px] lg:text-lg text-primary/80 leading-relaxed max-w-2xl lg:max-w-full font-medium">
-                            Source high-demand women dresses, Batik prints, cotton styles, and ready to sell collections directly from the manufacturer. Built for boutiques, resellers, retailers, and fashion businesses looking for distinctive designs, reliable supply, and better wholesale value.
+                            {hero.paragraph}
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 items-center lg:items-start w-full sm:w-auto mt-2">
                             <a href="#wholesale-form" className="bg-highlight hover:bg-highlight/90 text-white px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-xs flex items-center justify-center transition-all shadow-sm text-center w-full sm:w-auto">
-                                Become a Wholesale Partner
+                                {hero.ctaLabel1}
                             </a>
                             <a href={WA} target="_blank" rel="noreferrer" className="border border-primary/20 hover:border-primary/40 text-primary hover:bg-primary/5 px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-xs flex items-center justify-center transition-all backdrop-blur-sm text-center w-full sm:w-auto">
-                                Chat on WhatsApp
+                                {hero.ctaLabel2}
                             </a>
                         </div>
                     </div>
@@ -289,12 +290,11 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                         <div className="flex flex-col max-w-2xl mx-auto w-full">
                             <div className="flex items-center gap-4 mb-3 md:mb-4">
                                 <span className="text-overline uppercase tracking-[0.2em] font-bold text-brand">
-                                    # STREAMLINE YOUR SOURCING
+                                    {sourcing.tag}
                                 </span>
                             </div>
                             <h2 className="text-h2 mb-6 md:mb-8">
-                                Stop Stocking <br />
-                                Dresses That Do Not Move
+                                {renderWithHighlight(sourcing.heading)}
                             </h2>
 
                             <div className="flex flex-col gap-5 mb-6 md:mb-8">
@@ -327,15 +327,14 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                             </div>
 
                             <p className="text-body1 text-foreground leading-relaxed max-w-lg mb-5 mt-1 font-medium">
-                                You don't need more products. You need <br className="hidden md:block"/>
-                                <span className="font-bold text-brand">a wholesale collection built around what <br className="hidden md:block"/>customers want to wear.</span>
+                                {sourcing.paragraph}
                             </p>
 
                             <div className="flex items-center gap-3 bg-brand text-white rounded-full px-5 py-2.5 w-fit mb-6 shadow-md">
                                 <span className="text-white/90">
                                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"></path><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"></path><path d="m21 3 1 11h-2"></path><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"></path><path d="M3 4h8"></path></svg>
                                 </span>
-                                <span className="font-heading text-lg md:text-xl italic tracking-wide pr-2">We help you build that collection.</span>
+                                <span className="font-heading text-lg md:text-xl italic tracking-wide pr-2">{sourcing.quoteBubbleText}</span>
                             </div>
 
                             <div className="flex items-start gap-3 p-3 bg-white/40 rounded-2xl border border-primary/5 backdrop-blur-sm relative z-20">
@@ -343,7 +342,7 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                                     A
                                 </div>
                                 <p className="text-sm md:text-[15px] text-foreground leading-relaxed max-w-md">
-                                    <strong className="text-brand">AQSHA Batik Suits</strong> is a 15+ year manufacturer specialising in Batik Prints Women Clothinging, cotton styles, and high-demand <strong className="text-brand">women dresses</strong> for wholesale buyers.
+                                    {sourcing.bioText}
                                 </p>
                             </div>
                         </div>
@@ -413,23 +412,23 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
             <section id="collection" className="scroll-animate py-10 md:py-16 px-6 bg-cream relative overflow-hidden">
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-10 md:gap-12">
                     <div className="flex flex-col gap-3 text-center items-center mx-auto max-w-4xl">
-                        <span className="text-overline">BUILT FOR REAL MARKET USE</span>
-                        <h2 className="text-h2">Wholesale Women Dresses <br className="hidden md:block" /> for Growing <span className="text-highlight">Fashion Businesses</span></h2>
+                        <span className="text-overline">{capabilities.overline}</span>
+                        <h2 className="text-h2">{renderWithHighlight(capabilities.heading, capabilities.highlightWord)}</h2>
                         <p className="text-lg md:text-xl text-foreground leading-relaxed mt-1 max-w-3xl">
-                            From boutique collections to bulk supply, our wholesale range combines distinctive Batik design, comfortable cotton, and versatile silhouettes made for everyday and occasion wear.
+                            {capabilities.paragraph}
                         </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 max-w-6xl mx-auto w-full">
-                        {wholesaleCapabilities.map((item, i) => (
+                        {wholesaleCapabilities.map((item: any, i: number) => (
                             <div key={i} className="flex flex-col gap-5 md:gap-6 group">
                                 <div className="relative w-full aspect-square overflow-hidden rounded-[24px] border border-primary/10 shadow-sm group-hover:shadow-xl transition-shadow duration-500">
-                                    <Image 
-                                        src={item.img} 
-                                        alt={item.t} 
-                                        fill 
+                                    <Image
+                                        src={item.img}
+                                        alt={item.t}
+                                        fill
                                         sizes="(max-width: 768px) 100vw, 33vw"
-                                        className="object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-out" 
+                                        className="object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-out"
                                     />
                                 </div>
                                 <div className="flex flex-col gap-3 text-center items-center px-2">
@@ -442,9 +441,9 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
 
                     <div className="flex flex-col gap-8 md:gap-12 mt-6 md:mt-12">
                         <div className="flex flex-col gap-3 md:gap-4 text-center items-center mx-auto max-w-4xl">
-                            <span className="text-overline">HIGH-DEMAND DRESS COLLECTION</span>
-                            <h2 className="text-h2">Explore Wholesale Women Dresses <br className="hidden md:block" /> Customers <span className="text-highlight">Want to Wear</span></h2>
-                            <p className="text-lg md:text-xl text-foreground leading-relaxed mt-1 w-full text-center">Discover Batik dresses, cotton dresses for women, casual styles, floral prints, and versatile silhouettes selected for retail appeal.</p>
+                            <span className="text-overline">{capabilities.overline2}</span>
+                            <h2 className="text-h2">{renderWithHighlight(capabilities.heading2, capabilities.highlightWord2)}</h2>
+                            <p className="text-lg md:text-xl text-foreground leading-relaxed mt-1 w-full text-center">{capabilities.paragraph2}</p>
                         </div>
                         <ProductFilterLayout
                             products={products}
@@ -458,70 +457,26 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
             </section>
 
             <PremiumFeatureSection
-                tag="Why Buyers Choose Our Supply"
+                tag={premiumFeatures.tag}
                 tagColor="#8A4B32"
-                title={<>Why Our Wholesale Women <br className="hidden md:block" /> Dresses <span className="text-highlight">Stand Out</span></>}
-                features={[
-                    {
-                        t: "Distinctive Batik Design",
-                        d: "Our Batik designs bring traditional print character into modern dresses for women, helping your collection feel different from ordinary mass-market styles.",
-                        c: "text-brand",
-                        i: (
-                            <Image src="/ICONS/distinctive-design-wholesale-icon.png" alt="Distinctive Batik Design" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "Consistent Print Quality",
-                        d: "Consistent Batik printing helps maintain colour, pattern clarity, and product quality across wholesale orders.",
-                        c: "text-brand",
-                        i: (
-                            <Image src="/ICONS/consistent-print-quality-icon.png" alt="Consistent Print Quality" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "Comfortable Cotton",
-                        d: "Cotton dresses for women offer breathable comfort and everyday wearability—ideal for customers who value both style and ease.",
-                        c: "text-brand",
-                        i: (
-                            <Image src="/ICONS/comfortable-cotton-wholesale-icon.png" alt="Comfortable Cotton" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "Versatile Dress Styles",
-                        d: "From casual dresses for women to floral dresses, one-piece styles, and occasion-ready designs, our collection supports different customer preferences.",
-                        c: "text-brand",
-                        i: (
-                            <Image src="/ICONS/versatile-dress-styles-icon.png" alt="Versatile Dress Styles" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "Wholesale Pricing",
-                        d: "Direct manufacturer sourcing helps businesses access competitive wholesale pricing and protect retail margins.",
-                        c: "text-brand",
-                        i: (
-                            <Image src="/ICONS/wholesale-pricing-icon.png" alt="Wholesale Pricing" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "Ready for Retail",
-                        d: "Our women clothing collections are selected with practical retail use in mind—from boutique displays to online fashion stores.",
-                        c: "text-brand",
-                        i: (
-                            <Image src="/ICONS/ready-for-retail-icon.png" alt="Ready for Retail" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    }
-                ]}
-                imageSrc="/wholesale/women dresses.webp"
+                title={renderWithHighlight(premiumFeatures.heading, premiumFeatures.highlightWord)}
+                features={premiumFeatures.features.map((f: any, i: number) => ({
+                    t: f.t,
+                    d: f.d,
+                    c: "text-brand",
+                    i: <Image src={PREMIUM_FEATURE_ICONS[i] || PREMIUM_FEATURE_ICONS[0]} alt={f.t} width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />,
+                }))}
+                imageSrc={premiumFeatures.image}
                 imageContainerClassName="aspect-[4/5] w-full h-auto"
-                quote="Distinctive designs. Reliable supply. Built for businesses that sell."
+                quote={premiumFeatures.quote}
             />
 
             <HowToOrderSection
-                tag="WHOLESALE PROCESS"
-                title={<>How to Order Wholesale <span className="text-highlight">Women Dresses</span></>}
-                subtitle="Five simple steps to move from product discovery to bulk supply."
+                tag={howToOrder.tag}
+                title={renderWithHighlight(howToOrder.heading, howToOrder.highlightWord)}
+                subtitle={howToOrder.subtitle}
                 whatsappLink={WA}
-                ctaText="Become a Wholesale Partner"
+                ctaText={howToOrder.ctaText}
                 steps={[
                     {
                         s: "01",
@@ -703,20 +658,20 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                     {/* LEFT: MOQ CARD */}
                     <div className="bg-white border border-border p-8 md:p-14 lg:p-16 rounded-[24px] md:rounded-[36px] shadow-xl flex flex-col gap-6 md:gap-10 relative overflow-hidden hover:shadow-2xl hover:border-transparent transition-all duration-500">
                         <div className="flex flex-col gap-3 relative z-10">
-                            <span className="text-overline">Commercial Terms</span>
-                            <h2 className="text-h2 font-heading text-primary">Minimum Wholesale <span className="text-highlight">Women Dresses Order</span></h2>
+                            <span className="text-overline">{moq.overline}</span>
+                            <h2 className="text-h2 font-heading text-primary">{renderWithHighlight(moq.heading, moq.highlightWord)}</h2>
                         </div>
                         <div className="flex flex-col gap-6 md:gap-8 relative z-10">
                             <div className="flex items-center justify-between py-6 border-b border-border/80">
-                                <span className="text-overline">Minimum Billing</span>
-                                <span className="text-h2 font-heading font-normal text-primary tracking-tight">₹25,000</span>
+                                <span className="text-overline">{moq.minBillingLabel}</span>
+                                <span className="text-h2 font-heading font-normal text-primary tracking-tight">{moq.minBillingValue}</span>
                             </div>
                             <p className="text-body1 leading-relaxed italic max-w-sm">
-                                Bulk pricing is available for larger volumes, with flexible repeat-order structures for regular buyers.
+                                {moq.paragraph}
                             </p>
                         </div>
                         <a href={WA} target="_blank" rel="noreferrer" className="w-full bg-accent text-white py-4 md:py-5 rounded-xl text-xs md:text-sm hover:bg-accent/90 transition-colors text-center uppercase tracking-[0.2em] font-semibold mt-2 flex items-center justify-center gap-3 relative z-10">
-                            Request Wholesale Quote
+                            {moq.ctaLabel}
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
                         </a>
                     </div>
@@ -724,11 +679,11 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                     {/* RIGHT: WHO THIS IS FOR */}
                     <div className="flex flex-col gap-8 md:gap-12 text-primary lg:pl-10">
                         <div className="flex flex-col gap-4 text-center lg:text-left">
-                            <span className="text-overline">Who This Is For</span>
-                            <h3 className="text-h2 font-heading">Built for Serious Women <span className="text-highlight">Fashion Retailers</span></h3>
+                            <span className="text-overline">{moq.overline2}</span>
+                            <h3 className="text-h2 font-heading">{renderWithHighlight(moq.heading2, moq.highlightWord2)}</h3>
                         </div>
                         <div className="grid grid-cols-2 sm:grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-8 sm:gap-y-12 mt-2">
-                            {targetAudience.map((item, i) => (
+                            {targetAudience.map((item: any, i: number) => (
                                 <div key={i} className="flex flex-col items-start gap-4 p-6 sm:p-8 bg-[#F5F1EC] rounded-[20px] shadow-sm border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group text-left h-full">
                                     <div className="flex items-center justify-center w-12 h-12 rounded-[14px] bg-white border border-border text-primary group-hover:bg-accent group-hover:text-white transition-all duration-300 shrink-0 [&>svg]:w-5 [&>svg]:h-5">
                                         {item.i}
@@ -748,10 +703,10 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
             <section className="scroll-animate pt-8 pb-16 md:pt-16 md:pb-32 px-6 bg-transparent overflow-hidden text-primary">
                 <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-center">
                     <div className="relative aspect-square w-full rounded-[40px] md:rounded-[100px] overflow-hidden shadow-2xl group border-[10px] md:border-[20px] border-cream">
-                        <Image src="/wholesale/party wear dress for women.webp" alt="High rotation premium wholesale batik inventory" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[3s]" />
+                        <Image src="/wholesale/party wear dress for women.webp" alt="High rotation premium wholesale batik inventory" fill className="object-cover group-hover:scale-105 transition-all duration-[3s]" />
                         <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
                         <div className="absolute bottom-6 left-6 right-6 md:bottom-16 md:left-16 md:right-16 flex flex-col gap-3 md:gap-6">
-                            <h4 className="text-white text-[22px] md:text-4xl font-heading font-medium leading-tight">"Stock your store with styles customers want to buy—not products that sit on the rack."</h4>
+                            <h3 className="text-white text-[22px] md:text-4xl font-heading font-medium leading-tight">{businessAdvantage.quoteText}</h3>
                             <div className="flex gap-2 md:gap-4">
                                 <span className="bg-accent p-1.5 md:p-2 rounded text-[10px] md:text-base text-primary">★</span>
                                 <span className="bg-accent p-1.5 md:p-2 rounded text-[10px] md:text-base text-primary">★</span>
@@ -763,19 +718,15 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
                     </div>
                     <div className="flex flex-col gap-8 md:gap-12">
                         <div className="flex flex-col gap-3 md:gap-6 text-center lg:text-left">
-                            <span className="text-overline">The Market Reality</span>
-                            <h2 className="text-h2">Customers Do Not Buy More Choices. <br className="hidden lg:block"/> They Buy <span className="text-highlight">Better Choices.</span></h2>
+                            <span className="text-overline">{businessAdvantage.overline}</span>
+                            <h2 className="text-h2">{renderWithHighlight(businessAdvantage.heading, businessAdvantage.highlightWord)}</h2>
                         </div>
                         <div className="flex flex-col gap-5 md:gap-8">
-                            {[
-                                { t: "Distinctive Batik Prints", d: "Unique designs give customers a reason to notice your collection." },
-                                { t: "Cotton Comfort", d: "Breathable cotton supports everyday wear and repeat customer demand." },
-                                { t: "Manufacturer Pricing", d: "Direct sourcing helps businesses maintain competitive retail pricing and healthier margins." }
-                            ].map((item, i) => (
+                            {businessAdvantage.items.map((item: any, i: number) => (
                                 <div key={i} className="flex gap-4 md:gap-6 items-start bg-cream md:bg-transparent p-4 md:p-0 rounded-[16px] md:rounded-none">
                                     <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white md:bg-tan flex items-center justify-center text-primary font-black shrink-0 text-[10px] md:text-base shadow-sm md:shadow-none">✔</div>
                                     <div className="flex flex-col gap-1 md:gap-2 text-left pt-1">
-                                        <h4 className="font-heading font-medium text-xl md:text-2xl text-primary leading-tight">{item.t}</h4>
+                                        <h3 className="font-heading font-medium text-xl md:text-2xl text-primary leading-tight">{item.t}</h3>
                                         <p className="text-sm md:text-base text-foreground leading-relaxed">{item.d}</p>
                                     </div>
                                 </div>
@@ -787,44 +738,16 @@ export default async function WholesalePage({ searchParams }: { searchParams: Pr
 
 
 
-            <FAQ items={[
-                {
-                    q: "Where can I buy wholesale women dresses in India?",
-                    a: "You can source wholesale women dresses directly from AQSHA Batik Suits, a Ujjain-based Batik manufacturer offering Batik dresses, cotton styles, printed designs, and ethnic clothing collections."
-                },
-                {
-                    q: "What types of women dresses are available wholesale?",
-                    a: "Wholesale options can include Batik dresses, Batik print dresses, cotton dresses for women, casual dresses, floral dresses, one-piece styles, and occasion-ready designs."
-                },
-                {
-                    q: "Are Batik dresses suitable for boutiques?",
-                    a: "Yes. Batik dresses combine distinctive prints, comfortable fabrics, and versatile styling, making them suitable for boutiques looking to create a more memorable women's fashion collection."
-                },
-                {
-                    q: "Can I order plus size Batik dresses wholesale?",
-                    a: "Businesses can enquire about available plus size Batik dress designs, sizes, quantities, pricing, and wholesale availability."
-                },
-                {
-                    q: "Do you provide bulk supply for retailers and resellers?",
-                    a: "Yes. AQSHA Batik Suits provides wholesale supply for boutiques, retailers, resellers, and fashion businesses looking to source women dresses and Batik Prints Women Clothinging in bulk."
-                }
-            ]} />
+            <FAQ items={faqData.items} />
 
             {/* ── CONSISTENT CTA ── */}
             <ConsistentCTA />
 
 
-            <LeadGenerationForm 
-                title={<>Get Personalized <span className="text-highlight italic">Batik Fabric</span> <br className="hidden md:block" /> Pricing & Catalog</>}
-                description="Explore our latest wholesale women dresses, cotton styles, and floral Batik designs with personalized bulk pricing, ready-stock updates, and collection catalogs."
-                benefits={[
-                    "Latest Women Dresses Design Catalog",
-                    "Wholesale Pricing & Bulk Order Support",
-                    "Plus Size & Custom Ordering Options",
-                    "Batik & Cotton Dress Collections",
-                    "Fast WhatsApp Assistance",
-                    "Ready-Stock & New Collection Updates"
-                ]}
+            <LeadGenerationForm
+                title={renderWithHighlight(leadForm.title, leadForm.highlightWord)}
+                description={leadForm.description}
+                benefits={leadForm.benefits.map((b: any) => b.text)}
             />
             <StickyEnquiryButton />
         </div>
