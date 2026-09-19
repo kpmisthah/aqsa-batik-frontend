@@ -72,7 +72,7 @@ export default function PremiumTrustSection() {
                             <div key={i} className="group relative flex flex-col md:flex-row md:items-start justify-between py-5 md:py-8 border-b border-primary/20 md:hover:bg-primary/[0.02] transition-colors duration-500 cursor-default px-1 md:-mx-4 md:px-4">
                                 <div className="flex gap-3 md:gap-6 items-start w-full md:w-[45%] mb-2 md:mb-0">
                                     <span className="text-xl md:text-2xl text-highlight italic w-6 md:w-8 shrink-0 font-serif leading-none mt-1">{item.num}</span>
-                                    <h4 className="text-sm md:text-[15px] lg:text-lg text-primary font-heading font-semibold md:group-hover:text-accent transition-colors leading-snug">{item.t}</h4>
+                                    <h3 className="text-sm md:text-[15px] lg:text-lg text-primary font-heading font-semibold md:group-hover:text-accent transition-colors leading-snug">{item.t}</h3>
                                 </div>
                                 <p className="text-[12px] md:text-sm text-[#6F625A] w-full md:w-[55%] leading-relaxed pl-9 md:pl-0 font-medium md:pt-1">
                                     {item.d}
