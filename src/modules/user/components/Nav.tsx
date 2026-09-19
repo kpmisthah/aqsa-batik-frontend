@@ -211,7 +211,7 @@ export default function Nav() {
                     </div>
 
                     {/* Mobile Menu Trigger */}
-                    <button onClick={() => setMenu(!menu)} className="lg:hidden p-2 text-primary hover:text-accent transition-colors active:scale-95">
+                    <button onClick={() => setMenu(!menu)} aria-label="Open menu" className="lg:hidden p-2 text-primary hover:text-accent transition-colors active:scale-95">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
                     </button>
                 </div>
