@@ -208,7 +208,7 @@ export default function HomePage() {
                 <div className="w-8 h-8 md:w-10 md:h-10 bg-cream text-accent rounded-full border border-tan/40 flex items-center justify-center font-heading text-sm md:text-base mb-3 md:mb-5">
                   0{i + 1}
                 </div>
-                <h4 className="text-xs md:text-base font-heading font-medium mb-1 md:mb-2 text-primary leading-tight">{item.t}</h4>
+                <h3 className="text-xs md:text-base font-heading font-medium mb-1 md:mb-2 text-primary leading-tight">{item.t}</h3>
                 <p className="text-[10px] md:text-[13px] leading-relaxed text-primary/80 font-medium mb-4 md:mb-6 flex-grow">{item.d}</p>
                 <a href={WA} className="text-[8px] md:text-[10px] text-accent uppercase tracking-[0.15em] font-bold hover:text-primary flex items-center gap-1 md:gap-3 transition-all">
                   {item.b} <span className="text-sm md:text-base leading-none">&rarr;</span>
@@ -275,7 +275,7 @@ export default function HomePage() {
                       <div className="w-1.5 h-1.5 bg-primary/40 rounded-full group-hover:bg-accent transition-colors"></div>
                     </div>
                     <div className="flex flex-col gap-3">
-                      <h4 className="text-h4 text-primary">{entry.heading}</h4>
+                      <h3 className="text-h4 text-primary">{entry.heading}</h3>
                       <p className="text-body2 text-primary/80 leading-relaxed">{entry.paragraph}</p>
                     </div>
                   </div>
