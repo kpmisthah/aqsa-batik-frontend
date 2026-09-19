@@ -108,8 +108,9 @@ export default function LeadGenerationForm({
                     <div className="bg-white p-8 md:p-12 rounded-[2rem] shadow-xl border border-primary/5">
                         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                             <div className="flex flex-col gap-2">
-                                <label className="text-[10px] font-bold uppercase tracking-widest text-primary/80 ml-1">Full Name</label>
+                                <label htmlFor="lead-fullName" className="text-[10px] font-bold uppercase tracking-widest text-primary/80 ml-1">Full Name</label>
                                 <input
+                                    id="lead-fullName"
                                     type="text"
                                     name="fullName"
                                     required
@@ -121,8 +122,9 @@ export default function LeadGenerationForm({
                             </div>
 
                             <div className="flex flex-col gap-2">
-                                <label className="text-[10px] font-bold uppercase tracking-widest text-primary/80 ml-1">Business Phone</label>
+                                <label htmlFor="lead-phone" className="text-[10px] font-bold uppercase tracking-widest text-primary/80 ml-1">Business Phone</label>
                                 <input
+                                    id="lead-phone"
                                     type="tel"
                                     name="phone"
                                     required
@@ -134,8 +136,9 @@ export default function LeadGenerationForm({
                             </div>
 
                             <div className="flex flex-col gap-2">
-                                <label className="text-[10px] font-bold uppercase tracking-widest text-primary/80 ml-1">Business Name</label>
+                                <label htmlFor="lead-businessName" className="text-[10px] font-bold uppercase tracking-widest text-primary/80 ml-1">Business Name</label>
                                 <input
+                                    id="lead-businessName"
                                     type="text"
                                     name="businessName"
                                     required
@@ -147,9 +150,10 @@ export default function LeadGenerationForm({
                             </div>
 
                             <div className="flex flex-col gap-2">
-                                <label className="text-[10px] font-bold uppercase tracking-widest text-primary/80 ml-1">Order Value</label>
+                                <label htmlFor="lead-orderValue" className="text-[10px] font-bold uppercase tracking-widest text-primary/80 ml-1">Order Value</label>
                                 <div className="relative">
                                     <select
+                                        id="lead-orderValue"
                                         name="orderValue"
                                         required
                                         value={formData.orderValue}
