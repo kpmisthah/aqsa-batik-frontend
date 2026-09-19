@@ -26,7 +26,7 @@ export default function AdminLayout({
     { name: "Bulk Upload", href: "/aqsha-portal/bulk-upload", icon: UploadCloud },
     { name: "Users", href: "/aqsha-portal/users", icon: Users },
     { name: "Home Slider", href: "/aqsha-portal/home-slider", icon: MonitorPlay },
-    { name: "Home Content", href: "/aqsha-portal/home-content", icon: FileEdit },
+    { name: "Page Content", href: "/aqsha-portal/home-content", icon: FileEdit },
     { name: "Banners", href: "/aqsha-portal/banners", icon: Settings },
   ];
 

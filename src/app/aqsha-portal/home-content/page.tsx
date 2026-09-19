@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { Pencil, CheckCircle, XCircle } from "lucide-react";
+import React, { useState, useMemo } from "react";
+import { Pencil, CheckCircle, XCircle, ChevronDown } from "lucide-react";
 import AdminModal from "@/modules/admin/components/AdminModal";
 import { FieldInput, RepeatableListEditor } from "@/modules/admin/components/HomeContentFieldInputs";
 import { HOME_CONTENT_SECTIONS, SectionConfig } from "@/modules/admin/homeContent/sectionConfigs";
@@ -12,6 +12,22 @@ export default function HomeContentAdmin() {
   const [editingSection, setEditingSection] = useState<SectionConfig | null>(null);
   const [formData, setFormData] = useState<Record<string, any>>({});
   const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
+
+  const groups = useMemo(() => {
+    const order: string[] = [];
+    const map: Record<string, SectionConfig[]> = {};
+    HOME_CONTENT_SECTIONS.forEach((section) => {
+      if (!map[section.page]) {
+        map[section.page] = [];
+        order.push(section.page);
+      }
+      map[section.page].push(section);
+    });
+    return order.map((page) => ({ page, items: map[page] }));
+  }, []);
+
+  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({ Home: true });
+  const toggleGroup = (page: string) => setOpenGroups((prev) => ({ ...prev, [page]: !prev[page] }));
 
   const showToast = (message: string, type: "success" | "error" = "success") => {
     setToast({ message, type });
@@ -63,32 +79,58 @@ export default function HomeContentAdmin() {
   return (
     <div className="space-y-6">
       <div className="bg-white p-6 rounded-2xl shadow-sm border border-primary/10">
-        <h1 className="text-2xl font-black font-heading text-primary">Home Page Content</h1>
+        <h1 className="text-2xl font-black font-heading text-primary">Page Content</h1>
         <p className="text-sm text-primary/60 mt-1 font-medium">
-          Edit every section of the home page. Sections you haven't edited yet keep showing their current content.
+          Edit content across every page. Sections you haven't edited yet keep showing their current content.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {HOME_CONTENT_SECTIONS.map((section) => {
-          const hasCustomContent = !!sections[section.key];
+      <div className="space-y-4">
+        {groups.map(({ page, items }) => {
+          const isOpen = !!openGroups[page];
+          const customizedCount = items.filter((s) => !!sections[s.key]).length;
           return (
-            <div key={section.key} className="bg-white rounded-2xl shadow-sm border border-primary/10 p-5 flex items-start justify-between gap-4">
-              <div>
-                <div className="flex items-center gap-2">
-                  <h3 className="text-sm font-black text-primary uppercase tracking-wide">{section.label}</h3>
-                  {hasCustomContent && (
-                    <span className="px-2 py-0.5 text-[9px] font-black uppercase tracking-widest rounded-full bg-green-100 text-green-700">Customized</span>
+            <div key={page} className="bg-white rounded-2xl shadow-sm border border-primary/10 overflow-hidden">
+              <button
+                onClick={() => toggleGroup(page)}
+                className="w-full flex items-center justify-between gap-4 p-5 text-left hover:bg-cream/40 transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <h2 className="text-base font-black text-primary uppercase tracking-wide">{page}</h2>
+                  <span className="text-[10px] font-bold text-primary/40">{items.length} section{items.length !== 1 ? "s" : ""}</span>
+                  {customizedCount > 0 && (
+                    <span className="px-2 py-0.5 text-[9px] font-black uppercase tracking-widest rounded-full bg-green-100 text-green-700">{customizedCount} Customized</span>
                   )}
                 </div>
-                <p className="text-xs text-primary/50 font-medium mt-1">{section.description}</p>
-              </div>
-              <button
-                onClick={() => openEditor(section)}
-                className="shrink-0 flex items-center gap-1.5 px-3 py-2 bg-primary text-white text-xs font-bold rounded-lg hover:bg-primary/90 transition-colors shadow-sm"
-              >
-                <Pencil size={13} /> Edit
+                <ChevronDown size={18} className={`text-primary/50 transition-transform duration-300 shrink-0 ${isOpen ? "rotate-180" : ""}`} />
               </button>
+
+              {isOpen && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-5 pt-0">
+                  {items.map((section) => {
+                    const hasCustomContent = !!sections[section.key];
+                    return (
+                      <div key={section.key} className="bg-cream/30 rounded-2xl border border-primary/10 p-5 flex items-start justify-between gap-4">
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <h3 className="text-sm font-black text-primary uppercase tracking-wide">{section.label}</h3>
+                            {hasCustomContent && (
+                              <span className="px-2 py-0.5 text-[9px] font-black uppercase tracking-widest rounded-full bg-green-100 text-green-700">Customized</span>
+                            )}
+                          </div>
+                          <p className="text-xs text-primary/50 font-medium mt-1">{section.description}</p>
+                        </div>
+                        <button
+                          onClick={() => openEditor(section)}
+                          className="shrink-0 flex items-center gap-1.5 px-3 py-2 bg-primary text-white text-xs font-bold rounded-lg hover:bg-primary/90 transition-colors shadow-sm"
+                        >
+                          <Pencil size={13} /> Edit
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           );
         })}
