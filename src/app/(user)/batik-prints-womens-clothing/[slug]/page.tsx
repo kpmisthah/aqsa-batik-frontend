@@ -69,11 +69,16 @@ export default async function CottonClothSlugPage({ params }: { params: Promise<
     const mainImage = product.images?.[0] || "/product_white_mustard.png";
 
     const details = [
-        { label: "Fabric", value: product.fabricDetails || "Pure Cotton 60x60" },
+        { label: "Fabric", value: product.fabric || product.fabricDetails || "Pure Cotton 60x60" },
         { label: "Category", value: product.category },
         { label: "Product Type", value: product.subCategory || "Batik" },
-        { label: "Colours Available", value: product.colours?.join(", ") || "Standard" }
-    ];
+        { label: "Colours Available", value: product.colours?.join(", ") || "Standard" },
+        { label: "Pattern", value: product.pattern },
+        { label: "Fabric Quality", value: product.fabricQuality },
+        { label: "Kameez Length", value: product.kameezLength },
+        { label: "Shalwar Length", value: product.shalwarLength },
+        { label: "Dupatta Length", value: product.dupattaLength },
+    ].filter((d) => d.value);
 
     return (
         <div className="min-h-screen bg-cream text-primary selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
