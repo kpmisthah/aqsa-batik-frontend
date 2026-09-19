@@ -60,7 +60,7 @@ export default function WelcomePopup() {
                 <div className="md:w-[40%] relative aspect-[4/5] md:aspect-auto md:min-h-[420px] bg-surface shrink-0">
                     <div className="absolute inset-0 rounded-tr-[100px] md:rounded-tr-[140px] overflow-hidden">
                         <Image
-                            src="/popup.png"
+                            src="/popup.webp"
                             alt="Welcome to Aqsha Batik Suits"
                             fill
                             sizes="(max-width: 768px) 100vw, 50vw"

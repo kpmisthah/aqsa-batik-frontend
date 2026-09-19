@@ -33,6 +33,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://res.cloudinary.com" />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preload" as="image" href="/popup.webp" />
       </head>
       <Script id="google-tag-manager" strategy="afterInteractive">
         {`
