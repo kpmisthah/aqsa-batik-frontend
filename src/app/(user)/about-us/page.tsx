@@ -1,19 +1,78 @@
-"use client";
 import Image from "next/image";
 import Nav from "@/modules/user/components/Nav";
 import FAQ from "@/modules/user/components/FAQ";
-import PremiumTrustSection from "@/modules/user/components/PremiumTrustSection";
 import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
 import PremiumFeatureSection from "@/modules/user/components/PremiumFeatureSection";
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
-import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
-import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
 import ConsistentCTA from "@/modules/user/components/ConsistentCTA";
-
+import { getPageContent } from "@/utils/getPageContent";
+import { renderWithHighlight } from "@/utils/textHighlight";
 
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Aqsha%20Batik";
 
-export default function AboutPage() {
+const DEFAULT_ABOUT_HERO = {
+    overline: "OUR HERITAGE",
+    heading: "Legacy Craftsmanship\nBehind Every Design",
+    highlightWord: "Every Design",
+    paragraph: "Rooted in Bherugarh, Ujjain, we carry forward the legacy of traditional wax batik—refined over 15+ years into premium Batik Prints Women Clothing, batik dresses, and high-quality Batik Cotton Dress for Women.",
+    calloutText: "Our collections focus on durable cotton dress material and consistent wholesale fabric, built for real market demand and ready-to-sell use.",
+    ctaLabel: "Get In Touch",
+    image: "/About-us/about-us.png",
+    checklist: [
+        { text: "Traditional Batik Prints" },
+        { text: "Premium Cotton Quality" },
+        { text: "15+ Years Expertise" },
+        { text: "Wholesale Ready" },
+    ],
+};
+
+const DEFAULT_ABOUT_PREMIUM_FEATURES = {
+    tag: "Guided by Principles",
+    heading: "What We Stand For",
+    highlightWord: "Stand For",
+    quote: "Every piece of Batik Prints Women Clothing, cotton dress material, and Batik Cotton Dress for Women we produce is guided by principles that ensure quality, consistency, and long-term trust for buyers.",
+    image: "/About-us/ujjain batik (3).webp",
+    features: [
+        { t: "Authentic Craftsmanship", d: "We follow traditional wax-resist techniques to create genuine batik designs, ensuring every piece reflects real craftsmanship—not mass imitation." },
+        { t: "Material Integrity", d: "Our collections use high-quality cotton fabric and durable dress material, built for comfort, repeat use, and consistent wholesale demand." },
+        { t: "Direct Transparency", d: "As a direct manufacturer, we offer clear pricing, reliable supply, and honest communication for long-term business partnerships." },
+        { t: "Bulk Reliability", d: "We maintain ready stock and fast dispatch timelines to ensure your boutique or wholesale business never faces inventory gaps across India." },
+    ],
+};
+
+const PREMIUM_FEATURE_ICONS = [
+    "/ICONS/authentic-craftsmanship-icon.png",
+    "/ICONS/material-integrity-icon.png",
+    "/ICONS/direct-transparency-icon.png",
+    "/ICONS/bulk-reliability-icon.png",
+];
+
+const DEFAULT_ABOUT_MANUFACTURING = {
+    tag: "The Process",
+    heading: "Our Whole Fabric Manufacturing Standards",
+    highlightWord: "Manufacturing Standards",
+    image: "/round-category/indian dresses for girls.webp",
+    steps: [
+        { t: "Premium Cotton Selection", d: "We use high-quality cotton fabric (60x60) known for comfort, durability, and suitability for daily wear and stitched garments." },
+        { t: "Traditional Wax-Dyeing", d: "Our process follows original wax techniques to create detailed batik print designs with strong pattern suits clarity and lasting color." },
+        { t: "Quality Control & Finishing", d: "Each batch is checked for consistency, color accuracy, and clean cutting—ensuring it is ready for bulk supply and retail use." },
+    ],
+};
+
+const DEFAULT_ABOUT_FINAL_CTA = {
+    heading: "Work Directly with the Manufacturer",
+    highlightWord: "the Manufacturer",
+    paragraph: "Partner with a team focused on consistent quality, reliable supply, and long-term business relationships across Indian markets.",
+};
+
+export default async function AboutPage() {
+    const [aboutHero, premiumFeatures, manufacturing, finalCta] = await Promise.all([
+        getPageContent("about_hero", DEFAULT_ABOUT_HERO),
+        getPageContent("about_premium_features", DEFAULT_ABOUT_PREMIUM_FEATURES),
+        getPageContent("about_manufacturing", DEFAULT_ABOUT_MANUFACTURING),
+        getPageContent("about_final_cta", DEFAULT_ABOUT_FINAL_CTA),
+    ]);
+
     return (
         <div className="min-h-screen bg-cream text-primary selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
             <title>About AQSHA BATIK | 15+ Years of Batik Manufacturing Excellence</title>
@@ -30,35 +89,34 @@ export default function AboutPage() {
                     <div className="flex flex-col items-center text-center md:items-start md:text-left gap-4 md:gap-5">
                         {/* Hook */}
                         <div className="flex flex-col items-center md:items-start gap-2">
-                            <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">OUR HERITAGE</span>
+                            <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">{aboutHero.overline}</span>
                             <span className="w-10 h-0.5 bg-[#8A4B32]" />
                         </div>
 
                         <h1 className="text-3xl leading-[1.15] sm:text-4xl md:text-[56px] md:leading-[1.1] font-heading font-normal tracking-tight text-primary">
-                            <span className="block">Legacy Craftsmanship</span>
-                            <span className="block">Behind <span className='text-highlight italic'>Every Design</span></span>
+                            {renderWithHighlight(aboutHero.heading, aboutHero.highlightWord)}
                         </h1>
 
                         <p className="text-[14px] md:text-lg text-primary/80 leading-relaxed max-w-lg font-medium">
-                            Rooted in Bherugarh, Ujjain, we carry forward the legacy of traditional wax batik—refined over 15+ years into premium Batik Prints Women Clothing, batik dresses, and high-quality Batik Cotton Dress for Women.
+                            {aboutHero.paragraph}
                         </p>
 
                         {/* Highlighted Callout */}
                         <div className="flex items-start gap-3 bg-[#F4F0EA] border-l-4 border-accent rounded-r-lg px-4 py-3 md:px-6 md:py-4 max-w-lg text-left">
                             <span className="text-accent text-lg leading-none mt-0.5 flex-shrink-0">&diams;</span>
                             <p className="text-[13px] md:text-base text-primary/90 leading-relaxed font-medium">
-                                Our collections focus on durable cotton dress material and consistent wholesale fabric, built for real market demand and ready-to-sell use.
+                                {aboutHero.calloutText}
                             </p>
                         </div>
 
                         {/* Checklist */}
                         <div className="grid grid-cols-2 gap-x-6 gap-y-3 max-w-lg">
-                            {["Traditional Batik Prints", "Premium Cotton Quality", "15+ Years Expertise", "Wholesale Ready"].map((point) => (
-                                <div key={point} className="flex items-center gap-2">
+                            {aboutHero.checklist.map((point: any) => (
+                                <div key={point.text} className="flex items-center gap-2">
                                     <span className="flex-shrink-0 w-5 h-5 rounded-md bg-accent/15 text-accent flex items-center justify-center">
                                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
                                     </span>
-                                    <span className="text-[13px] md:text-sm text-primary font-medium">{point}</span>
+                                    <span className="text-[13px] md:text-sm text-primary font-medium">{point.text}</span>
                                 </div>
                             ))}
                         </div>
@@ -66,7 +124,7 @@ export default function AboutPage() {
                         {/* CTAs */}
                         <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-center md:items-start w-full sm:w-auto mt-2">
                             <a href={WA} target="_blank" rel="noreferrer" className="bg-accent text-white px-6 py-3.5 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-bold text-[11px] md:text-sm hover:scale-105 transition-all shadow-xl uppercase tracking-widest border-2 border-accent text-center w-full sm:w-auto">
-                                Get In Touch
+                                {aboutHero.ctaLabel}
                             </a>
                         </div>
                     </div>
@@ -74,7 +132,7 @@ export default function AboutPage() {
                     {/* Framed Image */}
                     <div className="relative w-full aspect-[4/5] md:aspect-[3/4] rounded-[24px] overflow-hidden shadow-2xl border-[8px] border-white">
                         <Image
-                            src="/About-us/about-us.png"
+                            src={aboutHero.image}
                             alt="Aqsha Batik Heritage"
                             fill
                             priority
@@ -315,45 +373,19 @@ export default function AboutPage() {
             {/* ── SECTION: WHAT WE STAND FOR (Premium Layout) ── */}
             <PremiumFeatureSection
                 wrapperClassName="py-0 mt-8 md:mt-0 md:py-24 px-4 md:px-6 bg-[#F4F0EA]"
-                tag="Guided by Principles"
-                title={<>What We <span className="text-highlight">Stand For</span></>}
-                imageSrc="/About-us/ujjain batik (3).webp"
+                tag={premiumFeatures.tag}
+                title={renderWithHighlight(premiumFeatures.heading, premiumFeatures.highlightWord)}
+                imageSrc={premiumFeatures.image}
                 imageContainerClassName="aspect-[4/5] w-full h-auto"
-                quote="Every piece of Batik Prints Women Clothing, cotton dress material, and Batik Cotton Dress for Women we produce is guided by principles that ensure quality, consistency, and long-term trust for buyers."
-                features={[
-                    {
-                        t: "Authentic Craftsmanship",
-                        d: "We follow traditional wax-resist techniques to create genuine batik designs, ensuring every piece reflects real craftsmanship—not mass imitation.",
-                        c: "text-highlight",
-                        i: (
-                            <Image src="/ICONS/authentic-craftsmanship-icon.png" alt="Authentic Craftsmanship" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "Material Integrity",
-                        d: "Our collections use high-quality cotton fabric and durable dress material, built for comfort, repeat use, and consistent wholesale demand.",
-                        c: "text-highlight",
-                        i: (
-                            <Image src="/ICONS/material-integrity-icon.png" alt="Material Integrity" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "Direct Transparency",
-                        d: "As a direct manufacturer, we offer clear pricing, reliable supply, and honest communication for long-term business partnerships.",
-                        c: "text-highlight",
-                        i: (
-                            <Image src="/ICONS/direct-transparency-icon.png" alt="Direct Transparency" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "Bulk Reliability",
-                        d: "We maintain ready stock and fast dispatch timelines to ensure your boutique or wholesale business never faces inventory gaps across India.",
-                        c: "text-highlight",
-                        i: (
-                            <Image src="/ICONS/bulk-reliability-icon.png" alt="Bulk Reliability" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    }
-                ]}
+                quote={premiumFeatures.quote}
+                features={premiumFeatures.features.map((f: any, i: number) => ({
+                    t: f.t,
+                    d: f.d,
+                    c: "text-highlight",
+                    i: (
+                        <Image src={PREMIUM_FEATURE_ICONS[i] || PREMIUM_FEATURE_ICONS[0]} alt={f.t} width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
+                    ),
+                }))}
             />
 
             {/* ── SECTION: MANUFACTURING EXCELLENCE ── */}
@@ -361,24 +393,19 @@ export default function AboutPage() {
                 <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-24">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-24 items-center">
                         <div className="order-2 lg:order-1 relative aspect-square w-full h-auto rounded-[30px] md:rounded-[60px] overflow-hidden shadow-2xl border-[8px] md:border-[15px] border-cream group">
-                            {/* <Image src="/batik-fabric-manufacturing.webp" alt="Fabric Quality" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[3s]" /> */}
-                            <Image src="/round-category/indian dresses for girls.webp" alt="Fabric Quality" layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-[3s]" />
+                            <Image src={manufacturing.image} alt="Fabric Quality" fill className="object-cover group-hover:scale-105 transition-all duration-[3s]" />
                         </div>
                         <div className="order-1 lg:order-2 flex flex-col gap-6 md:gap-10">
                             <div className="flex flex-col gap-2 md:gap-6 text-center lg:text-left">
-                                <span className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] md:tracking-[0.4em]">The Process</span>
-                                <h2 className="font-heading text-2xl md:text-4xl font-normal text-primary">Our Whole Fabric <span className="text-highlight">Manufacturing Standards</span></h2>
+                                <span className="text-[10px] md:text-xs font-bold text-primary uppercase tracking-[0.2em] md:tracking-[0.4em]">{manufacturing.tag}</span>
+                                <h2 className="font-heading text-2xl md:text-4xl font-normal text-primary">{renderWithHighlight(manufacturing.heading, manufacturing.highlightWord)}</h2>
                             </div>
                             <div className="flex flex-col gap-5 md:gap-8">
-                                {[
-                                    { t: "Premium Cotton Selection", d: "We use high-quality cotton fabric (60x60) known for comfort, durability, and suitability for daily wear and stitched garments." },
-                                    { t: "Traditional Wax-Dyeing", d: "Our process follows original wax techniques to create detailed batik print designs with strong pattern suits clarity and lasting color." },
-                                    { t: "Quality Control & Finishing", d: "Each batch is checked for consistency, color accuracy, and clean cutting—ensuring it is ready for bulk supply and retail use." }
-                                ].map((item, i) => (
+                                {manufacturing.steps.map((item: any, i: number) => (
                                     <div key={i} className="flex gap-4 md:gap-6 items-start group">
                                         <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-tan flex items-center justify-center text-primary text-sm md:text-base font-bold shrink-0 group-hover:bg-primary group-hover:text-white transition-all">{i + 1}</div>
                                         <div className="flex flex-col gap-1">
-                                            <h4 className="font-bold text-[15px] md:text-xl text-primary">{item.t}</h4>
+                                            <h3 className="font-bold text-[15px] md:text-xl text-primary">{item.t}</h3>
                                             <p className="text-sm md:text-base text-primary/80 font-normal leading-relaxed">{item.d}</p>
                                         </div>
                                     </div>
@@ -393,9 +420,9 @@ export default function AboutPage() {
             <section className="scroll-animate py-12 md:py-16 bg-transparent text-center px-6 border-t border-primary/5">
                 <div className="max-w-4xl mx-auto flex flex-col gap-8 md:gap-10">
                     <div className="flex flex-col gap-3 md:gap-5">
-                        <h2 className="font-heading text-2xl md:text-4xl font-normal text-primary leading-tight">Work Directly with <span className="text-highlight">the Manufacturer</span></h2>
+                        <h2 className="font-heading text-2xl md:text-4xl font-normal text-primary leading-tight">{renderWithHighlight(finalCta.heading, finalCta.highlightWord)}</h2>
                         <p className="text-lg md:text-xl text-primary/80 max-w-2xl mx-auto font-normal leading-relaxed">
-                            Partner with a team focused on consistent quality, reliable supply, and long-term business relationships across Indian markets.
+                            {finalCta.paragraph}
                         </p>
                     </div>
                     <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-5">
