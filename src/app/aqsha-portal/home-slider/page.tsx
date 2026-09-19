@@ -7,6 +7,8 @@ import { UploadCloud, Save, Loader2, Plus, Trash2, CheckCircle, XCircle, Pencil,
 interface SlideData {
   _id?: string;
   image: string;
+  mobileImage: string;
+  mobileImagePosition: string;
   imageAlt: string;
   tagline: string;
   title: string;
@@ -14,6 +16,7 @@ interface SlideData {
   subtitle: string;
   description: string;
   badge: string;
+  bgColor: string;
   primaryButtonLabel: string;
   primaryButtonLink: string;
   secondaryButtonLabel: string;
@@ -73,6 +76,8 @@ export default function HomeSliderAdmin() {
     try {
       const newSlide: Omit<SlideData, '_id'> = {
         image: '',
+        mobileImage: '',
+        mobileImagePosition: '',
         imageAlt: 'New Promo Banner',
         tagline: 'NEW COLLECTION',
         title: 'New Slider Heading',
@@ -80,6 +85,7 @@ export default function HomeSliderAdmin() {
         subtitle: 'Eye-catching subtitle',
         description: 'Describe the collection here.',
         badge: '',
+        bgColor: '',
         primaryButtonLabel: 'SHOP NOW',
         primaryButtonLink: '/collections',
         secondaryButtonLabel: '',
@@ -152,7 +158,7 @@ export default function HomeSliderAdmin() {
     }
   };
 
-  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>, field: 'image' | 'mobileImage' = 'image') => {
     const file = e.target.files?.[0];
     if (!file || !editingSlide?._id) return;
 
@@ -167,7 +173,7 @@ export default function HomeSliderAdmin() {
       });
       const uploadData = await res.json();
       if (uploadData.imageUrl) {
-        handleModalFieldChange('image', uploadData.imageUrl);
+        handleModalFieldChange(field, uploadData.imageUrl);
         showToast('Image uploaded! Remember to save.', 'success');
       }
     } catch (err) {
@@ -363,8 +369,36 @@ export default function HomeSliderAdmin() {
                         <span className="text-white text-xs font-medium">Upload New Image</span>
                       </>
                     )}
-                    <input type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
+                    <input type="file" accept="image/*" className="hidden" onChange={(e) => handleImageUpload(e, 'image')} />
                   </label>
+                </div>
+
+                <label className="text-xs font-bold text-primary/70 mb-2 uppercase">Mobile Image (Optional)</label>
+                <div className="relative w-full aspect-[4/5] bg-gray-100 rounded-xl overflow-hidden border border-dashed border-primary/30 flex items-center justify-center group mb-2">
+                  {editingSlide.mobileImage ? (
+                    <Image src={editingSlide.mobileImage} alt="Mobile slider image" fill className="object-cover" />
+                  ) : (
+                    <div className="flex flex-col items-center gap-2 text-gray-400">
+                      <UploadCloud className="w-8 h-8" />
+                      <span className="text-xs">Falls back to main image</span>
+                    </div>
+                  )}
+
+                  <label className={`absolute inset-0 bg-black/50 transition-opacity cursor-pointer flex flex-col items-center justify-center gap-2 ${uploadingId === editingSlide._id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
+                    {uploadingId === editingSlide._id ? (
+                      <Loader2 className="w-8 h-8 text-white animate-spin" />
+                    ) : (
+                      <>
+                        <UploadCloud className="w-8 h-8 text-white" />
+                        <span className="text-white text-xs font-medium">Upload Mobile Image</span>
+                      </>
+                    )}
+                    <input type="file" accept="image/*" className="hidden" onChange={(e) => handleImageUpload(e, 'mobileImage')} />
+                  </label>
+                </div>
+                <div>
+                  <label className="text-[11px] md:text-xs font-bold text-primary/70 uppercase mb-1 block">Mobile Image Position</label>
+                  <input type="text" value={editingSlide.mobileImagePosition} onChange={e => handleModalFieldChange('mobileImagePosition', e.target.value)} className="w-full p-2 md:p-2.5 border border-gray-300 rounded-lg text-sm text-gray-900 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none" placeholder="e.g. top, center, 50% 30%"/>
                 </div>
               </div>
 
@@ -399,9 +433,15 @@ export default function HomeSliderAdmin() {
                   <textarea rows={2} value={editingSlide.description} onChange={e => handleModalFieldChange('description', e.target.value)} className="w-full p-2 md:p-2.5 border border-gray-300 rounded-lg text-sm text-gray-900 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none"/>
                 </div>
 
-                <div>
-                  <label className="text-[11px] md:text-xs font-bold text-primary/70 uppercase mb-1 block">Badge Label (Optional)</label>
-                  <input type="text" value={editingSlide.badge} onChange={e => handleModalFieldChange('badge', e.target.value)} className="w-full p-2 md:p-2.5 border border-gray-300 rounded-lg text-sm text-gray-900 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none" placeholder="e.g. NEW, BESTSELLER"/>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                  <div>
+                    <label className="text-[11px] md:text-xs font-bold text-primary/70 uppercase mb-1 block">Badge Label (Optional)</label>
+                    <input type="text" value={editingSlide.badge} onChange={e => handleModalFieldChange('badge', e.target.value)} className="w-full p-2 md:p-2.5 border border-gray-300 rounded-lg text-sm text-gray-900 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none" placeholder="e.g. NEW, BESTSELLER"/>
+                  </div>
+                  <div>
+                    <label className="text-[11px] md:text-xs font-bold text-primary/70 uppercase mb-1 block">Background Color (Optional)</label>
+                    <input type="text" value={editingSlide.bgColor} onChange={e => handleModalFieldChange('bgColor', e.target.value)} className="w-full p-2 md:p-2.5 border border-gray-300 rounded-lg text-sm text-gray-900 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary/40 outline-none" placeholder="e.g. #F4F1EA"/>
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
