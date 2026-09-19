@@ -47,9 +47,9 @@ export function ShopByCategorySection() {
                             </div>
                             <div className="flex flex-col items-center text-center gap-1 md:gap-2 opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 transition-all duration-500">
                                 <span className="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-primary/70">{cat.sub}</span>
-                                <h4 className="text-[13px] md:text-[15px] font-heading font-semibold text-primary group-hover:text-accent transition-colors leading-tight">
+                                <h3 className="text-[13px] md:text-[15px] font-heading font-semibold text-primary group-hover:text-accent transition-colors leading-tight">
                                     {cat.title}
-                                </h4>
+                                </h3>
                             </div>
                         </Link>
                     ))}
@@ -139,7 +139,7 @@ export function FeaturedGridSection() {
                                     src={getImageSrc(item)}
                                     alt={item.name}
                                     fill
-                                    unoptimized={true}
+                                    sizes="(max-width: 768px) 50vw, 40vw"
                                     className={`object-cover object-top transition-all duration-[1.2s] ease-out opacity-100 brightness-100 ${isHovered ? 'scale-[1.03]' : 'md:opacity-90'
                                         }`}
                                 />
@@ -473,40 +473,40 @@ export function LookbookSection() {
                     {/* Large Featured Image (Left) */}
                     <Link href={looks[0].link} className="col-span-1 md:col-span-2 row-span-1 md:row-span-2 flex flex-col gap-4 group cursor-pointer">
                         <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[2px] bg-surface shadow-sm border border-primary/10">
-                            <Image src={looks[0].img} alt={looks[0].title} fill className="object-cover group-hover:scale-105 transition-transform duration-[6s] ease-out" />
+                            <Image src={looks[0].img} alt={`${looks[0].title} lookbook photo`} fill className="object-cover group-hover:scale-105 transition-transform duration-[6s] ease-out" />
                         </div>
                         <div className="flex flex-col gap-1 items-start text-left">
-                            <h4 className="text-[13px] md:text-[15px] font-heading font-semibold text-primary group-hover:text-accent transition-colors leading-tight">{looks[0].title}</h4>
+                            <h3 className="text-[13px] md:text-[15px] font-heading font-semibold text-primary group-hover:text-accent transition-colors leading-tight">{looks[0].title}</h3>
                         </div>
                     </Link>
 
                     {/* Top Right Grid Item 1 */}
                     <Link href={looks[1].link} className="col-span-1 row-span-1 flex flex-col gap-4 group cursor-pointer">
                         <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[2px] bg-surface shadow-sm border border-primary/10">
-                            <Image src={looks[1].img} alt={looks[1].title} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-[6s] ease-out" />
+                            <Image src={looks[1].img} alt={`${looks[1].title} lookbook photo`} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-[6s] ease-out" />
                         </div>
                         <div className="flex flex-col gap-1 items-start text-left">
-                            <h4 className="text-[13px] md:text-[15px] font-heading font-semibold text-primary group-hover:text-accent transition-colors leading-tight">{looks[1].title}</h4>
+                            <h3 className="text-[13px] md:text-[15px] font-heading font-semibold text-primary group-hover:text-accent transition-colors leading-tight">{looks[1].title}</h3>
                         </div>
                     </Link>
 
                     {/* Top Right Grid Item 2 */}
                     <Link href={looks[2].link} className="col-span-1 row-span-1 flex flex-col gap-4 group cursor-pointer">
                         <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[2px] bg-surface shadow-sm border border-primary/10">
-                            <Image src={looks[2].img} alt={looks[2].title} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-[6s] ease-out" />
+                            <Image src={looks[2].img} alt={`${looks[2].title} lookbook photo`} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-[6s] ease-out" />
                         </div>
                         <div className="flex flex-col gap-1 items-start text-left">
-                            <h4 className="text-[13px] md:text-[15px] font-heading font-semibold text-primary group-hover:text-accent transition-colors leading-tight">{looks[2].title}</h4>
+                            <h3 className="text-[13px] md:text-[15px] font-heading font-semibold text-primary group-hover:text-accent transition-colors leading-tight">{looks[2].title}</h3>
                         </div>
                     </Link>
 
                     {/* Bottom Right Wide Item */}
                     <Link href={looks[3].link} className="col-span-1 md:col-span-2 row-span-1 flex flex-col gap-4 group cursor-pointer">
                         <div className="relative w-full aspect-[4/5] md:aspect-[21/9] overflow-hidden rounded-[2px] bg-surface shadow-sm border border-primary/10">
-                            <Image src={looks[3].img} alt={looks[3].title} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-[6s] ease-out" />
+                            <Image src={looks[3].img} alt={`${looks[3].title} lookbook photo`} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-[6s] ease-out" />
                         </div>
                         <div className="flex flex-col gap-1 items-start text-left">
-                            <h4 className="text-[13px] md:text-[15px] font-heading font-semibold text-primary group-hover:text-accent transition-colors leading-tight">{looks[3].title}</h4>
+                            <h3 className="text-[13px] md:text-[15px] font-heading font-semibold text-primary group-hover:text-accent transition-colors leading-tight">{looks[3].title}</h3>
                         </div>
                     </Link>
 
