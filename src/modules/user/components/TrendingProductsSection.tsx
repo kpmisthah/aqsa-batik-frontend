@@ -123,7 +123,6 @@ export default function TrendingProductsSection() {
                                             alt={product.name}
                                             fill
                                             sizes="(max-width: 768px) 100vw, 33vw"
-                                            unoptimized={true}
                                             className="object-cover opacity-95 group-hover:opacity-100 group-hover:scale-[1.02] transition-transform duration-[1.5s] ease-out"
                                         />
                                     </div>
