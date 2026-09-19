@@ -3,24 +3,116 @@ import Link from "next/link";
 import Nav from "@/modules/user/components/Nav";
 import FAQ from "@/modules/user/components/FAQ";
 import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
-import ProductGrid from "@/modules/user/components/ProductGrid";
 import PremiumFeatureSection from "@/modules/user/components/PremiumFeatureSection";
 import AdvantageSection from "@/modules/user/components/AdvantageSection";
 import HowToOrderSection from "@/modules/user/components/HowToOrderSection";
 
 import ProductFilterLayout from "@/modules/user/components/ProductFilterLayout";
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
-import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
-import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
 
 import { Metadata } from 'next';
 import ConsistentCTA from "@/modules/user/components/ConsistentCTA";
+import { getPageContent } from "@/utils/getPageContent";
+import { renderWithHighlight } from "@/utils/textHighlight";
 
 
 export const metadata: Metadata = {
     title: "Batik Prints Women’s Clothing | Cotton Styles & Batik Suits",
     description: "Batik prints for women’s clothing in breathable 60x60 cotton. Explore batik suits, kurtis, dresses, ethnic styles and wholesale collections.",
 };
+
+const DEFAULT_PRINTSCLOTH_HERO = {
+    overline: "Trending Batik Clothes",
+    heading: "Batik Prints for Women's\nClothing, Made for\nEveryday Life",
+    highlightWord: "Everyday Life",
+    paragraph: "Discover distinctive batik prints, breathable cotton cloth comfort, and versatile women's styles made for everyday living.",
+    imageDesktop: "/Hero Banner/image(2222).png",
+    imageMobile: "/Hero Banner/mobile-version/image(3333).png",
+    ctaLabel1: "Shop Batik Suits",
+    ctaLabel2: "Become a Wholesale Partner",
+};
+
+const DEFAULT_PRINTSCLOTH_APPLICATIONS = {
+    overline: "Applications",
+    heading: "Batik Prints for Every Women's Clothing Style",
+    highlightWord: "Women's Clothing",
+    paragraph: "Breathable batik-print fabric made for versatile cotton dresses for women, kurtis, suits, and custom fashion creations.",
+    items: [
+        { t: "DRESS MATERIALS", d: "Create comfortable batik print kurtis, suits, and everyday cotton dresses with breathable fabric.", img: "/Batik-print-women-clothing/batik-fabric-manufacturing.webp" },
+        { t: "BOUTIQUE COLLECTIONS", d: "Build distinctive womens clothing collections with versatile batik prints and easy-to-style cotton designs.", img: "/Batik-print-women-clothing/trending clothes for women.webp" },
+        { t: "CUSTOM DESIGNS", d: "Create personalized suits, blouse styles, plus-size looks, and seasonal outfits from versatile Batik Cotton Dress for Women.", img: "/Batik-print-women-clothing/cotton cloth.webp" },
+    ],
+};
+
+const DEFAULT_PRINTSCLOTH_COLLECTION_TEXT = {
+    overline: "Batik Fabric Library",
+    heading: "Explore Signature Batik Prints for Women Clothes",
+    highlightWord: "Women Clothes",
+    paragraph: "Discover expressive batik prints, distinctive colours, and versatile styles designed for modern women's wardrobes.",
+};
+
+const DEFAULT_PRINTSCLOTH_ADVANTAGE = {
+    tag: "Made for Comfort",
+    heading: "Why Women Choose Batik Cloth for Everyday Comfort",
+    highlightWord: "Everyday Comfort",
+    image: "/Batik-print-women-clothing/printed cotton fabric.webp",
+    featureTag: "FABRIC STANDARD",
+    featureTitle: "Pure Cotton 60x60",
+    featureDesc: "Made from pure 60x60 cotton, our fabric is lightweight, breathable, soft to the touch, and durable enough for comfortable everyday batik womens clothing.",
+    items: [
+        { title: "Breathable Construction", desc: "Helps maintain airflow and comfort in warm weather." },
+        { title: "Lightweight Feel", desc: "Soft, easy to wear, and suitable for everyday styling." },
+        { title: "Durable Quality", desc: "Built to retain its comfort and character through regular wear." },
+        { title: "Soft & Skin-Friendly", desc: "Smooth against the skin, offering comfortable wear all day." },
+    ],
+};
+
+const ADVANTAGE_ICONS = [
+    "/ICONS/breathable-icon.png",
+    "/ICONS/lightweight-icon.png",
+    "/ICONS/durable-icon.png",
+    "/ICONS/soft-icon.png",
+];
+
+const DEFAULT_PRINTSCLOTH_PREMIUM_FEATURES = {
+    tag: "THE AQSHA ADVANTAGE",
+    heading: "Premium Quality That Works\nfor Women's Clothing Business",
+    highlightWord: "Clothing Business",
+    image: "/Batik-print-women-clothing/dress material.webp",
+    quote: "Our premium Batik Prints Women Clothing offers the perfect canvas for your fashion creations, blending traditional art with superior comfort.",
+    features: [
+        { t: "Consistent Quality", d: "Reliable standards across fabric, prints, and finishing help you maintain a dependable collection." },
+        { t: "Ready Stock", d: "Access selected batik styles with ready availability for faster retail and wholesale ordering." },
+        { t: "Wholesale Reliability", d: "Designed for boutiques, resellers, and fashion businesses seeking consistent bulk supply and dependable quality." },
+        { t: "Strong Resale Potential", d: "Distinctive designs and wearable styles give retailers products suited to varied customer preferences." },
+        { t: "Design Variety", d: "Choose from expressive batik designs, versatile silhouettes, and styles suited to different wardrobes and occasions." },
+        { t: "Boutique Ready", d: "Build distinctive collections with carefully selected batik suits, kurtis, dresses, and women's clothing." },
+    ],
+};
+
+const PREMIUM_FEATURE_ICONS = [
+    "/ICONS/consistent-quality-icon.png",
+    "/ICONS/ready-stock-icon.png",
+    "/ICONS/wholesale-reliability-icon.png",
+    "/ICONS/resale-potential-icon.png",
+    "/ICONS/design-variety-icon.png",
+    "/ICONS/boutique-ready-icon.png",
+];
+
+const DEFAULT_PRINTSCLOTH_HOW_TO_ORDER = {
+    tag: "Wholesale, Made Simple",
+    heading: "How to Order Batik Cloth Online",
+    highlightWord: "Cloth Online",
+    subtitle: "From choosing your batik suits online to receiving ready-to-sell collections for women's clothing, our simple process keeps every wholesale order smooth, clear, and reliable.",
+};
+
+const DEFAULT_PRINTSCLOTH_FAQ = [
+    { q: "What makes batik suitable for daily wear?", a: "Batik made from breathable 60x60 cotton offers lightweight comfort for everyday dressing. Its distinctive batik design also adds character to casual suits, kurtis, and other womens clothing styles." },
+    { q: "Can Batik Prints Women Clothinging work as gym clothes for women or yoga wear?", a: "Lightweight cotton batik can work for gentle workouts, stretching, yoga, and low-impact movement. Its breathable construction helps provide airflow and comfort, although it is not intended to replace performance-specific activewear." },
+    { q: "Is Batik Prints Women Clothing suitable for plus size womens clothing?", a: "Yes. Batik Prints Women Clothinging can be created in comfortable, inclusive silhouettes for plus size womens clothing. Relaxed cuts, breathable cotton, and thoughtfully placed batik print designs can provide both ease and style." },
+    { q: "Which batik colours work best for formal clothes for women?", a: "Deep indigo, navy, black, maroon, charcoal, earthy brown, and muted green are excellent choices for formal clothes for women. Refined batik print designs in these tones can create an elegant look without feeling overly casual." },
+    { q: "Can batik suits be worn as summer clothes for women?", a: "Yes. Lightweight 60x60 cotton makes batik suits a comfortable choice for summer clothes for women. Breathable fabric and easy silhouettes can help you stay comfortable while enjoying expressive batik prints during warmer days." },
+];
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
@@ -52,7 +144,16 @@ const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20ab
 
 export default async function CottonClothPage({ searchParams }: { searchParams: Promise<any> }) {
     const resolvedParams = await searchParams;
-    const { products, totalPages, currentPage } = await getProducts(resolvedParams || {});
+    const [{ products, totalPages, currentPage }, hero, applications, collectionText, advantage, premiumFeatures, howToOrder, faqData] = await Promise.all([
+        getProducts(resolvedParams || {}),
+        getPageContent("printscloth_hero", DEFAULT_PRINTSCLOTH_HERO),
+        getPageContent("printscloth_applications", DEFAULT_PRINTSCLOTH_APPLICATIONS),
+        getPageContent("printscloth_collection_text", DEFAULT_PRINTSCLOTH_COLLECTION_TEXT),
+        getPageContent("printscloth_advantage", DEFAULT_PRINTSCLOTH_ADVANTAGE),
+        getPageContent("printscloth_premium_features", DEFAULT_PRINTSCLOTH_PREMIUM_FEATURES),
+        getPageContent("printscloth_how_to_order", DEFAULT_PRINTSCLOTH_HOW_TO_ORDER),
+        getPageContent("printscloth_faq", { items: DEFAULT_PRINTSCLOTH_FAQ }),
+    ]);
 
     return (
         <div className="min-h-screen bg-cream text-primary selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
@@ -71,7 +172,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                 {/* Desktop Background Image */}
                 <div className="hidden md:block absolute inset-0 w-full h-full z-0">
                     <Image
-                        src="/Hero Banner/image(2222).png"
+                        src={hero.imageDesktop}
                         alt="Batik Prints Women Clothing"
                         fill
                         priority
@@ -82,7 +183,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                 {/* Mobile Image */}
                 <div className="relative w-full h-[60vh] min-h-[450px] md:hidden z-0">
                     <Image
-                        src="/Hero Banner/mobile-version/image(3333).png"
+                        src={hero.imageMobile}
                         alt="Batik Prints Women Clothing"
                         fill
                         priority
@@ -96,23 +197,23 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                         {/* Hook */}
                         <div className="flex items-center justify-center md:justify-start gap-2">
                             <span className="text-[#8A4B32] text-xl leading-none">&diams;</span>
-                            <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">Trending Batik Clothes</span>
+                            <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">{hero.overline}</span>
                         </div>
-                        
+
                         <h1 className="text-3xl leading-[1.15] sm:text-4xl md:text-[60px] md:leading-[1.1] font-heading font-normal tracking-tight text-primary">
-                            Batik Prints for Women’s <br className="hidden md:block" /> Clothing, Made for <br className="hidden md:block" /><span className="text-highlight italic">Everyday Life</span>
+                            {renderWithHighlight(hero.heading, hero.highlightWord)}
                         </h1>
-                        
+
                         <p className="text-[14px] md:text-lg text-primary/80 leading-relaxed max-w-2xl font-medium">
-                            Discover distinctive batik prints, breathable cotton cloth comfort, and versatile women’s styles made for everyday living.
+                            {hero.paragraph}
                         </p>
-                        
+
                         <div className="flex flex-col sm:flex-row gap-3 md:gap-4 items-center md:items-start w-full sm:w-auto mt-2">
                             <a href="#collection" className="bg-highlight hover:bg-highlight/90 text-white px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] md:text-xs flex items-center justify-center transition-all shadow-sm text-center w-full sm:w-auto">
-                                Shop Batik Suits
+                                {hero.ctaLabel1}
                             </a>
                             <a href={WA} target="_blank" rel="noreferrer" className="border border-primary/20 hover:border-primary/40 text-primary hover:bg-primary/5 px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] md:text-xs flex items-center justify-center transition-all backdrop-blur-sm text-center w-full sm:w-auto">
-                                Become a Wholesale Partner
+                                {hero.ctaLabel2}
                             </a>
                         </div>
                     </div>
@@ -131,37 +232,21 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
             <section id="applications" className="scroll-animate py-12 md:py-16 px-6 bg-tan relative overflow-hidden text-primary">
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-10 md:gap-12">
                     <div className="flex flex-col gap-4 text-center items-center mx-auto max-w-4xl">
-                        <span className="text-overline">Applications</span>
-                        <h2 className="text-h2 font-heading text-primary">Batik Prints for Every{" "}<span className="text-highlight">Women’s Clothing</span> Style</h2>
+                        <span className="text-overline">{applications.overline}</span>
+                        <h2 className="text-h2 font-heading text-primary">{renderWithHighlight(applications.heading, applications.highlightWord)}</h2>
                         <p className="text-lg md:text-xl text-foreground leading-relaxed max-w-3xl font-normal">
-                            Breathable batik-print fabric made for versatile cotton dresses for women, kurtis, suits, and custom fashion creations.
+                            {applications.paragraph}
                         </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto w-full">
-                        {[
-                            {
-                                t: "DRESS MATERIALS",
-                                d: "Create comfortable batik print kurtis, suits, and everyday cotton dresses with breathable fabric.",
-                                img: "/Batik-print-women-clothing/batik-fabric-manufacturing.webp"
-                            },
-                            {
-                                t: "BOUTIQUE COLLECTIONS",
-                                d: "Build distinctive womens clothing collections with versatile batik prints and easy-to-style cotton designs.",
-                                img: "/Batik-print-women-clothing/trending clothes for women.webp"
-                            },
-                            {
-                                t: "CUSTOM DESIGNS",
-                                d: "Create personalized suits, blouse styles, plus-size looks, and seasonal outfits from versatile Batik Cotton Dress for Women.",
-                                img: "/Batik-print-women-clothing/cotton cloth.webp"
-                            }
-                        ].map((item, i) => (
+                        {applications.items.map((item: any, i: number) => (
                             <div key={i} className="flex flex-col gap-5 md:gap-6 group">
                                 <div className="relative w-full aspect-square overflow-hidden rounded-[24px] border border-primary/10 shadow-sm group-hover:shadow-xl transition-shadow duration-500">
-                                    <Image 
-                                        src={item.img} 
-                                        alt={item.t} 
-                                        fill 
+                                    <Image
+                                        src={item.img}
+                                        alt={item.t}
+                                        fill
                                         sizes="(max-width: 768px) 100vw, 33vw"
                                         className="object-cover group-hover:scale-105 transition-transform duration-[1500ms] ease-out"
                                     />
@@ -182,11 +267,11 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
                     <div className="flex flex-col gap-3 md:gap-4 text-center items-center mx-auto max-w-4xl">
                         <div className="flex items-center justify-center gap-2">
                             <span className="text-[#8A4B32] text-xl leading-none">&diams;</span>
-                            <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">Batik Fabric Library</span>
+                            <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">{collectionText.overline}</span>
                         </div>
-                        <h2 className="text-h2 font-heading text-primary">Explore Signature Batik Prints for{" "}<br className="md:hidden" />{" "}<span className="text-highlight">Women Clothes</span></h2>
+                        <h2 className="text-h2 font-heading text-primary">{renderWithHighlight(collectionText.heading, collectionText.highlightWord)}</h2>
                         <p className="text-lg md:text-xl text-foreground font-normal leading-relaxed mt-2 w-full text-center">
-                            Discover expressive batik prints, distinctive colours, and versatile styles designed for modern women’s wardrobes.
+                            {collectionText.paragraph}
                         </p>
                     </div>
                     <ProductFilterLayout
@@ -200,101 +285,36 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
 
             <AdvantageSection
                 tagColor="#8A4B32"
-                tag="Made for Comfort"
-                title={<>Why Women Choose Batik Cloth for <span className="text-highlight">Everyday Comfort</span></>}
-                items={[
-                    {
-                        title: "Breathable Construction",
-                        desc: "Helps maintain airflow and comfort in warm weather.",
-                        icon: "/ICONS/breathable-icon.png"
-                    },
-                    {
-                        title: "Lightweight Feel",
-                        desc: "Soft, easy to wear, and suitable for everyday styling.",
-                        icon: "/ICONS/lightweight-icon.png"
-                    },
-                    {
-                        title: "Durable Quality",
-                        desc: "Built to retain its comfort and character through regular wear.",
-                        icon: "/ICONS/durable-icon.png"
-                    },
-                    {
-                        title: "Soft & Skin-Friendly",
-                        desc: "Smooth against the skin, offering comfortable wear all day.",
-                        icon: "/ICONS/soft-icon.png"
-                    }
-                ]}
-                imageSrc="/Batik-print-women-clothing/printed cotton fabric.webp"
-                mobileImageSrc="/Batik-print-women-clothing/printed cotton fabric.webp"
+                tag={advantage.tag}
+                title={renderWithHighlight(advantage.heading, advantage.highlightWord)}
+                items={advantage.items.map((it: any, i: number) => ({ ...it, icon: ADVANTAGE_ICONS[i] || ADVANTAGE_ICONS[0] }))}
+                imageSrc={advantage.image}
+                mobileImageSrc={advantage.image}
                 imageContainerClassName="aspect-square"
-                featureTag="FABRIC STANDARD"
-                featureTitle="Pure Cotton 60x60"
-                featureDesc="Made from pure 60x60 cotton, our fabric is lightweight, breathable, soft to the touch, and durable enough for comfortable everyday batik womens clothing."
+                featureTag={advantage.featureTag}
+                featureTitle={advantage.featureTitle}
+                featureDesc={advantage.featureDesc}
             />
 
             <PremiumFeatureSection
                 tagColor="#8A4B32"
-                tag="THE AQSHA ADVANTAGE"
-                title={<>Premium Quality That Works{" "}<br />{" "}for Women's <span className="text-highlight">Clothing Business</span></>}
-                features={[
-                    {
-                        t: "Consistent Quality",
-                        d: "Reliable standards across fabric, prints, and finishing help you maintain a dependable collection.",
-                        c: "text-brand",
-                        i: (
-                            <Image src="/ICONS/consistent-quality-icon.png" alt="Consistent Quality" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "Ready Stock",
-                        d: "Access selected batik styles with ready availability for faster retail and wholesale ordering.",
-                        c: "text-brand",
-                        i: (
-                            <Image src="/ICONS/ready-stock-icon.png" alt="Ready Stock" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "Wholesale Reliability",
-                        d: "Designed for boutiques, resellers, and fashion businesses seeking consistent bulk supply and dependable quality.",
-                        c: "text-brand",
-                        i: (
-                            <Image src="/ICONS/wholesale-reliability-icon.png" alt="Wholesale Reliability" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "Strong Resale Potential",
-                        d: "Distinctive designs and wearable styles give retailers products suited to varied customer preferences.",
-                        c: "text-brand",
-                        i: (
-                            <Image src="/ICONS/resale-potential-icon.png" alt="Strong Resale Potential" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "Design Variety",
-                        d: "Choose from expressive batik designs, versatile silhouettes, and styles suited to different wardrobes and occasions.",
-                        c: "text-brand",
-                        i: (
-                            <Image src="/ICONS/design-variety-icon.png" alt="Design Variety" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "Boutique Ready",
-                        d: "Build distinctive collections with carefully selected batik suits, kurtis, dresses, and women's clothing.",
-                        c: "text-brand",
-                        i: (
-                            <Image src="/ICONS/boutique-ready-icon.png" alt="Boutique Ready" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    }
-                ]}
-                imageSrc="/Batik-print-women-clothing/dress material.webp"
-                mobileImageSrc="/Batik-print-women-clothing/dress material.webp"
+                tag={premiumFeatures.tag}
+                title={renderWithHighlight(premiumFeatures.heading, premiumFeatures.highlightWord)}
+                features={premiumFeatures.features.map((f: any, i: number) => ({
+                    t: f.t,
+                    d: f.d,
+                    c: "text-brand",
+                    i: <Image src={PREMIUM_FEATURE_ICONS[i] || PREMIUM_FEATURE_ICONS[0]} alt={f.t} width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />,
+                }))}
+                imageSrc={premiumFeatures.image}
+                mobileImageSrc={premiumFeatures.image}
                 imageContainerClassName="aspect-square w-full"
-                quote="Our premium Batik Prints Women Clothing offers the perfect canvas for your fashion creations, blending traditional art with superior comfort."
+                quote={premiumFeatures.quote}
             />
             <HowToOrderSection
-                tag="Wholesale, Made Simple"
-                title={<>How to Order Batik{" "}<span className="text-highlight">Cloth Online</span></>}
-                subtitle="From choosing your batik suits online to receiving ready-to-sell collections for women’s clothing, our simple process keeps every wholesale order smooth, clear, and reliable."
+                tag={howToOrder.tag}
+                title={renderWithHighlight(howToOrder.heading, howToOrder.highlightWord)}
+                subtitle={howToOrder.subtitle}
                 whatsappLink={WA}
             />
 
@@ -440,28 +460,7 @@ export default async function CottonClothPage({ searchParams }: { searchParams: 
             </section>
 
 
-            <FAQ items={[
-                {
-                    q: "What makes batik suitable for daily wear?",
-                    a: "Batik made from breathable 60x60 cotton offers lightweight comfort for everyday dressing. Its distinctive batik design also adds character to casual suits, kurtis, and other womens clothing styles."
-                },
-                {
-                    q: "Can Batik Prints Women Clothinging work as gym clothes for women or yoga wear?",
-                    a: "Lightweight cotton batik can work for gentle workouts, stretching, yoga, and low-impact movement. Its breathable construction helps provide airflow and comfort, although it is not intended to replace performance-specific activewear."
-                },
-                {
-                    q: "Is Batik Prints Women Clothing suitable for plus size womens clothing?",
-                    a: "Yes. Batik Prints Women Clothinging can be created in comfortable, inclusive silhouettes for plus size womens clothing. Relaxed cuts, breathable cotton, and thoughtfully placed batik print designs can provide both ease and style."
-                },
-                {
-                    q: "Which batik colours work best for formal clothes for women?",
-                    a: "Deep indigo, navy, black, maroon, charcoal, earthy brown, and muted green are excellent choices for formal clothes for women. Refined batik print designs in these tones can create an elegant look without feeling overly casual."
-                },
-                {
-                    q: "Can batik suits be worn as summer clothes for women?",
-                    a: "Yes. Lightweight 60x60 cotton makes batik suits a comfortable choice for summer clothes for women. Breathable fabric and easy silhouettes can help you stay comfortable while enjoying expressive batik prints during warmer days."
-                }
-            ]} />
+            <FAQ items={faqData.items} />
 
             {/* ── CONSISTENT CTA ── */}
             <ConsistentCTA />
