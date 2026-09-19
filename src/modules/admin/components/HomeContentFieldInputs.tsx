@@ -6,7 +6,7 @@ import { Plus, Trash2, UploadCloud, Loader2 } from "lucide-react";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
-export type FieldType = "text" | "textarea" | "image" | "video";
+export type FieldType = "text" | "textarea" | "richtext" | "image" | "video";
 
 export interface FieldConfig {
   key: string;
@@ -69,6 +69,24 @@ export function FieldInput({
           onChange={(e) => onChange(e.target.value)}
           placeholder={field.placeholder}
           className="w-full border border-primary/20 rounded-xl p-3 text-sm text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium resize-none"
+        />
+      </div>
+    );
+  }
+
+  if (field.type === "richtext") {
+    return (
+      <div>
+        <label className="block text-[11px] font-black uppercase tracking-widest text-primary/60 mb-1.5">{field.label}</label>
+        <p className="text-[10px] text-primary/40 font-medium mb-1.5">
+          Leave a blank line between paragraphs. Start a line with "- " for a bullet list. Wrap a line in **text** for bold colored emphasis, or *text* for plain bold.
+        </p>
+        <textarea
+          rows={10}
+          value={value || ""}
+          onChange={(e) => onChange(e.target.value)}
+          placeholder={field.placeholder}
+          className="w-full border border-primary/20 rounded-xl p-3 text-sm text-primary focus:ring-2 focus:ring-accent focus:outline-none font-medium font-mono resize-y"
         />
       </div>
     );
@@ -167,7 +185,7 @@ export function RepeatableListEditor({
             </button>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pr-8">
               {itemFields.map((f) => (
-                <div key={f.key} className={f.type === "textarea" || f.type === "image" || f.type === "video" ? "sm:col-span-2" : ""}>
+                <div key={f.key} className={f.type === "textarea" || f.type === "richtext" || f.type === "image" || f.type === "video" ? "sm:col-span-2" : ""}>
                   <FieldInput field={f} value={item[f.key]} onChange={(v) => updateItem(i, f.key, v)} />
                 </div>
               ))}
