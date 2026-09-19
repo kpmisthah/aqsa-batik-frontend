@@ -1,25 +1,118 @@
 import Image from "next/image";
 import Nav from "@/modules/user/components/Nav";
 import FAQ from "@/modules/user/components/FAQ";
-import PremiumTrustSection from "@/modules/user/components/PremiumTrustSection";
 import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
 
-import ProductGrid from "@/modules/user/components/ProductGrid";
 import PremiumFeatureSection from "@/modules/user/components/PremiumFeatureSection";
 import AdvantageSection from "@/modules/user/components/AdvantageSection";
 import HowToOrderSection from "@/modules/user/components/HowToOrderSection";
 import ProductFilterLayout from "@/modules/user/components/ProductFilterLayout";
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
-import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
-import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
 import { Metadata } from 'next';
 import ConsistentCTA from "@/modules/user/components/ConsistentCTA";
+import { getPageContent } from "@/utils/getPageContent";
+import { renderWithHighlight } from "@/utils/textHighlight";
 
 
 export const metadata: Metadata = {
     title: "Ethnic Wear for Women | Batik Dresses, Kurtis & Suits",
     description: "Shop ethnic wear for women featuring Batik dresses, kurtis, cotton suits and traditional-inspired styles for everyday, festive and occasion wear."
 };
+
+const DEFAULT_ETHNIC_HERO = {
+    overline: "TRADITION, REIMAGINED",
+    heading: "Ethnic Wear for Women That Feels Traditional Yet Effortlessly Modern",
+    highlightWord: "Yet Effortlessly Modern",
+    paragraph: "Discover Batik ethnic wear for women designed to bring traditional character into everyday wardrobes. Explore breathable cotton dresses, expressive Batik kurtis, comfortable suit sets, and occasion-ready styles created for women who want culture, comfort, and individuality in every look.",
+    imageDesktop: "/Hero Banner/i.png",
+    imageMobile: "/Hero Banner/mobile-version/img3.png",
+    ctaLabel1: "Shop Ethnic Wear",
+    ctaLabel2: "Become a Wholesale Partner",
+};
+
+const DEFAULT_ETHNIC_COLLECTION = {
+    overline1: "Everyday Ethnic Style",
+    heading1: "Indian Ethnic Wear for Women Designed for Real Life",
+    highlightWord1: "Real Life",
+    paragraph1: "Our Batik suits collection brings together comfortable silhouettes, handcrafted-inspired prints, and versatile styles that can move naturally from everyday routines to festive gatherings.",
+    overline2: "Batik Ethnic Collection",
+    heading2: "Explore Ethnic Wear for Women Made to Be Worn Beyond One Occasion",
+    highlightWord2: "Beyond One Occasion",
+    paragraph2: "The right ethnic outfit should feel traditional, comfortable, and easy to wear again. Explore Batik dresses, kurtis, cotton styles, and suit sets made for effortless everyday style.",
+    highlights: [
+        { t: "Everyday Ethnic Wear", d: "Choose comfortable Batik dresses, kurtis, and suit styles for shopping, travel, casual outings, workdays, and relaxed social occasions.", img: "/ethnic/ethnic wear for women.webp" },
+        { t: "Occasion Dressing", d: "Create a more expressive look with distinctive Batik designs, elegant silhouettes, and accessories that complement your personal style.", img: "/ethnic/ethnic wear for women (1).webp" },
+        { t: "Boutique & Retail", d: "Explore distinctive ethnic styles that can help boutiques and resellers build collections with stronger visual identity and everyday wearability.", img: "/ethnic/ethnic wear for women (2).webp" },
+    ],
+};
+
+const DEFAULT_ETHNIC_ADVANTAGE = {
+    tag: "WHY BATIK WORKS",
+    heading: "Why Choose Batik Ethnic Wear for Women?",
+    highlightWord: "Ethnic Wear",
+    description: "The best ethnic wear balances how you look with how you feel. Batik makes that balance easier by combining expressive design with practical silhouettes and comfortable fabrics.",
+    image: "/ethnic/indian ethnic wear for women.webp",
+    featureTag: "FABRIC MEETS HERITAGE",
+    featureTitle: "Traditional Character. Everyday Comfort.",
+    featureDesc: "The right ethnic outfit should feel traditional, comfortable, and easy to wear again. Explore Batik dresses, kurtis, cotton styles, and suit sets made for effortless everyday style.",
+    items: [
+        { title: "Distinctive Batik Design", desc: "A thoughtfully designed Batik print can instantly give an outfit more personality without relying on excessive styling." },
+        { title: "Comfortable Cotton", desc: "Cotton ethnic wear offers a breathable, practical option for women who want comfort throughout the day." },
+        { title: "Versatile Silhouettes", desc: "From Batik kurtis to dresses and suit sets, versatile silhouettes make it easier to build multiple looks from one collection." },
+        { title: "Made for Different Occasions", desc: "The right Batik style can work for everyday wear, summer dressing, casual gatherings, festive occasions, and selected formal settings." },
+    ],
+};
+
+const ADVANTAGE_ICONS = [
+    "/ICONS/distinctive-batik-design-icon.png",
+    "/ICONS/comfortable-cotton-icon.png",
+    "/ICONS/versatile-silhouettes-icon.png",
+    "/ICONS/different-occasions-icon.png",
+];
+
+const DEFAULT_ETHNIC_PREMIUM_FEATURES = {
+    tag: "FROM DAILY TO DRESSED-UP",
+    heading: "One Ethnic Wardrobe. More Ways to Wear It.",
+    highlightWord: "Wear It.",
+    description: "Ethnic wear does not have to mean one fixed style. The right collection gives you options.",
+    image: "/ethnic/ethnic wear for women (3).webp",
+    quoteTag: "STYLE WITH PURPOSE",
+    quoteTitle: "From Traditional Ethnic Wear to Contemporary Women's Fashion",
+    quoteDesc: "Modern ethnic dressing is about choosing pieces that work with your lifestyle.",
+    features: [
+        { t: "For Everyday Wear", d: "Choose lightweight Batik kurtis, relaxed dresses, and comfortable cotton styles for routines that demand ease." },
+        { t: "For Work & Casual Meetings", d: "Pair a structured Batik kurti or coordinated suit set with simple accessories for a polished ethnic look." },
+        { t: "For Festive Occasions", d: "Select richer Batik prints, expressive colours, and elegant silhouettes when you want your ethnic look to feel more celebratory." },
+        { t: "For Weddings & Gatherings", d: "Wedding ethnic wear for women can become more memorable when traditional-inspired prints are paired with refined silhouettes and thoughtful accessories." },
+        { t: "For Summer Days", d: "Choose breathable cotton ethnic styles when comfort matters as much as appearance." },
+        { t: "Simple Styling Formula", d: "Batik Kurti + Straight Pants + Flats. A practical combination for everyday errands, workdays, and casual meetings." },
+    ],
+};
+
+const PREMIUM_FEATURE_ICONS = [
+    "/ICONS/everyday-wear-icon.png",
+    "/ICONS/work-meetings-icon.png",
+    "/ICONS/festive-occasions-icon.png",
+    "/ICONS/weddings-gatherings-icon.png",
+    "/ICONS/summer-days-icon.png",
+    "/ICONS/simple-styling-icon.png",
+];
+
+const DEFAULT_ETHNIC_HOW_TO_ORDER = {
+    tag: "WHOLESALE OPPORTUNITY",
+    heading: "Bring Distinctive Indian Ethnic Wear for Women Into Your Collection",
+    highlightWord: "Ethnic Wear",
+    subtitle: "For boutiques, resellers, and retailers, Batik ethnic collections offer distinctive designs customers can wear and love again. Build a more memorable women's fashion assortment with traditional character and everyday appeal.",
+    ctaText: "Start Your Wholesale Order",
+};
+
+const DEFAULT_ETHNIC_FAQ = [
+    { q: "What is ethnic wear for women?", a: "Ethnic wear for women includes clothing inspired by traditional regional styles, prints, silhouettes, and cultural design elements. It can include dresses, kurtis, suit sets, and other Indian-inspired women's clothing." },
+    { q: "Is Batik suitable for Indian ethnic wear for women?", a: "Yes. Batik brings distinctive print character to ethnic clothing, while cotton-based styles provide practical comfort for everyday dressing." },
+    { q: "What Batik ethnic wear is best for everyday use?", a: "Batik kurtis, cotton Batik dresses, lightweight suit sets, and relaxed silhouettes are practical choices for comfortable everyday ethnic dressing." },
+    { q: "Where can I buy ethnic wear for women online?", a: "You can explore Batik ethnic wear collections for women's suits online from No. 1 Ujjain Batik manufacturer, Aqsha Batik Suits, and discover dresses, kurtis, suit sets, and other ethnic styles suited to your preferred design and occasion." },
+    { q: "Can I buy Batik ethnic wear wholesale?", a: "Yes. Boutiques, retailers, resellers, and fashion businesses can explore available Batik collections and contact the team for product availability, quantities, pricing, and wholesale ordering." },
+];
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
@@ -51,25 +144,15 @@ const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20ab
 
 export default async function BatikSuitsPage({ searchParams }: { searchParams: Promise<any> }) {
     const resolvedParams = await searchParams;
-    const { products, totalPages, currentPage } = await getProducts(resolvedParams || {});
-
-    const collectionHighlights = [
-        {
-            t: "Everyday Ethnic Wear",
-            d: "Choose comfortable Batik dresses, kurtis, and suit styles for shopping, travel, casual outings, workdays, and relaxed social occasions.",
-            img: "/ethnic/ethnic wear for women.webp"
-        },
-        {
-            t: "Occasion Dressing",
-            d: "Create a more expressive look with distinctive Batik designs, elegant silhouettes, and accessories that complement your personal style.",
-            img: "/ethnic/ethnic wear for women (1).webp"
-        },
-        {
-            t: "Boutique & Retail",
-            d: "Explore distinctive ethnic styles that can help boutiques and resellers build collections with stronger visual identity and everyday wearability.",
-            img: "/ethnic/ethnic wear for women (2).webp"
-        }
-    ];
+    const [{ products, totalPages, currentPage }, hero, collection, advantage, premiumFeatures, howToOrder, faqData] = await Promise.all([
+        getProducts(resolvedParams || {}),
+        getPageContent("ethnic_hero", DEFAULT_ETHNIC_HERO),
+        getPageContent("ethnic_collection", DEFAULT_ETHNIC_COLLECTION),
+        getPageContent("ethnic_advantage", DEFAULT_ETHNIC_ADVANTAGE),
+        getPageContent("ethnic_premium_features", DEFAULT_ETHNIC_PREMIUM_FEATURES),
+        getPageContent("ethnic_how_to_order", DEFAULT_ETHNIC_HOW_TO_ORDER),
+        getPageContent("ethnic_faq", { items: DEFAULT_ETHNIC_FAQ }),
+    ]);
 
     return (
         <div className="min-h-screen bg-cream text-primary selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
@@ -86,7 +169,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                 {/* Desktop Background Image */}
                 <div className="hidden lg:block absolute inset-0 w-full h-full z-0">
                     <Image
-                        src="/Hero Banner/i.png"
+                        src={hero.imageDesktop}
                         alt="Ethnic Wear for Women Collection"
                         fill
                         priority
@@ -97,7 +180,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                 {/* Mobile Image */}
                 <div className="relative w-full h-[60vh] min-h-[450px] lg:hidden z-0">
                     <Image
-                        src="/Hero Banner/mobile-version/img3.png"
+                        src={hero.imageMobile}
                         alt="Ethnic Wear for Women Collection"
                         fill
                         priority
@@ -111,23 +194,23 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                         {/* Hook */}
                         <div className="flex items-center justify-center lg:justify-start gap-2">
                             <span className="text-[#8A4B32] text-xl leading-none">&diams;</span>
-                            <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">TRADITION, REIMAGINED</span>
+                            <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">{hero.overline}</span>
                         </div>
-                        
+
                         <h1 className="text-3xl leading-[1.15] sm:text-4xl lg:text-[36px] xl:text-[48px] 2xl:text-[60px] lg:leading-[1.1] font-heading font-normal tracking-tight text-primary">
-                            Ethnic Wear for Women <br className="hidden lg:block" /> That Feels Traditional <br className="hidden lg:block" />{" "}<span className='text-highlight italic whitespace-nowrap'>Yet Effortlessly Modern</span>
+                            {renderWithHighlight(hero.heading, hero.highlightWord)}
                         </h1>
-                        
+
                         <p className="text-[14px] lg:text-lg text-primary/80 leading-relaxed max-w-2xl font-medium">
-                            Discover Batik ethnic wear for women designed to bring traditional character into everyday wardrobes. Explore breathable cotton dresses, expressive Batik kurtis, comfortable suit sets, and occasion-ready styles created for women who want culture, comfort, and individuality in every look.
+                            {hero.paragraph}
                         </p>
-                        
+
                         <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 items-center lg:items-start w-full sm:w-auto mt-2">
                             <a href="#collection" className="bg-highlight hover:bg-highlight/90 text-white px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-xs flex items-center justify-center transition-all shadow-sm text-center w-full sm:w-auto">
-                                Shop Ethnic Wear
+                                {hero.ctaLabel1}
                             </a>
                             <a href={WA} target="_blank" rel="noreferrer" className="border border-primary/20 hover:border-primary/40 text-primary hover:bg-primary/5 px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-xs flex items-center justify-center transition-all backdrop-blur-sm text-center w-full sm:w-auto">
-                                Become a Wholesale Partner
+                                {hero.ctaLabel2}
                             </a>
                         </div>
                     </div>
@@ -146,13 +229,13 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
             <section id="collection" className="pt-10 md:pt-16 pb-20 md:pb-32 px-6 bg-cream relative">
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-20">
                     <div className="flex flex-col gap-6 text-center mx-auto max-w-3xl">
-                        <span className="text-overline text-[#8A4B32] font-bold">Everyday Ethnic Style</span>
-                        <h2 className="text-h2">Indian Ethnic Wear for Women <br className="hidden md:block" /> Designed for{" "}<span className="text-highlight">Real Life</span></h2>
-                        <p className="text-body1">Our Batik suits collection brings together comfortable silhouettes, handcrafted-inspired prints, and versatile styles that can move naturally from everyday routines to festive gatherings.</p>
+                        <span className="text-overline text-[#8A4B32] font-bold">{collection.overline1}</span>
+                        <h2 className="text-h2">{renderWithHighlight(collection.heading1, collection.highlightWord1)}</h2>
+                        <p className="text-body1">{collection.paragraph1}</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto w-full">
-                        {collectionHighlights.map((item, i) => (
+                        {collection.highlights.map((item: any, i: number) => (
                             <div key={i} className="flex flex-col gap-5 md:gap-6 group">
                                 <div className="relative w-full aspect-square overflow-hidden rounded-[24px] border border-border shadow-sm group-hover:shadow-xl transition-shadow duration-500">
                                     <Image
@@ -172,10 +255,10 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                     </div>
 
                     <div className="text-center mt-10">
-                        <span className="text-overline text-[#8A4B32] font-bold">Batik Ethnic Collection</span>
-                        <h2 className="text-h2 mt-4 max-w-3xl mx-auto">Explore Ethnic Wear for Women <br className="hidden md:block" /> Made to Be Worn{" "}<span className="text-highlight">Beyond One Occasion</span></h2>
+                        <span className="text-overline text-[#8A4B32] font-bold">{collection.overline2}</span>
+                        <h2 className="text-h2 mt-4 max-w-3xl mx-auto">{renderWithHighlight(collection.heading2, collection.highlightWord2)}</h2>
                         <p className="text-body1 text-primary/80 max-w-3xl mx-auto mt-4 leading-relaxed">
-                            The right ethnic outfit should feel traditional, comfortable, and easy to wear again. Explore Batik dresses, kurtis, cotton styles, and suit sets made for effortless everyday style.
+                            {collection.paragraph2}
                         </p>
                     </div>
 
@@ -189,90 +272,41 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
             </section>
 
             <AdvantageSection
-                tag="WHY BATIK WORKS"
+                tag={advantage.tag}
                 tagColor="#8A4B32"
-                title={<>Why Choose Batik <span className="text-highlight">Ethnic Wear</span> for Women?</>}
-                description="The best ethnic wear balances how you look with how you feel. Batik makes that balance easier by combining expressive design with practical silhouettes and comfortable fabrics."
-                items={[
-                    { title: "Distinctive Batik Design", desc: "A thoughtfully designed Batik print can instantly give an outfit more personality without relying on excessive styling.", icon: "/ICONS/distinctive-batik-design-icon.png" },
-                    { title: "Comfortable Cotton", desc: "Cotton ethnic wear offers a breathable, practical option for women who want comfort throughout the day.", icon: "/ICONS/comfortable-cotton-icon.png" },
-                    { title: "Versatile Silhouettes", desc: "From Batik kurtis to dresses and suit sets, versatile silhouettes make it easier to build multiple looks from one collection.", icon: "/ICONS/versatile-silhouettes-icon.png" },
-                    { title: "Made for Different Occasions", desc: "The right Batik style can work for everyday wear, summer dressing, casual gatherings, festive occasions, and selected formal settings.", icon: "/ICONS/different-occasions-icon.png" }
-                ]}
-                imageSrc="/ethnic/indian ethnic wear for women.webp"
-                featureTag="FABRIC MEETS HERITAGE"
-                featureTitle="Traditional Character. Everyday Comfort."
-                featureDesc="The right ethnic outfit should feel traditional, comfortable, and easy to wear again. Explore Batik dresses, kurtis, cotton styles, and suit sets made for effortless everyday style."
+                title={renderWithHighlight(advantage.heading, advantage.highlightWord)}
+                description={advantage.description}
+                items={advantage.items.map((it: any, i: number) => ({ ...it, icon: ADVANTAGE_ICONS[i] || ADVANTAGE_ICONS[0] }))}
+                imageSrc={advantage.image}
+                featureTag={advantage.featureTag}
+                featureTitle={advantage.featureTitle}
+                featureDesc={advantage.featureDesc}
             />
 
             <PremiumFeatureSection
-                tag="FROM DAILY TO DRESSED-UP"
+                tag={premiumFeatures.tag}
                 tagColor="#8A4B32"
-                title={<>One Ethnic Wardrobe. More Ways to <span className="text-highlight">Wear It.</span></>}
-                description="Ethnic wear does not have to mean one fixed style. The right collection gives you options."
-                features={[
-                    {
-                        t: "For Everyday Wear",
-                        d: "Choose lightweight Batik kurtis, relaxed dresses, and comfortable cotton styles for routines that demand ease.",
-                        c: "text-[#8A4B32]",
-                        i: (
-                            <Image src="/ICONS/everyday-wear-icon.png" alt="For Everyday Wear" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "For Work & Casual Meetings",
-                        d: "Pair a structured Batik kurti or coordinated suit set with simple accessories for a polished ethnic look.",
-                        c: "text-[#8A4B32]",
-                        i: (
-                            <Image src="/ICONS/work-meetings-icon.png" alt="For Work & Casual Meetings" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "For Festive Occasions",
-                        d: "Select richer Batik prints, expressive colours, and elegant silhouettes when you want your ethnic look to feel more celebratory.",
-                        c: "text-[#8A4B32]",
-                        i: (
-                            <Image src="/ICONS/festive-occasions-icon.png" alt="For Festive Occasions" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "For Weddings & Gatherings",
-                        d: "Wedding ethnic wear for women can become more memorable when traditional-inspired prints are paired with refined silhouettes and thoughtful accessories.",
-                        c: "text-[#8A4B32]",
-                        i: (
-                            <Image src="/ICONS/weddings-gatherings-icon.png" alt="For Weddings & Gatherings" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "For Summer Days",
-                        d: "Choose breathable cotton ethnic styles when comfort matters as much as appearance.",
-                        c: "text-[#8A4B32]",
-                        i: (
-                            <Image src="/ICONS/summer-days-icon.png" alt="For Summer Days" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "Simple Styling Formula",
-                        d: "Batik Kurti + Straight Pants + Flats. A practical combination for everyday errands, workdays, and casual meetings.",
-                        c: "text-[#8A4B32]",
-                        i: (
-                            <Image src="/ICONS/simple-styling-icon.png" alt="Simple Styling Formula" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    }
-                ]}
-                imageSrc="/ethnic/ethnic wear for women (3).webp"
+                title={renderWithHighlight(premiumFeatures.heading, premiumFeatures.highlightWord)}
+                description={premiumFeatures.description}
+                features={premiumFeatures.features.map((f: any, i: number) => ({
+                    t: f.t,
+                    d: f.d,
+                    c: "text-[#8A4B32]",
+                    i: <Image src={PREMIUM_FEATURE_ICONS[i] || PREMIUM_FEATURE_ICONS[0]} alt={f.t} width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />,
+                }))}
+                imageSrc={premiumFeatures.image}
                 imageContainerClassName="aspect-[1240/1748] w-full h-auto"
-                quoteTag="STYLE WITH PURPOSE"
-                quoteTitle="From Traditional Ethnic Wear to Contemporary Women's Fashion"
-                quoteDesc="Modern ethnic dressing is about choosing pieces that work with your lifestyle."
+                quoteTag={premiumFeatures.quoteTag}
+                quoteTitle={premiumFeatures.quoteTitle}
+                quoteDesc={premiumFeatures.quoteDesc}
             />
 
 
             <HowToOrderSection
-                tag="WHOLESALE OPPORTUNITY"
+                tag={howToOrder.tag}
                 tagColor="#8A4B32"
-                title={<>Bring Distinctive Indian <span className='text-highlight'>Ethnic Wear</span> <br className="hidden md:block" /> for Women Into Your Collection</>}
-                subtitle="For boutiques, resellers, and retailers, Batik ethnic collections offer distinctive designs customers can wear and love again. Build a more memorable women’s fashion assortment with traditional character and everyday appeal."
+                title={renderWithHighlight(howToOrder.heading, howToOrder.highlightWord)}
+                subtitle={howToOrder.subtitle}
                 steps={[
                     {
                         s: "01",
@@ -305,7 +339,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                         i: <svg className="w-6 h-6 md:w-8 md:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 17h4V5H2v12h3" /><path d="M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5" /><path d="M14 17h1" /><circle cx="7.5" cy="17.5" r="2.5" /><circle cx="17.5" cy="17.5" r="2.5" /></svg>,
                     }
                 ]}
-                ctaText="Start Your Wholesale Order"
+                ctaText={howToOrder.ctaText}
                 whatsappLink={WA}
             />
 
@@ -378,13 +412,7 @@ export default async function BatikSuitsPage({ searchParams }: { searchParams: P
                 </div>
             </section>
 
-            <FAQ items={[
-                { q: "What is ethnic wear for women?", a: "Ethnic wear for women includes clothing inspired by traditional regional styles, prints, silhouettes, and cultural design elements. It can include dresses, kurtis, suit sets, and other Indian-inspired women's clothing." },
-                { q: "Is Batik suitable for Indian ethnic wear for women?", a: "Yes. Batik brings distinctive print character to ethnic clothing, while cotton-based styles provide practical comfort for everyday dressing." },
-                { q: "What Batik ethnic wear is best for everyday use?", a: "Batik kurtis, cotton Batik dresses, lightweight suit sets, and relaxed silhouettes are practical choices for comfortable everyday ethnic dressing." },
-                { q: "Where can I buy ethnic wear for women online?", a: "You can explore Batik ethnic wear collections for women's suits online from No. 1 Ujjain Batik manufacturer, Aqsha Batik Suits, and discover dresses, kurtis, suit sets, and other ethnic styles suited to your preferred design and occasion." },
-                { q: "Can I buy Batik ethnic wear wholesale?", a: "Yes. Boutiques, retailers, resellers, and fashion businesses can explore available Batik collections and contact the team for product availability, quantities, pricing, and wholesale ordering." }
-            ]} />
+            <FAQ items={faqData.items} />
 
             {/* ── CONSISTENT CTA ── */}
             <ConsistentCTA />
