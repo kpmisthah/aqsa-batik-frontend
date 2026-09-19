@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useHomeContent } from "@/modules/user/hooks/useHomeContent";
 
 const GOOGLE_REVIEW_URL = "https://g.page/r/YOUR_GOOGLE_REVIEW_LINK/review";
 
@@ -55,13 +56,16 @@ function GoogleGIcon({ className = "" }: { className?: string }) {
 }
 
 export default function GoogleReviewBar() {
+    const { reviewUrl, reviews: contentReviews } = useHomeContent("google_review_bar", { reviewUrl: GOOGLE_REVIEW_URL, reviews });
+    const activeReviews = contentReviews && contentReviews.length > 0 ? contentReviews : reviews;
+
     const [reviewIndex, setReviewIndex] = useState(0);
 
     useEffect(() => {
-        setReviewIndex(Math.floor(Date.now() / 86400000) % reviews.length);
-    }, []);
+        setReviewIndex(Math.floor(Date.now() / 86400000) % activeReviews.length);
+    }, [activeReviews.length]);
 
-    const review = reviews[reviewIndex];
+    const review = activeReviews[reviewIndex] || activeReviews[0];
 
     return (
         <section className="relative z-20 bg-surface border-y border-primary/5 shadow-sm">
@@ -123,7 +127,7 @@ export default function GoogleReviewBar() {
                     </div>
 
                     <a
-                        href={GOOGLE_REVIEW_URL}
+                        href={reviewUrl || GOOGLE_REVIEW_URL}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-transparent border border-primary/20 text-primary hover:border-primary text-[7px] lg:text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 lg:px-6 lg:py-3 rounded-full transition-colors whitespace-nowrap"
