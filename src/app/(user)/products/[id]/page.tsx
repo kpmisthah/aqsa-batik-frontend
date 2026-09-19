@@ -54,11 +54,16 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
     const mainImage = product.images?.[0] || "/product_white_mustard.png";
 
     const details = [
-        { label: "Fabric", value: product.fabricDetails || "Pure Cotton 60x60", icon: "🧵" },
+        { label: "Fabric", value: product.fabric || product.fabricDetails || "Pure Cotton 60x60", icon: "🧵" },
         { label: "Category", value: product.category, icon: "🏷️" },
         { label: "Product Type", value: product.subCategory || "Batik", icon: "✨" },
-        { label: "Colors Available", value: product.colours?.map((c: string) => getColorName(c)).join(", ") || "Standard", icon: "🎨" }
-    ];
+        { label: "Colors Available", value: product.colours?.map((c: string) => getColorName(c)).join(", ") || "Standard", icon: "🎨" },
+        { label: "Pattern", value: product.pattern, icon: "🖌️" },
+        { label: "Fabric Quality", value: product.fabricQuality, icon: "🔎" },
+        { label: "Kameez Length", value: product.kameezLength, icon: "📏" },
+        { label: "Shalwar Length", value: product.shalwarLength, icon: "📐" },
+        { label: "Dupatta Length", value: product.dupattaLength, icon: "🪡" },
+    ].filter((d) => d.value);
 
     const whyItSells = [
         { t: "High Demand Design", d: "Sophisticated palette that is a retail favorite.", i: "✨" },
@@ -108,21 +113,16 @@ export default async function DynamicProductPage({ params }: { params: Promise<{
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-                        {/* Specs List (Sleek Grid Layout) */}
-                        <div className="grid grid-cols-2 md:grid-cols-2 lg:flex lg:flex-col xl:grid xl:grid-cols-2 justify-center gap-3 md:gap-5 w-full">
+                        {/* Specs List (Clean Row Layout) */}
+                        <div className="w-full bg-white rounded-[24px] md:rounded-[32px] shadow-sm border border-primary/5 px-6 md:px-10">
                             {details.map((detail, i) => (
-                                <div key={i} className="flex flex-col sm:flex-row items-center sm:items-center gap-3 sm:gap-5 p-4 sm:p-5 md:p-6 bg-white rounded-[20px] md:rounded-[24px] shadow-sm hover:shadow-xl border border-primary/5 hover:border-secondary/20 transition-all duration-300 group hover:-translate-y-1 text-center sm:text-left w-full h-full">
-                                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-cream flex items-center justify-center text-xl md:text-3xl text-primary group-hover:scale-110 transition-transform shrink-0">
-                                        {detail.icon}
-                                    </div>
-                                    <div className="flex flex-col flex-1 items-center sm:items-start w-full">
-                                        <span className="text-[9px] md:text-xs font-black uppercase tracking-[0.2em] text-brand">
-                                            {detail.label}
-                                        </span>
-                                        <span className="text-xs md:text-lg font-bold text-primary tracking-tight leading-snug mt-1 md:mt-1.5 w-full">
-                                            {detail.value}
-                                        </span>
-                                    </div>
+                                <div key={i} className="flex items-center justify-between gap-4 py-4 md:py-5 border-b border-primary/10 last:border-0">
+                                    <span className="text-xs md:text-sm font-black uppercase tracking-widest text-primary shrink-0">
+                                        {detail.label}
+                                    </span>
+                                    <span className="text-sm md:text-lg font-bold text-accent text-right">
+                                        {detail.value}
+                                    </span>
                                 </div>
                             ))}
                         </div>
