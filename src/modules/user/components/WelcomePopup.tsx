@@ -50,7 +50,7 @@ export default function WelcomePopup() {
             <div className="bg-surface w-full max-w-[750px] max-h-[85vh] overflow-y-auto overflow-x-hidden rounded-[20px] md:rounded-[24px] relative flex flex-col md:flex-row shadow-2xl animate-in zoom-in-95 duration-500">
 
                 {/* Close Button */}
-                <button onClick={closePopup} className="absolute top-2 right-2 md:top-3 md:right-3 w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors z-50 bg-surface/90 backdrop-blur-sm shadow-sm">
+                <button onClick={closePopup} aria-label="Close popup" className="absolute top-2 right-2 md:top-3 md:right-3 w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors z-50 bg-surface/90 backdrop-blur-sm shadow-sm">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M18 6 6 18M6 6l12 12" />
                     </svg>
