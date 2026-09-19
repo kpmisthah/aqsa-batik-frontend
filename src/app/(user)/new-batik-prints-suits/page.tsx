@@ -2,15 +2,117 @@ import Image from "next/image";
 import Nav from "@/modules/user/components/Nav";
 import FAQ from "@/modules/user/components/FAQ";
 import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
-import ProductGrid from "@/modules/user/components/ProductGrid";
 import PremiumFeatureSection from "@/modules/user/components/PremiumFeatureSection";
 import AdvantageSection from "@/modules/user/components/AdvantageSection";
 import ProductFilterLayout from "@/modules/user/components/ProductFilterLayout";
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
-import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
-import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
 import HorizontalProcessSection from "@/modules/user/components/HorizontalProcessSection";
 import ConsistentCTA from "@/modules/user/components/ConsistentCTA";
+import { getPageContent } from "@/utils/getPageContent";
+import { renderWithHighlight } from "@/utils/textHighlight";
+
+const DEFAULT_NEWARRIVAL_HERO = {
+    overline: "FRESH BATIK. FRESH EXPRESSION.",
+    heading: "Discover New Batik Prints\nfor Women Who Want\nSomething Different",
+    highlightWord: "New Batik Prints",
+    paragraph: "Explore the latest Batik prints, fresh colours, expressive patterns, and comfortable cotton styles designed to bring something new to your wardrobe. From Batik print kurtis and dresses to versatile suit styles, discover designs made for everyday confidence and effortless ethnic dressing.",
+    imageDesktop: "/Hero Banner/newarrival-11.png",
+    imageMobile: "/Hero Banner/mobile-version/newarrival-2.png",
+    ctaLabel1: "Shop New Arrivals",
+    ctaLabel2: "Explore Wholesale",
+};
+
+const DEFAULT_NEWARRIVAL_TREND_VALUE = {
+    overline: "NEW SEASON. NEW STYLE.",
+    heading: "Fresh Batik Designs Made for Modern Everyday Dressing",
+    highlightWord: "Everyday Dressing",
+    paragraph: "Our latest Batik collection brings together distinctive Batik design, comfortable silhouettes, and versatile styles that work across everyday routines, casual outings, summer dressing, and relaxed occasions.",
+    items: [
+        { t: "Fresh Batik Prints", d: "Discover new patterns, expressive motifs, and contemporary colour combinations that give traditional Batik a fresh direction." },
+        { t: "Everyday Cotton Styles", d: "Choose comfortable cotton dresses, kurtis, and suit styles designed for easy everyday wear." },
+        { t: "Modern Ethnic Dressing", d: "Bring traditional print characters into contemporary wardrobes with versatile silhouettes that are easy to style." },
+    ],
+};
+
+const TREND_VALUE_ICONS = [
+    "/ICONS/fresh-batik-prints-icon.png",
+    "/ICONS/everyday-cotton-styles-icon.png",
+    "/ICONS/modern-ethnic-dressing-icon.png",
+];
+
+const DEFAULT_NEWARRIVAL_COLLECTION_TEXT = {
+    overline: "THE NEW COLLECTION",
+    heading: "Explore the Latest Batik Prints, Dresses & Kurtis",
+    highlightWord: "Dresses & Kurtis",
+    paragraph: "Discover newly added Batik styles designed around comfort, colour, and individuality.",
+};
+
+const DEFAULT_NEWARRIVAL_ADVANTAGE = {
+    tag: "WHY NEW BATIK",
+    heading: "Why Women Choose Our Latest Batik Prints?",
+    highlightWord: "Latest Batik Prints?",
+    subheading: "The newest style is not always the best style. The right new arrival is one you can actually see yourself wearing.",
+    image: "/premium-cotton-kurtis-for-women-image.webp",
+    featureTag: "FRESH PRINT.",
+    featureTitle: "New Prints. Authentic Batik Character.",
+    featureDesc: "The appeal of a new Batik print is simple. It gives familiar comfort and a fresh visual identity.",
+    items: [
+        { title: "Distinctive Batik Design", desc: "Fresh patterns help your wardrobe feel individual without making everyday styling complicated." },
+        { title: "Comfortable Cotton", desc: "Batik cotton fabric offers a practical foundation for comfortable dresses, kurtis, and ethnic styles." },
+        { title: "Versatile Styling", desc: "A Batik print kurti can work with trousers or palazzos, while a Batik dress can become an easy standalone outfit." },
+        { title: "Fresh Colour Choices", desc: "New colour combinations make it easier to discover something that feels different from what you already own." },
+    ],
+};
+
+const ADVANTAGE_ICONS = [
+    "/ICONS/distinctive-batik-design-new-icon.png",
+    "/ICONS/comfortable-cotton-new-icon.png",
+    "/ICONS/versatile-styling-icon.png",
+    "/ICONS/fresh-colour-choices-icon.png",
+];
+
+const DEFAULT_NEWARRIVAL_PREMIUM_FEATURES = {
+    tag: "FROM PRINT TO OUTFIT",
+    heading: "More Ways to Wear the Latest Batik Suits Collection",
+    highlightWord: "Batik Suits Collection",
+    subheading: "New Batik prints become more valuable when they work across your wardrobe.",
+    image: "/cotton-kurti-for-women-image.webp",
+    quoteTag: "STYLE WITH SOMETHING NEW",
+    quoteTitle: "Fresh Prints. Easy Styling. More Reasons to Wear Batik.",
+    quoteDesc: "New arrivals should not sit in your wardrobe waiting for the right occasion.",
+    features: [
+        { t: "For Everyday Wear", d: "Choose a Batik print kurti with straight pants and flats for a simple, polished look." },
+        { t: "For Summer Days", d: "Pair a lightweight Batik dress with sandals and minimal jewellery for effortless warm-weather dressing." },
+        { t: "For Casual Outings", d: "Choose printed dresses for women who want colour and personality without complicated styling." },
+        { t: "For Ethnic Occasions", d: "Pair a distinctive Batik suit with elegant accessories when you want a more refined traditional look." },
+        { t: "Everyday Wearability", d: "The collection focuses on styles that can move naturally from daily routines to casual gatherings and seasonal dressing." },
+        { t: "Versatile Women's Clothing", d: "Discover breathable Batik styles, cotton dresses, and printed women's clothing designed for everyday comfort, effortless styling, and seasonal wear." },
+    ],
+};
+
+const PREMIUM_FEATURE_ICONS = [
+    "/ICONS/everyday-wear-new-icon.png",
+    "/ICONS/summer-days-new-icon.png",
+    "/ICONS/casual-outings-icon.png",
+    "/ICONS/ethnic-occasions-icon.png",
+    "/ICONS/everyday-wearability-icon.png",
+    "/ICONS/versatile-clothing-icon.png",
+];
+
+const DEFAULT_NEWARRIVAL_HOW_TO_ORDER = {
+    tag: "FOR WOMEN & BUSINESSES",
+    heading: "New Batik Prints That Create Fresh Opportunities",
+    highlightWord: "Fresh Opportunities",
+    subtitle: "For women, new Batik arrivals bring fresh ways to express personal style. For boutiques and retailers, they offer distinctive designs to refresh collections with styles customers want to wear again.",
+};
+
+const DEFAULT_NEWARRIVAL_FAQ = [
+    { q: "What are the latest Batik print designs?", a: "The latest Batik print designs include fresh patterns, colours, motifs, and contemporary interpretations of traditional Batik. New arrivals may include kurtis, dresses, suits, and other cotton styles." },
+    { q: "What is a Batik print kurti?", a: "A Batik print kurti combines traditional Batik patterns with a versatile kurti silhouette. It can be styled with trousers, palazzos, leggings, or other everyday bottoms." },
+    { q: "Are Batik cotton dresses suitable for summer?", a: "Yes. Lightweight Batik cotton dresses can be a practical choice for warmer weather because cotton offers a breathable and comfortable feel." },
+    { q: "Can I buy Batik print dress material?", a: "Yes. Batik print dress material and Batik cotton fabric can give customers, designers, boutiques, and retailers greater flexibility to create their preferred styles." },
+    { q: "Can I buy new Batik prints wholesale?", a: "Yes. Boutiques, retailers, resellers, and fashion businesses can explore new Batik collections and contact the team for available designs, quantities, pricing, and wholesale ordering." },
+];
 
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
@@ -42,7 +144,16 @@ const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20ab
 
 export default async function NewArrivalPage({ searchParams }: { searchParams: Promise<any> }) {
     const resolvedParams = await searchParams;
-    const { products, totalPages, currentPage } = await getProducts(resolvedParams || {});
+    const [{ products, totalPages, currentPage }, hero, trendValue, collectionText, advantage, premiumFeatures, howToOrder, faqData] = await Promise.all([
+        getProducts(resolvedParams || {}),
+        getPageContent("newarrival_hero", DEFAULT_NEWARRIVAL_HERO),
+        getPageContent("newarrival_trend_value", DEFAULT_NEWARRIVAL_TREND_VALUE),
+        getPageContent("newarrival_collection_text", DEFAULT_NEWARRIVAL_COLLECTION_TEXT),
+        getPageContent("newarrival_advantage", DEFAULT_NEWARRIVAL_ADVANTAGE),
+        getPageContent("newarrival_premium_features", DEFAULT_NEWARRIVAL_PREMIUM_FEATURES),
+        getPageContent("newarrival_how_to_order", DEFAULT_NEWARRIVAL_HOW_TO_ORDER),
+        getPageContent("newarrival_faq", { items: DEFAULT_NEWARRIVAL_FAQ }),
+    ]);
 
     return (
         <div className="min-h-screen bg-cream text-primary selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
@@ -61,7 +172,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                 {/* Desktop Background Image */}
                 <div className="hidden lg:block absolute inset-0 w-full h-full z-0">
                     <Image
-                        src="/Hero Banner/newarrival-11.png"
+                        src={hero.imageDesktop}
                         alt="New Batik Arrivals"
                         fill
                         priority
@@ -77,7 +188,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                 {/* Mobile Image */}
                 <div className="relative w-full h-[60vh] min-h-[450px] lg:hidden z-0">
                     <Image
-                        src="/Hero Banner/mobile-version/newarrival-2.png"
+                        src={hero.imageMobile}
                         alt="New Batik Arrivals"
                         fill
                         priority
@@ -91,25 +202,23 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                         {/* Hook */}
                         <div className="flex items-center justify-center lg:justify-start gap-2">
                             <span className="text-[#8A4B32] text-xl leading-none">&diams;</span>
-                            <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">FRESH BATIK. FRESH EXPRESSION.</span>
+                            <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">{hero.overline}</span>
                         </div>
 
                         <h1 className="text-3xl leading-[1.15] sm:text-4xl lg:text-[30px] xl:text-[44px] 2xl:text-[48px] lg:leading-[1.1] font-heading font-normal tracking-tight text-primary lg:whitespace-nowrap">
-                            Discover <span className='text-highlight italic whitespace-nowrap'>New Batik Prints</span> <br className="hidden lg:block" />
-                            for Women Who Want <br className="hidden lg:block" />
-                            Something Different
+                            {renderWithHighlight(hero.heading, hero.highlightWord)}
                         </h1>
 
                         <p className="text-[14px] lg:text-[15px] xl:text-lg text-primary/80 leading-relaxed max-w-[380px] lg:max-w-full font-medium">
-                            Explore the latest Batik prints, fresh colours, expressive patterns, and comfortable cotton styles designed to bring something new to your wardrobe. From Batik print kurtis and dresses to versatile suit styles, discover designs made for everyday confidence and effortless ethnic dressing.
+                            {hero.paragraph}
                         </p>
-                        
+
                         <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 items-center lg:items-start w-full sm:w-auto mt-2">
                             <a href="#collection" className="bg-highlight hover:bg-highlight/90 text-white px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-xs flex items-center justify-center transition-all shadow-sm text-center w-full sm:w-auto">
-                                Shop New Arrivals
+                                {hero.ctaLabel1}
                             </a>
                             <a href="/wholesale-batik-women-dresses" className="border border-primary/20 hover:border-primary/40 text-primary hover:bg-primary/5 px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-xs flex items-center justify-center transition-all backdrop-blur-sm text-center w-full sm:w-auto">
-                                Explore Wholesale
+                                {hero.ctaLabel2}
                             </a>
                         </div>
                     </div>
@@ -129,44 +238,22 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
             <section className="scroll-animate py-12 md:py-16 px-6 bg-[#F4F0EA] relative overflow-hidden">
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-16 md:gap-20">
                     <div className="flex flex-col gap-4 text-center items-center mx-auto max-w-4xl">
-                        <span className="text-overline">NEW SEASON. NEW STYLE.</span>
-                        <h2 className="text-h2 text-primary">Fresh Batik Designs Made for <br className="hidden md:block" /> Modern <span className="text-highlight">Everyday Dressing</span></h2>
+                        <span className="text-overline">{trendValue.overline}</span>
+                        <h2 className="text-h2 text-primary">{renderWithHighlight(trendValue.heading, trendValue.highlightWord)}</h2>
                         <div className="w-12 h-[2px] bg-secondary/30"></div>
                         <p className="text-lg md:text-xl text-primary/80 font-normal leading-relaxed max-w-3xl">
-                            Our latest Batik collection brings together distinctive Batik design, comfortable silhouettes, and versatile styles that work across everyday routines, casual outings, summer dressing, and relaxed occasions.
+                            {trendValue.paragraph}
                         </p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10 max-w-6xl mx-auto w-full">
-                        {[
-                            {
-                                t: "Fresh Batik Prints",
-                                d: "Discover new patterns, expressive motifs, and contemporary colour combinations that give traditional Batik a fresh direction.",
-                                i: (
-                                    <Image src="/ICONS/fresh-batik-prints-icon.png" alt="Fresh Batik Prints" width={48} height={48} className="w-full h-full p-2 sm:p-2.5 object-contain" />
-                                )
-                            },
-                            {
-                                t: "Everyday Cotton Styles",
-                                d: "Choose comfortable cotton dresses, kurtis, and suit styles designed for easy everyday wear.",
-                                i: (
-                                    <Image src="/ICONS/everyday-cotton-styles-icon.png" alt="Everyday Cotton Styles" width={48} height={48} className="w-full h-full p-2 sm:p-2.5 object-contain" />
-                                )
-                            },
-                            {
-                                t: "Modern Ethnic Dressing",
-                                d: "Bring traditional print characters into contemporary wardrobes with versatile silhouettes that are easy to style.",
-                                i: (
-                                    <Image src="/ICONS/modern-ethnic-dressing-icon.png" alt="Modern Ethnic Dressing" width={48} height={48} className="w-full h-full p-2 sm:p-2.5 object-contain" />
-                                )
-                            }
-                        ].map((item, i) => (
+                        {trendValue.items.map((item: any, i: number) => (
                             <div key={i} className={`flex flex-col items-center gap-3 sm:gap-4 p-4 sm:p-8 bg-white rounded-[24px] shadow-sm border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group text-center h-full ${i === 2 ? 'col-span-2 md:col-span-1' : ''}`}>
                                 <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-[16px] bg-[#F5F1EC] border border-border transition-all duration-300 shrink-0 group-hover:shadow-md">
-                                    {item.i}
+                                    <Image src={TREND_VALUE_ICONS[i] || TREND_VALUE_ICONS[0]} alt={item.t} width={48} height={48} className="w-full h-full p-2 sm:p-2.5 object-contain" />
                                 </div>
                                 <div className="flex flex-col gap-2 mt-1">
-                                    <h4 className="text-[13px] sm:text-h4 text-primary leading-tight font-bold sm:font-heading sm:font-normal">{item.t}</h4>
+                                    <h3 className="text-[13px] sm:text-h4 text-primary leading-tight font-bold sm:font-heading sm:font-normal">{item.t}</h3>
                                     <p className="text-[11px] sm:text-[14px] text-primary/80 leading-relaxed font-medium">{item.d}</p>
                                 </div>
                             </div>
@@ -179,10 +266,10 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
             <section id="collection" className="scroll-animate py-12 md:py-16 px-6 bg-transparent relative">
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-12 md:gap-16">
                     <div className="flex flex-col gap-3 md:gap-4 text-center items-center mx-auto max-w-4xl">
-                        <span className="text-overline">THE NEW COLLECTION</span>
-                        <h2 className="text-h2">Explore the Latest Batik Prints, <br className="hidden md:block" /> <span className="text-highlight">Dresses & Kurtis</span></h2>
+                        <span className="text-overline">{collectionText.overline}</span>
+                        <h2 className="text-h2">{renderWithHighlight(collectionText.heading, collectionText.highlightWord)}</h2>
                         <p className="text-lg md:text-xl text-primary/80 font-normal leading-relaxed mt-2 w-full text-center">
-                            Discover newly added Batik styles designed around comfort, colour, and individuality.
+                            {collectionText.paragraph}
                         </p>
                     </div>
 
@@ -196,104 +283,51 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
             </section>
 
             <AdvantageSection
-                tag="WHY NEW BATIK"
+                tag={advantage.tag}
                 tagColor="#8A4B32"
                 title={
                     <>
-                        Why Women Choose Our <br className="hidden md:block" /> <span className="text-highlight">Latest Batik Prints?</span>
+                        {renderWithHighlight(advantage.heading, advantage.highlightWord)}
                         <span className="block text-base md:text-lg text-foreground font-normal leading-relaxed mt-3">
-                            The newest style is not always the best style. The right new arrival is one you can actually see yourself wearing.
+                            {advantage.subheading}
                         </span>
                     </>
                 }
-                items={[
-                    { title: "Distinctive Batik Design", desc: "Fresh patterns help your wardrobe feel individual without making everyday styling complicated.", icon: "/ICONS/distinctive-batik-design-new-icon.png" },
-                    { title: "Comfortable Cotton", desc: "Batik cotton fabric offers a practical foundation for comfortable dresses, kurtis, and ethnic styles.", icon: "/ICONS/comfortable-cotton-new-icon.png" },
-                    { title: "Versatile Styling", desc: "A Batik print kurti can work with trousers or palazzos, while a Batik dress can become an easy standalone outfit.", icon: "/ICONS/versatile-styling-icon.png" },
-                    { title: "Fresh Colour Choices", desc: "New colour combinations make it easier to discover something that feels different from what you already own.", icon: "/ICONS/fresh-colour-choices-icon.png" }
-                ]}
-                imageSrc="/premium-cotton-kurtis-for-women-image.webp"
-                featureTag="FRESH PRINT."
-                featureTitle="New Prints. Authentic Batik Character."
-                featureDesc="The appeal of a new Batik print is simple. It gives familiar comfort and a fresh visual identity."
+                items={advantage.items.map((it: any, i: number) => ({ ...it, icon: ADVANTAGE_ICONS[i] || ADVANTAGE_ICONS[0] }))}
+                imageSrc={advantage.image}
+                featureTag={advantage.featureTag}
+                featureTitle={advantage.featureTitle}
+                featureDesc={advantage.featureDesc}
             />
 
             <PremiumFeatureSection
-                tag="FROM PRINT TO OUTFIT"
+                tag={premiumFeatures.tag}
                 tagColor="#8A4B32"
                 title={
                     <>
-                        More Ways to Wear the <br className="hidden md:block" /> Latest <span className="text-highlight">Batik Suits Collection</span>
+                        {renderWithHighlight(premiumFeatures.heading, premiumFeatures.highlightWord)}
                         <span className="block text-base md:text-lg text-primary/80 font-normal leading-relaxed mt-4 max-w-2xl mx-auto font-body">
-                            New Batik prints become more valuable when they work across your wardrobe.
+                            {premiumFeatures.subheading}
                         </span>
                     </>
                 }
-                features={[
-                    {
-                        t: "For Everyday Wear",
-                        d: "Choose a Batik print kurti with straight pants and flats for a simple, polished look.",
-                        c: "text-brand",
-                        i: (
-                            <Image src="/ICONS/everyday-wear-new-icon.png" alt="For Everyday Wear" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "For Summer Days",
-                        d: "Pair a lightweight Batik dress with sandals and minimal jewellery for effortless warm-weather dressing.",
-                        c: "text-brand",
-                        i: (
-                            <Image src="/ICONS/summer-days-new-icon.png" alt="For Summer Days" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "For Casual Outings",
-                        d: "Choose printed dresses for women who want colour and personality without complicated styling.",
-                        c: "text-brand",
-                        i: (
-                            <Image src="/ICONS/casual-outings-icon.png" alt="For Casual Outings" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "For Ethnic Occasions",
-                        d: "Pair a distinctive Batik suit with elegant accessories when you want a more refined traditional look.",
-                        c: "text-brand",
-                        i: (
-                            <Image src="/ICONS/ethnic-occasions-icon.png" alt="For Ethnic Occasions" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "Everyday Wearability",
-                        d: "The collection focuses on styles that can move naturally from daily routines to casual gatherings and seasonal dressing.",
-                        c: "text-brand",
-                        i: (
-                            <Image src="/ICONS/everyday-wearability-icon.png" alt="Everyday Wearability" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    },
-                    {
-                        t: "Versatile Women’s Clothing",
-                        d: "Discover breathable Batik styles, cotton dresses, and printed women’s clothing designed for everyday comfort, effortless styling, and seasonal wear.",
-                        c: "text-brand",
-                        i: (
-                            <Image src="/ICONS/versatile-clothing-icon.png" alt="Versatile Women’s Clothing" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
-                        )
-                    }
-                ]}
-                quoteTag="STYLE WITH SOMETHING NEW"
-                quoteTitle="Fresh Prints. Easy Styling. More Reasons to Wear Batik."
-                quoteDesc="New arrivals should not sit in your wardrobe waiting for the right occasion."
-                imageSrc="/cotton-kurti-for-women-image.webp"
+                features={premiumFeatures.features.map((f: any, i: number) => ({
+                    t: f.t,
+                    d: f.d,
+                    c: "text-brand",
+                    i: <Image src={PREMIUM_FEATURE_ICONS[i] || PREMIUM_FEATURE_ICONS[0]} alt={f.t} width={40} height={40} className="w-8 h-8 md:w-10 md:h-10 object-contain" />,
+                }))}
+                quoteTag={premiumFeatures.quoteTag}
+                quoteTitle={premiumFeatures.quoteTitle}
+                quoteDesc={premiumFeatures.quoteDesc}
+                imageSrc={premiumFeatures.image}
             />
 
             <HorizontalProcessSection
-                tag="FOR WOMEN & BUSINESSES"
+                tag={howToOrder.tag}
                 tagColor="#8A4B32"
-                title={
-                    <>
-                        New Batik Prints That Create <span className="text-highlight">Fresh Opportunities</span>
-                    </>
-                }
-                subtitle="For women, new Batik arrivals bring fresh ways to express personal style. For boutiques and retailers, they offer distinctive designs to refresh collections with styles customers want to wear again."
+                title={renderWithHighlight(howToOrder.heading, howToOrder.highlightWord)}
+                subtitle={howToOrder.subtitle}
                 steps={[
                     {
                         s: "01",
@@ -438,28 +472,7 @@ export default async function NewArrivalPage({ searchParams }: { searchParams: P
                 </div>
             </section>
 
-            <FAQ items={[
-                {
-                    q: "What are the latest Batik print designs?",
-                    a: "The latest Batik print designs include fresh patterns, colours, motifs, and contemporary interpretations of traditional Batik. New arrivals may include kurtis, dresses, suits, and other cotton styles."
-                },
-                {
-                    q: "What is a Batik print kurti?",
-                    a: "A Batik print kurti combines traditional Batik patterns with a versatile kurti silhouette. It can be styled with trousers, palazzos, leggings, or other everyday bottoms."
-                },
-                {
-                    q: "Are Batik cotton dresses suitable for summer?",
-                    a: "Yes. Lightweight Batik cotton dresses can be a practical choice for warmer weather because cotton offers a breathable and comfortable feel."
-                },
-                {
-                    q: "Can I buy Batik print dress material?",
-                    a: "Yes. Batik print dress material and Batik cotton fabric can give customers, designers, boutiques, and retailers greater flexibility to create their preferred styles."
-                },
-                {
-                    q: "Can I buy new Batik prints wholesale?",
-                    a: "Yes. Boutiques, retailers, resellers, and fashion businesses can explore new Batik collections and contact the team for available designs, quantities, pricing, and wholesale ordering."
-                }
-            ]} />
+            <FAQ items={faqData.items} />
 
             {/* ── CONSISTENT CTA ── */}
             <ConsistentCTA />
