@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
+import { useHomeContent } from "@/modules/user/hooks/useHomeContent";
+import { renderWithHighlight } from "@/utils/textHighlight";
 
 interface LeadGenerationFormProps {
     title?: React.ReactNode;
@@ -8,22 +10,34 @@ interface LeadGenerationFormProps {
     benefits?: string[];
 }
 
+const DEFAULT_TITLE = "Get Personalized Batik Fabric\nPricing & Catalog";
+const DEFAULT_TITLE_HIGHLIGHT = "Batik Fabric";
+const DEFAULT_DESCRIPTION = "Explore our latest batik designs, batik print fabric, batik dress material, and batik suit collections with personalized wholesale pricing, ready-stock updates, and collection catalogs from AQSHA Batik Suits.";
+const DEFAULT_BENEFITS = [
+    "Latest Batik Print Design Catalog",
+    "Wholesale Pricing & Bulk Order Support",
+    "Batik & Cotton Dress Material Options",
+    "Printed Cotton Fabric for Kurtis",
+    "Fast WhatsApp Assistance",
+    "Ready-Stock & New Collection Updates",
+];
+
 export default function LeadGenerationForm({
-    title = (
-        <>
-            Get Personalized <span className="text-highlight italic">Batik Fabric</span> <br className="hidden md:block" /> Pricing & Catalog
-        </>
-    ),
-    description = "Explore our latest batik designs, batik print fabric, batik dress material, and batik suit collections with personalized wholesale pricing, ready-stock updates, and collection catalogs from AQSHA Batik Suits.",
-    benefits = [
-        "Latest Batik Print Design Catalog",
-        "Wholesale Pricing & Bulk Order Support",
-        "Batik & Cotton Dress Material Options",
-        "Printed Cotton Fabric for Kurtis",
-        "Fast WhatsApp Assistance",
-        "Ready-Stock & New Collection Updates",
-    ]
+    title: titleProp,
+    description: descriptionProp,
+    benefits: benefitsProp,
 }: LeadGenerationFormProps) {
+    const content = useHomeContent("lead_generation_form", {
+        title: DEFAULT_TITLE,
+        highlightWord: DEFAULT_TITLE_HIGHLIGHT,
+        description: DEFAULT_DESCRIPTION,
+        benefits: DEFAULT_BENEFITS.map((text) => ({ text })),
+    });
+
+    const title = titleProp ?? renderWithHighlight(content.title ?? DEFAULT_TITLE, content.highlightWord ?? DEFAULT_TITLE_HIGHLIGHT);
+    const description = descriptionProp ?? content.description ?? DEFAULT_DESCRIPTION;
+    const rawBenefits = benefitsProp ?? content.benefits ?? DEFAULT_BENEFITS;
+    const benefits: string[] = rawBenefits.map((b: any) => (typeof b === "string" ? b : b.text));
     const [formData, setFormData] = useState({
         fullName: "",
         phone: "",
