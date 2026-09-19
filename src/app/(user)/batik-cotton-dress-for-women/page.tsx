@@ -2,18 +2,116 @@ import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/modules/user/components/Nav";
 import FAQ from "@/modules/user/components/FAQ";
-import PremiumTrustSection from "@/modules/user/components/PremiumTrustSection";
 import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
 
-import ProductGrid from "@/modules/user/components/ProductGrid";
 import PremiumFeatureSection from "@/modules/user/components/PremiumFeatureSection";
 import AdvantageSection from "@/modules/user/components/AdvantageSection";
 import HorizontalProcessSection from "@/modules/user/components/HorizontalProcessSection";
 import ProductFilterLayout from "@/modules/user/components/ProductFilterLayout";
 import ScrollObserver from "@/modules/user/components/ScrollObserver";
-import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
-import CategoryHeroBanner from "@/modules/user/components/CategoryHeroBanner";
 import ConsistentCTA from "@/modules/user/components/ConsistentCTA";
+import { getPageContent } from "@/utils/getPageContent";
+import { renderWithHighlight } from "@/utils/textHighlight";
+
+const DEFAULT_COTTONDRESS_HERO = {
+    overline: "EFFORTLESS COTTON STYLE",
+    heading: "Cotton Dress for\nWomen Made for\nComfort, colour &\nEveryday Confidence",
+    highlightWord: "Everyday Confidence",
+    paragraph: "Discover breathable Batik cotton dresses designed to make everyday dressing feel easier. From relaxed one-piece styles to expressive batik print dress designs, find comfortable silhouettes that bring softness, character, and effortless style to every day.",
+    imageDesktop: "/Hero Banner/mobile-version/image(55).png",
+    imageMobile: "/Hero Banner/image(555).png",
+    ctaLabel1: "Shop Cotton Dresses",
+    ctaLabel2: "Become a Wholesale Partner",
+};
+
+const DEFAULT_COTTONDRESS_APPLICATIONS = {
+    overline: "EVERYDAY APPLICATIONS",
+    heading: "Cotton Dresses for Women That Fit Real Life",
+    highlightWord: "Real Life",
+    paragraph: "A good dress should feel as beautiful as it looks. Our Batik cotton collection combines breathable fabrics, expressive prints, and versatile silhouettes for effortless comfort and style all day.",
+    items: [
+        { t: "EVERYDAY WOMEN DRESSES", d: "Choose easy-to-wear cotton styles for daily routines, casual outings, shopping, travel, and relaxed gatherings.", img: "/batik-cotton-dress-women/cotton dress for women.webp" },
+        { t: "SUMMER WOMEN DRESSING", d: "Lightweight cotton helps create a cooler, more breathable feel when temperatures rise. Pair expressive Batik prints with relaxed silhouettes for effortless seasonal dressing.", img: "/batik-cotton-dress-women/cotton dresses for women.webp" },
+        { t: "BOUTIQUE COLLECTIONS", d: "Build distinctive collections with wearable Batik designs that give customers comfort, colour, and an individual sense of style.", img: "/batik-cotton-dress-women/cotton dresses for women (1).webp" },
+    ],
+};
+
+const DEFAULT_COTTONDRESS_COLLECTION_TEXT = {
+    overline: "BATIK DRESS COLLECTION",
+    heading: "Explore Batik Cotton Dresses\nDesigned to Be Worn Again and Again",
+    highlightWord: "Cotton Dresses",
+    paragraph: "Discover a curated range of Batik dresses created around comfort, versatility, and distinctive print character.",
+};
+
+const DEFAULT_COTTONDRESS_ADVANTAGE = {
+    tag: "MADE FOR COMFORT",
+    heading: "Why Women Choose Cotton Dress Styles for Everyday Wear?",
+    highlightWord: "Everyday Wear?",
+    image: "/batik-cotton-dress-women/cotton dres women.webp",
+    featureTag: "FABRIC STANDARD",
+    featureTitle: "Pure Cotton Dress Comfort You Can Feel",
+    featureDesc: "Our Batik cotton fabric is selected for the everyday experience.",
+    items: [
+        { title: "Breathable Feel", desc: "Cotton allows airflow around the body, making it a practical choice for warm-weather dressing and everyday comfort." },
+        { title: "Lightweight Movement", desc: "A lightweight cotton dress moves naturally with you, helping you stay comfortable from morning routines to evening plans." },
+        { title: "Soft Against the Skin", desc: "Cotton offers a naturally soft feel that makes everyday dressing more comfortable." },
+        { title: "Easy Everyday Styling", desc: "A versatile Batik dress can be paired with simple footwear, accessories, or layers to create different looks without overcomplicating your wardrobe." },
+    ],
+};
+
+const ADVANTAGE_ICONS = [
+    "/ICONS/breathable-feel-icon.png",
+    "/ICONS/lightweight-movement-icon.png",
+    "/ICONS/soft-skin-icon.png",
+    "/ICONS/easy-styling-icon.png",
+];
+
+const DEFAULT_COTTONDRESS_PREMIUM_FEATURES = {
+    tag: "THE BATIK ADVANTAGE",
+    heading: "More Than a Women's Dress.\nA Style Customers Want to Wear.",
+    highlightWord: "Women's Dress.",
+    description: "For a fashion business, product appeal begins with what customers see. But repeat demand often begins with what they feel. Our Batik cotton collection combines visual individuality with everyday wearability, helping retailers and boutiques offer products that feel both distinctive and practical.",
+    image: "/batik-cotton-dress-women/cotton dresses women.webp",
+    quoteTag: "STYLE YOUR WAY",
+    quoteTitle: "From Cotton Dress Material to Ready-to-Wear Batik Style",
+    quoteDesc: "Comfortable fabric. Distinctive design. More reasons to wear it.",
+    features: [
+        { t: "Distinctive Batik Prints", d: "Traditional print character gives each style a visual identity beyond ordinary everyday clothing." },
+        { t: "Wearable Silhouettes", d: "Comfort-focused shapes make the collection easier for customers to incorporate into their daily wardrobes." },
+        { t: "Versatile Product Range", d: "Build collections around dresses, Batik kurtis, cotton styles, and complementary ethnic wear." },
+        { t: "Retail-Friendly Appeal", d: "Comfort, colour, and distinctive prints give boutique products that can appeal to customers looking for something different from mass-produced fashion." },
+        { t: "Consistent Fabric Quality", d: "Reliable cotton standards help create a more dependable product experience across your collection." },
+        { t: "Collection-Building Potential", d: "Combine individual dress styles with Batik print designs and complementary pieces to create a stronger, more distinctive women's fashion assortment." },
+    ],
+};
+
+const PREMIUM_FEATURE_ICONS = [
+    "/ICONS/distinctive-prints-icon.png",
+    "/ICONS/wearable-silhouettes-icon.png",
+    "/ICONS/versatile-product-icon.png",
+    "/ICONS/retail-friendly-icon.png",
+    "/ICONS/consistent-fabric-quality-icon.png",
+    "/ICONS/collection-building-icon.png",
+];
+
+const DEFAULT_COTTONDRESS_HOW_TO_ORDER = {
+    tag: "WHOLESALE, MADE SIMPLE",
+    heading: "Bring Batik Cotton Dresses Into\nYour Collection Without the Guesswork",
+    highlightWord: "the Guesswork",
+    subtitle: "Whether you are building a boutique range, expanding a retail collection, or sourcing new women's fashion products, our simple ordering process helps you move from selection to supply with clarity.",
+    ctaText: "Start Your Order on WhatsApp",
+};
+
+const DEFAULT_COTTONDRESS_FAQ = [
+    { q: "What makes a batik cotton dress for women comfortable for everyday wear?", a: "Breathable cotton, lightweight construction, a comfortable fit, and an easy silhouette can make everyday dressing more comfortable. Batik prints add visual character while keeping the overall style versatile." },
+    { q: "Is Batik cotton suitable for summer?", a: "Yes. Lightweight cotton is naturally breathable and can be a practical choice for warm-weather dressing. A cotton summer dress for women can provide an easy combination of airflow, softness, and relaxed style." },
+    { q: "Can I wear a Batik dress as a night dress?", a: "Some relaxed cotton styles can work well for home and nighttime wear. A cotton night dress for women should prioritise softness, ease of movement, and a comfortable silhouette." },
+    { q: "What is the difference between a Batik dress and regular cotton clothing?", a: "The key difference is the design character. Batik combines cotton comfort with distinctive patterns and traditional print techniques, giving everyday clothing a more individual visual identity." },
+    { q: "Can I buy cotton dress material instead of a ready-made dress?", a: "Yes. Cotton dress material for women can give boutiques, designers, and customers greater flexibility to create their preferred silhouettes, sizes, and styles." },
+    { q: "Are Batik dresses suitable for plus-size women?", a: "Yes. Batik can be used across different silhouettes and sizes. Comfortable cuts, breathable cotton, and thoughtful placement of Batik print designs can help create appealing plus-size styles." },
+    { q: "How can I style a Batik cotton dress?", a: "Keep the styling simple. Pair the dress with comfortable flats or sandals for everyday wear, or add jewellery and structured accessories when you want a more polished look." },
+    { q: "Can retailers order Batik cotton dresses wholesale?", a: "Yes. Retailers, boutiques, and resellers can explore available Batik collections and connect with the team for product availability, quantities, pricing, and wholesale ordering guidance." },
+];
 
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
@@ -46,15 +144,16 @@ const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20to%20enquire%20ab
 
 export default async function BatikFabricPage({ searchParams }: { searchParams: Promise<any> }) {
     const resolvedParams = await searchParams;
-    const { products, totalPages, currentPage } = await getProducts(resolvedParams || {});
-
-
-    const features = [
-        { t: "Pure cotton fabric", d: "Breathable and natural material.", i: "🌱" },
-        { t: "Batik print design", d: "Traditional wax-resist dyed patterns.", i: "🕯️" },
-        { t: "Soft and breathable", d: "Maximum comfort in all seasons.", i: "☁️" },
-        { t: "Durable for daily wear", d: "Long-lasting quality and color.", i: "💪" }
-    ];
+    const [{ products, totalPages, currentPage }, hero, applications, collectionText, advantage, premiumFeatures, howToOrder, faqData] = await Promise.all([
+        getProducts(resolvedParams || {}),
+        getPageContent("cottondress_hero", DEFAULT_COTTONDRESS_HERO),
+        getPageContent("cottondress_applications", DEFAULT_COTTONDRESS_APPLICATIONS),
+        getPageContent("cottondress_collection_text", DEFAULT_COTTONDRESS_COLLECTION_TEXT),
+        getPageContent("cottondress_advantage", DEFAULT_COTTONDRESS_ADVANTAGE),
+        getPageContent("cottondress_premium_features", DEFAULT_COTTONDRESS_PREMIUM_FEATURES),
+        getPageContent("cottondress_how_to_order", DEFAULT_COTTONDRESS_HOW_TO_ORDER),
+        getPageContent("cottondress_faq", { items: DEFAULT_COTTONDRESS_FAQ }),
+    ]);
 
     return (
         <div className="min-h-screen bg-cream text-primary selection:bg-primary selection:text-white scroll-smooth underline-offset-4">
@@ -73,7 +172,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                 {/* Desktop Background Image */}
                 <div className="hidden lg:block absolute inset-0 w-full h-full z-0">
                     <Image
-                        src="/Hero Banner/mobile-version/image(55).png"
+                        src={hero.imageDesktop}
                         alt="Batik Cotton Dress for Women Collection"
                         fill
                         priority
@@ -84,7 +183,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                 {/* Mobile Image */}
                 <div className="relative w-full h-[60vh] min-h-[450px] lg:hidden z-0">
                     <Image
-                        src="/Hero Banner/image(555).png"
+                        src={hero.imageMobile}
                         alt="Batik Cotton Dress for Women Collection"
                         fill
                         priority
@@ -98,26 +197,23 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                         {/* Hook */}
                         <div className="flex items-center justify-center lg:justify-start gap-2">
                             <span className="text-[#8A4B32] text-xl leading-none">&diams;</span>
-                            <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">EFFORTLESS COTTON STYLE</span>
+                            <span className="text-overline text-[#8A4B32] uppercase tracking-[0.2em] font-bold">{hero.overline}</span>
                         </div>
-                        
+
                         <h1 className="text-3xl leading-[1.15] sm:text-4xl lg:text-[36px] xl:text-[48px] 2xl:text-[60px] lg:leading-[1.1] font-heading font-normal tracking-tight text-primary">
-                            Cotton Dress for <br className="hidden lg:block" />
-                            Women&nbsp;&nbsp;Made for <br className="hidden lg:block" />
-                            Comfort,colour & <br className="hidden lg:block" />
-                            <span className="text-highlight italic whitespace-nowrap">Everyday Confidence</span>
+                            {renderWithHighlight(hero.heading, hero.highlightWord)}
                         </h1>
 
                         <p className="text-[14px] lg:text-lg text-primary/80 leading-relaxed max-w-2xl font-medium">
-                            Discover breathable Batik cotton dresses designed to make everyday dressing feel easier. From relaxed one-piece styles to expressive batik print dress designs, find comfortable silhouettes that bring softness, character, and effortless style to every day.
+                            {hero.paragraph}
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 items-center lg:items-start w-full sm:w-auto mt-2">
                             <a href="#collection" className="bg-highlight hover:bg-highlight/90 text-white px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-xs flex items-center justify-center transition-all shadow-sm text-center w-full sm:w-auto">
-                                Shop Cotton Dresses
+                                {hero.ctaLabel1}
                             </a>
                             <a href={WA} target="_blank" rel="noreferrer" className="border border-primary/20 hover:border-primary/40 text-primary hover:bg-primary/5 px-8 py-3.5 rounded-full font-bold uppercase tracking-[0.15em] text-[11px] lg:text-xs flex items-center justify-center transition-all backdrop-blur-sm text-center w-full sm:w-auto">
-                                Become a Wholesale Partner
+                                {hero.ctaLabel2}
                             </a>
                         </div>
                     </div>
@@ -136,31 +232,15 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
             <section className="scroll-animate py-12 md:py-16 px-6 bg-tan relative overflow-hidden text-primary">
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-10 md:gap-12">
                     <div className="flex flex-col gap-4 text-center items-center mx-auto max-w-4xl">
-                        <span className="text-overline">EVERYDAY APPLICATIONS</span>
-                        <h2 className="text-h2 font-heading text-primary">Cotton Dresses for Women That Fit <span className="text-highlight">Real Life</span></h2>
+                        <span className="text-overline">{applications.overline}</span>
+                        <h2 className="text-h2 font-heading text-primary">{renderWithHighlight(applications.heading, applications.highlightWord)}</h2>
                         <p className="text-lg md:text-xl text-foreground leading-relaxed max-w-3xl font-normal">
-                            A good dress should feel as beautiful as it looks. Our Batik cotton collection combines breathable fabrics, expressive prints, and versatile silhouettes for effortless comfort and style all day.
+                            {applications.paragraph}
                         </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto w-full">
-                        {[
-                            {
-                                t: "EVERYDAY WOMEN DRESSES",
-                                d: "Choose easy-to-wear cotton styles for daily routines, casual outings, shopping, travel, and relaxed gatherings.",
-                                img: "/batik-cotton-dress-women/cotton dress for women.webp"
-                            },
-                            {
-                                t: "SUMMER WOMEN DRESSING",
-                                d: "Lightweight cotton helps create a cooler, more breathable feel when temperatures rise. Pair expressive Batik prints with relaxed silhouettes for effortless seasonal dressing.",
-                                img: "/batik-cotton-dress-women/cotton dresses for women.webp"
-                            },
-                            {
-                                t: "BOUTIQUE COLLECTIONS",
-                                d: "Build distinctive collections with wearable Batik designs that give customers comfort, colour, and an individual sense of style.",
-                                img: "/batik-cotton-dress-women/cotton dresses for women (1).webp"
-                            }
-                        ].map((item, i) => (
+                        {applications.items.map((item: any, i: number) => (
                             <div key={i} className="flex flex-col gap-5 md:gap-6 group">
                                 <div className="relative w-full aspect-square overflow-hidden rounded-[24px] border border-primary/10 shadow-sm group-hover:shadow-xl transition-shadow duration-500">
                                     <Image
@@ -185,9 +265,9 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
             <section id="collection" className="scroll-animate pt-8 md:pt-12 pb-16 md:pb-32 px-6 bg-cream relative overflow-hidden">
                 <div className="max-w-[1600px] mx-auto flex flex-col gap-8 md:gap-12">
                     <div className="flex flex-col gap-3 md:gap-4 text-center items-center mx-auto max-w-4xl">
-                        <span className="text-overline">BATIK DRESS COLLECTION</span>
-                        <h2 className="text-h2 font-heading text-primary">Explore Batik <span className="text-highlight">Cotton Dresses</span> <br className="hidden md:block" /> Designed to Be Worn Again and Again</h2>
-                        <p className="text-lg md:text-xl text-primary font-normal leading-relaxed mt-2 max-w-2xl text-center">Discover a curated range of Batik dresses created around comfort, versatility, and distinctive print character.</p>
+                        <span className="text-overline">{collectionText.overline}</span>
+                        <h2 className="text-h2 font-heading text-primary">{renderWithHighlight(collectionText.heading, collectionText.highlightWord)}</h2>
+                        <p className="text-lg md:text-xl text-primary font-normal leading-relaxed mt-2 max-w-2xl text-center">{collectionText.paragraph}</p>
                     </div>
                     <ProductFilterLayout
                         products={products}
@@ -199,105 +279,48 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
             </section>
 
             <AdvantageSection
-                tag="MADE FOR COMFORT"
+                tag={advantage.tag}
                 tagColor="#8A4B32"
-                title={<>Why Women Choose Cotton Dress Styles for <span className="text-highlight">Everyday Wear?</span></>}
-                items={[
-                    { title: "Breathable Feel", desc: "Cotton allows airflow around the body, making it a practical choice for warm-weather dressing and everyday comfort.", icon: "/ICONS/breathable-feel-icon.png" },
-                    { title: "Lightweight Movement", desc: "A lightweight cotton dress moves naturally with you, helping you stay comfortable from morning routines to evening plans.", icon: "/ICONS/lightweight-movement-icon.png" },
-                    { title: "Soft Against the Skin", desc: "Cotton offers a naturally soft feel that makes everyday dressing more comfortable.", icon: "/ICONS/soft-skin-icon.png" },
-                    { title: "Easy Everyday Styling", desc: "A versatile Batik dress can be paired with simple footwear, accessories, or layers to create different looks without overcomplicating your wardrobe.", icon: "/ICONS/easy-styling-icon.png" }
-                ]}
-                imageSrc="/batik-cotton-dress-women/cotton dres women.webp"
+                title={renderWithHighlight(advantage.heading, advantage.highlightWord)}
+                items={advantage.items.map((it: any, i: number) => ({ ...it, icon: ADVANTAGE_ICONS[i] || ADVANTAGE_ICONS[0] }))}
+                imageSrc={advantage.image}
                 imageContainerClassName="aspect-square"
-                featureTag="FABRIC STANDARD"
-                featureTitle="Pure Cotton Dress Comfort You Can Feel"
-                featureDesc="Our Batik cotton fabric is selected for the everyday experience."
+                featureTag={advantage.featureTag}
+                featureTitle={advantage.featureTitle}
+                featureDesc={advantage.featureDesc}
             />
 
             <PremiumFeatureSection
                 wrapperClassName="pt-8 pb-12 md:pt-24 md:pb-16 px-4 md:px-6 bg-cream"
-                tag="THE BATIK ADVANTAGE"
+                tag={premiumFeatures.tag}
                 tagColor="#8A4B32"
-                title={<>More Than a <span className="text-highlight">Women's Dress.</span> <br /> A Style Customers Want to Wear.</>}
-                description="For a fashion business, product appeal begins with what customers see. But repeat demand often begins with what they feel. Our Batik cotton collection combines visual individuality with everyday wearability, helping retailers and boutiques offer products that feel both distinctive and practical."
-                features={[
-                    {
-                        t: "Distinctive Batik Prints",
-                        d: "Traditional print character gives each style a visual identity beyond ordinary everyday clothing.",
-                        c: "text-highlight",
-                        i: (
-                            <div className="relative w-10 h-10 md:w-12 md:h-12">
-                                <Image src="/ICONS/distinctive-prints-icon.png" alt="Distinctive Batik Prints" fill sizes="48px" className="object-contain scale-110" />
-                            </div>
-                        )
-                    },
-                    {
-                        t: "Wearable Silhouettes",
-                        d: "Comfort-focused shapes make the collection easier for customers to incorporate into their daily wardrobes.",
-                        c: "text-highlight",
-                        i: (
-                            <div className="relative w-10 h-10 md:w-12 md:h-12">
-                                <Image src="/ICONS/wearable-silhouettes-icon.png" alt="Wearable Silhouettes" fill sizes="48px" className="object-contain scale-110" />
-                            </div>
-                        )
-                    },
-                    {
-                        t: "Versatile Product Range",
-                        d: "Build collections around dresses, Batik kurtis, cotton styles, and complementary ethnic wear.",
-                        c: "text-highlight",
-                        i: (
-                            <div className="relative w-10 h-10 md:w-12 md:h-12">
-                                <Image src="/ICONS/versatile-product-icon.png" alt="Versatile Product Range" fill sizes="48px" className="object-contain scale-110" />
-                            </div>
-                        )
-                    },
-                    {
-                        t: "Retail-Friendly Appeal",
-                        d: "Comfort, colour, and distinctive prints give boutique products that can appeal to customers looking for something different from mass-produced fashion.",
-                        c: "text-highlight",
-                        i: (
-                            <div className="relative w-10 h-10 md:w-12 md:h-12">
-                                <Image src="/ICONS/retail-friendly-icon.png" alt="Retail-Friendly Appeal" fill sizes="48px" className="object-contain scale-110" />
-                            </div>
-                        )
-                    },
-                    {
-                        t: "Consistent Fabric Quality",
-                        d: "Reliable cotton standards help create a more dependable product experience across your collection.",
-                        c: "text-highlight",
-                        i: (
-                            <div className="relative w-10 h-10 md:w-12 md:h-12">
-                                <Image src="/ICONS/consistent-fabric-quality-icon.png" alt="Consistent Fabric Quality" fill sizes="48px" className="object-contain scale-110" />
-                            </div>
-                        )
-                    },
-                    {
-                        t: "Collection-Building Potential",
-                        d: "Combine individual dress styles with Batik print designs and complementary pieces to create a stronger, more distinctive women’s fashion assortment.",
-                        c: "text-highlight",
-                        i: (
-                            <div className="relative w-10 h-10 md:w-12 md:h-12">
-                                <Image src="/ICONS/collection-building-icon.png" alt="Collection-Building Potential" fill sizes="48px" className="object-contain scale-110" />
-                            </div>
-                        )
-                    }
-                ]}
-                imageSrc="/batik-cotton-dress-women/cotton dresses women.webp"
-                mobileImageSrc="/batik-cotton-dress-women/cotton dresses women.webp"
-                quoteTag="STYLE YOUR WAY"
-                quoteTitle="From Cotton Dress Material to Ready-to-Wear Batik Style"
-                quoteDesc="Comfortable fabric. Distinctive design. More reasons to wear it."
+                title={renderWithHighlight(premiumFeatures.heading, premiumFeatures.highlightWord)}
+                description={premiumFeatures.description}
+                features={premiumFeatures.features.map((f: any, i: number) => ({
+                    t: f.t,
+                    d: f.d,
+                    c: "text-highlight",
+                    i: (
+                        <div className="relative w-10 h-10 md:w-12 md:h-12">
+                            <Image src={PREMIUM_FEATURE_ICONS[i] || PREMIUM_FEATURE_ICONS[0]} alt={f.t} fill sizes="48px" className="object-contain scale-110" />
+                        </div>
+                    ),
+                }))}
+                imageSrc={premiumFeatures.image}
+                mobileImageSrc={premiumFeatures.image}
+                quoteTag={premiumFeatures.quoteTag}
+                quoteTitle={premiumFeatures.quoteTitle}
+                quoteDesc={premiumFeatures.quoteDesc}
             />
 
 
 
             <HorizontalProcessSection
                 wrapperClassName="pt-8 pb-16 md:pt-12 md:pb-24 border-t-0"
-                tag="WHOLESALE, MADE SIMPLE"
+                tag={howToOrder.tag}
                 tagColor="#8A4B32"
-                title={<>Bring Batik Cotton Dresses Into <br /> Your Collection Without <span className="text-highlight">the Guesswork</span></>}
-                subtitle="Whether you are building a boutique range, expanding a retail collection, or sourcing new women's fashion products, our simple ordering process helps you move from selection to supply with clarity."
+                title={renderWithHighlight(howToOrder.heading, howToOrder.highlightWord)}
+                subtitle={howToOrder.subtitle}
                 steps={[
                     { s: "01", t: "Browse Batik Designs", d: "Explore our latest women's clothing collections, including Batik suits, fresh Batik prints, cotton styles, and ready-to-order designs." },
                     { s: "02", t: "Select Quantity", d: "Choose the quantity that fits your needs, whether you're ordering for a boutique, retail store, reseller business, marketplace, or personal wardrobe." },
@@ -305,7 +328,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
                     { s: "04", t: "Receive Your Quote", d: "Get clear pricing based on your selected styles, quantities, and order requirements." },
                     { s: "05", t: "Fast Dispatch", d: "Confirm your order and receive your selected collection through trusted delivery partners across India." }
                 ]}
-                ctaText="Start Your Order on WhatsApp"
+                ctaText={howToOrder.ctaText}
                 whatsappLink={WA}
             />
 
@@ -467,40 +490,7 @@ export default async function BatikFabricPage({ searchParams }: { searchParams: 
             </section>
 
 
-            <FAQ items={[
-                {
-                    q: "What makes a batik cotton dress for women comfortable for everyday wear?",
-                    a: "Breathable cotton, lightweight construction, a comfortable fit, and an easy silhouette can make everyday dressing more comfortable. Batik prints add visual character while keeping the overall style versatile."
-                },
-                {
-                    q: "Is Batik cotton suitable for summer?",
-                    a: "Yes. Lightweight cotton is naturally breathable and can be a practical choice for warm-weather dressing. A cotton summer dress for women can provide an easy combination of airflow, softness, and relaxed style."
-                },
-                {
-                    q: "Can I wear a Batik dress as a night dress?",
-                    a: "Some relaxed cotton styles can work well for home and nighttime wear. A cotton night dress for women should prioritise softness, ease of movement, and a comfortable silhouette."
-                },
-                {
-                    q: "What is the difference between a Batik dress and regular cotton clothing?",
-                    a: "The key difference is the design character. Batik combines cotton comfort with distinctive patterns and traditional print techniques, giving everyday clothing a more individual visual identity."
-                },
-                {
-                    q: "Can I buy cotton dress material instead of a ready-made dress?",
-                    a: "Yes. Cotton dress material for women can give boutiques, designers, and customers greater flexibility to create their preferred silhouettes, sizes, and styles."
-                },
-                {
-                    q: "Are Batik dresses suitable for plus-size women?",
-                    a: "Yes. Batik can be used across different silhouettes and sizes. Comfortable cuts, breathable cotton, and thoughtful placement of Batik print designs can help create appealing plus-size styles."
-                },
-                {
-                    q: "How can I style a Batik cotton dress?",
-                    a: "Keep the styling simple. Pair the dress with comfortable flats or sandals for everyday wear, or add jewellery and structured accessories when you want a more polished look."
-                },
-                {
-                    q: "Can retailers order Batik cotton dresses wholesale?",
-                    a: "Yes. Retailers, boutiques, and resellers can explore available Batik collections and connect with the team for product availability, quantities, pricing, and wholesale ordering guidance."
-                }
-            ]} />
+            <FAQ items={faqData.items} />
 
             {/* ── CONSISTENT CTA ── */}
             <ConsistentCTA />
