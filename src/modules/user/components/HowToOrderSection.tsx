@@ -112,9 +112,9 @@ export default function HowToOrderSection({
 
                             {/* Text */}
                             <div className="flex flex-col gap-1 md:gap-2 px-1 md:pr-4 lg:pr-8">
-                                <h4 className="text-sm md:text-h4 text-primary font-normal">
+                                <h3 className="text-sm md:text-h4 text-primary font-normal">
                                     {step.t}
-                                </h4>
+                                </h3>
                                 <p className="text-[10px] md:text-body2 text-primary font-normal leading-tight md:leading-relaxed">
                                     {step.d}
                                 </p>
