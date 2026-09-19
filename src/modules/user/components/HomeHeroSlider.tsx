@@ -360,16 +360,20 @@ export default function HomeHeroSlider() {
       </button>
 
       {/* Pagination Dots */}
-      <div className="absolute bottom-4 lg:bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 lg:gap-3">
+      <div className="absolute bottom-4 lg:bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrent(index)}
-            className={`h-1.5 lg:h-2.5 rounded-full transition-all duration-300 ${
-              index === current ? "bg-primary w-6 lg:w-10" : "bg-primary/30 w-1.5 lg:w-2.5 hover:bg-primary/50"
-            }`}
+            className="p-2.5 flex items-center justify-center"
             aria-label={`Go to slide ${index + 1}`}
-          />
+          >
+            <span
+              className={`block h-1.5 lg:h-2.5 rounded-full transition-all duration-300 ${
+                index === current ? "bg-primary w-6 lg:w-10" : "bg-primary/30 w-1.5 lg:w-2.5 hover:bg-primary/50"
+              }`}
+            />
+          </button>
         ))}
       </div>
     </section>
