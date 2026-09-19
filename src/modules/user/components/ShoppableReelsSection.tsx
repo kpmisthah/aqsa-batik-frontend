@@ -2,46 +2,42 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useHomeContent } from "@/modules/user/hooks/useHomeContent";
+import { renderWithHighlight } from "@/utils/textHighlight";
 
-// Sample placeholder data - user can replace these with actual video urls
+// Default placeholder data - editable from Admin > Home Content > Shoppable Reels
 const reelsData = [
   {
-    id: 1,
     title: "Festive Collection '26",
     videoUrl: "/videos/Video-86985.mp4",
     posterUrl: "/pink_batik_model.png",
     whatsappMsg: "Hi, I saw the Festive Collection reel and want to know the pricing."
   },
   {
-    id: 2,
     title: "Premium Cotton Batiks",
     videoUrl: "/videos/Video-22912.mp4",
     posterUrl: "/cat_batik_cloth.webp",
     whatsappMsg: "Hi, I am interested in the Cotton Batiks from the reel."
   },
   {
-    id: 3,
     title: "Wholesale Exclusives",
     videoUrl: "/videos/Video-37755.mp4",
     posterUrl: "/cat_wholesale.webp",
     whatsappMsg: "Hi, I want more details on the Wholesale Exclusives reel."
   },
   {
-    id: 4,
     title: "New Arrivals Try-On",
     videoUrl: "/videos/Video-4836.mp4",
     posterUrl: "/cat_new_arrival.webp",
     whatsappMsg: "Hi, I would like to order from the New Arrivals reel."
   },
   {
-    id: 5,
     title: "Artisan Picks",
     videoUrl: "/videos/Video-5816.mp4",
     posterUrl: "/pink_batik_model.png",
     whatsappMsg: "Hi, I would like to order from the Artisan Picks reel."
   },
   {
-    id: 6,
     title: "Trending Styles",
     videoUrl: "/videos/Video-727.mp4",
     posterUrl: "/cat_batik_cloth.webp",
@@ -49,9 +45,21 @@ const reelsData = [
   }
 ];
 
+const DEFAULT_SHOPPABLE_REELS = {
+  overline: "AQSHA Batik in Motion",
+  heading: "See Batik Dresses, Kurtis & Women's Suits in Motion",
+  highlightWord: "in Motion",
+  paragraph1: "See the drape, flow, print, and finish behind our latest batik dresses, batik print kurtis, and suit sets for women.",
+  paragraph2: "Real fabric. Real movement. Real style.",
+  bottomCtaLabel: "Watch the Collection",
+  reels: reelsData,
+};
+
 const WA = "https://wa.me/918815373767?text=";
 
 export default function ShoppableReelsSection() {
+  const { overline, heading, highlightWord, paragraph1, paragraph2, bottomCtaLabel, reels: contentReels } = useHomeContent("shoppable_reels", DEFAULT_SHOPPABLE_REELS);
+  const reels = contentReels && contentReels.length > 0 ? contentReels : reelsData;
   const scrollRef = useRef<HTMLDivElement>(null);
   const [playingId, setPlayingId] = useState<number | null>(null);
 
@@ -91,16 +99,16 @@ export default function ShoppableReelsSection() {
       <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col items-center text-center gap-6 mb-12 md:mb-16">
           <div className="flex flex-col items-center gap-3">
-            <span className="text-overline text-[#8A4B32]">AQSHA Batik in Motion</span>
+            <span className="text-overline text-[#8A4B32]">{overline}</span>
             <h2 className="text-h2 text-primary relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-[1px] after:bg-primary/20">
-              See Batik Dresses, Kurtis & Women's Suits <span className="text-highlight italic">in Motion</span>
+              {renderWithHighlight(heading, highlightWord)}
             </h2>
             <div className="flex flex-col gap-2 max-w-3xl mt-2">
               <p className="text-body1 text-primary/80 font-medium">
-                See the drape, flow, print, and finish behind our latest batik dresses, batik print kurtis, and suit sets for women.
+                {paragraph1}
               </p>
               <p className="text-body1 text-primary/80 font-medium">
-                Real fabric. Real movement. Real style.
+                {paragraph2}
               </p>
             </div>
           </div>
@@ -129,11 +137,11 @@ export default function ShoppableReelsSection() {
             className="flex gap-6 overflow-x-auto snap-x snap-mandatory [&::-webkit-scrollbar]:hidden pb-10"
             style={{ msOverflowStyle: 'none', scrollbarWidth: 'none' }}
           >
-            {reelsData.map((reel) => (
-              <div 
-                key={reel.id} 
+            {reels.map((reel: any, reelIndex: number) => (
+              <div
+                key={reelIndex}
                 className="shrink-0 w-[260px] md:w-[300px] aspect-[9/16] relative rounded-2xl overflow-hidden bg-primary shadow-xl snap-center group/card cursor-pointer border border-primary/10"
-                onMouseEnter={() => setPlayingId(reel.id)}
+                onMouseEnter={() => setPlayingId(reelIndex)}
                 onMouseLeave={() => setPlayingId(null)}
                 onClick={() => window.open('https://www.instagram.com/aqsha_batik_suits/', '_blank')}
               >
@@ -142,7 +150,7 @@ export default function ShoppableReelsSection() {
                   src={reel.posterUrl}
                   alt={reel.title}
                   fill
-                  className={`object-cover transition-opacity duration-700 ${reel.videoUrl && playingId === reel.id ? 'opacity-0' : 'opacity-80 group-hover/card:opacity-100 group-hover/card:scale-105'}`}
+                  className={`object-cover transition-opacity duration-700 ${reel.videoUrl && playingId === reelIndex ? 'opacity-0' : 'opacity-80 group-hover/card:opacity-100 group-hover/card:scale-105'}`}
                 />
 
                 {/* Video Element (Only rendered if URL exists) */}
@@ -191,7 +199,7 @@ export default function ShoppableReelsSection() {
 
         <div className="mt-6 md:mt-10 flex justify-center w-full">
           <Link href="/batik-ethnic-wear-for-women" className="btn-secondary group">
-            <span>Watch the Collection</span>
+            <span>{bottomCtaLabel}</span>
             <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
           </Link>
         </div>
