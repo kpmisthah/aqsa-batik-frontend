@@ -1,5 +1,3 @@
-"use client";
-import React, { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Nav from "@/modules/user/components/Nav";
@@ -8,16 +6,31 @@ import FAQ from "@/modules/user/components/FAQ";
 import PremiumTrustSection from "@/modules/user/components/PremiumTrustSection";
 import LeadGenerationForm from "@/modules/user/components/LeadGenerationForm";
 import TrendingProductsSection from "@/modules/user/components/TrendingProductsSection";
-import NewArrivalsSection from "@/modules/user/components/NewArrivalsSection";
 import StickyEnquiryButton from "@/modules/user/components/StickyEnquiryButton";
 import GoogleReviewBar from "@/modules/user/components/GoogleReviewBar";
 import HowToOrderSection from "@/modules/user/components/HowToOrderSection";
 import { ShopByCategorySection, FeaturedGridSection, LifestyleBannerSection, TrendingCollectionsBannerSection, LookbookSection, PartnershipBannerSection } from "@/modules/user/components/VisualHomeSections";
-import { useScrollAnimation } from "@/modules/user/hooks/useScrollAnimation";
-import ScrollIndicator from "@/modules/user/components/ScrollIndicator";
+import ScrollAnimationInit from "@/modules/user/components/ScrollAnimationInit";
 import ShoppableReelsSection from "@/modules/user/components/ShoppableReelsSection";
-import { useHomeContent } from "@/modules/user/hooks/useHomeContent";
+import BuyerTestimonialGallery from "@/modules/user/components/BuyerTestimonialGallery";
 import { renderWithHighlight } from "@/utils/textHighlight";
+
+async function getHomeContent<T>(sectionKey: string, fallback: T): Promise<T> {
+  try {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:5000/api";
+    const url = `${apiUrl.replace('localhost', '127.0.0.1')}/home-content/${sectionKey}`;
+    const res = await fetch(url, { next: { revalidate: 60 } });
+    if (!res.ok) return fallback;
+    const section = await res.json();
+    if (section && section.data !== undefined && section.data !== null) {
+      return section.data as T;
+    }
+    return fallback;
+  } catch (error) {
+    console.error(`Failed to fetch home content section "${sectionKey}"`, error);
+    return fallback;
+  }
+}
 
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20the%20wholesale%20catalogue";
 
@@ -112,32 +125,30 @@ const DEFAULT_CTA_BANNER_MARQUEE = {
   text: "Fast-Moving Suits for Women • New Batik Designs Weekly • Wholesale Orders Available",
 };
 
-export default function HomePage() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
-  const heroBanner = '/batik_hero_model_ethnic.png'; // Bypassing DB dynamically loaded banner
-  const sliderRef = useRef<HTMLDivElement>(null);
-  useScrollAnimation();
-
-  const curatedCollectionText = useHomeContent("curated_collection_text", DEFAULT_CURATED_COLLECTION_TEXT);
-  const { categories: curatedCategories } = useHomeContent("shop_by_category", DEFAULT_SHOP_BY_CATEGORY);
-  const targetAudience = useHomeContent("target_audience", DEFAULT_TARGET_AUDIENCE);
-  const ourStory = useHomeContent("our_story", DEFAULT_OUR_STORY);
-  const buyerGallery = useHomeContent("buyer_testimonial_gallery", DEFAULT_BUYER_TESTIMONIAL_GALLERY);
-  const buyerPsychology = useHomeContent("buyer_psychology", DEFAULT_BUYER_PSYCHOLOGY);
-  const howToOrder = useHomeContent("how_to_order", DEFAULT_HOW_TO_ORDER);
-  const ctaBanner = useHomeContent("cta_banner_marquee", DEFAULT_CTA_BANNER_MARQUEE);
-
-  const handleScrollLeft = () => {
-    if (sliderRef.current) sliderRef.current.scrollBy({ left: -300, behavior: 'smooth' });
-  };
-  const handleScrollRight = () => {
-    if (sliderRef.current) sliderRef.current.scrollBy({ left: 300, behavior: 'smooth' });
-  };
+export default async function HomePage() {
+  const [
+    curatedCollectionText,
+    { categories: curatedCategories },
+    targetAudience,
+    ourStory,
+    buyerGallery,
+    buyerPsychology,
+    howToOrder,
+    ctaBanner,
+  ] = await Promise.all([
+    getHomeContent("curated_collection_text", DEFAULT_CURATED_COLLECTION_TEXT),
+    getHomeContent("shop_by_category", DEFAULT_SHOP_BY_CATEGORY),
+    getHomeContent("target_audience", DEFAULT_TARGET_AUDIENCE),
+    getHomeContent("our_story", DEFAULT_OUR_STORY),
+    getHomeContent("buyer_testimonial_gallery", DEFAULT_BUYER_TESTIMONIAL_GALLERY),
+    getHomeContent("buyer_psychology", DEFAULT_BUYER_PSYCHOLOGY),
+    getHomeContent("how_to_order", DEFAULT_HOW_TO_ORDER),
+    getHomeContent("cta_banner_marquee", DEFAULT_CTA_BANNER_MARQUEE),
+  ]);
 
   return (
     <div className="min-h-screen bg-cream selection:bg-primary selection:text-white scroll-smooth flex flex-col font-sans">
+      <ScrollAnimationInit />
       <Nav />
 
       {/* ── HOME HERO SLIDER ── */}
@@ -290,98 +301,7 @@ export default function HomePage() {
 
 
       {/* ── WHAT BUYERS SAY ── */}
-      <section className="scroll-animate pt-20 pb-16 md:pt-24 md:pb-24 px-6 bg-surface">
-        <div className="max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-6 md:gap-16 lg:gap-20 items-center">
-
-          <div className="flex flex-col gap-3 md:gap-6 lg:w-[400px] shrink-0 min-w-0 text-center items-center w-full">
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#8A4B32]">Real Buyers. Real Results.</span>
-            <h2 className="text-h2 text-center">
-              {renderWithHighlight(buyerGallery.heading, buyerGallery.highlightWord)}
-            </h2>
-            {/* Desktop Only Paragraph */}
-            <p className="hidden lg:block text-sm md:text-base text-primary/80 font-medium leading-relaxed max-w-md mt-2">
-              Don't just take our word for it. Explore genuine buyer feedback on our batik dresses, suit sets for women, cotton collections, and everyday fashion styles shared through real customer experiences.
-            </p>
-
-            <div className="hidden lg:flex items-center gap-10 mt-6 pt-8 border-t border-primary/10 w-max">
-              <div className="flex flex-col gap-1">
-                <span className="text-3xl text-highlight block">{buyerGallery.statValue1}</span>
-                <span className="text-[9px] uppercase tracking-widest text-primary/80 font-bold">{buyerGallery.statLabel1}</span>
-              </div>
-              <div className="w-px h-10 bg-primary/10"></div>
-              <div className="flex flex-col gap-1">
-                <span className="text-3xl text-highlight block">{buyerGallery.statValue2}</span>
-                <span className="text-[9px] uppercase tracking-widest text-primary/80 font-bold">{buyerGallery.statLabel2}</span>
-              </div>
-            </div>
-
-            <div className="mt-6 md:mt-8 hidden lg:block">
-              <Link href="/contact-us" className="btn-secondary group">
-                <span>See Customer Reviews</span>
-                <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
-              </Link>
-            </div>
-          </div>
-
-          {/* Elegant Horizontal Flow Track */}
-          <div className="w-full flex-1 min-w-0 relative group/slider">
-            <div ref={sliderRef} className="w-full flex overflow-x-auto snap-x gap-6 lg:gap-8 pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-              {buyerGallery.images.map((item: any, i: number) => (
-                <div key={i} className="shrink-0 w-[260px] md:w-[320px] aspect-[9/16] relative rounded-xl overflow-hidden bg-cream border border-border/40 shadow-sm snap-center group">
-                  <Image
-                    priority={i === 0}
-                    src={item.image}
-                    alt="Buyer Testimonial"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                    className="object-cover object-top opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
-                  />
-                  {/* Privacy Blur for Profile Picture */}
-                  <div className="absolute top-[6.5%] left-[7.5%] w-[17.5%] aspect-square rounded-full backdrop-blur-3xl bg-[#1f2c34]/60 z-10 pointer-events-none"></div>
-                </div>
-              ))}
-            </div>
-
-            {/* Floating Navigation Arrows */}
-            <div className="absolute top-1/2 -translate-y-1/2 left-2 right-2 md:left-4 md:right-4 flex items-center justify-between pointer-events-none z-10 opacity-0 group-hover/slider:opacity-100 transition-opacity duration-300">
-              <button
-                onClick={handleScrollLeft}
-                className="w-12 h-12 md:w-14 md:h-14 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-border/50 flex items-center justify-center text-primary hover:bg-primary hover:text-white hover:scale-110 transition-all pointer-events-auto"
-                aria-label="Scroll left"
-              >
-                <span className="text-xl md:text-2xl leading-none">&larr;</span>
-              </button>
-              <button
-                onClick={handleScrollRight}
-                className="w-12 h-12 md:w-14 md:h-14 bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-border/50 flex items-center justify-center text-primary hover:bg-primary hover:text-white hover:scale-110 transition-all pointer-events-auto"
-                aria-label="Scroll right"
-              >
-                <span className="text-xl md:text-2xl leading-none">&rarr;</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile-Only Subheading & Stats (shown after slider on mobile) */}
-          <div className="flex lg:hidden flex-col gap-6 w-full px-2 text-center">
-            <p className="text-[13px] text-primary/80 font-medium leading-relaxed max-w-md mx-auto">
-              Over 1,000+ retail partners and boutique owners trust our fabric every day. Swipe through raw, unedited feedback directly from our WhatsApp orders.
-            </p>
-
-            <div className="flex items-center justify-between pt-6 border-t border-primary/10 w-full">
-              <div className="flex flex-col gap-0.5">
-                <span className="text-2xl font-heading text-primary block">{buyerGallery.statValue1}</span>
-                <span className="text-[8px] uppercase tracking-widest text-primary/80 font-bold">{buyerGallery.statLabel1}</span>
-              </div>
-              <div className="w-px h-8 bg-primary/10"></div>
-              <div className="flex flex-col gap-0.5 text-right">
-                <span className="text-2xl font-heading text-primary block">{buyerGallery.statValue2}</span>
-                <span className="text-[8px] uppercase tracking-widest text-primary/80 font-bold">{buyerGallery.statLabel2}</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
+      <BuyerTestimonialGallery data={buyerGallery} />
 
       {/* ── BUYER PSYCHOLOGY ── */}
       <section className="pt-16 pb-4 md:pt-20 md:pb-10 px-6 bg-cream border-t border-border/40">
