@@ -24,7 +24,7 @@ const DEFAULT_NEWARRIVAL_HERO = {
 
 const DEFAULT_NEWARRIVAL_TREND_VALUE = {
     overline: "NEW SEASON. NEW STYLE.",
-    heading: "Fresh Batik Designs Made for Modern Everyday Dressing",
+    heading: "Fresh Batik Designs Made for\nModern Everyday Dressing",
     highlightWord: "Everyday Dressing",
     paragraph: "Our latest Batik collection brings together distinctive Batik design, comfortable silhouettes, and versatile styles that work across everyday routines, casual outings, summer dressing, and relaxed occasions.",
     items: [
@@ -42,14 +42,14 @@ const TREND_VALUE_ICONS = [
 
 const DEFAULT_NEWARRIVAL_COLLECTION_TEXT = {
     overline: "THE NEW COLLECTION",
-    heading: "Explore the Latest Batik Prints, Dresses & Kurtis",
+    heading: "Explore the Latest Batik Prints,\nDresses & Kurtis",
     highlightWord: "Dresses & Kurtis",
     paragraph: "Discover newly added Batik styles designed around comfort, colour, and individuality.",
 };
 
 const DEFAULT_NEWARRIVAL_ADVANTAGE = {
     tag: "WHY NEW BATIK",
-    heading: "Why Women Choose Our Latest Batik Prints?",
+    heading: "Why Women Choose Our\nLatest Batik Prints?",
     highlightWord: "Latest Batik Prints?",
     subheading: "The newest style is not always the best style. The right new arrival is one you can actually see yourself wearing.",
     image: "/premium-cotton-kurtis-for-women-image.webp",
@@ -73,7 +73,7 @@ const ADVANTAGE_ICONS = [
 
 const DEFAULT_NEWARRIVAL_PREMIUM_FEATURES = {
     tag: "FROM PRINT TO OUTFIT",
-    heading: "More Ways to Wear the Latest Batik Suits Collection",
+    heading: "More Ways to Wear the\nLatest Batik Suits Collection",
     highlightWord: "Batik Suits Collection",
     subheading: "New Batik prints become more valuable when they work across your wardrobe.",
     image: "/cotton-kurti-for-women-image.webp",

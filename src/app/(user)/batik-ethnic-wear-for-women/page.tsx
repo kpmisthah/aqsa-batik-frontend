@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 const DEFAULT_ETHNIC_HERO = {
     overline: "TRADITION, REIMAGINED",
-    heading: "Ethnic Wear for Women That Feels Traditional Yet Effortlessly Modern",
+    heading: "Ethnic Wear for Women\nThat Feels Traditional\nYet Effortlessly Modern",
     highlightWord: "Yet Effortlessly Modern",
     paragraph: "Discover Batik ethnic wear for women designed to bring traditional character into everyday wardrobes. Explore breathable cotton dresses, expressive Batik kurtis, comfortable suit sets, and occasion-ready styles created for women who want culture, comfort, and individuality in every look.",
     imageDesktop: "/Hero Banner/i.png",
@@ -32,11 +32,11 @@ const DEFAULT_ETHNIC_HERO = {
 
 const DEFAULT_ETHNIC_COLLECTION = {
     overline1: "Everyday Ethnic Style",
-    heading1: "Indian Ethnic Wear for Women Designed for Real Life",
+    heading1: "Indian Ethnic Wear for Women\nDesigned for Real Life",
     highlightWord1: "Real Life",
     paragraph1: "Our Batik suits collection brings together comfortable silhouettes, handcrafted-inspired prints, and versatile styles that can move naturally from everyday routines to festive gatherings.",
     overline2: "Batik Ethnic Collection",
-    heading2: "Explore Ethnic Wear for Women Made to Be Worn Beyond One Occasion",
+    heading2: "Explore Ethnic Wear for Women\nMade to Be Worn Beyond One Occasion",
     highlightWord2: "Beyond One Occasion",
     paragraph2: "The right ethnic outfit should feel traditional, comfortable, and easy to wear again. Explore Batik dresses, kurtis, cotton styles, and suit sets made for effortless everyday style.",
     highlights: [
@@ -100,7 +100,7 @@ const PREMIUM_FEATURE_ICONS = [
 
 const DEFAULT_ETHNIC_HOW_TO_ORDER = {
     tag: "WHOLESALE OPPORTUNITY",
-    heading: "Bring Distinctive Indian Ethnic Wear for Women Into Your Collection",
+    heading: "Bring Distinctive Indian Ethnic Wear\nfor Women Into Your Collection",
     highlightWord: "Ethnic Wear",
     subtitle: "For boutiques, resellers, and retailers, Batik ethnic collections offer distinctive designs customers can wear and love again. Build a more memorable women's fashion assortment with traditional character and everyday appeal.",
     ctaText: "Start Your Wholesale Order",

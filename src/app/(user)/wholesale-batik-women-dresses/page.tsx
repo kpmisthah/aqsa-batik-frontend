@@ -35,11 +35,11 @@ const DEFAULT_WHOLESALE_SOURCING = {
 
 const DEFAULT_WHOLESALE_CAPABILITIES = {
     overline: "BUILT FOR REAL MARKET USE",
-    heading: "Wholesale Women Dresses for Growing Fashion Businesses",
+    heading: "Wholesale Women Dresses\nfor Growing Fashion Businesses",
     highlightWord: "Fashion Businesses",
     paragraph: "From boutique collections to bulk supply, our wholesale range combines distinctive Batik design, comfortable cotton, and versatile silhouettes made for everyday and occasion wear.",
     overline2: "HIGH-DEMAND DRESS COLLECTION",
-    heading2: "Explore Wholesale Women Dresses Customers Want to Wear",
+    heading2: "Explore Wholesale Women Dresses\nCustomers Want to Wear",
     highlightWord2: "Want to Wear",
     paragraph2: "Discover Batik dresses, cotton dresses for women, casual styles, floral prints, and versatile silhouettes selected for retail appeal.",
     items: [

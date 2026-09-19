@@ -1030,7 +1030,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
     ],
     defaultData: {
       overline: "TRADITION, REIMAGINED",
-      heading: "Ethnic Wear for Women That Feels Traditional Yet Effortlessly Modern",
+      heading: "Ethnic Wear for Women\nThat Feels Traditional\nYet Effortlessly Modern",
       highlightWord: "Yet Effortlessly Modern",
       paragraph: "Discover Batik ethnic wear for women designed to bring traditional character into everyday wardrobes. Explore breathable cotton dresses, expressive Batik kurtis, comfortable suit sets, and occasion-ready styles created for women who want culture, comfort, and individuality in every look.",
       imageDesktop: "/Hero Banner/i.png",
@@ -1046,11 +1046,11 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
     description: "The 3-card highlights grid plus the two headings around it (the second heading sits right above the live product grid).",
     fields: [
       { key: "overline1", label: "Overline 1", type: "text" },
-      { key: "heading1", label: "Heading 1", type: "text" },
+      { key: "heading1", label: "Heading 1", type: "textarea" },
       { key: "highlightWord1", label: "Heading 1 Highlight Word", type: "text" },
       { key: "paragraph1", label: "Paragraph 1", type: "textarea" },
       { key: "overline2", label: "Overline 2", type: "text" },
-      { key: "heading2", label: "Heading 2 (above product grid)", type: "text" },
+      { key: "heading2", label: "Heading 2 (above product grid)", type: "textarea" },
       { key: "highlightWord2", label: "Heading 2 Highlight Word", type: "text" },
       { key: "paragraph2", label: "Paragraph 2 (above product grid)", type: "textarea" },
     ],
@@ -1067,11 +1067,11 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
     ],
     defaultData: {
       overline1: "Everyday Ethnic Style",
-      heading1: "Indian Ethnic Wear for Women Designed for Real Life",
+      heading1: "Indian Ethnic Wear for Women\nDesigned for Real Life",
       highlightWord1: "Real Life",
       paragraph1: "Our Batik suits collection brings together comfortable silhouettes, handcrafted-inspired prints, and versatile styles that can move naturally from everyday routines to festive gatherings.",
       overline2: "Batik Ethnic Collection",
-      heading2: "Explore Ethnic Wear for Women Made to Be Worn Beyond One Occasion",
+      heading2: "Explore Ethnic Wear for Women\nMade to Be Worn Beyond One Occasion",
       highlightWord2: "Beyond One Occasion",
       paragraph2: "The right ethnic outfit should feel traditional, comfortable, and easy to wear again. Explore Batik dresses, kurtis, cotton styles, and suit sets made for effortless everyday style.",
       highlights: [
@@ -1174,14 +1174,14 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
     description: "Heading/subtitle above the 5-step order process (steps stay fixed).",
     fields: [
       { key: "tag", label: "Tag", type: "text" },
-      { key: "heading", label: "Heading", type: "text" },
+      { key: "heading", label: "Heading", type: "textarea" },
       { key: "highlightWord", label: "Highlight Word (optional, colored)", type: "text" },
       { key: "subtitle", label: "Subtitle", type: "textarea" },
       { key: "ctaText", label: "CTA Label", type: "text" },
     ],
     defaultData: {
       tag: "WHOLESALE OPPORTUNITY",
-      heading: "Bring Distinctive Indian Ethnic Wear for Women Into Your Collection",
+      heading: "Bring Distinctive Indian Ethnic Wear\nfor Women Into Your Collection",
       highlightWord: "Ethnic Wear",
       subtitle: "For boutiques, resellers, and retailers, Batik ethnic collections offer distinctive designs customers can wear and love again. Build a more memorable women's fashion assortment with traditional character and everyday appeal.",
       ctaText: "Start Your Wholesale Order",
@@ -1248,7 +1248,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
     description: "The 3-card \"why new arrivals\" section (icons stay fixed).",
     fields: [
       { key: "overline", label: "Overline", type: "text" },
-      { key: "heading", label: "Heading", type: "text" },
+      { key: "heading", label: "Heading", type: "textarea" },
       { key: "highlightWord", label: "Highlight Word (optional, colored)", type: "text" },
       { key: "paragraph", label: "Paragraph", type: "textarea" },
     ],
@@ -1264,7 +1264,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
     ],
     defaultData: {
       overline: "NEW SEASON. NEW STYLE.",
-      heading: "Fresh Batik Designs Made for Modern Everyday Dressing",
+      heading: "Fresh Batik Designs Made for\nModern Everyday Dressing",
       highlightWord: "Everyday Dressing",
       paragraph: "Our latest Batik collection brings together distinctive Batik design, comfortable silhouettes, and versatile styles that work across everyday routines, casual outings, summer dressing, and relaxed occasions.",
       items: [
@@ -1281,13 +1281,13 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
     description: "Heading/copy above the live product grid (products stay live).",
     fields: [
       { key: "overline", label: "Overline", type: "text" },
-      { key: "heading", label: "Heading", type: "text" },
+      { key: "heading", label: "Heading", type: "textarea" },
       { key: "highlightWord", label: "Highlight Word (optional, colored)", type: "text" },
       { key: "paragraph", label: "Paragraph", type: "textarea" },
     ],
     defaultData: {
       overline: "THE NEW COLLECTION",
-      heading: "Explore the Latest Batik Prints, Dresses & Kurtis",
+      heading: "Explore the Latest Batik Prints,\nDresses & Kurtis",
       highlightWord: "Dresses & Kurtis",
       paragraph: "Discover newly added Batik styles designed around comfort, colour, and individuality.",
     },
@@ -1299,7 +1299,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
     description: "The tan \"why it works\" section (icons stay fixed by position).",
     fields: [
       { key: "tag", label: "Tag", type: "text" },
-      { key: "heading", label: "Heading", type: "text" },
+      { key: "heading", label: "Heading", type: "textarea" },
       { key: "highlightWord", label: "Highlight Word (optional, colored)", type: "text" },
       { key: "subheading", label: "Sub-heading (smaller text under the heading)", type: "textarea" },
       { key: "image", label: "Image", type: "image" },
@@ -1319,7 +1319,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
     ],
     defaultData: {
       tag: "WHY NEW BATIK",
-      heading: "Why Women Choose Our Latest Batik Prints?",
+      heading: "Why Women Choose Our\nLatest Batik Prints?",
       highlightWord: "Latest Batik Prints?",
       subheading: "The newest style is not always the best style. The right new arrival is one you can actually see yourself wearing.",
       image: "/premium-cotton-kurtis-for-women-image.webp",
@@ -1341,7 +1341,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
     description: "The 6-feature section with quote overlay (icons stay fixed by position).",
     fields: [
       { key: "tag", label: "Tag", type: "text" },
-      { key: "heading", label: "Heading", type: "text" },
+      { key: "heading", label: "Heading", type: "textarea" },
       { key: "highlightWord", label: "Highlight Word (optional, colored)", type: "text" },
       { key: "subheading", label: "Sub-heading (smaller text under the heading)", type: "textarea" },
       { key: "image", label: "Image", type: "image" },
@@ -1361,7 +1361,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
     ],
     defaultData: {
       tag: "FROM PRINT TO OUTFIT",
-      heading: "More Ways to Wear the Latest Batik Suits Collection",
+      heading: "More Ways to Wear the\nLatest Batik Suits Collection",
       highlightWord: "Batik Suits Collection",
       subheading: "New Batik prints become more valuable when they work across your wardrobe.",
       image: "/cotton-kurti-for-women-image.webp",
@@ -1896,7 +1896,7 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
       { key: "highlightWord", label: "Highlight Word (optional, colored)", type: "text" },
       { key: "paragraph", label: "Paragraph", type: "textarea" },
       { key: "overline2", label: "Overline 2 (above product grid)", type: "text" },
-      { key: "heading2", label: "Heading 2 (above product grid)", type: "text" },
+      { key: "heading2", label: "Heading 2 (above product grid)", type: "textarea" },
       { key: "highlightWord2", label: "Heading 2 Highlight Word", type: "text" },
       { key: "paragraph2", label: "Paragraph 2 (above product grid)", type: "textarea" },
     ],
@@ -1913,11 +1913,11 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
     ],
     defaultData: {
       overline: "BUILT FOR REAL MARKET USE",
-      heading: "Wholesale Women Dresses for Growing Fashion Businesses",
+      heading: "Wholesale Women Dresses\nfor Growing Fashion Businesses",
       highlightWord: "Fashion Businesses",
       paragraph: "From boutique collections to bulk supply, our wholesale range combines distinctive Batik design, comfortable cotton, and versatile silhouettes made for everyday and occasion wear.",
       overline2: "HIGH-DEMAND DRESS COLLECTION",
-      heading2: "Explore Wholesale Women Dresses Customers Want to Wear",
+      heading2: "Explore Wholesale Women Dresses\nCustomers Want to Wear",
       highlightWord2: "Want to Wear",
       paragraph2: "Discover Batik dresses, cotton dresses for women, casual styles, floral prints, and versatile silhouettes selected for retail appeal.",
       items: [
