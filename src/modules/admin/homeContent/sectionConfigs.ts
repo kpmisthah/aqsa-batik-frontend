@@ -727,6 +727,94 @@ export const HOME_CONTENT_SECTIONS: SectionConfig[] = [
     },
   },
 
+  {
+    key: "about_journey",
+    page: "About Us",
+    label: "About Us — Our Journey",
+    description: "The long-form company history with the accordion timeline. Body/phase text supports paragraphs, \"- \" bullet lists, and **bold** / *bold* emphasis — see the field hints below.",
+    fields: [
+      { key: "tagline", label: "Small Tagline Above Heading", type: "text" },
+      { key: "heading", label: "Heading", type: "text" },
+      { key: "highlightWord", label: "Highlight Word (optional, colored)", type: "text" },
+      { key: "quote", label: "Intro Quote", type: "textarea" },
+      { key: "bodyText", label: "Story Body (before the accordion)", type: "richtext" },
+      { key: "video", label: "Video", type: "video" },
+      { key: "foundationYear", label: "Foundation Year Badge — Year", type: "text" },
+      { key: "foundationLabel", label: "Foundation Year Badge — Label", type: "text" },
+    ],
+    lists: [
+      {
+        key: "phases",
+        label: "Timeline Phases (accordion)",
+        itemFields: [
+          { key: "t", label: "Phase Title", type: "text" },
+          { key: "d", label: "Phase Body", type: "richtext" },
+        ],
+      },
+    ],
+    defaultData: {
+      tagline: "From Handmade Batik To Trusted Women Fashion Supply",
+      heading: "The Journey Behind AQSHA BATIK SUITS",
+      highlightWord: "AQSHA BATIK SUITS",
+      quote: "From 15 handmade suits for women in Bherugarh, Ujjain to supplying wholesalers, boutiques, and resellers across India—this journey was built on consistency, correction, and understanding what women actually want to wear.",
+      video: "/videos/Video-26729.mp4",
+      foundationYear: "2010",
+      foundationLabel: "The Foundation Year",
+      bodyText: "This didn't start as a brand.\nIt started in Bherugarh, Ujjain — where batik is not just textile work. It is craftsmanship passed through generations of hands.\n\nIn 2010, my father started with only 15 suits for women.\nSimple batik designs. Small production. No team. No big setup.\nIt took nearly 20 days to sell those first 15 pieces.\nThere was no roadmap. No certainty. Only effort.\n\nBut he did not stop.\nHe created another batch. Then another.\nSome suits sold. Some did not.\nThere were fabric mistakes. Quality issues. Losses.\nAt times, dresses had to be sold at lower prices just to recover costs and continue production.\nA small ₹10–20 thousand bank loan helped keep the work moving.\n\nBut instead of giving up, he focused on improving the foundation:\n\n- Better fabric quality\n- Better cutting and fitting\n- Better suit design for women\n- Better understanding of what buyers actually wanted\n\n**That mindset changed everything.**",
+      phases: [
+        {
+          t: "From Local Selling To Wholesale Supply",
+          d: "Instead of waiting for customers to come, he went directly to them.\nTravelled to different cities. Met wholesalers personally. Carried samples by hand.\nUnderstood what resellers were searching for in women dresses, suit sets, and designer dress collections.\n\n**That was the real turning point.**\n\nThe business slowly shifted:\nFrom retail struggle → to wholesale women fashion supply.\n\nAs demand grew, our collections expanded into:\n\n- suit set for women\n- frock suit for women\n- cotton fashion collections\n- anarkali suits for women\n- party wear suits for women\n- and breathable everyday women clothing",
+        },
+        {
+          t: "From 15 Pieces To Thousands",
+          d: "Where it once took 20 days to sell 15 pieces…\nBy 2016, AQSHA BATIK SUITS was supplying nearly 1500–2000 women clothing pieces at the same time.\n\n*That growth did not come from luck.*\n\nIt came from:\n\n- improving quality constantly\n- correcting mistakes quickly\n- understanding women dress design trends\n- and building wearable collections women repeatedly purchased\n\nEvery new design dress for women taught us something.\nEvery market visit improved our understanding of:\n\n- dress designs for women\n- fabric demand\n- fitting preferences\n- and changing fashion behavior",
+        },
+        {
+          t: "Taking Batik Fashion Online",
+          d: "In 2017, I brought AQSHA BATIK SUITS online.\n\nThrough:\n\n- WhatsApp\n- social media\n- online marketplaces\n\nour collections started reaching more wholesalers, boutiques, and women fashion buyers across India.\n\n*That digital shift changed our speed completely.*\n\nNow our collections included:\n\n- designer dresses for women\n- trendy suits for women\n- latest dress designs for womens\n- party wear dress collections\n- and breathable cotton fashion styles\n\n**The internet helped our batik craftsmanship reach beyond local markets.**",
+        },
+        {
+          t: "The COVID Phase & Rebuilding Again",
+          d: "Like many fashion businesses, COVID during 2019–2020 created losses and uncertainty.\nDemand slowed. Markets paused. Orders became unstable.\n\n*But we adapted again.*\n\nInstead of stopping, we improved systems, stock planning, and production clarity.\n\nAnd from 2022 onwards, the business returned stronger with:\n\n- better operational systems\n- stronger wholesale demand\n- improved product quality\n- and clearer fashion positioning",
+        },
+        {
+          t: "Where AQSHA BATIK SUITS Stands Today",
+          d: "Today, AQSHA BATIK SUITS supplies wholesalers, boutiques, and resellers across major Indian markets including:\n\n- Delhi\n- Punjab\n- Gujarat\n- and growing fashion markets across India\n\nWe now manufacture collections across multiple women fashion categories including:\n\n- suits for women\n- designer dress for women\n- party wear suits for women\n- frock suit for women\n- anarkali suits for women\n- night suit for women\n- cotton night suit for women\n- and stylish everyday women clothing\n\nBut even after all these years, our focus remains the same:\n\n- Creating wearable Batik Prints Women Clothinging for women that actually sells repeatedly.\n\n**Because fashion changes. Comfort, quality, and trust do not.**",
+        },
+      ],
+    },
+  },
+  {
+    key: "about_faq",
+    page: "About Us",
+    label: "About Us — FAQ",
+    description: "About Us FAQ accordion. Answers support paragraphs, \"- \" bullet lists, and **bold**/*bold* emphasis (same convention as Our Journey).",
+    fields: [],
+    lists: [
+      {
+        key: "items",
+        label: "Questions",
+        itemFields: [
+          { key: "q", label: "Question", type: "text" },
+          { key: "a", label: "Answer", type: "richtext" },
+        ],
+      },
+    ],
+    defaultData: {
+      items: [
+        { q: "Q1. Who is AQSHA BATIK SUITS?", a: "AQSHA BATIK SUITS is a women clothing and Batik Cotton Dress for Women manufacturer based in Ujjain with 15+ years of experience in producing suits for women, batik print dress material, cotton dress collections, and wholesale women fashion products for boutiques, resellers, and wholesalers across India." },
+        { q: "Q2. Where is AQSHA BATIK SUITS manufacturing located?", a: "Our manufacturing is based in Bherugarh, Ujjain (Madhya Pradesh), a region widely known for traditional batik craftsmanship, printed textile artistry, and skilled Batik Cotton Dress for Women manufacturing." },
+        { q: "Q3. What makes AQSHA BATIK SUITS different from other women clothing manufacturers?", a: "We focus on:\n\n- consistent fabric quality\n- clean cutting\n- wearable women dress design\n- and fashion collections that actually perform in real wholesale markets.\n\nOur collections are built around repeat demand for:\n\n- suits for women\n- party wear suits for women\n- cotton dress material\n- and designer dresses for women." },
+        { q: "Q4. Do you supply wholesale women dresses and suits for women?", a: "Yes. AQSHA BATIK SUITS primarily focuses on wholesale women dresses, suit set for women collections, batik cotton fabric, and women fashion supply for wholesalers, boutiques, resellers, and online sellers across India." },
+        { q: "Q5. Which women clothing categories do you manufacture?", a: "We manufacture multiple women fashion categories including:\n\n- suits for women\n- party wear dress for women\n- frock suit for women\n- anarkali suits for women\n- cotton dresses for women\n- night suit for women\n- cotton night suit for women\n- designer dresses for women\n- and trendy women's clothing collections." },
+        { q: "Q6. Which cities and markets do you currently supply to?", a: "We currently supply wholesale women clothing and batik collections across major Indian markets including Delhi, Punjab, Gujarat, and expanding fashion markets across India." },
+        { q: "Q7. Do you offer ready stock for women's dresses and cotton dress material?", a: "Yes. We maintain ready stock for wholesale women dresses, cotton dress material, and batik fashion collections to support faster dispatch and bulk order requirements." },
+        { q: "Q8. Can I contact AQSHA BATIK SUITS directly for wholesale women clothing inquiries?", a: "Yes. You can directly connect with AQSHA BATIK SUITS through WhatsApp or call for:\n\n- wholesale women dresses\n- suits for women business inquiries\n- cotton dress material pricing\n- reseller support\n- and bulk fashion orders." },
+      ],
+    },
+  },
+
   // ── CONTACT US ──
   {
     key: "contact_hero",
