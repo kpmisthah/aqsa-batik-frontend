@@ -14,23 +14,7 @@ import ScrollAnimationInit from "@/modules/user/components/ScrollAnimationInit";
 import ShoppableReelsSection from "@/modules/user/components/ShoppableReelsSection";
 import BuyerTestimonialGallery from "@/modules/user/components/BuyerTestimonialGallery";
 import { renderWithHighlight } from "@/utils/textHighlight";
-
-async function getHomeContent<T>(sectionKey: string, fallback: T): Promise<T> {
-  try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:5000/api";
-    const url = `${apiUrl.replace('localhost', '127.0.0.1')}/home-content/${sectionKey}`;
-    const res = await fetch(url, { next: { revalidate: 60 } });
-    if (!res.ok) return fallback;
-    const section = await res.json();
-    if (section && section.data !== undefined && section.data !== null) {
-      return section.data as T;
-    }
-    return fallback;
-  } catch (error) {
-    console.error(`Failed to fetch home content section "${sectionKey}"`, error);
-    return fallback;
-  }
-}
+import { getPageContent } from "@/utils/getPageContent";
 
 const WA = "https://wa.me/918815373767?text=Hi%2C%20I%20want%20the%20wholesale%20catalogue";
 
@@ -136,14 +120,14 @@ export default async function HomePage() {
     howToOrder,
     ctaBanner,
   ] = await Promise.all([
-    getHomeContent("curated_collection_text", DEFAULT_CURATED_COLLECTION_TEXT),
-    getHomeContent("shop_by_category", DEFAULT_SHOP_BY_CATEGORY),
-    getHomeContent("target_audience", DEFAULT_TARGET_AUDIENCE),
-    getHomeContent("our_story", DEFAULT_OUR_STORY),
-    getHomeContent("buyer_testimonial_gallery", DEFAULT_BUYER_TESTIMONIAL_GALLERY),
-    getHomeContent("buyer_psychology", DEFAULT_BUYER_PSYCHOLOGY),
-    getHomeContent("how_to_order", DEFAULT_HOW_TO_ORDER),
-    getHomeContent("cta_banner_marquee", DEFAULT_CTA_BANNER_MARQUEE),
+    getPageContent("curated_collection_text", DEFAULT_CURATED_COLLECTION_TEXT),
+    getPageContent("shop_by_category", DEFAULT_SHOP_BY_CATEGORY),
+    getPageContent("target_audience", DEFAULT_TARGET_AUDIENCE),
+    getPageContent("our_story", DEFAULT_OUR_STORY),
+    getPageContent("buyer_testimonial_gallery", DEFAULT_BUYER_TESTIMONIAL_GALLERY),
+    getPageContent("buyer_psychology", DEFAULT_BUYER_PSYCHOLOGY),
+    getPageContent("how_to_order", DEFAULT_HOW_TO_ORDER),
+    getPageContent("cta_banner_marquee", DEFAULT_CTA_BANNER_MARQUEE),
   ]);
 
   return (
