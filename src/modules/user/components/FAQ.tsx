@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useHomeContent } from "@/modules/user/hooks/useHomeContent";
 
 const WA = "https://wa.me/918815373767";
 
@@ -37,7 +38,8 @@ export default function FAQ({ items }: FAQProps) {
         }
     ];
 
-    const faqs = items || defaultFaqs;
+    const { items: contentItems } = useHomeContent("faq", { items: items || defaultFaqs });
+    const faqs = items || (contentItems && contentItems.length > 0 ? contentItems : defaultFaqs);
 
     return (
         <section id="faq" className="pt-8 pb-10 md:pt-10 md:pb-12 px-6 bg-cream border-t border-primary/5">
