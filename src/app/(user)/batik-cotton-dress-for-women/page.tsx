@@ -23,7 +23,7 @@ async function getProducts({ page = "1", search = "", sort = "", minPrice = "", 
         const queryParams = new URLSearchParams({
             limit: "12",
             page: page,
-            category: "Batik Cotton Dress for Women,Batik Prints Women Clothing,Batik Cotton",
+            category: "Batik Cotton Dress for Women",
             ...(search && { search }),
             ...(sort && { sort }),
             ...(minPrice && { minPrice }),
