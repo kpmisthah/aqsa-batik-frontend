@@ -80,12 +80,10 @@ export default function ProductCard({ product, isWholesalePage = false }: Produc
                     <Image
                         src={imageSrc}
                         alt={product.name}
-                        layout="fill"
-                        objectFit="cover"
-                        objectPosition="top"
-                        unoptimized={true}
+                        fill
+                        sizes="(max-width: 768px) 50vw, 25vw"
                         onLoadingComplete={() => setImageLoaded(true)}
-                        className={`transition-transform duration-[1200ms] ${imageLoaded ? 'opacity-100 group-hover/link:scale-105' : 'opacity-0'}`}
+                        className={`object-cover object-top transition-transform duration-[1200ms] ${imageLoaded ? 'opacity-100 group-hover/link:scale-105' : 'opacity-0'}`}
                     />
                     
                     {/* Bestseller Badge (If applicable, adapted to new style) */}
