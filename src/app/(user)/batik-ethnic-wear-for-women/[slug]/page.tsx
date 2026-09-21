@@ -7,7 +7,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import { Suspense } from "react";
 import { getCategoryPrefix } from "@/utils/productUrl";
 
-const CATEGORY_PREFIX = "/batik-prints-womens-clothing";
+const CATEGORY_PREFIX = "/batik-ethnic-wear-for-women";
 
 async function getProductBySlug(slug: string) {
     try {
@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     };
 }
 
-export default async function CottonClothSlugPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function EthnicWearSlugPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const product = await getProductBySlug(slug);
 
