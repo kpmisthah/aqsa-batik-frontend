@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { getProductPathByName } from "@/utils/slugMapper";
+import { getProductHref } from "@/utils/productUrl";
 import { UserProduct } from "./ProductCard";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
@@ -84,7 +84,7 @@ export default function NewArrivalsSection() {
 
                     {/* Left: Huge Hero Block */}
                     <Link
-                        href={getProductPathByName(heroProduct.name, heroProduct.category) || `/products/${heroProduct._id || heroProduct.id}`}
+                        href={getProductHref(heroProduct)}
                         className="group relative w-full lg:w-[60%] h-[50%] lg:h-full rounded-2xl overflow-hidden bg-white flex flex-col justify-end shadow-md border border-border/40 transition-transform duration-500 hover:-translate-y-1"
                     >
                         {renderBentoCard(heroProduct, true)}
@@ -95,7 +95,7 @@ export default function NewArrivalsSection() {
 
                         {/* Top Right */}
                         <Link
-                            href={getProductPathByName(product2.name, product2.category) || `/products/${product2._id || product2.id}`}
+                            href={getProductHref(product2)}
                             className="group relative w-full h-[50%] rounded-2xl overflow-hidden bg-white flex flex-col justify-end shadow-md border border-border/40 transition-transform duration-500 hover:-translate-y-1"
                         >
                             {renderBentoCard(product2, false)}
@@ -103,7 +103,7 @@ export default function NewArrivalsSection() {
 
                         {/* Bottom Right */}
                         <Link
-                            href={getProductPathByName(product3.name, product3.category) || `/products/${product3._id || product3.id}`}
+                            href={getProductHref(product3)}
                             className="group relative w-full h-[50%] rounded-2xl overflow-hidden bg-white flex flex-col justify-end shadow-md border border-border/40 transition-transform duration-500 hover:-translate-y-1"
                         >
                             {renderBentoCard(product3, false)}

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { getProductPathByName } from "@/utils/slugMapper";
+import { getProductHref } from "@/utils/productUrl";
 import { useCartStore } from "@/hooks/useCartStore";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -12,6 +12,7 @@ export interface UserProduct {
     name: string;
     category: string;
     subCategory?: string;
+    slug?: string;
     images?: string[];
     image?: string;
     isBestSeller?: boolean;
@@ -34,11 +35,7 @@ export default function ProductCard({ product, isWholesalePage = false }: Produc
     const waMessage = `Hi, I'm interested in the ${product.name} (${product.subCategory || product.category}). Could you provide more details and wholesale pricing?`;
     const waLink = `https://wa.me/918815373767?text=${encodeURIComponent(waMessage)}`;
     const imageSrc = product.images?.[0] || product.image || "/placeholder.png";
-    const overridePrefix = isWholesalePage ? "/wholesale-women-dresses" : undefined;
-    const customPath = getProductPathByName(product.name, product.category, overridePrefix);
-    const productHref = customPath
-        ? `${customPath}${isWholesalePage ? '?wholesale=true' : ''}`
-        : `/products/${product._id || product.id}${isWholesalePage ? '?wholesale=true' : ''}`;
+    const productHref = `${getProductHref(product)}${isWholesalePage ? '?wholesale=true' : ''}`;
 
     const getCartPayload = () => ({
         productId: (product._id || product.id || "").toString(),

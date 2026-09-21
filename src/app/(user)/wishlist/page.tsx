@@ -7,6 +7,7 @@ import { useWishlistStore } from "@/hooks/useWishlistStore";
 import { useAuthSync } from "@/modules/user/hooks/useAuthSync";
 import { useCartStore } from "@/hooks/useCartStore";
 import { Trash2, Heart, ShoppingBag } from "lucide-react";
+import { getProductHref } from "@/utils/productUrl";
 
 export default function WishlistPage() {
     const { addItem: addCartItem } = useCartStore();
@@ -147,13 +148,13 @@ export default function WishlistPage() {
                                         >
                                             <Trash2 size={18} />
                                         </button>
-                                        <Link href={`/products/${prod._id || prod.id}`}>
+                                        <Link href={getProductHref(prod)}>
                                             <div className="relative w-full aspect-square rounded-2xl overflow-hidden bg-surface border border-primary/5">
                                                 <Image src={prod.images?.[0] || prod.image || "/product_white_mustard.png"} alt={prod.name} fill unoptimized className="object-cover object-top group-hover:scale-110 transition-transform duration-700" />
                                             </div>
                                         </Link>
                                         <div className="flex flex-col gap-2">
-                                            <Link href={`/products/${prod._id || prod.id}`}>
+                                            <Link href={getProductHref(prod)}>
                                                 <h3 className="font-heading font-normal text-lg leading-tight hover:text-accent transition-colors">{prod.name}</h3>
                                             </Link>
                                             <div className="flex items-center gap-2">

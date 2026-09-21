@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { getProductPathByName } from "@/utils/slugMapper";
+import { getProductHref } from "@/utils/productUrl";
 import { useHomeContent } from "@/modules/user/hooks/useHomeContent";
 import { renderWithHighlight } from "@/utils/textHighlight";
 
@@ -97,10 +97,7 @@ export function FeaturedGridSection() {
 
     if (newArrivals.length === 0) return null;
 
-    const getProductLink = (product: any) => {
-        const customPath = getProductPathByName(product.name, product.category);
-        return customPath ? customPath : `/products/${product._id || product.id}`;
-    };
+    const getProductLink = (product: any) => getProductHref(product);
 
     const getImageSrc = (item: any) => item?.images?.[0] || item?.image || "/placeholder.png";
 

@@ -2,7 +2,7 @@
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { getProductPathByName } from "@/utils/slugMapper";
+import { getProductHref } from "@/utils/productUrl";
 import { UserProduct } from "./ProductCard";
 import { useHomeContent } from "@/modules/user/hooks/useHomeContent";
 import { renderWithHighlight } from "@/utils/textHighlight";
@@ -107,8 +107,7 @@ export default function TrendingProductsSection() {
                     <div ref={scrollRef} className="flex overflow-x-auto gap-6 md:gap-8 lg:gap-10 pb-8 px-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                         {products.map((product) => {
                             const imageSrc = product.images?.[0] || product.image || "/placeholder.png";
-                            const customPath = getProductPathByName(product.name, product.category);
-                            const productHref = customPath ? customPath : `/products/${product._id || product.id}`;
+                            const productHref = getProductHref(product);
 
                             return (
                                 <Link
