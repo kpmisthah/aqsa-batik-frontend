@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Sora, Manrope } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { SITE_URL } from "@/utils/siteConfig";
 
 const sora = Sora({
   variable: "--font-heading",
@@ -14,6 +15,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Batik Prints Suits for Women | Ujjain Batik Manufacturer | AQSHA",
   description: "Shop batik suits for women, batik print fabric for batik print suit & kurti, women dress material and wholesale women’s clothing from AQSHA Batik Suits, a No.1 Ujjain batik manufacturer.",
   keywords: "batik suits for women",
