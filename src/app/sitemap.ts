@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/utils/siteConfig";
+import { getCategoryPrefix, getProductHref, HrefableProduct } from "@/utils/productUrl";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
@@ -12,6 +13,22 @@ interface BlogSummary {
 async function getPublishedBlogs(): Promise<BlogSummary[]> {
   try {
     const res = await fetch(`${API_BASE}/blogs`, { next: { revalidate: 3600 } });
+    if (!res.ok) return [];
+    const json = await res.json();
+    return Array.isArray(json?.data) ? json.data : [];
+  } catch {
+    return [];
+  }
+}
+
+interface ProductSummary extends HrefableProduct {
+  updatedAt?: string;
+  createdAt?: string;
+}
+
+async function getLiveProducts(): Promise<ProductSummary[]> {
+  try {
+    const res = await fetch(`${API_BASE}/products?limit=1000`, { next: { revalidate: 3600 } });
     if (!res.ok) return [];
     const json = await res.json();
     return Array.isArray(json?.data) ? json.data : [];
@@ -52,5 +69,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.6,
     }));
 
-  return [...staticPages, ...blogPages];
+  const products = await getLiveProducts();
+  const productPages: MetadataRoute.Sitemap = products
+    .filter((p) => !!getCategoryPrefix(p.category))
+    .map((p) => ({
+      url: `${SITE_URL}${getProductHref(p)}`,
+      lastModified: p.updatedAt || p.createdAt ? new Date(p.updatedAt || p.createdAt!) : now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    }));
+
+  return [...staticPages, ...productPages, ...blogPages];
 }
